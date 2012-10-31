@@ -1,0 +1,271 @@
+================================================================
+Prérequis
+================================================================
+
+Les éléments suivants doivent être présents :
+
+- Apache 2 + SSL
+- PostgreSQL 8.x + SSL
+- PHP 5 avec le support des fonctionnalités suivantes : 
+	- apache2 et cli (php en ligne de commande)
+	- mcrypt : http://fr.php.net/manual/fr/intro.mcrypt.php
+	- ctype (fonctions installées par défaut) : http://fr.php.net/manual/fr/intro.ctype.php
+	- gd : http://fr.php.net/manual/fr/intro.image.php
+	- PostgreSQL : http://fr.php.net/manual/fr/intro.pgsql.php
+	- Sessions : http://fr.php.net/manual/fr/intro.session.php
+   - gmp (GNU Multiple Precision) : http://fr.php.net/manual/fr/intro.gmp.php
+	- mbstring (multibyte strings) : http://fr.php.net/manual/fr/intro.mbstring.php
+
+Note : cette liste est issue des "USE Flags" à activer lors de la compilation de PHP sous Linux-Gentoo, certains éléments 
+sont inclus par défaut sur d'autres distributions et/ou installables via des paquetages.
+
+- classes PEAR:Mail et PEAR:Mail_Mime pour PHP
+- classe fpdf pour PHP : http://fpdf.org/ (une version est incluse dans le répertoire include/fpdf/
+- un utilisateur autorisé 
+	- à exécuter des scripts PHP en ligne de commande
+	- à envoyer un grand nombre de courriels (souvent en rafales)
+
+================================================================
+ Installation
+================================================================
+
+*****************************************************************************
+*** Emplacement des sources et droits d'accès aux fichiers et répertoires ***
+*****************************************************************************
+
+Les fichiers récupérés via SVN sont à placer soit dans le répertoire racine de votre serveur HTTP, soit dans 
+un sous-répertoire de cette racine (l'emplacement sera à indiquer dans le fichier de configuration de 
+l'application).
+
+Les fichiers et répertoire de l'arborescence doivent appartenir à l'utilisateur propriétaire du processus Apache 
+(ou du serveur HTTP que vous utilisez). En effet, des fichiers et répertoires sont créés tout au long de l'utilisation 
+de l'application, des droits insuffisants peuvent donc la bloquer.
+
+Sous Linux/Unix/*BSD, la commande pour modifier ces droits est la suivante : 
+
+# chown -R nouvel_utilisateur:nouveau_groupe repertoire_application
+
+Où :
+- "-R" indique que le changement de propriétaire doit être récursif (tous les fichiers et tous les sous-répertoires),
+
+- "nouvel_utilisateur:nouveau_groupe" désigne l'utilisateur et le groupe auxquels appartiendront les fichiers 
+(www-data, apache, ... : en fonction de votre système d'exploitation et de la configuration de votre serveur HTTP),
+
+- "répertoire_application" désigne le chemin complet du répertoire contenant les fichiers de l'application ARIA.
+
+Attention : après quelques mois d'utilisation et en fonction du nombre de candidats dans la base de données, 
+le nombre de fichiers et le volume sur le disque peuvent devenir importants (compter environ 1Go par an, pour 
+20 000 candidats enregistrés dans la base de données).
+
+Certains répertoires doivent également avoir le droit d'écriture activé pour le propriétaire :
+- <racine>/fichiers/composantes/
+- <racine>/interface/fichiers/messagerie/
+- <racine>/interface/fichiers/composantes/
+- <racine>/gestion/fichiers/messagerie/
+- <racine>/gestion/fichiers/composantes/
+- <racine>/configuration
+
+Où "<racine>" désigne le répertoire contenant les fichiers de l'application ARIA.
+
+Le droit d'écriture peut être activé soit via une interface graphique, soit via la commande suivante :
+# chmod u+w <repertoire_1> <repertoire_2> ...
+
+Commande complète (à partir du répertoire de l'application) :
+chmod -R u+w fichiers/composantes/ interface/fichiers/messagerie/ interface/fichiers/composantes/ gestion/fichiers/messagerie/ gestion/fichiers/composantes/ configuration/
+
+Pour modifier les droits du groupe : 
+# chmod g+w <repertoire_1> <repertoire_2> ...
+
+Commande complète (à partir du répertoire de l'application) :
+chmod -R g+w fichiers/composantes/ interface/fichiers/messagerie/ interface/fichiers/composantes/ gestion/fichiers/messagerie/ gestion/fichiers/composantes/ configuration/
+
+
+Vous devez bien entendu avoir des privilèges suffisants pour modifier ces droits.
+
+
+**********************************
+*** Base de données PostgreSQL ***
+**********************************
+
+- Créez l'utilisateur qui sera propriétaire de la base de données (vous devez soit être administrateur 
+du serveur, soit posséder un compte PostgreSQL vous autorisant à créer un nouvel utilisateur) :
+
+	# createuser -A -d -E -P -U <utilisateur_admin> <nouvel_utilisateur>
+
+	Options utilisées (source : aide de createuser) :
+	-A : l'utilisateur ne peut pas ajouter de nouveaux utilisateurs
+	-d : l'utilisateur peut créer des bases de données
+	-E : chiffre le mot de passe stocké
+	-P : demande le mot de passeà attribuer au nouvel utilisateur
+	-U <utilisateur_admin> : nom de l'utilisateur autorisé à créer le nouveau (et non pas celui à créer)
+		Exemple : -U postgres
+	nouvel_utilisateur : nom du nouvel utilisateur à créer
+
+	Note : il vous sera demandé le mot de passe du nouvel utilisateur (deux fois), puis, éventuellement, celui 
+	de l'utilisateur "postgres" si ce dernier est utilisé (si vous utilisez l'authentification par mot de passe 
+	pour l'administration).
+
+- Connectez vous avec le nouvel utilisateur (à la base template1, par exemple), puis créez une base de données avec le nom désiré : 
+
+	template1=> create database <votre_base> with encoding='LATIN1';
+
+- Connectez vous à votre nouvelle base :
+	
+	template1=> \c <votre_base>;
+
+- Enfin, exécutez les scripts "aria_schema.sql" et "aria_data.sql" se trouvant dans le répertoire ./aria_doc/ (vous pouvez utiliser 
+un chemin relatif ou absolu comme le montrent les deux lignes suivantes) :
+
+	<votre_base>=> \i aria_schema.sql
+	<votre_base>=> \i /www-root/<votre_repertoire_aria>/aria_doc/aria_data.sql
+	
+- Si vous activez les connexions chiffrées via SSL entre la base de données et le serveur hébergeant l'application, vous devrez 
+modifier les droits d'accès (fichier pg_hba.conf pour PostgreSQL) et créer les certificats SSL nécessaires.
+
+Format des lignes à ajouter dans ce fichier pour autoriser (ou forcer) les connexions SSL ("hostssl" et "password" sont des mots clés) :
+hostssl  <nom_base>  <nom_utilisateur>  <ip_serveur_HTTP>  <masque_serveur_HTTP>  password
+
+
+
+****************
+*** Apache 2 ***
+****************
+
+Le serveur Apache doit être configuré pour accepter les connexions chiffrées SSL. Veuillez vous référer à la documentation du 
+serveur Apache 2 (http://httpd.apache.org/) pour la mise en place des certificats SSL nécessaires.
+
+Attention aux certificats SSL auto-signés : certains navigateurs (Internet Explorer 7 par exemple) signalent parfois des erreurs 
+de sécurité avec ces derniers, ce qui peut gêner les utilisateurs. Il est donc conseillé de passer par une autorité de certification 
+(en fonction de la politique de sécurité de votre établissement) pour obtenir un certificat "normal".
+
+L'application utilise également un fichier .htaccess (placé dans le répertoire racine de l'application) pour protéger certains 
+répertoires (utilisation de la directive « Options -Indexes » pour empêcher des utilisateurs de parcourir le contenu d'un répertoire, 
+par exemple). En fonction de votre serveur HTTP et de sa configuration, vous serez peut être amené à adapter ce fichier et les directives 
+utilisées.
+
+Afin d'imposer l'utilisation du protocole SSL, vous pouvez également placer deux autres fichiers .htaccess dans les répertoires gestion/ 
+et interface/ :
+
+----- interface/.htaccess -----
+Options -Indexes
+ErrorDocument 403 http://<adresse_de_l'application>/index.php
+SSLRequireSSL
+
+----- gestion/.htaccess -----
+Options -Indexes
+ErrorDocument 403 https://<adresse_de_l'application>/gestion/index.php
+SSLRequireSSL
+
+La directive "SSLRequireSSL" produit une erreur si l'utilisateur n'accède pas aux fichiers via SSL (https), la directive "ErrorDocument 403" 
+se charge alors de rediriger le navigateur vers l'adresse configurée.
+
+Attention : ces deux fichiers doivent être lisibles par le propriétaire du processus du serveur HTTP.
+
+**********************************
+*** PHP/FPDF (http://fpdf.org) ***
+**********************************
+
+La classe fpdf.php v1.6 est fournie avec l'application ARIA (répertoire include/fpdf/). Elle peut éventuellement 
+être installée dans un autre répertoire, la variable $__FPDF_FILES_DIR doit alors être modifiée dans le fichier include/vars.php.
+
+
+*************
+*** PHP 5 ***
+*************
+
+Les scripts PHP peuvent être amenés à manipuler de grandes quantités de données, les paramètres suivants sont conseillés 
+dans les différents fichiers php.ini (php5/apache ET php5/cli) :
+
+-------
+max_execution_time = 3600  // temps en secondes, normalement largement suffisant pour les tâches les plus longues
+max_input_time = 600
+memory_limit = 512M
+post_max_size = 16M
+-------
+
+Les paramètres suivants doivent également être modifiés : 
+
+-------
+magic_quotes_gpc = On 	// Protection des apostrophes dans les données validées par les formulaires
+
+file_uploads = On
+upload_max_filesize = 16M
+
+[browscap]
+browscap = /etc/php/php_browscap.ini (une copie du fichier php_browscap.ini se trouve dans le répertoire aria_doc/)
+-------
+
+Le paramètre "sendmail_path" devra éventuellement être modifié, en fonction de la configuration de votre système de messagerie.
+
+
+*********************************************
+*** Scripts PHP à ajouter dans le crontab ***
+*********************************************
+
+Deux scripts doivent impérativement être exécutés quotidiennement : 
+
+- scripts/verrouillage_fiches.php : consulte la base et verrouille les candidatures pour lesquelles le délai imparti (pour modification) 
+est écoulé. Lors du verrouillage d'une candidature, un message (interne à l'application) est envoyé au candidat, lui demandant 
+d'envoyer les justificatifs et autres pièces du dossier à la scolarité. Un courriel de notification de réception est également envoyé 
+sur l'adresse électronique du candidat.
+
+- scripts/check_gestion_messages.php : vérifie les dossiers de réception des gestionnaires (i.e toute personne ayant accès à la partie gestion), 
+et envoie un courriel lorsque des messages sont en attente. Ainsi, aucune demande de candidat ne reste trop longtemps sans réponse (en théorie).
+
+Exemple de lignes à placer dans le "crontab" (complétez simplement les (...) et l'utilisateur Apache) :
+00 4 * * *      apache cd /www-root/(...)/scripts && php check_gestion_messages.php
+00 5 * * *      apache cd /www-root/(...)/scripts && php verrouillage_fiches.php
+
+
+Module Apogée :
+
+Si vous souhaitez extraire les candidats admis pour les insérer dans Apogée afin de permettre les (ré)inscriptions en ligne, deux scripts 
+supplémentaires peuvent être exécutés périodiquement :
+- Primo-Entrants : gestion/admin/module/apogee/scripts/extractions_PE.php (argument "-t" pour tester sans envoyer de messages aux candidats)
+- Laisser-Passer (réinscriptions) : gestion/admin/module/apogee/scripts/extractions_LP.php
+
+Les fichiers sont créés dans le répertoire "gestion/admin/module/apogee/scripts/extractions/"
+
+Là encore, l'exécution peut passer par le "crontab" (un autre script pourra s'occuper du transferts des fichiers vers votre serveur Apogée).
+
+
+************************************
+*** Configuration de l'interface ***
+************************************
+
+Dans votre navigateur, entrez directement l'adresse suivante :
+
+http://votre_serveur/chemin_vers_l'application/gestion/admin/config.php
+
+Ce script non protégé vous permettra d'entrer les paramètres de connexion à la base de données ainsi que les répertoires de base de l'application 
+(ces derniers sont normalement autodétectés).
+
+Après validation du formulaire et en cas de succès, supprimez le fichier gestion/admin/config.php (sa présence bloque l'interface car il n'est pas protégé), 
+puis entrez l'adresse normale pour vous connecter en tant qu'administrateur : http://votre_serveur/chemin_vers_l'application/gestion/
+
+
+****************************************************
+*** Première connexion en tant qu'administrateur ***
+****************************************************
+
+Par défaut, le compte administrateur suivant est créé lorsque vous insérez les données dans la base :
+
+Identifiant : administrateur 
+Mot de passe : install
+
+
+La première étape consiste à vous rendre dans la partie Administration de l'interface (icone en forme d'outils), puis dans la section "Paramétrage Système". 
+Pour chaque menu (Paramètres HTTP, Administration, Paramètres interface et Debug), modifiez les paramètres en fonction de votre établissement, sans oublier 
+de valider chaque formulaire.
+
+Une fois ces menus complétés, déconnectez puis reconnectez vous afin de vérifier que tous les éléments sont bien en place.
+
+
+************************
+*** RAPPEL IMPORTANT ***
+************************
+
+L'APPLICATION ARIA EFFECTUE DES TRAITEMENTS AUTOMATISES DE DONNEES STRICTEMENT PERSONNELLES. A CE TITRE, TOUTE UTILISATION NECESSITE UNE 
+DECLARATION PREALABLE A LA CNIL (http://www.cnil.fr/). LA RESPONSABILITE DE L'UNIVERSITE DE STRASBOURG ET CELLE DE L'AUTEUR DE L'APPLICATION 
+NE PEUVENT EN AUCUN CAS ETRE ENGAGEES EN CAS D'UTILISATION FRAUDULEUSE DES DONNEES LIEES A L'APPLICATION.
+

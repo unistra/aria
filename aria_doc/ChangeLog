@@ -1,0 +1,453 @@
+# ChangeLog Application ARIA - Gestion de Candidatures
+# LICENCE : CECILL-B - Copyright Université de Strasbourg
+
+* 02/08/2010
+- Module Apogee :
+  - La configuration des codes et des messages est maintenant propre à chaque composante. Le script de mise à jour automatique 
+    duplique la configuration actuelle pour chaque composante, vous pouvez ensuite modifier la configuration individuellement. 
+    Il est également possible d'appliquer une configuration à toutes les composantes d'une université d'un coup.
+
+  - Pour les "Admis Sous Réserve", un message distinct peut être envoyé pour leur permettre une préinscription avec prise de 
+    rendez-vous (avec le numéro d'autorisation %CODE%). Un admis sous réserve n'est pas définitivement admis, il ne doit donc pas 
+    pouvoir s'inscrire intégralement en ligne).    
+
+  Les messages envoyés étant relativement sensibles, des tests de migration et des simulations d'extractions sur une base contenant 
+  des candidat fictifs sont vivement recommandés.
+
+
+* 01/07/2010
+- Module Apogee : Ajout de l'envoi automatique de messages lors des extractions des Laisser-Passer. Le message par defaut contient le 
+  code d'autorisation.
+
+* 30/06/2010
+- Ajout de la décision "Admission avant confirmation" (non finale)
+- Format des dates dans les lettres : ajout d'un argument à la fonction "date_lang" permettant d'afficher ou non le nom du jour
+- Options supplémentaires pour la diffusion des décision (ajout d'une colonne dans la table candidature et une dans la table composantes):
+  - déclenchement automatique (ou non) de l'envoi d'un accusé au candidat lorsqu'une décision est prise (sous certaines conditions : première 
+    décision ou passage d'une décision non définitive à une décision définitive)
+  - mise à disposition (ou non) de la lettre (non signée donc non officielle) aux candidats (attention aux recommandation de la cellule 
+    juridique)
+  => Ces options sont à regler dans le menu Administration -> Gestion des composantes
+  => En cas de publication différée des décisions, l'envoi en masse des notifications peut être déclenché dès la publication ou plus tard.
+
+- cursus du candidat : légère modification de la consigne pour les étudiants n'ayant pas le baccalauréat (utile pour les Capacités)
+- extractions CSV : options supplémentaires pour l'affichage du nom des formations et du cursus
+- gestion / menu identité : l'administrateur peut voir l'identifiant (ID de la base de données) du candidat
+
+* 21/06/2010
+- Ajout de la décision "Admission Confirmée"
+
+* 15/06/2010
+- Ajout de la décision "Convocable à un entretien téléphonique"
+
+* 07/06/2010
+- Editeur de lettre : résoluton d'un problème de requête lors de la copie d'un modèle.
+
+* 15/04/2010
+- Mise à jour des fichiers aria_schema.sql, aria_data.sql et des documentations "technique" et "utilisateur".
+
+* 07/04/2010
+- Constructeur de dossiers : ajout d'une option permettant d'inclure ou non les réponses des candidats dans les extractions au format 
+  CSV.
+
+- Dans le menu "Courriels de scolarité", ajout de la possibilité de rattacher un ou plusieurs utilisateurs aux messages génériques 
+  (lorsqu'aucune formation n'est sélectionnée par un candidat envoyant un message via la messagerie interne). Ceci évite que tous 
+  les utilisateurs de la composante ne reçoivent le message (ce comportement reste celui par défaut si aucun utilisateur n'est rattaché 
+  à ces messages génériques)
+
+* 02/04/2010
+- Correction d'un bug au niveau de la protection d'une formation par mot de passe (le changement du mot de passe n'etait pas pris en 
+  compte).
+
+* 25/03/2010
+- Nouveau niveau d'acces : "Saisie Uniquement" : seul le traitement du dossier est possible (pas de creation ni de modification d'une 
+  fiche et aucune configuration possible). Attention : les valeurs des droits actuels ont ete modifiees pour pouvoir ajouter ce niveau 
+  dans l'ordre correct.
+
+- Ajout de la possibilite de limiter les droits d'acces à une ou plusieurs formations (limite valable uniquement pour les niveaux 
+  inferieurs a "Scolarite avec droits supplémentaires")
+
+* 02/03/2010
+- Correction de deux bugs :
+  - gestion des utilisateurs : une erreur était affichée lors du renvoi du mot de passe
+  - génération des justificatifs : pour les candidats, il n'était plus possible de générer la liste des justificatifs pour une 
+    candidature d'une année précédente (pose problème lorsque deux années universitaires se chevauchent, par exemple si des 
+    candidatures au titre de l'année 2009-2010 sont encore ouvertes en mars 2010).
+
+* 25/02/2010
+- Affichage de l'offre de formation : les "infos formations" sont affichées directement dans le tableau. Un lien direct permet 
+  d'accéder à la page de modification cette information.
+
+* 24/02/2010
+- Cursus : le test sur la sélection du pays a été corrigé (on pouvait laisser le champ vide).
+
+* 23/02/2010
+- Messagerie gestion : un aperçu de chaque message peut être visualisé directement sur la liste des messages d'un dossier
+- Correction d'un bug dans l'éditeur de lettre : sur la page "Décisions / Formations", la validation d'un formulaire vide provoquait 
+  une erreur.
+
+* 28/01/2010
+
+- Mise à jour des documentations Utilisateur et Administrateur. La description complète de la base de données et les détails du module 
+  Apogée sont maintenant inclus dans ces documents.
+
+- Correction de l'echappement (') de certains champs dans la création d'une fiche manuelle (provoquait des erreurs lors de l'ajout 
+  d'une ligne dans l'historique)
+
+- Nettoyage du schéma de la base de données : suppression des tables/colonnes obsolètes et renommage de certaines colonnes pour améliorer 
+  la cohérence de l'ensemble (attention : certaines variables "$_DB*" ont également changé de nom) :
+
+  - Table "candidat" :
+    numero_ulp : suppr.
+    numero_umb : suppr.
+    numero_urs : suppr.
+    mode : : suppr.
+
+  - Table "candidature" :
+    accepte_transmission : suppr.
+    m2cci : suppr.
+    avis : suppr.
+    imprime : suppr.
+    envoi_mail : suppr.
+
+  - Table "candidatures_exterieures" suppr.
+  - Table "configuration" suppr.
+  - Table "concours" suppr.
+  - Table "cursus" :
+    justifie : suppr.
+    precision : suppr.
+
+  - Table "cursus_concours" suppr
+  - Table "cursus_ecoles" suppr.
+  - Table "cursus_filieres" suppr.
+  - Table "cursus_resultats_concours" suppr.
+  - Table "dates" suppr.
+  - Table "inscriptions_avis" : suppr.
+
+  - Table "lettres_filieres" renommée en "lettres_propspec" :
+    colonne "filiere_id" renommée "propspec_id"
+
+  - Table "pays_nationalite" suppr.
+
+  - Table "propspec" : 
+    code : suppr.
+    modalites_inscriptions : suppr.
+    lettre_information : suppr.
+    colonne "annee" renommée "annee_id"
+    colonne "id_spec" renommée "spec_id"
+    date_ouverture : suppr.
+    date_fermeture : suppr.
+    date_commission : suppr.
+
+  - Table "specialites" :
+    colonne "type" renommée "mention_id"
+
+  - Table "types_specialites" renommée "mentions"
+    colonne "type" renommée "id"
+    colonne "type_court" renommée "nom_court"
+
+  - Table "universites" :
+    code_apogee : suppr.
+    couleur_menu : suppr.
+    couleur_menu2 : suppr.
+    couleur_fond : suppr.
+    fond_page : suppr.
+
+* 07/01/2010
+   - Correction d'un bug lié au chargement de la configuration : l'année universitaire était mal prise en compte (par rapport au mois séparant 
+     deux périodes de candidatures)
+
+* 05/01/2010
+   - Correction d'un bug lors de la suppression d'un gestionnaire
+   - Correction d'un bug dans la configuration des filtres inter-formations (les anciennes valeurs n'étaient pas conservées lors d'un 
+     retour en arrière dans la procédure de création)
+   - Suppression de la configuration des "Avis de poursuite d'études" sur la page d'administration (Obsolète)
+
+* 16/12/2009
+   - Correction d'erreurs dans la gestion du nom des universités dans plusieurs pages de l'interface
+   - Gestion des spécialités et formations : blocage (avec messages) de la création lorsque les éléments indispensables sont manquants
+
+* 15/12/2009
+   - données par défaut de la configuration (pour une nouvelle installation) corrigées
+   - procédure d'installation complétée (droits des fichiers et répertoires)
+
+* 14/12/2009
+   - les éléments de la page "Informations Composante" et les messages bénéficient maintenant des macros introduites dans la version précédente
+   - résolution de quelques bugs liés à ces macros
+
+* 11/12/2009
+   - Administration : 
+     - ajout des menus de configuration de l'interface (remplace le fichier configuration/config.php)
+     - lors d'une première installation, le script gestion/admin/config.php permet de configurer l'accès à la base de données
+       => CE FICHIER DOIT ENSUITE ETRE SUPPRIME, L'APPLICATION RESTE BLOQUEE DANS LE CAS CONTRAIRE
+     - pour une mise à jour, l'accès à ce fichier est recommandé (puis sa suppression), ainsi que la vérification de la configuration 
+       de l'interface dans le menu "Administration/Paramêtrage Système". L'ancienne configuration est normalement convertie au nouveau 
+       format (fichier configuration/aria_admin.php + table "systeme" dans la base de données)
+
+   - Module Apogée : 
+     - ajout des scripts d'extraction des Primo-Entrants et des Laisser-Passer. Ces scripts sont à lancer en ligne de commande (crontab).
+       Les scripts se trouvent dans le répertoire "gestion/admin/modules/apogee/scripts/"
+     - possibilité d'activer les extractions par composante
+     - nouveau paramêtre de configuration : texte du message envoyé à chaque Primo-Entrant lors de l'exécution de "extractions_PE.php"
+
+   - Modifications du schéma
+     - ajout de la table "systeme" contenant la configuration de l'interface
+     - module apogée : ajout de la table "moduleapogee_activation" contenant les paramêtres d'activation des extractions par composante
+     - module apogée : table "moduleapogee_code_universite" renommée en "moduleapogee_config", destinée à accueillir d'autres paramêtres
+
+   - Les fichiers aria_schema.sql et aria_data.sql contiennent normalement les dernières mises à jour du schéma de la base
+
+* 25/09/2009
+   - Correction d'une erreur dans le script "interface/edit_candidat.php" (mauvais enregistrement du nom du département)
+   - Suppression du menu "A compléter" (ajouté temporairement en juin pour que les candidats existants entrent les informations nécessaires à Apogée)
+   - Correction de quelques messages d'information
+   - Légère mise à jour de la procédure d'installation (fichier aria_doc/INSTALL)
+   - Ajout du fichier aria_doc/php_browscap.ini (directive à ajouter dans le fichier php.ini, cf. fichier INSTALL)
+
+* 23/09/2009
+   - Ajout du script gestion/admin/install.php permettant de vérifier l'installation de l'application (accessible sans authentification)
+   - Correction d'une erreur dans le script "gestion/admin/editeur/suppr_lettre.php"
+
+* 18/09/2009
+   - Module Apogée : ajout de la configuration du préfixe pour la génération des numéros destinés à IAprimo. Les scripts d'extractions 
+     seront disponibles dans une version ultérieure.
+   - Ajout d'un "niveau" pour les utilisateurs : "Compte désactivé"
+   - Page d'information des composantes : possibilité d'inclure des adresses html de la forme [lien=http://...]description[/lien]
+   - Optimisation de plusieurs requêtes SQL
+   - Menu Identité (candidats et gestion) : ajout d'informations relatives au candidat
+   - Correction de divers bugs mineurs
+
+* 15/07/2009
+   - Ajout d'une macro "%civ%" dans les modèles de lettres, permettant d'afficher la civilité de manière abbrégée (M. pour Monsieur, etc).
+   - Résolution de quelques bugs mineurs
+
+* 09/07/2009
+   - Modification du schéma de la base de données : ajout d'un champ "langue" dans la table "lettres". Ce champ permet de sélectionner la 
+     langue pour certains champs fixes d'une lettre (civilité d'un candidat et dates). Actuellement, seuls le français et l'anglais sont 
+     supportés en attendant une éventuelle traduction globale de l'application.
+   - Ajout d'une contrainte pour l'application : le support de la librairie GMP (GNU Multiple Precision) est maintenant requis.
+   - Correction des algorithmes de vérification des numéros INE et BEA
+   - résolution de quelques bugs mineurs
+
+
+* 08/07/2009
+   - Modification du schéma de la base de données : ajout du champ "ordre" dans la table "annees". Ce champ permet de trier plus efficacement 
+   l'affichage des années. 
+   - Les différentes pages affichent maintenant les années en fonction decet ordre.
+   - La gestion des années dans le menu de configuration a été mise à jour.
+
+* 03/07/2009
+   ATTENTION : modifications importantes du format de certaines données dans la BDD : les pays et nationalités enregistrés dans 
+   les tables "candidats" et "cursus" sont maintenant les codes ISO-3166 et non plus les noms en toute lettre. Si la version que 
+   vous utilisez est en production, N'APPLIQUEZ PAS CETTE MISE A JOUR SANS LIRE CE QUI SUIT.
+
+   - Modification du schéma de la base de données : 
+     - ajout de la table pays_nationalites_iso_insee, utilisée à la place de la table pays_nationalites. Cette nouvelle 
+       table contient une liste bien plus complète des pays et des nationalités existants, avec les codes ISO-3166 
+       (http://www.iso.org/iso/fr/country_codes/iso_3166_code_lists.htm) et INSEE (http://www.insee.fr/fr/methodes/nomenclatures/cog/pays.asp) 
+       associés. L'ancienne table sera supprimée dans une version ultérieure.
+
+     - Ajout de la table "departements_fr" pour que les candidats français puissent indiquer leur département de naissance (utile 
+       pour APOGEE)
+
+     - ajout de la table "diplomes_bac" contenant les codes et libellés APOGEE des différents baccalauréats (et équivalences) en vue 
+       des futurs transferts des candidats admis vers APOGEE (le code et l'année du bac sont obligatoires pour les OPI).
+
+       Note : cette table ne fait pas partie du plugin Apogée, car le cursus est trop ancré dans l'application pour être inclus à part.
+
+   - Les champs libres ont été supprimés pour les pays (cursus, naissance, adresse postale et nationalités ; le choix s'effectue 
+     désormais parmi la liste issue de la nouvelle table. EN RAISON DE LA GRANDE DISPARITE DES DONNEES ENTREES MANUELLEMENT PAR 
+     LES CANDIDATS, IL EST EXTREMEMENT DIFFICILE DE FOURNIR UN SCRIPT DE CONVERSION EXHAUSTIVE DES PAYS/NATIONALITES VERS LES 
+     NOUVEAUX CODES ISO-3166, CETTE CONVERSION DOIT SE FAIRE EN PARTIE MANUELLEMENT (un script exemple est fourni à titre indicatif : 
+     fichier "aria_doc/conv_pays_nat.sql").
+
+   - Table candidat : ajout du département de naissance du candidat (pour les candidats français uniquement)
+
+   Ces modifications permettront dans un proche avenir de compléter le module Apogée : les données transférées (OPI : fichiers 
+   candidats et admissions) doivent en effet être formatées de manière très stricte.
+
+   Autres mises à jour :
+   - Ajout d'un menu "à compléter" dans la fiche candidat (informations complémentaires à compléter, pour rendre possibles les transferts 
+     APOGEE pour l'année 2009-2010). Cette mise à jour est transitoire, le menu sera supprimé dans la version 2010 (et les informations 
+     seront à compléter dans les menus existants).
+   - nettoyage de plusieurs requêtes SQL (suppression de champs inutiles)
+   - ajout des algorithmes de vérification des numéros INE et BEA entrés (ou modifiés) par les scolarités et lescandidats,
+   - affichage des candidatures dans la partie gestion : correction d'un bug d'affichage des motifs de mise en attente 
+     (décision de la Commission Pédagogique),
+   - la décision de commission "En attente" déclenche maintenant automatiquement l'envoi d'un message interne au candidat, 
+     l'informant du motif de cette mise en attente (en général : pièces manquantes à fournir rapidement),
+   - page de garde d'un dossier : meilleure prise en compte des étapes du cursus non justifiées,
+   - traitement de masse : correction d'un léger bug concernant les rangs sur listes complémentaires (ajout d'un test de vacuité),
+   - traitement de masse : seules les décisions modifiées (décision, motif, entretiens, ...) sont prises en compte lors de la 
+     validation d'un traitement de masse. Les fiches mises à jour sont alors supprimées des anciens traitements de masse pour en 
+     créer un nouveau,
+   - le passage de la décision "Convocable à l'entretien" à une autre ne provoque plus la suppression de la date de l'entretien,
+   - correction d'une erreur lors de la validation du statut des candidatures : l'ancien et le nouveau motif de non recevabilité 
+     n'étaient pas comparés correctement, provoquant systématiquement l'envoi d'un nouveau message au candidat dans certains cas.
+
+   
+
+* 3/06/2009
+   - Correction de deux bugs au niveau des lettres : 
+     - dans certaines conditions, le lien "Lettre" apparaissait alors qu'aucune lettre ne correspondait,
+     - le menu "Décisions / Formations" dans l'éditeur de lettres montrait encore les formations désactivées
+
+* 2/06/2009
+   - Correction d'un bug affichant parfois des dates de sessions incorrectes dans le menu "Rechercher une formation" (parties 
+     Gestion et Candidat)
+   - Correction de l'affichage de certaines variables dans le menu "Identité" (parties Gestion et Candidats)
+
+* 27/05/2009
+   - Légère modification du comportement de la fonction get_params (récupération de paramêtres chiffrés) et adaptation dans 
+     les scripts qui y font appel.
+   - Corrections d'un bug provoquant un mauvais tri des voeux d'un candidat en cas de suppression d'une candidature à 
+     choix multiples.
+
+
+* 26/05/2009
+   - Ajout de la possibilité pour la scolarité de "récupérer" une candidature annulée (à la demande d'un candidat)
+   - Ajout de la possibilité de passer une fiche "manuelle" (créée par la scolarité) en fiche "normale" après avoir entré 
+     l'adresse électronique du candidat.
+
+
+* 25/05/2009
+   - Modification du schéma de la BDD : ajout de la colonne "periode" dans la table "acces_candidats_lu".
+   - Le booléen "lu/non lu" (fonction réservée au mode "Consultation") tient maintenant compte de l'année universitaire.
+   - Fichiers "edit_candidat.php" : correction d'une requête contenant des champs mal échappés
+   - Migration de la fonction de tri "cmp_moyenne_diplome" dans le fichier include/fonctions.php.
+   - Liste de tous les candidats (fiches traitables ou non) : ajout du tri par date lorsqu'un filtre est sélectionné.
+
+
+* 19/05/2009
+   - Correction de bugs liés au module Apogée.
+
+
+* 18/05/2009
+   - Création d'un système de modules (plugins) *en version beta*. Le premier module présent dans cette version a été développé pour 
+     rendre l'application ARIA compatible avec certaines données APOGEE. Il permet, pour chaque formation, d'enregistrer les codes 
+     et versions d'étape ainsi que le "centre de gestion". Ces données serviront à la fois à la génération des codes d'inscription 
+     administrative pour les candidats admis (ce qui était déjà possible) et au transfert des candidats admis vers Apogée en vue 
+     des inscriptions elles-mêmes.
+
+     Les précédentes données liées à APOGEE (code des universités et code étape des formations) n'apparaissent plus que dans le menu 
+     "Modules additionnels" de la page de configuration de l'interface.
+
+   ** Le gestionnaire de modules est très incomplet et reste non documenté **
+
+   - Ajout de deux paramêtres de configuration (configuration/config.php) : 
+     - $__PLUGINS_DIR : répertoire contenant les modules 
+     - $__PLUGINS_DIR_ABS : équivalent absolu du paramêtre précédent (cf config.php.exemple).
+
+
+* 27/04/2009
+   - Ajout d'un générateur de page de garde de dossiers pouvant être utile à certaines composantes. Générée après le premier envoi des 
+     pièces justificatives par un candidat (et leur traitement par la scolarité), elle permet de lister puis de consulter rapidement 
+     les pièces manquantes. Le contenu de la page est actuellement assez figé, elle contient : 
+     - le nom de la formation,
+     - celui du candidat, 
+     - le statut des étapes de son cursus lorsqu'elles ne sont pas encore justifiées (avec le détail des pièces manquantes, le tout étant 
+       issu du menu 2-Cursus), 
+     - le statut de la recevabilité de la candidature (avec les précisions s'il y en a, d'après le menu 5-Précandidatures)
+     - un champ libre permettant aux gestionnaires de lister d'autres pièces manquantes (relativement aux justificatifs).
+
+* 23/04/2009
+   - Constructeur de dossiers : 
+      - ajout d'une option permettant de préciser si un élément doit apparaître sur une page séparée du récapitulatif du candidat 
+        (utile pour les lettres de motivation ou les projets professionnels et améliore la lisibilité des récapitulatifs).
+
+      - correction d'un bug concernant le nombre minimum/maximum de choix sélectionnables pour les éléments multi-choix
+
+   - fonctions.php : correction d'une requête (table manquante dans une clause FROM)
+
+* 21/04/2009
+   - Verrouillage des candidatures : ajout de rappels automatiques lorsque le verrouillage est impossible (fiche incomplète)
+      - ajout de deux paramêtres dans le fichier de configuration : nombre maximum de rappels pour une candidature et nombre de jour 
+        pour le décallage du verrouillage.
+      - modification du schéma de la base de données : ajout du nombre de rappels déjà envoyés dans la table "candidature"
+
+   - schéma de la base : 
+      - séparation de la création des tables et des données minimales (nouveau fichier "aria_data.sql")
+      - suppression de tables obsolètes (le schéma au format .sql intègre également ces changements)
+      - modification du format des identifiants de certaines tables (int => bigint pour les composantes et l'offre de formation) : la 
+        méthode d'attribution des identifiants était mauvaise, ce qui pouvait occasionner des collisions dans les identifiants de formations. 
+        Ces identifiants sont maintenant attribués automatiquement (date allant jusqu'aux microsecondes). La mise à jour est conséquente 
+        mais les identifiants existants ne sont pas affectés.      
+
+   - correction de bugs : 
+      - caractères mal "échappés" dans certaines requêtes SQL
+      - ajustement de l'affichage de l'éditeur de page d'information (le tableau principal apparaissait sous le menu gauche, 
+        dans certains cas : la validation du correctif n'est pas encore parfaite)
+      - configuration des candidatures à choix multiples : les formations désactivées apparaissaient encore dans les menus
+
+* 8/04/2009
+   - Bug corrigé : la suppression d'une spécialité ne fonctionnait pas systématiquement (id de la spécialité mal passé en paramêtre)
+
+* 7/04/2009
+   - Correction de bugs : 
+     - la suppression d'une formation ne fonctionnait pas systématiquement (id de la formation mal passé en paramêtre)
+     - les voeux ajoutés par les candidats étaient mal comptabilisés lorsqu'ils concernaient plusieurs années universitaires.
+     - la suppression d'une candidature par un candidat ne redirigeait pas toujours vers la bonne page
+     - modèles de lettres : la présence de certains fichiers et répertoires n'étaient pas vérifiés avant utilisation 
+       (correctif rapide : ce genre de vérifications devrait avoir lieu de manière centralisée par un script dédié)
+
+* 1/04/2009
+   - Ajout de la possibilité de protéger une formation par mot de passe. Ce mot de passe doit être transmis 
+     par la scolarité aux étudiants autorisés (par exemple : réserver une formation aux personnes déjà inscrites 
+     dans une composante).
+
+* 31/03/2009
+   - Corrections de quelques bugs d'affichage
+
+   - Ajout d'une candidature coté candidat : l'affichage des définitions ne provoque plus la perte de la 
+     sélection de la formation.
+
+   - Menu "Autres renseignements" coté candidats et gestion : requêtes modifiées et affichage plus clair 
+     (les formations concernées par les questions posées sont plus clairement affichées)
+
+   - Sélection de l'année universitaire (coté gestion) : l'année courante est maintenant toujours proposée
+
+   - listes sur les pages "index", "candidats" et "fiches traitées" : les filtres ne proposent que les formations 
+     pour lesquelles des candidatures existent (permet de proposer les formations désactivées lors de la consultation 
+     des listes des années antérieures)
+
+   - Editeur de lettres :
+      - ajout de la macro %signature% à utiliser impérativement dès qu'un courrier doit être signé,
+      - la taille et la position du corps de la lettre (partie contenant les éléments ajoutés) peuvent être ajustées 
+        (via les coordonnées du coin supérieur gauche du 'cadre'),
+      - la hauteur des séparateurs peut être configurée (permet d'ajouter facilement un grand espace vide),
+      - les paragraphes peuvent être décalés par rapport à la marge gauche (utile pour la macro %signature%)
+
+
+* 26/03/2009
+   - Page d'information d'une composante : les adresses HTML sont automatiquement transformées en liens cliquables 
+     lorsqu'elles sont affichées.
+
+
+* 17/03/2009
+   - Correction de problèmes divers :
+      - requêtes incomplètes posant problème pour certaines versions de PostgreSQL
+      - ajout d'une université : le nouvel identifiant était parfois mal calculé
+      - génération de lettres en masse : les dates de décisions n'étaient pas correctement déterminées
+
+* 06/03/2009
+   - Affichage de l'offre de formation : possibilité d'afficher/masquer les formations désactivées
+
+
+* 05/03/2009 
+   - Initialisation des séquences corrigées dans le fichier aria_schema.sql
+     => le fichier include/update_db.php permet de corriger le problème pour les installations existantes.
+
+   - Plus généralement, le fichier aria_schema.sql intègre maintenant toutes les modifications du fichier update_db.sql, 
+     ainsi que les données (décisions et motifs de refus) par défaut pour le jeu d'essai.
+   
+   - Fichier de configuration : ajout de deux paramêtres : $__DEFAUT_DECISIONS et $__DEFAUT_MOTIFS indiquant si des 
+     données par défaut doivent être insérées lorsqu'une nouvelle composante est créée. Dans le cas d'une installation 
+     existante, il faut rajouter ces paramêtres manuellement dans votre fichier configuration/config.php 
+     (cf configuration/config.php.exemple). Sans ces deux paramêtres, aucune donnée par défaut n'est insérée.
+
+   - Script de verrouillage quotidien des fiches : correction de la requête principale à la base de données (2 erreurs)
+
+   - Partie gestion : impossibilité de supprimer des informations (langues, infos complémentaires, cursus) corrigée (test 
+     incorrect sur le verrouillage d'une fiche dans le cas d'une fiche manuelle)
+
+   

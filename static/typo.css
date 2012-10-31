@@ -1,0 +1,1263 @@
+select { font-size: 11px; font-family: Arial, Helvetica, sans-serif}
+input { font-size: 11px; font-family: Arial, Helvetica, sans-serif}
+
+.select_small
+{
+	font-size: 10px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.input_small
+{
+	font-size: 10px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.textarea_small
+{
+	font-family: Arial, Helvetica, sans-serif;
+	border:thin solid #bbb;
+	font-size: 10px;
+	width:100%;
+}
+
+.textArea
+{
+	font-family: Arial, Helvetica, sans-serif;
+	border:thin solid #bbb;
+	font-size: 11px;
+	width:100%;
+}
+
+textarea {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 11px;
+}
+
+.fond_page
+{
+	background-color: #F0FAFF;
+}
+
+/* TODO : Renommer les fond_* en indiquant les fonctions et non les couleurs */
+
+.fond_rouge
+{
+	background-color: #FF0000;
+}
+
+.fond_orange
+{
+	background-color: #FF8800;
+}
+
+.fond_blanc
+{
+	background-color: #FFFFFF;
+}
+
+.fond_gris_B
+{
+	background-color: #BBBBBB;
+}
+
+.fond_gris_C
+{
+	background-color: #CCCCCC;
+}
+
+.fond_gris_D
+{
+	background-color: #DDDDDD;
+}
+
+.fond_gris_E
+{
+	background-color: #EEEEEE;
+}
+
+.fond_menu
+{
+	background-color: #DDEEFF;
+}
+
+.fond_menu2
+{
+	background-color: #CCDDEE;
+}
+
+.fond_evenements_gestion
+{
+	background-color: #FFE0E0;
+}
+
+font.TitrePage
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px ;
+	color: #003399;
+	vertical-align:middle;
+	font-weight: bold
+}
+
+font.TitrePage2
+{
+ 	font-family: Arial, Helvetica, sans-serif;
+	font-size: 20px ;
+	color: #003399;
+	vertical-align:middle;
+	font-weight: bold
+}
+
+font.TitrePage_16
+{
+ 	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px ;
+	color: #003399;
+	vertical-align:middle;
+	font-weight: bold
+}
+
+font.Titre
+{
+ 	font-family: Arial, Helvetica, sans-serif;
+	font-size: large;
+	color: #003399;
+	vertical-align:middle;
+	font-weight: bold
+}
+
+font.Texte
+{
+	font-family: Arial, Helvetica, sans-serif;
+	vertical-align:middle;
+	font-size: 12px;
+	font-weight:normal;
+	color:black;
+}
+
+/* Texte_menu et Texte_mneu2 : modifier la couleur lorsque le noir ne va pas avec la couleur de fond des menus */
+
+font.Texte_menu
+{
+	font-family: Arial, Helvetica, sans-serif;
+	vertical-align:middle;
+	font-size: 12px;
+	color:black;
+}
+
+font.Texte_menu2
+{
+	font-family: Arial, Helvetica, sans-serif;
+	vertical-align:middle;
+	font-size: 12px;
+	color:black;
+}
+
+font.Texte_menu_10
+{
+	font-family: Arial, Helvetica, sans-serif;
+	vertical-align:middle;
+	font-size: 10px;
+}
+
+font.Textegris
+ {
+ 	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	vertical-align:middle;
+	color: #888888
+}
+
+font.Texteblanc
+ {
+ 	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	vertical-align:middle;
+	color: #FFFFFF
+}
+
+
+font.Texte_10
+{
+	font-family: Arial, Helvetica, sans-serif;
+	vertical-align:middle;
+	font-size: 10px
+}
+
+font.Texte3
+{
+	font-family: Arial, Helvetica, sans-serif;
+	vertical-align:middle;
+	font-size: 14px
+}
+
+font.Texte_menu_3
+{
+	font-family: Arial, Helvetica, sans-serif;
+	vertical-align:middle;
+	font-size: 14px;
+	color:black;
+}
+
+font.Texte_16
+{
+	font-family: Arial, Helvetica, sans-serif;
+	vertical-align:middle;
+	font-size: 16px;
+	color:black;
+}
+
+font.Texteorange
+ {
+ 	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	vertical-align:middle;
+	color: #FF8800
+}
+
+
+font.Textevert
+ {
+ 	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	vertical-align:middle;
+	color: #00AA00
+}
+
+font.Textevert_menu
+ {
+ 	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	vertical-align:middle;
+	color: #00AA00
+}
+
+font.Textevert_10
+ {
+ 	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	vertical-align:middle;
+	color: #00AA00
+}
+
+font.Textebleu
+ {
+ 	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	vertical-align:middle;
+	color: #0000CC
+}
+
+table.cadre
+{
+	border: 1px solid black;
+	background-color: white;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+table.cadre td {
+	border: none;
+	padding: 4px;	
+}
+
+/* Obsolète : vérifier, et supprimer
+
+table.menu 
+{
+	border-width: 1px 1px 1px 1px;
+	border-spacing: 2px 2px;
+	border-style: solid solid solid solid;
+	border-color: #003399;
+	border-collapse: separate;
+	background-color: #003399;
+}
+table.menu td
+{
+	border-width: 1px 1px 1px 1px;
+	padding: 3px 3px 3px 3px;
+	border-style: solid solid solid solid;
+	border-color: white white white white;
+	background-color: #003399;
+	-moz-border-radius: 0px 0px 0px 0px;
+}
+*/
+
+/* layout0 : tables utilisées pour les éditeurs */
+
+
+table.layout0 {
+	border-width: 1px;
+	border-spacing: 0px;
+	border-style: solid;
+	border-color: #DDDDDD;
+	border-collapse: separate;
+	background-color: white;
+}
+
+table.layout0 td {
+	border-width: 1px;
+	padding: 1px;
+	border-style: solid;
+	border-color: #DDDDDD;
+	background-color: white;
+}
+
+a.nolink_12
+{
+	font-family: arial;
+	color:black;
+	vertical-align:middle;
+	text-decoration:none;
+	font-size : 12px;
+}
+
+a.nolink_12:hover
+{
+	font-family: arial;
+	color:red;
+	vertical-align:baseline;
+	text-decoration:none;
+	font-size : 12px;
+}
+
+a.lien_titre_page
+{
+ 	font-family: arial;
+	font-size: 20px ;
+	text-decoration:none;
+	color: #003399;
+	font-weight: bold
+}
+
+a.lien_titre_page:hover
+{
+	font-family: arial;
+	color:red;
+	text-decoration:none;
+	vertical-align:middle;
+	font-size : 20px;
+}
+
+a.lien_menu_gauche_10
+{
+	font-family: arial;
+	color:#003399;
+	text-decoration:none;
+	font-weight:bold;
+	vertical-align:middle;
+	font-size : 10px;
+}
+
+a.lien_menu_gauche_10:hover
+{
+	font-family: arial;
+	color:red;
+	text-decoration:underline;
+	vertical-align:middle;
+	font-size : 10px;
+}
+
+
+a.lien_rouge12
+{
+font-family: Arial, Helvetica, sans-serif;
+color:red;
+text-decoration:none;
+vertical-align:middle;
+font-size : 12px;
+}
+
+a.lien_rouge12:hover
+{
+font-family: Arial, Helvetica, sans-serif;
+color:red;
+text-decoration:underline;
+vertical-align:middle;
+font-size : 12px;
+}
+
+a.lien_rouge_14
+{
+font-family: Arial, Helvetica, sans-serif;
+color:red;
+text-decoration:none;
+font-weight:bold;
+vertical-align:middle;
+font-size : 14px
+}
+
+a.lien_rouge_14:hover
+{
+font-family: Arial, Helvetica, sans-serif;
+color:#003399;
+text-decoration:underline;
+font-weight:bold;
+vertical-align:middle;
+font-size : 14px
+}
+
+a.lien_vert_12
+{
+font-family: Arial, Helvetica, sans-serif;
+color:#00AA00;
+text-decoration:none;
+vertical-align:middle;
+font-size : 12px;
+}
+
+a.lien_vert_12:hover
+{
+font-family: Arial, Helvetica, sans-serif;
+color:#00AA00;
+text-decoration:underline;
+vertical-align:middle;
+font-size : 12px;
+}
+
+a.lien_blanc
+{
+font-family: Arial, Helvetica, sans-serif;
+vertical-align:middle;
+color:white;
+text-decoration:none;
+font-size : 12px;
+}
+
+a.lien_blanc:hover
+{
+font-family: Arial, Helvetica, sans-serif;
+vertical-align:middle;
+color:#003399;
+text-decoration:none;
+font-size : 12px;
+}
+
+a.lien_blanc_actif
+{
+font-family: Arial, Helvetica, sans-serif;
+vertical-align:middle;
+color:#003399;
+text-decoration:none;
+font-size : 12px;
+}
+
+a.lien_bleu_10
+{
+	font-family: arial;
+	color:#003399;
+	text-decoration:none;
+	font-size : 10px;
+}
+
+a.lien_bleu_10:hover
+{
+	font-family: arial;
+	color:red;
+	text-decoration:middle;
+	font-size : 10px;
+}
+
+a.lien_bleu_12
+{
+	font-family: arial;
+	color:#003399;
+	vertical-align:middle;
+	text-decoration:none;
+	font-size : 12px;
+}
+
+a.lien_bleu_12:hover
+{
+	font-family: arial;
+	color:red;
+	vertical-align:middle;
+	text-decoration:underline;
+	font-size : 12px;
+}
+
+a.lien_bleu_14
+{
+	font-family: arial;
+	color:#003399;
+	text-decoration:none;
+	font-size : 14px;
+}
+
+a.lien_bleu_14:hover
+{
+	font-family: arial;
+	color:red;
+	text-decoration:underline;
+	font-size : 14px;
+}
+
+a.lien2
+{
+	font-family: arial;
+	color:#003399;
+	text-decoration:none;
+	font-weight:bold;
+	font-size : 12px;
+}
+
+a.lien2:hover
+{
+	font-family: arial;
+	color:red;
+	text-decoration:underline;
+	font-weight:bold;
+	font-size : 12px;
+}
+
+a.lien2_macro
+{
+	font-family: arial;
+	color:#003399;
+	text-decoration:none;
+	font-weight:bold;
+}
+
+a.lien2_macro:hover
+{
+	font-family: arial;
+	color:red;
+	text-decoration:underline;
+	font-weight:bold;
+}
+
+a.lien2a
+{
+	font-family: Arial, Helvetica, sans-serif;
+	color:#003399;
+	text-decoration:none;
+	font-weight:bold;
+	font-size : 12px;
+}
+
+a.lien2a:hover
+{
+	font-family: Arial, Helvetica, sans-serif;
+	color:red;
+	text-decoration:underline;
+	font-weight:bold;
+	font-size : 12px;
+}
+
+a.lien_vu_12
+{
+	font-family: Arial, Helvetica, sans-serif;
+	color:#AA44BB;
+	text-decoration:none;
+	font-weight:bold;
+	font-size : 12px;
+}
+
+a.lien_vu_12:hover
+{
+	font-family: Arial, Helvetica, sans-serif;
+	color:red;
+	text-decoration:underline;
+	font-weight:bold;
+	font-size : 12px;
+}
+
+a.lien_gris
+{
+	font-family: Arial, Helvetica, sans-serif;
+	color:#AAAAAA;
+	text-decoration:none;
+	font-weight:bold;
+	font-size : 12px;
+}
+
+a.lien_gris:hover
+{
+	font-family: Arial, Helvetica, sans-serif;
+	color:red;
+	text-decoration:underline;
+	font-weight:bold;
+	font-size : 12px;
+}
+
+a.lien_bleu
+{
+	font-family: Arial, Helvetica, sans-serif;
+	color:#003399;
+	text-decoration:none;
+	vertical-align:middle;
+	font-size : 12px;
+}
+
+a.lien_bleu:hover
+{
+	font-family: Arial, Helvetica, sans-serif;
+	color:red;
+	text-decoration:underline;
+	vertical-align:middle;
+	font-size : 12px;
+}
+
+.td-gauche
+{
+	margin:0px;
+	text-align:left;
+	white-space: nowrap;
+	padding:4px 10px 4px 20px;
+	/* background-color: #DDEEFF; */
+	border: none;
+	vertical-align:middle;
+}
+
+.td-droite
+{
+	margin:0px;
+	text-align:left;
+	white-space: nowrap;
+	padding:4px 20px 4px 10px;
+	/* background-color: #DDEEFF; */
+	border: none;
+	vertical-align:middle;
+}
+
+.td-milieu
+{
+	margin:0px;
+	text-align:left;
+	white-space: nowrap;
+	padding:4px 10px 4px 10px;
+	/* background-color: #DDEEFF; */
+	border: none;
+	vertical-align:middle;
+}
+
+.td-complet
+{
+	border-width: 1px 1px 1px 1px;
+	border-style: solid;
+	border-color: black;
+	border-collapse: separate;
+
+	padding-right:20px;
+	padding-left:20px;
+
+	vertical-align:middle;
+	/* background-color: #DDEEFF; */
+}
+
+table.encadre_messagerie
+{
+	border:none;
+	border-collapse: collapse;
+}
+
+table.encadre_messagerie td
+{
+	margin:0px;
+	padding-top:2px;
+	padding-bottom:2px;
+
+	text-align:left;
+	vertical-align:middle;
+	white-space: nowrap;
+}
+
+.td-msg
+{
+	border-width: 1px;
+	border-style: solid;
+	border-color: #CCCCCC;
+	border-collapse: separate;
+
+	padding-right:2px;
+	padding-left:2px;
+
+	/* background-color: #F0FAFF; */
+}
+
+.td-msg-titre
+{
+	border-width: 1px;
+	border-style: solid;
+	border-color: #CCCCCC;
+	border-collapse: separate;
+
+	/* background-color: #DDEEFF; */
+}
+
+.td-msg-menu
+{
+	border-width: 1px;
+	border-style: solid;
+	border-color: #CCCCCC;
+	border-collapse: separate;
+
+	/* background-color: #CCDDEE; */
+}
+
+.td-msg-tools
+{
+	border-width: 1px;
+	border-style: solid;
+	border-color: #CCCCCC;
+	border-collapse: separate;
+
+	/* background-color: #BBBBBB; */
+}
+
+
+img.icone_titre_page
+{
+	vertical-align:middle;
+	padding-right:8px;
+}
+
+img.icone
+{
+	vertical-align:middle;
+	padding-right:8px;
+}
+
+input.icone
+{
+	vertical-align:middle;
+}
+
+.titre_page
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px ;
+	color: #003399;
+	font-weight: bold;
+
+	padding:4px;
+}
+
+div.footer
+{
+/*
+	position:fixed;
+	bottom:0px;
+*/
+	height:24px;
+	text-align:center;
+	/* vertical-align:middle; */
+	width:100%;
+	padding:0px;
+	margin:0px;
+}
+
+/* ----------------------------- */
+
+.no_margin
+{
+	margin:0px;
+}
+
+.margin_10
+{
+	margin-left:10px;
+	margin-right:10px;
+}
+
+div.clearer { clear:both; }
+
+div.centered_box
+{
+	text-align:center;
+	padding-bottom:15px;
+	/* padding-bottom:30px; */
+}
+
+/* le div suivant est adapté pour les icônes en bas de page */
+div.centered_icons_box
+{
+	word-spacing:30px;
+	padding-top:30px;
+	padding-bottom:50px;
+	text-align:center;
+}
+
+.icone_texte_g
+{
+	padding-left:8px;
+}
+
+.icone_texte_d
+{
+	padding-right:8px;
+}
+
+/* ========== */
+
+.Texte
+{
+	font-family: Arial, Helvetica, sans-serif;
+	vertical-align:middle;
+	font-size: 12px;
+	font-weight:normal;
+	color:black;
+}
+
+.Message_erreur_warning
+{
+   border-style:solid;
+   background-color:#FFCCCC;
+   border-color:#A40000;
+}
+
+.Message_info_succes
+{
+   border-style:solid;
+   background-color:#C3E1FF;
+   border-color:#3A56FF;
+}
+
+.Message_question
+{
+   border-style:solid;
+   background-color:#FFFAA8;
+   border-color:#CED015;
+}
+
+.Texte_important
+{
+	font-family: Arial, Helvetica, sans-serif;
+	vertical-align:middle;
+	font-size: 12px;
+	color: #CC0000;
+}
+
+.Texte_important_10
+{
+	font-family: Arial, Helvetica, sans-serif;
+	vertical-align:middle;
+	font-size: 10px;
+	color: #CC0000;
+}
+
+.Texte_important_14
+{
+	font-family: Arial, Helvetica, sans-serif;
+	vertical-align:middle;
+	font-size: 14px;
+	color: #CC0000;
+}
+
+.Texte_important_16
+{
+	font-family: Arial, Helvetica, sans-serif;
+	vertical-align:middle;
+	font-size: 16px;
+	color: #CC0000;
+}
+
+.Texte_important_menu
+{
+	font-family: Arial, Helvetica, sans-serif;
+	vertical-align:middle;
+	font-size: 12px;
+	color: #CC0000;
+}
+
+.Texte_important_menu2
+{
+	font-family: Arial, Helvetica, sans-serif;
+	vertical-align:middle;
+	font-size: 12px;
+	color: #CC0000;
+}
+
+/* ---------- Listes ------------*/
+
+/* MENU HAUT : div et listes */
+
+font.menu_haut
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	vertical-align:middle;
+	color: white;
+}
+
+.menu_haut_gauche
+{
+	float:left;
+	height:24px;
+	padding:0px 0px 0px 10px;
+	margin:0px;
+	text-align:left;
+	vertical-align:middle;
+}
+
+.menu_haut_central
+{
+	height:24px;
+	vertical-align:middle;
+	width:auto;
+}
+
+.menu_haut_droite
+{
+	/* float:right; */
+	height:24px;
+	padding:0px 10px 0px 0px;
+	margin:0px;
+	text-align:right;
+	vertical-align:middle;	
+	width:auto;
+}
+
+
+ul.menu_haut
+{
+	float:left;
+	padding:0;
+	margin:0;
+	list-style-type: none;
+}
+
+li.menu_haut
+{
+	display:inline;
+	float:left;
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: white;
+	padding-top : 0.3em;
+	padding-bottom : 0.3em;
+}
+
+
+/* test */
+a.menu_haut
+{
+	float:left;
+	font-family: Arial, Helvetica, sans-serif;
+	vertical-align:middle;
+	color:white;
+	text-decoration:none;
+	font-size : 12px;
+	border-right: thin solid white;
+	padding: 0 8px 0 8px;
+	/* padding : 0.3em 0.6em; */
+}
+
+a.menu_haut:hover
+{
+	color:#003399;
+}
+
+a.menu_haut_actif
+{
+	float:left;
+	font-family: Arial, Helvetica, sans-serif;
+	vertical-align:middle;
+	color:#003399;
+	text-decoration:none;
+	font-size : 12px;
+	border-right: thin solid white;
+	padding: 0 8px 0 8px;
+}
+
+/* Second menu horizontal, pour certains éditeurs (lettres, justificatifs, dossiers) */
+
+div.menu_haut_2
+{
+	/* float:left; */
+	background-color:#CCDDEE;
+	padding:2px 5px 0px 5px;
+	text-align:left;
+	vertical-align:middle;
+	width:100%;
+	height:24px;
+
+	border-style:solid;
+	border-color:black;
+	border-width:0px 0px 1px 0px;
+}
+
+input.menu_haut_2
+{
+ 	background-color: #CCDDEE; 
+	border:0px;
+	margin:0px;
+	padding-left:0px;
+	width:130px;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#003399;
+	font-size:12px;
+	font-weight:bold;
+	vertical-align:middle;
+	cursor:pointer;
+	overflow:auto;
+}
+
+input.menu_haut_2:hover
+{
+	color:red;
+	text-decoration:underline;
+}
+
+a.lien_menu_haut_2
+{
+	background-color: #CCDDEE;
+	font-family: arial;
+	color:#003399;
+	text-decoration:none;
+	font-weight:bold;
+	font-size: 12px;
+	vertical-align:middle;
+	padding-right:10px;
+}
+
+a.lien_menu_haut_2:hover
+{
+	color:red;
+	text-decoration:underline;
+}
+
+img.icone_menu_haut_2
+{
+	background-color: #CCDDEE;
+	vertical-align:middle;
+	padding-right:4px;
+}
+
+/* ====================================================
+ 	  Informations du candidat sous le menu supérieur
+======================================================= */
+
+div.infos_candidat
+{
+	/*
+	padding-left:10px;
+	padding-top:2px; */
+	margin:0px 0px 0px 0px;
+	background-color:white;
+	height:24px;
+	border-style:solid;
+	border-color:black;
+	border-width:0px 0px 1px 0px;
+	overflow:auto;
+}
+
+a.lien_navigation_10
+{
+	font-family: arial;
+	color:#003399;
+	text-decoration:none;
+	vertical-align:middle;
+	font-size : 10px;
+}
+
+a.lien_navigation_10:hover
+{
+	color:red;
+	text-decoration:underline;
+}
+
+
+/* ================================
+			 MENU GAUCHE
+================================ */
+
+div.menu_gauche
+{
+	float:left;
+	background-color:#CCDDEE;
+	width:180px;
+	height:100%;
+	border-style:solid;
+	border-color:black;
+	border-width:0px 1px 1px 0px;
+	padding:2px 2px 100px 2px;
+}
+
+ul.menu_gauche
+{
+	padding:5px 2px 2px 0px;
+	margin:0px;
+	vertical-align:top;
+	list-style-type: none;
+	text-align:left;
+	/* border:thin solid green; */
+}
+
+li.menu_gauche
+{
+	padding:0px;
+	margin:0px;
+	vertical-align:top;
+	text-align:left;
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: black;
+}
+
+li.menu_gauche_select
+{
+	padding:0px;
+	margin:0px;
+	vertical-align:top;
+	text-align:left;
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #CC0000;
+}
+
+input.menu_gauche
+{
+ 	background-color: #CCDDEE; 
+	border:0px;
+	padding-left:0px;
+	padding-right:10px;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#003399;
+	font-size:12px;
+	font-weight:bold;
+	vertical-align:middle;
+	cursor:pointer; 
+}
+
+input.menu_gauche:hover
+{
+	color:red;
+	text-decoration:underline;
+}
+
+a.lien_menu_gauche
+{
+	font-family: arial;
+	color:#003399;
+	text-decoration:none;
+	font-weight:bold;
+	vertical-align:middle;
+	font-size: 12px;
+}
+
+a.lien_menu_gauche:hover
+{
+	font-family: arial;
+	color:red;
+	text-decoration:underline;
+	vertical-align:middle;
+	font-size: 12px;
+	font-weight:bold;
+}
+
+a.lien_menu_gauche_select
+{
+	font-family: arial;
+	color:#CC0000;
+	text-decoration:none;
+	font-weight:bold;
+	vertical-align:middle;
+	font-size: 12px;
+}
+
+/* ==============================================
+   =========== CONTENEUR PRINCIPAL ==============
+   ============================================== */
+
+body.main
+{
+	font-family: Arial;
+	color:black;
+	background-color:white;
+}
+
+div.main
+{
+/*
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight:normal;
+	text-align:justify;
+	vertical-align:top;
+*/
+	min-height:400px;
+
+	background-color:#F0FAFF;
+/*	
+	margin:0px;
+	padding:8px 0px 0px 0px;
+*/
+	/* border:thin solid green; */
+}
+
+/* ================================
+   =========== CORPS ==============
+	================================ */
+
+/* le div "corps" est utilisé lorsque le menu gauche est affiché */
+
+div.corps
+{
+	margin-left:180px;
+	vertical-align:top;
+/*
+	padding-top:8px;
+	padding-bottom:20px;
+*/
+	padding:8px 5px 20px 5px;
+	
+	/* height:400px; */
+	/* border:thin solid red;*/
+}
+
+div.corps_gestion
+{
+	margin-left:180px;
+	vertical-align:top;
+	padding:0px 5px 20px 5px;
+	/* overflow:auto; */
+	/* height:400px; */
+	/* border:thin solid red;*/
+}
+
+ol.corps_accueil
+{
+	padding:0px;
+	list-style-position:inside;
+	list-style-type:decimal;
+	/* border:thin solid black; */
+}
+
+ol.corps_accueil li
+{
+	font-family: Arial, Helvetica, sans-serif;
+	vertical-align:middle;
+	font-size: 14px;
+	color:black;
+	font-weight: bold;
+	background-color:#DDEEFF;
+}
+
+input.texte_corps
+{
+
+ 	background-color: #F0FAFF;
+	border:0px;
+	margin:0px;
+/*
+	padding-left:0px;
+	width:130px;
+*/
+	font-family:Arial, Helvetica, sans-serif;
+	color:#003399;
+	font-size:12px;
+/*	font-weight:bold; */
+	vertical-align:middle;
+	cursor:pointer;
+	overflow:auto;
+}
+
+input.texte_corps:hover
+{
+	color:red;
+	text-decoration:underline;
+}

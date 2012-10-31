@@ -1,0 +1,31 @@
+ARIA
+
+Résumé :
+
+Interface de dépôt et de gestion de candidatures en ligne dans un contexte universitaire. L'application est actuellement indépendante de tout logiciel externe (Apogee, Cocktail, ...).
+
+
+------------------------------------
+Description complète
+------------------------------------
+
+ARIA est une interface de gestion de candidatures en ligne, développée initialement en 2006 par et pour l'Université de Strasbourg (fusion des ex-Universités Louis Pasteur, Marc Bloch et Robert Schuman depuis le 1er janvier 2009).
+
+L'application permet :
+- aux candidats potentiels de déposer un ou plusieurs dossiers dans les établissements enregistrés (en théorie : toutes les composantes d'une ou plusieurs universités),
+
+- aux gestionnaires (scolarités et responsables de commissions pédagogiques) de traiter ces candidatures, de la demande des pièces constituant le dossier à la génération des courriers officiels notifiant les décisions des commissions.
+
+De nombreuses fonctionnalités permettent de gérer ces candidatures, notamment : 
+ 
+- des pages dynamiques pouvant s'adapter aux établissements (éditeurs de courriers, de pages d'informations et autres éléments relatifs aux différentes offres de formations, comme les pièces justificatives demandées aux candidats, par exemple),
+
+- la possibilité de traiter des candidatures "en masse" (saisie de nombreuses décisions "simples", accélérant ainsi le traitement par les scolarités)
+
+- la génération de documents intermédiaires (récapitulatifs de candidatures, formulaires pour les commissions pédagogiques, extractions CSV à des fins de statistiques, ...)
+
+Enfin, l'interface intègre une mini-messagerie permettant aux scolarités et aux candidats de communiquer directement, ceci permettant d'une part de faciliter les échanges, et d'autre part de s'affranchir de nombreux problèmes liés aux messageries classiques. 
+
+Elle repose principalement sur Apache, PHP et PostgreSQL. L'application est actuellement indépendante de tout logiciel externe (Apogee, Cocktail, ...) mais des modules complémentaires pourront être développés.
+
+Le projet sera d'abord privé afin de tester son bon fonctionnement dans d'autres établissements, nous espérons qu'il deviendra rapidement public.
