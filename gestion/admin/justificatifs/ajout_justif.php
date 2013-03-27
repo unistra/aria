@@ -235,7 +235,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 					{
 						list($justif_id, $justif_intitule)=db_fetch_row($result, $i);
 
-						$val=htmlspecialchars($justif_intitule, ENT_QUOTES);
+						$val=htmlspecialchars($justif_intitule, ENT_QUOTES, $default_htmlspecialchars_encoding);
 
 						print("<option value='$justif_id'>$val</option>\n");
 					}

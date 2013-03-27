@@ -203,7 +203,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			<font class='Texte_menu2'>Nom du diplôme :</font>
 		</td>
 		<td class='td-droite fond_menu'>
-			<input type='text' name='diplome' value='<?php if(isset($diplome)) echo htmlspecialchars(stripslashes($diplome),ENT_QUOTES); ?>' size="25" maxlength="128">
+			<input type='text' name='diplome' value='<?php if(isset($diplome)) echo htmlspecialchars(stripslashes($diplome),ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="25" maxlength="128">
 		</td>
 	</tr>
 	<tr>
@@ -211,7 +211,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			<font class='Texte_menu2'>Année d'obtention :</font>
 		</td>
 		<td class='td-droite fond_menu'>
-			<input type='text' name='annee_obtention' value='<?php if(isset($annee_obtention)) echo htmlspecialchars(stripslashes($annee_obtention),ENT_QUOTES); ?>' size="25" maxlength="4">
+			<input type='text' name='annee_obtention' value='<?php if(isset($annee_obtention)) echo htmlspecialchars(stripslashes($annee_obtention),ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="25" maxlength="4">
 		</td>
 	</tr>
 	<tr>
@@ -219,7 +219,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			<font class='Texte_menu2'>Résultat/mention :</font>
 		</td>
 		<td class='td-droite fond_menu'>
-			<input type='text' name='resultat' value='<?php if(isset($resultat)) echo htmlspecialchars(stripslashes($resultat),ENT_QUOTES); ?>' size="25" maxlength="128">
+			<input type='text' name='resultat' value='<?php if(isset($resultat)) echo htmlspecialchars(stripslashes($resultat),ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="25" maxlength="128">
 		</td>
 	</tr>
 	</table>

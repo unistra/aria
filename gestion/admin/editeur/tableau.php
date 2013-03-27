@@ -301,7 +301,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 				if($form_mention!=$old_mention)
 				{
-					$val=htmlspecialchars($form_mention_nom, ENT_QUOTES);
+					$val=htmlspecialchars($form_mention_nom, ENT_QUOTES, $default_htmlspecialchars_encoding);
 
 					print("<tr>
 								<td class='fond_menu'  nowrap='true'>
@@ -333,7 +333,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 						$nb_lettres=count($array_lettres_decs[$form_propspec_id][$dec_id]);
 
 						foreach($array_lettres_decs[$form_propspec_id][$dec_id] as $lettre_titre)
-							$link_title.="&#8226; " . htmlspecialchars(stripslashes($lettre_titre), ENT_QUOTES) . " ";
+							$link_title.="&#8226; " . htmlspecialchars(stripslashes($lettre_titre), ENT_QUOTES, $default_htmlspecialchars_encoding) . " ";
 
 						print("<td class='fond_page' align='center' valign='middle'>
 									<font class='Texte'>

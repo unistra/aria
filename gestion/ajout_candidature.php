@@ -357,7 +357,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 						$nom_finalite=$tab_finalite[$finalite];
 
-						$mention_nom=htmlspecialchars($mention_nom, ENT_QUOTES);
+						$mention_nom=htmlspecialchars($mention_nom, ENT_QUOTES, $default_htmlspecialchars_encoding);
 
 						if($annee!=$prev_annee)
 						{

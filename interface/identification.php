@@ -135,30 +135,30 @@ CeCILL-B, et que vous en avez accepté les termes.
 			db_free_result($res_series_bac);
 			
 			$_SESSION["authentifie"]=$candidat_id;
-			$_SESSION["nom"]=htmlspecialchars($nom, ENT_QUOTES);
-			$_SESSION["nom_naissance"]=htmlspecialchars($nom_naissance, ENT_QUOTES);
-			$_SESSION["civilite"]=htmlspecialchars($civilite, ENT_QUOTES);
-			$_SESSION["prenom"]=htmlspecialchars($prenom, ENT_QUOTES);
-			$_SESSION["prenom2"]=htmlspecialchars($prenom2, ENT_QUOTES);
+			$_SESSION["nom"]=htmlspecialchars($nom, ENT_QUOTES, $default_htmlspecialchars_encoding);
+			$_SESSION["nom_naissance"]=htmlspecialchars($nom_naissance, ENT_QUOTES, $default_htmlspecialchars_encoding);
+			$_SESSION["civilite"]=htmlspecialchars($civilite, ENT_QUOTES, $default_htmlspecialchars_encoding);
+			$_SESSION["prenom"]=htmlspecialchars($prenom, ENT_QUOTES, $default_htmlspecialchars_encoding);
+			$_SESSION["prenom2"]=htmlspecialchars($prenom2, ENT_QUOTES, $default_htmlspecialchars_encoding);
 			$_SESSION["naissance"]=$date_naissance;
-			$_SESSION["lieu_naissance"]=htmlspecialchars($lieu_naissance, ENT_QUOTES);
+			$_SESSION["lieu_naissance"]=htmlspecialchars($lieu_naissance, ENT_QUOTES, $default_htmlspecialchars_encoding);
 			$_SESSION["dpt_naissance"]=$dpt_naissance;
 			$_SESSION["nom_departement"]=$nom_departement;
 			$_SESSION["pays_naissance_code"]=$pays_naissance_code;
-			$_SESSION["pays_naissance"]=htmlspecialchars($pays_naissance, ENT_QUOTES);
+			$_SESSION["pays_naissance"]=htmlspecialchars($pays_naissance, ENT_QUOTES, $default_htmlspecialchars_encoding);
 			$_SESSION["nationalite_code"]=$nationalite_code;
-			$_SESSION["nationalite"]=htmlspecialchars($nationalite, ENT_QUOTES);
-			$_SESSION["telephone"]=htmlspecialchars($telephone, ENT_QUOTES);
-			$_SESSION["telephone_portable"]=htmlspecialchars($telephone_portable, ENT_QUOTES);
-			$_SESSION["adresse_1"]=htmlspecialchars($adresse_1, ENT_QUOTES);
-			$_SESSION["adresse_2"]=htmlspecialchars($adresse_2, ENT_QUOTES);
-			$_SESSION["adresse_3"]=htmlspecialchars($adresse_3, ENT_QUOTES);
+			$_SESSION["nationalite"]=htmlspecialchars($nationalite, ENT_QUOTES, $default_htmlspecialchars_encoding);
+			$_SESSION["telephone"]=htmlspecialchars($telephone, ENT_QUOTES, $default_htmlspecialchars_encoding);
+			$_SESSION["telephone_portable"]=htmlspecialchars($telephone_portable, ENT_QUOTES, $default_htmlspecialchars_encoding);
+			$_SESSION["adresse_1"]=htmlspecialchars($adresse_1, ENT_QUOTES, $default_htmlspecialchars_encoding);
+			$_SESSION["adresse_2"]=htmlspecialchars($adresse_2, ENT_QUOTES, $default_htmlspecialchars_encoding);
+			$_SESSION["adresse_3"]=htmlspecialchars($adresse_3, ENT_QUOTES, $default_htmlspecialchars_encoding);
 			$_SESSION["adresse_cp"]=$adr_cp;
 			$_SESSION["adresse_ville"]=$adr_ville;
 			$_SESSION["adresse_pays_code"]=$adr_pays_code;
-			$_SESSION["adresse_pays"]=htmlspecialchars($adr_pays, ENT_QUOTES);
-			$_SESSION["numero_ine"]=htmlspecialchars($numero_ine, ENT_QUOTES);
-			$_SESSION["email"]=htmlspecialchars($email, ENT_QUOTES);
+			$_SESSION["adresse_pays"]=htmlspecialchars($adr_pays, ENT_QUOTES, $default_htmlspecialchars_encoding);
+			$_SESSION["numero_ine"]=htmlspecialchars($numero_ine, ENT_QUOTES, $default_htmlspecialchars_encoding);
+			$_SESSION["email"]=htmlspecialchars($email, ENT_QUOTES, $default_htmlspecialchars_encoding);
 			$_SESSION["derniere_connexion"]=$connexion;
 			$_SESSION["cursus_en_cours"]=$cursus_en_cours;
 			$_SESSION["deja_inscrit"]=$deja_inscrit;
@@ -331,7 +331,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			<font class='Texte_menu2'>Identifiant : </font>
 		</td>
 		<td class='td-droite fond_menu'>
-			<input name="identifiant" value="<?php if(isset($identifiant)) echo htmlspecialchars($identifiant,ENT_QUOTES); ?>" autocomplete="off" type="text" size=20 maxlength='30'>
+			<input name="identifiant" value="<?php if(isset($identifiant)) echo htmlspecialchars($identifiant,ENT_QUOTES, $default_htmlspecialchars_encoding); ?>" autocomplete="off" type="text" size=20 maxlength='30'>
 		</td>
 	</tr>
 	<tr>

@@ -252,7 +252,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 								for($i=0; $i<$rows; $i++)
 								{
 									list($element_id, $element_intitule, $element_vap)=db_fetch_row($result, $i);
-									$val=htmlspecialchars($element_intitule, ENT_QUOTES);
+									$val=htmlspecialchars($element_intitule, ENT_QUOTES, $default_htmlspecialchars_encoding);
 
 									if($element_vap==1)
 										$vap="(<i>VAP</i>) ";

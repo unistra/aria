@@ -235,12 +235,12 @@ CeCILL-B, et que vous en avez accepté les termes.
 				else
 					print("<option value=''></option>");
 
-				$value2=preg_replace("/_/","",htmlspecialchars(stripslashes($cur_langue), ENT_QUOTES));
+				$value2=preg_replace("/_/","",htmlspecialchars(stripslashes($cur_langue), ENT_QUOTES, $default_htmlspecialchars_encoding));
 
 				for($i=0; $i<$rows; $i++)
 				{
 					list($langue)=db_fetch_row($result,$i);
-					$value=htmlspecialchars($langue, ENT_QUOTES);
+					$value=htmlspecialchars($langue, ENT_QUOTES, $default_htmlspecialchars_encoding);
 
 					if(isset($value2) && !strcasecmp($value,$value2))
 					{
@@ -256,7 +256,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			</select>
 
 			<font class='Texte_menu'>&nbsp;&nbsp;Si la langue n'est pas dans la liste : </font>
-			<input type='text' name='langue_libre' value='<?php if(isset($cur_langue) && !isset($langue_liste)) echo htmlspecialchars(preg_replace("/_/","",stripslashes($cur_langue)),ENT_QUOTES); ?>' size="25" maxlength="128">&nbsp;&nbsp;
+			<input type='text' name='langue_libre' value='<?php if(isset($cur_langue) && !isset($langue_liste)) echo htmlspecialchars(preg_replace("/_/","",stripslashes($cur_langue)),ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="25" maxlength="128">&nbsp;&nbsp;
 		</td>
 	</tr>
 	<tr>
@@ -301,7 +301,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			<font class='Texte'><b>Combien d'années l'avez vous étudiée ?</b></font>
 		</td>
 		<td class='td-droite fond_menu'>
-			<input type='text' name='nb_annees' value='<?php if(isset($cur_nb_annees)) echo htmlspecialchars(stripslashes($cur_nb_annees),ENT_QUOTES); ?>' size="25" maxlength="128">
+			<input type='text' name='nb_annees' value='<?php if(isset($cur_nb_annees)) echo htmlspecialchars(stripslashes($cur_nb_annees),ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="25" maxlength="128">
 		</td>
 	</tr>
 	</table>	

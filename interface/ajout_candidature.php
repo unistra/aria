@@ -781,7 +781,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 									{
 										if(!isset($condition_annee_mention[$mention]) || (isset($condition_annee_mention[$mention]) && $condition_annee_mention[$mention]==$annee_id))
 										{
-											$mention_nom=htmlspecialchars($mention_nom, ENT_QUOTES);
+											$mention_nom=htmlspecialchars($mention_nom, ENT_QUOTES, $default_htmlspecialchars_encoding);
 										
 											if(!isset($prem))
 											{

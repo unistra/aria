@@ -65,7 +65,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 	// Paramètre permettant de masquer/afficher les formations désactivées
 	if(isset($_GET["m"]) && ($_GET["m"]==1 || $_GET["m"]==0))
-		$masquees=$_GET["m"];
+		$_SESSION["affichage_masquees"]=$masquees=$_GET["m"];
 	elseif(isset($_SESSION["affichage_masquees"]))
 		$masquees=$_SESSION["affichage_masquees"];
 	else // par défaut : masquées
@@ -115,8 +115,9 @@ CeCILL-B, et que vous en avez accepté les termes.
 			$condition_masquees=$lien_masquees="";
 
 		$result=db_query($dbr,"SELECT $_DBC_propspec_id, $_DBC_annees_annee, $_DBC_specs_nom, $_DBC_propspec_finalite, 
-												$_DBC_specs_mention_id, $_DBC_mentions_nom, $_DBC_propspec_selective, $_DBC_propspec_resp, 
-												$_DBC_propspec_entretiens, $_DBC_propspec_manuelle, $_DBC_propspec_active, $_DBC_propspec_info
+												$_DBC_specs_mention_id, $_DBC_mentions_nom, $_DBC_propspec_selective, $_DBC_propspec_resp,
+                                    $_DBC_propspec_entretiens, $_DBC_propspec_manuelle, $_DBC_propspec_active, 
+                                    $_DBC_propspec_info
 											FROM $_DB_propspec, $_DB_annees, $_DB_specs, $_DB_mentions
 										WHERE $_DBC_propspec_annee=$_DBC_annees_id
 										AND $_DBC_propspec_id_spec=$_DBC_specs_id
@@ -133,54 +134,39 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 		if($rows)
 		{
-			print("<table border='0' align='center' cellpadding='4'>\n");
+			print("<table border='0' align='center' cellpadding='4' width='98%'>\n");
 
 			for($i=0; $i<$rows; $i++)
 			{
-				list($propspec_id, $annee, $spec_nom, $finalite, $mention, $mention_nom, $selective, $resp, 
+				list($propspec_id, $annee, $spec_nom, $finalite, $mention, $mention_nom, $selective, $resp,
 						$entretiens, $manuelle, $active, $info_formation)=db_fetch_row($result, $i);
 
-				$nom_finalite=$tab_finalite[$finalite];
+				$nom_finalite=$tab_finalite_semicomplete[$finalite];
 
 				if($annee=="")
 					$annee="Années particulières";
 
 				if($annee!=$old_annee)
 				{
-					if($i)
-						print("</table>
-									</td>\n");
-
-					if(!$j)
-					{
-						if($i)
-							print("</tr>\n");
-
-						print("<tr>
-									<td align='center' valign='top' style='padding-top:10px;'>\n");
-
-						$j=1;
-					}
-					else
-					{
-						print("<td align='center' valign='top' style='padding-top:10px;'>\n");
-
-						$j=0;
-					}
-
 					$old_annee=$annee;
 
-					print("<table align='center'>
+					print("<tr>
+                           <td class='fond_page' height='15' colspan='5'>
+                        </tr>
 								<tr>
-									<td class='fond_menu2' colspan='2' style='padding:4px 20px 4px 20px;'>
+									<td class='fond_menu2' style='padding:4px 10px 4px 10px;'>
 										<font class='Texte_menu2'><b>$annee</b></font>
 									</td>
-<!--
-									<td class='fond_menu2' style='padding:4px 20px 4px 20px;'>
-										<font class='Texte_menu2'><b>Sélective</b></font>
+									<td class='fond_menu2' style='padding:4px 10px 4px 10px;' width='80'>
+                              <font class='Texte_menu2'><b>Finalité</b></font>
+                           </td>
+									<td class='fond_menu2' style='padding:4px 10px 4px 10px;' width='150'>
+										<font class='Texte_menu2'><b>Responsable</b></font>
 									</td>
--->
-									<td class='fond_menu2' style='padding:4px 20px 4px 20px;'>
+									<td class='fond_menu2' style='padding:4px 10px 4px 10px;' width='120'>
+                              <font class='Texte_menu2'><b>Gestion manuelle</b></font>
+                           </td>
+									<td class='fond_menu2' style='padding:4px 10px 4px 10px;' width='100'>
 										<font class='Texte_menu2'><b>Entretiens</b></font>
 									</td>
 								</tr>\n");
@@ -194,19 +180,20 @@ CeCILL-B, et que vous en avez accepté les termes.
 					$old_mention=$mention;
 
 					print("<tr>
-								<td class='td-gauche fond_page' height='20' align='center' colspan='3'>
+								<td class='td-gauche fond_page' height='20' colspan='5'>
 									<font class='Texte'><b>$mention_nom</b></font>
 								</td>
 							</tr>\n");
 				}
 
-				$selective_text=$selective ? "Oui" : "Non";
-				$entretiens_txt=$entretiens ? "Oui" : "Non";
+				$selective_text=$selective ? "Oui" : "";
+				$entretiens_txt=$entretiens ? "Oui" : "";
 
-				if($resp=="Le Responsable")
-					$resp="responsable non renseigné";
+				if($resp=="Le Responsable") {
+					$resp="";
+            }
 
-				$manuelle_txt=$manuelle ? "- Gestion manuelle" : "";
+				$manuelle_txt=$manuelle ? "Oui" : "";
 
 				$fond=$active ? "fond_menu" : "fond_gris_C";
 
@@ -217,28 +204,8 @@ CeCILL-B, et que vous en avez accepté les termes.
 					$spec_nom="<a href='formations.php?p=$crypt_params' class='lien_bleu_12'>$spec_nom</a>";
 				}
 
-				print("<tr>
-							<td class='td-gauche $fond'>
-								<font class='Texte_menu'>&#8226;&nbsp;$spec_nom</font>
-							</td>
-							<td class='td-milieu $fond'>
-								<font class='Texte_menu'>$nom_finalite</font>
-							</td>
-<!--
-							<td class='td-milieu $fond' style='text-align:center;'>
-								<font class='Texte_menu'>$selective_text</font>
-							</td>
--->
-							<td class='td-droite $fond' style='text-align:center;'>
-								<font class='Texte_menu'>$entretiens_txt</font>
-							</td>
-						</tr>
-						<tr>
-							<td class='td-gauche $fond' style='padding-left:30px; white-space:normal;' colspan='3'>
-								<font class='Texte_menu_10'><i>Responsable : $resp $manuelle_txt</i>\n");				
 
-				if($info_formation!="")
-				{
+				if($info_formation!="") {
 					if(strlen($info_formation)>70) // 70 caractères : bon compromis pour afficher un aperçu du texte ?
 						$info_formation=substr($info_formation, 0, 70) . " [...]";
 					
@@ -249,17 +216,39 @@ CeCILL-B, et que vous en avez accepté les termes.
 					if(in_array($_SESSION["niveau"], array("$__LVL_SCOL_PLUS","$__LVL_RESP","$__LVL_SUPER_RESP","$__LVL_ADMIN")))
 					{
 						$crypt_params=crypt_params("propspec=$propspec_id");
-						$info_texte="<a href='info_formations.php?p=$crypt_params' class='lien_bleu_10'><i><u>Info formation :</u> ".nl2br($info_formation)."</i></a>";
+						$info_texte="<br><a href='info_formations.php?p=$crypt_params' class='lien_bleu_10'><i><u>Info formation :</u> ".nl2br($info_formation)."</i></a>";
 					}
 					else
-						$info_texte="<i><u>Info formation :</u> $info_formation</i>";
-				
-					print("<br>$info_texte");
+						$info_texte="<br><i><u>Info formation :</u> $info_formation</i>";
 				}
+				else
+				   $info_texte="";
 							
 				print("</font>
 						</td>
 						</tr>\n");
+
+            print("<tr>
+							<td class='td-gauche $fond' style='white-space:normal;'>
+								<font class='Texte_menu'>
+                           &#8226;&nbsp;$spec_nom
+                           $info_texte
+                        </font>
+							</td>
+							<td class='td-milieu $fond'>
+								<font class='Texte_menu'>$nom_finalite</font>
+							</td>
+							<td class='td-milieu $fond'>
+								<font class='Texte_menu'>$resp</font>
+							</td>
+							<td class='td-milieu $fond'>
+							   <font class='Texte_menu'>$manuelle_txt</font>
+							</td>
+							<td class='td-droite $fond'>
+								<font class='Texte_menu'>$entretiens_txt</font>
+							</td>
+						</tr>
+						\n");
 
 				$nb++;
 			}

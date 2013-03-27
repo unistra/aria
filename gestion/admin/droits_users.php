@@ -321,7 +321,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                      if($comp_nom=="0")
                         print("<optgroup label='==== Administrateurs, support et accès étendus ===='>\n");
                      else
-                        print("<optgroup label='==== ".htmlspecialchars($comp_nom, ENT_QUOTES)." ===='>\n");
+                        print("<optgroup label='==== ".htmlspecialchars($comp_nom, ENT_QUOTES, $default_htmlspecialchars_encoding)." ===='>\n");
    
                      $old_comp=$comp_nom;
                      $old_niveau="";
@@ -333,12 +333,12 @@ CeCILL-B, et que vous en avez accepté les termes.
                        print("</optgroup>
                               <option value='' label='' disabled></option>\n");
                
-                    print("<optgroup label='".htmlspecialchars(stripslashes($GLOBALS["tab_niveau"]["$login_niveau"]), ENT_QUOTES)."'></optgroup>\n");
+                    print("<optgroup label='".htmlspecialchars(stripslashes($GLOBALS["tab_niveau"]["$login_niveau"]), ENT_QUOTES, $default_htmlspecialchars_encoding)."'></optgroup>\n");
                
                     $old_niveau=$login_niveau;
                   }
    
-                  print("<option value='$user_id'>" . htmlspecialchars("$login_nom $login_prenom", ENT_QUOTES) . "</option>\n");
+                  print("<option value='$user_id'>" . htmlspecialchars("$login_nom $login_prenom", ENT_QUOTES, $default_htmlspecialchars_encoding) . "</option>\n");
                }
    
                print("</optgroup>
@@ -379,7 +379,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                if($comp_nom=="0")
                   print("<optgroup label='==== Administrateurs, support et accès étendus ===='>\n");
                else
-                  print("<optgroup label='==== ".htmlspecialchars($comp_nom, ENT_QUOTES)." ===='>\n");
+                  print("<optgroup label='==== ".htmlspecialchars($comp_nom, ENT_QUOTES, $default_htmlspecialchars_encoding)." ===='>\n");
 
                $old_comp=$comp_nom;
                $old_niveau="";
@@ -391,12 +391,12 @@ CeCILL-B, et que vous en avez accepté les termes.
                   print("</optgroup>
                          <option value='' label='' disabled></option>\n");
             
-               print("<optgroup label='".htmlspecialchars(stripslashes($GLOBALS["tab_niveau"]["$login_niveau"]), ENT_QUOTES)."'></optgroup>\n");
+               print("<optgroup label='".htmlspecialchars(stripslashes($GLOBALS["tab_niveau"]["$login_niveau"]), ENT_QUOTES, $default_htmlspecialchars_encoding)."'></optgroup>\n");
             
                $old_niveau=$login_niveau;
             }
 
-            print("<option value='$user_id'>" . htmlspecialchars("$login_nom $login_prenom", ENT_QUOTES) . "</option>\n");
+            print("<option value='$user_id'>" . htmlspecialchars("$login_nom $login_prenom", ENT_QUOTES, $default_htmlspecialchars_encoding) . "</option>\n");
          }
 
          print("</optgroup>
@@ -462,7 +462,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 						print("</optgroup>
 									<option value='' label='' disabled></option>\n");
 
-					print("<optgroup label='" . htmlspecialchars($comp_nom, ENT_QUOTES) . "'>\n");
+					print("<optgroup label='" . htmlspecialchars($comp_nom, ENT_QUOTES, $default_htmlspecialchars_encoding) . "'>\n");
 
 					$old_comp=$comp_nom;
 				}
@@ -470,7 +470,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 				// Affichage du niveau (entre crochets) - A conserver ?
 				// $menu_niveau=$tab_niveau_menu[$login_niveau];
 
-				print("<option value='$login_id'>" . htmlspecialchars("$login_nom $login_prenom", ENT_QUOTES) . "</option>\n");
+				print("<option value='$login_id'>" . htmlspecialchars("$login_nom $login_prenom", ENT_QUOTES, $default_htmlspecialchars_encoding) . "</option>\n");
 			}
 
 			print("		</optgroup>

@@ -142,17 +142,17 @@ if(!isset($_SESSION["__MACROS"]) || !is_array($_SESSION["__MACROS"]) || !count($
 			$txt=preg_replace("/%civ%/", strtolower(civ_lang($cand_array["civilite"], $lettre_lang, 0)), $txt);
 			$txt=preg_replace("/%CIV%/", strtoupper(civ_lang($cand_array["civilite"], $lettre_lang, 0)), $txt);',
 
-"civilite" =>	'$txt=preg_replace("/%Civilit.%/u", ucfirst(strtolower(civ_lang($cand_array["civilite"], $lettre_lang, 1))), $txt);
-					$txt=preg_replace("/%civilit.%/u", strtolower(civ_lang($cand_array["civilite"], $lettre_lang, 1)), $txt);
-					$txt=preg_replace("/%CIVILIT.%/u", strtoupper(civ_lang($cand_array["civilite"], $lettre_lang, 1)), $txt);',
+"civilite" =>	'$txt=preg_replace("/%Civilit.%/", ucfirst(strtolower(civ_lang($cand_array["civilite"], $lettre_lang, 1))), $txt);
+					$txt=preg_replace("/%civilit.%/", strtolower(civ_lang($cand_array["civilite"], $lettre_lang, 1)), $txt);
+					$txt=preg_replace("/%CIVILIT.%/", strtoupper(civ_lang($cand_array["civilite"], $lettre_lang, 1)), $txt);',
 
 "nom" => '$txt=preg_replace("/%Nom%/", ucfirst(mb_strtolower($cand_array["nom"])), $txt);
 			$txt=preg_replace("/%nom%/", mb_strtolower($cand_array["nom"]), $txt);
 			$txt=preg_replace("/%NOM%/", mb_strtoupper($cand_array["nom"]), $txt);',
 
-"prenom" => '$txt=preg_replace("/%Pr.nom%/u", ucfirst(mb_strtolower($cand_array["prenom"])), $txt);
-				$txt=preg_replace("/%pr.nom%/u", mb_strtolower($cand_array["prenom"]), $txt);
-				$txt=preg_replace("/%PR.NOM%/u", mb_strtoupper($cand_array["prenom"]), $txt);',
+"prenom" => '$txt=preg_replace("/%Pr.nom%/", ucfirst(mb_strtolower($cand_array["prenom"])), $txt);
+				$txt=preg_replace("/%pr.nom%/", mb_strtolower($cand_array["prenom"]), $txt);
+				$txt=preg_replace("/%PR.NOM%/", mb_strtoupper($cand_array["prenom"]), $txt);',
 
 "date_naissance" => '$txt=str_ireplace("%naissance%", $cand_array["naissance"], $txt);',
 
@@ -161,7 +161,7 @@ if(!isset($_SESSION["__MACROS"]) || !is_array($_SESSION["__MACROS"]) || !count($
 "pays_naissance" => '$txt=str_ireplace("%pays_naissance%", $cand_array["pays_naissance"], $txt);',
 
 "annee_universitaire" => '$cand_periode="$candidature_array[periode]-" . ($candidature_array["periode"]+1);
-								  $txt=preg_replace("/%ann.e_universitaire%/u", $cand_periode, $txt);',
+								  $txt=preg_replace("/%ann.e_universitaire%/", $cand_periode, $txt);',
 
 "formation" => '$txt=preg_replace("/%Formation%/", $candidature_array["texte_formation"], $txt);
 					$txt=preg_replace("/%formation%/", $candidature_array["texte_formation"], $txt);
@@ -265,18 +265,20 @@ if(!isset($_SESSION["__MACROS"]) || !is_array($_SESSION["__MACROS"]) || !count($
 												if($cand_m_array["decision"]==$GLOBALS["__DOSSIER_SOUS_RESERVE"])
 													$decisions_multiples_texte.=" (" . str_replace("\n",", ", $cand_m_array["motivation"]) . ").";;
 
+                                    /*
 												// admission trouvée : on s\'arrête là et on affiche un message s\'il reste des voeux
 												if($ordre_cand!=$ordre_dernier_choix)
 													$decisions_multiples_texte.="\n\nDans la mesure où vos candidatures ont été classées par ordre de préférence et qu\'un voeu a été retenu, la Commission pédagogique n\'a pas examiné les voeux placés après celui-ci.";
 
 												break;
+												*/
 											}
 											else
 											    $decisions_multiples_texte.="\n";
 										}
 									}
 
-									$txt=preg_replace("/%d.cisions_multiples%/ui", $decisions_multiples_texte, $txt);
+									$txt=preg_replace("/%d.cisions_multiples%/i", $decisions_multiples_texte, $txt);
 								}',
 
 "transmission_multiple" => 'if(stristr($txt, "%transmission_multiple%"))
@@ -294,7 +296,7 @@ if(!isset($_SESSION["__MACROS"]) || !is_array($_SESSION["__MACROS"]) || !count($
 											}
 										}
 
-										$txt=preg_replace("/%transmission_multiple%/ui", $transmission_multiple_texte, $txt);
+										$txt=preg_replace("/%transmission_multiple%/i", $transmission_multiple_texte, $txt);
 									}',
 
 "signature" => 'if(stristr($txt, "%signature%"))
@@ -323,7 +325,7 @@ if(!isset($_SESSION["__MACROS"]) || !is_array($_SESSION["__MACROS"]) || !count($
 							// Il faut appliquer cette fonction sur la signature (en supprimant les champs %signature% éventuels,
 							// sinon on obtient une boucle infinie)
 
-							$txt=preg_replace("/%signature%/ui", $texte_signature, $txt);
+							$txt=preg_replace("/%signature%/i", $texte_signature, $txt);
 							// $txt=pdf_traitement_macros($dbr, str_ireplace("%signature%", "", $texte_signature), $cand_array, $candidature_array, $cursus_array, $lettre_lang);
 						}
 

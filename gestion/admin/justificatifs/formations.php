@@ -295,7 +295,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 							{
 								list($select_justif_id, $justif_intitule)=db_fetch_row($result, $i);
 
-								$val=htmlspecialchars($justif_intitule, ENT_QUOTES);
+								$val=htmlspecialchars($justif_intitule, ENT_QUOTES, $default_htmlspecialchars_encoding);
 
 								$selected=isset($justif_id) && $justif_id==$select_justif_id ? "selected='1'" : "";
 
@@ -321,7 +321,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 						$rows=db_num_rows($result);
 
 						list($justif_intitule)=db_fetch_row($result, 0);
-						$val=htmlspecialchars($justif_intitule, ENT_QUOTES);
+						$val=htmlspecialchars($justif_intitule, ENT_QUOTES, $default_htmlspecialchars_encoding);
 
 						print("<font class='Texte_menu'><b>$val</b></font>\n");
 					}

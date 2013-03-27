@@ -314,7 +314,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 				{
 					list($element_id, $intitule)=db_fetch_row($result,$i);
 
-					$value=htmlspecialchars($intitule, ENT_QUOTES);
+					$value=htmlspecialchars($intitule, ENT_QUOTES, $default_htmlspecialchars_encoding);
 
 					print("<option value='$element_id' label=\"$value\">$value</option>\n");
 				}
@@ -412,7 +412,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 				<font class='Texte_menu2'><b>Intitulé</b><br><i>(Non visible par le candidat)</i></font>
 			</td>
 			<td class='td-droite fond_menu'>
-				<input type='text' name='intitule' value='<?php if(isset($element_intitule)) echo htmlspecialchars(stripslashes($element_intitule), ENT_QUOTES); else echo htmlspecialchars(stripslashes($current_intitule), ENT_QUOTES);?>' maxlength='256' size='60'>
+				<input type='text' name='intitule' value='<?php if(isset($element_intitule)) echo htmlspecialchars(stripslashes($element_intitule), ENT_QUOTES, $default_htmlspecialchars_encoding); else echo htmlspecialchars(stripslashes($current_intitule), ENT_QUOTES, $default_htmlspecialchars_encoding);?>' maxlength='256' size='60'>
 				<br><font class='Texte_menu'><i>Exemples : "Connaissances en Cuisine" ou "Titulaire d'un Master 1" ...</i></font>
 			</td>
 		</tr>
@@ -426,7 +426,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 					<br>
 				</font>
 				<textarea name='paragraphe' rows='10' cols='100'><?php
-					if(isset($element_para)) echo htmlspecialchars(stripslashes($element_para), ENT_QUOTES); else echo htmlspecialchars(stripslashes($current_para), ENT_QUOTES);
+					if(isset($element_para)) echo htmlspecialchars(stripslashes($element_para), ENT_QUOTES, $default_htmlspecialchars_encoding); else echo htmlspecialchars(stripslashes($current_para), ENT_QUOTES, $default_htmlspecialchars_encoding);
 				?></textarea>
 			</td>
 		</tr>

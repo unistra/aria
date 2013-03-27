@@ -118,7 +118,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 				if(db_num_rows($res_formation))
 				{
 					list($nom_annee, $nom_spec, $finalite)=db_fetch_row($res_formation, 0);
-					$formation_txt=$nom_annee=="" ? htmlspecialchars("$nom_spec", ENT_QUOTES) : htmlspecialchars("$nom_annee $nom_spec", ENT_QUOTES);
+					$formation_txt=$nom_annee=="" ? htmlspecialchars("$nom_spec", ENT_QUOTES, $default_htmlspecialchars_encoding) : htmlspecialchars("$nom_annee $nom_spec", ENT_QUOTES, $default_htmlspecialchars_encoding);
 					$formation_txt.=$finalite ? " - $tab_finalite[$finalite]" : "";
 				}
 
@@ -299,7 +299,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 					$msg_dest="$_SESSION[msg_exp]";
 
-					$sujet=htmlspecialchars("Re: $_SESSION[msg_sujet]", ENT_QUOTES);
+					$sujet=htmlspecialchars("Re: $_SESSION[msg_sujet]", ENT_QUOTES, $default_htmlspecialchars_encoding);
 					$corps="\r\n\r\n\r\n\r\n\r\nLe $date_txt, $_SESSION[msg_exp] a écrit : \r\n";
 
 					foreach($_SESSION["msg_message"] as $line)

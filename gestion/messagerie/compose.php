@@ -118,7 +118,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		$file_tmp_name=$_FILES["fichier"]["tmp_name"];
 		$file_error=$_FILES["fichier"]["error"]; // PHP > 4.2.0 uniquement
 
-		$realname=html_entity_decode(validate_filename(mb_convert_encoding("$file_name", "iso-8859-1", mb_detect_encoding($file_name))), ENT_QUOTES);
+		$realname=html_entity_decode(validate_filename(mb_convert_encoding("$file_name", "iso-8859-1", mb_detect_encoding($file_name))), ENT_QUOTES, $default_htmlspecialchars_encoding);
 
 		if($file_size>4194304)
 			$trop_gros=1;
@@ -370,7 +370,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 					// $_SESSION["msg_dest"]=$msg_dest="$_SESSION[msg_exp]";
 					$_SESSION["msg_dest"]=$msg_dest="$_SESSION[msg_dest_prenom] $_SESSION[msg_dest_nom]";
 
-					$sujet=htmlspecialchars("Re: $_SESSION[msg_sujet]", ENT_QUOTES);
+					$sujet=htmlspecialchars("Re: $_SESSION[msg_sujet]", ENT_QUOTES, $default_htmlspecialchars_encoding);
 
 					if(!isset($no_sign))
 					{
@@ -451,7 +451,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 						else
 							$selected="";
 
-						$modele_intitule=stripslashes(htmlspecialchars($modele_intitule, ENT_QUOTES));
+						$modele_intitule=stripslashes(htmlspecialchars($modele_intitule, ENT_QUOTES, $default_htmlspecialchars_encoding));
 
 						print("<option value='$modele_id' $selected>$modele_intitule</option>\n");
 					}

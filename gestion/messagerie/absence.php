@@ -228,13 +228,13 @@ CeCILL-B, et que vous en avez accepté les termes.
 		</td>
 		<td class='td-droite fond_menu'>
 			<font class='Texte_menu'>
-				JJ : <input type="text" name='absence_debut_jour' value='<?php if(isset($absence_debut_jour)) echo htmlspecialchars($absence_debut_jour, ENT_QUOTES); else echo htmlspecialchars($cur_absence_debut_jour, ENT_QUOTES); ?>' size='3' maxlength='2'>&nbsp;
-				MM : <input type="text" name='absence_debut_mois' value='<?php if(isset($absence_debut_mois)) echo htmlspecialchars($absence_debut_mois, ENT_QUOTES); else echo htmlspecialchars($cur_absence_debut_mois, ENT_QUOTES); ?>' size='3' maxlength='2'>&nbsp;
-				AAAA : <input type="text" name='absence_debut_annee' value='<?php if(isset($absence_debut_annee)) echo htmlspecialchars($absence_debut_annee, ENT_QUOTES); else echo htmlspecialchars($cur_absence_debut_annee, ENT_QUOTES); ?>' size='5' maxlength='4'>
+				JJ : <input type="text" name='absence_debut_jour' value='<?php if(isset($absence_debut_jour)) echo htmlspecialchars($absence_debut_jour, ENT_QUOTES, $default_htmlspecialchars_encoding); else echo htmlspecialchars($cur_absence_debut_jour, ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size='3' maxlength='2'>&nbsp;
+				MM : <input type="text" name='absence_debut_mois' value='<?php if(isset($absence_debut_mois)) echo htmlspecialchars($absence_debut_mois, ENT_QUOTES, $default_htmlspecialchars_encoding); else echo htmlspecialchars($cur_absence_debut_mois, ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size='3' maxlength='2'>&nbsp;
+				AAAA : <input type="text" name='absence_debut_annee' value='<?php if(isset($absence_debut_annee)) echo htmlspecialchars($absence_debut_annee, ENT_QUOTES, $default_htmlspecialchars_encoding); else echo htmlspecialchars($cur_absence_debut_annee, ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size='5' maxlength='4'>
 				&nbsp;&nbsp;<u><b>au</b></u>&nbsp;&nbsp;
-				JJ : <input type="text" name='absence_fin_jour' value='<?php if(isset($absence_fin_jour)) echo htmlspecialchars($absence_fin_jour, ENT_QUOTES); else echo htmlspecialchars($cur_absence_fin_jour, ENT_QUOTES); ?>' size='3' maxlength='2'>&nbsp;
-				MM : <input type="text" name='absence_fin_mois' value='<?php if(isset($absence_fin_mois)) echo htmlspecialchars($absence_fin_mois, ENT_QUOTES); else echo htmlspecialchars($cur_absence_fin_mois, ENT_QUOTES); ?>' size='3' maxlength='2'>&nbsp;
-				AAAA : <input type="text" name='absence_fin_annee' value='<?php if(isset($absence_fin_annee)) echo htmlspecialchars($absence_fin_annee, ENT_QUOTES); else echo htmlspecialchars($cur_absence_fin_annee, ENT_QUOTES); ?>' size='5' maxlength='4'>&nbsp;&nbsp;
+				JJ : <input type="text" name='absence_fin_jour' value='<?php if(isset($absence_fin_jour)) echo htmlspecialchars($absence_fin_jour, ENT_QUOTES, $default_htmlspecialchars_encoding); else echo htmlspecialchars($cur_absence_fin_jour, ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size='3' maxlength='2'>&nbsp;
+				MM : <input type="text" name='absence_fin_mois' value='<?php if(isset($absence_fin_mois)) echo htmlspecialchars($absence_fin_mois, ENT_QUOTES, $default_htmlspecialchars_encoding); else echo htmlspecialchars($cur_absence_fin_mois, ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size='3' maxlength='2'>&nbsp;
+				AAAA : <input type="text" name='absence_fin_annee' value='<?php if(isset($absence_fin_annee)) echo htmlspecialchars($absence_fin_annee, ENT_QUOTES, $default_htmlspecialchars_encoding); else echo htmlspecialchars($cur_absence_fin_annee, ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size='5' maxlength='4'>&nbsp;&nbsp;
 			</font>
 		</td>
 	</tr>
@@ -245,9 +245,9 @@ CeCILL-B, et que vous en avez accepté les termes.
 		<td class='td-droite fond_menu'>
 			<textarea name='texte' rows='8' cols='80'><?php
 				if(isset($texte))
-					echo htmlspecialchars(stripslashes($texte), ENT_QUOTES);
+					echo htmlspecialchars(stripslashes($texte), ENT_QUOTES, $default_htmlspecialchars_encoding);
 				elseif(isset($cur_texte))
-					echo htmlspecialchars(stripslashes($cur_texte), ENT_QUOTES);
+					echo htmlspecialchars(stripslashes($cur_texte), ENT_QUOTES, $default_htmlspecialchars_encoding);
 			?></textarea>
 		</td>
 	</tr>

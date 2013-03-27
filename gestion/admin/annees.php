@@ -419,7 +419,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			<font class='Texte_menu2'>Nom court (peut être vide) :</font>
 		</td>
 		<td class='td-droite fond_menu'>
-			<input type='text' name='nom' value='<?php if(isset($new_annee_nom)) echo htmlspecialchars(stripslashes($new_annee_nom), ENT_QUOTES); elseif(isset($current_annee_nom)) echo htmlspecialchars(stripslashes($current_annee_nom), ENT_QUOTES); ?>' maxlength='20' size='30'>
+			<input type='text' name='nom' value='<?php if(isset($new_annee_nom)) echo htmlspecialchars(stripslashes($new_annee_nom), ENT_QUOTES, $default_htmlspecialchars_encoding); elseif(isset($current_annee_nom)) echo htmlspecialchars(stripslashes($current_annee_nom), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' maxlength='20' size='30'>
 		</td>
 	</tr>
 	<tr>
@@ -427,7 +427,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			<font class='Texte_menu2'><b>Nom complet :</b></font>
 		</td>
 		<td class='td-droite fond_menu'>
-			<input type='text' name='nom_complet' value='<?php if(isset($new_annee_nom_complet)) echo htmlspecialchars(stripslashes($new_annee_nom_complet), ENT_QUOTES); elseif(isset($current_annee_nom_complet)) echo htmlspecialchars(stripslashes($current_annee_nom_complet), ENT_QUOTES); ?>' maxlength='80' size='85'>
+			<input type='text' name='nom_complet' value='<?php if(isset($new_annee_nom_complet)) echo htmlspecialchars(stripslashes($new_annee_nom_complet), ENT_QUOTES, $default_htmlspecialchars_encoding); elseif(isset($current_annee_nom_complet)) echo htmlspecialchars(stripslashes($current_annee_nom_complet), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' maxlength='80' size='85'>
 		</td>
 	</tr>
 	</table>

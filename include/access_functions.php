@@ -757,11 +757,11 @@ function __get_cursus($dbr,$candidat_id)
 		
 			// Traitement
 /*
-			$dip=str_replace("_","",htmlspecialchars($dip,ENT_QUOTES));
-			$int=str_replace("_","",htmlspecialchars($int,ENT_QUOTES));
-			$ecole=str_replace("_","",htmlspecialchars($ecole,ENT_QUOTES));
-			$ville=str_replace("_","",htmlspecialchars($ville,ENT_QUOTES));
-			$pays=str_replace("_","",htmlspecialchars($pays,ENT_QUOTES));
+			$dip=str_replace("_","",htmlspecialchars($dip,ENT_QUOTES, $default_htmlspecialchars_encoding));
+			$int=str_replace("_","",htmlspecialchars($int,ENT_QUOTES, $default_htmlspecialchars_encoding));
+			$ecole=str_replace("_","",htmlspecialchars($ecole,ENT_QUOTES, $default_htmlspecialchars_encoding));
+			$ville=str_replace("_","",htmlspecialchars($ville,ENT_QUOTES, $default_htmlspecialchars_encoding));
+			$pays=str_replace("_","",htmlspecialchars($pays,ENT_QUOTES, $default_htmlspecialchars_encoding));
 */
 /*
 			$dip=str_replace("_","", $dip);

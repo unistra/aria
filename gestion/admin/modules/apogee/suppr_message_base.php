@@ -134,12 +134,12 @@ CeCILL-B, et que vous en avez accepté les termes.
                      if($i)
                         print("</optgroup>\n");
                         
-                     print("<optgroup label='".htmlspecialchars(stripslashes($_MOD_APOGEE_MSG_TYPES["$msg_type"], ENT_QUOTES))."'>\n");
+                     print("<optgroup label='".htmlspecialchars(stripslashes($_MOD_APOGEE_MSG_TYPES["$msg_type"], ENT_QUOTES, $default_htmlspecialchars_encoding))."'>\n");
                      
                      $old_type=$msg_type;
                   }
 
-						$val=htmlspecialchars($msg_nom, ENT_QUOTES);
+						$val=htmlspecialchars($msg_nom, ENT_QUOTES, $default_htmlspecialchars_encoding);
 
 						print("<option value='$msg_id'>$val</option>\n");
 					}

@@ -33,9 +33,16 @@ sont inclus par défaut sur d'autres distributions et/ou installables via des paq
 *** Emplacement des sources et droits d'accès aux fichiers et répertoires ***
 *****************************************************************************
 
-Les fichiers récupérés via SVN sont à placer soit dans le répertoire racine de votre serveur HTTP, soit dans 
+Les fichiers récupérés sont à placer soit dans le répertoire racine de votre serveur HTTP, soit dans 
 un sous-répertoire de cette racine (l'emplacement sera à indiquer dans le fichier de configuration de 
 l'application).
+
+Note: avec certains gestionnaires de version (comme Git par exemple), certains répertoires vides nécessaires à l'application 
+ne sont pas toujours automatiquement créés lorsque vous récupérez les fichiers sources. La commande suivante, exécutée à 
+partir du répertoire contenant l'application, permet d'y remédier :
+
+# mkdir -p fichiers/composantes/ interface/fichiers/messagerie/ interface/fichiers/composantes/ gestion/fichiers/messagerie/
+
 
 Les fichiers et répertoire de l'arborescence doivent appartenir à l'utilisateur propriétaire du processus Apache 
 (ou du serveur HTTP que vous utilisez). En effet, des fichiers et répertoires sont créés tout au long de l'utilisation 
@@ -71,7 +78,7 @@ Le droit d'écriture peut être activé soit via une interface graphique, soit via 
 # chmod u+w <repertoire_1> <repertoire_2> ...
 
 Commande complète (à partir du répertoire de l'application) :
-chmod -R u+w fichiers/composantes/ interface/fichiers/messagerie/ interface/fichiers/composantes/ gestion/fichiers/messagerie/ gestion/fichiers/composantes/ configuration/
+# chmod -R u+w fichiers/composantes/ interface/fichiers/messagerie/ interface/fichiers/composantes/ gestion/fichiers/messagerie/ gestion/fichiers/composantes/ configuration/
 
 Pour modifier les droits du groupe : 
 # chmod g+w <repertoire_1> <repertoire_2> ...

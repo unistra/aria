@@ -137,7 +137,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			$file_tmp_name=$_FILES["fichier"]["tmp_name"];
 			$file_error=$_FILES["fichier"]["error"]; // PHP > 4.2.0 uniquement
 
-			$file_name=html_entity_decode(validate_filename($file_name),ENT_QUOTES);
+			$file_name=html_entity_decode(validate_filename($file_name),ENT_QUOTES, $default_htmlspecialchars_encoding);
 
 			if($file_size>16777216)
 				$trop_gros=1;
@@ -255,7 +255,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			<font class='Texte_menu2'><b>Description</b></font>
 		</td>
 		<td class='td-droite fond_menu' style='white-space:normal; vertical-align:top;'>
-			<input type='text' name='texte' value='<?php if(isset($texte)) echo htmlspecialchars(stripslashes($texte), ENT_QUOTES); ?>' maxlength='128' size='60'>
+			<input type='text' name='texte' value='<?php if(isset($texte)) echo htmlspecialchars(stripslashes($texte), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' maxlength='128' size='60'>
 			<br><br>
 			<font class='Texte_menu'>
 				<i>La description est le texte qui apparaît sur la page d'information, sur lequel le candidat devra cliquer pour obtenir le fichier</i>

@@ -650,7 +650,7 @@ $__SIGNATURE_COURRIELS";
          <font class='Texte_important_menu2'><b>Nom usuel :</b></font>
       </td>
       <td class='td-droite fond_menu' style="text-align:left;">
-         <input type='text' name='nom' value='<?php if(isset($nom)) echo htmlspecialchars($nom,ENT_QUOTES); ?>' size="25" maxlength="30">
+         <input type='text' name='nom' value='<?php if(isset($nom)) echo htmlspecialchars($nom,ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="25" maxlength="30">
       </td>
    </tr>
    <tr>
@@ -658,7 +658,7 @@ $__SIGNATURE_COURRIELS";
          <font class='Texte_important_menu2'>Nom de naissance (si différent) :</font>
       </td>
       <td class='td-droite fond_menu' style="text-align:left;">
-         <input type='text' name='nom_naissance' value='<?php if(isset($nom_naissance)) echo htmlspecialchars($nom_naissance,ENT_QUOTES); ?>' size="25" maxlength="30">
+         <input type='text' name='nom_naissance' value='<?php if(isset($nom_naissance)) echo htmlspecialchars($nom_naissance,ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="25" maxlength="30">
       </td>
    </tr>
    <tr>
@@ -666,7 +666,7 @@ $__SIGNATURE_COURRIELS";
          <font class='Texte_important_menu2'><b>Prénom : </b></font>
       </td>
       <td class='td-droite fond_menu' style="text-align:left;">
-         <input type='text' name='prenom' value='<?php if(isset($prenom)) echo htmlspecialchars($prenom,ENT_QUOTES); ?>' size="25" maxlength="30">
+         <input type='text' name='prenom' value='<?php if(isset($prenom)) echo htmlspecialchars($prenom,ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="25" maxlength="30">
       </td>
    </tr>
    <tr>
@@ -674,7 +674,7 @@ $__SIGNATURE_COURRIELS";
          <font class='Texte_menu2'>Deuxième prénom (recommandé) : </font>
       </td>
       <td class='td-droite fond_menu' style="text-align:left;">
-         <input type='text' name='prenom2' value='<?php if(isset($deuxieme_prenom)) echo htmlspecialchars($deuxieme_prenom,ENT_QUOTES); ?>' size="25" maxlength="30">
+         <input type='text' name='prenom2' value='<?php if(isset($deuxieme_prenom)) echo htmlspecialchars($deuxieme_prenom,ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="25" maxlength="30">
       </td>
    </tr>
    <tr>
@@ -682,9 +682,9 @@ $__SIGNATURE_COURRIELS";
          <font class='Texte_important_menu2'><b>Date de naissance (JJ/MM/AAAA) : </b></font>
       </td>
       <td class='td-droite fond_menu' style="text-align:left;">
-         <input type='text' name='jour' value='<?php if(isset($jour)) echo htmlspecialchars($jour,ENT_QUOTES); ?>' size="2" maxlength="2">/
-         <input type='text' name='mois' value='<?php if(isset($mois)) echo htmlspecialchars($mois,ENT_QUOTES); ?>' size="2" maxlength="2">/
-         <input type='text' name='annee' value='<?php if(isset($annee)) echo htmlspecialchars($annee,ENT_QUOTES); ?>' size="4" maxlength="4">
+         <input type='text' name='jour' value='<?php if(isset($jour)) echo htmlspecialchars($jour,ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="2" maxlength="2">/
+         <input type='text' name='mois' value='<?php if(isset($mois)) echo htmlspecialchars($mois,ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="2" maxlength="2">/
+         <input type='text' name='annee' value='<?php if(isset($annee)) echo htmlspecialchars($annee,ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="4" maxlength="4">
       </td>
    </tr>
    <tr>
@@ -692,7 +692,7 @@ $__SIGNATURE_COURRIELS";
          <font class='Texte_important_menu2'><b>Ville de naissance : </b></font>
       </td>
       <td class='td-droite fond_menu' style="text-align:left;">
-         <input type='text' name='lieu_naissance' value='<?php if(isset($lieu_naissance)) echo htmlspecialchars($lieu_naissance,ENT_QUOTES); ?>' size="25" maxlength="60">
+         <input type='text' name='lieu_naissance' value='<?php if(isset($lieu_naissance)) echo htmlspecialchars($lieu_naissance,ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="25" maxlength="60">
       </td>
    </tr>
    <tr>
@@ -770,7 +770,7 @@ $__SIGNATURE_COURRIELS";
          <font class='Texte_important_menu2'><b>Adresse électronique valide (<i>email</i>) : </b></font>
       </td>
       <td class='td-droite fond_menu' style='text-align:left;'>
-         <input type='text' name='email' value='<?php if(isset($email)) echo htmlspecialchars($email,ENT_QUOTES); ?>' size="25" maxlength="255">
+         <input type='text' name='email' value='<?php if(isset($email)) echo htmlspecialchars($email,ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="25" maxlength="255">
          &nbsp;&nbsp;<font class='Texte_menu'><b><u>Une seule adresse</u> dans ce champ</b></font>
          <br>
          <font class='Texte_important_menu'>
@@ -785,7 +785,7 @@ $__SIGNATURE_COURRIELS";
          <font class='Texte_important_menu2'><b>Veuillez confirmer l'adresse électronique : </b></font>
       </td>
       <td class='td-droite fond_menu' style='text-align:left;'>
-         <input type='text' name='emailconf' value='<?php if(isset($emailconf)) echo htmlspecialchars($emailconf,ENT_QUOTES); ?>' size="25" maxlength="255">
+         <input type='text' name='emailconf' value='<?php if(isset($emailconf)) echo htmlspecialchars($emailconf,ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="25" maxlength="255">
       </td>
    </tr>
    <tr>
@@ -801,7 +801,7 @@ $__SIGNATURE_COURRIELS";
          <font class='Texte_important_menu2'><b>Adresse : <br></b></font>
       </td>
       <td class='td-droite fond_menu' style="text-align:left;">
-         <input name='adresse_1' value="<?php if(isset($adresse_1)) echo htmlspecialchars(stripslashes($adresse_1), ENT_QUOTES); ?>" size='40' maxlength="30">
+         <input name='adresse_1' value="<?php if(isset($adresse_1)) echo htmlspecialchars(stripslashes($adresse_1), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>" size='40' maxlength="30">
       </td>
    </tr>
    <tr>
@@ -809,7 +809,7 @@ $__SIGNATURE_COURRIELS";
          <font class='Texte_important_menu2'><b>Adresse (suite) : <br></b></font>
       </td>
       <td class='td-droite fond_menu' style="text-align:left;">
-         <input name='adresse_2' value="<?php if(isset($adresse_2)) echo htmlspecialchars(stripslashes($adresse_2), ENT_QUOTES); ?>" size='40' maxlength="30">
+         <input name='adresse_2' value="<?php if(isset($adresse_2)) echo htmlspecialchars(stripslashes($adresse_2), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>" size='40' maxlength="30">
       </td>
    </tr>
    <tr>
@@ -817,7 +817,7 @@ $__SIGNATURE_COURRIELS";
          <font class='Texte_important_menu2'><b>Adresse (suite) : <br></b></font>
       </td>
       <td class='td-droite fond_menu' style="text-align:left;">
-         <input name='adresse_3' value="<?php if(isset($adresse_3)) echo htmlspecialchars(stripslashes($adresse_3), ENT_QUOTES); ?>" size='40' maxlength="30">
+         <input name='adresse_3' value="<?php if(isset($adresse_3)) echo htmlspecialchars(stripslashes($adresse_3), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>" size='40' maxlength="30">
       </td>
    </tr>
    <tr>
@@ -825,7 +825,7 @@ $__SIGNATURE_COURRIELS";
          <font class='Texte_important_menu2'><b>Code Postal :</b></font>
       </td>
       <td class='td-droite fond_menu' style="text-align:left;">
-         <input type='text' name='adr_cp' value='<?php if(isset($adr_cp)) echo htmlspecialchars($adr_cp,ENT_QUOTES); ?>' size="25" maxlength="15">
+         <input type='text' name='adr_cp' value='<?php if(isset($adr_cp)) echo htmlspecialchars($adr_cp,ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="25" maxlength="15">
       </td>
    </tr>
    <tr>
@@ -833,7 +833,7 @@ $__SIGNATURE_COURRIELS";
          <font class='Texte_important_menu2'><b>Ville :</b></font>
       </td>
       <td class='td-droite fond_menu' style="text-align:left;">
-         <input type='text' name='adr_ville' value='<?php if(isset($adr_ville)) echo htmlspecialchars($adr_ville,ENT_QUOTES); ?>' size="25" maxlength="60">
+         <input type='text' name='adr_ville' value='<?php if(isset($adr_ville)) echo htmlspecialchars($adr_ville,ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="25" maxlength="60">
       </td>
    </tr>
    <tr>
@@ -855,7 +855,7 @@ $__SIGNATURE_COURRIELS";
                }
             ?>
          </select>
-         <!-- <input type='text' name='adr_pays' value='<?php if(isset($adr_pays)) echo htmlspecialchars($adr_pays,ENT_QUOTES); ?>' size="25" maxlength="60"> -->
+         <!-- <input type='text' name='adr_pays' value='<?php if(isset($adr_pays)) echo htmlspecialchars($adr_pays,ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="25" maxlength="60"> -->
       </td>
    </tr>
    <tr>
@@ -941,7 +941,7 @@ $__SIGNATURE_COURRIELS";
          <font class='Texte_menu2'>Numéro INE <b>ou</b> BEA : </font>
       </td>
       <td class='td-droite fond_menu' style="text-align:left;">
-         <input type='text' name='num_ine' value='<?php if(isset($num_ine)) echo htmlspecialchars($num_ine,ENT_QUOTES); ?>' size="25" maxlength="11"> <font class='Texte_menu'>(<b>obligatoire</b> si vous avez déjà été inscrit(e) dans cette Université)</font>
+         <input type='text' name='num_ine' value='<?php if(isset($num_ine)) echo htmlspecialchars($num_ine,ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="25" maxlength="11"> <font class='Texte_menu'>(<b>obligatoire</b> si vous avez déjà été inscrit(e) dans cette Université)</font>
       </td>
    </tr>
    <tr>
@@ -949,7 +949,7 @@ $__SIGNATURE_COURRIELS";
          <font class='Texte_menu2'>Numéro de téléphone fixe : </font>
       </td>
       <td class='td-droite fond_menu' style="text-align:left;">
-         <input type='text' name='telephone' value='<?php if(isset($telephone)) echo htmlspecialchars($telephone,ENT_QUOTES); ?>' size="25" maxlength="15">
+         <input type='text' name='telephone' value='<?php if(isset($telephone)) echo htmlspecialchars($telephone,ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="25" maxlength="15">
       </td>
    </tr>
    <tr>
@@ -957,7 +957,7 @@ $__SIGNATURE_COURRIELS";
          <font class='Texte_menu2'>Numéro de téléphone portable : </font>
       </td>
       <td class='td-droite fond_menu' style="text-align:left;">
-         <input type='text' name='telephone_portable' value='<?php if(isset($telephone_portable)) echo htmlspecialchars($telephone_portable,ENT_QUOTES); ?>' size="25" maxlength="15">
+         <input type='text' name='telephone_portable' value='<?php if(isset($telephone_portable)) echo htmlspecialchars($telephone_portable,ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="25" maxlength="15">
       </td>
    </tr>
    </table>
@@ -986,7 +986,7 @@ $__SIGNATURE_COURRIELS";
 
    <div class="centered_box">
       <img style='vertical-align:middle;' name="confirmation" src="code_confirmation.php" border="1">
-      <font class='Texte'><strong>Code : </strong><input type='text' name='code_conf' value='<?php if(isset($code_conf)) echo htmlspecialchars($code_conf,ENT_QUOTES); ?>' size="15" maxlength="5"></font>
+      <font class='Texte'><strong>Code : </strong><input type='text' name='code_conf' value='<?php if(isset($code_conf)) echo htmlspecialchars($code_conf,ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="15" maxlength="5"></font>
    </div>
 
    <div class="centered_icons_box">

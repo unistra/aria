@@ -205,7 +205,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			message("Erreur : le texte du paragraphe ne doit pas être vide", $__ERREUR);
 
 		if(isset($texte))
-			$texte=htmlspecialchars(stripslashes($texte),ENT_QUOTES);
+			$texte=htmlspecialchars(stripslashes($texte),ENT_QUOTES, $default_htmlspecialchars_encoding);
 		else
 			$texte="";
 

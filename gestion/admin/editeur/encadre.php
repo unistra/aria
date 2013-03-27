@@ -225,7 +225,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			<font class='Texte_menu2'><b>Nouveau texte :</b></font>
 		</td>
 		<td class='td-droite fond_menu'>
-			<textarea  name='new_encadre' rows='10' cols='60' class='input'><?php if(isset($texte)) echo htmlspecialchars($texte, ENT_QUOTES); ?></textarea>
+			<textarea  name='new_encadre' rows='10' cols='60' class='input'><?php if(isset($texte)) echo htmlspecialchars($texte, ENT_QUOTES, $default_htmlspecialchars_encoding); ?></textarea>
 		</td>
 	</tr>
 	<tr>

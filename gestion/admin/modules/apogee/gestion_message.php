@@ -205,7 +205,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			{
 				list($msg_id, $msg_nom, $msg_type)=db_fetch_row($result,$i);
 
-				$value=htmlspecialchars($msg_nom, ENT_QUOTES);
+				$value=htmlspecialchars($msg_nom, ENT_QUOTES, $default_htmlspecialchars_encoding);
 
             if($msg_type!=$old_type)
             {
@@ -275,7 +275,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 				<font class='Texte_menu2'><b>Nom du message :</b></font>
 			</td>
 			<td class='td-droite fond_menu'>
-				<input type='text' name='msg_nom' value='<?php if(isset($msg_nom)) echo htmlspecialchars(stripslashes($msg_nom), ENT_QUOTES); ?>' maxlength='196' size='70'>
+				<input type='text' name='msg_nom' value='<?php if(isset($msg_nom)) echo htmlspecialchars(stripslashes($msg_nom), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' maxlength='196' size='70'>
 			</td>
 		</tr>
 		<tr>
@@ -296,7 +296,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			</td>
 			<td class='td-droite fond_menu'>
 				<textarea name='msg_contenu' rows='20' cols='80'><?php
-					if(isset($msg_contenu)) echo htmlspecialchars(stripslashes($msg_contenu), ENT_QUOTES);
+					if(isset($msg_contenu)) echo htmlspecialchars(stripslashes($msg_contenu), ENT_QUOTES, $default_htmlspecialchars_encoding);
 				?></textarea>
 			</td>
 		</tr>

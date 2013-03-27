@@ -699,7 +699,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                      if($comp_nom=="0")
                         print("<optgroup label='==== Administrateurs, support et accès étendus ===='>\n");
                      else
-                        print("<optgroup label='==== ".htmlspecialchars($comp_nom, ENT_QUOTES)." ===='>\n");
+                        print("<optgroup label='==== ".htmlspecialchars($comp_nom, ENT_QUOTES, $default_htmlspecialchars_encoding)." ===='>\n");
    
                      $old_comp=$comp_nom;
                      $old_niveau="";
@@ -711,12 +711,12 @@ CeCILL-B, et que vous en avez accepté les termes.
                        print("</optgroup>
                               <option value='' label='' disabled></option>\n");
                
-                    print("<optgroup label='".htmlspecialchars(stripslashes($GLOBALS["tab_niveau"]["$login_niveau"]), ENT_QUOTES)."'></optgroup>\n");
+                    print("<optgroup label='".htmlspecialchars(stripslashes($GLOBALS["tab_niveau"]["$login_niveau"]), ENT_QUOTES, $default_htmlspecialchars_encoding)."'></optgroup>\n");
                
                     $old_niveau=$login_niveau;
                   }
    
-                  print("<option value='$user_id'>" . htmlspecialchars("$login_nom $login_prenom", ENT_QUOTES) . "</option>\n");
+                  print("<option value='$user_id'>" . htmlspecialchars("$login_nom $login_prenom", ENT_QUOTES, $default_htmlspecialchars_encoding) . "</option>\n");
                }
    
                print("</optgroup>
@@ -758,7 +758,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                if($comp_nom=="0")
                   print("<optgroup label='==== Administrateurs, support et accès étendus ===='>\n");
                else
-                  print("<optgroup label='==== ".htmlspecialchars($comp_nom, ENT_QUOTES)." ===='>\n");
+                  print("<optgroup label='==== ".htmlspecialchars($comp_nom, ENT_QUOTES, $default_htmlspecialchars_encoding)." ===='>\n");
 
                $old_comp=$comp_nom;
                $old_niveau="";
@@ -770,12 +770,12 @@ CeCILL-B, et que vous en avez accepté les termes.
                   print("</optgroup>
                          <option value='' label='' disabled></option>\n");
             
-               print("<optgroup label='".htmlspecialchars(stripslashes($GLOBALS["tab_niveau"]["$login_niveau"]), ENT_QUOTES)."'></optgroup>\n");
+               print("<optgroup label='".htmlspecialchars(stripslashes($GLOBALS["tab_niveau"]["$login_niveau"]), ENT_QUOTES, $default_htmlspecialchars_encoding)."'></optgroup>\n");
             
                $old_niveau=$login_niveau;
             }
 
-            print("<option value='$user_id'>" . htmlspecialchars("$login_nom $login_prenom", ENT_QUOTES) . "</option>\n");
+            print("<option value='$user_id'>" . htmlspecialchars("$login_nom $login_prenom", ENT_QUOTES, $default_htmlspecialchars_encoding) . "</option>\n");
          }
 
          print("</optgroup>
@@ -866,13 +866,13 @@ CeCILL-B, et que vous en avez accepté les termes.
                      if($GLOBALS["__LDAP_ACTIF"]=="t")
                      {
                         $selected=$source==$source_nb ? "selected='1'" : "";
-                        print("<option value='$source_nb' $selected>".htmlspecialchars(stripslashes($source_nom), ENT_QUOTES)."</option>\n");
+                        print("<option value='$source_nb' $selected>".htmlspecialchars(stripslashes($source_nom), ENT_QUOTES, $default_htmlspecialchars_encoding)."</option>\n");
                      }
                   }
                   else // Ajouter les conditions en fonction des autres sources
                   {
                      $selected=$source==$source_nb ? "selected='1'" : "";
-                     print("<option value='$source_nb' $selected>".htmlspecialchars(stripslashes($source_nom), ENT_QUOTES)."</option>\n");
+                     print("<option value='$source_nb' $selected>".htmlspecialchars(stripslashes($source_nom), ENT_QUOTES, $default_htmlspecialchars_encoding)."</option>\n");
                   }  
                }
                 
@@ -937,7 +937,7 @@ CeCILL-B, et que vous en avez accepté les termes.
    <tr>
       <td class='td-gauche fond_menu2'><font class='Texte_menu2'><b>Recherche dans l'annuaire LDAP (nom ou identifiant) : </b></font></td>
       <td class='td-droite fond_menu'>
-         <input type='text' name='recherche_ldap' value="<?php if(isset($_SESSION["current_recherche_ldap"])) echo htmlspecialchars(stripslashes($_SESSION["current_recherche_ldap"]), ENT_QUOTES); ?>" size='40'> 
+         <input type='text' name='recherche_ldap' value="<?php if(isset($_SESSION["current_recherche_ldap"])) echo htmlspecialchars(stripslashes($_SESSION["current_recherche_ldap"]), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>" size='40'> 
          <input type='submit' style='margin-left:10px;' name='rechercher' value='Rechercher'>
    <?php
             if(isset($_SESSION["resultat_recherche_ldap"]))
@@ -950,9 +950,9 @@ CeCILL-B, et que vous en avez accepté les termes.
                   
                   foreach($_SESSION["resultat_recherche_ldap"] as $key => $current_personne)
                   {
-                     $ldap_nom=utf8_decode(htmlspecialchars(stripslashes($current_personne["nom"]), ENT_QUOTES));
-                     $ldap_prenom=utf8_decode(htmlspecialchars(stripslashes($current_personne["prenom"]), ENT_QUOTES));
-                     $ldap_login=utf8_decode(htmlspecialchars(stripslashes($current_personne["login"]), ENT_QUOTES));
+                     $ldap_nom=utf8_decode(htmlspecialchars(stripslashes($current_personne["nom"]), ENT_QUOTES, $default_htmlspecialchars_encoding));
+                     $ldap_prenom=utf8_decode(htmlspecialchars(stripslashes($current_personne["prenom"]), ENT_QUOTES, $default_htmlspecialchars_encoding));
+                     $ldap_login=utf8_decode(htmlspecialchars(stripslashes($current_personne["login"]), ENT_QUOTES, $default_htmlspecialchars_encoding));
                      
                      print("<option value='$key'>$ldap_nom $ldap_prenom ($ldap_login)</option>\n");
                   }
@@ -986,7 +986,7 @@ CeCILL-B, et que vous en avez accepté les termes.
             foreach($__SOURCE_COMPTE as $source_nb => $source_nom)
             {
                $selected=$source==$source_nb ? "selected='1'" : "";
-               print("<option value='$source_nb' $selected>".htmlspecialchars(stripslashes($source_nom), ENT_QUOTES)."</option>\n");  
+               print("<option value='$source_nb' $selected>".htmlspecialchars(stripslashes($source_nom), ENT_QUOTES, $default_htmlspecialchars_encoding)."</option>\n");  
             }
              
             print("</select>\n");
@@ -1141,7 +1141,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                         print("</optgroup>
                                  <option value='' label='' disabled></option>\n");
 
-                     print("<optgroup label='".htmlspecialchars(stripslashes($univ_nom), ENT_QUOTES)."'>\n");
+                     print("<optgroup label='".htmlspecialchars(stripslashes($univ_nom), ENT_QUOTES, $default_htmlspecialchars_encoding)."'>\n");
                   }
 
                   $selected=($form_comp_id==$comp_id) ? "selected='1'" : "";
@@ -1320,7 +1320,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                   if($comp_nom=="0")
                      print("<optgroup label='==== Administrateurs, support et accès étendus ===='>\n");
                   else
-                     print("<optgroup label='==== ".htmlspecialchars($comp_nom, ENT_QUOTES)." ===='>\n");
+                     print("<optgroup label='==== ".htmlspecialchars($comp_nom, ENT_QUOTES, $default_htmlspecialchars_encoding)." ===='>\n");
 
                   $old_comp=$comp_nom;
                   $old_niveau="";
@@ -1332,12 +1332,12 @@ CeCILL-B, et que vous en avez accepté les termes.
                     print("</optgroup>
                            <option value='' label='' disabled></option>\n");
             
-                 print("<optgroup label='".htmlspecialchars(stripslashes($GLOBALS["tab_niveau"]["$login_niveau"]), ENT_QUOTES)."'></optgroup>\n");
+                 print("<optgroup label='".htmlspecialchars(stripslashes($GLOBALS["tab_niveau"]["$login_niveau"]), ENT_QUOTES, $default_htmlspecialchars_encoding)."'></optgroup>\n");
             
                  $old_niveau=$login_niveau;
                }
 
-               print("<option value='$user_id'>" . htmlspecialchars("$login_nom $login_prenom", ENT_QUOTES) . "</option>\n");
+               print("<option value='$user_id'>" . htmlspecialchars("$login_nom $login_prenom", ENT_QUOTES, $default_htmlspecialchars_encoding) . "</option>\n");
             }
 
             db_free_result($result);

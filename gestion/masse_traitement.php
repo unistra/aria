@@ -775,7 +775,7 @@ $_SESSION[universite]";
 				{
 					list($motif_id, $motif)=db_fetch_row($result2,$i_motif);
 
-					$value=htmlspecialchars($motif, ENT_QUOTES);
+					$value=htmlspecialchars($motif, ENT_QUOTES, $default_htmlspecialchars_encoding);
 					$motifs_array[$motif_id]=$motif;
 				}
 				db_free_result($result2);
@@ -978,7 +978,7 @@ $_SESSION[universite]";
 											<font class='$font1'>Salle :&nbsp;</font>
 										</td>
 										<td colspan='6'>
-											<input class='input_small' type='text' name='entretien_salle[$inid]' value='" . htmlspecialchars(stripslashes($entretien_salle), ENT_QUOTES) . "' size='25' maxlength='50'>
+											<input class='input_small' type='text' name='entretien_salle[$inid]' value='" . htmlspecialchars(stripslashes($entretien_salle), ENT_QUOTES, $default_htmlspecialchars_encoding) . "' size='25' maxlength='50'>
 										</td>
 									</tr>
 									<tr>
@@ -986,7 +986,7 @@ $_SESSION[universite]";
 											<font class='$font1'>Lieu :&nbsp;</font>
 										</td>
 										<td colspan='6'>
-											<input class='input_small' type='text' name='entretien_lieu[$inid]' value='" . htmlspecialchars(stripslashes($entretien_lieu), ENT_QUOTES) . "' size='40' maxlength='128'>
+											<input class='input_small' type='text' name='entretien_lieu[$inid]' value='" . htmlspecialchars(stripslashes($entretien_lieu), ENT_QUOTES, $default_htmlspecialchars_encoding) . "' size='40' maxlength='128'>
 										</td>
 									</tr>
 									</table>

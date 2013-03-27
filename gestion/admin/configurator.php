@@ -373,7 +373,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 														// modification : la valeur existe déjà
 														if(isset($result_array))
-															$val=htmlspecialchars($result_array[$colonne],ENT_QUOTES);
+															$val=htmlspecialchars($result_array[$colonne],ENT_QUOTES, $default_htmlspecialchars_encoding);
 														else
 															$val="";
 

@@ -230,7 +230,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		</td>
 		<td class='td-droite fond_menu'>
 			<font class='Texte_menu'><i>Les adresses http(s):// seront automatiquement transformées en liens HTML</i></font>
-			<br><textarea  name='new_encadre' rows='10' cols='60' class='input'><?php if(isset($texte)) echo htmlspecialchars($texte, ENT_QUOTES); ?></textarea>
+			<br><textarea  name='new_encadre' rows='10' cols='60' class='input'><?php if(isset($texte)) echo htmlspecialchars($texte, ENT_QUOTES, $default_htmlspecialchars_encoding); ?></textarea>
 		</td>
 	</tr>
 	<tr>

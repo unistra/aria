@@ -198,7 +198,7 @@ $__SIGNATURE_COURRIELS";
 			<font class='Texte_menu2'><b>Nom : </b></font>
 		</td>
 		<td class='td-droite fond_menu'>
-			<input type='text' name='nom' value='<?php if(isset($nom)) echo htmlspecialchars($nom,ENT_QUOTES); ?>' size="25" maxlength="30">
+			<input type='text' name='nom' value='<?php if(isset($nom)) echo htmlspecialchars($nom,ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="25" maxlength="30">
 		</td>
 	</tr>
 	<tr>
@@ -206,9 +206,9 @@ $__SIGNATURE_COURRIELS";
 			<font class='Texte_menu2'><b>Date de naissance (JJ/MM/AAAA) : </b></font>
 		</td>
 		<td class='td-droite fond_menu'>
-			<input type='text' name='jour' value='<?php if(isset($jour)) echo htmlspecialchars($jour,ENT_QUOTES); ?>' size="2" maxlength="2">/
-			<input type='text' name='mois' value='<?php if(isset($mois)) echo htmlspecialchars($mois,ENT_QUOTES); ?>' size="2" maxlength="2">/
-			<input type='text' name='annee' value='<?php if(isset($annee)) echo htmlspecialchars($annee,ENT_QUOTES); ?>' size="4" maxlength="4">
+			<input type='text' name='jour' value='<?php if(isset($jour)) echo htmlspecialchars($jour,ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="2" maxlength="2">/
+			<input type='text' name='mois' value='<?php if(isset($mois)) echo htmlspecialchars($mois,ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="2" maxlength="2">/
+			<input type='text' name='annee' value='<?php if(isset($annee)) echo htmlspecialchars($annee,ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="4" maxlength="4">
 		</td>
 	</tr>
 	<tr>
@@ -216,7 +216,7 @@ $__SIGNATURE_COURRIELS";
 			<font class='Texte_menu2'><b>Adresse électronique (<i>e-mail</i>) : </b></font>
 		</td>
 		<td class='td-droite fond_menu'>
-			<input type='text' name='email' value='<?php if(isset($email)) echo htmlspecialchars($email,ENT_QUOTES); ?>' size="25" maxlength="255">
+			<input type='text' name='email' value='<?php if(isset($email)) echo htmlspecialchars($email,ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="25" maxlength="255">
 		</td>
 	</tr>
 	</table>

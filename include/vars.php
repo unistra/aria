@@ -50,6 +50,10 @@ CeCILL-B, et que vous en avez accepté les termes.
 ?>
 <?php
 
+// Encodage par défaut pour la fonction htmlspecialchars
+
+$default_htmlspecialchars_encoding="ISO-8859-15";
+
 // Conversion de l'ancienne configuration, si nécessaire
 
 if(!is_file(dirname(__FILE__)."/../configuration/aria_config.php") && is_file(dirname(__FILE__)."/../configuration/config.php"))
@@ -331,6 +335,7 @@ $__FIN_PRO=2;
 
 $tab_finalite=array("0" => "", "1" => "- Recherche", "2" => "- Pro");
 $tab_finalite_abbregee=array("0" => "", "1" => "R", "2" => "P");
+$tab_finalite_semicomplete=array("0" => "", "1" => "Recherche", "2" => "Professionnelle");
 $tab_finalite_lettres=array("0" => "", "1" => "Finalité Recherche", "2" => "Finalité Professionnelle");
 $tab_finalite_complete=$tab_finalite_lettres; // alias
 // =======================================================================================================

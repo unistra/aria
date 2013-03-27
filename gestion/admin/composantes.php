@@ -352,10 +352,10 @@ CeCILL-B, et que vous en avez accepté les termes.
                   print("</optgroup>
                            <option value='' label='' disabled></option>\n");
 
-               print("<optgroup label='".htmlspecialchars(stripslashes($univ_nom), ENT_QUOTES)."'>\n");
+               print("<optgroup label='".htmlspecialchars(stripslashes($univ_nom), ENT_QUOTES, $default_htmlspecialchars_encoding)."'>\n");
             }
 
-            $value=htmlspecialchars($comp_nom, ENT_QUOTES);
+            $value=htmlspecialchars($comp_nom, ENT_QUOTES, $default_htmlspecialchars_encoding);
 
             if(isset($_SESSION["comp_id"]) && $_SESSION["comp_id"]==$comp_id)
                $selected="selected='1'";
@@ -504,7 +504,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          <font class='Texte_menu2'><b>Nom de la composante :</b></font>
       </td>
       <td class='td-droite fond_menu'>
-         <input type='text' name='nom' value='<?php if(isset($new_comp_nom)) echo htmlspecialchars(stripslashes($new_comp_nom), ENT_QUOTES); elseif(isset($current_comp_nom)) echo htmlspecialchars(stripslashes($current_comp_nom), ENT_QUOTES); ?>' maxlength='92' size='60'>
+         <input type='text' name='nom' value='<?php if(isset($new_comp_nom)) echo htmlspecialchars(stripslashes($new_comp_nom), ENT_QUOTES, $default_htmlspecialchars_encoding); elseif(isset($current_comp_nom)) echo htmlspecialchars(stripslashes($current_comp_nom), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' maxlength='92' size='60'>
       </td>
    </tr>
    <tr>
@@ -513,8 +513,8 @@ CeCILL-B, et que vous en avez accepté les termes.
       </td>
       <td class='td-droite fond_menu'>
          <textarea name='adresse' rows='4' cols='60'><?php
-            if(isset($new_comp_adresse)) echo htmlspecialchars(stripslashes($new_comp_adresse), ENT_QUOTES);
-            elseif(isset($current_comp_adresse)) echo htmlspecialchars(stripslashes($current_comp_adresse), ENT_QUOTES);
+            if(isset($new_comp_adresse)) echo htmlspecialchars(stripslashes($new_comp_adresse), ENT_QUOTES, $default_htmlspecialchars_encoding);
+            elseif(isset($current_comp_adresse)) echo htmlspecialchars(stripslashes($current_comp_adresse), ENT_QUOTES, $default_htmlspecialchars_encoding);
          ?></textarea>
       </td>
    </tr>
@@ -523,7 +523,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          <font class='Texte_menu2'><b>Directeur (avec civilité)</b></font>
       </td>
       <td class='td-droite fond_menu'>
-         <input type='text' name='directeur' value='<?php if(isset($new_comp_directeur)) echo htmlspecialchars(stripslashes($new_comp_directeur), ENT_QUOTES); elseif(isset($current_comp_directeur)) echo htmlspecialchars(stripslashes($current_comp_directeur), ENT_QUOTES);?>' maxlength='92' size='60'>
+         <input type='text' name='directeur' value='<?php if(isset($new_comp_directeur)) echo htmlspecialchars(stripslashes($new_comp_directeur), ENT_QUOTES, $default_htmlspecialchars_encoding); elseif(isset($current_comp_directeur)) echo htmlspecialchars(stripslashes($current_comp_directeur), ENT_QUOTES, $default_htmlspecialchars_encoding);?>' maxlength='92' size='60'>
       </td>
    </tr>
    <tr>
@@ -532,8 +532,8 @@ CeCILL-B, et que vous en avez accepté les termes.
       </td>
       <td class='td-droite fond_menu'>
          <textarea name='contact' rows='4' cols='60'><?php
-            if(isset($new_comp_contact)) echo htmlspecialchars(stripslashes($new_comp_contact), ENT_QUOTES);
-            elseif(isset($current_comp_contact)) echo htmlspecialchars(stripslashes($current_comp_contact), ENT_QUOTES);
+            if(isset($new_comp_contact)) echo htmlspecialchars(stripslashes($new_comp_contact), ENT_QUOTES, $default_htmlspecialchars_encoding);
+            elseif(isset($current_comp_contact)) echo htmlspecialchars(stripslashes($current_comp_contact), ENT_QUOTES, $default_htmlspecialchars_encoding);
          ?></textarea>
       </td>
    </tr>
@@ -543,8 +543,8 @@ CeCILL-B, et que vous en avez accepté les termes.
       </td>
       <td class='td-droite fond_menu'>
          <textarea name='scolarite' rows='7' cols='60'><?php
-            if(isset($new_comp_scolarite)) echo htmlspecialchars(stripslashes($new_comp_scolarite), ENT_QUOTES);
-            elseif(isset($current_comp_scolarite)) echo htmlspecialchars(stripslashes($current_comp_scolarite), ENT_QUOTES);
+            if(isset($new_comp_scolarite)) echo htmlspecialchars(stripslashes($new_comp_scolarite), ENT_QUOTES, $default_htmlspecialchars_encoding);
+            elseif(isset($current_comp_scolarite)) echo htmlspecialchars(stripslashes($current_comp_scolarite), ENT_QUOTES, $default_htmlspecialchars_encoding);
          ?></textarea>
       </td>
    </tr>
@@ -553,7 +553,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          <font class='Texte_menu2'><b>Adresse électronique de la Scolarité :</b></font>
       </td>
       <td class='td-droite fond_menu'>
-         <input type='text' name='courriel_scolarite' value='<?php if(isset($new_comp_courriel_scolarite)) echo htmlspecialchars(stripslashes($new_comp_courriel_scolarite), ENT_QUOTES); elseif(isset($current_comp_courriel_scolarite)) echo htmlspecialchars(stripslashes($current_comp_courriel_scolarite), ENT_QUOTES); ?>' maxlength='128' size='60'>
+         <input type='text' name='courriel_scolarite' value='<?php if(isset($new_comp_courriel_scolarite)) echo htmlspecialchars(stripslashes($new_comp_courriel_scolarite), ENT_QUOTES, $default_htmlspecialchars_encoding); elseif(isset($current_comp_courriel_scolarite)) echo htmlspecialchars(stripslashes($current_comp_courriel_scolarite), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' maxlength='128' size='60'>
       </td>
    </tr>
    <tr>
@@ -561,7 +561,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          <font class='Texte_menu2'><b>Adresse du site Internet de la composante :</b><br><i>(N'oubliez pas http:// ou https:// ...)</i></font>
       </td>
       <td class='td-droite fond_menu'>
-         <input type='text' name='www' value='<?php if(isset($new_comp_www)) echo htmlspecialchars(stripslashes($new_comp_www), ENT_QUOTES); elseif(isset($current_comp_www)) echo htmlspecialchars(stripslashes($current_comp_www), ENT_QUOTES); ?>' maxlength='128' size='60'>
+         <input type='text' name='www' value='<?php if(isset($new_comp_www)) echo htmlspecialchars(stripslashes($new_comp_www), ENT_QUOTES, $default_htmlspecialchars_encoding); elseif(isset($current_comp_www)) echo htmlspecialchars(stripslashes($current_comp_www), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' maxlength='128' size='60'>
       </td>
    </tr>
    </table>
@@ -761,7 +761,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          <font class='Texte_menu2'><b>Entretiens : salle par défaut :</b></font>
       </td>
       <td class='td-milieu fond_menu'>
-         <input type='text' name='entretien_salle' value='<?php if(isset($new_comp_entretien_salle)) echo htmlspecialchars(stripslashes($new_comp_entretien_salle), ENT_QUOTES); elseif(isset($comp_entretien_salle)) echo htmlspecialchars(stripslashes($current_comp_entretien_salle), ENT_QUOTES); ?>' maxlength='50' size='52'>
+         <input type='text' name='entretien_salle' value='<?php if(isset($new_comp_entretien_salle)) echo htmlspecialchars(stripslashes($new_comp_entretien_salle), ENT_QUOTES, $default_htmlspecialchars_encoding); elseif(isset($comp_entretien_salle)) echo htmlspecialchars(stripslashes($current_comp_entretien_salle), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' maxlength='50' size='52'>
       </td>
       <td class='td-droite fond_menu' rowspan='2'>
          <font class='Texte_menu'>
@@ -773,7 +773,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          <font class='Texte_menu2'><b>Entretiens : lieu (adresse) par défaut :</b></font>
       </td>
       <td class='td-milieu fond_menu'>
-         <input type='text' name='entretien_lieu' value='<?php if(isset($new_comp_entretien_lieu)) echo htmlspecialchars(stripslashes($new_comp_entretien_lieu), ENT_QUOTES); elseif(isset($comp_entretien_lieu)) echo htmlspecialchars(stripslashes($current_comp_entretien_lieu), ENT_QUOTES); ?>' maxlength='128' size='60'>
+         <input type='text' name='entretien_lieu' value='<?php if(isset($new_comp_entretien_lieu)) echo htmlspecialchars(stripslashes($new_comp_entretien_lieu), ENT_QUOTES, $default_htmlspecialchars_encoding); elseif(isset($comp_entretien_lieu)) echo htmlspecialchars(stripslashes($current_comp_entretien_lieu), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' maxlength='128' size='60'>
       </td>
    </tr>
    </table>

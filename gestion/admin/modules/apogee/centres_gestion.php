@@ -270,7 +270,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 				{
 					list($centre_id, $nom, $code)=db_fetch_row($result,$i);
 
-					$val=htmlspecialchars($nom, ENT_QUOTES);
+					$val=htmlspecialchars($nom, ENT_QUOTES, $default_htmlspecialchars_encoding);
 
 					print("<option value='$centre_id'>$val ($code)</option>\n");
 				}
@@ -359,11 +359,11 @@ CeCILL-B, et que vous en avez accepté les termes.
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu2'><font class='Texte_menu2'><b>Nom du Centre de Gestion : </b></font></td>
-		<td class='td-droite fond_menu'><input type='text' name='nom' value='<?php if(isset($new_nom)) echo htmlspecialchars($new_nom, ENT_QUOTES); ?>' size='40'></td>
+		<td class='td-droite fond_menu'><input type='text' name='nom' value='<?php if(isset($new_nom)) echo htmlspecialchars($new_nom, ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size='40'></td>
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu2'><font class='Texte_menu2'><b>Code Apogée du Centre : </b></font></td>
-		<td class='td-droite fond_menu'><input type='text' name='code' value='<?php if(isset($new_code)) echo htmlspecialchars($new_code, ENT_QUOTES); ?>' size='40'></td>
+		<td class='td-droite fond_menu'><input type='text' name='code' value='<?php if(isset($new_code)) echo htmlspecialchars($new_code, ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size='40'></td>
 	</tr>
 	</table>
 

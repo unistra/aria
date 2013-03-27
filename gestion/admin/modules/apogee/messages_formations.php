@@ -189,7 +189,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 									print("</optgroup>
 												<option value='' label='' disabled></option>\n");
 
-								$val=htmlspecialchars($form_mention_nom, ENT_QUOTES);
+								$val=htmlspecialchars($form_mention_nom, ENT_QUOTES, $default_htmlspecialchars_encoding);
 
 								print("<optgroup label='- $val'>\n");
 
@@ -242,7 +242,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                             <font class='Texte_menu2'><b>$_MOD_APOGEE_MSG_TYPES[$msg_type]
                          </td>
                          <td class='td-droite fond_menu'>
-                            <textarea name='message_lp' cols='100' rows='12'><?php echo htmlspecialchars(stripslashes($msg_contenu), ENT_QUOTES); ?></textarea>                      
+                            <textarea name='message_lp' cols='100' rows='12'><?php echo htmlspecialchars(stripslashes($msg_contenu), ENT_QUOTES, $default_htmlspecialchars_encoding); ?></textarea>                      
                          </td> 
 			   		       <td align='right' width='20'>
 				   			   <a href='suppr_msg.php?pid=$_SESSION[filtre_apogee_propspec]&t=$msg_type' target='_self'><img src='$__ICON_DIR/trashcan_full_16x16_slick.png' alt='Supprimer' border='0'></a>
@@ -450,7 +450,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                      {
                         $selected=array_key_exists($propspec_id, $array_formations_msg) && array_key_exists($message_type, $array_formations_msg[$propspec_id]["messages"]) && $array_formations_msg[$propspec_id]["messages"]["$message_type"]==$current_message_id ? "selected='1'" : "";
                      
-                        print("<option value='$current_message_id' $selected>".htmlspecialchars(stripslashes($current_message_nom), ENT_QUOTES)."</option>\n");
+                        print("<option value='$current_message_id' $selected>".htmlspecialchars(stripslashes($current_message_nom), ENT_QUOTES, $default_htmlspecialchars_encoding)."</option>\n");
                      }
                   }
 

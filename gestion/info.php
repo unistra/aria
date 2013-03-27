@@ -191,7 +191,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			<font class='Texte_menu2'><b>Année (YYYY)</b></font>
 		</td>
 		<td class='td-droite fond_menu'>
-			<input type='text' name='annee' value='<?php if(isset($annee)) echo htmlspecialchars(stripslashes($annee), ENT_QUOTES); elseif(isset($cur_annee)) echo htmlspecialchars(stripslashes($cur_annee), ENT_QUOTES); ?>' maxlength='4' size='15'>
+			<input type='text' name='annee' value='<?php if(isset($annee)) echo htmlspecialchars(stripslashes($annee), ENT_QUOTES, $default_htmlspecialchars_encoding); elseif(isset($cur_annee)) echo htmlspecialchars(stripslashes($cur_annee), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' maxlength='4' size='15'>
 		</td>
 	</tr>
 	<tr>
@@ -199,7 +199,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			<font class='Texte_menu2'><b>Information</b></font>
 		</td>
 		<td class='td-droite fond_menu'>
-			<textarea name='information' rows='6' cols='70' class='input'><?php if(isset($information)) echo htmlspecialchars(stripslashes($information), ENT_QUOTES); elseif(isset($cur_texte)) echo htmlspecialchars(stripslashes($cur_texte), ENT_QUOTES);?></textarea>
+			<textarea name='information' rows='6' cols='70' class='input'><?php if(isset($information)) echo htmlspecialchars(stripslashes($information), ENT_QUOTES, $default_htmlspecialchars_encoding); elseif(isset($cur_texte)) echo htmlspecialchars(stripslashes($cur_texte), ENT_QUOTES, $default_htmlspecialchars_encoding);?></textarea>
 		</td>
 	</tr>
 	<tr>
@@ -207,7 +207,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			<font class='Texte_menu2'><b>Durée</b></font>
 		</td>
 		<td class='td-droite fond_menu'>
-			<input type='text' name='duree' value='<?php if(isset($duree)) echo htmlspecialchars(stripslashes($duree), ENT_QUOTES); elseif(isset($cur_duree)) echo htmlspecialchars(stripslashes($cur_duree), ENT_QUOTES); ?>' maxlength='20' size='30'>&nbsp;&nbsp;<font class='Texte_menu'><i>exemple : 1 mois, 2 ans, ...</i></font>
+			<input type='text' name='duree' value='<?php if(isset($duree)) echo htmlspecialchars(stripslashes($duree), ENT_QUOTES, $default_htmlspecialchars_encoding); elseif(isset($cur_duree)) echo htmlspecialchars(stripslashes($cur_duree), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' maxlength='20' size='30'>&nbsp;&nbsp;<font class='Texte_menu'><i>exemple : 1 mois, 2 ans, ...</i></font>
 		</td>
 	</tr>
 	</table>

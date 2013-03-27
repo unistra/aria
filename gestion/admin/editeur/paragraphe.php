@@ -207,7 +207,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		if(isset($para_vide))
 			message("Erreur : le texte du paragraphe ne doit pas être vide.", $__ERREUR);
 
-		$texte=isset($texte) ? htmlspecialchars(stripslashes($texte),ENT_QUOTES) : "";
+		$texte=isset($texte) ? htmlspecialchars(stripslashes($texte),ENT_QUOTES, $default_htmlspecialchars_encoding) : "";
 		$current_taille=isset($taille) ? $taille : "10";
 		$current_marge_g=isset($marge_g) ? $marge_g : "0";
 

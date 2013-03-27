@@ -139,7 +139,7 @@ CeCILL-B, et que vous en avez accepté les termes.
             if(db_num_rows($res_formation))
             {
                list($nom_annee, $nom_spec, $finalite)=db_fetch_row($res_formation, 0);
-               $formation_txt=$nom_annee=="" ? htmlspecialchars("$nom_spec", ENT_QUOTES) : htmlspecialchars("$nom_annee $nom_spec", ENT_QUOTES);
+               $formation_txt=$nom_annee=="" ? htmlspecialchars("$nom_spec", ENT_QUOTES, $default_htmlspecialchars_encoding) : htmlspecialchars("$nom_annee $nom_spec", ENT_QUOTES, $default_htmlspecialchars_encoding);
                $formation_txt.=$finalite ? " - $tab_finalite[$finalite]" : "";
             }
 
@@ -547,7 +547,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          <font class='Texte_important_menu2'><strong>Votre demande à la scolarité :</strong></font>
       </td>
       <td class='td-droite fond_menu'>
-         <textarea name='demande' cols="50" rows="7"><?php if(isset($demande)) echo htmlspecialchars(stripslashes($demande), ENT_QUOTES); ?></textarea>
+         <textarea name='demande' cols="50" rows="7"><?php if(isset($demande)) echo htmlspecialchars(stripslashes($demande), ENT_QUOTES, $default_htmlspecialchars_encoding); ?></textarea>
       </td>
    </tr>
 -->

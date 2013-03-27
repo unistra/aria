@@ -309,7 +309,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 						print("</optgroup>
 									<option value='' label='' disabled></option>\n");
 
-					print("<optgroup label='----- ".htmlspecialchars(stripslashes($univ_nom), ENT_QUOTES)." -----'>\n");
+					print("<optgroup label='----- ".htmlspecialchars(stripslashes($univ_nom), ENT_QUOTES, $default_htmlspecialchars_encoding)." -----'>\n");
 
 					$old_univ=$univ_id;
 				}
@@ -320,7 +320,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 						print("</optgroup>
 									<option value='' label='' disabled></option>\n");
 
-					print("<optgroup label='".htmlspecialchars($comp_nom, ENT_QUOTES)."'>\n");
+					print("<optgroup label='".htmlspecialchars($comp_nom, ENT_QUOTES, $default_htmlspecialchars_encoding)."'>\n");
 
 					$old_comp=$comp_id;
 				}
@@ -341,7 +341,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 				<font class='Texte_menu2'><b>Titre de la lettre destination : </b><br>(laissez vide pour conserver le même titre)</font>
 			</td>
 			<td class='td-droite fond_menu'>
-				<input type='text' name='new_titre' value='<?php if(isset($new_titre)) echo htmlspecialchars($new_titre, ENT_QUOTES); ?>' size='40' maxlenght='96'>
+				<input type='text' name='new_titre' value='<?php if(isset($new_titre)) echo htmlspecialchars($new_titre, ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size='40' maxlenght='96'>
 			</td>
 		</tr>
 		<tr>
@@ -392,12 +392,12 @@ CeCILL-B, et que vous en avez accepté les termes.
 								print("</optgroup>
 											<option value='' label='' disabled></option>\n");
 
-							print("<optgroup label='----- ".htmlspecialchars(stripslashes($univ_nom), ENT_QUOTES)." -----'>\n");
+							print("<optgroup label='----- ".htmlspecialchars(stripslashes($univ_nom), ENT_QUOTES, $default_htmlspecialchars_encoding)." -----'>\n");
 
 							$old_univ=$univ_id;
 						}
 
-						$val=htmlspecialchars($comp_nom, ENT_QUOTES);
+						$val=htmlspecialchars($comp_nom, ENT_QUOTES, $default_htmlspecialchars_encoding);
 
 						print("<option value='$comp_id' label=\"$val\">$val</option>\n");
 					}

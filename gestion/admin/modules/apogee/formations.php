@@ -267,7 +267,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 								   $old_type=$msg_type;
 								}
 
-								$val=htmlspecialchars($msg_nom, ENT_QUOTES);
+								$val=htmlspecialchars($msg_nom, ENT_QUOTES, $default_htmlspecialchars_encoding);
 
 								$selected=isset($msg_id) && $msg_id==$select_msg_id ? "selected='1'" : "";
 
@@ -297,7 +297,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 						$rows=db_num_rows($result);
 
 						list($msg_nom, $msg_type)=db_fetch_row($result, 0);
-						$val=htmlspecialchars($msg_nom, ENT_QUOTES);
+						$val=htmlspecialchars($msg_nom, ENT_QUOTES, $default_htmlspecialchars_encoding);
 
 						print("<font class='Texte_menu'><b>$val</b></font>\n");
 					}

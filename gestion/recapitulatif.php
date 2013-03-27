@@ -518,7 +518,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 						{
 							$page_garde_pdf->SetFont('Arial','I',8);
 
-							// $para=html_entity_decode(clean_word_str(str_replace("\r\n\r\n","\r\n", $para)), ENT_QUOTES);
+							// $para=html_entity_decode(clean_word_str(str_replace("\r\n\r\n","\r\n", $para)), ENT_QUOTES, $default_htmlspecialchars_encoding);
 							$para=str_replace("\r\n\r\n","\r\n", $para);
 
 							$page_garde_pdf->MultiCell(0,6, $para,0,'J');

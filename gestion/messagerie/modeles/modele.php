@@ -186,7 +186,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 				{
 					list($modele_id, $intitule)=db_fetch_row($result,$i);
 
-					$value=htmlspecialchars($intitule, ENT_QUOTES);
+					$value=htmlspecialchars($intitule, ENT_QUOTES, $default_htmlspecialchars_encoding);
 
 					print("<option value='$modele_id' label=\"$value\">$value</option>\n");
 				}
@@ -255,7 +255,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 				<font class='Texte_menu2'><b>Intitulé du modèle</b></font>
 			</td>
 			<td class='td-droite fond_menu'>
-				<input type='text' name='intitule' value='<?php if(isset($intitule)) echo htmlspecialchars(stripslashes($intitule), ENT_QUOTES); ?>' maxlength='196' size='70'>
+				<input type='text' name='intitule' value='<?php if(isset($intitule)) echo htmlspecialchars(stripslashes($intitule), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' maxlength='196' size='70'>
 			</td>
 		</tr>
 		<tr>
@@ -264,7 +264,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			</td>
 			<td class='td-droite fond_menu'>
 				<textarea name='texte' rows='18' cols='80'><?php
-					if(isset($texte)) echo htmlspecialchars(stripslashes($texte), ENT_QUOTES);
+					if(isset($texte)) echo htmlspecialchars(stripslashes($texte), ENT_QUOTES, $default_htmlspecialchars_encoding);
 				?></textarea>
 			</td>
 		</tr>

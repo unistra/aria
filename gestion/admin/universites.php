@@ -305,7 +305,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 				$selected=(isset($_SESSION["universite_id"]) && $_SESSION["universite_id"]==$univ_id) ? "selected='1'" : "";
 
-				print("<option value='$univ_id' $selected>" . htmlspecialchars($univ_nom, ENT_QUOTES) . "</option>\n");
+				print("<option value='$univ_id' $selected>" . htmlspecialchars($univ_nom, ENT_QUOTES, $default_htmlspecialchars_encoding) . "</option>\n");
 			}
 
 			db_free_result($result);
@@ -393,7 +393,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			<font class='Texte_menu2'><b>Nom de l'université :</b></font>
 		</td>
 		<td class='td-droite fond_menu'>
-			<input type='text' name='nom' value='<?php if(isset($univ_nom)) echo htmlspecialchars(stripslashes($univ_nom), ENT_QUOTES); elseif(isset($current_univ_nom)) echo htmlspecialchars(stripslashes($current_univ_nom), ENT_QUOTES);?>' maxlength='92' size='60'>
+			<input type='text' name='nom' value='<?php if(isset($univ_nom)) echo htmlspecialchars(stripslashes($univ_nom), ENT_QUOTES, $default_htmlspecialchars_encoding); elseif(isset($current_univ_nom)) echo htmlspecialchars(stripslashes($current_univ_nom), ENT_QUOTES, $default_htmlspecialchars_encoding);?>' maxlength='92' size='60'>
 		</td>
 	</tr>
 
@@ -403,8 +403,8 @@ CeCILL-B, et que vous en avez accepté les termes.
 		</td>
 		<td class='td-droite fond_menu'>
 			<textarea name='adresse' rows='4' cols='60'><?php
-				if(isset($univ_adresse)) echo htmlspecialchars(stripslashes($univ_adresse), ENT_QUOTES);
-				elseif(isset($current_univ_adresse)) echo htmlspecialchars(stripslashes($current_univ_adresse), ENT_QUOTES);
+				if(isset($univ_adresse)) echo htmlspecialchars(stripslashes($univ_adresse), ENT_QUOTES, $default_htmlspecialchars_encoding);
+				elseif(isset($current_univ_adresse)) echo htmlspecialchars(stripslashes($current_univ_adresse), ENT_QUOTES, $default_htmlspecialchars_encoding);
 			?></textarea>
 		</td>
 	</tr>
@@ -413,7 +413,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			<font class='Texte_menu2'><b>Sous-répertoire contenant images et icônes : </b></font>
 		</td>
 		<td class='td-droite fond_menu'>
-			<input type='text' name='img_dir' value='<?php if(isset($univ_img_dir)) echo htmlspecialchars(stripslashes($univ_img_dir), ENT_QUOTES); elseif(isset($current_univ_img_dir)) echo htmlspecialchars(stripslashes($current_univ_img_dir), ENT_QUOTES);?>' maxlength='256' size='60'>
+			<input type='text' name='img_dir' value='<?php if(isset($univ_img_dir)) echo htmlspecialchars(stripslashes($univ_img_dir), ENT_QUOTES, $default_htmlspecialchars_encoding); elseif(isset($current_univ_img_dir)) echo htmlspecialchars(stripslashes($current_univ_img_dir), ENT_QUOTES, $default_htmlspecialchars_encoding);?>' maxlength='256' size='60'>
 			&nbsp;<font class='Texte_menu'><i>(Chemin relatif au répertoire "<?php echo "$__IMG_DIR/"; ?>")</i>
 		</td>
 	</tr>
@@ -477,7 +477,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			<font class='Texte_menu2'><b>Couleur du texte du logo dans les lettres : </b></font>
 		</td>
 		<td class='td-droite fond_menu'>
-			<input type='text' name='lettres_couleur_texte' value='<?php if(isset($current_univ_lettres_couleur_texte)) echo htmlspecialchars(stripslashes($current_univ_lettres_couleur_texte), ENT_QUOTES); ?>' maxlength='7' size='60'>
+			<input type='text' name='lettres_couleur_texte' value='<?php if(isset($current_univ_lettres_couleur_texte)) echo htmlspecialchars(stripslashes($current_univ_lettres_couleur_texte), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' maxlength='7' size='60'>
 		</td>
 	</tr>
 	</table>

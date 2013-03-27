@@ -231,10 +231,10 @@ CeCILL-B, et que vous en avez accepté les termes.
                      print("</optgroup>
                             <option value='' label='' disabled></option>\n");
 
-                  print("<optgroup label='".htmlspecialchars(stripslashes($univ_nom), ENT_QUOTES)."'>\n");
+                  print("<optgroup label='".htmlspecialchars(stripslashes($univ_nom), ENT_QUOTES, $default_htmlspecialchars_encoding)."'>\n");
                }
 
-               $value=htmlspecialchars($comp_nom, ENT_QUOTES);
+               $value=htmlspecialchars($comp_nom, ENT_QUOTES, $default_htmlspecialchars_encoding);
 
                $selected=(isset($_SESSION["comp_id"]) && $_SESSION["comp_id"]==$comp_id) ? "selected='1'" : "";
 
@@ -312,7 +312,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		<td class='td-droite fond_menu'>
 			<font class='Texte_menu'>
 			   <strong>
-   				<?php echo htmlspecialchars(stripslashes($composante_nom), ENT_QUOTES); ?>
+   				<?php echo htmlspecialchars(stripslashes($composante_nom), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>
    			</strong>
 			</font>
 			<br><input type='checkbox' name='all_comp_config' value='<?php echo $universite_id; ?>' style='vertical-align:bottom;'>
@@ -326,7 +326,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			<font class='Texte_menu2'><b>Préfixe des codes OPI (Primo-Entrants) :</b></font>
 		</td>
 		<td class='td-droite fond_menu'>
-			<input type='text' name='prefixe_opi' value='<?php if(isset($prefixe_opi)) echo htmlspecialchars(stripslashes($prefixe_opi), ENT_QUOTES); ?>' maxlength='3' size='16'>
+			<input type='text' name='prefixe_opi' value='<?php if(isset($prefixe_opi)) echo htmlspecialchars(stripslashes($prefixe_opi), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' maxlength='3' size='16'>
 		</td>
 	</tr>
 	<tr>
@@ -334,7 +334,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			<font class='Texte_menu2'><b>Première lettre permettant la génération<br>des numéros d'autorisation (prise de RDV) :</b></font>
 		</td>
 		<td class='td-droite fond_menu'>
-			<input type='text' name='lettre_code_apogee' value='<?php if(isset($code_apogee)) echo htmlspecialchars(stripslashes($code_apogee), ENT_QUOTES); ?>' maxlength='16' size='16'>
+			<input type='text' name='lettre_code_apogee' value='<?php if(isset($code_apogee)) echo htmlspecialchars(stripslashes($code_apogee), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' maxlength='16' size='16'>
 		</td>
 	</tr>
 	<tr>
@@ -342,7 +342,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			<font class='Texte_menu2'><b>Site pour les conditions générales d'utilisations (%ADR_COND%) :</b></font>
 		</td>
 		<td class='td-droite fond_menu'>
-			<input type='text' name='adr_conditions' value='<?php if(isset($adr_conditions)) echo htmlspecialchars($adr_conditions, ENT_QUOTES); ?>' maxlength='256' size='60'>
+			<input type='text' name='adr_conditions' value='<?php if(isset($adr_conditions)) echo htmlspecialchars($adr_conditions, ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' maxlength='256' size='60'>
 		</td>
 	</tr>
 	<tr>
@@ -350,7 +350,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			<font class='Texte_menu2'><b>Site pour les étudiants Primo Entrants (%ADR_PRIMO%) :</b></font>
 		</td>
 		<td class='td-droite fond_menu'>
-			<input type='text' name='adr_primo' value='<?php if(isset($adr_primo)) echo htmlspecialchars($adr_primo, ENT_QUOTES); ?>' maxlength='256' size='60'>
+			<input type='text' name='adr_primo' value='<?php if(isset($adr_primo)) echo htmlspecialchars($adr_primo, ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' maxlength='256' size='60'>
 		</td>
 	</tr>
 	<tr>
@@ -358,7 +358,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			<font class='Texte_menu2'><b>Site pour les Réinscription (%ADR_REINS%) :</b></font>
 		</td>
 		<td class='td-droite fond_menu'>
-			<input type='text' name='adr_reins' value='<?php if(isset($adr_reins)) echo htmlspecialchars($adr_reins, ENT_QUOTES); ?>' maxlength='256' size='60'>
+			<input type='text' name='adr_reins' value='<?php if(isset($adr_reins)) echo htmlspecialchars($adr_reins, ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' maxlength='256' size='60'>
 		</td>
 	</tr>
 	<tr>
@@ -366,7 +366,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			<font class='Texte_menu2'><b>Site pour les inscriptions sur rendez-vous (%ADR_RDV%) :</b></font>
 		</td>
 		<td class='td-droite fond_menu'>
-			<input type='text' name='adr_rdv' value='<?php if(isset($adr_rdv)) echo htmlspecialchars($adr_rdv, ENT_QUOTES); ?>' maxlength='256' size='60'>
+			<input type='text' name='adr_rdv' value='<?php if(isset($adr_rdv)) echo htmlspecialchars($adr_rdv, ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' maxlength='256' size='60'>
 		</td>
 	</tr>
 	<tr> 
@@ -388,7 +388,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          <font class='Texte_menu2'><b>Message envoyé à un candidat<br>Primo-entrant <u>pour chaque admission</u> : </b></font>
       </td>
       <td class='td-droite fond_menu'>
-         <textarea name='message_primo' cols='100' rows='12'><?php if(isset($message_primo)) echo htmlspecialchars(stripslashes($message_primo), ENT_QUOTES); ?></textarea>
+         <textarea name='message_primo' cols='100' rows='12'><?php if(isset($message_primo)) echo htmlspecialchars(stripslashes($message_primo), ENT_QUOTES, $default_htmlspecialchars_encoding); ?></textarea>
       </td>
    </tr>
    <tr>
@@ -396,7 +396,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          <font class='Texte_menu2'><b>Message envoyé à un candidat ayant<br>déjà été inscrit (laisser-passer)<br><u>pour chaque admission</u> : </b></font>
       </td>
       <td class='td-droite fond_menu'>
-         <textarea name='message_lp' cols='100' rows='12'><?php if(isset($message_lp)) echo htmlspecialchars(stripslashes($message_lp), ENT_QUOTES); ?></textarea>
+         <textarea name='message_lp' cols='100' rows='12'><?php if(isset($message_lp)) echo htmlspecialchars(stripslashes($message_lp), ENT_QUOTES, $default_htmlspecialchars_encoding); ?></textarea>
       </td>
    </tr>
    <tr>
@@ -404,7 +404,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          <font class='Texte_menu2'><b>Message envoyé à un candidat "admis sous réserve"<br><u>pour chaque admission</u> : </b></font>
       </td>
       <td class='td-droite fond_menu'>
-         <textarea name='message_reserve' cols='100' rows='12'><?php if(isset($message_reserve)) echo htmlspecialchars(stripslashes($message_reserve), ENT_QUOTES); ?></textarea>
+         <textarea name='message_reserve' cols='100' rows='12'><?php if(isset($message_reserve)) echo htmlspecialchars(stripslashes($message_reserve), ENT_QUOTES, $default_htmlspecialchars_encoding); ?></textarea>
       </td>
    </tr>
 	</table>

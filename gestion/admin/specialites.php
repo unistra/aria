@@ -284,7 +284,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 							print("</optgroup>
 									 <option value='' label='' disabled></option>\n");
 
-						$val=htmlspecialchars($mention_nom, ENT_QUOTES);
+						$val=htmlspecialchars($mention_nom, ENT_QUOTES, $default_htmlspecialchars_encoding);
 
 						print("<optgroup label='$val'>\n");
 
@@ -413,11 +413,11 @@ CeCILL-B, et que vous en avez accepté les termes.
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu2'><font class='Texte_menu2'><b>Nom de la spécialité : </b></font></td>
-		<td class='td-droite fond_menu'><input type='text' name='nom' value='<?php if(isset($new_nom)) echo htmlspecialchars($new_nom, ENT_QUOTES); ?>' maxlength='192' size='80'></td>
+		<td class='td-droite fond_menu'><input type='text' name='nom' value='<?php if(isset($new_nom)) echo htmlspecialchars($new_nom, ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' maxlength='192' size='80'></td>
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu2'><font class='Texte_menu2'><b>Nom court : </b></font></td>
-		<td class='td-droite fond_menu'><input type='text' name='nom_court' value='<?php if(isset($new_nom_court)) echo htmlspecialchars($new_nom_court, ENT_QUOTES); ?>' maxlength='92' size='80'></td>
+		<td class='td-droite fond_menu'><input type='text' name='nom_court' value='<?php if(isset($new_nom_court)) echo htmlspecialchars($new_nom_court, ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' maxlength='92' size='80'></td>
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu2'><font class='Texte_menu2'><b>Mention</b></font></td>

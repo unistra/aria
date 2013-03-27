@@ -206,7 +206,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		if(isset($texte_vide))
 			message("Erreur : le texte ne doit pas être vide", $__ERREUR);
 
-		$texte=isset($texte) ? htmlspecialchars(stripslashes($texte),ENT_QUOTES) : "";
+		$texte=isset($texte) ? htmlspecialchars(stripslashes($texte),ENT_QUOTES, $default_htmlspecialchars_encoding) : "";
 
 		print("<form method='post' action='$php_self'>
 

@@ -539,10 +539,10 @@ CeCILL-B, et que vous en avez accepté les termes.
          if(isset($new_motivation[$cand_id]))
          {
             $mot=$new_motivation[$cand_id];
-            $motivation_txt=htmlspecialchars(stripslashes($mot), ENT_QUOTES);
+            $motivation_txt=htmlspecialchars(stripslashes($mot), ENT_QUOTES, $default_htmlspecialchars_encoding);
          }
          else
-            $motivation_txt=htmlspecialchars(stripslashes($motivation_decision), ENT_QUOTES);
+            $motivation_txt=htmlspecialchars(stripslashes($motivation_decision), ENT_QUOTES, $default_htmlspecialchars_encoding);
       }
       else
          $motivation_txt="";

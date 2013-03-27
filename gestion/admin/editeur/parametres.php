@@ -105,7 +105,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			$comp_corps_pos_y=78;
 
 		if(!empty($comp_logo))
-			$comp_logo=htmlspecialchars(validate_filename($comp_logo),ENT_QUOTES);
+			$comp_logo=htmlspecialchars(validate_filename($comp_logo),ENT_QUOTES, $default_htmlspecialchars_encoding);
 
 		// Création du répertoire dédié à la composante
 		if(!is_dir("$__GESTION_COMP_STOCKAGE_DIR_ABS/$_SESSION[comp_id]"))
@@ -209,8 +209,8 @@ CeCILL-B, et que vous en avez accepté les termes.
 		<td class='td-droite fond_menu'>
 			<font class='Texte_menu'>
 			<b>Position :</b>
-			<br>Valeur de X (en mm) : <input type='text' name='adr_pos_x' value='<?php if(isset($comp_adr_pos_x)) echo htmlspecialchars(stripslashes($comp_adr_pos_x), ENT_QUOTES); else print("109"); ?>' maxlength='3' size='4'>
-			<br>Valeur de Y (en mm) : <input type='text' name='adr_pos_y' value='<?php if(isset($comp_adr_pos_y)) echo htmlspecialchars(stripslashes($comp_adr_pos_y), ENT_QUOTES); else print("42"); ?>' maxlength='3' size='4'>
+			<br>Valeur de X (en mm) : <input type='text' name='adr_pos_x' value='<?php if(isset($comp_adr_pos_x)) echo htmlspecialchars(stripslashes($comp_adr_pos_x), ENT_QUOTES, $default_htmlspecialchars_encoding); else print("109"); ?>' maxlength='3' size='4'>
+			<br>Valeur de Y (en mm) : <input type='text' name='adr_pos_y' value='<?php if(isset($comp_adr_pos_y)) echo htmlspecialchars(stripslashes($comp_adr_pos_y), ENT_QUOTES, $default_htmlspecialchars_encoding); else print("42"); ?>' maxlength='3' size='4'>
 		</td>
 	</tr>
 	<tr>
@@ -223,8 +223,8 @@ CeCILL-B, et que vous en avez accepté les termes.
 		<td class='td-droite fond_menu'>
 			<font class='Texte_menu'>
 			<b>Position :</b>
-			<br>Valeur de X (en mm) : <input type='text' name='corps_pos_x' value='<?php if(isset($comp_corps_pos_x)) echo htmlspecialchars(stripslashes($comp_corps_pos_x), ENT_QUOTES); else print("60"); ?>' maxlength='3' size='4'>
-			<br>Valeur de Y (en mm) : <input type='text' name='corps_pos_y' value='<?php if(isset($comp_corps_pos_y)) echo htmlspecialchars(stripslashes($comp_corps_pos_y), ENT_QUOTES); else print("78"); ?>' maxlength='3' size='4'>
+			<br>Valeur de X (en mm) : <input type='text' name='corps_pos_x' value='<?php if(isset($comp_corps_pos_x)) echo htmlspecialchars(stripslashes($comp_corps_pos_x), ENT_QUOTES, $default_htmlspecialchars_encoding); else print("60"); ?>' maxlength='3' size='4'>
+			<br>Valeur de Y (en mm) : <input type='text' name='corps_pos_y' value='<?php if(isset($comp_corps_pos_y)) echo htmlspecialchars(stripslashes($comp_corps_pos_y), ENT_QUOTES, $default_htmlspecialchars_encoding); else print("78"); ?>' maxlength='3' size='4'>
 		</td>
 	</tr>
 	<tr>
@@ -233,7 +233,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		</td>
 		<td class='td-droite fond_menu' colspan='2'>
 			<textarea name='texte_signature' rows='5' cols='60'><?php
-				if(isset($comp_txt_sign)) echo htmlspecialchars(stripslashes($comp_txt_sign), ENT_QUOTES);
+				if(isset($comp_txt_sign)) echo htmlspecialchars(stripslashes($comp_txt_sign), ENT_QUOTES, $default_htmlspecialchars_encoding);
 			?></textarea>
 		</td>
 	</tr>
@@ -260,7 +260,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			<font class='Texte_menu2'><b>Largeur du logo (en mm) :</b></font>
 		</td>
 		<td class='td-droite fond_menu' colspan='2'>
-			<input type='text' name='largeur_logo' value='<?php if(isset($comp_largeur_logo)) echo htmlspecialchars(stripslashes($comp_largeur_logo), ENT_QUOTES); else print("32"); ?>' maxlength='3' size='4'>
+			<input type='text' name='largeur_logo' value='<?php if(isset($comp_largeur_logo)) echo htmlspecialchars(stripslashes($comp_largeur_logo), ENT_QUOTES, $default_htmlspecialchars_encoding); else print("32"); ?>' maxlength='3' size='4'>
 		</td>
 	</tr>
 	<tr>
@@ -269,7 +269,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		</td>
 		<td class='td-droite fond_menu' colspan='2'>
 			<textarea name='texte_logo' rows='5' cols='60'><?php
-				if(isset($comp_txt_logo)) echo htmlspecialchars(stripslashes($comp_txt_logo), ENT_QUOTES);
+				if(isset($comp_txt_logo)) echo htmlspecialchars(stripslashes($comp_txt_logo), ENT_QUOTES, $default_htmlspecialchars_encoding);
 			?></textarea>
 		</td>
 	</tr>
@@ -279,7 +279,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		</td>
 		<td class='td-droite fond_menu' colspan='2'>
 			<textarea name='texte_scol' rows='7' cols='60'><?php
-				if(isset($comp_txt_scol)) echo htmlspecialchars(stripslashes($comp_txt_scol), ENT_QUOTES);
+				if(isset($comp_txt_scol)) echo htmlspecialchars(stripslashes($comp_txt_scol), ENT_QUOTES, $default_htmlspecialchars_encoding);
 			?></textarea>
 		</td>
 	</tr>

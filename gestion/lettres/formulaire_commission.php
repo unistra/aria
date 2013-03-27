@@ -371,7 +371,7 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
                         for($c=0; $c<$rows; $c++)
                         {
                            list($motif)=db_fetch_row($result,$c);
-                           $value=htmlspecialchars($motif, ENT_QUOTES);
+                           $value=htmlspecialchars($motif, ENT_QUOTES, $default_htmlspecialchars_encoding);
 
                            // Colonne gauche ou droite ?
                            $pos=$prev_pos ? 0 : 1;
@@ -446,7 +446,7 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
                         {
                            list($decision_id,$decision_txt)=db_fetch_row($result2,$j);
 
-                           // $value=htmlspecialchars($decision_txt, ENT_QUOTES);
+                           // $value=htmlspecialchars($decision_txt, ENT_QUOTES, $default_htmlspecialchars_encoding);
 
                            if(!isset($candidature_array["entretiens"]) || $candidature_array["entretiens"]!=1 ||
                               (isset($candidature_array["entretiens"]) && $candidature_array["entretiens"]==1 && in_array($decision_id, $__DOSSIER_DECISIONS_AVANT_ENTRETIEN)))
@@ -533,7 +533,7 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
                      {
                         list($decision_id,$decision_txt)=db_fetch_row($result2,$j);
 
-                        // $value=htmlspecialchars($decision_txt, ENT_QUOTES);
+                        // $value=htmlspecialchars($decision_txt, ENT_QUOTES, $default_htmlspecialchars_encoding);
 
                         if(!isset($candidature_array["entretiens"]) || $candidature_array["entretiens"]!=1 ||
                               (isset($candidature_array["entretiens"]) && $candidature_array["entretiens"]==1 && in_array($decision_id, $__DOSSIER_DECISIONS_AVANT_ENTRETIEN)))
@@ -598,7 +598,7 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
                         for($c=0; $c<$rows; $c++)
                         {
                            list($motif)=db_fetch_row($result,$c);
-                           $value=htmlspecialchars($motif, ENT_QUOTES);
+                           $value=htmlspecialchars($motif, ENT_QUOTES, $default_htmlspecialchars_encoding);
 
                            // Colonne gauche ou droite ?
                            $pos=$prev_pos ? 0 : 1;
@@ -734,7 +734,7 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
                      {
                         list($decision_id,$decision_txt)=db_fetch_row($result2,$j);
 
-                        // $value=htmlspecialchars($decision_txt, ENT_QUOTES);
+                        // $value=htmlspecialchars($decision_txt, ENT_QUOTES, $default_htmlspecialchars_encoding);
 
                         if(!isset($candidature_array["entretiens"]) || $candidature_array["entretiens"]!=1 ||
                            (isset($candidature_array["entretiens"]) && $candidature_array["entretiens"]==1 && in_array($decision_id, $__DOSSIER_DECISIONS_APRES_ENTRETIEN)))
