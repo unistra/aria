@@ -171,7 +171,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       if(isset($comp_id) && ctype_digit($comp_id))
       {
          if(db_num_rows(db_query($dbr,"SELECT $_DBC_composantes_id FROM $_DB_composantes
-                                       WHERE $_DBC_composantes_nom ILIKE '$new_comp_nom'
+                                       WHERE $_DBC_composantes_nom ILIKE '".str_replace("'","''", $new_comp_nom)."'
                                        AND $_DBC_composantes_id!='$comp_id'")))
             $nom_existe="1";
       }
@@ -185,7 +185,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                                                          $_DBU_composantes_adresse='$new_comp_adresse',
                                                          $_DBU_composantes_univ_id='$new_comp_univ_id',
                                                          $_DBU_composantes_directeur='$new_comp_directeur',
-                                                         $_DBU_composantes_scolarite='$new_comp_scolarite',
+                                                         $_DBU_composantes_scolarite='".str_replace("'","''", $new_comp_scolarite)."',
                                                          $_DBU_composantes_delai_lock='$new_comp_verr_delai',
                                                          $_DBU_composantes_courriel_scol='$new_comp_courriel_scolarite',
                                                          $_DBU_composantes_limite_cand_nombre='$new_limite_nombre',
