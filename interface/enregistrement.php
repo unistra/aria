@@ -368,7 +368,7 @@ $__SIGNATURE_COURRIELS";
                                                                                           '$pays_naissance',
                                                                                           '$nationalite',
                                                                                           '$telephone',
-                                                                                          '$telephone_portable'
+                                                                                          '$telephone_portable',
                                                                                           '$adresse_1',
                                                                                           '$adresse_2',
                                                                                           '$adresse_3',
