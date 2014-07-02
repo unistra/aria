@@ -602,21 +602,15 @@ $_SESSION[universite]";
                   $prec_txt=str_replace("'","''", stripslashes($hist_spec));
                else
                   $prec_txt="$hist_annee " . str_replace("'","''", stripslashes($hist_spec));
-/*                        
-               $key_statut="statut_".$cand_id;
-               $key_motivation="motivation_".$cand_id;
-               $key_statut_frais="statut_frais_".$cand_id;
-*/
+
                $statut=$cand_array["statut"];
                $cur_motivation=$cand_array["motivation"];
 
                $filiere=$cand_array["filiere"];
 
                // On teste si le nouveau statut est différent de l'ancien, ou si la motivation est différente
-//               if(isset($_POST["$key_statut"]) && ($_POST["$key_statut"]!=$statut
-//                  || ($_POST["$key_statut"]==$statut && stripslashes(trim($_POST["$key_motivation"]))!=stripslashes($cur_motivation))))
                if((isset($_POST["statut"]) && array_key_exists($cand_id, $_POST["statut"]) && $_POST["statut"]["$cand_id"]!=$statut)
-                  || ($_POST["statut"]["$cand_id"]==$statut && stripslashes(trim($_POST["motivation"]["$cand_id"])!=stripslashes($cur_motivation))))
+                  || ($_POST["statut"]["$cand_id"]==$statut && stripslashes(trim($_POST["motivation"]["$cand_id"]))!=stripslashes($cur_motivation)))
                {
                   // $new_statut=$_POST["$key_statut"];
                   $new_statut=$_POST["statut"]["$cand_id"];
@@ -624,7 +618,6 @@ $_SESSION[universite]";
                   if(!isset($new_motivation))
                      $new_motivation=array();
 
-                  // $new_motivation[$cand_id]=trim($_POST["$key_motivation"]);
                   $new_motivation[$cand_id]=trim($_POST["motivation"]["$cand_id"]);
 
                   // Texte en fonction des frais de dossiers
