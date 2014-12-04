@@ -828,8 +828,6 @@ CeCILL-B, et que vous en avez accepté les termes.
 
                // Formulaire de commission et Lettres
 
-               // echo "DBG : SELECT * FROM $_DB_lettres_dec, $_DB_lettres WHERE $_DBC_lettres_id=$_DBC_lettres_dec_lettre_id AND $_DBC_lettres_comp_id='$_SESSION[comp_id]' AND $_DBC_lettres_dec_dec_id='$decision_id' AND $_DBC_lettres_choix_multiples='1'";
-
                if(db_num_rows(db_query($dbr, "SELECT * FROM $_DB_lettres_dec, $_DB_lettres, $_DB_lettres_propspec
                                                 WHERE $_DBC_lettres_id=$_DBC_lettres_dec_lettre_id
                                                 AND $_DBC_lettres_propspec_lettre_id=$_DBC_lettres_id
@@ -840,8 +838,15 @@ CeCILL-B, et que vous en avez accepté les termes.
                                                 WHERE $_DBC_lettres_id=$_DBC_lettres_dec_lettre_id
                                                 AND $_DBC_lettres_comp_id='$_SESSION[comp_id]'
                                                 AND $_DBC_lettres_dec_dec_id='$decision_id'
-                                                AND $_DBC_lettres_choix_multiples='1'"))
-                      && ($groupe_spec==$old_groupe_spec || $groupe_spec==$old_groupe_spec)
+                                                AND $_DBC_lettres_choix_multiples='1'
+                                                AND $_DBC_lettres_id IN (SELECT $_DBC_lettres_groupes_lettre_id 
+                                                                            FROM $_DB_lettres_groupes, $_DB_groupes_spec
+                                                                         WHERE $_DBC_lettres_groupes_groupe_id=$_DBC_groupes_spec_groupe 
+                                                                         AND $_DBC_groupes_spec_propspec_id IN (SELECT $_DBC_propspec_id FROM $_DB_propspec 
+                                                                                                                WHERE $_DBC_propspec_comp_id='$_SESSION[comp_id]' 
+                                                                                                                AND $_DBC_propspec_active='1'))
+                                                "))
+                      // && ($groupe_spec==$old_groupe_spec || $groupe_spec==$old_groupe_spec)
                       && $groupe_spec!=-1))
                   print("<br><a href='$__GESTION_DIR/lettres/generateur_lettres.php?cand_id=$cand_id' target='_blank' class='lien_menu_gauche'><img style='vertical-align:middle;' src='$__ICON_DIR/player_fwd_16x16_menu.png' border='0'> Lettre(s)</a>");
             }

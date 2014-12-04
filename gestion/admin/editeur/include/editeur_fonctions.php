@@ -252,8 +252,13 @@ if(!isset($_SESSION["__MACROS"]) || !is_array($_SESSION["__MACROS"]) || !count($
 											// Dossier transmis : la décision réelle est "refus"
 											if($cand_m_array["decision"]==$GLOBALS["__DOSSIER_TRANSMIS"])
 												$decisions_multiples_texte.="Choix " . ($ordre_cand+1) . " : " . str_replace("\n", " ", $cand_m_array["texte_formation"]) . "\nDécision : Refus";
-											else
+											else {
 												$decisions_multiples_texte.="Choix " . ($ordre_cand+1) . " : " . str_replace("\n", " ", $cand_m_array["texte_formation"]) . "\nDécision : $cand_m_array[decision_txt]";
+												
+												if(trim($cand_m_array["motivation"])=="") {
+												   $decisions_multiples_texte.="\n\n";
+												}
+										   }
 
 											if($cand_m_array["decision"]==$GLOBALS["__DOSSIER_REFUS"] || $cand_m_array["decision"]==$GLOBALS["__DOSSIER_TRANSMIS"])
 												$decisions_multiples_texte.=" (" . str_replace("\n",", ", $cand_m_array["motivation"]) . ").\n\n"; // Todo : affichage des motifs à peaufiner
@@ -263,7 +268,7 @@ if(!isset($_SESSION["__MACROS"]) || !is_array($_SESSION["__MACROS"]) || !count($
 											       || $cand_m_array["decision"]==$GLOBALS["__DOSSIER_ADMISSION_CONFIRMEE"] || $cand_m_array["decision"]==$GLOBALS["__DOSSIER_SOUS_RESERVE"])
 											{
 												if($cand_m_array["decision"]==$GLOBALS["__DOSSIER_SOUS_RESERVE"])
-													$decisions_multiples_texte.=" (" . str_replace("\n",", ", $cand_m_array["motivation"]) . ").";;
+													$decisions_multiples_texte.=" (" . str_replace("\n",", ", $cand_m_array["motivation"]) . ").\n\n";
 
                                     /*
 												// admission trouvée : on s\'arrête là et on affiche un message s\'il reste des voeux
@@ -274,8 +279,8 @@ if(!isset($_SESSION["__MACROS"]) || !is_array($_SESSION["__MACROS"]) || !count($
 												*/
 											}
 											else
-											    $decisions_multiples_texte.="\n";
-										}
+											    $decisions_multiples_texte.="";
+										}  
 									}
 
 									$txt=preg_replace("/%d.cisions_multiples%/i", $decisions_multiples_texte, $txt);

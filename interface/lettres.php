@@ -240,6 +240,10 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
                                              WHERE $_DBC_lettres_comp_id='$_SESSION[comp_id]'
                                              AND $_DBC_lettres_id=$_DBC_lettres_dec_lettre_id
                                              AND $_DBC_lettres_choix_multiples='1'
+                                             AND $_DBC_lettres_id IN (SELECT $_DBC_lettres_groupes_lettre_id FROM $_DB_lettres_groupes 
+																							 WHERE $_DBC_lettres_groupes_groupe_id IN (SELECT distinct($_DBC_groupes_spec_groupe) 
+																							 														 FROM $_DB_groupes_spec 
+																																					 WHERE $_DBC_groupes_spec_propspec_id='$candidature_array[propspec_id]'))
                                              $critere_multiples");
 
                $rows=db_num_rows($result);

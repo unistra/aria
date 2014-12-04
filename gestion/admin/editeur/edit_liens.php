@@ -111,6 +111,12 @@ CeCILL-B, et que vous en avez accepté les termes.
 			{
 				db_query($dbr, "DELETE FROM $_DB_lettres_propspec WHERE $_DBC_lettres_propspec_lettre_id='$lettre_id'");
 				db_query($dbr, "UPDATE $_DB_lettres SET $_DBU_lettres_choix_multiples='1' WHERE $_DBC_lettres_id='$lettre_id'");
+				
+				db_query($dbr, "DELETE FROM $_DB_lettres_groupes WHERE $_DBC_lettres_groupes_lettre_id='$lettre_id'");
+				
+				foreach($_POST["groupe"] as $groupe_id) {
+				   db_query($dbr, "INSERT INTO $_DB_lettres_groupes ($_DBU_lettres_groupes_lettre_id, $_DBU_lettres_groupes_groupe_id) VALUES ('$lettre_id','$groupe_id')");
+				}
 			}
 		}
 		else
@@ -255,6 +261,32 @@ CeCILL-B, et que vous en avez accepté les termes.
 					$multiples_selected="";
 					$none_selected="selected";
 				}
+				
+				$res_groupes=db_query($dbr,"SELECT $_DBC_groupes_spec_groupe, $_DBC_groupes_spec_nom 
+                                           FROM $_DB_groupes_spec 
+                                           WHERE $_DBC_groupes_spec_propspec_id IN (SELECT $_DBC_propspec_id FROM $_DB_propspec 
+                                                                                    WHERE $_DBC_propspec_comp_id='$_SESSION[comp_id]'
+                                                                                    AND $_DBC_propspec_active='1')
+                                           GROUP BY $_DBC_groupes_spec_groupe, $_DBC_groupes_spec_nom 
+                                           ORDER BY $_DBC_groupes_spec_nom");
+
+            $rows_groupes=db_num_rows($res_groupes);
+
+            if($rows_groupes) {
+               $selection_groupes="<br><b>Pour les formations à choix multiples : sélection du ou des groupes concerné(s) :</b><br />\n";
+
+               for($j=0; $j<$rows_groupes; $j++) {
+                  list($groupe_id, $groupe_nom)=db_fetch_row($res_groupes, $j);
+
+                  $checked=db_num_rows(db_query($dbr, "SELECT * FROM $_DB_lettres_groupes 
+                                                       WHERE $_DBC_lettres_groupes_lettre_id='$lettre_id' 
+                                                       AND $_DBC_lettres_groupes_groupe_id='$groupe_id'")) ? "checked='1'" : "";
+
+                  $selection_groupes.="<input type='checkbox' name='groupe[]' value='$groupe_id' $checked>$groupe_nom<br />";
+               }
+            }
+
+            db_free_result($res_groupes);
 
 				print("<table align='center'>
 							<tr>
@@ -276,11 +308,17 @@ CeCILL-B, et que vous en avez accepté les termes.
 										</select>
 										<br>
 										<font class='Texte'>
-											<b>Si vous utilisez ce menu, il est inutile de modifier les sélections ci-dessous.</b>
-										</font>
-										<br><br>
-									</td>
-								</tr>\n");
+											<b>Si vous utilisez ce menu, il est inutile de sélectionner individuellement les formations ci-dessous.</b>
+                                 <br>");
+
+            if(isset($selection_groupes)) {
+               print("$selection_groupes");
+            }
+
+            print("</font>
+                   <br>   
+                 </td>    
+              </tr>\n");      
 
 				$count=0;
 

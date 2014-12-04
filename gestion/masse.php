@@ -103,8 +103,10 @@ CeCILL-B, et que vous en avez accepté les termes.
 	<tr>
 		<td class='td-gauche fond_menu' style='padding-bottom:15px;'>
 			<a href='masse_listes_entretiens.php' target='_self' class='lien_menu_gauche'>- Générer les listes de candidats convoqués aux entretiens, en fonction d'une formation, d'une date et d'une salle</a>
+			<br><a href='masse_listes_entretiens_tel.php' target='_self' class='lien_menu_gauche'>- Générer les listes de candidats convoqués aux entretiens téléphoniques</a>
 		</td>
 	</tr>
+	
 	<tr>
 		<td class='td-gauche fond_menu' style='padding-bottom:15px;'>
 			<a href='masse_pdf.php' target='_self' class='lien_menu_gauche'>- Générer les lettres officielles en fonction d'une formation et de la date de saisie de la décision<br>&nbsp;&nbsp;(fonction indépendante de la saisie en masse)</a>

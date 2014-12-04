@@ -364,10 +364,14 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
 																$_DBC_lettres_flag_adr_cand, $_DBC_lettres_flag_date, $_DBC_lettres_flag_adr_pos,
 																$_DBC_lettres_adr_pos_x, $_DBC_lettres_adr_pos_y, $_DBC_lettres_flag_corps_pos,
 																$_DBC_lettres_corps_pos_x, $_DBC_lettres_corps_pos_y, $_DBC_lettres_langue
-														FROM $_DB_lettres, $_DB_lettres_dec
+														FROM $_DB_lettres, $_DB_lettres_dec, $_DB_lettres_groupes
 															WHERE $_DBC_lettres_comp_id='$_SESSION[comp_id]'
 															AND $_DBC_lettres_id=$_DBC_lettres_dec_lettre_id
 															AND $_DBC_lettres_choix_multiples='1'
+															AND $_DBC_lettres_id IN (SELECT $_DBC_lettres_groupes_lettre_id FROM $_DB_lettres_groupes 
+																							 WHERE $_DBC_lettres_groupes_groupe_id IN (SELECT distinct($_DBC_groupes_spec_groupe) 
+																							 														 FROM $_DB_groupes_spec 
+																																					 WHERE $_DBC_groupes_spec_propspec_id='$candidature_array[propspec_id]'))
 															$critere_multiples");
 
 					$rows=db_num_rows($result);
@@ -530,7 +534,9 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
 								                  .$candidat_array["nom"]." "
 								                  .$candidat_array["prenom"]."\n"
 								                  .$candidat_array["adresse"];
-
+								                  
+							   // .$candidat_array["adr"]."\n".$candidat_array["adr_cp"]." ".ucwords(mb_strtolower($candidat_array["adr_ville"]))."\n".$candidat_array["adr_pays"];
+							   
 								$lettre_decision->MultiCell(0,5,$candidat_adresse, 0, "L");
 							}
 

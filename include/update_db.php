@@ -1534,6 +1534,16 @@ CeCILL-B, et que vous en avez accepté les termes.
       db_query($db_maj,"ALTER TABLE $_DB_candidat ADD COLUMN $_DBU_candidat_adresse_3 text default ''");
    }
          
+
+   // 24/06/2013
+   // Possibilité d'affecter des lettres différentes en fonction des groupes de formations à choix multiples
+   $res_maj=db_query($db_maj,"SELECT * FROM pg_tables WHERE tablename ='$_DB_lettres_groupes'");
+
+   if(!db_num_rows($res_maj))
+      db_query($db_maj, "CREATE TABLE $_DB_lettres_groupes (
+                        $_DBU_lettres_groupes_lettre_id bigint REFERENCES $_DB_lettres($_DBU_lettres_id) ON UPDATE CASCADE ON DELETE CASCADE,
+                        $_DBU_lettres_groupes_groupe_id integer)");
+   
       
    // Fin du bloc
    db_query($db_maj, "COMMIT TRANSACTION;");

@@ -858,6 +858,15 @@ $_DBC_lettres_propspec_propspec_id="$_DB_lettres_propspec.propspec_id";
 $_DBU_lettres_propspec_lettre_id="lettre_id";
 $_DBU_lettres_propspec_propspec_id="filiere_id";
 
+// Rapport lettres / groupes de formations à choix multiples
+$_DB_lettres_groupes="lettres_groupes";
+$_DBC_lettres_groupes_lettre_id="$_DB_lettres_groupes.lettre_id";
+$_DBC_lettres_groupes_groupe_id="$_DB_lettres_groupes.groupe_id";
+
+$_DBU_lettres_groupes_lettre_id="lettre_id";
+$_DBU_lettres_groupes_groupe_id="groupe_id";
+
+
 // ============================================================
 
 $_DB_liste_langues="liste_langues";
