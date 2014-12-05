@@ -1070,7 +1070,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          </td>
          <td class='td-droite fond_menu' style='padding:4px;'>
             <font class='Texte_menu'>
-               <input type='text' name='config[__EMAIL_NOREPLY]' value='<?php echo htmlspecialchars(stripslashes($email_admin), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size='60' maxlength='128'>
+               <input type='text' name='config[__EMAIL_NOREPLY]' value='<?php echo htmlspecialchars(stripslashes($email_noreply), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size='60' maxlength='128'>
             </font>
          </td>
       </tr>
