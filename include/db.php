@@ -1162,7 +1162,7 @@ $_DBU_systeme_ldap_attr_prenom="ldap_attr_prenom";
 $_DBU_systeme_ldap_attr_pass="ldap_attr_pass";
 $_DBU_systeme_ldap_attr_mail="ldap_attr_mail";
 $_DBU_systeme_courriel_support="courriel_support";
-$_DBC_systeme_courriel_noreply="courriel_noreply";
+$_DBU_systeme_courriel_noreply="courriel_noreply";
 
 
 $_DB_traitement_masse="traitement_masse";

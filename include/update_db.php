@@ -1551,7 +1551,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                                                                                AND column_name='$_DBU_systeme_courriel_noreply'")))
    {
       db_query($db_maj, "ALTER TABLE $_DB_systeme ADD COLUMN $_DBU_systeme_courriel_noreply text default ''");
-      db_query($db_maj, "UPDATE $_DB_systeme SET $_DBU_systeme_courriel_support='noreply@domain'");
+      db_query($db_maj, "UPDATE $_DB_systeme SET $_DBU_systeme_courriel_noreply='noreply@domain'");
    }
       
    // Fin du bloc
