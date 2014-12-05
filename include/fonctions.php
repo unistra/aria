@@ -720,7 +720,7 @@ function clean_str_requete($str)
 
    $new_str=str_replace("*","\\\*", $new_str);
    $new_str=str_replace("+","\\\+", $new_str);
-
+/*
    $new_str=preg_replace("/[aàáâãäå]/", "(a|à|á|â|ã|ä|å)", $new_str);
    $new_str=preg_replace("/[cç]/", "(c|ç)", $new_str);
    $new_str=preg_replace("/[eèéêë]/", "(e|è|é|ê|ë)", $new_str);
@@ -729,15 +729,6 @@ function clean_str_requete($str)
    $new_str=preg_replace("/[oðòóôõö]/", "(o|ð|ò|ó|ô|õ|ö)", $new_str);
    $new_str=preg_replace("/[uùúûü]/", "(u|ù|ú|û|ü)", $new_str);
    $new_str=preg_replace("/[yýÿ]/", "(y|ý|ÿ)", $new_str);
-
-/*
-   $new_str=str_replace("(", "\\\(", $str);
-   $new_str=str_replace(")", "\\\)", $new_str);
-
-   $new_str=str_replace("+", "\\\+", $new_str);
-
-   // test ?
-   $new_str=str_replace("*","", $new_str);
 */
    return $new_str;
 }
