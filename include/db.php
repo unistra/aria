@@ -1120,7 +1120,7 @@ $_DBC_systeme_ldap_attr_prenom="$_DB_systeme.ldap_attr_prenom";
 $_DBC_systeme_ldap_attr_pass="$_DB_systeme.ldap_attr_pass";
 $_DBC_systeme_ldap_attr_mail="$_DB_systeme.ldap_attr_mail";
 $_DBC_systeme_courriel_support="$_DB_systeme.courriel_support";
-$_DBC_systeme_courriel_support="$_DB_systeme.courriel_noreply";
+$_DBC_systeme_courriel_noreply="$_DB_systeme.courriel_noreply";
 
 $_DBU_systeme_titre_html="titre_html";
 $_DBU_systeme_titre_page="titre_page";
@@ -1162,7 +1162,7 @@ $_DBU_systeme_ldap_attr_prenom="ldap_attr_prenom";
 $_DBU_systeme_ldap_attr_pass="ldap_attr_pass";
 $_DBU_systeme_ldap_attr_mail="ldap_attr_mail";
 $_DBU_systeme_courriel_support="courriel_support";
-$_DBC_systeme_courriel_support="courriel_noreply";
+$_DBC_systeme_courriel_noreply="courriel_noreply";
 
 
 $_DB_traitement_masse="traitement_masse";
