@@ -99,9 +99,9 @@ CeCILL-B, et que vous en avez accepté les termes.
       if($nom=="")
         $critere_recherche="$_DBC_candidat_email ILIKE '%$rechmail%' ";
       elseif($rechmail=="")
-        $critere_recherche="unaccent($_DBC_candidat_nom) SIMILAR TO unaccent($nom%) ";
+        $critere_recherche="unaccent($_DBC_candidat_nom) SIMILAR TO unaccent('$nom%') ";
       else
-        $critere_recherche="(unaccent($_DBC_candidat_nom) SIMILAR TO unaccent($nom%) OR $_DBC_candidat_email ILIKE '%$rechmail%') ";
+        $critere_recherche="(unaccent($_DBC_candidat_nom) SIMILAR TO unaccent('$nom%') OR $_DBC_candidat_email ILIKE '%$rechmail%') ";
 
       if(empty($rechmail) && !preg_match("/([a-zA-Z\'\ \-]+)/", $nom))
         $bad_rech=1;
@@ -131,8 +131,6 @@ CeCILL-B, et que vous en avez accepté les termes.
                                 FROM $_DB_candidat
                               WHERE $critere_recherche
                               ORDER BY $_DBC_candidat_nom, $_DBC_candidat_prenom, $_DBC_candidat_date_naissance";
-
-        print($requete);
 
         $result=db_query($dbr, $requete);
         $rows=db_num_rows($result);
