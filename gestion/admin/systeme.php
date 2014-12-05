@@ -118,7 +118,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                   else
                   {
                      $update.=$update!="" ? "," : "";
-                     $update.="$_DBU_systeme_titre_html='".preg_replace("/'/","''",$new_titre_html)."'";
+                     $update.="$_DBU_systeme_titre_html='".stripslashes(preg_replace("/'/","''",$new_titre_html))."'";
                   }
 
                   if($new_titre_page=="")
@@ -126,11 +126,11 @@ CeCILL-B, et que vous en avez accepté les termes.
                   else
                   {
                      $update.=$update!="" ? "," : "";
-                     $update.="$_DBU_systeme_titre_page='".preg_replace("/'/","''",$new_titre_page)."'";
+                     $update.="$_DBU_systeme_titre_page='".stripslashes(preg_replace("/'/","''",$new_titre_page))."'";
                   }
 
                   $update.=$update!="" ? "," : "";
-                  $update.="$_DBU_systeme_meta='$new_meta'";
+                  $update.="$_DBU_systeme_meta='".stripslashes(preg_replace("/'/","''",$new_meta))."'";
 
                   if($update!="")
                   {
@@ -200,7 +200,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                   else
                   {
                      $update.=$update!="" ? "," : "";
-                     $update.="$_DBU_systeme_ldap_pass='$new_ldap_pass'";
+                     $update.="$_DBU_systeme_ldap_pass='".stripslashes(preg_replace("/'/","''",$new_ldap_pass))."'";
                   }                  
                   
                   if($new_ldap_basedn=="")
@@ -277,14 +277,14 @@ CeCILL-B, et que vous en avez accepté les termes.
                   if($new_email_admin=="" || !preg_match("/[[:alnum:]]+@[^<>[:space:]]+[[:alnum:]]/", $new_email_admin))
                      $format_email_admin=1;
                   else
-                     $update.="$_DBU_systeme_courriel_admin='".preg_replace("/'/","''", $new_email_admin)."'";
+                     $update.="$_DBU_systeme_courriel_admin='".stripslashes(preg_replace("/'/","''", $new_email_admin))."'";
                      
                   if($new_email_support=="" || !preg_match("/[[:alnum:]]+@[^<>[:space:]]+[[:alnum:]]/", $new_email_support))
                      $format_email_support=1;
                   else
                   {
                      $update.=$update!="" ? "," : "";
-                     $update.="$_DBU_systeme_courriel_support='".preg_replace("/'/","''", $new_email_support)."'";
+                     $update.="$_DBU_systeme_courriel_support='".stripslashes(preg_replace("/'/","''", $new_email_support))."'";
                   }
                   
                   if($new_email_noreply=="" || !preg_match("/[[:alnum:]]+@[^<>[:space:]]+[[:alnum:]]/", $new_email_noreply))
@@ -292,7 +292,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                   else
                   {
                      $update.=$update!="" ? "," : "";
-                     $update.="$_DBU_systeme_courriel_support='".preg_replace("/'/","''", $new_email_noreply)."'";
+                     $update.="$_DBU_systeme_courriel_noreply='".stripslashes(preg_replace("/'/","''", $new_email_noreply))."'";
                   }
 
                   if($new_nom_admin=="")
@@ -300,7 +300,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                   else
                   {
                      $update.=$update!="" ? "," : "";
-                     $update.="$_DBU_systeme_admin='".preg_replace("/'/","''",$new_nom_admin)."'";
+                     $update.="$_DBU_systeme_admin='".stripslashes(preg_replace("/'/","''",$new_nom_admin))."'";
                   }
 
                   if($new_signature_admin=="")
@@ -308,7 +308,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                   else
                   {
                      $update.=$update!="" ? "," : "";
-                     $update.="$_DBU_systeme_signature_admin='".preg_replace("/'/","''",$new_signature_admin)."'";
+                     $update.="$_DBU_systeme_signature_admin='".stripslashes(preg_replace("/'/","''",$new_signature_admin))."'";
                   }
 
                   if($new_signature_courriels=="")
@@ -316,7 +316,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                   else
                   {
                      $update.=$update!="" ? "," : "";
-                     $update.="$_DBU_systeme_signature_courriels='".preg_replace("/'/","''",$new_signature_courriels)."'";
+                     $update.="$_DBU_systeme_signature_courriels='".stripslashes(preg_replace("/'/","''",$new_signature_courriels))."'";
                   }
 
                   if($update!="")
@@ -343,7 +343,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                   if($new_ville=="")
                      $format_ville=1;
                   else
-                     $update.="$_DBU_systeme_ville='$new_ville'";
+                     $update.="$_DBU_systeme_ville='".stripslashes(preg_replace("/'/","''",$new_ville))."'";
 
                   if($new_informatique_liberte=="")
                      $format_info_liberte=1;
