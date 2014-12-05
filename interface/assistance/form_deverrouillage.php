@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -61,7 +61,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
    // $_SESSION['CURRENT_FILE']=$php_self;
    
-   // Le candidat doit impérativement être authentifié avant de pouvoir utiliser ce formulaire
+   // Le candidat doit impÃ©rativement Ãªtre authentifiÃ© avant de pouvoir utiliser ce formulaire
    
    if(!isset($_SESSION["authentifie"]))
       $erreur_auth=1;
@@ -70,12 +70,12 @@ CeCILL-B, et que vous en avez accepté les termes.
 
    if(!isset($erreur_auth) && (isset($_POST["Valider"]) || isset($_POST["Valider_x"]))) // validation du formulaire
    {
-      // vérification des valeurs entrées dans le formulaire
-      // TODO : vérifications poussées
+      // vÃ©rification des valeurs entrÃ©es dans le formulaire
+      // TODO : vÃ©rifications poussÃ©es
 
       $candidat_id=$_SESSION["authentifie"];
 
-      // Formations à déverrouiller
+      // Formations Ã  dÃ©verrouiller
       if(array_key_exists("propspec_id", $_POST) && $nb_formations=count($_POST["propspec_id"]))
          $propspec_array=$_POST["propspec_id"];
       else
@@ -88,31 +88,31 @@ CeCILL-B, et que vous en avez accepté les termes.
 
       if(!isset($erreur_formations) && !isset($erreur_motif))
       {
-         // Construction du corps du message en fonction des données du formulaire
-         // Le corps contient un tableau HTML : il est affiché dans la messagerie, on peut donc utiliser le format désiré
+         // Construction du corps du message en fonction des donnÃ©es du formulaire
+         // Le corps contient un tableau HTML : il est affichÃ© dans la messagerie, on peut donc utiliser le format dÃ©sirÃ©
 
          $identite=$_SESSION["prenom2"]!="" ? "$_SESSION[civilite]. $_SESSION[nom] $_SESSION[prenom] ($_SESSION[prenom2])" : "$_SESSION[civilite]. $_SESSION[nom] $_SESSION[prenom]";
 
          $corps_message="<table cellpadding='4' border='0' valign='top'>
                          <tr>
                            <td class='td-complet fond_menu2' colspan='2'>
-                              <font class='Texte_menu2'><strong>Détails de la requête : </strong></font>
+                              <font class='Texte_menu2'><strong>DÃ©tails de la requÃªte : </strong></font>
                            </td>
                           </tr>
                           <tr>
                            <td class='td-gauche'><font class='Texte'><strong>Candidat(e) :</strong></font></td>
                            <td class='td-droite'>
                               <font class='Texte'>
-                                 <strong>$identite</strong>, né(e) le ".date("d/m/Y", $_SESSION["naissance"])." à $_SESSION[lieu_naissance] ($_SESSION[pays_naissance])
+                                 <strong>$identite</strong>, nÃ©(e) le ".date("d/m/Y", $_SESSION["naissance"])." Ã  $_SESSION[lieu_naissance] ($_SESSION[pays_naissance])
                               </font>
                            </td>
                           </tr>
                           <tr>
-                           <td class='td-gauche'><font class='Texte'><strong>Nationalité :</strong></font></td>
+                           <td class='td-gauche'><font class='Texte'><strong>NationalitÃ© :</strong></font></td>
                            <td class='td-droite'><font class='Texte'>$_SESSION[nationalite]</font></td>
                           </tr>
                           <tr>
-                           <td class='td-gauche'><font class='Texte'><strong>Numéro INE :</strong></font></td>
+                           <td class='td-gauche'><font class='Texte'><strong>NumÃ©ro INE :</strong></font></td>
                            <td class='td-droite'><font class='Texte'> $_SESSION[numero_ine]</font></td>
                           </tr>
                           <tr>
@@ -120,23 +120,23 @@ CeCILL-B, et que vous en avez accepté les termes.
                            <td class='td-droite'><font class='Texte'>[mail=$_SESSION[email]]$_SESSION[email][/mail]</font></td>
                           </tr>
                           <tr>
-                           <td class='td-gauche' valign='top'><font class='Texte'><strong>Motif du déverrouillage :</strong></font></td>
-                           <td class='td-droite'><font class='Texte'>".nl2br($motif)."</font></td>
+                           <td class='td-gauche' valign='top'><font class='Texte'><strong>Motif du dÃ©verrouillage :</strong></font></td>
+                           <td class='td-droite' style='white-space:normal'><font class='Texte'>".nl2br($motif)."</font></td>
                           </tr>
                           </table><br>\n";
 
          if($nb_formations==1)
             $corps_message.="<font class='Texte'>
-                                 Le candidat a demandé le déverrouillage de la formation non grisée suivante. Pour la déverrouiller, sélectionnez-là, modifiez éventuellement la nouvelle
+                                 Le candidat a demandÃ© le dÃ©verrouillage de la formation non grisÃ©e suivante. Pour la dÃ©verrouiller, sÃ©lectionnez-lÃ , modifiez Ã©ventuellement la nouvelle
                                  date limite puis validez (si vous ne modifiez pas la date, le voeu se verrouillera automatiquement le lendemain matin). Si la modification porte sur les 
-                                 informations personnelles du candidat (pouvant être partagées par d'autres composantes), vous pouvez également déverrouiller les formations grisées.
+                                 informations personnelles du candidat (pouvant Ãªtre partagÃ©es par d'autres composantes), vous pouvez Ã©galement dÃ©verrouiller les formations grisÃ©es.
                              </font>\n";
          else
             $corps_message.="<font class='Texte'>
-                                 Le candidat a demandé le déverrouillage des formations non grisées suivantes. Pour les déverrouiller, sélectionnez-les, modifiez éventuellement les 
+                                 Le candidat a demandÃ© le dÃ©verrouillage des formations non grisÃ©es suivantes. Pour les dÃ©verrouiller, sÃ©lectionnez-les, modifiez Ã©ventuellement les 
                                  nouvelles dates limites puis validez (si vous ne modifiez pas la date, le voeu se verrouillera automatiquement le lendemain matin). Si la modification
-                                 porte sur les informations personnelles du candidat (pouvant être partagées par d'autres composantes), vous pouvez également déverrouiller les formations 
-                                 grisées.
+                                 porte sur les informations personnelles du candidat (pouvant Ãªtre partagÃ©es par d'autres composantes), vous pouvez Ã©galement dÃ©verrouiller les formations 
+                                 grisÃ©es.
                              </font>\n";
 
          $corps_message.="<br><br>
@@ -147,7 +147,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                               <td class='td-milieu fond_menu2'><font class='Texte_menu2'><strong>Nouvelle date</strong></font></td>
                            </tr>";
 
-         // Formations : les non-cochées sont grisées, ainsi que les formations non verrouillées
+         // Formations : les non-cochÃ©es sont grisÃ©es, ainsi que les formations non verrouillÃ©es
 
          $old_comp_id="";
          $old_groupe_spec="";
@@ -160,7 +160,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
             $font_class=in_array($formation_array["propspec_id"], $propspec_array) ? "Texte" : "Textegris";
 
-            // Candidature à choix multiple ? => sélection et date de verrouillage uniques
+            // Candidature Ã  choix multiple ? => sÃ©lection et date de verrouillage uniques
             if($old_comp_id!=$formation_array["comp_id"] || $formation_array["groupe_spec"]=="-1" || ($formation_array["groupe_spec"]!=$old_groupe_spec && $formation_array["ordre_spec"]=="1"))
             {
                $selection="<input type='checkbox' name='cand_id[]' value='$formation_array[cand_id]'>";
@@ -202,19 +202,19 @@ CeCILL-B, et que vous en avez accepté les termes.
                               <input type='checkbox' name='rien' value='1'>
                           </td>
                           <td class='td-gauche' colspan='3'>
-                              <font class='Texte'>Ne rien déverrouiller (case prioritaire) - Compléter le message pour indiquer le motif.</font>
+                              <font class='Texte'>Ne rien dÃ©verrouiller (case prioritaire) - ComplÃ©ter le message pour indiquer le motif.</font>
                           </td>
                           </table>
 
-                           <font class='Texte'>Après validation, cette demande de déverrouillage sera automatiquement placé dans le dossier <strong>\"Traités\"</strong>.</font>
+                           <font class='Texte'>AprÃ¨s validation, cette demande de dÃ©verrouillage sera automatiquement placÃ© dans le dossier <strong>\"TraitÃ©s\"</strong>.</font>
                            <br><br>
 
                            <table cellpadding='4' border='0' valign='top'>
                            <tr>
                               <td class='td-complet fond_menu2'>
                                  <font class='Texte_menu2'>
-                                    <strong>Message complémentaire à envoyer au candidat (facultatif)</strong>
-                                    <br />Note : le message commence automatiquement par \"Bonjour\" et ce qui a été validé dans le formulaire ci-dessus.
+                                    <strong>Message complÃ©mentaire Ã  envoyer au candidat (facultatif)</strong>
+                                    <br />Note : le message commence automatiquement par \"Bonjour\" et ce qui a Ã©tÃ© validÃ© dans le formulaire ci-dessus.
                                  </font>
                               </td>
                            </tr>
@@ -236,7 +236,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
          $res_admins=db_query($dbr,"SELECT $_DBC_acces_id FROM $_DB_acces WHERE $_DBC_acces_niveau='$__LVL_ADMIN' AND $_DBC_acces_reception_msg_systeme='t'");
 
-         // TODO : prévoir le cas où aucun admin n'est présent dans la base : envoyer à l'adresse de debug ?
+         // TODO : prÃ©voir le cas oÃ¹ aucun admin n'est prÃ©sent dans la base : envoyer Ã  l'adresse de debug ?
          if($rows_admin=db_num_rows($res_admins))
          {
             for($admin_i=0; $admin_i<$rows_admin; $admin_i++)
@@ -254,14 +254,14 @@ CeCILL-B, et que vous en avez accepté les termes.
          // Nettoyage pour affichage
          $corps_message=preg_replace("/[[:space:]]+/", " ", preg_replace("/[\r]*[\n]+/","", $corps_message));
 
-         $sujet_message="ASSISTANCE : Déverrouillage - $identite";
+         $sujet_message="ASSISTANCE : DÃ©verrouillage - $identite";
 
-         write_msg_2($dbr, array("id" => "0", "nom" => "Système", "prenom" => "", "src_type" => "gestion", "composante" => "", "universite" => "$__SIGNATURE_COURRIELS"),
+         write_msg_2($dbr, array("id" => "0", "nom" => "SystÃ¨me", "prenom" => "", "src_type" => "gestion", "composante" => "", "universite" => "$__SIGNATURE_COURRIELS"),
                      $array_dests, $sujet_message,$corps_message);
 
          $succes=1;
 
-         // write_evt("", $__EVT_ID_C_ID, "MAJ Identité", $candidat_id, $candidat_id, ereg_replace("[']+","''", stripslashes($requete)));
+         // write_evt("", $__EVT_ID_C_ID, "MAJ IdentitÃ©", $candidat_id, $candidat_id, ereg_replace("[']+","''", stripslashes($requete)));
          // db_close($dbr);
       }
    }
@@ -274,7 +274,7 @@ CeCILL-B, et que vous en avez accepté les termes.
    else
       $cur_annee=$cur_mois=$cur_jour="";
    
-   // Construction de la liste des pays et nationalités (codes ISO) pour son utilisation dans le formulaire
+   // Construction de la liste des pays et nationalitÃ©s (codes ISO) pour son utilisation dans le formulaire
    $_SESSION["liste_pays_nat_iso"]=array();
    
    $res_pays_nat=db_query($dbr, "SELECT $_DBC_pays_nat_ii_iso, $_DBC_pays_nat_ii_insee, $_DBC_pays_nat_ii_pays, $_DBC_pays_nat_ii_nat
@@ -287,7 +287,7 @@ CeCILL-B, et que vous en avez accepté les termes.
    {
       list($code_iso, $code_insee, $table_pays, $table_nationalite)=db_fetch_row($res_pays_nat, $p);
       
-      // Construction uniquement si le code insee est présent (pour les exports APOGEE ou autres)
+      // Construction uniquement si le code insee est prÃ©sent (pour les exports APOGEE ou autres)
       if($code_insee!="")
          $_SESSION["liste_pays_nat_iso"]["$code_iso"]=array("pays" => "$table_pays", "nationalite" => $table_nationalite);
 /*      
@@ -302,18 +302,18 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 <div class='main'>
    <?php
-      titre_page_icone("Demande de déverrouillage", "decrypted_32x32_fond.png", 15, "L");
+      titre_page_icone("Demande de dÃ©verrouillage", "decrypted_32x32_fond.png", 15, "L");
 
       if(isset($erreur_motif))
-         message("Formulaire incomplet: vous devez indiquer le motif du déverrouillage", $__ERREUR);
+         message("Formulaire incomplet: vous devez indiquer le motif du dÃ©verrouillage", $__ERREUR);
 
       if(isset($erreur_formations))
-         message("Vous devez sélectionner au moins une formation à déverrouiller.", $__ERREUR);
+         message("Vous devez sÃ©lectionner au moins une formation Ã  dÃ©verrouiller.", $__ERREUR);
 
       if(isset($succes))
       {
-         message("Merci. Un message a été envoyé à l'administrateur.
-                  <br>Si les informations sont correctes, vous recevrez un message confirmant le déverrouillage du ou des voeu(x) sélectionné(s)", $__SUCCES);
+         message("Merci. Un message a Ã©tÃ© envoyÃ© Ã  l'administrateur.
+                  <br>Si les informations sont correctes, vous recevrez un message confirmant le dÃ©verrouillage du ou des voeu(x) sÃ©lectionnÃ©(s)", $__SUCCES);
 
          print("<div class='centered_icons_box'>
                   <a href='index.php' target='_self' class='lien2'><img src='$__ICON_DIR/back_32x32_fond.png' alt='Retour' border='0'></a>
@@ -321,7 +321,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       }
       elseif(isset($erreur_auth))
       {
-         message("Vous devez être authentifié(e) pour accéder à ce formulaire.", $__ERREUR);
+         message("Vous devez Ãªtre authentifiÃ©(e) pour accÃ©der Ã  ce formulaire.", $__ERREUR);
 
          print("<div class='centered_icons_box'>
                   <a href='index.php' target='_self' class='lien2'><img src='$__ICON_DIR/back_32x32_fond.png' alt='Retour' border='0'></a>
@@ -334,18 +334,18 @@ CeCILL-B, et que vous en avez accepté les termes.
    <form action="<?php print("$php_self"); ?>" method="POST">
 
    <?php
-      message("Merci de compléter et valider le formulaire suivant (les champs <strong>en gras</strong> sont <strong>obligatoires</strong>).", $__INFO);
+      message("Merci de complÃ©ter et valider le formulaire suivant (les champs <strong>en gras</strong> sont <strong>obligatoires</strong>).", $__INFO);
    ?>
 
    <table align='center'>
    <tr>
       <td class='td-complet fond_menu2' style='padding:4px;' colspan='2'>
-         <font class='Texte_menu2'><strong>Votre requête</strong></font>
+         <font class='Texte_menu2'><strong>Votre requÃªte</strong></font>
       </td>
    </tr>
    <tr>
       <td class='td-gauche fond_menu2'>
-         <font class='Texte_menu2'><strong>Identité : </strong></font>
+         <font class='Texte_menu2'><strong>IdentitÃ© : </strong></font>
       </td>
       <td class='td-droite fond_menu'>
          <font class='Texte_menu2'>
@@ -368,13 +368,13 @@ CeCILL-B, et que vous en avez accepté les termes.
       </td>
       <td class='td-droite fond_menu'>
          <font class='Texte_menu'>
-            <?php print("Le ".date("d/m/Y", $_SESSION["naissance"])." à $_SESSION[lieu_naissance] ($_SESSION[pays_naissance])"); ?>
+            <?php print("Le ".date("d/m/Y", $_SESSION["naissance"])." Ã  $_SESSION[lieu_naissance] ($_SESSION[pays_naissance])"); ?>
          </font>
       </td>
    </tr>
    <tr>
       <td class='td-gauche fond_menu2'>
-         <font class='Texte_menu2'><strong>Nationalité : </strong></font>
+         <font class='Texte_menu2'><strong>NationalitÃ© : </strong></font>
       </td>
       <td class='td-droite fond_menu'>
          <font class='Texte_menu'>
@@ -384,7 +384,7 @@ CeCILL-B, et que vous en avez accepté les termes.
    </tr>
    <tr>
       <td class='td-gauche fond_menu2'>
-         <font class='Texte_menu2'><strong>Numéro INE/BEA : </strong></font>
+         <font class='Texte_menu2'><strong>NumÃ©ro INE/BEA : </strong></font>
       </td>
       <td class='td-droite fond_menu'>
          <font class='Texte_menu'>
@@ -392,14 +392,14 @@ CeCILL-B, et que vous en avez accepté les termes.
                if(array_key_exists("numero_ine", $_SESSION) && $_SESSION["numero_ine"]!="")
                   print("$_SESSION[numero_ine]");
                else
-                  print("<i>Non renseigné</i>\n");
+                  print("<i>Non renseignÃ©</i>\n");
             ?>
          </font>
       </td>
    </tr>
    <tr>
       <td class='td-gauche fond_menu2'>
-         <font class='Texte_important_menu2'><strong>Formation(s) à déverrouiller :</strong></font>
+         <font class='Texte_important_menu2'><strong>Formation(s) Ã  dÃ©verrouiller :</strong></font>
       </td>
       <td class='td-droite fond_menu'>
          <?php
@@ -421,7 +421,7 @@ CeCILL-B, et que vous en avez accepté les termes.
             {
                $nb_locked=0;
 
-               // Conservation du nom des formations (pour éviter une nouvelle requête lors de l'envoi du message)
+               // Conservation du nom des formations (pour Ã©viter une nouvelle requÃªte lors de l'envoi du message)
                $_SESSION["nom_formations"]=array();
 
                print("<table cellpadding='1' cellspacing='0' border='0' width='100%'>\n");
@@ -468,10 +468,10 @@ CeCILL-B, et que vous en avez accepté les termes.
 
                   $lockdate_txt=date("d/m/Y", $lockdate);
 
-                  // La formation n'est sélectionnable que si elle est déjà verrouillée
+                  // La formation n'est sÃ©lectionnable que si elle est dÃ©jÃ  verrouillÃ©e
                   if($locked)
                   {
-                     // ne pas oublier le cas des candidature à choix multiples (un seul déverrouillage et une seule date commune)
+                     // ne pas oublier le cas des candidature Ã  choix multiples (un seul dÃ©verrouillage et une seule date commune)
                      if($groupe_spec=="-1" || ($old_groupe_spec!=$groupe_spec && $ordre_spec==1))
                      {
                         $nb_locked++;
@@ -503,7 +503,7 @@ CeCILL-B, et que vous en avez accepté les termes.
             }
             else
             {
-               print("<font class='Texte_important_menu2'>Aucune formation à déverrouiller !</font>\n");
+               print("<font class='Texte_important_menu2'>Aucune formation Ã  dÃ©verrouiller !</font>\n");
                $err_formations=1;
             }
 
@@ -513,7 +513,7 @@ CeCILL-B, et que vous en avez accepté les termes.
    </tr>
    <tr>
       <td class='td-gauche fond_menu2'>
-         <font class='Texte_important_menu2'><strong>Détails de la demande de déverrouillage :</strong></font>
+         <font class='Texte_important_menu2'><strong>DÃ©tails de la demande de dÃ©verrouillage :</strong></font>
       </td>
       <td class='td-droite fond_menu'>
          <textarea name='motif' cols="50" rows="7"><?php if(isset($motif)) echo htmlspecialchars(stripslashes($motif), ENT_QUOTES, $default_htmlspecialchars_encoding); ?></textarea>

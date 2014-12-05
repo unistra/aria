@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,36 +20,36 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
 ?>
 <?php
-	// Ajout - Modification - Suppression des Centres de gestion (=codes composantes Apogée)
+	// Ajout - Modification - Suppression des Centres de gestion (=codes composantes ApogÃ©e)
 
 	session_name("preinsc_gestion");
 	session_start();
@@ -59,8 +59,8 @@ CeCILL-B, et que vous en avez accepté les termes.
 	include "$__INCLUDE_DIR_ABS/fonctions.php";
 	include "$__INCLUDE_DIR_ABS/db.php";
 
-	// includes spécifiques au module
-	include "include/db.php"; // db.php appellera également update_db.php pour la mise à jour du schéma
+	// includes spÃ©cifiques au module
+	include "include/db.php"; // db.php appellera Ã©galement update_db.php pour la mise Ã  jour du schÃ©ma
 
 	$php_self=$_SERVER['PHP_SELF'];
 	$_SESSION['CURRENT_FILE']=$php_self;
@@ -136,7 +136,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		if($new_nom=="" || $new_code=="")
 			$champs_vides=1;
 
-		// récupération des valeurs courantes, en cas de modification
+		// rÃ©cupÃ©ration des valeurs courantes, en cas de modification
 		if($_SESSION["ajout_centre"]==0 && isset($centre_id))
 		{
 			$result=db_query($dbr,"SELECT $_module_apogee_DBC_centres_gestion_nom, $_module_apogee_DBC_centres_gestion_code
@@ -168,8 +168,8 @@ CeCILL-B, et que vous en avez accepté les termes.
 				}
 			}
 		}
-		// En cas d'ajout : vérification d'unicité dans cette composante
-		// Pas de contraintes intercomposantes : deux composantes peuvent avoir le même centre de gestion
+		// En cas d'ajout : vÃ©rification d'unicitÃ© dans cette composante
+		// Pas de contraintes intercomposantes : deux composantes peuvent avoir le mÃªme centre de gestion
 		elseif(db_num_rows(db_query($dbr,"SELECT $_module_apogee_DBC_centres_gestion_id
 														FROM $_module_apogee_DB_centres_gestion
 													WHERE ($_module_apogee_DBC_centres_gestion_nom ILIKE '$new_nom'
@@ -203,47 +203,47 @@ CeCILL-B, et que vous en avez accepté les termes.
 <div class='main'>
 	<?php
 		if($_SESSION["ajout_centre"]==1)
-			titre_page_icone("Module Apogée : Ajouter un Centre de Gestion", "add_32x32_fond.png", 30, "L");
+			titre_page_icone("Module ApogÃ©e : Ajouter un Centre de Gestion", "add_32x32_fond.png", 30, "L");
 		elseif(isset($_SESSION["action"]) && $_SESSION["action"]=="modification")
-			titre_page_icone("Module Apogée : Modifier un Centre de Gestion", "edit_32x32_fond.png", 30, "L");
+			titre_page_icone("Module ApogÃ©e : Modifier un Centre de Gestion", "edit_32x32_fond.png", 30, "L");
 		elseif(isset($_SESSION["action"]) && $_SESSION["action"]=="suppression")
-			titre_page_icone("Module Apogée : Supprimer un Centre de Gestion", "trashcan_full_34x34_slick_fond.png", 30, "L");
+			titre_page_icone("Module ApogÃ©e : Supprimer un Centre de Gestion", "trashcan_full_34x34_slick_fond.png", 30, "L");
 		else
-			titre_page_icone("Module Apogée : Centres de Gestion", "", 30, "L");
+			titre_page_icone("Module ApogÃ©e : Centres de Gestion", "", 30, "L");
 
-		// Messages d'erreur et de succès
+		// Messages d'erreur et de succÃ¨s
 
 		if(isset($centre_id_existe_pas) || isset($_GET["erreur_suppr"]))
-			message("Erreur : l'identifiant demandé est incorrect (problème de cohérence de la base ?)", $__ERREUR);
+			message("Erreur : l'identifiant demandÃ© est incorrect (problÃ¨me de cohÃ©rence de la base ?)", $__ERREUR);
 
 		if(isset($champs_vides))
 			message("Erreur : les champs en <strong>gras</strong> sont <strong>obligatoires</strong>.", $__ERREUR);
 
 		if(isset($nom_existe))
-			message("Erreur : un Centre de Gestion portant ce nom (ou ce code) existe déjà.", $__ERREUR);
+			message("Erreur : un Centre de Gestion portant ce nom (ou ce code) existe dÃ©jÃ .", $__ERREUR);
 
 		if(isset($succes) && $succes==1)
 		{
 			if($_SESSION["modification"]==1)
 			{
-				message("Le Centre de Gestion a été modifié avec succès.", $__SUCCES);
+				message("Le Centre de Gestion a Ã©tÃ© modifiÃ© avec succÃ¨s.", $__SUCCES);
 				$_SESSION["modification"]=0;
 			}
 			elseif($_SESSION["ajout_centre"]==1)
 			{
-				message("Le Centre de Gestion a été créé avec succès.", $__SUCCES);
+				message("Le Centre de Gestion a Ã©tÃ© crÃ©Ã© avec succÃ¨s.", $__SUCCES);
 				$_SESSION["ajout_centre"]=0;
 			}
 			elseif($_SESSION["suppression"]==1)
 			{
-				message("Le Centre de Gestion a été supprimé avec succès.", $__SUCCES);
+				message("Le Centre de Gestion a Ã©tÃ© supprimÃ© avec succÃ¨s.", $__SUCCES);
 				$_SESSION["suppression"]=0;
 			}
 		}
 
 		print("<form action='$php_self' method='POST' name='form1'>\n");
 
-		if($_SESSION["ajout_centre"]==0 && $_SESSION["modification"]==0 && $_SESSION["suppression"]==0)  // Choix de la mention à modifier
+		if($_SESSION["ajout_centre"]==0 && $_SESSION["modification"]==0 && $_SESSION["suppression"]==0)  // Choix de la mention Ã  modifier
 		{
 			$result=db_query($dbr,"SELECT $_module_apogee_DBC_centres_gestion_id, $_module_apogee_DBC_centres_gestion_nom,
 													$_module_apogee_DBC_centres_gestion_code
@@ -283,7 +283,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			else
 			{
 				$no_elements=1;
-				message("Aucun Centre de Gestion n'a encore été créé pour cette composante.", $__INFO);
+				message("Aucun Centre de Gestion n'a encore Ã©tÃ© crÃ©Ã© pour cette composante.", $__INFO);
 			}
 
 			print("<div class='centered_icons_box'>
@@ -323,7 +323,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 						</form>
 					 </div>\n");
 		}
-		elseif((isset($centre_id) && $_SESSION["modification"]==1) || $_SESSION["ajout_centre"]==1) // ajout ou modification (on récupère les infos actuelles)
+		elseif((isset($centre_id) && $_SESSION["modification"]==1) || $_SESSION["ajout_centre"]==1) // ajout ou modification (on rÃ©cupÃ¨re les infos actuelles)
 		{
 			if($_SESSION["ajout_centre"]==1)
 			{
@@ -362,7 +362,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		<td class='td-droite fond_menu'><input type='text' name='nom' value='<?php if(isset($new_nom)) echo htmlspecialchars($new_nom, ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size='40'></td>
 	</tr>
 	<tr>
-		<td class='td-gauche fond_menu2'><font class='Texte_menu2'><b>Code Apogée du Centre : </b></font></td>
+		<td class='td-gauche fond_menu2'><font class='Texte_menu2'><b>Code ApogÃ©e du Centre : </b></font></td>
 		<td class='td-droite fond_menu'><input type='text' name='code' value='<?php if(isset($new_code)) echo htmlspecialchars($new_code, ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size='40'></td>
 	</tr>
 	</table>

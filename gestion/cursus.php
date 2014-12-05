@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -69,7 +69,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		exit();
 	}
 
-	// Condition : la fiche doit être verrouillée ou être une fiche manuelle
+	// Condition : la fiche doit Ãªtre verrouillÃ©e ou Ãªtre une fiche manuelle
 	if(!isset($_SESSION["tab_candidat"]) || ((!isset($_SESSION["tab_candidat"]["lock"]) || $_SESSION["tab_candidat"]["lock"]!=1)
  														 && $_SESSION["tab_candidat"]["manuelle"]!=1))
 	{
@@ -77,7 +77,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		exit;
 	}
 
-	// identifiant de l'étudiant
+	// identifiant de l'Ã©tudiant
 	$candidat_id=$_SESSION["candidat_id"];
 
 	$dbr=db_connect();
@@ -98,28 +98,28 @@ CeCILL-B, et que vous en avez accepté les termes.
 		exit;
 	}
 
-	if(isset($_GET["cu_id"]) && is_numeric($_GET["cu_id"])) // modification d'un élément existant : l'identifiant est en paramètre
+	if(isset($_GET["cu_id"]) && is_numeric($_GET["cu_id"])) // modification d'un Ã©lÃ©ment existant : l'identifiant est en paramÃ¨tre
 		$_SESSION["cu_id"]=$cu_id=$_GET["cu_id"];
 	elseif(isset($_SESSION["cu_id"]))
 		$cu_id=$_SESSION["cu_id"];
-	else // pas de paramètre : ajout d'une candidature extérieure
+	else // pas de paramÃ¨tre : ajout d'une candidature extÃ©rieure
 		$cu_id=0;
 
 	if(isset($_POST["go"]) || isset($_POST["go_x"])) // validation du formulaire
 	{
 		$diplome=$_POST["filiere"];
 /*
-		if(empty($diplome)) // filière venant du champ libre ?
+		if(empty($diplome)) // filiÃ¨re venant du champ libre ?
 			$diplome=html_entity_decode(ucfirst(trim($_POST["filiere_libre"])));
 */
-		// même traitement avec l'intitulé
+		// mÃªme traitement avec l'intitulÃ©
 /*
 		$intitule=html_entity_decode($_POST["intitule"]);
 		if(empty($intitule)) // pays venant du champ libre ?
 */
 		$intitule=html_entity_decode(ucfirst(trim($_POST["intitule_libre"])));
 
-		// presque pareil avec la spécialité, la ville et l'école
+		// presque pareil avec la spÃ©cialitÃ©, la ville et l'Ã©cole
 		$specialite=html_entity_decode(ucfirst(strtolower(trim($_POST["specialite"]))));
 		$ville=html_entity_decode(ucfirst(trim($_POST["ville"])));
 		$ecole=html_entity_decode(trim($_POST["ecole"]));
@@ -186,7 +186,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 	if($cu_id!=0)
 	{
-		// récupération des valeurs courantes
+		// rÃ©cupÃ©ration des valeurs courantes
 		$result=db_query($dbr,"SELECT $_DBC_cursus_diplome, $_DBC_cursus_intitule, $_DBC_cursus_spec, $_DBC_cursus_annee,
 																			$_DBC_cursus_ecole, $_DBC_cursus_ville, $_DBC_cursus_pays, $_DBC_cursus_moyenne,
 																			$_DBC_cursus_mention, $_DBC_cursus_rang
@@ -206,7 +206,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			db_free_result($result);
 		}
 	}
-	else // nouvelle étape : initialisation des valeurs
+	else // nouvelle Ã©tape : initialisation des valeurs
 		$cur_diplome=$cur_intitule=$cur_specialite=$cur_annee_obtention=$cur_ecole=$cur_ville=$cur_pays=$cur_note_moyenne=$cur_mention=$cur_rang="";
 
 
@@ -225,19 +225,19 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 				 <form action='$php_self' method='POST' name='form1'>");
 
-		titre_page_icone("Ajouter / Modifier une étape du cursus scolaire", "edit_32x32_fond.png", 15, "L");
+		titre_page_icone("Ajouter / Modifier une Ã©tape du cursus scolaire", "edit_32x32_fond.png", 15, "L");
 
 		if(isset($champ_vide))
 			message("Formulaire incomplet : les champs en gras sont <u>obligatoires</u>", $__ERREUR);
 		elseif(isset($annee_format))
-			message("Erreur : la valeur du champ 'Année' est incorrecte (valeur numérique à 4 chiffres, années futures interdites)", $__ERREUR);
+			message("Erreur : la valeur du champ 'AnnÃ©e' est incorrecte (valeur numÃ©rique Ã  4 chiffres, annÃ©es futures interdites)", $__ERREUR);
 		else
 			message("Rappel : les champs en gras sont <u>obligatoires</u>", $__WARNING);
 	?>
 	<table align='center'>
 	<tr>
 		<td class='td-gauche fond_menu2'>
-			<font class='Texte_important_menu2'><b>Diplôme / Niveau d'études</b></font>
+			<font class='Texte_important_menu2'><b>DiplÃ´me / Niveau d'Ã©tudes</b></font>
 		</td>
 		<td class='td-droite fond_menu'>
 			<select name='filiere' size='1'>
@@ -253,7 +253,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	*/
 					$rows=db_num_rows($result);
 
-					$current_niveau=-10; // initialisé à n'importe quelle valeur inférieure à -1
+					$current_niveau=-10; // initialisÃ© Ã  n'importe quelle valeur infÃ©rieure Ã  -1
 
 					if(empty($cur_diplome))
 						print("<option value='' selected=1></option>");
@@ -265,7 +265,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 					else
 						$selected="";
 
-					print("<option value='Autre' $selected>Autre (préciser dans le champ \"Mention - Intitulé\"</option>
+					print("<option value='Autre' $selected>Autre (prÃ©ciser dans le champ \"Mention - IntitulÃ©\"</option>
 							 <option value=''></option>\n");
 
 					$value2=preg_replace("/_/","",htmlspecialchars(stripslashes($cur_diplome), ENT_QUOTES, $default_htmlspecialchars_encoding));
@@ -279,10 +279,10 @@ CeCILL-B, et que vous en avez accepté les termes.
 						{
 							switch($diplome_niveau)
 							{
-								case -1	:	$type_niveau="------ Filières particulières ------";
+								case -1	:	$type_niveau="------ FiliÃ¨res particuliÃ¨res ------";
 														break;
 
-								case 0		:	$type_niveau="------ Niveau Baccalauréat ------";
+								case 0		:	$type_niveau="------ Niveau BaccalaurÃ©at ------";
 														break;
 
 								default	:	$type_niveau="------ Niveau Bac + $diplome_niveau ------";
@@ -309,7 +309,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu2'>
-			<font class='Texte_important_menu2'><b>Mention / Intitulé</b></font>
+			<font class='Texte_important_menu2'><b>Mention / IntitulÃ©</b></font>
 		</td>
 		<td class='td-droite fond_menu'>
 			<input type='text' name='intitule_libre' value='<?php if(isset($cur_intitule) && !isset($intitule_liste)) echo htmlspecialchars(str_replace("_","",stripslashes($cur_intitule)),ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="80" maxlength="256">
@@ -317,7 +317,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu2'>
-			<font class='Texte_menu2'>Spécialité / Parcours (si applicable)</font>
+			<font class='Texte_menu2'>SpÃ©cialitÃ© / Parcours (si applicable)</font>
 		</td>
 		<td class='td-droite fond_menu'>
 			<input type='text' name='specialite' value='<?php if(isset($specialite)) echo htmlspecialchars(stripslashes(str_replace("_","",$specialite)), ENT_QUOTES, $default_htmlspecialchars_encoding);  else echo htmlspecialchars(preg_replace("/_/","",$cur_specialite),ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' maxlength='50' size='30'>
@@ -325,7 +325,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu2'>
-			<font class='Texte_important_menu2'><b>Année</b></font>
+			<font class='Texte_important_menu2'><b>AnnÃ©e</b></font>
 		</td>
 		<td class='td-droite fond_menu'>
 			<input type='text' name='annee' value='<?php if(isset($annee_obtention)) echo $annee_obtention; else echo $cur_annee_obtention;?>' maxlength='4' size='15'>&nbsp;&nbsp;
@@ -378,7 +378,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu2'>
-			<font class='Texte_menu2'>Mention / Résultat obtenu</font>
+			<font class='Texte_menu2'>Mention / RÃ©sultat obtenu</font>
 		</td>
 		<td class='td-droite fond_menu'>
 			<select name='mention' size='1'>
@@ -409,7 +409,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu2'>
-			<font class='Texte_menu2'>Moyenne rapportée à 20 (si connue)</font>
+			<font class='Texte_menu2'>Moyenne rapportÃ©e Ã  20 (si connue)</font>
 		</td>
 		<td class='td-droite fond_menu'>
 			<input type='text' name='note' value='<?php if(isset($note_moyenne) && $note_moyenne!=0) echo str_replace("_","",$note_moyenne); elseif($cur_note_moyenne != "0") echo preg_replace("/_/","",$cur_note_moyenne);?>' maxlength='10' size='10'>&nbsp;&nbsp;<font class='Texte_menu'><i>Exemple : 14,54/20</i></font>

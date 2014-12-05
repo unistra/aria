@@ -1,18 +1,18 @@
 <?php
   if(is_file("../include/vars.php")) include "../include/vars.php";
-  else die("Fichier \"include/vars.php\" non trouvÈ");
+  else die("Fichier \"include/vars.php\" non trouv√©");
    
   if(is_file("../include/fonctions.php")) include "../include/fonctions.php";
-  else die("Fichier \"include/fonctions.php\" non trouvÈ");
+  else die("Fichier \"include/fonctions.php\" non trouv√©");
          
   if(is_file("../include/db.php")) include "../include/db.php";
-  else die("Fichier \"include/db.php\" non trouvÈ");
+  else die("Fichier \"include/db.php\" non trouv√©");
                
   if(is_file("../include/access_functions.php")) include "../include/access_functions.php";
-  else die("Fichier \"include/access_functions.php\" non trouvÈ");
+  else die("Fichier \"include/access_functions.php\" non trouv√©");
                      
   if(is_file("../include/fonctions_ldap.php")) include "../include/fonctions_ldap.php";
-  else die("Fichier \"include/fonctions_ldap\" non trouvÈ");
+  else die("Fichier \"include/fonctions_ldap\" non trouv√©");
 
 
   $dbr=db_connect();
@@ -22,7 +22,7 @@
      
   if($load_config===FALSE) // config absente : erreur
      $erreur_config=1;
-  elseif($load_config==-1) // paramËtre(s) manquant(s) : avertissement
+  elseif($load_config==-1) // param√®tre(s) manquant(s) : avertissement
      $warn_config=1;
      
   $ldap=aria_ldap_connect();
@@ -51,9 +51,9 @@
            
         $date_cr=date_fr("j F Y", id_to_date($acces_id));
 
-        echo "[(".($i+1)."/$rows) $nom - $prenom - $courriel - $login - CrÈation : $date_cr - DerniËre connexion : $date_cnx]\n";
+        echo "[(".($i+1)."/$rows) $nom - $prenom - $courriel - $login - Cr√©ation : $date_cr - Derni√®re connexion : $date_cnx]\n";
 
-        /* TODO : paramÈtrer les attributs LDAP */
+        /* TODO : param√©trer les attributs LDAP */
         $attr_ldap_login="uid";
         $attr_ldap_prenom="givenname";
         $attr_ldap_nom="sn";
@@ -102,7 +102,7 @@
               ldap_sort($cnx_ldap, $result_ldap, $tri_attr);
               */
             
-              // RÈcupÈration du rÈsultat triÈ
+              // R√©cup√©ration du r√©sultat tri√©
               $entries_ldap=ldap_get_entries($ldap, $result_ldap) or die("Erreur LDAP : ldap_get_entries()\n");
               
               $count=$entries_ldap["count"];
@@ -201,8 +201,8 @@
            $defaut=$i_choix==2 ? "1" : "";
            $defaut_txt=$defaut!="" ? "($defaut)" : "";        
            
-           echo "[+] Voir plus de choix (recherches complÈmentaires dans l'annuaire LDAP)\n";
-           echo "[D] DÈsactiver le compte\n";
+           echo "[+] Voir plus de choix (recherches compl√©mentaires dans l'annuaire LDAP)\n";
+           echo "[D] D√©sactiver le compte\n";
            echo "[R] Ne rien faire\n";           
            echo "\nVotre choix : $defaut_txt";
            
@@ -230,7 +230,7 @@
            {
               $all_filtres=0;
               
-              print("DÈsactivation\n");
+              print("D√©sactivation\n");
               
               db_query($dbr, "UPDATE acces set niveau='-10' WHERE id='$acces_id'");
            }
@@ -241,7 +241,7 @@
            }
         }
         else
-           echo "  > non trouvÈ(e) - fiche manuelle\n";
+           echo "  > non trouv√©(e) - fiche manuelle\n";
 
         echo "\n";
      }

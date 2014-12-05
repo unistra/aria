@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -67,12 +67,12 @@ CeCILL-B, et que vous en avez accepté les termes.
 	unset($_SESSION["ordre"]);
 	unset($_SESSION["ajout"]);
 
-	// récupération de l'id de la lettre
+	// rÃ©cupÃ©ration de l'id de la lettre
 	if(isset($_GET["lettre_id"]))
 		$_SESSION["lettre_id"]=$lettre_id=$_GET["lettre_id"];
 	elseif(isset($_SESSION["lettre_id"]))
 		$lettre_id=$_SESSION["lettre_id"];
-	else	// pas de numéro de lettre : retour à l'index
+	else	// pas de numÃ©ro de lettre : retour Ã  l'index
 	{
 		header("Location:index.php");
 		exit;
@@ -84,13 +84,13 @@ CeCILL-B, et que vous en avez accepté les termes.
 	{
 		$dbr=db_connect();
 
-		// récupération de certains paramètres par défaut de la composante
+		// rÃ©cupÃ©ration de certains paramÃ¨tres par dÃ©faut de la composante
 		$res_comp=db_query($dbr,"SELECT $_DBC_composantes_adr_pos_x, $_DBC_composantes_adr_pos_y, $_DBC_composantes_corps_pos_x,
 												  $_DBC_composantes_corps_pos_y, $_DBC_composantes_largeur_logo
 											FROM $_DB_composantes
 										WHERE $_DBC_composantes_id='$_SESSION[comp_id]'");
 
-		if(db_num_rows($res_comp)) // toujours vrai à cet endroit (sauf si la composante a été effacée entretemps ...)
+		if(db_num_rows($res_comp)) // toujours vrai Ã  cet endroit (sauf si la composante a Ã©tÃ© effacÃ©e entretemps ...)
 			list($comp_adr_pos_x, $comp_adr_pos_y, $comp_corps_pos_x, $comp_corps_pos_y, $comp_largeur_logo)=db_fetch_row($res_comp,0);
 		else
 		{
@@ -103,9 +103,9 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 		db_free_result($res_comp);
 
-		// Par défaut, une nouvelle lettre utilise les paramètres de la composante (logo, textes, etc), d'où les TRUE pour les 4 derniers champs et le "1" (flag_date)
+		// Par dÃ©faut, une nouvelle lettre utilise les paramÃ¨tres de la composante (logo, textes, etc), d'oÃ¹ les TRUE pour les 4 derniers champs et le "1" (flag_date)
 
-		// Paramètre à déplacer ?
+		// ParamÃ¨tre Ã  dÃ©placer ?
 		$default_lang='FR';
 
 		$lettre_id=db_locked_query($dbr, $_DB_lettres, "INSERT INTO $_DB_lettres VALUES ('##NEW_ID##', '$_SESSION[comp_id]', 'Nouvelle lettre', '', '', '', '', '$comp_largeur_logo','TRUE','TRUE','TRUE','TRUE','TRUE','0','1','TRUE', '$comp_adr_pos_x','$comp_adr_pos_y', 'TRUE', '$comp_corps_pos_x','$comp_corps_pos_y','$default_lang')");
@@ -115,11 +115,11 @@ CeCILL-B, et que vous en avez accepté les termes.
 		header("Location:editeur.php?lettre_id=$lettre_id");
 		exit;
 	}
-	else // affichage de la lettre en cours de rédaction
+	else // affichage de la lettre en cours de rÃ©daction
 	{
 		$dbr=db_connect();
 
-		 // si l'id passée en paramètre n'est pas correcte...
+		 // si l'id passÃ©e en paramÃ¨tre n'est pas correcte...
 		if(!db_num_rows(db_query($dbr,"SELECT $_DBC_lettres_id FROM $_DB_lettres WHERE $_DBC_lettres_id='$lettre_id'")))
 		{
 			db_close($dbr);
@@ -127,9 +127,9 @@ CeCILL-B, et que vous en avez accepté les termes.
 			exit;
 		}
 
-		// on détermine tous les éléments du corps de la lettre (position=0)
+		// on dÃ©termine tous les Ã©lÃ©ments du corps de la lettre (position=0)
 		$elements_corps=get_all_elements($dbr, $lettre_id);
-		$_SESSION["cbo"]=$nb_elem_corps=count($elements_corps); // ordre courant pour l'ajout d'un élément du corps
+		$_SESSION["cbo"]=$nb_elem_corps=count($elements_corps); // ordre courant pour l'ajout d'un Ã©lÃ©ment du corps
 	}
 
 	// EN-TETE
@@ -145,7 +145,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	$result=db_query($dbr,"SELECT $_DBC_lettres_titre FROM $_DB_lettres WHERE $_DBC_lettres_id='$lettre_id'");
 	$rows=db_num_rows($result);
 
-	if($rows) // si différent de 1, on a un sacré problème...
+	if($rows) // si diffÃ©rent de 1, on a un sacrÃ© problÃ¨me...
 	{
 		list($lettre_titre)=db_fetch_row($result,0);
 		$date_creation=date_fr("j F Y - H:i:s", id_to_date($lettre_id));
@@ -159,11 +159,11 @@ CeCILL-B, et que vous en avez accepté les termes.
 		
 		if(array_key_exists("__EMAIL_ADMIN", $GLOBALS) && trim($GLOBALS["__EMAIL_ADMIN"])!="")
 		{
-			mail($GLOBALS["__EMAIL_ADMIN"],$GLOBALS["__ERREUR_SUJET"], "Erreur dans $err_file, ligne $line\n'Lettre non trouvée'\nUtilisateur : $_SESSION[auth_user]\nLettre en cause : $lettre_id");
-			die("Erreur dans la base de données. Un courriel a été envoyé à l'administrateur.");
+			mail($GLOBALS["__EMAIL_ADMIN"],$GLOBALS["__ERREUR_SUJET"], "Erreur dans $err_file, ligne $line\n'Lettre non trouvÃ©e'\nUtilisateur : $_SESSION[auth_user]\nLettre en cause : $lettre_id");
+			die("Erreur dans la base de donnÃ©es. Un courriel a Ã©tÃ© envoyÃ© Ã  l'administrateur.");
 		}
 		else
-			die("Erreur dans la base de données. Aucun courriel n'a pu être envoyé à l'administrateur car aucune adresse électronique n'a été configurée.");
+			die("Erreur dans la base de donnÃ©es. Aucun courriel n'a pu Ãªtre envoyÃ© Ã  l'administrateur car aucune adresse Ã©lectronique n'a Ã©tÃ© configurÃ©e.");
 	}
 
 	db_free_result($result);
@@ -176,19 +176,19 @@ CeCILL-B, et que vous en avez accepté les termes.
 		<a href='index.php' target='_self'><img class='icone_menu_haut_2' border='0' src='<?php echo "$__ICON_DIR/abiword_16x16_menu2.png"; ?>'></a>
 		<a href='index.php' target='_self' class='lien_menu_haut_2'>Liste des lettres</a>
 		<a href='tableau.php' target='_self'><img class='icone_menu_haut_2' border='0' src='<?php echo "$__ICON_DIR/kdeprint_report_16x16_menu2.png"; ?>'></a>
-		<a href='tableau.php' target='_self' class='lien_menu_haut_2'>Tableau récapitulatif</a>
+		<a href='tableau.php' target='_self' class='lien_menu_haut_2'>Tableau rÃ©capitulatif</a>
 		<?php
 			if(in_array($_SESSION["niveau"], array("$__LVL_SCOL_PLUS","$__LVL_RESP","$__LVL_SUPER_RESP","$__LVL_ADMIN")))
 			{
 		?>
 
 			<a href='parametres.php' target='_self'><img class='icone_menu_haut_2' border='0' src='<?php echo "$__ICON_DIR/preferences_16x16_menu2.png"; ?>' alt='parametres'></a>
-			<a href='parametres.php' target='_self' class='lien_menu_haut_2'>Paramètres par défaut</a>
+			<a href='parametres.php' target='_self' class='lien_menu_haut_2'>ParamÃ¨tres par dÃ©faut</a>
 		<?php
 			}
 		?>
 			<a href='editeur.php?lettre_id=-1'  target='_self'><img class='icone_menu_haut_2' border='0' src='<?php echo "$__ICON_DIR/add_16x16_menu2.png"; ?>' alt='+'></a>
-			<a href='editeur.php?lettre_id=-1'  target='_self' class='lien_menu_haut_2'>Créer une nouvelle lettre</a>
+			<a href='editeur.php?lettre_id=-1'  target='_self' class='lien_menu_haut_2'>CrÃ©er une nouvelle lettre</a>
 		<?php
 			if(in_array($_SESSION["niveau"], array("$__LVL_SCOL_PLUS","$__LVL_RESP","$__LVL_SUPER_RESP","$__LVL_ADMIN")))
 			{
@@ -210,13 +210,13 @@ CeCILL-B, et que vous en avez accepté les termes.
 				
 
 				print("<p>
-							<font class='Texte_16'><strong>Edition de la lettre \"$lettre_titre\"</strong> </font><font class='Texte'>(Créée le $date_creation)</font>
+							<font class='Texte_16'><strong>Edition de la lettre \"$lettre_titre\"</strong> </font><font class='Texte'>(CrÃ©Ã©e le $date_creation)</font>
 						 </p>\n");
 
 		// ===========================================
 		// ==== AFFICHAGE DES ELEMENTS DU CORPS ====
 		// ==========================================
-		// on boucle sur le tableau (array) contenant tous les éléments, $i étant l'ordre de ces éléments
+		// on boucle sur le tableau (array) contenant tous les Ã©lÃ©ments, $i Ã©tant l'ordre de ces Ã©lÃ©ments
 
 		if($nb_elem_corps)
 		{
@@ -228,7 +228,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 				// variable pour les liens (move_element.php, etc)
 				if($i!=0)
 				{
-					$j=$i-1; // élément précédent
+					$j=$i-1; // Ã©lÃ©ment prÃ©cÃ©dent
 					$tt=$elements_corps["$j"]["type"]; // target type (tt)
 				}
 				else
@@ -236,18 +236,18 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 				if($i!=($nb_elem_corps-1))
 				{
-					$k=$i+1; // élément suivant
+					$k=$i+1; // Ã©lÃ©ment suivant
 					$tt2=$elements_corps["$k"]["type"]; // target type (tt)
 				}
 				else
 					$tt2=-1;
 
-				// variables communes à tous les types d'éléments
+				// variables communes Ã  tous les types d'Ã©lÃ©ments
 				
 				$element_id=$elements_corps["$i"]["id"];
 				$element_type=$elements_corps["$i"]["type"];
 
-				// nouvelle ligne dans le tableau pour l'élément en cours
+				// nouvelle ligne dans le tableau pour l'Ã©lÃ©ment en cours
 				print("<tr>
 							<td width='50' align='left' style='white-space:nowrap'>
 								<input type='radio' name='position_insertion_corps' value='$i' style='vertical-align:middle;'>\n");
@@ -256,7 +256,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 				switch($element_type)
 				{
-					case 2	:	// encadré
+					case 2	:	// encadrÃ©
 									$txt=nl2br($elements_corps["$i"]["texte"]);
 									// $align=$elements_corps["$i"]["alignement"];
 									$txt_align=$elements_corps["$i"]["txt_align"];
@@ -297,8 +297,8 @@ CeCILL-B, et que vous en avez accepté les termes.
 									$weight=$txt_gras ? "font-weight:bold;" : "";
 									$style=$txt_italique ? "font-style:italic;" : "";
 
-									// calcul du décalage (marge gauche)
-									// La valeur entrée est en millimetres. Pour l'affichage sous forme de tableau, il faut la
+									// calcul du dÃ©calage (marge gauche)
+									// La valeur entrÃ©e est en millimetres. Pour l'affichage sous forme de tableau, il faut la
 									// convertir en pourcentage de la largeur du tableau
 
 									if($txt_marge_gauche!=0)
@@ -322,8 +322,8 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 									break;
 									
-					case 8	:	// séparateur
-									$hauteur=$elements_corps["$i"]["nb_lignes"]*16; // 16px est la hauteur d'une ligne (icône)
+					case 8	:	// sÃ©parateur
+									$hauteur=$elements_corps["$i"]["nb_lignes"]*16; // 16px est la hauteur d'une ligne (icÃ´ne)
 
 									$s=$elements_corps["$i"]["nb_lignes"]>1 ? "s" : "";
 

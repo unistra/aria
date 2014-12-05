@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,37 +20,37 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
 ?>
 <?php
 	// Gestion des filtres entre les formations
-	// Exemple : si un candidat a sélectionné la formation X, alors il ne peut pas sélectionner la formation Y
+	// Exemple : si un candidat a sÃ©lectionnÃ© la formation X, alors il ne peut pas sÃ©lectionner la formation Y
 
 	session_name("preinsc_gestion");
 	session_start();
@@ -74,7 +74,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 	$dbr=db_connect();
 
-	// paramètre chiffré : identifiant du filtre en cas de modification (activation / désactivation ici)
+	// paramÃ¨tre chiffrÃ© : identifiant du filtre en cas de modification (activation / dÃ©sactivation ici)
 	if(isset($_GET["p"]) && -1!=($params=get_params($_GET['p'])) && (isset($_GET["a"]) || isset($_GET["d"])))
 	{
 		if(isset($params["fid"]) && ctype_digit($params["fid"]))
@@ -83,7 +83,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 			if(isset($_GET["a"]) && $_GET["a"]==1)	// on active
 				db_query($dbr, "UPDATE $_DB_filtres SET $_DBU_filtres_actif='1' WHERE $_DBU_filtres_id='$fid'");
-			elseif(isset($_GET["d"]) && $_GET["d"]==1)	// on désactive
+			elseif(isset($_GET["d"]) && $_GET["d"]==1)	// on dÃ©sactive
 				db_query($dbr, "UPDATE $_DB_filtres SET $_DBU_filtres_actif='0' WHERE $_DBU_filtres_id='$fid'");
 		}
 	}
@@ -116,23 +116,23 @@ CeCILL-B, et que vous en avez accepté les termes.
 		titre_page_icone("Filtres : exclusions entre formations", "applications-science_32x32_fond.png", 5, "L");
 
 		if(isset($_GET["succes_a"]) && $_GET["succes_a"]==1)
-			message("Filtre créé avec succès.", $__SUCCES);
+			message("Filtre crÃ©Ã© avec succÃ¨s.", $__SUCCES);
 		elseif(isset($_GET["succes_m"]) && $_GET["succes_m"]==1)
-			message("Filtre modifié avec succès.", $__SUCCES);
+			message("Filtre modifiÃ© avec succÃ¨s.", $__SUCCES);
 
-		// L'offre de formation doit être renseignée avant de pouvoir créer des filtres
+		// L'offre de formation doit Ãªtre renseignÃ©e avant de pouvoir crÃ©er des filtres
 		if(!db_num_rows(db_query($dbr, "SELECT * FROM $_DB_annees"))
 		|| !db_num_rows(db_query($dbr, "SELECT * FROM $_DB_propspec WHERE $_DBC_propspec_comp_id='$_SESSION[comp_id]'"))
 		|| !db_num_rows(db_query($dbr, "SELECT * FROM $_DB_mentions WHERE $_DBC_mentions_comp_id='$_SESSION[comp_id]'"))
 		|| !db_num_rows(db_query($dbr, "SELECT * FROM $_DB_specs WHERE $_DBC_specs_comp_id='$_SESSION[comp_id]'")))
-			message("L'offre de formation est incomplète : vous ne pouvez pas encore ajouter de filtres", $__WARNING);
+			message("L'offre de formation est incomplÃ¨te : vous ne pouvez pas encore ajouter de filtres", $__WARNING);
 		else
 			print("<div class='centered_box'>
 						<a href='filtre.php' target='_self' class='lien2'><img class='icone' src='$__ICON_DIR/add_22x22_fond.png' border='0' alt='Ajouter' desc='Ajouter' title='[Ajouter un filtre]></a>
 						<a href='filtre.php' target='_self' class='lien2'>Ajouter un filtre</a>
 					</div>\n");
 
-		// trouver un moyen pour simplifier cette requête (utilisation d'une vue ?)
+		// trouver un moyen pour simplifier cette requÃªte (utilisation d'une vue ?)
 		
 		$result_filtres=db_query($dbr, "SELECT $_DBC_filtres_id, $_DBC_filtres_nom, $_DBC_filtres_cond_propspec_id, $_DBC_filtres_cond_annee_id,
 															CASE WHEN $_DBC_filtres_cond_annee_id IN (SELECT $_DBC_annees_id FROM $_DB_annees)
@@ -176,16 +176,16 @@ CeCILL-B, et que vous en avez accepté les termes.
 		$rows_filtres=db_num_rows($result_filtres);
 
 		if(!$rows_filtres)
-			message("Aucun filtre n'a encore été défini.", $__INFO);
+			message("Aucun filtre n'a encore Ã©tÃ© dÃ©fini.", $__INFO);
 		else
 		{
 			message("<center>
-							Attention : des filtres mal configurés peuvent bloquer toutes les candidatures.
-							<br><strong>Vérifiez bien leur cohérence !</strong>
+							Attention : des filtres mal configurÃ©s peuvent bloquer toutes les candidatures.
+							<br><strong>VÃ©rifiez bien leur cohÃ©rence !</strong>
 						</center>", $__WARNING);
 
-			message("- Le caractère * signifie : \"Tous/Toutes ...\".
-						<br>- Cliquez sur l'icône de la première colonne pour activer/désactiver un filtre.", $__INFO);
+			message("- Le caractÃ¨re * signifie : \"Tous/Toutes ...\".
+						<br>- Cliquez sur l'icÃ´ne de la premiÃ¨re colonne pour activer/dÃ©sactiver un filtre.", $__INFO);
 
 			print("<table cellpadding='2' style='margin-left:auto; margin-right:auto; padding-bottom:30px;'>
 					 <tr>
@@ -197,45 +197,45 @@ CeCILL-B, et que vous en avez accepté les termes.
 						</td>
 						<td rowspan='" . ($rows_filtres+2) . "'></td>
 						<td class='fond_menu2' colspan='4'  style='text-align:center;'>
-							<font class='Texte_menu2'><strong>Si un candidat a déposé<br>un voeu en ...</strong></font>
+							<font class='Texte_menu2'><strong>Si un candidat a dÃ©posÃ©<br>un voeu en ...</strong></font>
 						</td>
 						<td rowspan='" . ($rows_filtres+2) . "'></td>
 						<td class='fond_menu2' colspan='4'  style='text-align:center;'>
-							<font class='Texte_menu2'><strong>Alors il ne peut plus<br>déposer de voeux en ...</strong></font>
+							<font class='Texte_menu2'><strong>Alors il ne peut plus<br>dÃ©poser de voeux en ...</strong></font>
 						</td>
 					</tr>
 					<tr>
 						<td class='fond_menu2'></td>
 						<td class='fond_menu2'></td>
 						<td class='fond_menu2' style='text-align:center;'>
-							<font class='Texte_menu2'><strong>Année</strong></font>
+							<font class='Texte_menu2'><strong>AnnÃ©e</strong></font>
 						</td>
 						<td class='fond_menu2' style='text-align:center;'>
 							<font class='Texte_menu2'><strong>Mention</strong></font>
 						</td>
 						<td class='fond_menu2' style='text-align:center;'>
-							<font class='Texte_menu2'><strong>Spécialité</strong></font>
+							<font class='Texte_menu2'><strong>SpÃ©cialitÃ©</strong></font>
 						</td>
 						<td class='fond_menu2' style='text-align:center;'>
-							<font class='Texte_menu2'><strong>Finalité</strong></font>
+							<font class='Texte_menu2'><strong>FinalitÃ©</strong></font>
 						</td>
 						<td class='fond_menu2' style='text-align:center;'>
-							<font class='Texte_menu2'><strong>Année</strong></font>
+							<font class='Texte_menu2'><strong>AnnÃ©e</strong></font>
 						</td>
 						<td class='fond_menu2' style='text-align:center;'>
 							<font class='Texte_menu2'><strong>Mention</strong></font>
 						</td>
 						<td class='fond_menu2' style='text-align:center;'>
-							<font class='Texte_menu2'><strong>Spécialité</strong></font>
+							<font class='Texte_menu2'><strong>SpÃ©cialitÃ©</strong></font>
 						</td>
 						<td class='fond_menu2' style='text-align:center;'>
-							<font class='Texte_menu2'><strong>Finalité</strong></font>
+							<font class='Texte_menu2'><strong>FinalitÃ©</strong></font>
 						</td>
 						<td class='fond_menu2' style='text-align:center;' colspan='2'></td>
 					</tr>\n");
 
-			// on conserve les filtres dans un tableau afin d'éviter
-			// la même requête dans les autres pages (suppression notamment)
+			// on conserve les filtres dans un tableau afin d'Ã©viter
+			// la mÃªme requÃªte dans les autres pages (suppression notamment)
 			$_SESSION["tab_filtres"]=array();
 
 			for($i=0; $i<$rows_filtres; $i++)
@@ -307,7 +307,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 				
 				if($filtre_actif)
-					$lien_filtre_actif="<a href='$php_self?p=$crypt_params&d=1' target='_self'><img src='$__ICON_DIR/button_ok_16x16_menu.png' width='16' height='16' border='0' title='Cliquez pour désactiver'></a>";
+					$lien_filtre_actif="<a href='$php_self?p=$crypt_params&d=1' target='_self'><img src='$__ICON_DIR/button_ok_16x16_menu.png' width='16' height='16' border='0' title='Cliquez pour dÃ©sactiver'></a>";
 				else
 					$lien_filtre_actif="<a href='$php_self?p=$crypt_params&a=1' target='_self'><img src='$__ICON_DIR/cancel_16x16_menu.png' width='16' height='16' border='0' title='Cliquez pour activer'></a>";
 

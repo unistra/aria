@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,37 +20,37 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
 ?>
 <?php
 
-// en fonction de l'entier en paramètre, donne l'alignement d'un objet
+// en fonction de l'entier en paramÃ¨tre, donne l'alignement d'un objet
 
 function get_align($int_align)
 {
@@ -72,7 +72,7 @@ function get_align($int_align)
 	}
 }
 
-// Pareil mais avec les paramètres de FPDF
+// Pareil mais avec les paramÃ¨tres de FPDF
 function get_fpdf_align($int_align)
 {
 	if(!is_numeric($int_align))
@@ -94,9 +94,9 @@ function get_fpdf_align($int_align)
 }
 
 // GET_TABLE_NAME
-// Determine le nom de la table en fonction du type d'un élément
+// Determine le nom de la table en fonction du type d'un Ã©lÃ©ment
 // ARGUMENT :
-// - type d'élément (entier)
+// - type d'Ã©lÃ©ment (entier)
 // RETOUR
 //- nom de la table correspondante et des colonnes utiles
 function get_table_name($type)
@@ -123,7 +123,7 @@ function get_table_name($type)
 						return $return_array;
 						break;
 
-		default: return FALSE; // normalement l'argument $type est vérifié AVANT l'appel à la fonction
+		default: return FALSE; // normalement l'argument $type est vÃ©rifiÃ© AVANT l'appel Ã  la fonction
 	}
 
 }
@@ -150,18 +150,18 @@ function show_up_down3($i,$nb_elem)
 }
 
 // GET_ALL_ELEMENTS
-// Construction d'un tableau contenant les éléments composant une lettre
+// Construction d'un tableau contenant les Ã©lÃ©ments composant une lettre
 // ARGUMENTS :
-// - db : ressource correspondant à une connexion à une bdd
-// - lettre_id : identifiant de la lettre concernée
+// - db : ressource correspondant Ã  une connexion Ã  une bdd
+// - lettre_id : identifiant de la lettre concernÃ©e
 // RETOUR
-// - array contenant les éléments (clés=ordre des éléments)
+// - array contenant les Ã©lÃ©ments (clÃ©s=ordre des Ã©lÃ©ments)
 
 function get_all_elements($db, $lettre_id)
 {
-	// fonction qui recherche tous les éléments d'un article et qui retourne un tableau contenant ces éléments triés
+	// fonction qui recherche tous les Ã©lÃ©ments d'un article et qui retourne un tableau contenant ces Ã©lÃ©ments triÃ©s
 
-	// initialisation du tableau d'éléments
+	// initialisation du tableau d'Ã©lÃ©ments
 	$elements=array();
 
 	// ENCADRES (type_element = 2)
@@ -172,7 +172,7 @@ function get_all_elements($db, $lettre_id)
 
 	$rows=db_num_rows($result);
 
-	// on met chaque encadré dans le tableau
+	// on met chaque encadrÃ© dans le tableau
 	for($i=0; $i<$rows ; $i++)
 	{
 		list($id,$texte,$txt_align,$ordre)=db_fetch_row($result, $i);
@@ -183,11 +183,11 @@ function get_all_elements($db, $lettre_id)
 			
 			if(array_key_exists("__EMAIL_ADMIN", $GLOBALS) && trim($GLOBALS["__EMAIL_ADMIN"])!="")
 			{
-				mail($GLOBALS["__EMAIL_ADMIN"],$GLOBALS["__ERREUR_SUJET"], "Erreur dans $err_file, ligne $line\n'Base de données incohérente'\nIdentifiant : $_SESSION[auth_user]");
-				die("Erreur : base de données incohérente. Un courriel a été envoyé à l'administrateur.");
+				mail($GLOBALS["__EMAIL_ADMIN"],$GLOBALS["__ERREUR_SUJET"], "Erreur dans $err_file, ligne $line\n'Base de donnÃ©es incohÃ©rente'\nIdentifiant : $_SESSION[auth_user]");
+				die("Erreur : base de donnÃ©es incohÃ©rente. Un courriel a Ã©tÃ© envoyÃ© Ã  l'administrateur.");
 			}
 			else
-				die("Erreur : base de données incohérente. Aucun courriel n'a pu être envoyé à l'administrateur car aucune adresse électronique n'a été configurée.");
+				die("Erreur : base de donnÃ©es incohÃ©rente. Aucun courriel n'a pu Ãªtre envoyÃ© Ã  l'administrateur car aucune adresse Ã©lectronique n'a Ã©tÃ© configurÃ©e.");
 		}
 		else
 			$elements["$ordre"]=array("type" => 2, "id" => $id, "texte" => $texte, "txt_align" => $txt_align);
@@ -213,25 +213,25 @@ function get_all_elements($db, $lettre_id)
 			
 			if(array_key_exists("__EMAIL_ADMIN", $GLOBALS) && trim($GLOBALS["__EMAIL_ADMIN"])!="")
 			{
-				mail($GLOBALS["__EMAIL_ADMIN"],$GLOBALS["__ERREUR_SUJET"], "Erreur dans $err_file, ligne $line\n'Base de données incohérente'\nIdentifiant : $_SESSION[auth_user]");
-				die("Erreur : base de données incohérente. Un courriel a été envoyé à l'administrateur.");
+				mail($GLOBALS["__EMAIL_ADMIN"],$GLOBALS["__ERREUR_SUJET"], "Erreur dans $err_file, ligne $line\n'Base de donnÃ©es incohÃ©rente'\nIdentifiant : $_SESSION[auth_user]");
+				die("Erreur : base de donnÃ©es incohÃ©rente. Un courriel a Ã©tÃ© envoyÃ© Ã  l'administrateur.");
 			}
 			else
-				die("Erreur : base de données incohérente. Aucun courriel n'a pu être envoyé à l'administrateur car aucune adresse électronique n'a été configurée.");
+				die("Erreur : base de donnÃ©es incohÃ©rente. Aucun courriel n'a pu Ãªtre envoyÃ© Ã  l'administrateur car aucune adresse Ã©lectronique n'a Ã©tÃ© configurÃ©e.");
 		}
 		else
 			$elements["$ordre"]=array("type" => 5, "id" => $id, "texte" => $texte, "txt_align" => $txt_align, "gras" => $gras, "italique" => $italique, "taille" => $taille);
 	}
 	db_free_result($result);
 
-	// Séparateurs (type 8)
+	// SÃ©parateurs (type 8)
 	$result=db_query($db,"SELECT $GLOBALS[_DBC_sepa_lettre_id], $GLOBALS[_DBC_sepa_ordre] FROM $GLOBALS[_DB_sepa]
 													WHERE $GLOBALS[_DBC_sepa_lettre_id]='$lettre_id'
 														ORDER BY $GLOBALS[_DBC_sepa_ordre] ASC");
 
 	$rows=db_num_rows($result);
 
-	// on met chaque séparateur dans le tableau
+	// on met chaque sÃ©parateur dans le tableau
 	for($i=0; $i<$rows ; $i++)
 	{
 		list($id,$ordre)=db_fetch_row($result, $i);
@@ -242,11 +242,11 @@ function get_all_elements($db, $lettre_id)
 			
 			if(array_key_exists("__EMAIL_ADMIN", $GLOBALS) && trim($GLOBALS["__EMAIL_ADMIN"])!="")
 			{
-				mail($GLOBALS["__EMAIL_ADMIN"],$GLOBALS["__ERREUR_SUJET"], "Erreur dans $err_file, ligne $line\n'Base de données incohérente'\nIdentifiant : $_SESSION[auth_user]");
-				die("Erreur : base de données incohérente. Un courriel a été envoyé à l'administrateur.");
+				mail($GLOBALS["__EMAIL_ADMIN"],$GLOBALS["__ERREUR_SUJET"], "Erreur dans $err_file, ligne $line\n'Base de donnÃ©es incohÃ©rente'\nIdentifiant : $_SESSION[auth_user]");
+				die("Erreur : base de donnÃ©es incohÃ©rente. Un courriel a Ã©tÃ© envoyÃ© Ã  l'administrateur.");
 			}
 			else
-				die("Erreur : base de données incohérente. Aucun courriel n'a pu être envoyé à l'administrateur car aucune adresse électronique n'a été configurée.");
+				die("Erreur : base de donnÃ©es incohÃ©rente. Aucun courriel n'a pu Ãªtre envoyÃ© Ã  l'administrateur car aucune adresse Ã©lectronique n'a Ã©tÃ© configurÃ©e.");
 		}
 		else
 			$elements["$ordre"]=array("type" => 8, "id" => $id);

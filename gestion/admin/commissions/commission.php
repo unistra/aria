@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -106,7 +106,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 				db_query($dbr,"INSERT INTO $_DB_commissions (SELECT $_DBC_propspec_id, '$new_id', '$new_date_commission', '$_SESSION[new_date_periode]'
 																	 		FROM $_DB_propspec WHERE $_DBC_propspec_comp_id='$_SESSION[comp_id]' AND $_DBC_propspec_active='1')");
 
-				write_evt($dbr, $__EVT_ID_G_SESSION, "Création Commission $new_id");
+				write_evt($dbr, $__EVT_ID_G_SESSION, "CrÃ©ation Commission $new_id");
 
 				db_close($dbr);
 
@@ -116,7 +116,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			else
 				$dates_manquantes=1;
 		}
-		else // Redirection vers le choix des formations (à écrire)
+		else // Redirection vers le choix des formations (Ã  Ã©crire)
 		{
 
 		}
@@ -132,22 +132,22 @@ CeCILL-B, et que vous en avez accepté les termes.
 <div class='main'>
 	<?php
 		// TODO
-		// Sélection de la période : temporaire pour les commissions ?
-		// Ne faut-il pas préférer un système de sélection de période plus global ? (mais alors comment empêcher de paramètrer
+		// SÃ©lection de la pÃ©riode : temporaire pour les commissions ?
+		// Ne faut-il pas prÃ©fÃ©rer un systÃ¨me de sÃ©lection de pÃ©riode plus global ? (mais alors comment empÃªcher de paramÃ¨trer
 		// des dates 2009-2010 alors que __PERIODE=2008 ???)
 
 		print("<form action='$php_self' method='POST' name='form1'>\n");
 
 		if(!isset($_SESSION["new_date_periode"]))
 		{
-			titre_page_icone("Ajouter une date de Commission Pédagogique : sélection de l'année", "clock_32x32_fond.png", 15, "L");
+			titre_page_icone("Ajouter une date de Commission PÃ©dagogique : sÃ©lection de l'annÃ©e", "clock_32x32_fond.png", 15, "L");
 
-			message("Sélectionnez l'année universitaire pour laquelle la commission sera valide.", $__WARNING);
+			message("SÃ©lectionnez l'annÃ©e universitaire pour laquelle la commission sera valide.", $__WARNING);
 	?>
 		<table align='center'>
 		<tr>
 			<td class='td-gauche fond_menu2'>
-				<font class='Texte_menu2'><b>Année universitaire concernée par la Commission : </b></font>
+				<font class='Texte_menu2'><b>AnnÃ©e universitaire concernÃ©e par la Commission : </b></font>
 			</td>
 			<td class='td-droite fond_menu'>
 				<select name='periode'>
@@ -163,8 +163,8 @@ CeCILL-B, et que vous en avez accepté les termes.
 							$selected="selected";
 						}
 
-						print("<option value='$__PERIODE'>Année actuelle ($__PERIODE-" . ($__PERIODE+1) . ")</option>
-								 <option value='".($__PERIODE+1)."'>Année suivante (".($__PERIODE+1). "-" . ($__PERIODE+2) . ")</option>\n");
+						print("<option value='$__PERIODE'>AnnÃ©e actuelle ($__PERIODE-" . ($__PERIODE+1) . ")</option>
+								 <option value='".($__PERIODE+1)."'>AnnÃ©e suivante (".($__PERIODE+1). "-" . ($__PERIODE+2) . ")</option>\n");
 					?>
 				</select>
 			</td>
@@ -180,7 +180,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		}
 		else
 		{
-			titre_page_icone("Ajouter une date de Commission Pédagogique pour l'année $_SESSION[new_date_periode]-".($_SESSION["new_date_periode"]+1), "add_32x32_fond.png", 30, "L");
+			titre_page_icone("Ajouter une date de Commission PÃ©dagogique pour l'annÃ©e $_SESSION[new_date_periode]-".($_SESSION["new_date_periode"]+1), "add_32x32_fond.png", 30, "L");
 
 			$result=db_query($dbr, "SELECT max($_DBC_commissions_id) FROM $_DB_commissions, $_DB_propspec
 											WHERE $_DBC_propspec_id=$_DBC_commissions_propspec_id
@@ -221,11 +221,11 @@ CeCILL-B, et que vous en avez accepté les termes.
 				<select name='mois_commission'>
 					<option value=''></option><option value='1'>Janvier</option><option value='2'>Fevrier</option>
 					<option value='3'>Mars</option><option value='4'>Avril</option><option value='5'>Mai</option>
-					<option value='6'>Juin</option><option value='7'>Juillet</option><option value='8'>Août</option>
+					<option value='6'>Juin</option><option value='7'>Juillet</option><option value='8'>AoÃ»t</option>
 					<option value='9'>Septembre</option><option value='10'>Octobre</option><option value='11'>Novembre</option>
-					<option value='12'>Décembre</option>
+					<option value='12'>DÃ©cembre</option>
 				</select>
-				&nbsp;Année : &nbsp;
+				&nbsp;AnnÃ©e : &nbsp;
 				<input type='text' name='annee_commission' maxlength="4" size="6" value='<?php echo $_SESSION["new_date_periode"]; ?>'>
 			</font>
 		</td>

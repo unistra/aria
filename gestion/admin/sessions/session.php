@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -102,7 +102,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          if(!ctype_digit($all_annee_reception) || $all_annee_reception<date("Y"))
             $all_annee_reception=date("Y");
 
-         $new_date_all_fermeture=MakeTime(23,59,50,$all_mois_fermeture, $all_jour_fermeture, $all_annee_fermeture); // date au format unix : le jour même, le soir
+         $new_date_all_fermeture=MakeTime(23,59,50,$all_mois_fermeture, $all_jour_fermeture, $all_annee_fermeture); // date au format unix : le jour mÃªme, le soir
          $new_date_all_ouverture=MakeTime(0,30,0,$all_mois_ouverture, $all_jour_ouverture, $all_annee_ouverture);
          $new_date_all_reception=MakeTime(0,30,0,$all_mois_reception, $all_jour_reception, $all_annee_reception);
 
@@ -110,7 +110,7 @@ CeCILL-B, et que vous en avez accepté les termes.
             $all_fond="fond_rouge";
          else
          {
-            // Vérification : les dates de sessions ne DOIVENT PAS entrer en collision
+            // VÃ©rification : les dates de sessions ne DOIVENT PAS entrer en collision
             $res_collisions=db_query($dbr, "SELECT $_DBC_session_id, $_DBC_session_propspec_id
                                              FROM $_DB_session, $_DB_propspec
                                              WHERE $_DBC_session_propspec_id=$_DBC_propspec_id
@@ -129,7 +129,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                db_query($dbr,"INSERT INTO $_DB_session (SELECT $_DBC_propspec_id, '$new_id', '$new_date_all_ouverture', '$new_date_all_fermeture', '$new_date_all_reception', '$_SESSION[new_session_periode]'
                                                       FROM $_DB_propspec WHERE $_DBC_propspec_comp_id='$_SESSION[comp_id]' AND $_DBC_propspec_active='1')");
 
-               write_evt($dbr, $__EVT_ID_G_SESSION, "Création session $new_id");
+               write_evt($dbr, $__EVT_ID_G_SESSION, "CrÃ©ation session $new_id");
 
                db_close($dbr);
 
@@ -138,7 +138,7 @@ CeCILL-B, et que vous en avez accepté les termes.
             }
             else
             {
-               // Récupération des sessions qui entrent en collision, pour signalement (tableau encadré)
+               // RÃ©cupÃ©ration des sessions qui entrent en collision, pour signalement (tableau encadrÃ©)
                $tab_collisions=array();
                $rows_collisions=db_num_rows($res_collisions);
 
@@ -183,7 +183,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          $array_fond=array();
          $array_fond_groupe=array();
          
-         $array_cur_values=array(); // Tableau à remplir pour conserver les valeurs erronées
+         $array_cur_values=array(); // Tableau Ã  remplir pour conserver les valeurs erronÃ©es
          $array_cur_values_groupe=array();
 
          $erreur=0;
@@ -192,7 +192,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          {
             list($propspec_id, $groupe_id)=db_fetch_row($result, $i);
 
-            // Texte par défaut (cette valeur sera modifiée en cas d'erreur)
+            // Texte par dÃ©faut (cette valeur sera modifiÃ©e en cas d'erreur)
             if($groupe_id=="-1")
                $array_fond[$propspec_id]="fond_menu";
             elseif($groupe_id!=$old_groupe_id)
@@ -249,7 +249,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                   if(!ctype_digit($annee_ouv) || $annee_ouv<date("Y"))
                      $annee_ouv=date("Y");
 
-                  $new_date_ouv=MakeTime(0,30,0,$mois_ouv, $jour_ouv, $annee_ouv); // date au format unix : le jour même, le matin
+                  $new_date_ouv=MakeTime(0,30,0,$mois_ouv, $jour_ouv, $annee_ouv); // date au format unix : le jour mÃªme, le matin
 
                   $req_set.="$_DBU_session_ouverture='$new_date_ouv'";
 
@@ -293,7 +293,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                   if(!ctype_digit($annee_ferm) || $annee_ferm<date("Y"))
                      $annee_ferm=date("Y");
 
-                  $new_date_ferm=MakeTime(23, 59, 50, $mois_ferm, $jour_ferm, $annee_ferm); // date au format unix : le jour même, le soir
+                  $new_date_ferm=MakeTime(23, 59, 50, $mois_ferm, $jour_ferm, $annee_ferm); // date au format unix : le jour mÃªme, le soir
 
                   if($req_set!="")
                      $req_set.=",";
@@ -340,7 +340,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                   if(!ctype_digit($annee_rec) || $annee_rec<date("Y"))
                      $annee_rec=date("Y");
 
-                  $new_date_rec=MakeTime(23, 59, 50, $mois_rec, $jour_rec, $annee_rec); // date au format unix : le jour même, le soir
+                  $new_date_rec=MakeTime(23, 59, 50, $mois_rec, $jour_rec, $annee_rec); // date au format unix : le jour mÃªme, le soir
 
                   if($req_set!="")
                      $req_set.=",";
@@ -377,7 +377,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                   }
                }
 
-               // Vérification : les dates de sessions ne DOIVENT PAS entrer en collision
+               // VÃ©rification : les dates de sessions ne DOIVENT PAS entrer en collision
                $res_collisions=db_query($dbr, "SELECT $_DBC_session_id FROM $_DB_session
                                                 WHERE $_DBC_session_propspec_id='$propspec_id'
                                                 AND ('$new_date_ouv' BETWEEN $_DBC_session_ouverture AND $_DBC_session_fermeture
@@ -442,7 +442,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                                                                 "jour_rec" => $jour_rec, "mois_rec" => $mois_rec, "annee_rec" => $annee_rec);
                }
 
-               // Aucune erreur et champs à mettre à jour déterminés : on complète la requête globale
+               // Aucune erreur et champs Ã  mettre Ã  jour dÃ©terminÃ©s : on complÃ¨te la requÃªte globale
                if(!$erreur_format && !$erreur_chrono && !$collision && $req_set!="")
                {
                   // if(!array_key_exists("$propspec_id",$_SESSION["all_sessions"]) || !array_key_exists($n_intervalle, $_SESSION["all_sessions"][$propspec_id]))
@@ -460,7 +460,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       } // fin du for
    } // fin du else
 
-   // Boucle terminée : on exécute la requête globale pour les champs non erronés
+   // Boucle terminÃ©e : on exÃ©cute la requÃªte globale pour les champs non erronÃ©s
    if(!empty($requete))
       db_query($dbr, $requete);
 
@@ -480,22 +480,22 @@ CeCILL-B, et que vous en avez accepté les termes.
       print("<form action='$php_self' method='POST' name='form1'>\n");
 
       // TODO
-      // Sélection de la période : temporaire pour les sessions ?
-      // Ne faut-il pas préférer un système de sélection de période plus global ? (mais alors comment empêcher de paramétrer
+      // SÃ©lection de la pÃ©riode : temporaire pour les sessions ?
+      // Ne faut-il pas prÃ©fÃ©rer un systÃ¨me de sÃ©lection de pÃ©riode plus global ? (mais alors comment empÃªcher de paramÃ©trer
       // des sessions 2009-2010 alors que __PERIODE=2008 ???)
       if(!isset($_SESSION["new_session_periode"]))
       {
-         titre_page_icone("Ajout de sessions de candidatures : sélection de l'année", "clock_32x32_fond.png", 15, "L");
+         titre_page_icone("Ajout de sessions de candidatures : sÃ©lection de l'annÃ©e", "clock_32x32_fond.png", 15, "L");
 
          message("<center>
-                     Sélectionnez l'année universitaire pour laquelle la session sera valide.
-                      <br>Attention : les sessions ne doivent pas se recouvrir, même si les années universitaires sont distinctes.
+                     SÃ©lectionnez l'annÃ©e universitaire pour laquelle la session sera valide.
+                      <br>Attention : les sessions ne doivent pas se recouvrir, mÃªme si les annÃ©es universitaires sont distinctes.
                   </center>", $__WARNING);
    ?>
       <table align='center'>
       <tr>
          <td class='td-gauche fond_menu2'>
-            <font class='Texte_menu2'><b>Année universitaire concernée par la session : </b></font>
+            <font class='Texte_menu2'><b>AnnÃ©e universitaire concernÃ©e par la session : </b></font>
          </td>
          <td class='td-droite fond_menu'>
             <select name='periode'>
@@ -511,8 +511,8 @@ CeCILL-B, et que vous en avez accepté les termes.
                      $selected="selected";
                   }
 
-                  print("<option value='".($__PERIODE+1)."' $selected_suivante>Année suivante (".($__PERIODE+1). "-" . ($__PERIODE+2) . ")</option>
-                         <option value='$__PERIODE' $selected>Année actuelle ($__PERIODE-" . ($__PERIODE+1) . ")</option>\n");
+                  print("<option value='".($__PERIODE+1)."' $selected_suivante>AnnÃ©e suivante (".($__PERIODE+1). "-" . ($__PERIODE+2) . ")</option>
+                         <option value='$__PERIODE' $selected>AnnÃ©e actuelle ($__PERIODE-" . ($__PERIODE+1) . ")</option>\n");
                ?>
             </select>
          </td>
@@ -528,14 +528,14 @@ CeCILL-B, et que vous en avez accepté les termes.
       }
       else
       {
-         titre_page_icone("Ajout de sessions de candidatures pour l'année $_SESSION[new_session_periode]-".($_SESSION["new_session_periode"]+1), "clock_32x32_fond.png", 15, "L");
+         titre_page_icone("Ajout de sessions de candidatures pour l'annÃ©e $_SESSION[new_session_periode]-".($_SESSION["new_session_periode"]+1), "clock_32x32_fond.png", 15, "L");
 
          if((isset($erreur_chrono) && $erreur_chrono) || (isset($erreur_format) && $erreur_format) || (isset($collision) && $collision)
          || (isset($total_erreurs_format) && $total_erreurs_format) || (isset($total_erreurs_chrono) && $total_erreurs_chrono))
             message("Erreur : certaines dates sont incorrectes ou des sessions se recouvrent.", $__ERREUR);
 
          if(isset($_GET["succes"]) && $_GET["succes"]==1)
-            message("Session ajoutée avec succès.", $__SUCCES);
+            message("Session ajoutÃ©e avec succÃ¨s.", $__SUCCES);
 
          // Nombre de sessions, pour l'affichage
          $result=db_query($dbr, "SELECT count(*) FROM $_DB_session, $_DB_propspec
@@ -580,7 +580,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
          message("<center>
                      Pour chaque formation, les sessions ne doivent <b>en aucun cas</b> se recouvrir.
-                     <br>En fonction des dates entrées, les sessions seront automatiquement <b>triées chronologiquement</b>.
+                     <br>En fonction des dates entrÃ©es, les sessions seront automatiquement <b>triÃ©es chronologiquement</b>.
                   </center>", $__WARNING);
 
          $result_session_id=db_query($dbr, "SELECT max($_DBC_session_id) FROM $_DB_session, $_DB_propspec
@@ -633,7 +633,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       </tr>
       <tr>
          <td class='td-gauche fond_menu2'>
-            <font class='Texte_menu2'><b>Date limite de sélection en ligne (fermeture) : </b></font>
+            <font class='Texte_menu2'><b>Date limite de sÃ©lection en ligne (fermeture) : </b></font>
          </td>
          <td class='td-droite <?php echo $all_class; ?>'>
             <font class='Texte_menu'>
@@ -656,7 +656,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       </tr>
       <tr>
          <td class='td-gauche fond_menu2'>
-            <font class='Texte_menu2'><b>Date limite de réception des dossiers papiers (justificatifs) : </b></font>
+            <font class='Texte_menu2'><b>Date limite de rÃ©ception des dossiers papiers (justificatifs) : </b></font>
          </td>
          <td class='td-droite <?php echo $all_class; ?>'>
             <font class='Texte_menu'>
@@ -684,7 +684,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <tr>
          <td class='fond_rouge' width='16' style='border:thin solid black;'>&nbsp;</td>
          <td class='fond_page' style='white-space:nowrap; padding-left:5px; padding-right:20px;'>
-            <font class='Texte'>Erreur de format ou de cohérence des dates</font>
+            <font class='Texte'>Erreur de format ou de cohÃ©rence des dates</font>
          </td>
          <td width='16' class='fond_orange' style='border:thin solid black;'>&nbsp;</td>
          <td class='fond_page' style='white-space:nowrap; padding-left:5px; padding-right:20px;'>
@@ -697,12 +697,12 @@ CeCILL-B, et que vous en avez accepté les termes.
 
       <table align='center'>
       <?php
-         $old_annee_id="===="; // on initialise à n'importe quoi (sauf année existante et valeur vide)
+         $old_annee_id="===="; // on initialise Ã  n'importe quoi (sauf annÃ©e existante et valeur vide)
          $old_propspec_id="";
          $old_mention="--";
          $old_groupe_id="--";
 
-         $current_session=1; // par défaut
+         $current_session=1; // par dÃ©faut
 
          $_SESSION["all_sessions"]=array();
          $_SESSION["all_sessions_groups"]=array();
@@ -720,7 +720,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
             $nom_finalite=$tab_finalite[$finalite];
 
-            $annee=($annee=="") ? "Années particulières" : $annee;
+            $annee=($annee=="") ? "AnnÃ©es particuliÃ¨res" : $annee;
             
             if($groupe_id!="-1" && $groupe_id!=$old_groupe)
             {
@@ -799,7 +799,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
                for($s=1; $s<=($max_session+1); $s++)
                   print("<td class='fond_menu2' align='center' style='padding:4px 20px 4px 20px; white-space:nowrap;'>
-                           <font class='Texte_menu2'>Session n°$s</font>
+                           <font class='Texte_menu2'>Session nÂ°$s</font>
                         </td>\n");
 
                print("</tr>\n");
@@ -935,7 +935,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                         $date_ferm_txt=date("Y")==date("Y", $s_fermeture) ? date_fr("j F", $s_fermeture) : date_fr("j M Y", $s_fermeture);
                         $date_rec_txt=date("Y")==date("Y", $s_reception) ? date_fr("j F", $s_reception) : date_fr("j M Y", $s_reception);
    
-                        $dates_txt="$date_ouv_txt - $date_ferm_txt<br>Réception dossiers : $date_rec_txt";
+                        $dates_txt="$date_ouv_txt - $date_ferm_txt<br>RÃ©ception dossiers : $date_rec_txt";
                      }
                      else
                         $dates_txt="<img src='$__ICON_DIR/stop_22x22_menu.png' border='0'>";
@@ -998,7 +998,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                            </table>
                         </td>\n");
    
-                  // La formation n'a pas autant de sessions que le nombre maximum : on complète proprement le tableau
+                  // La formation n'a pas autant de sessions que le nombre maximum : on complÃ¨te proprement le tableau
    
                   for($j=$nb_sessions; $j<$max_session; $j++)
                   {

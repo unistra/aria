@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,37 +20,37 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
 ?>
 <?php
-   // Message affiché lorsqu'une page n'a pas été trouvée.
-   // L'authentification n'est pas nécessaire.
+   // Message affichÃ© lorsqu'une page n'a pas Ã©tÃ© trouvÃ©e.
+   // L'authentification n'est pas nÃ©cessaire.
    session_name("preinsc");
    session_start();
 
@@ -76,7 +76,7 @@ CeCILL-B, et que vous en avez accepté les termes.
    <?php
        titre_page_icone("[Assistance aux candidats] - Accueil", "help-browser_32x32_fond.png", 15, "L");
 
-      message("Ce système d'aide permet de vous orienter en fonction de vos questions et de faciliter certaines demandes.", $__INFO);
+      message("Ce systÃ¨me d'aide permet de vous orienter en fonction de vos questions et de faciliter certaines demandes.", $__INFO);
    ?>
 
    <table align='center' style='padding-bottom:20px;'>
@@ -87,17 +87,17 @@ CeCILL-B, et que vous en avez accepté les termes.
    </tr>
    <tr>
       <td class='td-gauche fond_menu'>
-         <a href='aide.php?s=navigateur' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;L'interface ne s'affiche pas correctement / je reviens toujours sur la page d'accueil, même lorsque je parviens à m'identifier.</a>
+         <a href='aide.php?s=navigateur' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;L'interface ne s'affiche pas correctement / je reviens toujours sur la page d'accueil, mÃªme lorsque je parviens Ã  m'identifier.</a>
       </td>
    </tr>
    <tr>
       <td class='td-gauche fond_menu'>
-         <a href='aide.php?s=auth' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;Je suis déjà enregistré(e), mais je n'ai plus mes identifiants et depuis, j'ai changé d'adresse électronique (<i>email</i>) ...</a>
+         <a href='aide.php?s=auth' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;Je suis dÃ©jÃ  enregistrÃ©(e), mais je n'ai plus mes identifiants et depuis, j'ai changÃ© d'adresse Ã©lectronique (<i>email</i>) ...</a>
       </td>
    </tr>
    <tr>
       <td class='td-gauche fond_menu'>
-         <a href='aide.php?s=auth' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;Je me suis trompé(e) d'adresse électronique lors de mon enregistrement, que faire ?</a>
+         <a href='aide.php?s=auth' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;Je me suis trompÃ©(e) d'adresse Ã©lectronique lors de mon enregistrement, que faire ?</a>
       </td>
    </tr>
    <tr>
@@ -107,69 +107,69 @@ CeCILL-B, et que vous en avez accepté les termes.
    </tr>
    <tr>
       <td class='td-gauche fond_menu'>
-         <a href='aide.php?s=doc' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;Comment déposer un dossier de précandidature en ligne ?</a>
+         <a href='aide.php?s=doc' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;Comment dÃ©poser un dossier de prÃ©candidature en ligne ?</a>
       </td>
    </tr>
    <tr>
       <td class='td-gauche fond_menu'>
-         <a href='aide.php?s=contact_scol' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;J'ai une question concernant les modalités d'accès à une formation, à qui dois-je m'adresser ?</a>
+         <a href='aide.php?s=contact_scol' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;J'ai une question concernant les modalitÃ©s d'accÃ¨s Ã  une formation, Ã  qui dois-je m'adresser ?</a>
       </td>
    </tr>
    <tr>
       <td class='td-gauche fond_menu'>
-         <a href='aide.php?s=formations' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;Dans le menu "5-Précandidatures", je ne trouve pas la formation souhaitée dans la liste.</a>
+         <a href='aide.php?s=formations' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;Dans le menu "5-PrÃ©candidatures", je ne trouve pas la formation souhaitÃ©e dans la liste.</a>
       </td>
    </tr>
    <tr>
       <td class='td-gauche fond_menu'>
-         <!-- <a href='form_scolarite.php?t=1' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;Je souhaite ajouter une formation, mais la session est déjà fermée.</a> -->
-         <a href='aide.php?s=scolarite' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;Je souhaite ajouter une formation, mais la session est déjà fermée.</a>
+         <!-- <a href='form_scolarite.php?t=1' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;Je souhaite ajouter une formation, mais la session est dÃ©jÃ  fermÃ©e.</a> -->
+         <a href='aide.php?s=scolarite' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;Je souhaite ajouter une formation, mais la session est dÃ©jÃ  fermÃ©e.</a>
       </td>
    </tr>
    <tr>
       <td class='td-gauche fond_menu'>
-         <!-- <a href='form_deverrouillage.php' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;Je souhaite déverrouiller certaines formations pour effectuer des modifications sur ma fiche.</a> -->
-         <a href='aide.php?s=deverrouillage' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;Je souhaite déverrouiller certaines formations pour effectuer des modifications sur ma fiche.</a>
+         <!-- <a href='form_deverrouillage.php' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;Je souhaite dÃ©verrouiller certaines formations pour effectuer des modifications sur ma fiche.</a> -->
+         <a href='aide.php?s=deverrouillage' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;Je souhaite dÃ©verrouiller certaines formations pour effectuer des modifications sur ma fiche.</a>
       </td>
    </tr>
    <tr>
       <td class='td-complet fond_menu2' style='padding:4px;'>
-         <font class='Texte_menu2'><strong>Liste des justificatifs et pièces à envoyer</strong></font>
+         <font class='Texte_menu2'><strong>Liste des justificatifs et piÃ¨ces Ã  envoyer</strong></font>
       </td>
    </tr>
    <tr>
       <td class='td-gauche fond_menu'>
-         <a href='aide.php?s=justificatifs&v=1' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;La date de verrouillage est passée mais je n'ai pas reçu la liste des justificatifs, pourquoi ?</a>
+         <a href='aide.php?s=justificatifs&v=1' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;La date de verrouillage est passÃ©e mais je n'ai pas reÃ§u la liste des justificatifs, pourquoi ?</a>
       </td>
    </tr>
    <tr>
       <td class='td-gauche fond_menu'>
-         <a href='aide.php?s=pdf' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;J'ai reçu un message contenant des fichiers au format PDF, mais je n'arrive pas à les ouvrir.</a>
+         <a href='aide.php?s=pdf' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;J'ai reÃ§u un message contenant des fichiers au format PDF, mais je n'arrive pas Ã  les ouvrir.</a>
       </td>
    </tr>
    <tr>
       <td class='td-gauche fond_menu'>
-         <a href='aide.php?s=justificatifs&a=1' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;J'ai reçu la liste des justificatifs, à qui et comment dois-je envoyer tous ces documents ?</a>
+         <a href='aide.php?s=justificatifs&a=1' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;J'ai reÃ§u la liste des justificatifs, Ã  qui et comment dois-je envoyer tous ces documents ?</a>
       </td>
    </tr>
    <tr>
       <td class='td-gauche fond_menu'>
-         <a href='aide.php?s=justificatifs&n=1' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;J'ai demandé plusieurs formations, combien de fois dois-je envoyer mes justificatifs ?</a>
+         <a href='aide.php?s=justificatifs&n=1' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;J'ai demandÃ© plusieurs formations, combien de fois dois-je envoyer mes justificatifs ?</a>
       </td>
    </tr>
    <tr>
       <td class='td-gauche fond_menu'>
-         <a href='aide.php?s=cursus' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;Dans le menu "2-Cursus", toutes mes étapes sont marquées "En attente des justificatifs", comment changer ce statut ?</a>
+         <a href='aide.php?s=cursus' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;Dans le menu "2-Cursus", toutes mes Ã©tapes sont marquÃ©es "En attente des justificatifs", comment changer ce statut ?</a>
       </td>
    </tr>
    <tr>
       <td class='td-gauche fond_menu'>
-         <a href='aide.php?s=justificatifs&d=1' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;Je n'ai pas encore les derniers relevés de notes de mon année en cours, que dois-je faire ?</a>
+         <a href='aide.php?s=justificatifs&d=1' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;Je n'ai pas encore les derniers relevÃ©s de notes de mon annÃ©e en cours, que dois-je faire ?</a>
       </td>
    </tr>
    <tr>
       <td class='td-gauche fond_menu'>
-         <a href='aide.php?s=contact_scol2' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;Je suis un(e) candidat(e) étranger(e), on me demande d'envoyer des justificatifs ou des pièces qui n'existent pas dans mon pays. Que faire ?</a>
+         <a href='aide.php?s=contact_scol2' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;Je suis un(e) candidat(e) Ã©tranger(e), on me demande d'envoyer des justificatifs ou des piÃ¨ces qui n'existent pas dans mon pays. Que faire ?</a>
       </td>
    </tr>
    <tr>
@@ -179,12 +179,12 @@ CeCILL-B, et que vous en avez accepté les termes.
    </tr>
    <tr>
       <td class='td-gauche fond_menu'>
-         <a href='aide.php?s=resultats' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;Quand et comment obtiendrai-je les résultats de mon admission ?</a>
+         <a href='aide.php?s=resultats' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;Quand et comment obtiendrai-je les rÃ©sultats de mon admission ?</a>
       </td>
    </tr>
    <tr>
       <td class='td-gauche fond_menu'>
-         <a href='aide.php?s=inscr' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;J'ai reçu une lettre d'admission, et je ne parviens pas à m'inscrire malgré les instructions reçues, que dois-je faire ?</a>
+         <a href='aide.php?s=inscr' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;J'ai reÃ§u une lettre d'admission, et je ne parviens pas Ã  m'inscrire malgrÃ© les instructions reÃ§ues, que dois-je faire ?</a>
       </td>
    </tr>
    <tr>
@@ -194,7 +194,7 @@ CeCILL-B, et que vous en avez accepté les termes.
    </tr>
    <tr>
       <td class='td-gauche fond_menu'>
-         <a href='aide.php?s=contact_admin' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;Mon problème ne se trouve pas dans ce tableau, à qui dois-je m'adresser ?</a>
+         <a href='aide.php?s=contact_admin' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;Mon problÃ¨me ne se trouve pas dans ce tableau, Ã  qui dois-je m'adresser ?</a>
       </td>
    </tr>
    </table>

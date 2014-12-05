@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -57,7 +57,7 @@ include "$__INCLUDE_DIR_ABS/vars.php";
 include "$__INCLUDE_DIR_ABS/fonctions.php";
 include "$__INCLUDE_DIR_ABS/db.php";
 include "$__INCLUDE_DIR_ABS/access_functions.php";
-// TODO : rassembler les includes pour éviter ce genre de chemins ...
+// TODO : rassembler les includes pour Ã©viter ce genre de chemins ...
 include "../gestion/admin/editeur/include/editeur_fonctions.php";
 
 $dbr=db_connect();
@@ -70,7 +70,7 @@ $__LARGEUR_MAX_CORPS="135";
 
 $ok=0;
 
-// paramètre chiffré : identifiant de la candidature
+// paramÃ¨tre chiffrÃ© : identifiant de la candidature
 
 if(isset($_GET["p"]) && -1!=($params=get_params($_GET["p"])))
 {
@@ -103,7 +103,7 @@ if(isset($_GET["p"]) && -1!=($params=get_params($_GET["p"])))
 
 
 if(!$ok)
-   die("Tentative détectée et signalée à l'administrateur.");
+   die("Tentative dÃ©tectÃ©e et signalÃ©e Ã  l'administrateur.");
 else
 {
    $cand_id=$params["cand_id"];
@@ -115,13 +115,13 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
    // Utilisation de la librairie fpdf (libre)
    require("$__FPDF_DIR_ABS/fpdf.php");
 
-   // Création du PDF
+   // CrÃ©ation du PDF
    $lettre_decision=new FPDF("P","mm","A4");
 
-   $lettre_decision->SetCreator("Application de Gestion des Candidatures de l'Université de Strasbourg");
-   $lettre_decision->SetAuthor("Christophe BOCCHECIAMPE - UFR de Mathématique et d'Informatique - Université de Strasbourg");
-   $lettre_decision->SetSubject("Décision de la Commission Pédagogique");
-   $lettre_decision->SetTitle("Décision de la Commission Pédagogique");
+   $lettre_decision->SetCreator("Application de Gestion des Candidatures de l'UniversitÃ© de Strasbourg");
+   $lettre_decision->SetAuthor("Christophe BOCCHECIAMPE - UFR de MathÃ©matique et d'Informatique - UniversitÃ© de Strasbourg");
+   $lettre_decision->SetSubject("DÃ©cision de la Commission PÃ©dagogique");
+   $lettre_decision->SetTitle("DÃ©cision de la Commission PÃ©dagogique");
 
    $lettre_decision->SetAutoPageBreak(1,11);
    // $lettre_decision->SetMargins(11,11,11);
@@ -129,7 +129,7 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
    // TODO : ATTENTION : NE PAS OUBLIER DE GENERER LA FONTE ARIBLK.TTF LORS D'UN CHANGEMENT DE MACHINE
    $lettre_decision->AddFont("arial_black");
 
-   // Compteur pour savoir si tout s'est bien passé, à la fin
+   // Compteur pour savoir si tout s'est bien passÃ©, Ã  la fin
    $nb_pages=0;
 
    foreach($ensemble_candidats as $candidat_id => $cand_id)
@@ -141,22 +141,22 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
          if($candidat_array["civilite"]=="M")
          {
             $mis="mis";
-            $ne="né le";
-            $interesse="intéressé";
-            $autorise="autorisé";
+            $ne="nÃ© le";
+            $interesse="intÃ©ressÃ©";
+            $autorise="autorisÃ©";
          }
          else
          {
             $mis="mise";
-            $ne="née le";
-            $interesse="intéressée";
-            $autorise="autorisée";
+            $ne="nÃ©e le";
+            $interesse="intÃ©ressÃ©e";
+            $autorise="autorisÃ©e";
          }
 
          // Cursus
          $cursus_array=__get_cursus($dbr,$candidat_id);
 
-         // Récupération des informations sur la candidature
+         // RÃ©cupÃ©ration des informations sur la candidature
          $candidature_array=__get_candidature($dbr,$cand_id);
 
          if($candidature_array!=FALSE)
@@ -180,10 +180,10 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
 
             if(!empty($candidature_array["spec_nom"]))
             {
-               // Sélection des lettres à produire
-               // Cas particulier : candidatures à choix multiples : on doit d'abord vérifier les décisions
+               // SÃ©lection des lettres Ã  produire
+               // Cas particulier : candidatures Ã  choix multiples : on doit d'abord vÃ©rifier les dÃ©cisions
 
-               $flag_multiple=0; // par défaut
+               $flag_multiple=0; // par dÃ©faut
 
                if($candidature_array["groupe_spec"]!="-1")
                {
@@ -204,7 +204,7 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
                            $liste_trouvee=1;
                      }
 
-                     // Application des critères de recherche, en fonction des décisions trouvées (l'ordre est capital)
+                     // Application des critÃ¨res de recherche, en fonction des dÃ©cisions trouvÃ©es (l'ordre est capital)
                      if($admission_trouvee)
                         $critere_multiples="AND $_DBC_lettres_dec_dec_id IN ('$__DOSSIER_ADMIS_AVANT_CONFIRMATION','$__DOSSIER_ADMIS','$__DOSSIER_ADMISSION_CONFIRMEE','$__DOSSIER_SOUS_RESERVE','$__DOSSIER_ADMIS_LISTE_COMP')";
                      elseif($transmission_trouvee)
@@ -250,7 +250,7 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
 
                if($rows)
                {
-                  // A partir d'ici, on extrait les informations de la lettre correspondant à la décision
+                  // A partir d'ici, on extrait les informations de la lettre correspondant Ã  la dÃ©cision
 
                   for($i=0; $i<$rows; $i++)
                   {
@@ -258,12 +258,12 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
                           $flag_txt_scol, $flag_txt_sign, $flag_adr_cand, $flag_date, $flag_adr_pos, $adr_pos_x,
                           $adr_pos_y, $flag_corps_pos, $corps_pos_x, $corps_pos_y, $lettre_lang)=db_fetch_row($result, $i);
 
-                     // Nécessaire pour la fonction de traitement des macros : l'identifiant de la lettre va servir à récupérer sa "signature"
+                     // NÃ©cessaire pour la fonction de traitement des macros : l'identifiant de la lettre va servir Ã  rÃ©cupÃ©rer sa "signature"
                      $_SESSION["lettre_id"]=$lettre_id;
 
-                     // Informations par défaut, si besoin
-                     // ==> Si un flag vaut "t" (TRUE), ça signifie qu'on doit prendre la valeur par défaut
-                     // ==> S'il faut "f" (FALSE), on prend l'info spécifique à cette lettre
+                     // Informations par dÃ©faut, si besoin
+                     // ==> Si un flag vaut "t" (TRUE), Ã§a signifie qu'on doit prendre la valeur par dÃ©faut
+                     // ==> S'il faut "f" (FALSE), on prend l'info spÃ©cifique Ã  cette lettre
 
                      if($flag_logo=='t')
                      {
@@ -282,7 +282,7 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
 
                      $lettre_decision->AddPage();
 
-                     // Incrémentation du Compteur pour savoir si tout s'est bien passé, à la fin
+                     // IncrÃ©mentation du Compteur pour savoir si tout s'est bien passÃ©, Ã  la fin
                      $nb_pages++;
 
                      if(!empty($txt_logo))
@@ -295,7 +295,7 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
 
                         if(!empty($univ_couleur_texte))
                         {
-                           // Conversion hexa (#112233) => décimal
+                           // Conversion hexa (#112233) => dÃ©cimal
                            $texte_R=hexdec(substr($univ_couleur_texte, 1, 2));
                            $texte_V=hexdec(substr($univ_couleur_texte, 3, 2));
                            $texte_B=hexdec(substr($univ_couleur_texte, 5, 2));
@@ -376,7 +376,7 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
                      {
                         if($flag_date==1)
                         {
-                           if(isset($new_date)) // Si la date a été forcée
+                           if(isset($new_date)) // Si la date a Ã©tÃ© forcÃ©e
                               $date=date_lang($new_date, $lettre_lang, 1, 0);
                            else
                               $date=date_lang($candidature_array["date_decision_unix"], $lettre_lang, 1, 0);
@@ -412,7 +412,7 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
 
                      if($nb_elem_corps)
                      {
-                        // Premier élément : position fixe (à affiner manuellement, sans doute)
+                        // Premier Ã©lÃ©ment : position fixe (Ã  affiner manuellement, sans doute)
                         $lettre_decision->SetXY($corps_pos_x, $corps_pos_y);
 
                         for($j=0; $j<$nb_elem_corps; $j++)
@@ -422,7 +422,7 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
 
                            switch($element_type)
                            {
-                              case 2   :   // encadré (toujours centré par rapport à la page)
+                              case 2   :   // encadrÃ© (toujours centrÃ© par rapport Ã  la page)
                                              $txt=$elements_corps["$j"]["texte"];
                                              // $align=$elements_corps["$i"]["alignement"];
                                              $txt_align=$elements_corps["$j"]["txt_align"];
@@ -432,10 +432,10 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
 
                                              $largeur_texte_encadre=$lettre_decision->GetStringWidth($txt); 
 
-                                             // Macros prédéfinies
+                                             // Macros prÃ©dÃ©finies
                                              $txt=pdf_traitement_macros($dbr, $txt, $candidat_array, $candidature_array, $cursus_array, $lettre_lang);
 
-                                             // si ça dépasse, on force la taille de la cellule (au max : 0)
+                                             // si Ã§a dÃ©passe, on force la taille de la cellule (au max : 0)
                                              if($largeur_texte_encadre>=$__LARGEUR_MAX_CORPS)
                                              {
                                                 $largeur_encadre=0;
@@ -462,7 +462,7 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
                                              $txt_taille=$elements_corps["$j"]["taille"];
                                              $txt_marge_gauche=$elements_corps["$j"]["marge_gauche"];
 
-                                             // Macros prédéfinies
+                                             // Macros prÃ©dÃ©finies
                                              $txt=pdf_traitement_macros($dbr, $txt, $candidat_array, $candidature_array, $cursus_array, $lettre_lang);
 
                                              // alignement du texte du paragraphe
@@ -475,8 +475,8 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
 
                                              // Calcul de la hauteur de la ligne en fonction de la taille du texte
                                              // >14               => 6 (et + ?)
-                                             // de 10 à 12          => 5
-                                             // inférieure à 8    => 4
+                                             // de 10 Ã  12          => 5
+                                             // infÃ©rieure Ã  8    => 4
 
                                              if($txt_taille>14)
                                                 $hauteur_cell="6";
@@ -498,7 +498,7 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
 
                                              break;
                                           
-                              case 8   :   // séparateur : hauteur en fonction du "nombre de lignes" (1 ligne = "5")
+                              case 8   :   // sÃ©parateur : hauteur en fonction du "nombre de lignes" (1 ligne = "5")
 
                                           $hauteur=ctype_digit($elements_corps["$j"]["nb_lignes"]) && $elements_corps["$j"]["nb_lignes"]>1 ? $elements_corps["$j"]["nb_lignes"]*5 : 5;
 
@@ -509,7 +509,7 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
                         }
                      }
 
-                     // Signature : obsolète, remplacée par une macro
+                     // Signature : obsolÃ¨te, remplacÃ©e par une macro
 /*
                      $lettre_decision->Ln(5);
 
@@ -525,7 +525,7 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
                         $lettre_decision->MultiCell(0,5,$txt_sign, 0, "J");
                      }
 */
-                     // Scolarité
+                     // ScolaritÃ©
                      if(!empty($txt_scol))
                      {
                         $txt_scol=pdf_traitement_macros($dbr, $txt_scol, $candidat_array, $candidature_array, $cursus_array, $lettre_lang);
@@ -534,7 +534,7 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
                         $hauteur_txt=substr_count($txt_scol, "\n");
                         $hauteur_txt_mm=5*$hauteur_txt;
                         
-                        $hauteur_disponible=275-$txt_scol_hauteur_courante; // (en millimètres)
+                        $hauteur_disponible=275-$txt_scol_hauteur_courante; // (en millimÃ¨tres)
 
                         $Y_txt_scol=$txt_scol_hauteur_courante+($hauteur_disponible-$hauteur_txt_mm);
 
@@ -577,10 +577,10 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
 
    if(isset($nb_pages) && $nb_pages>0)
    {
-      if(count($ensemble_candidats)==1) // élement unique
+      if(count($ensemble_candidats)==1) // Ã©lement unique
       {
          // Nettoyage du nom du candidat
-         // TODO : Généraliser et créer une fonction
+         // TODO : GÃ©nÃ©raliser et crÃ©er une fonction
 
          $candidat_nom=$new_str=preg_replace("/[ '\"&#\/\\\]/", "_", clean_str(mb_strtolower($candidat_array["nom"])));
          $candidat_prenom=preg_replace("/[ '\"&#\/\\\]/", "_", clean_str(mb_strtolower($candidat_array["prenom"])));
@@ -595,13 +595,13 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
 
       // $lettre_decision->Output("$nom_fichier", "I");
 
-      // TODO : centraliser ces fonctions de création automatique de chemins
+      // TODO : centraliser ces fonctions de crÃ©ation automatique de chemins
       if(!is_dir("$__CAND_COMP_STOCKAGE_DIR_ABS/$_SESSION[comp_id]/$_SESSION[authentifie]"))
          mkdir("$__CAND_COMP_STOCKAGE_DIR_ABS/$_SESSION[comp_id]/$_SESSION[authentifie]", 0770, TRUE);
 
       $lettre_decision->Output("$__CAND_COMP_STOCKAGE_DIR_ABS/$_SESSION[comp_id]/$_SESSION[authentifie]/$nom_fichier");
 
-      // Attention : chemin relatif à www-root (document_root du serveur Apache)
+      // Attention : chemin relatif Ã  www-root (document_root du serveur Apache)
       echo "<HTML><SCRIPT>document.location='$__CAND_COMP_STOCKAGE_DIR/$_SESSION[comp_id]/$_SESSION[authentifie]/$nom_fichier';</SCRIPT></HTML>";
    }
 }

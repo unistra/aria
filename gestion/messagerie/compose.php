@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -66,13 +66,13 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 	$dbr=db_connect();
 
-	if(isset($_GET["p"]) && -1!=($params=get_params($_GET['p']))) // identifiant du destinataire en paramètre crypté
+	if(isset($_GET["p"]) && -1!=($params=get_params($_GET['p']))) // identifiant du destinataire en paramÃ¨tre cryptÃ©
 	{
 		if(isset($params["to"]))
 		{
 			$_SESSION["to"]=$params["to"];
 
-			// On vérifie que le destinataire existe bien
+			// On vÃ©rifie que le destinataire existe bien
 			$result=db_query($dbr,"SELECT $_DBC_candidat_civilite, $_DBC_candidat_nom, $_DBC_candidat_prenom, $_DBC_candidat_email
 												FROM $_DB_candidat
 											WHERE $_DBC_candidat_id='$_SESSION[to]'");
@@ -90,7 +90,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		else
 			$location="index.php";
 
-		// Réponse à un message ? (paramètre facultatif)
+		// RÃ©ponse Ã  un message ? (paramÃ¨tre facultatif)
 		if(isset($params["r"]) && $params["r"]==1)
 			$_SESSION["reponse"]=1;
 		else
@@ -99,26 +99,26 @@ CeCILL-B, et que vous en avez accepté les termes.
 	elseif(!isset($_SESSION["to"]))
 		$location="index.php";
 
-	if(isset($location)) // paramètre manquant : retour à l'index
+	if(isset($location)) // paramÃ¨tre manquant : retour Ã  l'index
 	{
 		db_close($dbr);
 		header("Location:$location");
 		exit();
 	}
 
-   // Ajout d'une pièce jointe
+   // Ajout d'une piÃ¨ce jointe
    if(isset($_POST["ajouter"]) || isset($_POST["ajouter_x"]))
 	{
 		$corps=preg_replace("/\\\/","", $_POST["corps"]);
 		$sujet=preg_replace("/\\\/","", $_POST["sujet"]);
 
-		// informations liées au fichier envoyé
+		// informations liÃ©es au fichier envoyÃ©
 		$file_name=$_FILES["fichier"]["name"];
 		$file_size=$_FILES["fichier"]["size"];
 		$file_tmp_name=$_FILES["fichier"]["tmp_name"];
 		$file_error=$_FILES["fichier"]["error"]; // PHP > 4.2.0 uniquement
 
-		$realname=html_entity_decode(validate_filename(mb_convert_encoding("$file_name", "iso-8859-1", mb_detect_encoding($file_name))), ENT_QUOTES, $default_htmlspecialchars_encoding);
+		$realname=html_entity_decode(validate_filename(mb_convert_encoding("$file_name", "UTF-8", mb_detect_encoding($file_name))), ENT_QUOTES, $default_htmlspecialchars_encoding);
 
 		if($file_size>4194304)
 			$trop_gros=1;
@@ -126,7 +126,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			$fichier_vide=1;
 		else
 		{
-		   // Répertoire temporaire dans lequel on va stocker les fichiers avant expédition
+		   // RÃ©pertoire temporaire dans lequel on va stocker les fichiers avant expÃ©dition
 			if(!is_dir("$__ROOT_DIR/$__MOD_DIR/tmp/$_SESSION[auth_id]"))
 				mkdir("$__ROOT_DIR/$__MOD_DIR/tmp/$_SESSION[auth_id]", 0770, 1);
 
@@ -134,7 +134,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 			$x=0;
 
-			while(is_file("$destination_path")) // le fichier existe deja (très peu probable si le nettoyage est bien fait): on change le nom en ajoutant un numéro
+			while(is_file("$destination_path")) // le fichier existe deja (trÃ¨s peu probable si le nettoyage est bien fait): on change le nom en ajoutant un numÃ©ro
 			{
 				$test_file_name=$x. "-$file_name";
 				$destination_path="$__ROOT_DIR/$__MOD_DIR/tmp/$_SESSION[auth_id]/$test_file_name";
@@ -159,7 +159,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 					sort($_SESSION["tmp_message_fichiers"]);
 					$cnt=count($_SESSION["tmp_message_fichiers"]);
 
-					// Comparaison avec les fichiers déjà joints, pour éviter la duplication
+					// Comparaison avec les fichiers dÃ©jÃ  joints, pour Ã©viter la duplication
 					foreach($_SESSION["tmp_message_fichiers"] as $array_file)
 					{
 						if($array_file["sha1"]==sha1_file("$destination_path") && $array_file["size"]=="$file_size")
@@ -183,7 +183,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			}
 		}
 		
-		// Flag permettant d'éviter de remettre la signature en cas d'application d'un modèle
+		// Flag permettant d'Ã©viter de remettre la signature en cas d'application d'un modÃ¨le
 		$no_sign=1;
 		$resultat=1;
 	}
@@ -192,7 +192,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		$corps=preg_replace("/\\\/","",$_POST["corps"]);
 		$sujet=preg_replace("/\\\/","",$_POST["sujet"]);
 
-		// Suppression d'une pièce jointe
+		// Suppression d'une piÃ¨ce jointe
 		foreach($_POST["suppr"] as $file_num => $foo)
 		{
 			if(array_key_exists($file_num, $_SESSION["tmp_message_fichiers"]))
@@ -205,7 +205,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 		sort($_SESSION["tmp_message_fichiers"]);
 		
-		// Flag permettant d'éviter de remettre la signature
+		// Flag permettant d'Ã©viter de remettre la signature
 		$no_sign=1;
 		$resultat=1;
 	}
@@ -215,7 +215,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	{
 		$sujet=preg_replace("/\\\/","",$_POST["sujet"]);		
 
-		// La variable current_corps conserve le texte d'origine, au cas où on voudrait annuler ou changer de modèle
+		// La variable current_corps conserve le texte d'origine, au cas oÃ¹ on voudrait annuler ou changer de modÃ¨le
 		if(!isset($_SESSION["current_corps"]))
 			$_SESSION["current_corps"]=$corps=$_POST["corps"];
 		else
@@ -238,7 +238,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 				$corps=traitement_macros($modele_texte, $cand_array, $cursus_array) . "\r\n" . $corps;
 
-				// Si le sujet est encore vide, on le remplace par le titre du modèle sélectionné
+				// Si le sujet est encore vide, on le remplace par le titre du modÃ¨le sÃ©lectionnÃ©
 				if(trim($sujet)=="")
 					$sujet=$modele_intitule;
 			}
@@ -246,11 +246,11 @@ CeCILL-B, et que vous en avez accepté les termes.
 			db_free_result($res_modele);
 		}
 
-		// Flag permettant d'éviter de remettre la signature en cas d'application d'un modèle
+		// Flag permettant d'Ã©viter de remettre la signature en cas d'application d'un modÃ¨le
 		$no_sign=1;
 		$resultat=1;
 	}
-	elseif(isset($_POST["Annuler"]) || isset($_POST["Annuler_x"])) // Annulation du modèle
+	elseif(isset($_POST["Annuler"]) || isset($_POST["Annuler_x"])) // Annulation du modÃ¨le
 	{
 		// unset($_SESSION["current_corps"]);
 		$corps=$_SESSION["current_corps"];
@@ -267,7 +267,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		$corps=$_POST["corps"];
 
 		// Transformation des url en liens
-      // Obsolète : transformé à l'affichage par la fonction parse_macros()
+      // ObsolÃ¨te : transformÃ© Ã  l'affichage par la fonction parse_macros()
 		// $corps=ereg_replace("[[:alpha:]]+://[^<>[:space:]]+[[:alnum:]/]", "<a href=\"\\0\">\\0</a>", $corps);
       
       $array_pj=isset($_SESSION["tmp_message_fichiers"]) ? $_SESSION["tmp_message_fichiers"] : "";
@@ -312,11 +312,11 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 				dossiers_messagerie();
 			?>
-			<li class='menu_gauche' style='margin-top:30px;'><a href='modeles/modele.php?a=1' class='lien_menu_gauche' target='_self'>Créer un modèle</a></li>
-			<li class='menu_gauche'><a href='modeles/modele.php' class='lien_menu_gauche' target='_self'>Modifier un modèle</a></li>
-			<li class='menu_gauche'><a href='modeles/suppr_modele.php' class='lien_menu_gauche' target='_self'>Supprimer un modèle</a></li>
+			<li class='menu_gauche' style='margin-top:30px;'><a href='modeles/modele.php?a=1' class='lien_menu_gauche' target='_self'>CrÃ©er un modÃ¨le</a></li>
+			<li class='menu_gauche'><a href='modeles/modele.php' class='lien_menu_gauche' target='_self'>Modifier un modÃ¨le</a></li>
+			<li class='menu_gauche'><a href='modeles/suppr_modele.php' class='lien_menu_gauche' target='_self'>Supprimer un modÃ¨le</a></li>
 			<li class='menu_gauche' style='margin-top:30px;'><a href='signature.php' class='lien_menu_gauche' target='_self'>Modifier votre signature</a></li>
-			<li class='menu_gauche' style='margin-top:30px;'><a href='absence.php' class='lien_menu_gauche' target='_self'>Absence : répondeur</a></li>
+			<li class='menu_gauche' style='margin-top:30px;'><a href='absence.php' class='lien_menu_gauche' target='_self'>Absence : rÃ©pondeur</a></li>
 		</ul>
 	</div>
 	<div class='corps'>
@@ -328,7 +328,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 				if(!isset($corps))
 					$corps="";
 
-				// Signature de l'expéditeur, si complétée et activée
+				// Signature de l'expÃ©diteur, si complÃ©tÃ©e et activÃ©e
 				if(!isset($no_sign))
 				{
 					$res_signature=db_query($dbr, "SELECT $_DBC_acces_signature_txt, $_DBC_acces_signature_active FROM $_DB_acces
@@ -345,10 +345,10 @@ CeCILL-B, et que vous en avez accepté les termes.
 					db_free_result($res_signature);
 				}
 
-				// Date et contenu du message source, en cas de réponse
+				// Date et contenu du message source, en cas de rÃ©ponse
 				if(isset($_SESSION["reponse"]) && $_SESSION["reponse"] && isset($_SESSION["msg_message"]) && isset($_SESSION["msg_id"]) && isset($_SESSION["msg_exp"]))
 				{
-					if(strlen($_SESSION["msg_id"])==16) // Année sur un caractère
+					if(strlen($_SESSION["msg_id"])==16) // AnnÃ©e sur un caractÃ¨re
 					{
 						$date_offset=0;
 						$annee_len=1;
@@ -365,7 +365,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 					$unix_date=mktime(substr($_SESSION["msg_id"], 5+$date_offset, 2), substr($_SESSION["msg_id"], 7+$date_offset, 2), substr($_SESSION["msg_id"], 9+$date_offset, 2),
 																substr($_SESSION["msg_id"], 1+$date_offset, 2), substr($_SESSION["msg_id"], 3+$date_offset, 2), $leading_zero . substr($_SESSION["msg_id"], 0, $annee_len));
 
-					$date_txt=$date_txt=date_fr("d/m/y à H\hi", $unix_date);;
+					$date_txt=$date_txt=date_fr("d/m/y Ã  H\hi", $unix_date);;
 
 					// $_SESSION["msg_dest"]=$msg_dest="$_SESSION[msg_exp]";
 					$_SESSION["msg_dest"]=$msg_dest="$_SESSION[msg_dest_prenom] $_SESSION[msg_dest_nom]";
@@ -374,7 +374,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 					if(!isset($no_sign))
 					{
-						$corps.="\r\n\r\nLe $date_txt, $_SESSION[msg_exp] a écrit : \r\n";
+						$corps.="\r\n\r\nLe $date_txt, $_SESSION[msg_exp] a Ã©crit : \r\n";
 
 						foreach($_SESSION["msg_message"] as $line)
 							$corps.="> " . stripslashes($line);
@@ -389,11 +389,11 @@ CeCILL-B, et que vous en avez accepté les termes.
 				}
 
             if(isset($erreur_copie_fichier))
-               message("Erreur : impossible de copier le fichier reçu. Merci de contacter l'administrateur.", $__ERREUR);
+               message("Erreur : impossible de copier le fichier reÃ§u. Merci de contacter l'administrateur.", $__ERREUR);
             elseif(isset($trop_gros))
-               message("Erreur : le fichier envoyé est trop gros (max : 4 Mo)", $__ERREUR);
+               message("Erreur : le fichier envoyÃ© est trop gros (max : 4 Mo)", $__ERREUR);
             else
-               message("Attention au contenu du message envoyé : il engage <b>votre responsabilité</b> !", $__WARNING);
+               message("Attention au contenu du message envoyÃ© : il engage <b>votre responsabilitÃ©</b> !", $__WARNING);
 
 				print("<form enctype='multipart/form-data' action='$php_self' method='POST' name='form1'>
 							<table class='encadre_messagerie' width='95%' align='center'>
@@ -423,11 +423,11 @@ CeCILL-B, et que vous en avez accepté les termes.
 							</tr>
 							<tr>
 								<td class='td-msg-menu fond_menu2' style='padding:4px 2px 4px 2px;'>
-									<font class='Texte_menu2'><b>Modèle réponse :</b></font>
+									<font class='Texte_menu2'><b>ModÃ¨le rÃ©ponse :</b></font>
 								</td>
 								<td class='td-msg-menu fond_menu' style='padding:4px 2px 4px 2px;'>\n");
 
-				// Utilisation des modèles de courriels
+				// Utilisation des modÃ¨les de courriels
 				$res_modeles=db_query($dbr, "SELECT $_DBC_msg_modeles_id, $_DBC_msg_modeles_intitule FROM $_DB_msg_modeles
 															WHERE $_DBC_msg_modeles_acces_id='$_SESSION[auth_id]'
 															ORDER BY $_DBC_msg_modeles_intitule");
@@ -459,12 +459,12 @@ CeCILL-B, et que vous en avez accepté les termes.
 					print("</select><input style='padding-right:20px;' type='submit' name='Appliquer' value='Appliquer'>\n");
 
 					if(isset($annulation_possible))
-						print("<input style='padding-right:20px;' type='submit' name='Annuler' value='Annuler ce modèle'>\n");
+						print("<input style='padding-right:20px;' type='submit' name='Annuler' value='Annuler ce modÃ¨le'>\n");
 
-					print("<font class='Texte_menu' style='padding-right:20px;'><i>Attention : les modèles ne sont pas cumulables</i></font>\n");
+					print("<font class='Texte_menu' style='padding-right:20px;'><i>Attention : les modÃ¨les ne sont pas cumulables</i></font>\n");
 			   }
 				else
-					print("<font class='Texte_menu'><i>Aucun modèle défini</i></font>\n");
+					print("<font class='Texte_menu'><i>Aucun modÃ¨le dÃ©fini</i></font>\n");
 
 				db_free_result($res_modeles);
 
@@ -488,7 +488,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
                 print("<tr>
                           <td class='td-msg-menu fond_menu2' style='padding:4px 2px 4px 2px;'>
-                             <font class='Texte_menu2'><b>Pièces jointes :</b></font>
+                             <font class='Texte_menu2'><b>PiÃ¨ces jointes :</b></font>
                           </td>
                           <td class='td-msg-menu fond_menu' style='padding:4px 2px 4px 2px;'>
                              <table cellpadding='0' cellspacing='0' align='left' border='0'>\n");

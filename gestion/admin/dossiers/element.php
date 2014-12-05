@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -126,7 +126,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 		if(!isset($_SESSION["ajout"]) && isset($_SESSION["element_id"])) // Modification
 		{
-			// unicité	
+			// unicitÃ©	
 			if(db_num_rows(db_query($dbr,"SELECT * FROM $_DB_dossiers_elems
 													WHERE ($_DBC_dossiers_elems_intitule ILIKE '$_SESSION[element_intitule]'
 																	AND $_DBC_dossiers_elems_para ILIKE '$element_para')
@@ -136,7 +136,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		}
 		else // Ajout
 		{
-			// unicité
+			// unicitÃ©
 			if(db_num_rows(db_query($dbr,"SELECT * FROM $_DB_dossiers_elems
 													WHERE ($_DBC_dossiers_elems_intitule ILIKE '$_SESSION[element_intitule]'
 																	AND $_DBC_dossiers_elems_para ILIKE '$element_para')
@@ -144,7 +144,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			$element_existe="1";
 		}
 
-		// vérification des champs
+		// vÃ©rification des champs
 		if($_SESSION["element_intitule"]=="") $intitule_vide=1;
 		if($element_para=="") $para_vide=1;
 
@@ -164,7 +164,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 									WHERE $_DBU_dossiers_elems_id='$_SESSION[element_id]'");
 			else
 			{
-				// Valeurs par défaut
+				// Valeurs par dÃ©faut
 				$min_choix=$_SESSION["element_obligatoire"]=="t" ? "1" : "0";
 				$max_choix=$_SESSION["current_element_type"]==$__ELEM_TYPE_UN_CHOIX ? "1" : "0";
 				
@@ -173,7 +173,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 			db_close($dbr);
 
-			// Si l'élément est à choix, on redirige vers la gestion des choix pour cet élément
+			// Si l'Ã©lÃ©ment est Ã  choix, on redirige vers la gestion des choix pour cet Ã©lÃ©ment
 			if($_SESSION["current_element_type"]!=$__ELEM_TYPE_UN_CHOIX && $_SESSION["current_element_type"]!=$__ELEM_TYPE_MULTI_CHOIX)
 			{
 				header("Location:element.php?succes=1&r=1");
@@ -227,44 +227,44 @@ CeCILL-B, et que vous en avez accepté les termes.
 		if(isset($_GET["a"]) || isset($_SESSION["ajout"]))
 		{
 			$_SESSION["ajout"]=1;
-			titre_page_icone("Constructeur de dossiers : créer un élément", "add_32x32_fond.png", 15, "L");
+			titre_page_icone("Constructeur de dossiers : crÃ©er un Ã©lÃ©ment", "add_32x32_fond.png", 15, "L");
 		}
 		else
-			titre_page_icone("Constructeur de dossiers : modifier un élément existant", "edit_32x32_fond.png", 15, "L");
+			titre_page_icone("Constructeur de dossiers : modifier un Ã©lÃ©ment existant", "edit_32x32_fond.png", 15, "L");
 
 		if(isset($intitule_vide))
-			message("Erreur : le champ 'Intitulé' ne doit pas être vide", $__ERREUR);
+			message("Erreur : le champ 'IntitulÃ©' ne doit pas Ãªtre vide", $__ERREUR);
 
 		if(isset($para_vide))
-			message("Erreur : le champ 'Paragraphe' ne doit pas être vide", $__ERREUR);
+			message("Erreur : le champ 'Paragraphe' ne doit pas Ãªtre vide", $__ERREUR);
 
 		if(isset($element_existe))
-			message("Erreur : cet élément existe déjà !", $__ERREUR);
+			message("Erreur : cet Ã©lÃ©ment existe dÃ©jÃ  !", $__ERREUR);
 
 		if(isset($succes))
 		{
 			if(!isset($_SESSION["ajout"]))
-				message("L'élément a été modifié avec succès.", $__SUCCES);
+				message("L'Ã©lÃ©ment a Ã©tÃ© modifiÃ© avec succÃ¨s.", $__SUCCES);
 			else
-				message("L'élément a été créé avec succès.", $__SUCCES);
+				message("L'Ã©lÃ©ment a Ã©tÃ© crÃ©Ã© avec succÃ¨s.", $__SUCCES);
 		}
 
 		$dbr=db_connect();
 
 		print("<form action='$php_self' method='POST' name='form1'>\n");
 
-		// En cas d'ajout uniquement : on demande le type d'élément
+		// En cas d'ajout uniquement : on demande le type d'Ã©lÃ©ment
 		if(!isset($_SESSION["current_element_type"]) && isset($_SESSION["ajout"]))
 		{
 			message("<center>
-							<strong>Etape 1 : sélection du type d'élément.</strong>
-							<br>En fonction du type, les options seront différentes.
+							<strong>Etape 1 : sÃ©lection du type d'Ã©lÃ©ment.</strong>
+							<br>En fonction du type, les options seront diffÃ©rentes.
 						</center>\n", $__INFO);
 
 			print("<table align='center'>
 					<tr>
 						<td class='td-gauche fond_menu2'>
-							<font class='Texte_menu2'><b>Type d'élément :</b></font>
+							<font class='Texte_menu2'><b>Type d'Ã©lÃ©ment :</b></font>
 						</td>
 						<td class='td-droite fond_menu'>
 							<select name='type'>\n");
@@ -276,7 +276,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			else
 				$type=$__ELEM_TYPE_FORM;
 	?>
-						<option <?php echo "value='$__ELEM_TYPE_FORM'"; if($type==$__ELEM_TYPE_FORM) echo "selected=1"; ?>>Formulaire standard (réponse libre)</option>
+						<option <?php echo "value='$__ELEM_TYPE_FORM'"; if($type==$__ELEM_TYPE_FORM) echo "selected=1"; ?>>Formulaire standard (rÃ©ponse libre)</option>
 						<option <?php echo "value='$__ELEM_TYPE_UN_CHOIX'"; if($type==$__ELEM_TYPE_UN_CHOIX) echo "selected=1"; ?>>Un seul choix parmi ...</option>
 						<option <?php echo "value='$__ELEM_TYPE_MULTI_CHOIX'"; if($type==$__ELEM_TYPE_MULTI_CHOIX) echo "selected=1"; ?>>Plusieurs choix parmi ...</option>
 					</select>
@@ -291,9 +291,9 @@ CeCILL-B, et que vous en avez accepté les termes.
 			</div>
 	<?php
 		}
-		if(!isset($resultat) && !isset($_SESSION["gestion_choix"]) && !isset($_GET["a"]) && !isset($_SESSION["ajout"]) && !isset($_GET["eid"])) // choix de l'élément à modifier
+		if(!isset($resultat) && !isset($_SESSION["gestion_choix"]) && !isset($_GET["a"]) && !isset($_SESSION["ajout"]) && !isset($_GET["eid"])) // choix de l'Ã©lÃ©ment Ã  modifier
 		{
-			message("<strong>Etape 1 : sélection de l'élément à modifier.</strong>\n", $__INFO);
+			message("<strong>Etape 1 : sÃ©lection de l'Ã©lÃ©ment Ã  modifier.</strong>\n", $__INFO);
 
 			$result=db_query($dbr, "SELECT $_DBC_dossiers_elems_id, $_DBC_dossiers_elems_intitule
 												FROM $_DB_dossiers_elems
@@ -305,7 +305,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			if($rows)
 			{
 				print("<center>
-							<font class='Texte'>Elément à modifier : </font>
+							<font class='Texte'>ElÃ©ment Ã  modifier : </font>
 							<select name='element_id' size='1'>\n");
 
 				$old_univ="";
@@ -336,14 +336,14 @@ CeCILL-B, et que vous en avez accepté les termes.
 			}
 			else
 			{
-				message("Il n'y a aucun élément modifiable.", $__INFO);
+				message("Il n'y a aucun Ã©lÃ©ment modifiable.", $__INFO);
 
 				print("<div class='centered_box'>
 							<a href='index.php' target='_self' class='lien_bleu_12'><img src='$__ICON_DIR/button_cancel_32x32_fond.png' alt='Retour' border='0'></a>
 						</div>\n");
 			}
 		}
-		elseif(isset($resultat) && !isset($_SESSION["gestion_choix"])) // élément choisi, on récupère les infos actuelles
+		elseif(isset($resultat) && !isset($_SESSION["gestion_choix"])) // Ã©lÃ©ment choisi, on rÃ©cupÃ¨re les infos actuelles
 		{
 			if(isset($_GET["a"]) || isset($_SESSION["ajout"]))
 			{
@@ -372,20 +372,20 @@ CeCILL-B, et que vous en avez accepté les termes.
 			}
 
 			if(isset($_SESSION["element_id"]))
-				message("<center>Attention : la modification d'un élément sera valable
-							<br>pour toutes les formations rattachées à ce dernier !</center>", $__WARNING);
+				message("<center>Attention : la modification d'un Ã©lÃ©ment sera valable
+							<br>pour toutes les formations rattachÃ©es Ã  ce dernier !</center>", $__WARNING);
 	?>
 		<table align='center'>
 		<tr>
 			<td class='fond_menu2' colspan='2' style='padding:4px 20px 4px 20px;'>
 				<font class='Texte_menu2'>
-					<b>&#8226;&nbsp;&nbsp;Données de l'élément</b>
+					<b>&#8226;&nbsp;&nbsp;DonnÃ©es de l'Ã©lÃ©ment</b>
 				</font>
 			</td>
 		</tr>
 		<tr>
 			<td class='td-gauche fond_menu2'>
-				<font class='Texte_menu2'><b>Type d'élément sélectionné :</b></font>
+				<font class='Texte_menu2'><b>Type d'Ã©lÃ©ment sÃ©lectionnÃ© :</b></font>
 			</td>
 			<td class='td-droite fond_menu'>
 				<font class='Texte_menu'>
@@ -393,13 +393,13 @@ CeCILL-B, et que vous en avez accepté les termes.
 					<?php
 						switch($_SESSION["current_element_type"])
 						{
-							case $__ELEM_TYPE_FORM : print("Formulaire standard (réponse de type texte simple)\n");
+							case $__ELEM_TYPE_FORM : print("Formulaire standard (rÃ©ponse de type texte simple)\n");
 															break;
 
-							case $__ELEM_TYPE_UN_CHOIX :  print("Un seul choix parmi ... <br>(l'étape suivante consistera à définir les choix possibles)\n");
+							case $__ELEM_TYPE_UN_CHOIX :  print("Un seul choix parmi ... <br>(l'Ã©tape suivante consistera Ã  dÃ©finir les choix possibles)\n");
 																	break;
 
-							case $__ELEM_TYPE_MULTI_CHOIX :  print("Plusieurs choix possibles parmi ... <br>(l'étape suivante consistera à définir les choix possibles)\n");
+							case $__ELEM_TYPE_MULTI_CHOIX :  print("Plusieurs choix possibles parmi ... <br>(l'Ã©tape suivante consistera Ã  dÃ©finir les choix possibles)\n");
 																		break;
 						}
 					?>
@@ -409,7 +409,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		</tr>
 		<tr>
 			<td class='td-gauche fond_menu2'>
-				<font class='Texte_menu2'><b>Intitulé</b><br><i>(Non visible par le candidat)</i></font>
+				<font class='Texte_menu2'><b>IntitulÃ©</b><br><i>(Non visible par le candidat)</i></font>
 			</td>
 			<td class='td-droite fond_menu'>
 				<input type='text' name='intitule' value='<?php if(isset($element_intitule)) echo htmlspecialchars(stripslashes($element_intitule), ENT_QUOTES, $default_htmlspecialchars_encoding); else echo htmlspecialchars(stripslashes($current_intitule), ENT_QUOTES, $default_htmlspecialchars_encoding);?>' maxlength='256' size='60'>
@@ -422,7 +422,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			</td>
 			<td class='td-droite fond_menu'>
 				<font class='Texte_menu'>
-					En cas de liste à choix, n'indiquez pas les réponses possibles dans ce champ (étape suivante).
+					En cas de liste Ã  choix, n'indiquez pas les rÃ©ponses possibles dans ce champ (Ã©tape suivante).
 					<br>
 				</font>
 				<textarea name='paragraphe' rows='10' cols='100'><?php
@@ -432,7 +432,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		</tr>
 		<tr>
 			<td class='td-gauche fond_menu2'>
-				<font class='Texte_menu2'><b>Cet élément est-il obligatoire ? </b><br><i>Un élément obligatoire non complété par un candidat<br>empêche le verrouillage de sa fiche</i></font>
+				<font class='Texte_menu2'><b>Cet Ã©lÃ©ment est-il obligatoire ? </b><br><i>Un Ã©lÃ©ment obligatoire non complÃ©tÃ© par un candidat<br>empÃªche le verrouillage de sa fiche</i></font>
 			</td>
 			<td class='td-droite fond_menu'>
 				<font class='Texte_menu'>
@@ -463,12 +463,12 @@ CeCILL-B, et que vous en avez accepté les termes.
 		</tr>
 		<tr>
 			<td class='td-gauche fond_menu2'>
-				<font class='Texte_menu2'><b>Cet élément doit-il être demandé : </b></font>
+				<font class='Texte_menu2'><b>Cet Ã©lÃ©ment doit-il Ãªtre demandÃ© : </b></font>
 			</td>
 			<td class='td-droite fond_menu' style='white-space:normal;'>
 				<font class='Texte_menu'>
 					<?php
-						// Ce paramètre ne peut être modifié que s'il est absent de la table $_DB_dossiers_elements_contenu
+						// Ce paramÃ¨tre ne peut Ãªtre modifiÃ© que s'il est absent de la table $_DB_dossiers_elements_contenu
 
 						if(isset($element_unique))
 							$unique=$element_unique;
@@ -479,7 +479,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 						if($unique=="f")
 						{
-							$statut="Pour chaque formation reliée à cet élément";
+							$statut="Pour chaque formation reliÃ©e Ã  cet Ã©lÃ©ment";
 							$chaque_checked="checked";
 							$unique_checked="";
 						}
@@ -492,9 +492,9 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 						if(!isset($_SESSION["element_id"]) || (isset($_SESSION["element_id"]) && !db_num_rows(db_query($dbr, "SELECT * FROM $_DB_dossiers_elems_contenu WHERE $_DBC_dossiers_elems_contenu_elem_id='$_SESSION[element_id]'"))))
 							print("<input type='radio' name='element_unique' value='t' $unique_checked>&nbsp;Une seule fois
-										<br><input type='radio' name='element_unique' value='f' $chaque_checked>&nbsp;Pour chaque formation reliée à cet élément\n");
+										<br><input type='radio' name='element_unique' value='f' $chaque_checked>&nbsp;Pour chaque formation reliÃ©e Ã  cet Ã©lÃ©ment\n");
 						else
-							print("<b>$statut</b><br>(<i>cette option ne peut pas être modifiée manuellement car cet élément est utilisé par certains candidats</i>)
+							print("<b>$statut</b><br>(<i>cette option ne peut pas Ãªtre modifiÃ©e manuellement car cet Ã©lÃ©ment est utilisÃ© par certains candidats</i>)
 											<input type='hidden' name='element_unique' value='$unique'>\n");
 					?>
 				</font>
@@ -502,7 +502,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		</tr>
 		<tr>
 			<td class='td-gauche fond_menu2'>
-				<font class='Texte_menu2'><b>La réponse du candidat doit-elle figurer sur le récapitulatif de sa fiche (PDF) ?</b></font>
+				<font class='Texte_menu2'><b>La rÃ©ponse du candidat doit-elle figurer sur le rÃ©capitulatif de sa fiche (PDF) ?</b></font>
 			</td>
 			<td class='td-droite fond_menu'>
 				<font class='Texte_menu'>
@@ -533,7 +533,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		</tr>
 		<tr>
 			<td class='td-gauche fond_menu2'>
-				<font class='Texte_menu2'><b>Si oui, la réponse doit-elle être imprimée sur une page à part ?</b></font>
+				<font class='Texte_menu2'><b>Si oui, la rÃ©ponse doit-elle Ãªtre imprimÃ©e sur une page Ã  part ?</b></font>
 			</td>
 			<td class='td-droite fond_menu'>
 				<font class='Texte_menu'>
@@ -564,7 +564,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		</tr>
 		<tr>
 			<td class='td-gauche fond_menu2'>
-				<font class='Texte_menu2'><b>La réponse du candidat doit-elle figurer dans les extractions CSV ?</b></font>
+				<font class='Texte_menu2'><b>La rÃ©ponse du candidat doit-elle figurer dans les extractions CSV ?</b></font>
 			</td>
 			<td class='td-droite fond_menu'>
 				<font class='Texte_menu'>
@@ -595,7 +595,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		</tr>
 		<tr>
 			<td class='td-gauche fond_menu2'>
-				<font class='Texte_menu2'><b>Cet élément est-il réservé à la VAP ?</b></font>
+				<font class='Texte_menu2'><b>Cet Ã©lÃ©ment est-il rÃ©servÃ© Ã  la VAP ?</b></font>
 			</td>
 			<td class='td-droite fond_menu'>
 				<font class='Texte_menu'>
@@ -626,9 +626,9 @@ CeCILL-B, et que vous en avez accepté les termes.
 							$no_checked="";
 						}
 
-						print("<input type='radio' name='vap' value='1' $yes_checked>&nbsp;Demander cet élément UNIQUEMENT pour les candidats en VAP/VAE
-									<br><input type='radio' name='vap' value='0' $no_checked>&nbsp;Ne PAS demander cet élément pour les candidats en VAP/VAE
-									<br><input type='radio' name='vap' value='-1' $ind_checked>&nbsp;Demander cet élément à tout le monde\n");
+						print("<input type='radio' name='vap' value='1' $yes_checked>&nbsp;Demander cet Ã©lÃ©ment UNIQUEMENT pour les candidats en VAP/VAE
+									<br><input type='radio' name='vap' value='0' $no_checked>&nbsp;Ne PAS demander cet Ã©lÃ©ment pour les candidats en VAP/VAE
+									<br><input type='radio' name='vap' value='-1' $ind_checked>&nbsp;Demander cet Ã©lÃ©ment Ã  tout le monde\n");
 					?>
 				</font>
 			</td>
@@ -748,7 +748,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 									</select>
 									<font class='Texte'>
 										<i>0 : pas de minimum
-										<br>(si l'élément est obligatoire, le minimum vaudra au moins 1)</i>
+										<br>(si l'Ã©lÃ©ment est obligatoire, le minimum vaudra au moins 1)</i>
 									</font>
 								</td>
 							</tr>

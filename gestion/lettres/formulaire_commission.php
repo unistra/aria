@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -79,7 +79,7 @@ if(array_key_exists("jour_inf", $_GET) && $_GET["jour_inf"]!="" && ctype_digit($
    $jour_inf=$_GET["jour_inf"];
    $jour_sup=$_GET["jour_sup"];
 
-   // Inversion, au cas où
+   // Inversion, au cas oÃ¹
    if($jour_inf>$jour_sup)
    {
       $temp=$jour_inf;
@@ -92,7 +92,7 @@ if(array_key_exists("jour_inf", $_GET) && $_GET["jour_inf"]!="" && ctype_digit($
    else
       $condition_jour="AND $_DBC_cand_date_statut BETWEEN '$jour_inf' AND '$jour_sup'";
 
-   // Vérification des paramètres
+   // VÃ©rification des paramÃ¨tres
    $result=db_query($dbr, "SELECT $_DBC_cand_candidat_id, $_DBC_cand_id FROM $_DB_cand, $_DB_propspec
                               WHERE $_DBC_propspec_id=$_DBC_cand_propspec_id
                            AND $_DBC_cand_propspec_id='$formation'
@@ -103,12 +103,12 @@ if(array_key_exists("jour_inf", $_GET) && $_GET["jour_inf"]!="" && ctype_digit($
 
    $rows=db_num_rows($result);
 
-   if(!$rows) // aucune décision
+   if(!$rows) // aucune dÃ©cision
    {
       db_free_result($result);
       db_close($dbr);
    
-      mail($__EMAIL_ADMIN, "[Précandidatures] - Génération des formulaires de Commission", "=> Aucune lettre trouvée par la requête.\n\nJours : de $jour_inf à $jour_sup\nFormation : $formation");
+      mail($__EMAIL_ADMIN, "[PrÃ©candidatures] - GÃ©nÃ©ration des formulaires de Commission", "=> Aucune lettre trouvÃ©e par la requÃªte.\n\nJours : de $jour_inf Ã  $jour_sup\nFormation : $formation");
 
 /*
       print("requete :    SELECT $_DBC_cand_candidat_id, $_DBC_cand_id FROM $_DB_cand, $_DB_propspec
@@ -138,7 +138,7 @@ if(array_key_exists("jour_inf", $_GET) && $_GET["jour_inf"]!="" && ctype_digit($
 }
 else
 {
-   // identifiant de l'étudiant
+   // identifiant de l'Ã©tudiant
    if(isset($argv[1]))
       $candidat_id=$argv[1];
    elseif(isset($_SESSION["candidat_id"]))
@@ -156,14 +156,14 @@ else
       $ensemble_candidats=array($candidat_id => $cand_id);
 }
 
-// Tableau aidant à déterminer les candidatures multiples déjà traitées
+// Tableau aidant Ã  dÃ©terminer les candidatures multiples dÃ©jÃ  traitÃ©es
 $array_multiples=array();
 
 if(isset($ensemble_candidats) && count($ensemble_candidats))
 {
-   // Paramètre de gestion des motifs pour la composante
-   // 0 => motifs courts, affichés sur le formulaire
-   // 1 => phrases complètes, non affichées
+   // ParamÃ¨tre de gestion des motifs pour la composante
+   // 0 => motifs courts, affichÃ©s sur le formulaire
+   // 1 => phrases complÃ¨tes, non affichÃ©es
    if(!isset($_SESSION["gestion_motifs"]) && isset($_SESSION["comp_id"]))
    {
       $res_motifs=db_query($dbr,"SELECT $_DBC_composantes_gestion_motifs FROM $_DB_composantes
@@ -180,20 +180,20 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
    // Utilisation de la librairie fpdf (libre)
    require("$__FPDF_DIR_ABS/fpdf.php");
 
-   // Création du PDF
+   // CrÃ©ation du PDF
    $formulaire=new FPDF("P","mm","A4");
 
-   $formulaire->SetCreator("Application de Gestion des Candidatures de l'Université de Strasbourg");
-   $formulaire->SetAuthor("Christophe BOCCHECIAMPE - UFR de Mathématique et d'Informatique - Université de Strasbourg");
-   $formulaire->SetSubject("Formulaire de Commission Pédagogique");
-   $formulaire->SetTitle("Formulaire de Commission Pédagogique");
+   $formulaire->SetCreator("Application de Gestion des Candidatures de l'UniversitÃ© de Strasbourg");
+   $formulaire->SetAuthor("Christophe BOCCHECIAMPE - UFR de MathÃ©matique et d'Informatique - UniversitÃ© de Strasbourg");
+   $formulaire->SetSubject("Formulaire de Commission PÃ©dagogique");
+   $formulaire->SetTitle("Formulaire de Commission PÃ©dagogique");
 
    $formulaire->SetAutoPageBreak(1,11);
 
    // TODO : ATTENTION : NE PAS OUBLIER DE GENERER LA FONTE ARIBLK.TTF LORS D'UN CHANGEMENT DE MACHINE
    $formulaire->AddFont("arial_black");
 
-   // Compteur pour savoir si tout s'est bien passé, à la fin
+   // Compteur pour savoir si tout s'est bien passÃ©, Ã  la fin
    $nb_pages=0;
 
    foreach($ensemble_candidats as $candidat_id => $candidature_id)
@@ -206,16 +206,16 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
          {
             $civ_texte=$candidat_array["civ_texte"]="Monsieur";
             $mis="mis";
-            $ne="né le";
-            $interesse="intéressé";
-            $autorise="autorisé";
+            $ne="nÃ© le";
+            $interesse="intÃ©ressÃ©";
+            $autorise="autorisÃ©";
          }
          else
          {
             $mis="mise";
-            $ne="née le";
-            $interesse="intéressée";
-            $autorise="autorisée";
+            $ne="nÃ©e le";
+            $interesse="intÃ©ressÃ©e";
+            $autorise="autorisÃ©e";
 
             if($candidat_array["civilite"]=="Mlle")
                $civ_texte=$candidat_array["civ_texte"]="Mademoiselle";
@@ -223,7 +223,7 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
                $civ_texte=$candidat_array["civ_texte"]="Madame";
          }
 
-         // Cas particulier : générer tous les formulaires de Commission pour un candidat particulier
+         // Cas particulier : gÃ©nÃ©rer tous les formulaires de Commission pour un candidat particulier
          if($candidature_id=="all")
          {
             $result_cand=db_query($dbr, "SELECT $_DBC_cand_id FROM $_DB_cand, $_DB_propspec
@@ -248,10 +248,10 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
          {
             foreach($array_cand as $cand_id)
             {
-               // Récupération des informations sur la candidature
+               // RÃ©cupÃ©ration des informations sur la candidature
                $candidature_array=__get_candidature($dbr,$cand_id);
 
-               // Paramètre capital : spécialités groupées ?
+               // ParamÃ¨tre capital : spÃ©cialitÃ©s groupÃ©es ?
                if($candidature_array["groupe_spec"]>=0)
                {
                   if(!array_key_exists($candidat_id, $array_multiples))
@@ -265,7 +265,7 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
                      $sub_formations=1;
                   }
                   else
-                     $sub_formations=0; // candidature multiple déjà traitée
+                     $sub_formations=0; // candidature multiple dÃ©jÃ  traitÃ©e
 
                   if($sub_formations)
                   {
@@ -288,29 +288,29 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
                      db_free_result($res_multiples);
                   }
                   else
-                     $sub_array_cand=array();   // Tableau vide : aucun traitement nécessaire
+                     $sub_array_cand=array();   // Tableau vide : aucun traitement nÃ©cessaire
                }
-               else   // tableau à un seul élément === cas particulier d'une candidature multiples
+               else   // tableau Ã  un seul Ã©lÃ©ment === cas particulier d'une candidature multiples
                   $sub_array_cand=array("0" => "$cand_id");
 
-               if(count($sub_array_cand)) // Au moins une page à produire : le début est commun
+               if(count($sub_array_cand)) // Au moins une page Ã  produire : le dÃ©but est commun
                {
                   $formulaire->AddPage();
 
-                  // Incrémentation du compteur pour savoir si tout s'est bien passé, à la fin
+                  // IncrÃ©mentation du compteur pour savoir si tout s'est bien passÃ©, Ã  la fin
                   $nb_pages++;
 
-                  // Création d'une nouvelle page
+                  // CrÃ©ation d'une nouvelle page
                   $formulaire->SetFont('arial','',10);
                   $formulaire->SetTextColor(0, 0, 0);
 
-                  // Premier élément : position fixe (à affiner manuellement, sans doute)
+                  // Premier Ã©lÃ©ment : position fixe (Ã  affiner manuellement, sans doute)
                   // $formulaire->SetXY(60, 78);
 
                   $formulaire->SetXY(11, 11);
                   $formulaire->SetFont('arial',"IB",14);
                   
-                  $formulaire->MultiCell(0, 5, "Commission Pédagogique ($__PERIODE-".($__PERIODE+1).")", 0, "C");
+                  $formulaire->MultiCell(0, 5, "Commission PÃ©dagogique ($__PERIODE-".($__PERIODE+1).")", 0, "C");
 
                   $formulaire->Ln(3);
 
@@ -323,11 +323,11 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
                   $formulaire->SetFont('arial',"",9);
 
                   if(isset($_SESSION["niveau"]) && $_SESSION["niveau"]==$__LVL_CONSULT)
-                     $candidat_adresse="$civ_texte " .  $candidat_array["nom"] . " " . $candidat_array["prenom"] . ", $ne le " . $candidat_array["naissance"] . " à " . $candidat_array["lieu_naissance"] .
-                                       "   Nationalité : " . $candidat_array["nationalite"];
+                     $candidat_adresse="$civ_texte " .  $candidat_array["nom"] . " " . $candidat_array["prenom"] . ", $ne le " . $candidat_array["naissance"] . " Ã  " . $candidat_array["lieu_naissance"] .
+                                       "   NationalitÃ© : " . $candidat_array["nationalite"];
                   else
-                     $candidat_adresse="$civ_texte " .  $candidat_array["nom"] . " " . $candidat_array["prenom"] . ", $ne le " . $candidat_array["naissance"] . " à " . $candidat_array["lieu_naissance"] .
-                                       "   Nationalité : " . $candidat_array["nationalite"] .
+                     $candidat_adresse="$civ_texte " .  $candidat_array["nom"] . " " . $candidat_array["prenom"] . ", $ne le " . $candidat_array["naissance"] . " Ã  " . $candidat_array["lieu_naissance"] .
+                                       "   NationalitÃ© : " . $candidat_array["nationalite"] .
                                        "\n" . $candidat_array["adresse"];
 
                   $formulaire->MultiCell(0,4,$candidat_adresse, 0, "L");
@@ -336,16 +336,16 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
 
                   $formulaire->SetFont('arial',"B",12);
 
-                  // A partir d'ici, le document est traité différemment en fonction de la nature de la candidature
+                  // A partir d'ici, le document est traitÃ© diffÃ©remment en fonction de la nature de la candidature
                   // Choix unique = document complet
-                  // Multiple : document résumant les formations groupées
+                  // Multiple : document rÃ©sumant les formations groupÃ©es
 
                   if(count($sub_array_cand) > 1)
                   {
                      // CANDIDATURE A CHOIX MULTIPLES
 
                      $nom_formation=ucwords(strtolower("$candidature_array[annee] - $candidature_array[mention_nom]"));
-                     $formulaire->MultiCell(0, 5, "Candidature à choix multiples : $nom_formation", 1, "C");
+                     $formulaire->MultiCell(0, 5, "Candidature Ã  choix multiples : $nom_formation", 1, "C");
 
                      $formulaire->Ln(2);
 
@@ -354,7 +354,7 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
                      // Ajout des motifs UNIQUEMENT s'ils sont courts
                      if(isset($_SESSION["gestion_motifs"]) && $_SESSION["gestion_motifs"]==0)
                      {
-                        $formulaire->MultiCell(0, 4, "Pour chaque voeu et en cas de refus, les motifs de cette liste peuvent être utilisés : ", 0, "L");
+                        $formulaire->MultiCell(0, 4, "Pour chaque voeu et en cas de refus, les motifs de cette liste peuvent Ãªtre utilisÃ©s : ", 0, "L");
 
                         $formulaire->SetFont('arial',"",9);
 
@@ -408,7 +408,7 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
                         db_free_result($result);
                      }
 
-                     // Sélection des décisions
+                     // SÃ©lection des dÃ©cisions
                      $result2=db_query($dbr,"SELECT $_DBC_decisions_id, $_DBC_decisions_texte FROM $_DB_decisions
                                                 WHERE $_DBC_decisions_id IN (SELECT distinct($_DBC_decisions_comp_dec_id) FROM $_DB_decisions_comp
                                                                               WHERE $_DBC_decisions_comp_comp_id='$_SESSION[comp_id]')
@@ -425,7 +425,7 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
                      {
                         $compteur_voeux++;
 
-                        // Récupération des informations de ce voeux
+                        // RÃ©cupÃ©ration des informations de ce voeux
                         $sub_candidature_array=__get_candidature($dbr,$sub_cand_id);
 
                         $Y=$formulaire->getY();
@@ -458,7 +458,7 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
                               switch($pos)
                               { 
                                  case 0 :   // nouvelle ligne : position = 11
-                                          if($position_cnt!=0) // Saut sauf pour la première ligne
+                                          if($position_cnt!=0) // Saut sauf pour la premiÃ¨re ligne
                                              $formulaire->Ln(3);
                                           $X=11;
                                           break;
@@ -476,7 +476,7 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
 
                               $formulaire->image("case3.jpg", $X, $Y, 3);
 
-                              // Décalage par rapport à l'icone
+                              // DÃ©calage par rapport Ã  l'icone
                               $X+=4;
                               $formulaire->setX($X);
 
@@ -516,11 +516,11 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
 
                      $formulaire->SetFont('arial',"IB",10);
 
-                     $formulaire->MultiCell(0, 5, "Décision de la commission pédagogique :", 0, "L");
+                     $formulaire->MultiCell(0, 5, "DÃ©cision de la commission pÃ©dagogique :", 0, "L");
 
                      $formulaire->SetFont('arial',"",9);
 
-                     // Sélection des décisions
+                     // SÃ©lection des dÃ©cisions
                      $result2=db_query($dbr,"SELECT $_DBC_decisions_id, $_DBC_decisions_texte FROM $_DB_decisions
                                                 WHERE $_DBC_decisions_id IN (SELECT distinct($_DBC_decisions_comp_dec_id) FROM $_DB_decisions_comp
                                                                               WHERE $_DBC_decisions_comp_comp_id='$_SESSION[comp_id]')
@@ -545,7 +545,7 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
                            switch($pos)
                            {
                               case 0 :   // nouvelle ligne : position = 11
-                                       if($position_cnt!=0) // Saut sauf pour la première ligne
+                                       if($position_cnt!=0) // Saut sauf pour la premiÃ¨re ligne
                                           $formulaire->Ln(5);
                                        $X=11;
                                        break;
@@ -563,7 +563,7 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
 
                            $formulaire->image("case3.jpg", $X, $Y, 3);
 
-                           // Décalage par rapport à l'icone
+                           // DÃ©calage par rapport Ã  l'icone
                            $X+=4;
                            $formulaire->setX($X);
 
@@ -578,7 +578,7 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
                      $formulaire->Ln(7);
 
                      $formulaire->SetFont('arial',"IB",10);
-                     $formulaire->MultiCell(0, 5, "Motifs (tout refus DOIT être motivé) :", 0, "L");
+                     $formulaire->MultiCell(0, 5, "Motifs (tout refus DOIT Ãªtre motivÃ©) :", 0, "L");
 
                      $formulaire->SetFont('arial',"",9);
 
@@ -613,7 +613,7 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
                            switch($pos)
                            { 
                               case 0 :   // nouvelle ligne : position = 11
-                                       if($c!=0) // Saut sauf pour la première ligne
+                                       if($c!=0) // Saut sauf pour la premiÃ¨re ligne
                                           $formulaire->Ln(5);
                                        $X=11;
                                        break;
@@ -626,7 +626,7 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
                            $Y=$formulaire->getY();
                            $formulaire->image("case3.jpg", $X, $Y, 3);
 
-                           // Décalage par rapport à l'icone
+                           // DÃ©calage par rapport Ã  l'icone
                            $X+=4;
                            $formulaire->setX($X);
 
@@ -652,29 +652,29 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
                      }
                   }
 
-                  // Si la formation n'a pas d'entretiens complémentaires, on met ici la précision "admission avec ou sans validation d'UE"
+                  // Si la formation n'a pas d'entretiens complÃ©mentaires, on met ici la prÃ©cision "admission avec ou sans validation d'UE"
                   if(!isset($candidature_array["entretiens"]) || $candidature_array["entretiens"]!=1)
                   {
 /*                  
                      $formulaire->SetFont('arial',"IB",10);
                      
-                     $formulaire->MultiCell(0, 5, "Précision en cas d'admission : ", 0, "L");
+                     $formulaire->MultiCell(0, 5, "PrÃ©cision en cas d'admission : ", 0, "L");
                      
                      $formulaire->SetFont('arial',"",9);
 
                      $Y=$formulaire->getY();
                      $formulaire->image("case3.jpg", 11, $Y, 3);
 
-                     // Léger décalage du texte par rapport à l'icone
+                     // LÃ©ger dÃ©calage du texte par rapport Ã  l'icone
                      $formulaire->setX(15);
                      $formulaire->Cell(62, 3, "Sans validation d'UE", 0, 0, "L");
 
-                     // Même chose pour la ligne suivante
+                     // MÃªme chose pour la ligne suivante
                      $formulaire->Ln(5);
                      $Y=$formulaire->getY();
                      $formulaire->image("case3.jpg", 11, $Y, 3);
                      $formulaire->setX(15);
-                     $formulaire->Cell(62, 3, "Avec validation d'UE. Précisez :", 0, 0, "L");
+                     $formulaire->Cell(62, 3, "Avec validation d'UE. PrÃ©cisez :", 0, 0, "L");
                      $formulaire->Ln(10);
 */
                      $formulaire->SetFont('arial',"IB",10);
@@ -696,7 +696,7 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
                      $str="Avec validation d'UE";
                      $formulaire->Cell($formulaire->GetStringWidth($str), 4, $str, 0, 1, "L");
                      
-                     $formulaire->Cell(0, 4, "Précisez les UE en cas de validation :", 0, 1, "L");
+                     $formulaire->Cell(0, 4, "PrÃ©cisez les UE en cas de validation :", 0, 1, "L");
                      $formulaire->Ln(15);
                   }
                   
@@ -704,12 +704,12 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
                   $formulaire->SetFont('arial',"IB",10);
 
                   $formulaire->Cell(0, 5, "Date et signature :", 0, 1, "L");
-                  $formulaire->Cell(94, 5, "Président de la Commission Pédagogique", 0, 0, "L");
+                  $formulaire->Cell(94, 5, "PrÃ©sident de la Commission PÃ©dagogique", 0, 0, "L");
                   $formulaire->Cell(0, 5, "Responsable de formation (ou rapporteur)", 0, 1, "L");
 
 
-                  // Seconde partie du formulaire pour les formations nécessitant un entretien complémentaire
-                  // TODO : gérer le cas des candidatures à choix multiples avec entretiens
+                  // Seconde partie du formulaire pour les formations nÃ©cessitant un entretien complÃ©mentaire
+                  // TODO : gÃ©rer le cas des candidatures Ã  choix multiples avec entretiens
                   if(isset($candidature_array["entretiens"]) && $candidature_array["entretiens"]==1)
                   {
                      // Espace pour les signatures
@@ -717,11 +717,11 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
                      $formulaire->Line(11, $formulaire->GetY(), 199, $formulaire->GetY());
                      $formulaire->Ln(2);
 
-                     $formulaire->MultiCell(0, 5, "Décision de la commission pédagogique après entretien :", 0, "L");
+                     $formulaire->MultiCell(0, 5, "DÃ©cision de la commission pÃ©dagogique aprÃ¨s entretien :", 0, "L");
 
                      $formulaire->SetFont('arial',"",9);
 
-                     // Sélection des décisions
+                     // SÃ©lection des dÃ©cisions
                      $result2=db_query($dbr,"SELECT $_DBC_decisions_id, $_DBC_decisions_texte FROM $_DB_decisions
                                                 WHERE $_DBC_decisions_id IN (SELECT distinct($_DBC_decisions_comp_dec_id) FROM $_DB_decisions_comp
                                                                               WHERE $_DBC_decisions_comp_comp_id='$_SESSION[comp_id]')
@@ -746,7 +746,7 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
                            switch($pos)
                            {
                               case 0 :   // nouvelle ligne : position = 11
-                                       if($position_cnt!=0) // Saut sauf pour la première ligne
+                                       if($position_cnt!=0) // Saut sauf pour la premiÃ¨re ligne
                                           $formulaire->Ln(5);
                                        $X=11;
                                        break;
@@ -764,7 +764,7 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
 
                            $formulaire->image("case3.jpg", $X, $Y, 3);
 
-                           // Décalage par rapport à l'icone
+                           // DÃ©calage par rapport Ã  l'icone
                            $X+=4;
                            $formulaire->setX($X);
 
@@ -783,26 +783,26 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
 
                      $formulaire->Ln(16);
 
-                     // Si la formation a un entretien complémentaire, on met ici la précision "admission avec ou sans validation d'UE"
+                     // Si la formation a un entretien complÃ©mentaire, on met ici la prÃ©cision "admission avec ou sans validation d'UE"
 /*                     
                      $formulaire->SetFont('arial',"IB",10);
-                     $formulaire->MultiCell(0, 5, "Précision en cas d'admission : ", 0, "L");
+                     $formulaire->MultiCell(0, 5, "PrÃ©cision en cas d'admission : ", 0, "L");
                      
                      $formulaire->SetFont('arial',"",9);
 
                      $Y=$formulaire->getY();
                      $formulaire->image("case3.jpg", 11, $Y, 3);
 
-                     // Léger décalage du texte par rapport à l'icone
+                     // LÃ©ger dÃ©calage du texte par rapport Ã  l'icone
                      $formulaire->setX(15);
                      $formulaire->Cell(62, 3, "Sans validation d'UE", 0, 0, "L");
 
-                     // Même chose pour la ligne suivante
+                     // MÃªme chose pour la ligne suivante
                      $formulaire->Ln(5);
                      $Y=$formulaire->getY();
                      $formulaire->image("case3.jpg", 11, $Y, 3);
                      $formulaire->setX(15);
-                     $formulaire->Cell(62, 3, "Avec validation d'UE. Précisez :", 0, 0, "L");                               
+                     $formulaire->Cell(62, 3, "Avec validation d'UE. PrÃ©cisez :", 0, 0, "L");                               
                      $formulaire->Ln(20);
 */                     
                      $formulaire->SetFont('arial',"IB",10);
@@ -824,21 +824,21 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
                      $str="Avec validation d'UE";
                      $formulaire->Cell($formulaire->GetStringWidth($str), 4, $str, 0, 1, "L");
                      
-                     $formulaire->Cell(0, 4, "Précisez les UE en cas de validation :", 0, 1, "L");
+                     $formulaire->Cell(0, 4, "PrÃ©cisez les UE en cas de validation :", 0, 1, "L");
                      $formulaire->Ln(15);
 
                      $formulaire->SetFont('arial',"IB",10);
 
-//                     $formulaire->MultiCell(0, 5, "Date et signature du Président de la Commission Pédagogique et/ou du Responsable de formation : ", 0, "L");
+//                     $formulaire->MultiCell(0, 5, "Date et signature du PrÃ©sident de la Commission PÃ©dagogique et/ou du Responsable de formation : ", 0, "L");
                      $formulaire->Cell(0, 5, "Date et signature :", 0, 1, "L");
-                     $formulaire->Cell(94, 5, "Président de la Commission Pédagogique", 0, 0, "L");
+                     $formulaire->Cell(94, 5, "PrÃ©sident de la Commission PÃ©dagogique", 0, 0, "L");
                      $formulaire->Cell(0, 5, "Responsable de formation (ou rapporteur)", 0, 1, "L");
                   }
 
 
                   // TODO
-                  // Cas particuliers : ajouts gérés par des include
-                  // ==>> Créer un editeur de Formulaire pour virer ça
+                  // Cas particuliers : ajouts gÃ©rÃ©s par des include
+                  // ==>> CrÃ©er un editeur de Formulaire pour virer Ã§a
                   if(is_file("$__ROOT_DIR/$__GESTION_DIR/lettres/include/include_$_SESSION[comp_id].php"))
                   {
                      $formulaire->Ln(15);   
@@ -847,17 +847,17 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
 
                   write_evt($dbr,$__EVT_ID_G_PREC, "Formulaire commission : $candidature_array[nom_complet]", $candidat_id, $cand_id);
                }
-            } // Fin de la génération des pages
+            } // Fin de la gÃ©nÃ©ration des pages
          } // Fin du if(isset(array_cand)
       } // Fin du if(candidat_array!=FALSE)
    }  // Fin du foreach(candidat)
 
    if(isset($nb_pages) && $nb_pages>0)
    {
-      if(count($ensemble_candidats)==1) // élement unique
+      if(count($ensemble_candidats)==1) // Ã©lement unique
       {
          // Nettoyage du nom du candidat
-         // TODO : Généraliser et créer une fonction
+         // TODO : GÃ©nÃ©raliser et crÃ©er une fonction
 
          $candidat_nom=$new_str=preg_replace("/[ '\"&#\/\\\]/", "_", clean_str(mb_strtolower($candidat_array["nom"])));
          $candidat_prenom=preg_replace("/[ '\"&#\/\\\]/", "_", clean_str(mb_strtolower($candidat_array["prenom"])));
@@ -872,18 +872,18 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
 
       $formulaire->Output("$__GESTION_COMP_STOCKAGE_DIR_ABS/$_SESSION[comp_id]/$nom_fichier");
 
-      // Attention : chemin relatif à www-root (document_root du serveur Apache)
+      // Attention : chemin relatif Ã  www-root (document_root du serveur Apache)
       echo "<HTML><SCRIPT>document.location='$__GESTION_COMP_STOCKAGE_DIR/$_SESSION[comp_id]/$nom_fichier';</SCRIPT></HTML>";
    }
 
 
-   // Génération du fichier et copie dans le répertoire
+   // GÃ©nÃ©ration du fichier et copie dans le rÃ©pertoire
    $nom_fichier="Formulaire_commission_$_SESSION[auth_id]-" . time() . ".pdf";
    // $formulaire->Output("$nom_fichier", "I");
 
    $formulaire->Output("$__GESTION_COMP_STOCKAGE_DIR_ABS/$_SESSION[comp_id]/$nom_fichier");
 
-   // Attention : chemin relatif à www-root (document_root du serveur Apache)
+   // Attention : chemin relatif Ã  www-root (document_root du serveur Apache)
    echo "<HTML><SCRIPT>document.location='$__GESTION_COMP_STOCKAGE_DIR/$_SESSION[comp_id]/$nom_fichier';</SCRIPT></HTML>";
 
    db_close($dbr);

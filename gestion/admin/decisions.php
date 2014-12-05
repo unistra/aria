@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -73,7 +73,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 	if(isset($_POST["go"]) || isset($_POST["go_x"]))
 	{
-		// Récupération de toutes les décisions
+		// RÃ©cupÃ©ration de toutes les dÃ©cisions
 		$result2=db_query($dbr, "SELECT $_DBC_decisions_id FROM $_DB_decisions");
 
 		if(db_num_rows($result2))
@@ -83,7 +83,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 		db_free_result($result2);
 
-		// Récupération des décisions actives
+		// RÃ©cupÃ©ration des dÃ©cisions actives
 		$result2=db_query($dbr, "SELECT $_DBC_decisions_comp_dec_id FROM $_DB_decisions_comp
 																WHERE $_DBC_decisions_comp_comp_id='$_SESSION[comp_id]'");
 
@@ -94,7 +94,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 		db_free_result($result2);
 
-		// Récupération des décisions utilisées
+		// RÃ©cupÃ©ration des dÃ©cisions utilisÃ©es
 		$result2=db_query($dbr, "SELECT distinct($_DBC_cand_decision) FROM $_DB_cand, $_DB_propspec
 																WHERE $_DBC_cand_propspec_id=$_DBC_propspec_id
 																AND $_DBC_propspec_comp_id='$_SESSION[comp_id]'");
@@ -128,7 +128,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		{
 			$dec_id=$array_dec[$_DBU_decisions_id];
 
-			// Pas dans la liste des décisions sélectionnée ET décision supprimable : suppression
+			// Pas dans la liste des dÃ©cisions sÃ©lectionnÃ©e ET dÃ©cision supprimable : suppression
 			if(in_array(array("$_DBU_decisions_comp_dec_id" => $dec_id), $active_decs) && !in_array($dec_id, $selected_decs) && !in_array(array("$_DBU_cand_decision" => $dec_id), $all_used_decs))
 				db_query($dbr, "DELETE FROM $_DB_decisions_comp
 														WHERE $_DBC_decisions_comp_dec_id='$dec_id'  AND $_DBC_decisions_comp_comp_id='$_SESSION[comp_id]'");
@@ -148,19 +148,19 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 <div class='main'>
 	<?php
-		titre_page_icone("Décisions de Commissions Pédagogiques utilisées dans cette composante", "decisions_32x32_fond.png", 30, "L");
+		titre_page_icone("DÃ©cisions de Commissions PÃ©dagogiques utilisÃ©es dans cette composante", "decisions_32x32_fond.png", 30, "L");
 
 		if(isset($succes))
-			message("Paramètres enregistrés", $__SUCCES);
+			message("ParamÃ¨tres enregistrÃ©s", $__SUCCES);
 
-		message("<center>Les cases grisées correspondent à des décisions déjà rendues<br>Elles ne peuvent pas être désactivées</center>", $__WARNING);
+		message("<center>Les cases grisÃ©es correspondent Ã  des dÃ©cisions dÃ©jÃ  rendues<br>Elles ne peuvent pas Ãªtre dÃ©sactivÃ©es</center>", $__WARNING);
 
 		$result=db_query($dbr,"SELECT $_DBC_decisions_id,$_DBC_decisions_texte FROM $_DB_decisions ORDER BY $_DBC_decisions_texte");
 		$rows=db_num_rows($result);
 
 		if($rows)
 		{
-			// Récupération des décisions actives
+			// RÃ©cupÃ©ration des dÃ©cisions actives
 			$result2=db_query($dbr, "SELECT $_DBC_decisions_comp_dec_id FROM $_DB_decisions_comp
 												WHERE $_DBC_decisions_comp_comp_id='$_SESSION[comp_id]'");
 
@@ -171,7 +171,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 			db_free_result($result2);
 
-			// Récupération des décisions utilisées
+			// RÃ©cupÃ©ration des dÃ©cisions utilisÃ©es
 			$result2=db_query($dbr, "SELECT distinct($_DBC_cand_decision) FROM $_DB_cand, $_DB_propspec
 												WHERE $_DBC_cand_propspec_id=$_DBC_propspec_id
 												AND $_DBC_propspec_comp_id='$_SESSION[comp_id]'");
@@ -188,7 +188,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 						<table align='center'>
 						<tr>
 							<td class='td-gauche fond_menu2'>
-								<font class='Texte_menu2'><b>Sélection<br>des Décisions :</b></font>
+								<font class='Texte_menu2'><b>SÃ©lection<br>des DÃ©cisions :</b></font>
 							</td>
 							<td class='td-droite fond_menu'>
 								<table border='0' width='100%' cellpadding='2'>\n");
@@ -200,11 +200,11 @@ CeCILL-B, et que vous en avez accepté les termes.
 				if(!($i%2))
 					print("<tr>\n");
 
-				// Si la décision est activée ... (attention à la fonction in_array : on cherche bien un 'array' dans $all_decs et $all_used_decs
+				// Si la dÃ©cision est activÃ©e ... (attention Ã  la fonction in_array : on cherche bien un 'array' dans $all_decs et $all_used_decs
 				if(in_array(array("$_DBU_decisions_comp_dec_id" => $decision_id), $active_decs))
 				{
-					// On regarde si la décision courante est désactivable ou non
-					if(in_array(array("$_DBU_cand_decision" => $decision_id), $all_used_decs)) // pas désactivable car utilisée
+					// On regarde si la dÃ©cision courante est dÃ©sactivable ou non
+					if(in_array(array("$_DBU_cand_decision" => $decision_id), $all_used_decs)) // pas dÃ©sactivable car utilisÃ©e
 						print("<td align='left'>
 										<font class='Texte_menu'>
 											<input type='checkbox' name='decision_id[]' value='$decision_id' checked='1' disabled='1'>&nbsp;&nbsp;<i>$decision_texte</i>

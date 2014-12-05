@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -55,16 +55,16 @@ CeCILL-B, et que vous en avez accepté les termes.
 	session_unset();
 
 	if(is_file("../include/vars.php")) include "../include/vars.php";
-	else die("Fichier \"include/vars.php\" non trouvé");
+	else die("Fichier \"include/vars.php\" non trouvÃ©");
 	            
 	if(is_file("../include/fonctions.php")) include "../include/fonctions.php";
-	else die("Fichier \"include/fonctions.php\" non trouvé");
+	else die("Fichier \"include/fonctions.php\" non trouvÃ©");
 	                  
 	if(is_file("../include/db.php")) include "../include/db.php";
-	else die("Fichier \"include/db.php\" non trouvé");
+	else die("Fichier \"include/db.php\" non trouvÃ©");
 	                        
 	if(is_file("../include/access_functions.php")) include "../include/access_functions.php";
-   else die("Fichier \"include/access_functions.php\" non trouvé");
+   else die("Fichier \"include/access_functions.php\" non trouvÃ©");
 
 	$dbr=db_connect();
 
@@ -73,7 +73,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
    if($load_config===FALSE) // config absente : erreur
       $erreur_config=1;
-   elseif($load_config==-1) // paramètre(s) manquant(s) : avertissement
+   elseif($load_config==-1) // paramÃ¨tre(s) manquant(s) : avertissement
       $warn_config=1;
 
 	$php_self=$_SERVER['PHP_SELF'];
@@ -103,7 +103,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		if(!$rows)
 		{
 			$user_error=1;
-			write_evt($dbr, $__EVT_ID_REINIT, "Echec de la réinitialisation : identifiant '$user' inconnu");
+			write_evt($dbr, $__EVT_ID_REINIT, "Echec de la rÃ©initialisation : identifiant '$user' inconnu");
 		}
 		else
 		{
@@ -111,30 +111,30 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 			if(empty($_SESSION["auth_email"]))
 			{
-				write_evt($dbr, $__EVT_ID_REINIT, "Echec de la réinitialisation pour '$user' : courriel manquant");
+				write_evt($dbr, $__EVT_ID_REINIT, "Echec de la rÃ©initialisation pour '$user' : courriel manquant");
 				session_destroy();
 				
 				db_close($dbr);
 
 				die("Erreur :\n\n
-							Votre adresse électronique n'est pas renseignée. Merci d'envoyer un courriel <a href='mailto:$GLOBALS[__EMAIL_SUPPORT]'>à cette adresse</a> pour le signaler.
-							\n\nVous pourrez reprendre cette procédure par la suite.");
+							Votre adresse Ã©lectronique n'est pas renseignÃ©e. Merci d'envoyer un courriel <a href='mailto:$GLOBALS[__EMAIL_SUPPORT]'>Ã  cette adresse</a> pour le signaler.
+							\n\nVous pourrez reprendre cette procÃ©dure par la suite.");
 			}
 
-			// génération d'un nouveau mot de passe et changement dans la base
+			// gÃ©nÃ©ration d'un nouveau mot de passe et changement dans la base
 			$new_clear_pass=generate_pass();
 			$new_pass=md5($new_clear_pass);
 
 			db_query($dbr,"UPDATE $_DB_acces SET $_DBU_acces_pass='$new_pass' WHERE $_DBU_acces_id='$_SESSION[auth_id]'");
 
-			// envoi d'un mail à l'utilisateur qui a réinitialisé son pass
-			$corps_mail="Bonjour, \n\nLa réinitialisation de votre mot de passe a été demandée. Le nouveau mot de passe est \"$new_clear_pass\"
-(sans les guillemets).\n\nVous pouvez soit conserver ce mot de passe, soit le changer via la page 'Changer son mot de passe' (vivement conseillé). \n\n
+			// envoi d'un mail Ã  l'utilisateur qui a rÃ©initialisÃ© son pass
+			$corps_mail="Bonjour, \n\nLa rÃ©initialisation de votre mot de passe a Ã©tÃ© demandÃ©e. Le nouveau mot de passe est \"$new_clear_pass\"
+(sans les guillemets).\n\nVous pouvez soit conserver ce mot de passe, soit le changer via la page 'Changer son mot de passe' (vivement conseillÃ©). \n\n
 Cordialement,\n\nL'administrateur.";
-			mail($_SESSION["auth_email"],"Votre nouveau mot de passe", "$corps_mail") or die("Impossible d'envoyer le courriel. Merci de contacter l'administrateur <a href='mailto:cb@dpt-info.u-strasbg.fr?subject=Précandidature - Adresse électronique' class='lien_bleu_12'>à cette adresse</a>.");
+			mail($_SESSION["auth_email"],"Votre nouveau mot de passe", "$corps_mail") or die("Impossible d'envoyer le courriel. Merci de contacter l'administrateur <a href='mailto:cb@dpt-info.u-strasbg.fr?subject=PrÃ©candidature - Adresse Ã©lectronique' class='lien_bleu_12'>Ã  cette adresse</a>.");
 			$mail_sent=1;
 
-			write_evt($dbr, $__EVT_ID_REINIT, "Réinitialisation réussie", "", $_SESSION["auth_id"]);
+			write_evt($dbr, $__EVT_ID_REINIT, "RÃ©initialisation rÃ©ussie", "", $_SESSION["auth_id"]);
 		}
 
 		db_free_result($result);
@@ -153,13 +153,13 @@ Cordialement,\n\nL'administrateur.";
 			message("Identifiant inconnu.", $__ERREUR);
 
 		if(isset($mail_sent))
-			message("<center>Un courriel a été envoyé à l'adresse enregistrée sur votre fiche.
+			message("<center>Un courriel a Ã©tÃ© envoyÃ© Ã  l'adresse enregistrÃ©e sur votre fiche.
 						<br>Vous pouvez retenter de vous authentifier <a href='login.php' class='lien2'>sur cette page</a>.</center>", $__SUCCES);
 
 		print("<form action='$php_self' method='POST' name='form1'>\n");
 		
 		message("<center>Pour obtenir un nouveau mot de passe, il vous suffit d'entrer votre identifiant dans le champ ci-dessous, puis de valider. 
-		         <br>Un nouveau mot de passe sera généré aléatoirement et vous sera envoyé par courriel.
+		         <br>Un nouveau mot de passe sera gÃ©nÃ©rÃ© alÃ©atoirement et vous sera envoyÃ© par courriel.
 		         <br>Vous pourrez soit conserver ce mot de passe, soit le changer via la page \"Changer son mot de passe\" sur la page d'identification.</center>", $__INFO);
 	?>
 

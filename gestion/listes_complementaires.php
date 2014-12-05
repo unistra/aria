@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -65,7 +65,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 	$dbr=db_connect();
 
-	// Déverrouillage, au cas où
+	// DÃ©verrouillage, au cas oÃ¹
 	if(isset($_SESSION["candidat_id"]))
 		cand_unlock($dbr, $_SESSION["candidat_id"]);
 /*
@@ -76,12 +76,12 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 	$Z=$Y+1;
 */
-	// changement de l'ordre de la liste complémentaire
+	// changement de l'ordre de la liste complÃ©mentaire
 	if(isset($_GET["niveau"]) && is_numeric($_GET["niveau"]) && isset($_SESSION["liste_propspec"]) && isset($_SESSION["liste_attente"]))
 	{
 		$resultat=1;
 
-		// pour la recherche sur l'id des inscriptions (obsolète)
+		// pour la recherche sur l'id des inscriptions (obsolÃ¨te)
 /*
 		$Z=$Y+1;
 
@@ -142,7 +142,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 */
 			$propspec=$_POST["formation"];
 
-			if($propspec=="") // détection bug IE
+			if($propspec=="") // dÃ©tection bug IE
 				$formation_vide=1;
 			else
 			{
@@ -161,10 +161,10 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 <div class='main'>
 	<?php
-		titre_page_icone("Gestion des listes complémentaires", "liste_32x32_fond.png", 30, "L");
+		titre_page_icone("Gestion des listes complÃ©mentaires", "liste_32x32_fond.png", 30, "L");
 
 		if(isset($formation_vide))
-			message("Vous devez sélectionner une formation valide", $__ERREUR);
+			message("Vous devez sÃ©lectionner une formation valide", $__ERREUR);
 
 		if(!isset($resultat))
 		{
@@ -175,7 +175,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	<table align='center'>
 	<tr>
 		<td class='td-gauche fond_menu2' colspan='2' style='padding:4px;'>
-			<font class='Texte_menu2'><b>Sélection de la liste à traiter</b></font>
+			<font class='Texte_menu2'><b>SÃ©lection de la liste Ã  traiter</b></font>
 		</td>
 	</tr>
 	<tr>
@@ -198,12 +198,12 @@ CeCILL-B, et que vous en avez accepté les termes.
 														ORDER BY $_DBC_annees_ordre, $_DBC_specs_mention_id, $_DBC_specs_nom, $_DBC_propspec_finalite");
 					$rows=db_num_rows($result);
 
-					// variables initialisées à n'importe quoi
+					// variables initialisÃ©es Ã  n'importe quoi
 					$prev_annee="--";
 					$prev_mention="";
 
-					// TODO : dans la base compeda, revoir l'utilisation de la table annee (intégration de annees.id dans
-					// proprietes_specialites, par exemple) et répercuter les changements ici
+					// TODO : dans la base compeda, revoir l'utilisation de la table annee (intÃ©gration de annees.id dans
+					// proprietes_specialites, par exemple) et rÃ©percuter les changements ici
 					for($i=0; $i<$rows; $i++)
 					{
 						list($annee, $nom,$propspec_id, $mention, $mention_nom, $finalite)=db_fetch_row($result,$i);
@@ -216,7 +216,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 								print("</optgroup>\n");
 
 							if(empty($annee))
-								print("<optgroup label='Années particulières'>\n");
+								print("<optgroup label='AnnÃ©es particuliÃ¨res'>\n");
 							else
 								print("<optgroup label='$annee'>\n");
 
@@ -251,13 +251,13 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 	<?php
 		}
-		else // résultat de la recherche
+		else // rÃ©sultat de la recherche
 		{
 			if(isset($resultat) && $resultat==1)
 			{
 				$dbr=db_connect();
 
-				// nom de la spécialité
+				// nom de la spÃ©cialitÃ©
 				$result2=db_query($dbr,"SELECT $_DBC_annees_annee, $_DBC_specs_nom, $_DBC_propspec_finalite
 													FROM $_DB_specs, $_DB_annees, $_DB_propspec
 												WHERE $_DBC_propspec_annee=$_DBC_annees_id
@@ -270,8 +270,8 @@ CeCILL-B, et que vous en avez accepté les termes.
 				$insc_texte=($nom_annee=="") ? "$spec_nom $tab_finalite[$finalite]": "$nom_annee - $spec_nom $tab_finalite[$finalite]";
 
 				// On trie par rang dans la file d'attente
-				// TODO 1 : informations à afficher ? (numéro de téléphone, par exemple)
-				// TODO 2 : ajouter la distinction entre les différentes sessions de candidatures
+				// TODO 1 : informations Ã  afficher ? (numÃ©ro de tÃ©lÃ©phone, par exemple)
+				// TODO 2 : ajouter la distinction entre les diffÃ©rentes sessions de candidatures
 
 				$result=db_query($dbr,"SELECT DISTINCT $_DBC_cand_candidat_id, $_DBC_cand_id, CAST ($_DBU_cand_liste_attente AS int),
 																	$_DBC_candidat_civilite, $_DBC_candidat_nom, $_DBC_candidat_prenom,
@@ -296,7 +296,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 				$rows=db_num_rows($result);
 
 				print("<div class='centered_box'>
-							<font style='font-family: arial;' size='3'>Liste des candidats sur liste complémentaire pour la formation : <b>$insc_texte</b></font>
+							<font style='font-family: arial;' size='3'>Liste des candidats sur liste complÃ©mentaire pour la formation : <b>$insc_texte</b></font>
 						 </div>\n");
 
 				if($rows)
@@ -328,15 +328,15 @@ CeCILL-B, et que vous en avez accepté les termes.
 						if($civilite=="M")
 						{
 							$civilite="M.";
-							$naiss="né le $naissance";
+							$naiss="nÃ© le $naissance";
 						}
 						else
-							$naiss="née le $naissance";
+							$naiss="nÃ©e le $naissance";
 
 						print("<tr>
 									<td class='td-gauche fond_page' style='text-align:center;' valign='middle'>\n");
 
-						// Affichage des flèches permettant de réordonner la liste
+						// Affichage des flÃ¨ches permettant de rÃ©ordonner la liste
 						if($i!=0 && in_array($_SESSION["niveau"], array("$__LVL_SAISIE","$__LVL_SCOL_MOINS","$__LVL_SCOL_PLUS","$__LVL_RESP","$__LVL_SUPER_RESP","$__LVL_ADMIN")))
 							print("<a href='$php_self?cid=$candidat_id&up=$inid&niveau=$liste_attente' target='_self' class='lien2'><img src='$__ICON_DIR/up_16x16_menu.png' alt='Monter' border='0'></a>");
 
@@ -360,14 +360,14 @@ CeCILL-B, et que vous en avez accepté les termes.
 					print("</table>\n");
 				}
 				else
-					message("Aucun candidat sur liste complémentaire dans cette formation", $__WARNING);
+					message("Aucun candidat sur liste complÃ©mentaire dans cette formation", $__WARNING);
 
 				db_free_result($result);
 				db_close($dbr);
 			}
 
 			print("<div class='centered_box' style='padding-top:20px'>
-						<a href='$php_self' target='_self' class='lien2'><img border='0' src='$__ICON_DIR/back_32x32_fond.png' alt='Nouvelle sélection' desc='Nouvelle sélection'></a>
+						<a href='$php_self' target='_self' class='lien2'><img border='0' src='$__ICON_DIR/back_32x32_fond.png' alt='Nouvelle sÃ©lection' desc='Nouvelle sÃ©lection'></a>
 					</div>\n");
 		}
 	?>

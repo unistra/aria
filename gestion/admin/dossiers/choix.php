@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -64,9 +64,9 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 	$dbr=db_connect();
 
-	// edition d'un 'choix' pour un élément du constructeur de dossiers
+	// edition d'un 'choix' pour un Ã©lÃ©ment du constructeur de dossiers
 
-	// élément
+	// Ã©lÃ©ment
 	if(!isset($_SESSION["element_id"]))
 	{
 		header("Location:index.php");
@@ -86,7 +86,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			$_SESSION["cid"]=$params["cid"];
 			$action="Modifier";
 
-			// Récupération des infos actuelles
+			// RÃ©cupÃ©ration des infos actuelles
 			$result=db_query($dbr,"SELECT $_DBC_dossiers_elems_choix_texte FROM $_DB_dossiers_elems_choix
 											WHERE $_DBC_dossiers_elems_choix_id='$_SESSION[cid]'");
 			$rows=db_num_rows($result);
@@ -96,7 +96,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 				list($texte)=db_fetch_row($result,0);
 				db_free_result($result);
 			}
-			else // mauvais paramètres
+			else // mauvais paramÃ¨tres
 			{
 				db_free_result($result);
 				db_close($dbr);
@@ -125,10 +125,10 @@ CeCILL-B, et que vous en avez accepté les termes.
 		elseif(isset($params["dir"]) && ($params["dir"]==1 || $params["dir"]==0) && isset($params["o"]) && ctype_digit($params["o"]) 
 			 && isset($params["cid"]) && ctype_digit($params["cid"]))
 		{
-			// Récupération des infos actuelles
-			if($params["dir"]==0 && $params["o"]!=0) // décalage vers le bas (incrémentation de l'ordre)
+			// RÃ©cupÃ©ration des infos actuelles
+			if($params["dir"]==0 && $params["o"]!=0) // dÃ©calage vers le bas (incrÃ©mentation de l'ordre)
 				$new_ordre_cond=$params["o"]+1;
-			elseif($params["dir"]==1) // // décalage vers le haut (décrémentation de l'ordre) (ajouter un test ?)
+			elseif($params["dir"]==1) // // dÃ©calage vers le haut (dÃ©crÃ©mentation de l'ordre) (ajouter un test ?)
 				$new_ordre_cond=$params["o"]-1;
 
 			if(isset($new_ordre_cond))
@@ -144,7 +144,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			header("Location:element.php");
 			exit();
 		}
-		else // mauvais paramètres
+		else // mauvais paramÃ¨tres
 		{
 			db_close($dbr);
 			header("Location:element.php");
@@ -152,7 +152,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		}
 	}
 
-	// section exécutée lorsque le formulaire est validé
+	// section exÃ©cutÃ©e lorsque le formulaire est validÃ©
 	if(isset($_POST["valider"]) || isset($_POST["valider_x"]))
 	{
 		$texte=trim($_POST['new_texte']);
@@ -166,7 +166,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 									WHERE $_DBC_dossiers_elems_choix_id='$_SESSION[cid]'");
 			else
 			{
-				// détermination de l'ordre max
+				// dÃ©termination de l'ordre max
 				$res_ordre=db_query($dbr, "SELECT max($_DBC_dossiers_elems_choix_ordre)+1 FROM $_DB_dossiers_elems_choix
 													WHERE $_DBC_dossiers_elems_choix_elem_id='$_SESSION[element_id]'");
 
@@ -176,7 +176,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 				db_free_result($res_ordre);
 
-				// Insertion du nouvel élément
+				// Insertion du nouvel Ã©lÃ©ment
 				$new_cid=db_locked_query($dbr, $_DB_dossiers_elems_choix, "INSERT INTO $_DB_dossiers_elems_choix VALUES ('##NEW_ID##', '$_SESSION[element_id]','$texte', '$new_ordre')");
 			}
 
@@ -196,15 +196,15 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 <div class='main'>
 	<?php
-		titre_page_icone("Constructeur de dossiers : $action un choix pour l'élément '$_SESSION[element_intitule]'", "edit_32x32_fond.png", 15, "L");
+		titre_page_icone("Constructeur de dossiers : $action un choix pour l'Ã©lÃ©ment '$_SESSION[element_intitule]'", "edit_32x32_fond.png", 15, "L");
 /*
 		if(isset($para_pas_clean))
-			message("<center>Erreur : le texte contient des caractères non autorisés.
-						<br>Les caractères autorisés sont : a-z A-Z 0-9 - ' ! ? _ : . / @ ( ) les caractères accentués, la virgule et l'espace.</center>", $__ERREUR);
+			message("<center>Erreur : le texte contient des caractÃ¨res non autorisÃ©s.
+						<br>Les caractÃ¨res autorisÃ©s sont : a-z A-Z 0-9 - ' ! ? _ : . / @ ( ) les caractÃ¨res accentuÃ©s, la virgule et l'espace.</center>", $__ERREUR);
 */
 
 		if(isset($texte_vide))
-			message("Erreur : le texte ne doit pas être vide", $__ERREUR);
+			message("Erreur : le texte ne doit pas Ãªtre vide", $__ERREUR);
 
 		$texte=isset($texte) ? htmlspecialchars(stripslashes($texte),ENT_QUOTES, $default_htmlspecialchars_encoding) : "";
 
@@ -214,7 +214,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 				<tr>
 					<td class='fond_menu2' colspan='2' style='padding:4px 20px 4px 20px;'>
 						<font class='Texte_menu2'>
-							<b>&#8226;&nbsp;&nbsp;Données du 'choix'</b>
+							<b>&#8226;&nbsp;&nbsp;DonnÃ©es du 'choix'</b>
 						</font>
 					</td>
 				</tr>

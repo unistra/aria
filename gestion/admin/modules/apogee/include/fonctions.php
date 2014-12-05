@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,63 +20,63 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
 ?>
 <?php
-// Génération du code d'inscription administrative sur Apogée (macro %code% sur les lettres)
+// GÃ©nÃ©ration du code d'inscription administrative sur ApogÃ©e (macro %code% sur les lettres)
 // On a besoin de l'identifiant du candidat et de celui de la candidature
 
-// Cette fonction étend les macros disponibles dans l'éditeur de lettres
-// Arguments en entrée :
-// - texte à traiter
+// Cette fonction Ã©tend les macros disponibles dans l'Ã©diteur de lettres
+// Arguments en entrÃ©e :
+// - texte Ã  traiter
 // - tableau (array) du candidat
 // - tableau (array) de la candidature
 // - tableau (array) du cursus
 
-// Définition de code à "évaluer" tel quel : attention, le contexte lors de son exécution sera celui du
+// DÃ©finition de code Ã  "Ã©valuer" tel quel : attention, le contexte lors de son exÃ©cution sera celui du
 // fichier "gestion/admin/editeur/include/editeur_fonctions.php", pas celui lorsque ce fichier est inclus !
-// => attention donc aux variables (i.e aux include nécessaires) : elles doivent être connues par le code
-// au moment de son exécution
+// => attention donc aux variables (i.e aux include nÃ©cessaires) : elles doivent Ãªtre connues par le code
+// au moment de son exÃ©cution
 
 $_SESSION["__MACROS_USERS"]["moduleapogee_macro_code_ia"]='
 	include "$GLOBALS[__PLUGINS_DIR_ABS]/apogee/include/db.php";
 
 	if(stristr($txt, "%code%") || stristr($txt, "%code_choix_multiples%"))
 	{
-		// Code apogée de l\'université
+		// Code apogÃ©e de l\'universitÃ©
 
 		$res_code_univ=db_query($dbr, "SELECT $_module_apogee_DBC_config_code FROM  $_module_apogee_DB_config
 												WHERE $_module_apogee_DBC_config_comp_id=\'$candidature_array[comp_id]\'");
 
 		$rows=db_num_rows($res_code_univ);
 
-		if($rows)	// Normalement, un seul résultat (un code par université)
+		if($rows)	// Normalement, un seul rÃ©sultat (un code par universitÃ©)
 			list($code_univ)=db_fetch_row($res_code_univ, 0);
 		else
 			$code_univ="";
@@ -86,22 +86,22 @@ $_SESSION["__MACROS_USERS"]["moduleapogee_macro_code_ia"]='
 
 	if(stristr($txt, "%code%"))
 	{
-		// Code apogée de la formation
+		// Code apogÃ©e de la formation
 		$res_code_apogee=db_query($dbr, "SELECT $_module_apogee_DBC_formations_cet FROM  $_module_apogee_DB_formations
 													WHERE $_module_apogee_DBC_formations_propspec_id=\'$candidature_array[propspec_id]\'");
 
 		$rows=db_num_rows($res_code_apogee);
 
-		if($rows)	// Normalement, un seul résultat (un code par formation)
+		if($rows)	// Normalement, un seul rÃ©sultat (un code par formation)
 			list($code_etape)=db_fetch_row($res_code_apogee, 0);
 		else
 			$code_etape="";
 
 		db_free_result($res_code_apogee);
 
-		// Question : doit-on quand même générer le code d\'inscription si le code_etape ou le code université ne sont pas renseignés ?
+		// Question : doit-on quand mÃªme gÃ©nÃ©rer le code d\'inscription si le code_etape ou le code universitÃ© ne sont pas renseignÃ©s ?
 
-		$code_annee=substr($candidature_array["periode"],-2); // deux derniers chiffres de l\'année
+		$code_annee=substr($candidature_array["periode"],-2); // deux derniers chiffres de l\'annÃ©e
 		$code_nom=mb_strtoupper(substr(str_replace("\'","", str_replace(" ","",$cand_array["nom"])),0,2));
 		$code_prenom=mb_strtoupper(substr(str_replace("\'","", str_replace(" ","",$cand_array["prenom"])),0,1));
 		$code_annee_naiss=date_fr("y", $cand_array["naissance_unix"]);
@@ -123,22 +123,22 @@ $_SESSION["__MACROS_USERS"]["moduleapogee_macro_code_ia"]='
 		{
 			if($cand_m_array["decision"]==$GLOBALS["__DOSSIER_ADMIS"] || $cand_m_array["decision"]==$GLOBALS["__DOSSIER_ADMISSION_CONFIRMEE"] || $cand_m_array["decision"]==$GLOBALS["__DOSSIER_SOUS_RESERVE"])
 			{
-				// Code apogée de la formation
+				// Code apogÃ©e de la formation
 				$res_code_apogee=db_query($dbr, "SELECT $_module_apogee_DBC_formations_cet FROM  $_module_apogee_DB_formations
 																		WHERE $_module_apogee_DBC_formations_propspec_id=\'$cand_m_array[propspec_id]\'");
 
 				$rows=db_num_rows($res_code_apogee);
 
-				if($rows)	// Normalement, un seul résultat (un code par formation)
+				if($rows)	// Normalement, un seul rÃ©sultat (un code par formation)
 					list($code_etape)=db_fetch_row($res_code_apogee, 0);
 				else
 					$code_etape="";
 
 				db_free_result($res_code_apogee);
 
-				// Question : doit-on quand même générer le code d\'inscription si le code_etape ou le code université ne sont pas renseignés ?
+				// Question : doit-on quand mÃªme gÃ©nÃ©rer le code d\'inscription si le code_etape ou le code universitÃ© ne sont pas renseignÃ©s ?
 
-				$code_annee=substr($candidature_array["periode"],-2); // deux derniers chiffres de l\'année
+				$code_annee=substr($candidature_array["periode"],-2); // deux derniers chiffres de l\'annÃ©e
 				$code_nom=mb_strtoupper(substr(str_replace("\'","", str_replace(" ","",$cand_array["nom"])),0,2));
 				$code_prenom=mb_strtoupper(substr(str_replace("\'","", str_replace(" ","",$cand_array["prenom"])),0,1));
 				$code_annee_naiss=date_fr("y", $cand_array["naissance_unix"]);
@@ -164,7 +164,7 @@ $_SESSION["__MACROS_USERS"]["moduleapogee_macro_code_ia"]='
 		if($rows)
 			list($adr_primo)=db_fetch_row($res_adr_primo, 0);
 		else
-			$adr_primo="[Configuration incomplète ; aucune adresse n\'a été validée]";
+			$adr_primo="[Configuration incomplÃ¨te ; aucune adresse n\'a Ã©tÃ© validÃ©e]";
 
 		db_free_result($res_adr_primo);
 
@@ -173,7 +173,7 @@ $_SESSION["__MACROS_USERS"]["moduleapogee_macro_code_ia"]='
 	
 	if(stristr($txt, "%ADR_REINS%"))
 	{
-		// Adresse du site pour les réinscriptions
+		// Adresse du site pour les rÃ©inscriptions
 		$res_adr_reins=db_query($dbr, "SELECT $_module_apogee_DBC_config_adr_reins FROM  $_module_apogee_DB_config
                                      WHERE $_module_apogee_DBC_config_comp_id=\'$candidature_array[comp_id]\'");
 
@@ -182,7 +182,7 @@ $_SESSION["__MACROS_USERS"]["moduleapogee_macro_code_ia"]='
 		if($rows)
 			list($adr_reins)=db_fetch_row($res_adr_reins, 0);
 		else
-			$adr_reins="[Configuration incomplète ; aucune adresse n\'a été validée]";
+			$adr_reins="[Configuration incomplÃ¨te ; aucune adresse n\'a Ã©tÃ© validÃ©e]";
 
 		db_free_result($res_adr_reins);
 
@@ -200,7 +200,7 @@ $_SESSION["__MACROS_USERS"]["moduleapogee_macro_code_ia"]='
 		if($rows)
 			list($adr_rdv)=db_fetch_row($res_adr_rdv, 0);
 		else
-			$adr_rdv="[Configuration incomplète ; aucune adresse n\'a été validée]";
+			$adr_rdv="[Configuration incomplÃ¨te ; aucune adresse n\'a Ã©tÃ© validÃ©e]";
 
 		db_free_result($res_adr_rdv);
 
@@ -218,7 +218,7 @@ $_SESSION["__MACROS_USERS"]["moduleapogee_macro_code_ia"]='
 		if($rows)
 			list($adr_conditions)=db_fetch_row($res_adr_conditions, 0);
 		else
-			$adr_conditions="[Configuration incomplète ; aucune adresse n\'a été validée]";
+			$adr_conditions="[Configuration incomplÃ¨te ; aucune adresse n\'a Ã©tÃ© validÃ©e]";
 
 		db_free_result($res_adr_conditions);
 

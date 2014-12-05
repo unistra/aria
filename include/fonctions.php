@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,39 +20,39 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
 ?>
 <?php
-// Fonctions de l'application ARIA (hors base de données)
+// Fonctions de l'application ARIA (hors base de donnÃ©es)
 
 // Construction des URLs pour la fonction header()
-// l'argument est le fichier ($_SERVER["php_self"]) à partir duquel est appelée la fonction
+// l'argument est le fichier ($_SERVER["php_self"]) Ã  partir duquel est appelÃ©e la fonction
 function base_url($current_location)
 {
    // $__host=$_SERVER["HTTP_HOST"];
@@ -62,51 +62,51 @@ function base_url($current_location)
    return $__BASE_URL;
 }
 
-// Suppression complète d'un répertoire et de ses sous-répertoires
-// fonction récursive à utiliser AVEC UNE EXTREME PRUDENCE
+// Suppression complÃ¨te d'un rÃ©pertoire et de ses sous-rÃ©pertoires
+// fonction rÃ©cursive Ã  utiliser AVEC UNE EXTREME PRUDENCE
 // Source : php.net
 
 function deltree($repertoire)
 {
   if(is_dir($repertoire))
   {
-    foreach(glob($repertoire.'/*') as $object) // on liste tout ce qui se trouve dans le répertoire
+    foreach(glob($repertoire.'/*') as $object) // on liste tout ce qui se trouve dans le rÃ©pertoire
     {
-      if(is_dir($object) && !is_link($object))   // On vérifie que "$object" n'est pas un lien symbolique
-        deltree($object);   // si objet est un répertoire, on appelle récursivement la fonction
+      if(is_dir($object) && !is_link($object))   // On vÃ©rifie que "$object" n'est pas un lien symbolique
+        deltree($object);   // si objet est un rÃ©pertoire, on appelle rÃ©cursivement la fonction
       else
         unlink($object);   // si c'est un fichier, on le supprime
     }
 
-    rmdir($repertoire);      // Une fois le contenu de notre répertoire supprimé, on peut supprimer le répertoire de base
+    rmdir($repertoire);      // Une fois le contenu de notre rÃ©pertoire supprimÃ©, on peut supprimer le rÃ©pertoire de base
   }
   else
-    die("Erreur de suppression : \"$repertoire\" n'est pas un répertoire.");
+    die("Erreur de suppression : \"$repertoire\" n'est pas un rÃ©pertoire.");
 }
 
 
-// Création  d'un identifiant unique basé sur une date lisible
-// ATTENTION : retourne une chaine de caractères qui devra être interpretée comme un BigInt dans Postgresql (entier 64bits)
+// CrÃ©ation  d'un identifiant unique basÃ© sur une date lisible
+// ATTENTION : retourne une chaine de caractÃ¨res qui devra Ãªtre interpretÃ©e comme un BigInt dans Postgresql (entier 64bits)
 
 function new_id()
 {
-   // Argument optionnel : date UNIX à partir de laquelle on construit l'identifiant)
+   // Argument optionnel : date UNIX Ã  partir de laquelle on construit l'identifiant)
    if(func_num_args())
       $time=func_get_arg(0);
    else
       $time=time();
 
-   // Format : année mois jour heures minutes secondes microsecondes
-   // Le paramètre TRUE de microtime() indique que la fonction retourne un nombre à virgule (utile pour le découpage avec strstr)
+   // Format : annÃ©e mois jour heures minutes secondes microsecondes
+   // Le paramÃ¨tre TRUE de microtime() indique que la fonction retourne un nombre Ã  virgule (utile pour le dÃ©coupage avec strstr)
 
 
    $new_id=date("ymdHis",$time) . substr(current(explode(" ", microtime())) . "00000", 2, 5);
 
-   // On enlève les 0 à gauche une bonne fois pour toutes (postgresql le fait par défaut lors de l'insertion)
+   // On enlÃ¨ve les 0 Ã  gauche une bonne fois pour toutes (postgresql le fait par dÃ©faut lors de l'insertion)
    return ltrim($new_id, "0");
 }
 
-// Fonctions de tri personnalisées (pour la fonction usort)
+// Fonctions de tri personnalisÃ©es (pour la fonction usort)
 
 function cmp_lieu($a, $b)
 {
@@ -128,7 +128,7 @@ function cmp_lieu($a, $b)
    }
 }
 
-// Tri par diplôme
+// Tri par diplÃ´me
 function cmp_diplome($a, $b)
 {
    $cnt_a=count($a['cursus']);
@@ -164,7 +164,7 @@ function cmp_moyenne_diplome($a, $b)
 
    if(is_numeric($note_a) && is_numeric($note_b) && $note_a!="" && $note_b!="")
    {
-      // ordre décroissant : si moyenne_a < moyenne_b : moyenne_b doit être devant (retourne 1)
+      // ordre dÃ©croissant : si moyenne_a < moyenne_b : moyenne_b doit Ãªtre devant (retourne 1)
       if($note_a<$note_b) return 1;
       else return 0;
    }
@@ -173,11 +173,11 @@ function cmp_moyenne_diplome($a, $b)
    elseif($note_a!="" && $note_b=="") return 0;
    elseif($note_b!="" && $note_a=="") return 1;
 
-   // si les notes ne sont pas bien entrées, on compare sur la chaine de caractères
+   // si les notes ne sont pas bien entrÃ©es, on compare sur la chaine de caractÃ¨res
    else return strcasecmp($a['moyenne'],$b['moyenne']);
 }
 
-// Tri par rang sur liste complémentaire
+// Tri par rang sur liste complÃ©mentaire
 function cmp_rangs_liste_complementaire($a, $b)
 {
    if(!array_key_exists("rang_liste", $a) || $a["rang_liste"]=="0" || $a["rang_liste"]=="" || !ctype_digit($a["rang_liste"]))
@@ -193,8 +193,8 @@ function cmp_rangs_liste_complementaire($a, $b)
 }
 
 
-// En fonction de l'ID d'une composante et d'une formation, vérification des droits d'accès et de gestion de l'utilisateur
-// Si les formations ne sont pas précisées dans les droits de l'utilisateur, ce dernier a accès à toutes les formations de la composante
+// En fonction de l'ID d'une composante et d'une formation, vÃ©rification des droits d'accÃ¨s et de gestion de l'utilisateur
+// Si les formations ne sont pas prÃ©cisÃ©es dans les droits de l'utilisateur, ce dernier a accÃ¨s Ã  toutes les formations de la composante
 // Retourne 1 si les droits sont corrects, 0 sinon
 function verif_droits_formations($composante_id, $formation_id)
 {
@@ -202,33 +202,33 @@ function verif_droits_formations($composante_id, $formation_id)
       return 0;
    elseif($_SESSION["niveau"]==$GLOBALS["__LVL_ADMIN"]) // Administrateur : tous les droits
       return 1;
-   elseif(isset($_SESSION["auth_droits"])) // Examen des restrictions d'accès
+   elseif(isset($_SESSION["auth_droits"])) // Examen des restrictions d'accÃ¨s
    {
-      if(array_key_exists($composante_id, $_SESSION["auth_droits"])) // Accès à la composante
+      if(array_key_exists($composante_id, $_SESSION["auth_droits"])) // AccÃ¨s Ã  la composante
       {   
-         if(in_array($_SESSION["niveau"], array("$GLOBALS[__LVL_SCOL_PLUS]", "$GLOBALS[__LVL_RESP]", "$GLOBALS[__LVL_SUPER_RESP]"))) // Niveau suffisant : accès à toutes les formations de cette composante
+         if(in_array($_SESSION["niveau"], array("$GLOBALS[__LVL_SCOL_PLUS]", "$GLOBALS[__LVL_RESP]", "$GLOBALS[__LVL_SUPER_RESP]"))) // Niveau suffisant : accÃ¨s Ã  toutes les formations de cette composante
             return 1;
-         // Si le tableau contient des formations, les droits sont restreints. Sinon, l'utilisateur a accès à toutes les formations de la composante.
-         elseif(is_array($_SESSION["auth_droits"]["$composante_id"]) && count($_SESSION["auth_droits"]["$composante_id"])) // Restrictions sur des formations particulière
+         // Si le tableau contient des formations, les droits sont restreints. Sinon, l'utilisateur a accÃ¨s Ã  toutes les formations de la composante.
+         elseif(is_array($_SESSION["auth_droits"]["$composante_id"]) && count($_SESSION["auth_droits"]["$composante_id"])) // Restrictions sur des formations particuliÃ¨re
          {
-            if(in_array($formation_id, $_SESSION["auth_droits"]["$composante_id"])) // La formation précisée en paramêtre a été trouvée : droits OK
+            if(in_array($formation_id, $_SESSION["auth_droits"]["$composante_id"])) // La formation prÃ©cisÃ©e en paramÃªtre a Ã©tÃ© trouvÃ©e : droits OK
                return 1;
             else
                return 0;
          }
-         else   // Accès à la composante sans précision sur les formations : toutes les formations sont accessibles.
+         else   // AccÃ¨s Ã  la composante sans prÃ©cision sur les formations : toutes les formations sont accessibles.
             return 1;
       }
-      else // Pas d'accès à cette composante
+      else // Pas d'accÃ¨s Ã  cette composante
          return 0;
-   } // Pas de droits trouvés
+   } // Pas de droits trouvÃ©s
    else
       return 0;
 }
 
-// En fonction de l'ID d'une composante, construction d'une portion de requête restreignant les droits d'un utilisateur sur les formations
-// Si l'utilisateur a tous les droits, une chaine vide est renvoyée (pas de restriction)
-// Attention à l'utilisation de la chaine renvoyée : elle doit bien s'intégrer dans la requête (table $_DB_propspec dans le FROM, etc)
+// En fonction de l'ID d'une composante, construction d'une portion de requÃªte restreignant les droits d'un utilisateur sur les formations
+// Si l'utilisateur a tous les droits, une chaine vide est renvoyÃ©e (pas de restriction)
+// Attention Ã  l'utilisation de la chaine renvoyÃ©e : elle doit bien s'intÃ©grer dans la requÃªte (table $_DB_propspec dans le FROM, etc)
 function requete_auth_droits($composante_id)
 {
    $requete_droits_formations="";
@@ -237,7 +237,7 @@ function requete_auth_droits($composante_id)
    {
       if(array_key_exists($composante_id, $_SESSION["auth_droits"]))
       {
-         // Si le niveau est inférieur à "SCOL_PLUS" et si le tableau contient des formations, les droits sont restreints. Sinon, l'utilisateur a accès à toutes les formations de la composante
+         // Si le niveau est infÃ©rieur Ã  "SCOL_PLUS" et si le tableau contient des formations, les droits sont restreints. Sinon, l'utilisateur a accÃ¨s Ã  toutes les formations de la composante
          if(!in_array($_SESSION["niveau"], array("$GLOBALS[__LVL_SCOL_PLUS]", "$GLOBALS[__LVL_RESP]", "$GLOBALS[__LVL_SUPER_RESP]", "$GLOBALS[__LVL_ADMIN]"))
             && is_array($_SESSION["auth_droits"]["$composante_id"]) && count($_SESSION["auth_droits"]["$composante_id"]))
          {
@@ -246,7 +246,7 @@ function requete_auth_droits($composante_id)
             foreach($_SESSION["auth_droits"]["$composante_id"] as $droits_propspec_id)
                $requete_droits_formations.="'$droits_propspec_id',";
                
-            // Suppression de la dernière virgule et terminaison avec une parenthèse
+            // Suppression de la derniÃ¨re virgule et terminaison avec une parenthÃ¨se
             $requete_droits_formations=substr($requete_droits_formations, 0, -1) . ")";
          }
       }
@@ -258,12 +258,12 @@ function requete_auth_droits($composante_id)
 }
 
 
-// Vérification de validité d'un numéro INE ou BEA
-// On teste les deux algorithmes sur le numéro passé en paramètre, si l'un est bon, la vérification est positive.
-// Retourne "0" en cas de réussite, "1" sinon
+// VÃ©rification de validitÃ© d'un numÃ©ro INE ou BEA
+// On teste les deux algorithmes sur le numÃ©ro passÃ© en paramÃ¨tre, si l'un est bon, la vÃ©rification est positive.
+// Retourne "0" en cas de rÃ©ussite, "1" sinon
 function check_ine_bea($numero)
 {
-   // La longueur du numéro doit être égale à 11 caractères
+   // La longueur du numÃ©ro doit Ãªtre Ã©gale Ã  11 caractÃ¨res
    if(strlen($numero)==11)
    {
       /* TEST INE */
@@ -283,8 +283,8 @@ function check_ine_bea($numero)
          $ine_ok=1;
 
       /* TEST BEA */
-      // Le caractère de contrôle se trouve parmi la liste suivante.
-      // Le rang dans la liste est déterminé par le reste modulo 23 des 10 premiers chiffres du matricule
+      // Le caractÃ¨re de contrÃ´le se trouve parmi la liste suivante.
+      // Le rang dans la liste est dÃ©terminÃ© par le reste modulo 23 des 10 premiers chiffres du matricule
       if(ctype_digit(substr($numero, 0, 10)))
       {
          $controle_array=array("0" => "a",
@@ -334,16 +334,16 @@ function check_ine_bea($numero)
 }
 
 
-// Ecriture des événements dans la table "historique"
+// Ecriture des Ã©vÃ©nements dans la table "historique"
 function write_evt()
 {
    $numargs = func_num_args();
 
    if($numargs>=3)
    {
-      // 3 arguments indispensables : connexion à la base, type d'évenement (evt_ID) et texte associé (évenement et requete)
+      // 3 arguments indispensables : connexion Ã  la base, type d'Ã©venement (evt_ID) et texte associÃ© (Ã©venement et requete)
 /*
-      if(func_get_arg(0)=="" || db_connection_status(func_get_arg(0))) // la connexion doit être (re)faite dans la fonction
+      if(func_get_arg(0)=="" || db_connection_status(func_get_arg(0))) // la connexion doit Ãªtre (re)faite dans la fonction
       {
          $db=db_connect();
          $flag_dec=1;
@@ -357,7 +357,7 @@ function write_evt()
       // $evt_txt=str_replace("'","''", $evt_txt);
       $evt_txt=preg_replace("/[']+/","''", stripslashes($evt_txt));
       
-      // les 3 suivants sont optionnels : ID du candidat concerné, ID de l'élément modifié/ajouté/... et requête exécutée
+      // les 3 suivants sont optionnels : ID du candidat concernÃ©, ID de l'Ã©lÃ©ment modifiÃ©/ajoutÃ©/... et requÃªte exÃ©cutÃ©e
 
       $hist_cand_id=$numargs<4 ? -1 : func_get_arg(3);
 
@@ -366,7 +366,7 @@ function write_evt()
 
       if($hist_cand_id!=-1 && (isset($_SESSION["tab_candidat"]) || (isset($_SESSION["authentifie"]) && isset($_SESSION["prenom"]) && isset($_SESSION["nom"]) && isset($_SESSION["email"]))))
       {
-         // Gestion : candidat actuel = id du candidat passé en paramètre ?
+         // Gestion : candidat actuel = id du candidat passÃ© en paramÃ¨tre ?
          if(isset($_SESSION["tab_candidat"]))
          {
             if(isset($_SESSION["candidat_id"]) && $hist_cand_id!=$_SESSION["candidat_id"])
@@ -410,7 +410,7 @@ function write_evt()
             // $c_nom=str_replace("'","''", stripslashes($_SESSION["nom"]));
             // $c_prenom=str_replace("'","''", stripslashes($_SESSION["prenom"]));
             
-            // $c_nom=ereg_replace("[']+","''", stripslashes($_SESSION["nom"])); // ereg_replace est obsolète
+            // $c_nom=ereg_replace("[']+","''", stripslashes($_SESSION["nom"])); // ereg_replace est obsolÃ¨te
             // $c_prenom=ereg_replace("[']+","''", stripslashes($_SESSION["prenom"]));
             $c_nom=preg_replace("/[']+/","''", stripslashes($_SESSION["nom"]));
             $c_prenom=preg_replace("/[']+/","''", stripslashes($_SESSION["prenom"]));
@@ -465,7 +465,7 @@ function write_evt()
 
 // Affichage d'un message avec une icone devant
 // type=0 : erreur
-// type=1 : succès
+// type=1 : succÃ¨s
 // type=2 : warning
 
 function message($texte, $type)
@@ -508,7 +508,7 @@ function message($texte, $type)
                   $couleur_bord="";
    }
 
-   // Note : l'alignement (gauche, centre, ...) est à contrôler avant l'appel de la fonction
+   // Note : l'alignement (gauche, centre, ...) est Ã  contrÃ´ler avant l'appel de la fonction
    // TODO : remplacer le tableau par un <div>
 
    print("<STYLE type='text/css'>
@@ -532,7 +532,7 @@ function message($texte, $type)
          <br>\n");
 }
 
-// fonction d'échange de 2 valeurs
+// fonction d'Ã©change de 2 valeurs
 
 function switch_vals (&$val1, &$val2)
 {
@@ -541,7 +541,7 @@ function switch_vals (&$val1, &$val2)
    $val2=$temp;
 }
 
-// vérification d'authentification, exécutée au début de chaque script du répertoire gestion/
+// vÃ©rification d'authentification, exÃ©cutÃ©e au dÃ©but de chaque script du rÃ©pertoire gestion/
 
 function verif_auth()
 {
@@ -561,7 +561,7 @@ function verif_auth()
    }
 }
 
-// vérification du niveau des droits d'accès
+// vÃ©rification du niveau des droits d'accÃ¨s
 
 function verif_niveau($dbr)
 {
@@ -588,7 +588,7 @@ function verif_niveau($dbr)
    return $niveau;
 }
 
-// Chiffrage des paramètres pour les variables type GET
+// Chiffrage des paramÃ¨tres pour les variables type GET
 
 function crypt_params($txt)
 {
@@ -617,7 +617,7 @@ function crypt_params($txt)
    return $encrypted_data;
 }
 
-// récupération des paramètres chiffrés passés par la méthode GET
+// rÃ©cupÃ©ration des paramÃ¨tres chiffrÃ©s passÃ©s par la mÃ©thode GET
 
 function get_params($txt)
 {
@@ -667,34 +667,34 @@ function get_params($txt)
 }
 
 
-// fonctions de vérification de validité de chaînes de caractères
+// fonctions de vÃ©rification de validitÃ© de chaÃ®nes de caractÃ¨res
 function str_is_clean($str)
 {
-   // $clean=ereg("^[-.:_0-9A-Za-z,\n\r\'\!\?çûâîêéèàôäëïöü@ù\(\)\/=\" ]*$", $str);
+   // $clean=ereg("^[-.:_0-9A-Za-z,\n\r\'\!\?Ã§Ã»Ã¢Ã®ÃªÃ©Ã¨Ã Ã´Ã¤Ã«Ã¯Ã¶Ã¼@Ã¹\(\)\/=\" ]*$", $str);
    // return $clean;
    
-   if(!preg_match("/^[-.:_0-9A-Za-z,\n\r\'\!\?çûâîêéèàôäëïöü@ù\(\)\/=\" ]*$/", $str))
+   if(!preg_match("/^[-.:_0-9A-Za-z,\n\r\'\!\?Ã§Ã»Ã¢Ã®ÃªÃ©Ã¨Ã Ã´Ã¤Ã«Ã¯Ã¶Ã¼@Ã¹\(\)\/=\" ]*$/", $str))
       return FALSE;
    else
       return 1;   
 }
-/* Fonction obsolètes à supprimer
+/* Fonction obsolÃ¨tes Ã  supprimer
 
-function str_is_clean2($str) // validité d'URL (à revoir)
+function str_is_clean2($str) // validitÃ© d'URL (Ã  revoir)
 {
-   $clean=ereg("^[-.:_0-9A-Za-z,\n\r\'\!\?çûâîêéèàôäëïöü@ù\(\)\/=<>~ ]*$", $str); // < > doivent être autorisés pour les liens html ?
+   $clean=ereg("^[-.:_0-9A-Za-z,\n\r\'\!\?Ã§Ã»Ã¢Ã®ÃªÃ©Ã¨Ã Ã´Ã¤Ã«Ã¯Ã¶Ã¼@Ã¹\(\)\/=<>~ ]*$", $str); // < > doivent Ãªtre autorisÃ©s pour les liens html ?
    
    if($clean)
    {
-      $clean=!ereg("<\?", $str); // on interdit les tags php, au cas où
+      $clean=!ereg("<\?", $str); // on interdit les tags php, au cas oÃ¹
       $clean=!ereg("\?>", $str);
    }
    return $clean;
 }
 
-function str_is_clean3($str) // pour les noms, prénoms, ...
+function str_is_clean3($str) // pour les noms, prÃ©noms, ...
 {
-   $clean=ereg("^[-.0-9A-Za-z,\'çûâîêéèàùôäëïöü ]*$", $str);
+   $clean=ereg("^[-.0-9A-Za-z,\'Ã§Ã»Ã¢Ã®ÃªÃ©Ã¨Ã Ã¹Ã´Ã¤Ã«Ã¯Ã¶Ã¼ ]*$", $str);
    return $clean;
 }
 
@@ -706,10 +706,10 @@ function str_is_clean4($str) // emails
 }
 */
 
-// Nettoyage d'une chaine de caractères : remplacement des caractères non conformes par une expression
-// rationnelle pour chercher les caractères voisins
-// caractères à traiter : * ( ) à á â ã ä å  ç  è é ê ë  ì í î ï  ñ  ð ò ó ô õ ö  ù ú û ü  ý ÿ
-// Les parenthèses doivent être traitées AVANT
+// Nettoyage d'une chaine de caractÃ¨res : remplacement des caractÃ¨res non conformes par une expression
+// rationnelle pour chercher les caractÃ¨res voisins
+// caractÃ¨res Ã  traiter : * ( ) Ã  Ã¡ Ã¢ Ã£ Ã¤ Ã¥  Ã§  Ã¨ Ã© Ãª Ã«  Ã¬ Ã­ Ã® Ã¯  Ã±  Ã° Ã² Ã³ Ã´ Ãµ Ã¶  Ã¹ Ãº Ã» Ã¼  Ã½ Ã¿
+// Les parenthÃ¨ses doivent Ãªtre traitÃ©es AVANT
 
 function clean_str_requete($str)
 {
@@ -721,14 +721,14 @@ function clean_str_requete($str)
    $new_str=str_replace("*","\\\*", $new_str);
    $new_str=str_replace("+","\\\+", $new_str);
 
-   $new_str=preg_replace("/[aàáâãäå]/", "(a|à|á|â|ã|ä|å)", $new_str);
-   $new_str=preg_replace("/[cç]/", "(c|ç)", $new_str);
-   $new_str=preg_replace("/[eèéêë]/", "(e|è|é|ê|ë)", $new_str);
-   $new_str=preg_replace("/[iìíîï]/", "(i|ì|í|î|ï)", $new_str);
-   $new_str=preg_replace("/[nñ]/", "(n|ñ)", $new_str);
-   $new_str=preg_replace("/[oðòóôõö]/", "(o|ð|ò|ó|ô|õ|ö)", $new_str);
-   $new_str=preg_replace("/[uùúûü]/", "(u|ù|ú|û|ü)", $new_str);
-   $new_str=preg_replace("/[yýÿ]/", "(y|ý|ÿ)", $new_str);
+   $new_str=preg_replace("/[aÃ Ã¡Ã¢Ã£Ã¤Ã¥]/", "(a|Ã |Ã¡|Ã¢|Ã£|Ã¤|Ã¥)", $new_str);
+   $new_str=preg_replace("/[cÃ§]/", "(c|Ã§)", $new_str);
+   $new_str=preg_replace("/[eÃ¨Ã©ÃªÃ«]/", "(e|Ã¨|Ã©|Ãª|Ã«)", $new_str);
+   $new_str=preg_replace("/[iÃ¬Ã­Ã®Ã¯]/", "(i|Ã¬|Ã­|Ã®|Ã¯)", $new_str);
+   $new_str=preg_replace("/[nÃ±]/", "(n|Ã±)", $new_str);
+   $new_str=preg_replace("/[oÃ°Ã²Ã³Ã´ÃµÃ¶]/", "(o|Ã°|Ã²|Ã³|Ã´|Ãµ|Ã¶)", $new_str);
+   $new_str=preg_replace("/[uÃ¹ÃºÃ»Ã¼]/", "(u|Ã¹|Ãº|Ã»|Ã¼)", $new_str);
+   $new_str=preg_replace("/[yÃ½Ã¿]/", "(y|Ã½|Ã¿)", $new_str);
 
 /*
    $new_str=str_replace("(", "\\\(", $str);
@@ -743,22 +743,22 @@ function clean_str_requete($str)
 }
 
 
-// Même fonction mais en remplaçant chaque caractère de manière unique
+// MÃªme fonction mais en remplaÃ§ant chaque caractÃ¨re de maniÃ¨re unique
 function clean_str($str)
 {
-   $new_str=preg_replace("/[aàáâãäå]/", "a", $str);
-   $new_str=preg_replace("/[cç]/", "c", $new_str);
-   $new_str=preg_replace("/[eèéêë]/", "e", $new_str);
-   $new_str=preg_replace("/[iìíîï]/", "i", $new_str);
-   $new_str=preg_replace("/[nñ]/", "n", $new_str);
-   $new_str=preg_replace("/[oðòóôõö]/", "o", $new_str);
-   $new_str=preg_replace("/[uùúûü]/", "u", $new_str);
-   $new_str=preg_replace("/[yýÿ]/", "y", $new_str);
+   $new_str=preg_replace("/[aÃ Ã¡Ã¢Ã£Ã¤Ã¥]/", "a", $str);
+   $new_str=preg_replace("/[cÃ§]/", "c", $new_str);
+   $new_str=preg_replace("/[eÃ¨Ã©ÃªÃ«]/", "e", $new_str);
+   $new_str=preg_replace("/[iÃ¬Ã­Ã®Ã¯]/", "i", $new_str);
+   $new_str=preg_replace("/[nÃ±]/", "n", $new_str);
+   $new_str=preg_replace("/[oÃ°Ã²Ã³Ã´ÃµÃ¶]/", "o", $new_str);
+   $new_str=preg_replace("/[uÃ¹ÃºÃ»Ã¼]/", "u", $new_str);
+   $new_str=preg_replace("/[yÃ½Ã¿]/", "y", $new_str);
 
    return $new_str;
 }
 
-// Conversion des caractères spéciaux MS WORD (source : php.net | "yes at king22 dot com" sur la fonction get_html_translation_table
+// Conversion des caractÃ¨res spÃ©ciaux MS WORD (source : php.net | "yes at king22 dot com" sur la fonction get_html_translation_table
 
 function clean_word_str($str)
 {
@@ -771,11 +771,11 @@ function clean_word_str($str)
 
 function id_to_date($identifiant)
 {
-   // Format de l'identifiant : A MM JJ HH MM SS MS (le tout sans espace, MS = microsecondes tronquées à 5 chiffres)
-   if(strlen($identifiant)==16) // année sur un seul chiffre (le 0 du début est tronqué par PostgreSQL)
+   // Format de l'identifiant : A MM JJ HH MM SS MS (le tout sans espace, MS = microsecondes tronquÃ©es Ã  5 chiffres)
+   if(strlen($identifiant)==16) // annÃ©e sur un seul chiffre (le 0 du dÃ©but est tronquÃ© par PostgreSQL)
    {
       $annee_len=1;
-      $shift=0; // Décallage pour substr
+      $shift=0; // DÃ©callage pour substr
    }
    else
    {
@@ -802,7 +802,7 @@ function id_to_date($identifiant)
 }
 
 
-// date en français (par Nob)
+// date en franÃ§ais (par Nob)
 
 function date_fr() 
 {
@@ -813,7 +813,7 @@ function date_fr()
                break;
                   
       case 2:    $format=func_get_arg(0); 
-               $timestamp=func_get_arg(1);   //variable intermédiaire autrement, on a une erreur... (?) 
+               $timestamp=func_get_arg(1);   //variable intermÃ©diaire autrement, on a une erreur... (?) 
                $strDate = date($format, $timestamp);
                  break;
                   
@@ -824,13 +824,13 @@ function date_fr()
   //Format "F" 
 
    $mois_en = array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"); 
-   $mois_fr = array("janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"); 
+   $mois_fr = array("janvier", "fÃ©vrier", "mars", "avril", "mai", "juin", "juillet", "aoÃ»t", "septembre", "octobre", "novembre", "dÃ©cembre"); 
    $strDate = str_replace ($mois_en, $mois_fr, $strDate); 
    
    //Format "M" (et "r") 
    
    $mois_en = array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"); 
-   $mois_fr = array("jan", "fév", "mar", "avr", "mai", "juin", "juil", "août", "sep", "oct", "nov", "déc"); 
+   $mois_fr = array("jan", "fÃ©v", "mar", "avr", "mai", "juin", "juil", "aoÃ»t", "sep", "oct", "nov", "dÃ©c"); 
    $strDate = str_replace ($mois_en, $mois_fr, $strDate); 
    
    //Format "l" 
@@ -848,12 +848,12 @@ function date_fr()
    
    //Format "S" - st, th, nd et rd 
    //-On a besoin d'outils plus puissant pour 
-   // remplacer "st" par "er" après 1 et supprimer le "st" après 21 et 31. 
-   // ne pas supprimer les lettres "st", "nd" et "rd" des mots français!
+   // remplacer "st" par "er" aprÃ¨s 1 et supprimer le "st" aprÃ¨s 21 et 31. 
+   // ne pas supprimer les lettres "st", "nd" et "rd" des mots franÃ§ais!
    // (luNDi, veNDredi, maRDi, eST) 
    
-   $strDate = preg_replace("/(\D)1st/", "\${1}1er", $strDate); //1st qui n'est pas précédé par un chiffre 
-   $strDate = preg_replace("/(\d)(st|th|nd|rd)/", "\${1}", $strDate); //st, th, nd ou rd qui est précédé d'un chifre 
+   $strDate = preg_replace("/(\D)1st/", "\${1}1er", $strDate); //1st qui n'est pas prÃ©cÃ©dÃ© par un chiffre 
+   $strDate = preg_replace("/(\d)(st|th|nd|rd)/", "\${1}", $strDate); //st, th, nd ou rd qui est prÃ©cÃ©dÃ© d'un chifre 
    
    return $strDate; 
 } 
@@ -908,10 +908,10 @@ function MakeTime()
 }
 
 
-// Génération d'un mot de passe aléatoire de 8 caractères
+// GÃ©nÃ©ration d'un mot de passe alÃ©atoire de 8 caractÃ¨res
 // ATTENTION CETTE FONCTION NE DOIT PAS ETRE MODIFIEE
 // => ELLE EST EGALEMENT UTILISEE POUR GENERER UN VECTEUR D'ENCRYPTION
-// (contrainte à respecter : 8 caractère, de préférence a-z,A-Z,0-9)
+// (contrainte Ã  respecter : 8 caractÃ¨re, de prÃ©fÃ©rence a-z,A-Z,0-9)
 function generate_pass()
 {
    $pass="";
@@ -983,14 +983,14 @@ function generate_pass()
 
 function validate_filename($nom)
 {
-   $nom=preg_replace("/[aàáâãäå]/", "a", $nom);
-   $nom=preg_replace("/[cç]/", "c", $nom);
-   $nom=preg_replace("/[eèéêë]/", "e", $nom);
-   $nom=preg_replace("/[iìíîï]/", "i", $nom);
-   $nom=preg_replace("/[nñ]/", "n", $nom);
-   $nom=preg_replace("/[oðòóôõö]/", "o", $nom);
-   $nom=preg_replace("/[uùúûü]/", "u", $nom);
-   $nom=preg_replace("/[yýÿ]/", "y", $nom);
+   $nom=preg_replace("/[aÃ Ã¡Ã¢Ã£Ã¤Ã¥]/", "a", $nom);
+   $nom=preg_replace("/[cÃ§]/", "c", $nom);
+   $nom=preg_replace("/[eÃ¨Ã©ÃªÃ«]/", "e", $nom);
+   $nom=preg_replace("/[iÃ¬Ã­Ã®Ã¯]/", "i", $nom);
+   $nom=preg_replace("/[nÃ±]/", "n", $nom);
+   $nom=preg_replace("/[oÃ°Ã²Ã³Ã´ÃµÃ¶]/", "o", $nom);
+   $nom=preg_replace("/[uÃ¹ÃºÃ»Ã¼]/", "u", $nom);
+   $nom=preg_replace("/[yÃ½Ã¿]/", "y", $nom);
    
    $nom=str_replace(" ","_",$nom);
    $nom=str_replace("'","_",$nom);
@@ -1005,9 +1005,9 @@ function validate_filename($nom)
 
 function get_infos_elements($db, $info_id)
 {
-   // fonction qui recherche tous les éléments d'un article et qui retourne un tableau contenant ces éléments triés
+   // fonction qui recherche tous les Ã©lÃ©ments d'un article et qui retourne un tableau contenant ces Ã©lÃ©ments triÃ©s
 
-   // initialisation du tableau d'éléments
+   // initialisation du tableau d'Ã©lÃ©ments
    $elements=array();
 
    // ENCADRES (type_element = 2)
@@ -1019,7 +1019,7 @@ function get_infos_elements($db, $info_id)
 
    $rows=db_num_rows($result);
 
-   // on met chaque encadré dans le tableau
+   // on met chaque encadrÃ© dans le tableau
    for($i=0; $i<$rows ; $i++)
    {
       list($id,$texte,$txt_align,$ordre)=db_fetch_row($result, $i);
@@ -1030,11 +1030,11 @@ function get_infos_elements($db, $info_id)
          
          if(array_key_exists("__EMAIL_ADMIN", $GLOBALS) && trim($GLOBALS["__EMAIL_ADMIN"])!="")
          {
-            mail($GLOBALS["__EMAIL_ADMIN"],$GLOBALS["__ERREUR_SUJET"], "Erreur dans $err_file, ligne $line\n'Base de données incohérente'\nIdentifiant : $_SESSION[auth_user]");
-            die("Erreur : base de données incohérente. Un courriel a été envoyé à l'administrateur.");
+            mail($GLOBALS["__EMAIL_ADMIN"],$GLOBALS["__ERREUR_SUJET"], "Erreur dans $err_file, ligne $line\n'Base de donnÃ©es incohÃ©rente'\nIdentifiant : $_SESSION[auth_user]");
+            die("Erreur : base de donnÃ©es incohÃ©rente. Un courriel a Ã©tÃ© envoyÃ© Ã  l'administrateur.");
          }
          else
-            die("Erreur : base de données incohérente. Aucun courriel n'a pu être envoyé à l'administrateur car aucune adresse électronique n'a été configurée.");
+            die("Erreur : base de donnÃ©es incohÃ©rente. Aucun courriel n'a pu Ãªtre envoyÃ© Ã  l'administrateur car aucune adresse Ã©lectronique n'a Ã©tÃ© configurÃ©e.");
       }
       else
          $elements["$ordre"]=array("type" => 2, "id" => $id, "texte" => $texte, "txt_align" => $txt_align);
@@ -1062,11 +1062,11 @@ function get_infos_elements($db, $info_id)
          
          if(array_key_exists("__EMAIL_ADMIN", $GLOBALS) && trim($GLOBALS["__EMAIL_ADMIN"])!="")
          {
-            mail($GLOBALS["__EMAIL_ADMIN"],$GLOBALS["__ERREUR_SUJET"], "Erreur dans $err_file, ligne $line\n'Base de données incohérente'\nIdentifiant : $_SESSION[auth_user]");
-            die("Erreur : base de données incohérente. Un courriel a été envoyé à l'administrateur.");
+            mail($GLOBALS["__EMAIL_ADMIN"],$GLOBALS["__ERREUR_SUJET"], "Erreur dans $err_file, ligne $line\n'Base de donnÃ©es incohÃ©rente'\nIdentifiant : $_SESSION[auth_user]");
+            die("Erreur : base de donnÃ©es incohÃ©rente. Un courriel a Ã©tÃ© envoyÃ© Ã  l'administrateur.");
          }
          else
-            die("Erreur : base de données incohérente. Aucun courriel n'a pu être envoyé à l'administrateur car aucune adresse électronique n'a été configurée.");
+            die("Erreur : base de donnÃ©es incohÃ©rente. Aucun courriel n'a pu Ãªtre envoyÃ© Ã  l'administrateur car aucune adresse Ã©lectronique n'a Ã©tÃ© configurÃ©e.");
       }
       else
          $elements["$ordre"]=array("type" => 5, "id" => $id, "texte" => $texte, "txt_align" => $txt_align, "gras" => $gras, "italique" => $italique, "taille" => $taille);
@@ -1082,7 +1082,7 @@ function get_infos_elements($db, $info_id)
 
    $rows=db_num_rows($result);
 
-   // on met chaque encadré dans le tableau
+   // on met chaque encadrÃ© dans le tableau
    for($i=0; $i<$rows ; $i++)
    {
       list($id,$texte,$fichier,$ordre)=db_fetch_row($result, $i);
@@ -1093,18 +1093,18 @@ function get_infos_elements($db, $info_id)
          
          if(array_key_exists("__EMAIL_ADMIN", $GLOBALS) && trim($GLOBALS["__EMAIL_ADMIN"])!="")
          {
-            mail($GLOBALS["__EMAIL_ADMIN"],$GLOBALS["__ERREUR_SUJET"], "Erreur dans $err_file, ligne $line\n'Base de données incohérente'\nIdentifiant : $_SESSION[auth_user]");
-            die("Erreur : base de données incohérente. Un courriel a été envoyé à l'administrateur.");
+            mail($GLOBALS["__EMAIL_ADMIN"],$GLOBALS["__ERREUR_SUJET"], "Erreur dans $err_file, ligne $line\n'Base de donnÃ©es incohÃ©rente'\nIdentifiant : $_SESSION[auth_user]");
+            die("Erreur : base de donnÃ©es incohÃ©rente. Un courriel a Ã©tÃ© envoyÃ© Ã  l'administrateur.");
          }
          else
-            die("Erreur : base de données incohérente. Aucun courriel n'a pu être envoyé à l'administrateur car aucune adresse électronique n'a été configurée.");
+            die("Erreur : base de donnÃ©es incohÃ©rente. Aucun courriel n'a pu Ãªtre envoyÃ© Ã  l'administrateur car aucune adresse Ã©lectronique n'a Ã©tÃ© configurÃ©e.");
       }
       else
          $elements["$ordre"]=array("type" => 6, "id" => $id, "texte" => $texte, "fichier" => $fichier);
    }
    db_free_result($result);
 
-   // Séparateurs (type 8)
+   // SÃ©parateurs (type 8)
    $result=db_query($db,"SELECT $GLOBALS[_DBC_comp_infos_sepa_info_id], $GLOBALS[_DBC_comp_infos_sepa_ordre]
                            FROM $GLOBALS[_DB_comp_infos_sepa]
                          WHERE $GLOBALS[_DBC_comp_infos_sepa_info_id]='$info_id'
@@ -1112,7 +1112,7 @@ function get_infos_elements($db, $info_id)
 
    $rows=db_num_rows($result);
 
-   // on met chaque séparateur dans le tableau
+   // on met chaque sÃ©parateur dans le tableau
    for($i=0; $i<$rows ; $i++)
    {
       list($id,$ordre)=db_fetch_row($result, $i);
@@ -1123,11 +1123,11 @@ function get_infos_elements($db, $info_id)
          
          if(array_key_exists("__EMAIL_ADMIN", $GLOBALS) && trim($GLOBALS["__EMAIL_ADMIN"])!="")
          {
-            mail($GLOBALS["__EMAIL_ADMIN"],$GLOBALS["__ERREUR_SUJET"], "Erreur dans $err_file, ligne $line\n'Base de données incohérente'\nIdentifiant : $_SESSION[auth_user]");
-            die("Erreur : base de données incohérente. Un courriel a été envoyé à l'administrateur.");
+            mail($GLOBALS["__EMAIL_ADMIN"],$GLOBALS["__ERREUR_SUJET"], "Erreur dans $err_file, ligne $line\n'Base de donnÃ©es incohÃ©rente'\nIdentifiant : $_SESSION[auth_user]");
+            die("Erreur : base de donnÃ©es incohÃ©rente. Un courriel a Ã©tÃ© envoyÃ© Ã  l'administrateur.");
          }
          else
-            die("Erreur : base de données incohérente. Aucun courriel n'a pu être envoyé à l'administrateur car aucune adresse électronique n'a été configurée.");
+            die("Erreur : base de donnÃ©es incohÃ©rente. Aucun courriel n'a pu Ãªtre envoyÃ© Ã  l'administrateur car aucune adresse Ã©lectronique n'a Ã©tÃ© configurÃ©e.");
       }
       else
          $elements["$ordre"]=array("type" => 8, "id" => $id);
@@ -1158,7 +1158,7 @@ function get_info_align($int_align)
 }
 
 // Verrouillage d'une fiche candidat
-// pour des modifications sur les parties communes à toutes les composantes
+// pour des modifications sur les parties communes Ã  toutes les composantes
 
 function cand_lock($dbr, $candidat_id)
 {
@@ -1171,7 +1171,7 @@ function cand_lock($dbr, $candidat_id)
       list($lock, $lockdate)=db_fetch_row($result, 0);
       db_free_result($result);
 
-      // La personne a déjà le verrouillage : on met la date à jour (+ 10 minutes)
+      // La personne a dÃ©jÃ  le verrouillage : on met la date Ã  jour (+ 10 minutes)
       if($lock==$_SESSION['auth_id'])
       {
          $new_lockdate=time()+600;
@@ -1181,7 +1181,7 @@ function cand_lock($dbr, $candidat_id)
 
          return 0;
       }
-      else // On regarde si le délai n'est pas expiré
+      else // On regarde si le dÃ©lai n'est pas expirÃ©
       {
          if($lockdate<time()) // il l'est : on prend le verrouillage
          {
@@ -1193,7 +1193,7 @@ function cand_lock($dbr, $candidat_id)
 
             return 0;
          }
-         else // Encore verrouillé
+         else // Encore verrouillÃ©
          {
             $temps_restant=$lockdate-time();
             db_query($dbr, "COMMIT TRANSACTION;");
@@ -1220,7 +1220,7 @@ function cand_unlock($dbr, $candidat_id)
       list($lock, $lockdate)=db_fetch_row($result, 0);
       db_free_result($result);
 
-      // La personne a le verrouillage : on déverrouille
+      // La personne a le verrouillage : on dÃ©verrouille
       if($lock==$_SESSION['auth_id'])
          db_query($dbr, "UPDATE $GLOBALS[_DB_candidat] SET $GLOBALS[_DBU_candidat_lockdate]='0'
                          WHERE $GLOBALS[_DBU_candidat_id]='$candidat_id'");
@@ -1236,7 +1236,7 @@ function cand_unlock($dbr, $candidat_id)
 //                           FONCTIONS SPECIFIQUES A LA PARTIE GESTION
 // ============================================================================================
 
-// Menu supérieur pour la partie gestion
+// Menu supÃ©rieur pour la partie gestion
 
 function menu_sup_gestion()
 {
@@ -1253,9 +1253,9 @@ function menu_sup_gestion()
    
       print("<a href='$GLOBALS[__GESTION_DIR]/index.php'><img src='$GLOBALS[__ICON_DIR]/document-open_22x22_menu_haut.png' alt='[Fiches en attente]' title='Fiches en attente' border='0'></a>
              <a href='$GLOBALS[__GESTION_DIR]/candidats.php'><img src='$GLOBALS[__ICON_DIR]/system-file-manager_22x22_menu_haut.png' alt='[Toutes les fiches]' title='Toutes les fiches' border='0'></a>
-             <a href='$GLOBALS[__GESTION_DIR]/fiches_traitees.php'><img src='$GLOBALS[__ICON_DIR]/flag-green_22x22_menu_haut.png' alt='[Toutes les fiches]' title='Fiches traitées' border='0'></a>
+             <a href='$GLOBALS[__GESTION_DIR]/fiches_traitees.php'><img src='$GLOBALS[__ICON_DIR]/flag-green_22x22_menu_haut.png' alt='[Toutes les fiches]' title='Fiches traitÃ©es' border='0'></a>
              <a href='$GLOBALS[__GESTION_DIR]/recherche.php'><img src='$GLOBALS[__ICON_DIR]/filefind_22x22_menu_haut.png' alt='[Recherche]' title='Recherche' border='0'></a>
-             <a href='$GLOBALS[__GESTION_DIR]/listes_complementaires.php'><img src='$GLOBALS[__ICON_DIR]/liste_22x22_menu_haut.png' alt='[Listes complémentaires]' title='Listes complémentaires' border='0'></a>\n");
+             <a href='$GLOBALS[__GESTION_DIR]/listes_complementaires.php'><img src='$GLOBALS[__ICON_DIR]/liste_22x22_menu_haut.png' alt='[Listes complÃ©mentaires]' title='Listes complÃ©mentaires' border='0'></a>\n");
    
       if(in_array($_SESSION['niveau'], array("$GLOBALS[__LVL_SCOL_MOINS]","$GLOBALS[__LVL_SCOL_PLUS]","$GLOBALS[__LVL_RESP]","$GLOBALS[__LVL_SUPER_RESP]","$GLOBALS[__LVL_ADMIN]")))
          print("<a href='$GLOBALS[__GESTION_DIR]/masse.php'><img src='$GLOBALS[__ICON_DIR]/kpersonalizer_22x22_menu_haut.png' alt='[Gestion en masse]' title='Gestion en masse' border='0'></a>\n");
@@ -1272,13 +1272,13 @@ function menu_sup_gestion()
    
       print("<a href='$GLOBALS[__GESTION_MSG_DIR]/index.php'><img src='$GLOBALS[__ICON_DIR]/email_22x22_menu_haut.png' alt='[Messagerie]' title='Messagerie' border='0'></a>
              $nb_msg_txt
-             <a style='position:absolute; right:200px;' href='$GLOBALS[__GESTION_DIR]/periode.php'><img src='$GLOBALS[__ICON_DIR]/1day_22x22_menu_haut.png' alt='[Année]' title='Année Universitaire' border='0'></a>\n");
+             <a style='position:absolute; right:200px;' href='$GLOBALS[__GESTION_DIR]/periode.php'><img src='$GLOBALS[__ICON_DIR]/1day_22x22_menu_haut.png' alt='[AnnÃ©e]' title='AnnÃ©e Universitaire' border='0'></a>\n");
    }
    
    if(in_array($_SESSION['niveau'], array("$GLOBALS[__LVL_SUPPORT]", "$GLOBALS[__LVL_SUPER_RESP]","$GLOBALS[__LVL_ADMIN]")) || (isset($_SESSION["multi_composantes"]) && $_SESSION["multi_composantes"]==1))
       print("<a style='position:absolute; right:150px;' href='$GLOBALS[__GESTION_DIR]/select_composante.php'><img src='$GLOBALS[__ICON_DIR]/gohome_22x22_menu_haut.png' alt='[Composante]' title='Composante' border='0'></a>\n");
 
-   // Aide : on regarde le répertoire d'aide de l'application ou bien le sous répertoire direct "aide/" dans le cas d'un module
+   // Aide : on regarde le rÃ©pertoire d'aide de l'application ou bien le sous rÃ©pertoire direct "aide/" dans le cas d'un module
    $HELP_FILE=str_replace($GLOBALS["__GESTION_DIR"], $GLOBALS["__GESTION_AIDE_DIR"], $_SERVER["SCRIPT_FILENAME"]);
 
    if(is_file("$HELP_FILE") || is_file("aide/".basename($HELP_FILE)))
@@ -1287,7 +1287,7 @@ function menu_sup_gestion()
       print("<a style='position:absolute; right:100px;' href='#aide' onclick=\"window.open('$HELP_FILE_LINK','nw','height=650,width=900,location=no,toolbar=0,directories=no,status=no,menubar=no,resizable=yes,scrollbars=yes')\"><img src='$GLOBALS[__ICON_DIR]/help-browser_22x22_menu_haut.png' alt='[Aide]' title='Aide' border='0'></a>\n");
    }
 
-   print("<a style='position:absolute; right:20px;' href='$GLOBALS[__GESTION_DIR]/login.php'><img src='$GLOBALS[__ICON_DIR]/application-exit2_22x22_menu_haut.png' alt='[Déconnexion]' title='[Déconnexion]' border='0'></a>
+   print("<a style='position:absolute; right:20px;' href='$GLOBALS[__GESTION_DIR]/login.php'><img src='$GLOBALS[__ICON_DIR]/application-exit2_22x22_menu_haut.png' alt='[DÃ©connexion]' title='[DÃ©connexion]' border='0'></a>
       </div>
       <div class='clearer'></div>\n");
 }
@@ -1295,7 +1295,7 @@ function menu_sup_gestion()
 
 function en_tete_gestion()
 {
-   // Calcul du la taille du logo pour avoir un titre bien centré
+   // Calcul du la taille du logo pour avoir un titre bien centrÃ©
    if(is_file("$GLOBALS[__IMG_DIR_ABS]/logo.jpg"))
    {
       $logo="$GLOBALS[__IMG_DIR]/logo.jpg";
@@ -1320,21 +1320,21 @@ function en_tete_gestion()
       $hauteur_logo=array_key_exists(1, $array_logo) ? $array_logo["1"] : 106;
    }
 
-   // Accès direct à la fiche du dernier candidat consulté, depuis n'importe où
+   // AccÃ¨s direct Ã  la fiche du dernier candidat consultÃ©, depuis n'importe oÃ¹
    if(isset($_SERVER['PHP_SELF']) && $_SERVER['PHP_SELF']!="$GLOBALS[__GESTION_DIR]/edit_candidature.php" && isset($_SESSION["candidat_id"]) && ctype_digit($_SESSION["candidat_id"]) && isset($_SESSION["tab_candidat"]))
    {
       $civ=$_SESSION['tab_candidat']['civ_texte'];
       $nom=ucwords( $_SESSION['tab_candidat']['nom']);
    
-      $adresse_retour="<a href='$GLOBALS[__GESTION_DIR]/edit_candidature.php?cid=$_SESSION[candidat_id]' target='_self' class='lien2a'>Retour à la fiche de<br>$civ $nom</a>";
+      $adresse_retour="<a href='$GLOBALS[__GESTION_DIR]/edit_candidature.php?cid=$_SESSION[candidat_id]' target='_self' class='lien2a'>Retour Ã  la fiche de<br>$civ $nom</a>";
    }
    else
       $adresse_retour="";
 
    print("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">
-            <html><head><title>$_SESSION[composante] - Gestion des précandidatures $GLOBALS[__PERIODE]-".($GLOBALS["__PERIODE"]+1)."</title>
+            <html><head><title>$_SESSION[composante] - Gestion des prÃ©candidatures $GLOBALS[__PERIODE]-".($GLOBALS["__PERIODE"]+1)."</title>
 
-            <meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'>
+            <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
             <meta http-equiv='Pragma' content='no-cache'>
             <link rel='stylesheet' type='text/css' href='$GLOBALS[__STATIC_DIR]/$_SESSION[css]'></head>
 
@@ -1351,9 +1351,9 @@ function en_tete_gestion()
           <td height='$hauteur_logo' align='center'>\n");
 
    if(in_array($_SESSION['niveau'], array("$GLOBALS[__LVL_SUPER_RESP]","$GLOBALS[__LVL_ADMIN]")) || (isset($_SESSION["multi_composantes"]) && $_SESSION["multi_composantes"]==1))
-      print("<a href='$GLOBALS[__GESTION_DIR]/select_composante.php' class='lien_titre_page'><b>$_SESSION[composante]<br>Gestion des précandidatures $GLOBALS[__PERIODE]-".($GLOBALS["__PERIODE"]+1)."</b></a>\n");
+      print("<a href='$GLOBALS[__GESTION_DIR]/select_composante.php' class='lien_titre_page'><b>$_SESSION[composante]<br>Gestion des prÃ©candidatures $GLOBALS[__PERIODE]-".($GLOBALS["__PERIODE"]+1)."</b></a>\n");
    else
-      print("<font class='TitrePage2'><b>$_SESSION[composante]<br>Gestion des précandidatures $GLOBALS[__PERIODE]-".($GLOBALS["__PERIODE"]+1)."</b></font>\n");
+      print("<font class='TitrePage2'><b>$_SESSION[composante]<br>Gestion des prÃ©candidatures $GLOBALS[__PERIODE]-".($GLOBALS["__PERIODE"]+1)."</b></font>\n");
 
    print("</td>
           <td width='$largeur_logo' height='$hauteur_logo' align='center'>$adresse_retour</td>
@@ -1363,7 +1363,7 @@ function en_tete_gestion()
 
 function en_tete_simple()
 {
-   // Calcul du la taille du logo pour avoir un titre bien centré
+   // Calcul du la taille du logo pour avoir un titre bien centrÃ©
    if(is_file("$GLOBALS[__IMG_DIR_ABS]/logo.jpg"))
    {
       $logo="$GLOBALS[__IMG_DIR]/logo.jpg";
@@ -1389,9 +1389,9 @@ function en_tete_simple()
    }
    
    print("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">
-            <html><head><title>ARIA - Gestion des précandidatures $GLOBALS[__PERIODE]-".($GLOBALS["__PERIODE"]+1)."</title>
+            <html><head><title>ARIA - Gestion des prÃ©candidatures $GLOBALS[__PERIODE]-".($GLOBALS["__PERIODE"]+1)."</title>
 
-            <meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'>
+            <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
             <meta http-equiv='Pragma' content='no-cache'>
             <link rel='stylesheet' type='text/css' href='$GLOBALS[__STATIC_DIR]/$_SESSION[css]'></head>
 
@@ -1406,7 +1406,7 @@ function en_tete_simple()
 
    print("</td>
          <td height='$hauteur_logo' align='center'>
-            <font class='TitrePage2'><b>ARIA - Gestion des précandidatures $GLOBALS[__PERIODE]-".($GLOBALS["__PERIODE"]+1)."</b></font>
+            <font class='TitrePage2'><b>ARIA - Gestion des prÃ©candidatures $GLOBALS[__PERIODE]-".($GLOBALS["__PERIODE"]+1)."</b></font>
          </td>
          <td width='$largeur_logo' height='$hauteur_logo'></td>
       </tr>
@@ -1414,13 +1414,13 @@ function en_tete_simple()
 }
 
 
-// Cet fonction en-tête est particulière :
-// - elle n'est utilisée que pour la page d'accueil coté candidat (avant authentification)
-// - elle intègre les Meta pour les moteurs de recherche
+// Cet fonction en-tÃªte est particuliÃ¨re :
+// - elle n'est utilisÃ©e que pour la page d'accueil cotÃ© candidat (avant authentification)
+// - elle intÃ¨gre les Meta pour les moteurs de recherche
 
 function en_tete_index()
 {
-   // Calcul du la taille du logo pour avoir un titre bien centré
+   // Calcul du la taille du logo pour avoir un titre bien centrÃ©
    if(is_file("$GLOBALS[__IMG_DIR_ABS]/logo.jpg"))
    {
       $logo="$GLOBALS[__IMG_DIR]/logo.jpg";
@@ -1448,7 +1448,7 @@ function en_tete_index()
    print("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">
             <html><head><title>". htmlspecialchars($GLOBALS["__TITRE_HTML"], ENT_QUOTES, $default_htmlspecialchars_encoding) ."</title>
 
-            <meta http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\">
+            <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">
             <meta http-equiv=\"Pragma\" content=\"no-cache\">
             <meta name=\"keywords\" content=\"". htmlspecialchars($GLOBALS["__META"], ENT_QUOTES, $default_htmlspecialchars_encoding) ."\">
             <link rel=\"stylesheet\" type=\"text/css\" href=\"$GLOBALS[__STATIC_DIR]/$_SESSION[css]\"></head>
@@ -1488,7 +1488,7 @@ function titre_page_icone($titre, $icone, $padding, $align)
       default   : $align="left";
    }
 
-   // rajout de l'unité ?
+   // rajout de l'unitÃ© ?
    $padding.=ctype_digit(trim($padding)) ? "px" : "";
 
 
@@ -1556,7 +1556,7 @@ function pied_de_page()
 
 function menu_sup_candidat()
 {
-   // Menu actif (pour afficher le lien de la page active d'une couleur différente)
+   // Menu actif (pour afficher le lien de la page active d'une couleur diffÃ©rente)
    if($args=func_num_args())
       $actif=func_get_arg(0);
    else
@@ -1583,9 +1583,9 @@ function menu_sup_candidat()
       <ul class='menu_haut' style='float:right;'>\n");
 
    if(isset($_SESSION["derniere_connexion"]) && $_SESSION["derniere_connexion"]!=0)
-      print("<li class='menu_haut' style='padding-right:30px;'>Dernière connexion : " . date("d-m-Y - H:i") . "</li>");
+      print("<li class='menu_haut' style='padding-right:30px;'>DerniÃ¨re connexion : " . date("d-m-Y - H:i") . "</li>");
 
-   print("<li class='menu_haut'><a href='$GLOBALS[__MOD_DIR]/index.php?d=1' class='menu_haut' style='border-right:0'>Valider et déconnecter</a></li>
+   print("<li class='menu_haut'><a href='$GLOBALS[__MOD_DIR]/index.php?d=1' class='menu_haut' style='border-right:0'>Valider et dÃ©connecter</a></li>
          </ul>
          </div>
          <div class='clearer'></div>\n");
@@ -1594,7 +1594,7 @@ function menu_sup_candidat()
 
 function en_tete_candidat()
 {
-   // Calcul du la taille du logo pour avoir un titre bien centré
+   // Calcul du la taille du logo pour avoir un titre bien centrÃ©
    if(is_file("$GLOBALS[__IMG_DIR_ABS]/logo.jpg"))
    {
       $logo="$GLOBALS[__IMG_DIR]/logo.jpg";
@@ -1622,7 +1622,7 @@ function en_tete_candidat()
    print("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">
          <html><head><title>". htmlspecialchars($GLOBALS["__TITRE_HTML"], ENT_QUOTES, $default_htmlspecialchars_encoding) ."</title>
 
-         <meta http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\">
+         <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">
          <meta http-equiv=\"Pragma\" content=\"no-cache\">
          <link rel=\"stylesheet\" type=\"text/css\" href=\"$GLOBALS[__STATIC_DIR]/$_SESSION[css]\"></head>
 
@@ -1644,7 +1644,7 @@ function en_tete_candidat()
    else
       print("<b>". htmlspecialchars($GLOBALS["__TITRE_PAGE"], ENT_QUOTES, $default_htmlspecialchars_encoding) ."</b><br>\n");
 
-   print("         <b>Précandidatures en ligne</b>
+   print("         <b>PrÃ©candidatures en ligne</b>
                </font>
             </td>
             <td width='$largeur_logo' height='$hauteur_logo'>\n");
@@ -1672,7 +1672,7 @@ function en_tete_candidat()
 
 function en_tete_candidat_simple()
 {
-   // Calcul du la taille du logo pour avoir un titre bien centré
+   // Calcul du la taille du logo pour avoir un titre bien centrÃ©
    if(is_file("$GLOBALS[__IMG_DIR_ABS]/logo.jpg"))
    {
       $logo="$GLOBALS[__IMG_DIR]/logo.jpg";
@@ -1700,7 +1700,7 @@ function en_tete_candidat_simple()
    print("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">
             <html><head><title>". htmlspecialchars($GLOBALS["__TITRE_HTML"], ENT_QUOTES, $default_htmlspecialchars_encoding) ."</title>
 
-            <meta http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\">
+            <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">
             <meta http-equiv=\"Pragma\" content=\"no-cache\">
             <link rel=\"stylesheet\" type=\"text/css\" href=\"$GLOBALS[__STATIC_DIR]/$_SESSION[css]\"></head>
 
@@ -1715,7 +1715,7 @@ function en_tete_candidat_simple()
 
    print("</td>
           <td height=\"$hauteur_logo\" align=\"center\">
-            <font class='TitrePage2'><b>". htmlspecialchars($GLOBALS["__TITRE_PAGE"], ENT_QUOTES, $default_htmlspecialchars_encoding) ."<br>Précandidatures en ligne</b></font>
+            <font class='TitrePage2'><b>". htmlspecialchars($GLOBALS["__TITRE_PAGE"], ENT_QUOTES, $default_htmlspecialchars_encoding) ."<br>PrÃ©candidatures en ligne</b></font>
          </td>
          <td width=\"$largeur_logo\" height=\"$hauteur_logo\"></td>
       </tr>
@@ -1750,14 +1750,14 @@ function pied_de_page_candidat()
 //                           FONCTIONS SPECIFIQUES A LA MESSAGERIE
 // ============================================================================================
 
-// Détermination du niveau d'arborescence complémentaire de la messagerie, en fonction de l'identifiant (gestion ou candidat) passé en paramètre
-// Le nom du sous répertoire est l'année de création, il dépend de la longueur de l'identifiant : 
+// DÃ©termination du niveau d'arborescence complÃ©mentaire de la messagerie, en fonction de l'identifiant (gestion ou candidat) passÃ© en paramÃ¨tre
+// Le nom du sous rÃ©pertoire est l'annÃ©e de crÃ©ation, il dÃ©pend de la longueur de l'identifiant : 
 // <2010 : longueur = 16
 // >=2010 : longueur = 17
 
 function sous_rep_msg($identifiant)
 {
-   // Normalement, ce cas ne se présente jamais puisque l'identifiant provient directement de la base après authentification
+   // Normalement, ce cas ne se prÃ©sente jamais puisque l'identifiant provient directement de la base aprÃ¨s authentification
    if(!ctype_digit($identifiant))
       return FALSE;
       
@@ -1791,15 +1791,15 @@ function dossiers_messagerie()
       {
          if(FALSE==mkdir("$DIR/$_SESSION[MSG_SOUS_REP]/$ID/$dossier_id", 0770, TRUE))
          {
-            mail($GLOBALS["__EMAIL_ADMIN"], "[Précandidatures] - Erreur de création de répertoire", "Répertoire : $DIR/$_SESSION[MSG_SOUS_REP]/$ID/$dossier_id");
-            die("Erreur système lors de la création d'un répertoire. Un message a été envoyé à l'administrateur.");
+            mail($GLOBALS["__EMAIL_ADMIN"], "[PrÃ©candidatures] - Erreur de crÃ©ation de rÃ©pertoire", "RÃ©pertoire : $DIR/$_SESSION[MSG_SOUS_REP]/$ID/$dossier_id");
+            die("Erreur systÃ¨me lors de la crÃ©ation d'un rÃ©pertoire. Un message a Ã©tÃ© envoyÃ© Ã  l'administrateur.");
          }
          else
          {
             if(FALSE===($redir_file=fopen("$DIR/$_SESSION[MSG_SOUS_REP]/$ID/index.php", "w+")))
             {
-               mail($GLOBALS["__EMAIL_ADMIN"], "[Précandidatures] - Erreur de création de fichier", "Fichier : $DIR/$_SESSION[MSG_SOUS_REP]/$ID/index.php");
-               die("Erreur système lors de la création d'un fichier. Un message a été envoyé à l'administrateur.");
+               mail($GLOBALS["__EMAIL_ADMIN"], "[PrÃ©candidatures] - Erreur de crÃ©ation de fichier", "Fichier : $DIR/$_SESSION[MSG_SOUS_REP]/$ID/index.php");
+               die("Erreur systÃ¨me lors de la crÃ©ation d'un fichier. Un message a Ã©tÃ© envoyÃ© Ã  l'administrateur.");
             }
 
             fwrite($redir_file, $__DIR_REDIRECT);
@@ -1811,14 +1811,14 @@ function dossiers_messagerie()
 
       $array_dir=scandir("$DIR/$_SESSION[MSG_SOUS_REP]/$ID/$dossier_id");
 
-      // Décompte des messages non lus (fichiers se terminant par .0)
+      // DÃ©compte des messages non lus (fichiers se terminant par .0)
       $count_new=0;
 
       foreach($array_dir as $element)
       {
          if(is_file("$DIR/$_SESSION[MSG_SOUS_REP]/$ID/$dossier_id/$element") && substr($element, -2)==".0")
             $count_new++;
-         elseif(is_dir("$DIR/$_SESSION[MSG_SOUS_REP]/$ID/$dossier_id/$element") && $element!="." && $element!="..")   // Message avec pièces jointes = sous répertoire
+         elseif(is_dir("$DIR/$_SESSION[MSG_SOUS_REP]/$ID/$dossier_id/$element") && $element!="." && $element!="..")   // Message avec piÃ¨ces jointes = sous rÃ©pertoire
          {
             $array_subdir=scandir("$DIR/$_SESSION[MSG_SOUS_REP]/$ID/$dossier_id/$element");
 
@@ -1851,7 +1851,7 @@ function copy_msg()
       return FALSE;
       
    // Arguments
-   // 0 : connexion à la BDD
+   // 0 : connexion Ã  la BDD
    // 1 : dossier source
    // 2 : nom du fichier contenant le message (identifiant.0 ou identifiant.1)
    // 3 : identifiant du destinataire
@@ -1861,13 +1861,13 @@ function copy_msg()
    if($num_args<4)
       die("Erreur : utilisation incorrecte de la fonction copy_msg()");
 
-   $foo=func_get_arg(0); // connexion (finalement abandonné : TODO : à nettoyer.
+   $foo=func_get_arg(0); // connexion (finalement abandonnÃ© : TODO : Ã  nettoyer.
 
    $dossier_source=func_get_arg(1);
    $msg=func_get_arg(2);
    $destinataire_id=func_get_arg(3);
 
-   // Niveau supplémentaire dans l'arborescence des messages
+   // Niveau supplÃ©mentaire dans l'arborescence des messages
    $_MSG_DEST_SOUS_REP=sous_rep_msg($destinataire_id);
 
    if($num_args>4)
@@ -1892,45 +1892,45 @@ function copy_msg()
       return FALSE;
 
    // Ouverture du fichier
-	
-	echo "$GLOBALS[__GESTION_MSG_STOCKAGE_DIR_ABS]/$_SESSION[MSG_SOUS_REP]/$_SESSION[auth_id]/$dossier_source/$msg<br>\n";
-	
-	if(is_dir("$GLOBALS[__GESTION_MSG_STOCKAGE_DIR_ABS]/$_SESSION[MSG_SOUS_REP]/$_SESSION[auth_id]/$dossier_source/$msg"))
-	{
+  
+  echo "$GLOBALS[__GESTION_MSG_STOCKAGE_DIR_ABS]/$_SESSION[MSG_SOUS_REP]/$_SESSION[auth_id]/$dossier_source/$msg<br>\n";
+  
+  if(is_dir("$GLOBALS[__GESTION_MSG_STOCKAGE_DIR_ABS]/$_SESSION[MSG_SOUS_REP]/$_SESSION[auth_id]/$dossier_source/$msg"))
+  {
       $is_dir=1;
 
       $nom_rep="$GLOBALS[__GESTION_MSG_STOCKAGE_DIR_ABS]/$_SESSION[MSG_SOUS_REP]/$_SESSION[auth_id]/$dossier_source/$msg";
-		
+    
       if(is_file("$nom_rep/$msg".".1"))
          $nom_fichier="$msg".".1";
       elseif(is_file("$nom_rep/$msg".".0"))
          $nom_fichier="$msg".".0";
-		
+    
       $path_complet="$nom_rep/$nom_fichier";
-	}
-	else
-	{
+  }
+  else
+  {
       $is_dir=0;
       $nom_rep="$GLOBALS[__GESTION_MSG_STOCKAGE_DIR_ABS]/$_SESSION[MSG_SOUS_REP]/$_SESSION[auth_id]/$dossier_source";
       $nom_fichier=$msg;
-      $path_complet="$nom_rep/$nom_fichier";		
-	}
-	
+      $path_complet="$nom_rep/$nom_fichier";    
+  }
+  
    if(($array_file=@file($path_complet))!==FALSE)
    {
-      // Récupération du contenu
+      // RÃ©cupÃ©ration du contenu
       $msg_exp_id=trim($array_file["0"]);
       $msg_exp=trim($array_file["1"]);
 
       $msg_to_id=$destinataire_id;
       $msg_to=trim($array_file["3"]);
 
-      $msg_sujet=stripslashes(trim($array_file["4"])) . " [Message transféré par $_SESSION[auth_prenom] $_SESSION[auth_nom]]";
+      $msg_sujet=stripslashes(trim($array_file["4"])) . " [Message transfÃ©rÃ© par $_SESSION[auth_prenom] $_SESSION[auth_nom]]";
 
       $msg_message=array_slice($array_file, 5);
       $msg_message_txt=stripslashes(implode($msg_message));
 
-      // création du nouveau message
+      // crÃ©ation du nouveau message
       $new_file_name=new_id() . ".0";
 
       $array_message=array("from_id"    => "$msg_exp_id\n",
@@ -1944,31 +1944,31 @@ function copy_msg()
       {
          if(FALSE===(mkdir("$GLOBALS[__GESTION_MSG_STOCKAGE_DIR_ABS]/$_MSG_DEST_SOUS_REP/$destinataire_id/$GLOBALS[__MSG_INBOX]", 0770, TRUE)))
          {
-            mail($GLOBALS["__EMAIL_ADMIN"], "[Précandidatures] - Erreur de création de répertoire", "Utilisateur : $_SESSION[auth_nom] $_SESSION[auth_prenom]\n\nRépertoire : $GLOBALS[__GESTION_MSG_STOCKAGE_DIR_ABS]/$_MSG_DEST_SOUS_REP/$destinataire_id/$GLOBALS[__MSG_INBOX]");
-            die("Erreur lors de la création du dossier de réception du destinataire sélectionné.\n<br>Un message a été envoyé à l'administrateur.");
+            mail($GLOBALS["__EMAIL_ADMIN"], "[PrÃ©candidatures] - Erreur de crÃ©ation de rÃ©pertoire", "Utilisateur : $_SESSION[auth_nom] $_SESSION[auth_prenom]\n\nRÃ©pertoire : $GLOBALS[__GESTION_MSG_STOCKAGE_DIR_ABS]/$_MSG_DEST_SOUS_REP/$destinataire_id/$GLOBALS[__MSG_INBOX]");
+            die("Erreur lors de la crÃ©ation du dossier de rÃ©ception du destinataire sÃ©lectionnÃ©.\n<br>Un message a Ã©tÃ© envoyÃ© Ã  l'administrateur.");
          }         
       }
-		
-		if($is_dir)
-		{
+    
+    if($is_dir)
+    {
          $dest_path="$GLOBALS[__GESTION_MSG_STOCKAGE_DIR_ABS]/$_MSG_DEST_SOUS_REP/$destinataire_id/$GLOBALS[__MSG_INBOX]/$msg/$new_file_name";
-			
+      
          if(FALSE===(mkdir("$GLOBALS[__GESTION_MSG_STOCKAGE_DIR_ABS]/$_MSG_DEST_SOUS_REP/$destinataire_id/$GLOBALS[__MSG_INBOX]/$msg", 0770, TRUE)))
          {
-            mail($GLOBALS["__EMAIL_ADMIN"], "[Précandidatures] - Erreur de création de répertoire", "Utilisateur : $_SESSION[auth_nom] $_SESSION[auth_prenom]\n\nRépertoire : $GLOBALS[__GESTION_MSG_STOCKAGE_DIR_ABS]/$_MSG_DEST_SOUS_REP/$destinataire_id/$GLOBALS[__MSG_INBOX]/$msg");
-            die("Erreur lors de la création du dossier de réception du destinataire sélectionné.\n<br>Un message a été envoyé à l'administrateur.");
+            mail($GLOBALS["__EMAIL_ADMIN"], "[PrÃ©candidatures] - Erreur de crÃ©ation de rÃ©pertoire", "Utilisateur : $_SESSION[auth_nom] $_SESSION[auth_prenom]\n\nRÃ©pertoire : $GLOBALS[__GESTION_MSG_STOCKAGE_DIR_ABS]/$_MSG_DEST_SOUS_REP/$destinataire_id/$GLOBALS[__MSG_INBOX]/$msg");
+            die("Erreur lors de la crÃ©ation du dossier de rÃ©ception du destinataire sÃ©lectionnÃ©.\n<br>Un message a Ã©tÃ© envoyÃ© Ã  l'administrateur.");
          }  
       } 
-		else
+    else
          $dest_path="$GLOBALS[__GESTION_MSG_STOCKAGE_DIR_ABS]/$_MSG_DEST_SOUS_REP/$destinataire_id/$GLOBALS[__MSG_INBOX]/$new_file_name";
 
       if(FALSE===file_put_contents($dest_path, $array_message))
       {
-         mail($GLOBALS["__EMAIL_ADMIN"], "[Précandidatures] - Erreur de copie de message", "Utilisateur : $_SESSION[auth_nom] $_SESSION[auth_prenom]\n\nMessage : $array_message");
-         die("Erreur lors du transfert de votre message. Un message a été envoyé à l'administrateur.");
+         mail($GLOBALS["__EMAIL_ADMIN"], "[PrÃ©candidatures] - Erreur de copie de message", "Utilisateur : $_SESSION[auth_nom] $_SESSION[auth_prenom]\n\nMessage : $array_message");
+         die("Erreur lors du transfert de votre message. Un message a Ã©tÃ© envoyÃ© Ã  l'administrateur.");
       }
 
-      write_evt("", $GLOBALS["__EVT_ID_G_MSG"], "Message transféré : $_SESSION[auth_nom] $_SESSION[auth_prenom] => $dest_nom_prenom", $msg_exp_id);
+      write_evt("", $GLOBALS["__EVT_ID_G_MSG"], "Message transfÃ©rÃ© : $_SESSION[auth_nom] $_SESSION[auth_prenom] => $dest_nom_prenom", $msg_exp_id);
    }
    else
       return FALSE;
@@ -1997,7 +1997,7 @@ function write_msg()
       $evenement_id=$GLOBALS["__EVT_ID_C_MSG"];
       $candidat_id=$_SESSION["authentifie"];
    }
-   else // Message système
+   else // Message systÃ¨me
    {
       $__DEST_DIR=$GLOBALS["__CAND_MSG_STOCKAGE_DIR_ABS"];
       $__FROM_DIR=$GLOBALS["__GESTION_MSG_STOCKAGE_DIR_ABS"];
@@ -2006,8 +2006,8 @@ function write_msg()
    }
    
    // Arguments : 5 obligatoires
-   // 0 : connexion à la BDD
-   // 1 : expéditeur (array)
+   // 0 : connexion Ã  la BDD
+   // 1 : expÃ©diteur (array)
    // 2 : destinataire (array contenant au moins un array)
    // 3 : sujet
    // 4 : corps
@@ -2017,7 +2017,7 @@ function write_msg()
    if($num_args<5)
       die("Erreur : utilisation incorrecte de la fonction write_msg()");
 
-   $foo=func_get_arg(0); // Obsolète : à supprimer
+   $foo=func_get_arg(0); // ObsolÃ¨te : Ã  supprimer
 
    $array_from=func_get_arg(1);
    $array_dests=func_get_arg(2);
@@ -2033,15 +2033,15 @@ function write_msg()
    else
       $flag_notification=1;
 
-   // Pièces jointes
-   // Actuellement, les liens vers les pièces jointes sont directement dans le corps du message
-   // S'il y a une pièce jointe, on crée un répertoire, sinon le message reste un fichier simple
-   // TODO 1 : généraliser le répertoire pour tous les messages, même ceux sans PJ ? 
-   // TODO 2 : utilité de détacher ces liens ? (gestion via le menu à la place du corps)
+   // PiÃ¨ces jointes
+   // Actuellement, les liens vers les piÃ¨ces jointes sont directement dans le corps du message
+   // S'il y a une piÃ¨ce jointe, on crÃ©e un rÃ©pertoire, sinon le message reste un fichier simple
+   // TODO 1 : gÃ©nÃ©raliser le rÃ©pertoire pour tous les messages, mÃªme ceux sans PJ ? 
+   // TODO 2 : utilitÃ© de dÃ©tacher ces liens ? (gestion via le menu Ã  la place du corps)
    if($num_args>7)
       $array_pj=func_get_arg(7);
 
-   // On détermine dans quelle messagerie on se situe grâce aux variables de session
+   // On dÃ©termine dans quelle messagerie on se situe grÃ¢ce aux variables de session
    // Messagerie Gestion => Candidats
    if($array_from["id"]!=0 && isset($_SESSION["auth_id"])) // Message de la gestion vers un candidat
    {
@@ -2066,7 +2066,7 @@ function write_msg()
       $evenement_id=$GLOBALS["__EVT_ID_C_MSG"];
       $candidat_id=$_SESSION["authentifie"];
    }
-   elseif($array_from["id"]==0) // Message système vers un candidat
+   elseif($array_from["id"]==0) // Message systÃ¨me vers un candidat
    {
 
       $__DEST_DIR=$GLOBALS["__CAND_MSG_STOCKAGE_DIR_ABS"];
@@ -2077,9 +2077,9 @@ function write_msg()
       $__FROM_DIR_REDIRECT=$GLOBALS["__REDIRECTION_GESTION"];
    }
 
-   // En cas de destinataires multiples, on modifie légèrement le titre du message pour la copie dans le dossier d'envoi
+   // En cas de destinataires multiples, on modifie lÃ©gÃ¨rement le titre du message pour la copie dans le dossier d'envoi
    if(count($array_dests)>1)
-      $sujet_message_envoi=$sujet . " (copie d'un message à destinataires multiples)";
+      $sujet_message_envoi=$sujet . " (copie d'un message Ã  destinataires multiples)";
    else
       $sujet_message_envoi=$sujet;
 
@@ -2087,7 +2087,7 @@ function write_msg()
    {
       if(array_key_exists("id", $destinataire_array) && !empty($destinataire_array["id"]))
       {
-         // Calcul du niveau supplémentaire dans l'arborescence des messages
+         // Calcul du niveau supplÃ©mentaire dans l'arborescence des messages
          $_MSG_SOUS_REP=sous_rep_msg($destinataire_array["id"]);
       
          // Ecriture dans la messagerie gestion ...
@@ -2095,14 +2095,14 @@ function write_msg()
          {
             if(FALSE==mkdir("$__DEST_DIR/$_MSG_SOUS_REP/$destinataire_array[id]/$GLOBALS[__MSG_INBOX]", 0770, TRUE))
             {
-               mail($GLOBALS["__EMAIL_ADMIN"], "[Précandidatures] - Erreur de création de répertoire", "Répertoire : $__DEST_DIR/$_MSG_SOUS_REP/$destinataire_array[id]/$GLOBALS[__MSG_INBOX]");
-               die("Erreur système lors de la création d'un répertoire. Un message a été envoyé à l'administrateur.");
+               mail($GLOBALS["__EMAIL_ADMIN"], "[PrÃ©candidatures] - Erreur de crÃ©ation de rÃ©pertoire", "RÃ©pertoire : $__DEST_DIR/$_MSG_SOUS_REP/$destinataire_array[id]/$GLOBALS[__MSG_INBOX]");
+               die("Erreur systÃ¨me lors de la crÃ©ation d'un rÃ©pertoire. Un message a Ã©tÃ© envoyÃ© Ã  l'administrateur.");
             }
 
             if(FALSE===($redir_file=fopen("$__DEST_DIR/$_MSG_SOUS_REP/$destinataire_array[id]/index.php", "w+")))
             {
-               mail($GLOBALS["__EMAIL_ADMIN"], "[Précandidatures] - Erreur de création de fichier", "Fichier : $__DEST_DIR/$_MSG_SOUS_REP/$destinataire_array[id]/index.php");
-               die("Erreur système lors de la création d'un fichier. Un message a été envoyé à l'administrateur.");
+               mail($GLOBALS["__EMAIL_ADMIN"], "[PrÃ©candidatures] - Erreur de crÃ©ation de fichier", "Fichier : $__DEST_DIR/$_MSG_SOUS_REP/$destinataire_array[id]/index.php");
+               die("Erreur systÃ¨me lors de la crÃ©ation d'un fichier. Un message a Ã©tÃ© envoyÃ© Ã  l'administrateur.");
             }
 
             fwrite($redir_file, $__DEST_DIR_REDIRECT);
@@ -2112,7 +2112,7 @@ function write_msg()
          }
 
 
-         // Récupération du nom du destinataire, si inconnu
+         // RÃ©cupÃ©ration du nom du destinataire, si inconnu
          if(!array_key_exists("nom", $destinataire_array) || empty($destinataire_array["nom"])
             || !array_key_exists("prenom", $destinataire_array) || empty($destinataire_array["prenom"]))
          {
@@ -2154,14 +2154,14 @@ function write_msg()
 
          $new_file_id=new_id();
 
-         // Pièces jointes ? => répertoire, sinon fichier
+         // PiÃ¨ces jointes ? => rÃ©pertoire, sinon fichier
          if(isset($array_pj) && is_array($array_pj) && count($array_pj))
          {
             mkdir("$__DEST_DIR/$_MSG_SOUS_REP/$destinataire_array[id]/$GLOBALS[__MSG_INBOX]/$new_file_id/files", 0770, TRUE);
 
             $fichier_destination="$__DEST_DIR/$_MSG_SOUS_REP/$destinataire_array[id]/$GLOBALS[__MSG_INBOX]/$new_file_id/$new_file_id.0";
          
-            // On copie chaque PJ dans le répertoire destination
+            // On copie chaque PJ dans le rÃ©pertoire destination
             foreach($array_pj as $array_file)
                @copy($array_file["file"], "$__DEST_DIR/$_MSG_SOUS_REP/$destinataire_array[id]/$GLOBALS[__MSG_INBOX]/$new_file_id/files/$array_file[realname]");
          }
@@ -2170,12 +2170,12 @@ function write_msg()
 
          if(FALSE==file_put_contents($fichier_destination, $array_message))
          {
-            mail($GLOBALS["__EMAIL_ADMIN"], "[Précandidatures] - Erreur d'envoi de message", "Utilisateur : $array_from[prenom] $array_from[nom]\n\nMessage : $array_message");
-            die("Erreur lors de l'envoi de votre message. Un message a été envoyé à l'administrateur.");
+            mail($GLOBALS["__EMAIL_ADMIN"], "[PrÃ©candidatures] - Erreur d'envoi de message", "Utilisateur : $array_from[prenom] $array_from[nom]\n\nMessage : $array_message");
+            die("Erreur lors de l'envoi de votre message. Un message a Ã©tÃ© envoyÃ© Ã  l'administrateur.");
          }
 
-         // Mail de notification de réception, si le destinataire est un candidat et si le flag est ok
-         if($flag_notification && $__DEST_DIR==$GLOBALS["__CAND_MSG_STOCKAGE_DIR_ABS"] && strstr($destinataire_array["email"], "@")) // test très très sommaire ...
+         // Mail de notification de rÃ©ception, si le destinataire est un candidat et si le flag est ok
+         if($flag_notification && $__DEST_DIR==$GLOBALS["__CAND_MSG_STOCKAGE_DIR_ABS"] && strstr($destinataire_array["email"], "@")) // test trÃ¨s trÃ¨s sommaire ...
          {
             if(isset($array_from["composante"]))
                $comp_nom=$array_from["composante"];
@@ -2191,35 +2191,35 @@ function write_msg()
             else
                $univ_nom="";
 
-            $headers = "From: $GLOBALS[__EMAIL_ADMIN]" . "\r\n" . "Reply-To: $GLOBALS[__EMAIL_ADMIN]";
+            $headers = "From: $GLOBALS[__EMAIL_NOREPLY]" . "\r\n" . "Reply-To: $GLOBALS[__EMAIL_NOREPLY]";
 
-            // TODO URGENT déc. 2008 : intégrer le contenu de ce message dans la BDD
-            $corps_message="============================================================\nCeci est un message automatique, merci de ne pas y répondre.\n============================================================\n\nBonjour $destinataire_array[civ] $destinataire_array[nom], \n\nVous avez reçu un message sur l'interface de Candidatures $GLOBALS[__COURRIEL_ETABLISSEMENT_SOURCE].\n\nSujet : $sujet\n\nPour lire ce message, connectez vous à l'adresse suivante : \n\n$GLOBALS[__URL_CANDIDAT]\n\nUtilisez votre identifiant et votre mot de passe pour vous authentifier, puis cliquez sur le menu \"Messagerie\".\n\nBien cordialement,\n\n\n$comp_nom\n$GLOBALS[__SIGNATURE_COURRIELS]";
-            $ret=mail($destinataire_array["email"], "Candidatures - Notification de réception", $corps_message, $headers);
+            // TODO URGENT dÃ©c. 2008 : intÃ©grer le contenu de ce message dans la BDD
+            $corps_message="============================================================\nCeci est un message automatique, merci de ne pas y rÃ©pondre.\n============================================================\n\nBonjour $destinataire_array[civ] $destinataire_array[nom], \n\nVous avez reÃ§u un message sur l'interface de Candidatures $GLOBALS[__COURRIEL_ETABLISSEMENT_SOURCE].\n\nSujet : $sujet\n\nPour lire ce message, connectez vous Ã  l'adresse suivante : \n\n$GLOBALS[__URL_CANDIDAT]\n\nUtilisez votre identifiant et votre mot de passe pour vous authentifier, puis cliquez sur le menu \"Messagerie\".\n\nBien cordialement,\n\n\n$comp_nom\n$GLOBALS[__SIGNATURE_COURRIELS]";
+            $ret=mail($destinataire_array["email"], "Candidatures - Notification de rÃ©ception", $corps_message, $headers);
          }
          
 
-         // Copie unique dans le dossier "Envoyés" (copie effectuée lors du premier envoi : $count_sent=0)
-         // Les pièces jointes éventuelles sont également copiées
-         // Pas de copie si l'expéditeur est le Système (on a déjà des logs normaux, par mail)
-         // TODO : y réfléchir
+         // Copie unique dans le dossier "EnvoyÃ©s" (copie effectuÃ©e lors du premier envoi : $count_sent=0)
+         // Les piÃ¨ces jointes Ã©ventuelles sont Ã©galement copiÃ©es
+         // Pas de copie si l'expÃ©diteur est le SystÃ¨me (on a dÃ©jÃ  des logs normaux, par mail)
+         // TODO : y rÃ©flÃ©chir
          if($count_sent==0 && $__FROM_ID!=0)
          {
-            // Calcul du niveau supplémentaire dans l'arborescence des messages
+            // Calcul du niveau supplÃ©mentaire dans l'arborescence des messages
             $_MSG_FROM_SOUS_REP=sous_rep_msg($__FROM_ID);
 
             if(!is_dir("$__FROM_DIR/$_MSG_FROM_SOUS_REP/$__FROM_ID/$GLOBALS[__MSG_SENT]"))
             {
                if(FALSE==mkdir("$__FROM_DIR/$_MSG_FROM_SOUS_REP/$__FROM_ID/$GLOBALS[__MSG_SENT]", 0770, TRUE))
                {
-                  mail($GLOBALS["__EMAIL_ADMIN"], "[Précandidatures] - Erreur de création de répertoire", "Répertoire : $__FROM_DIR/$_MSG_FROM_SOUS_REP/$__FROM_ID/$GLOBALS[__MSG_SENT]");
-                  die("Erreur système lors de la création d'un répertoire. Un message a été envoyé à l'administrateur.");
+                  mail($GLOBALS["__EMAIL_ADMIN"], "[PrÃ©candidatures] - Erreur de crÃ©ation de rÃ©pertoire", "RÃ©pertoire : $__FROM_DIR/$_MSG_FROM_SOUS_REP/$__FROM_ID/$GLOBALS[__MSG_SENT]");
+                  die("Erreur systÃ¨me lors de la crÃ©ation d'un rÃ©pertoire. Un message a Ã©tÃ© envoyÃ© Ã  l'administrateur.");
                }
 
                if(FALSE===($redir_file=fopen("$__FROM_DIR/$_MSG_FROM_SOUS_REP/$__FROM_ID/index.php", "w+")))
                {
-                  mail($GLOBALS["__EMAIL_ADMIN"], "[Précandidatures] - Erreur de création de fichier", "Fichier : $__FROM_DIR/$_MSG_FROM_SOUS_REP/$__FROM_ID/index.php");
-                  die("Erreur système lors de la création d'un fichier. Un message a été envoyé à l'administrateur.");
+                  mail($GLOBALS["__EMAIL_ADMIN"], "[PrÃ©candidatures] - Erreur de crÃ©ation de fichier", "Fichier : $__FROM_DIR/$_MSG_FROM_SOUS_REP/$__FROM_ID/index.php");
+                  die("Erreur systÃ¨me lors de la crÃ©ation d'un fichier. Un message a Ã©tÃ© envoyÃ© Ã  l'administrateur.");
                }
 
                fwrite($redir_file, $__FROM_DIR_REDIRECT);
@@ -2236,26 +2236,26 @@ function write_msg()
 
                $fichier_destination="$__FROM_DIR/$_MSG_FROM_SOUS_REP/$__FROM_ID/$GLOBALS[__MSG_SENT]/$new_file_id/$new_file_id.1";
             
-               // On copie chaque PJ dans le répertoire destination
+               // On copie chaque PJ dans le rÃ©pertoire destination
                foreach($array_pj as $array_file)
                   @copy($array_file["file"], "$__FROM_DIR/$_MSG_FROM_SOUS_REP/$__FROM_ID/$GLOBALS[__MSG_SENT]/$new_file_id/files/$array_file[realname]");
             }
             else
                $fichier_destination="$__FROM_DIR/$_MSG_FROM_SOUS_REP/$__FROM_ID/$GLOBALS[__MSG_SENT]/$new_file_id.1";
 
-            // Sujet modifié
+            // Sujet modifiÃ©
             $array_message["sujet"]="$sujet_message_envoi\n";
 
             if(FALSE==file_put_contents($fichier_destination, $array_message))
             {
-               $headers = "From: $GLOBALS[__EMAIL_ADMIN]" . "\r\n" . "Reply-To: $GLOBALS[__EMAIL_ADMIN]";
+               $headers = "From: $GLOBALS[__EMAIL_NOREPLY]" . "\r\n" . "Reply-To: $GLOBALS[__EMAIL_NOREPLY]";
 
-               mail($GLOBALS["__EMAIL_ADMIN"], "[Précandidatures] - Erreur de copie d'un message dans le dossier Envoyés", "Utilisateur : $array_from[prenom] $array_from[nom]\n\nMessage : " . $array_message, $headers);
-               die("Erreur lors de la copie du message dans le dossier \"Envoyés\". Un message a été envoyé à l'administrateur.");
+               mail($GLOBALS["__EMAIL_ADMIN"], "[PrÃ©candidatures] - Erreur de copie d'un message dans le dossier EnvoyÃ©s", "Utilisateur : $array_from[prenom] $array_from[nom]\n\nMessage : " . $array_message, $headers);
+               die("Erreur lors de la copie du message dans le dossier \"EnvoyÃ©s\". Un message a Ã©tÃ© envoyÃ© Ã  l'administrateur.");
             }
          }
 
-         // Historique (Normalement le test de vérification est toujours vrai)
+         // Historique (Normalement le test de vÃ©rification est toujours vrai)
          if(isset($destinataire_array["nom"]) && isset($destinataire_array["prenom"]) && isset($array_from["nom"]) && isset($array_from["prenom"]))
          {
             if(isset($_SESSION["auth_id"]) || $__FROM_ID==0)
@@ -2274,7 +2274,7 @@ function write_msg()
    return $count_sent;
 }
 
-// Variante plus efficace (utilisation à généraliser, sans doute)
+// Variante plus efficace (utilisation Ã  gÃ©nÃ©raliser, sans doute)
 function write_msg_2()
 {
    $count_sent=0;
@@ -2295,7 +2295,7 @@ function write_msg_2()
       $evenement_id=$GLOBALS["__EVT_ID_C_MSG"];
       $candidat_id=$_SESSION["authentifie"];
    }
-   else // Message système
+   else // Message systÃ¨me
    {
       $__DEST_DIR=$GLOBALS["__CAND_MSG_STOCKAGE_DIR_ABS"];
       $__FROM_DIR=$GLOBALS["__GESTION_MSG_STOCKAGE_DIR_ABS"];
@@ -2304,8 +2304,8 @@ function write_msg_2()
    }
    
    // Arguments : 5 obligatoires
-   // 0 : connexion à la BDD
-   // 1 : expéditeur (array)
+   // 0 : connexion Ã  la BDD
+   // 1 : expÃ©diteur (array)
    // 2 : destinataire (array contenant au moins un array)
    // 3 : sujet
    // 4 : corps
@@ -2315,14 +2315,14 @@ function write_msg_2()
    if($num_args<5)
       die("Erreur : utilisation incorrecte de la fonction write_msg()");
 
-   $foo=func_get_arg(0); // Obsolète : à supprimer
+   $foo=func_get_arg(0); // ObsolÃ¨te : Ã  supprimer
 
    $array_from=func_get_arg(1);
    $array_dests=func_get_arg(2);
    $sujet=stripslashes(func_get_arg(3));
    $corps=stripslashes(func_get_arg(4));
 
-   // Obsolète
+   // ObsolÃ¨te
    if($num_args>5)
       $dest_nom_prenom=func_get_arg(5);
 
@@ -2332,15 +2332,15 @@ function write_msg_2()
    else
       $flag_notification=1;
 
-   // Pièces jointes
-   // Actuellement, les liens vers les pièces jointes sont directement dans le corps du message
-   // S'il y a une pièce jointe, on crée un répertoire, sinon le message reste un fichier simple
-   // TODO 1 : généraliser le répertoire pour tous les messages, même ceux sans PJ ? 
-   // TODO 2 : utilité de détacher ces liens ? (gestion via le menu à la place du corps)
+   // PiÃ¨ces jointes
+   // Actuellement, les liens vers les piÃ¨ces jointes sont directement dans le corps du message
+   // S'il y a une piÃ¨ce jointe, on crÃ©e un rÃ©pertoire, sinon le message reste un fichier simple
+   // TODO 1 : gÃ©nÃ©raliser le rÃ©pertoire pour tous les messages, mÃªme ceux sans PJ ? 
+   // TODO 2 : utilitÃ© de dÃ©tacher ces liens ? (gestion via le menu Ã  la place du corps)
    if($num_args>7)
       $array_pj=func_get_arg(7);
 
-   // On détermine dans quelle messagerie on se situe grâce aux variables de session
+   // On dÃ©termine dans quelle messagerie on se situe grÃ¢ce aux variables de session
 
    // SOURCE
    if($array_from["src_type"]=="candidat")
@@ -2356,9 +2356,9 @@ function write_msg_2()
    
    $__FROM_ID=$array_from["id"];
 
-   // En cas de destinataires multiples, on modifie légèrement le titre du message pour la copie dans le dossier d'envoi
+   // En cas de destinataires multiples, on modifie lÃ©gÃ¨rement le titre du message pour la copie dans le dossier d'envoi
    if(count($array_dests)>1)
-      $sujet_message_envoi=$sujet . " (copie d'un message à destinataires multiples)";
+      $sujet_message_envoi=$sujet . " (copie d'un message Ã  destinataires multiples)";
    else
       $sujet_message_envoi=$sujet;
 
@@ -2384,21 +2384,21 @@ function write_msg_2()
 
          if(array_key_exists("id", $destinataire_array) && $destinataire_array["id"]!=="")
          {
-            // Niveau supplémentaire dans l'arborescence des messages
+            // Niveau supplÃ©mentaire dans l'arborescence des messages
             $_MSG_SOUS_REP=sous_rep_msg($destinataire_array["id"]);
             
             if(!is_dir("$__DEST_DIR/$_MSG_SOUS_REP/$destinataire_array[id]/$GLOBALS[__MSG_INBOX]"))
             {
                if(FALSE==mkdir("$__DEST_DIR/$_MSG_SOUS_REP/$destinataire_array[id]/$GLOBALS[__MSG_INBOX]", 0770, TRUE))
                {
-                  mail($GLOBALS["__EMAIL_ADMIN"], "[Précandidatures] - Erreur de création de répertoire", "Répertoire : $__DEST_DIR/$_MSG_SOUS_REP/$destinataire_array[id]/$GLOBALS[__MSG_INBOX]");
-                  die("Erreur système lors de la création d'un répertoire. Un message a été envoyé à l'administrateur.");
+                  mail($GLOBALS["__EMAIL_ADMIN"], "[PrÃ©candidatures] - Erreur de crÃ©ation de rÃ©pertoire", "RÃ©pertoire : $__DEST_DIR/$_MSG_SOUS_REP/$destinataire_array[id]/$GLOBALS[__MSG_INBOX]");
+                  die("Erreur systÃ¨me lors de la crÃ©ation d'un rÃ©pertoire. Un message a Ã©tÃ© envoyÃ© Ã  l'administrateur.");
                }
 
                if(FALSE===($redir_file=fopen("$__DEST_DIR/$_MSG_SOUS_REP/$destinataire_array[id]/index.php", "w+")))
                {
-                  mail($GLOBALS["__EMAIL_ADMIN"], "[Précandidatures] - Erreur de création de fichier", "Fichier : $__DEST_DIR/$_MSG_SOUS_REP/$destinataire_array[id]/index.php");
-                  die("Erreur système lors de la création d'un fichier. Un message a été envoyé à l'administrateur.");
+                  mail($GLOBALS["__EMAIL_ADMIN"], "[PrÃ©candidatures] - Erreur de crÃ©ation de fichier", "Fichier : $__DEST_DIR/$_MSG_SOUS_REP/$destinataire_array[id]/index.php");
+                  die("Erreur systÃ¨me lors de la crÃ©ation d'un fichier. Un message a Ã©tÃ© envoyÃ© Ã  l'administrateur.");
                }
 
                fwrite($redir_file, $__DEST_DIR_REDIRECT);
@@ -2407,7 +2407,7 @@ function write_msg_2()
                @copy("$__DEST_DIR/$_MSG_SOUS_REP/$destinataire_array[id]/index.php", "$__DEST_DIR/$_MSG_SOUS_REP/$destinataire_array[id]/$GLOBALS[__MSG_INBOX]/index.php");
             }
 
-            // Récupération du nom du destinataire, si inconnu
+            // RÃ©cupÃ©ration du nom du destinataire, si inconnu
             if(!array_key_exists("nom", $destinataire_array) || empty($destinataire_array["nom"])
                || !array_key_exists("prenom", $destinataire_array) || empty($destinataire_array["prenom"]))
             {
@@ -2449,14 +2449,14 @@ function write_msg_2()
 
             $new_file_id=new_id();
 
-            // Pièces jointes ? => répertoire, sinon fichier
+            // PiÃ¨ces jointes ? => rÃ©pertoire, sinon fichier
             if(isset($array_pj) && is_array($array_pj) && count($array_pj))
             {
                mkdir("$__DEST_DIR/$_MSG_SOUS_REP/$destinataire_array[id]/$GLOBALS[__MSG_INBOX]/$new_file_id/files", 0770, TRUE);
 
                $fichier_destination="$__DEST_DIR/$_MSG_SOUS_REP/$destinataire_array[id]/$GLOBALS[__MSG_INBOX]/$new_file_id/$new_file_id.0";
             
-               // On copie chaque PJ dans le répertoire destination
+               // On copie chaque PJ dans le rÃ©pertoire destination
                foreach($array_pj as $array_file)
                   @copy($array_file["file"], "$__DEST_DIR/$_MSG_SOUS_REP/$destinataire_array[id]/$GLOBALS[__MSG_INBOX]/$new_file_id/files/$array_file[realname]");
             }
@@ -2468,14 +2468,14 @@ function write_msg_2()
                if(array_key_exists("__EMAIL_ADMIN", $GLOBALS) && trim($GLOBALS["__EMAIL_ADMIN"])!="")
                {
                   mail($GLOBALS["__EMAIL_ADMIN"],$GLOBALS["__ERREUR_SUJET"], "Erreur d'envoi de message\nUtilisateur : $array_from[prenom] $array_from[nom]\n\nMessage : $array_message");
-                  die("Erreur lors de l'envoi de votre message. Un courriel a été envoyé à l'administrateur.");
+                  die("Erreur lors de l'envoi de votre message. Un courriel a Ã©tÃ© envoyÃ© Ã  l'administrateur.");
                }
                else
-                  die("Erreur lors de l'envoi de votre message. Aucun courriel n'a pu être envoyé à l'administrateur car aucune adresse électronique n'a été configurée.");
+                  die("Erreur lors de l'envoi de votre message. Aucun courriel n'a pu Ãªtre envoyÃ© Ã  l'administrateur car aucune adresse Ã©lectronique n'a Ã©tÃ© configurÃ©e.");
             }
 
-            // Mail de notification de réception, si le destinataire est un candidat et si le flag est ok
-            if($flag_notification && $destinataire_array["dest_type"]=="candidat" && strstr($destinataire_array["email"], "@")) // test très très sommaire ...
+            // Mail de notification de rÃ©ception, si le destinataire est un candidat et si le flag est ok
+            if($flag_notification && $destinataire_array["dest_type"]=="candidat" && strstr($destinataire_array["email"], "@")) // test trÃ¨s trÃ¨s sommaire ...
             {
                if(isset($array_from["composante"]))
                   $comp_nom=$array_from["composante"];
@@ -2491,35 +2491,35 @@ function write_msg_2()
                else
                   $univ_nom="";
 
-               $headers = "From: $GLOBALS[__EMAIL_ADMIN]" . "\r\n" . "Reply-To: $GLOBALS[__EMAIL_ADMIN]";
+               $headers = "From: $GLOBALS[__EMAIL_NOREPLY]" . "\r\n" . "Reply-To: $GLOBALS[__EMAIL_NOREPLY]";
 
-               // TODO URGENT déc. 2008 : intégrer le contenu de ce message dans la BDD
-               $corps_message="============================================================\nCeci est un message automatique, merci de ne pas y répondre.\n============================================================\n\nBonjour $destinataire_array[civ] $destinataire_array[nom], \n\nVous avez reçu un message sur l'interface de Candidatures $GLOBALS[__COURRIEL_ETABLISSEMENT_SOURCE].\n\nSujet : $sujet\n\nPour lire ce message, connectez vous à l'adresse suivante : \n\n$GLOBALS[__URL_CANDIDAT]\n\nUtilisez votre identifiant et votre mot de passe pour vous authentifier, puis cliquez sur le menu \"Messagerie\".\n\nBien cordialement,\n\n\n$comp_nom\n$GLOBALS[__SIGNATURE_COURRIELS]";
-               $ret=mail($destinataire_array["email"], "Candidatures - Notification de réception", $corps_message, $headers);
+               // TODO URGENT dÃ©c. 2008 : intÃ©grer le contenu de ce message dans la BDD
+               $corps_message="============================================================\nCeci est un message automatique, merci de ne pas y rÃ©pondre.\n============================================================\n\nBonjour $destinataire_array[civ] $destinataire_array[nom], \n\nVous avez reÃ§u un message sur l'interface de Candidatures $GLOBALS[__COURRIEL_ETABLISSEMENT_SOURCE].\n\nSujet : $sujet\n\nPour lire ce message, connectez vous Ã  l'adresse suivante : \n\n$GLOBALS[__URL_CANDIDAT]\n\nUtilisez votre identifiant et votre mot de passe pour vous authentifier, puis cliquez sur le menu \"Messagerie\".\n\nBien cordialement,\n\n\n$comp_nom\n$GLOBALS[__SIGNATURE_COURRIELS]";
+               $ret=mail($destinataire_array["email"], "Candidatures - Notification de rÃ©ception", $corps_message, $headers);
             }
             
 
-            // Copie unique dans le dossier "Envoyés" (copie effectuée lors du premier envoi : $count_sent=0)
-            // Les pièces jointes éventuelles sont également copiées
-            // Pas de copie si l'expéditeur est le Système (on a déjà des logs normaux, par mail)
-            // TODO : y réfléchir
+            // Copie unique dans le dossier "EnvoyÃ©s" (copie effectuÃ©e lors du premier envoi : $count_sent=0)
+            // Les piÃ¨ces jointes Ã©ventuelles sont Ã©galement copiÃ©es
+            // Pas de copie si l'expÃ©diteur est le SystÃ¨me (on a dÃ©jÃ  des logs normaux, par mail)
+            // TODO : y rÃ©flÃ©chir
             if($count_sent==0 && $__FROM_ID!=0)
             {
-               // Niveau supplémentaire dans l'arborescence des messages
+               // Niveau supplÃ©mentaire dans l'arborescence des messages
                $_MSG_FROM_SOUS_REP=sous_rep_msg($__FROM_ID);
             
                if(!is_dir("$__FROM_DIR/$_MSG_FROM_SOUS_REP/$__FROM_ID/$GLOBALS[__MSG_SENT]"))
                {
                   if(FALSE==mkdir("$__FROM_DIR/$_MSG_FROM_SOUS_REP/$__FROM_ID/$GLOBALS[__MSG_SENT]", 0770, TRUE))
                   {
-                     mail($GLOBALS["__EMAIL_ADMIN"], "[Précandidatures] - Erreur de création de répertoire", "Répertoire : $__FROM_DIR/$_MSG_FROM_SOUS_REP/$__FROM_ID/$GLOBALS[__MSG_SENT]");
-                     die("Erreur système lors de la création d'un répertoire. Un message a été envoyé à l'administrateur.");
+                     mail($GLOBALS["__EMAIL_ADMIN"], "[PrÃ©candidatures] - Erreur de crÃ©ation de rÃ©pertoire", "RÃ©pertoire : $__FROM_DIR/$_MSG_FROM_SOUS_REP/$__FROM_ID/$GLOBALS[__MSG_SENT]");
+                     die("Erreur systÃ¨me lors de la crÃ©ation d'un rÃ©pertoire. Un message a Ã©tÃ© envoyÃ© Ã  l'administrateur.");
                   }
 
                   if(FALSE===($redir_file=fopen("$__FROM_DIR/$_MSG_FROM_SOUS_REP/$__FROM_ID/index.php", "w+")))
                   {
-                     mail($GLOBALS["__EMAIL_ADMIN"], "[Précandidatures] - Erreur de création de fichier", "Fichier : $__FROM_DIR/$_MSG_FROM_SOUS_REP/$__FROM_ID/index.php");
-                     die("Erreur système lors de la création d'un fichier. Un message a été envoyé à l'administrateur.");
+                     mail($GLOBALS["__EMAIL_ADMIN"], "[PrÃ©candidatures] - Erreur de crÃ©ation de fichier", "Fichier : $__FROM_DIR/$_MSG_FROM_SOUS_REP/$__FROM_ID/index.php");
+                     die("Erreur systÃ¨me lors de la crÃ©ation d'un fichier. Un message a Ã©tÃ© envoyÃ© Ã  l'administrateur.");
                   }
 
                   fwrite($redir_file, $__FROM_DIR_REDIRECT);
@@ -2536,26 +2536,26 @@ function write_msg_2()
 
                   $fichier_destination="$__FROM_DIR/$_MSG_FROM_SOUS_REP/$__FROM_ID/$GLOBALS[__MSG_SENT]/$new_file_id/$new_file_id.1";
                
-                  // On copie chaque PJ dans le répertoire destination
+                  // On copie chaque PJ dans le rÃ©pertoire destination
                   foreach($array_pj as $array_file)
                      @copy($array_file["file"], "$__FROM_DIR/$_MSG_FROM_SOUS_REP/$__FROM_ID/$GLOBALS[__MSG_SENT]/$new_file_id/files/$array_file[realname]");
                }
                else
                   $fichier_destination="$__FROM_DIR/$_MSG_FROM_SOUS_REP/$__FROM_ID/$GLOBALS[__MSG_SENT]/$new_file_id.1";
                
-               // Sujet modifié
+               // Sujet modifiÃ©
                $array_message["sujet"]="$sujet_message_envoi\n";
                
                if(FALSE==file_put_contents($fichier_destination, $array_message))
                {
-                  $headers = "From: $GLOBALS[__EMAIL_ADMIN]" . "\r\n" . "Reply-To: $GLOBALS[__EMAIL_ADMIN]";
+                  $headers = "From: $GLOBALS[__EMAIL_NOREPLY]" . "\r\n" . "Reply-To: $GLOBALS[__EMAIL_NOREPLY]";
 
-                  mail($GLOBALS["__EMAIL_ADMIN"], "[Précandidatures] - Erreur de copie d'un message dans le dossier Envoyés", "Utilisateur : $array_from[prenom] $array_from[nom]\n\nMessage : " . $array_message, $headers);
-                  die("Erreur lors de la copie du message dans le dossier \"Envoyés\". Un message a été envoyé à l'administrateur.");
+                  mail($GLOBALS["__EMAIL_ADMIN"], "[PrÃ©candidatures] - Erreur de copie d'un message dans le dossier EnvoyÃ©s", "Utilisateur : $array_from[prenom] $array_from[nom]\n\nMessage : " . $array_message, $headers);
+                  die("Erreur lors de la copie du message dans le dossier \"EnvoyÃ©s\". Un message a Ã©tÃ© envoyÃ© Ã  l'administrateur.");
                }
             }
 
-            // Historique (Normalement le test de vérification est toujours vrai)
+            // Historique (Normalement le test de vÃ©rification est toujours vrai)
             if(isset($destinataire_array["nom"]) && isset($destinataire_array["prenom"]) && isset($array_from["nom"]) && isset($array_from["prenom"]))
             {
                if($destinataire_array["dest_type"]=="candidat")
@@ -2577,7 +2577,7 @@ function write_msg_2()
    return $count_sent;
 }
 
-// Vérification de la présence de nouveaux messages
+// VÃ©rification de la prÃ©sence de nouveaux messages
 // La fonction retourne le nombre de nouveaux messages
 function check_messages()
 {
@@ -2604,20 +2604,20 @@ function check_messages()
 
    foreach($GLOBALS["__MSG_DOSSIERS"] as $dossier_id => $nom_dossier)
    {
-      // Vérification de l'existence de chaque dossier et création s'ils n'existent pas
+      // VÃ©rification de l'existence de chaque dossier et crÃ©ation s'ils n'existent pas
       if(!is_dir("$DIR/$_SESSION[MSG_SOUS_REP]/$ID/$dossier_id"))
       {
          if(FALSE==mkdir("$DIR/$_SESSION[MSG_SOUS_REP]/$ID/$dossier_id", 0770, TRUE))
          {
-            mail($GLOBALS["__EMAIL_ADMIN"], "[Précandidatures] - Erreur de création de répertoire", "Répertoire : $DIR/$_SESSION[MSG_SOUS_REP]/$ID/$dossier_id");
-            die("Erreur système lors de la création d'un répertoire. Un message a été envoyé à l'administrateur.");
+            mail($GLOBALS["__EMAIL_ADMIN"], "[PrÃ©candidatures] - Erreur de crÃ©ation de rÃ©pertoire", "RÃ©pertoire : $DIR/$_SESSION[MSG_SOUS_REP]/$ID/$dossier_id");
+            die("Erreur systÃ¨me lors de la crÃ©ation d'un rÃ©pertoire. Un message a Ã©tÃ© envoyÃ© Ã  l'administrateur.");
          }
          else
          {
             if(FALSE===($redir_file=fopen("$DIR/$_SESSION[MSG_SOUS_REP]/$ID/index.php", "w+")))
             {
-               mail($GLOBALS["__EMAIL_ADMIN"], "[Précandidatures] - Erreur de création de fichier", "Fichier : $DIR/$_SESSION[MSG_SOUS_REP]/$ID/index.php");
-               die("Erreur système lors de la création d'un fichier. Un message a été envoyé à l'administrateur.");
+               mail($GLOBALS["__EMAIL_ADMIN"], "[PrÃ©candidatures] - Erreur de crÃ©ation de fichier", "Fichier : $DIR/$_SESSION[MSG_SOUS_REP]/$ID/index.php");
+               die("Erreur systÃ¨me lors de la crÃ©ation d'un fichier. Un message a Ã©tÃ© envoyÃ© Ã  l'administrateur.");
             }
 
             fwrite($redir_file, $__DIR_REDIRECT);
@@ -2629,12 +2629,12 @@ function check_messages()
 
       $array_dir=scandir("$DIR/$_SESSION[MSG_SOUS_REP]/$ID/$dossier_id");
 
-      // Décompte des messages non lus (fichiers se terminant par .0)
+      // DÃ©compte des messages non lus (fichiers se terminant par .0)
       foreach($array_dir as $element)
       {
          if(is_file("$DIR/$_SESSION[MSG_SOUS_REP]/$ID/$dossier_id/$element") && substr($element, -1)=="0")
             $count_new++;
-         elseif(is_dir("$DIR/$_SESSION[MSG_SOUS_REP]/$ID/$dossier_id/$element") && $element!="." && $element!="..")   // Message avec pièces jointes = sous répertoire
+         elseif(is_dir("$DIR/$_SESSION[MSG_SOUS_REP]/$ID/$dossier_id/$element") && $element!="." && $element!="..")   // Message avec piÃ¨ces jointes = sous rÃ©pertoire
          {
             $array_subdir=scandir("$DIR/$_SESSION[MSG_SOUS_REP]/$ID/$dossier_id/$element");
 
@@ -2650,7 +2650,7 @@ function check_messages()
    return $count_new;
 }
 
-// Remplace les macros de type [macros...]texte[/macros] par l'équivalent HTML dans divers paragraphes
+// Remplace les macros de type [macros...]texte[/macros] par l'Ã©quivalent HTML dans divers paragraphes
 
 function parse_macros($txt)
 {
@@ -2729,9 +2729,9 @@ function parse_macros($txt)
    $txt=preg_replace("/[[:alpha:]]+\:\/\/[^<>[:space:]]+[[:alnum:]\/]/", "<a class='lien2' target='_blank' href=\"\\0\">\\0</a>", $txt);
    $txt=preg_replace("/[[:alnum:]]+@[^<>[:space:]]+[[:alnum:]]/", "<a class='lien_bleu_10' href=\"mailto:\\0\">\\0</a>", $txt);
 */
-   // Répertoires
+   // RÃ©pertoires
    // ATTENTION : pas de remplacement automatique de ###[A-Z]*### par $GLOBALS["A-Z"] car il faut
-   // impérativement contrôler les variables utilisables dans les messages.
+   // impÃ©rativement contrÃ´ler les variables utilisables dans les messages.
    // => Les utilisateurs ne DOIVENT PAS pouvoir exploiter cette fonction pour afficher une variable
    $new_txt=preg_replace("/###__PUBLIC_DIR###/i", $GLOBALS["__PUBLIC_DIR"], $txt);
    $new_txt=preg_replace("/###__CAND_DIR###/i", $GLOBALS["__CAND_DIR"], $new_txt);
@@ -2763,7 +2763,7 @@ function send_recap_justifs()
 {
    // arg 0 : obligatoire : id du candidat
    // arg 1 : obligatoire : id de la composante
-   // arg 2 : facultatif : id de la candidature. Si absent, on prend toutes les candidatures enregistrées dans la composante
+   // arg 2 : facultatif : id de la candidature. Si absent, on prend toutes les candidatures enregistrÃ©es dans la composante
 
    $numargs = func_num_args();
 
@@ -2811,7 +2811,7 @@ function send_recap_justifs()
    {
       $old_candidat_id="";
 
-      // message spécifique à la composante ?
+      // message spÃ©cifique Ã  la composante ?
       $res_message=db_query($GLOBALS["dbr"], "SELECT $GLOBALS[_DBC_messages_contenu] FROM $GLOBALS[_DB_messages]
                                    WHERE $GLOBALS[_DBC_messages_type]='$GLOBALS[__MSG_TYPE_VERROUILLAGE]'
                                    AND $GLOBALS[_DBC_messages_comp_id]='$composante_id'
@@ -2824,7 +2824,7 @@ function send_recap_justifs()
          
       db_free_result($res_message);
 
-      for($i=0; $i<$rows; $i++) // boucle for() sur les candidature du candidat passé en paramètre, dans la composante également en paramètre
+      for($i=0; $i<$rows; $i++) // boucle for() sur les candidature du candidat passÃ© en paramÃ¨tre, dans la composante Ã©galement en paramÃ¨tre
       {
          list($candidat_id,$cand_civ,$cand_nom,$cand_prenom,$cand_naissance,$cand_email, $cand_id, $cand_lockdate, $comp_id, 
               $comp_nom, $adr_scol, $courriel_scol, $annee, $spec_nom, $propspec_id, $finalite, $date_fermeture, $date_reception, $frais,
@@ -2835,19 +2835,19 @@ function send_recap_justifs()
 
          switch($cand_civ)
          {
-            case "M" :       $ne_le="Né le";
+            case "M" :       $ne_le="NÃ© le";
                            $civ_mail="M.";
                            break;
 
-            case   "Mlle" :   $ne_le="Née le";
+            case   "Mlle" :   $ne_le="NÃ©e le";
                            $civ_mail="Mlle";
                            break;
 
-            case   "Mme"   :    $ne_le="Née le";
+            case   "Mme"   :    $ne_le="NÃ©e le";
                            $civ_mail="Mme";
                            break;
 
-            default      :   $ne_le="Né le";
+            default      :   $ne_le="NÃ© le";
                            $civ_mail="M.";
          }
 
@@ -2855,8 +2855,8 @@ function send_recap_justifs()
          //          JUSTIFICATIFS A ENVOYER : 1 message par voeu
          // ================================================================
 
-         // Cette requête est uniquement faite pour vérifier la présence de justificatifs pour cette formation
-         // TODO 8/1/2008 : SIMPLIFIER en intégrant dans la requête globale ? (avec un CASE)
+         // Cette requÃªte est uniquement faite pour vÃ©rifier la prÃ©sence de justificatifs pour cette formation
+         // TODO 8/1/2008 : SIMPLIFIER en intÃ©grant dans la requÃªte globale ? (avec un CASE)
          $result3=db_query($GLOBALS["dbr"], "SELECT $GLOBALS[_DBC_justifs_id], $GLOBALS[_DBC_justifs_titre], $GLOBALS[_DBC_justifs_texte],
                                           $GLOBALS[_DBC_justifs_jf_nationalite]
                                     FROM $GLOBALS[_DB_justifs], $GLOBALS[_DB_justifs_jf]
@@ -2867,11 +2867,11 @@ function send_recap_justifs()
          $rows3=db_num_rows($result3);
          db_free_result($result3);
 
-         if(!$rows3) // Aucun élément : on prévient l'administrateur
+         if(!$rows3) // Aucun Ã©lÃ©ment : on prÃ©vient l'administrateur
             $justificatifs_vides[$propspec_id]="$comp_id - $formation\n";
          else
          {
-            // Autres fichiers liés aux justificatifs
+            // Autres fichiers liÃ©s aux justificatifs
             $result4=db_query($GLOBALS["dbr"], "SELECT distinct($GLOBALS[_DBC_justifs_fichiers_nom])
                                        FROM $GLOBALS[_DB_justifs_fichiers], $GLOBALS[_DB_justifs_ff]
                                        WHERE $GLOBALS[_DBC_justifs_fichiers_id]=$GLOBALS[_DBC_justifs_ff_fichier_id]
@@ -2890,7 +2890,7 @@ function send_recap_justifs()
 
                   // On n'utilise pas de variables de chemins dans les messages, car si les chemins changent,
                   // les liens ne seront plus valides
-                  // Solution : utilisation de la macro ###texte### le "texte" sera automatiquement remplacé par
+                  // Solution : utilisation de la macro ###texte### le "texte" sera automatiquement remplacÃ© par
                   // $GLOBALS[texte] lors de l'ouverture du message
                   if(is_file("$GLOBALS[__PUBLIC_DIR_ABS]/$comp_id/justificatifs/$fichier_nom"))
                      $liste_fichiers.="<br>- <a href='###__PUBLIC_DIR###/$comp_id/justificatifs/$fichier_nom' target='_blank' class='lien_bleu_12'><b>$fichier_nom</b></a>";
@@ -2903,20 +2903,20 @@ function send_recap_justifs()
                         $hdrs_err = array("From" => "$courriel_scol",
                                           "Subject" => "$GLOBALS[__ERREUR_SUJET] Erreur de fichier");
 
-                     mail($courriel_scol,"$GLOBALS[__ERREUR_SUJET] - Fichier non trouvé", "Bonjour,\n\nCeci est un message automatique de l'Application de Gestion des Candidatures en ligne.\n\nLors de l'envoi des Justificatifs, le fichier suivant n'a pu être trouvé sur le serveur : \n\nFichier : $GLOBALS[__PUBLIC_DIR_ABS]/$comp_id/justificatifs/$fichier_nom\n\n(Il est possible que ce fichier ait été supprimé par erreur, le candidat ne l'a alors pas reçu)\n\nUne copie de ce courriel a été envoyé à l'administrateur.\n\nCordialement,\n\nL'Application :)");
+                     mail($courriel_scol,"$GLOBALS[__ERREUR_SUJET] - Fichier non trouvÃ©", "Bonjour,\n\nCeci est un message automatique de l'Application de Gestion des Candidatures en ligne.\n\nLors de l'envoi des Justificatifs, le fichier suivant n'a pu Ãªtre trouvÃ© sur le serveur : \n\nFichier : $GLOBALS[__PUBLIC_DIR_ABS]/$comp_id/justificatifs/$fichier_nom\n\n(Il est possible que ce fichier ait Ã©tÃ© supprimÃ© par erreur, le candidat ne l'a alors pas reÃ§u)\n\nUne copie de ce courriel a Ã©tÃ© envoyÃ© Ã  l'administrateur.\n\nCordialement,\n\nL'Application :)");
 
-                     // Copie à l'admin si son adresse a été configurée
+                     // Copie Ã  l'admin si son adresse a Ã©tÃ© configurÃ©e
                      if(array_key_exists("__EMAIL_ADMIN", $GLOBALS) && trim($GLOBALS["__EMAIL_ADMIN"])!="")
-                        mail($GLOBALS['__EMAIL_ADMIN'],"$GLOBALS[__ERREUR_SUJET] - Fichier non trouvé", "Lors de l'envoi des Justificatifs, le fichier suivant n'a pu être trouvé sur le serveur : \n\nFichier : $GLOBALS[__PUBLIC_DIR_ABS]/$comp_id/justificatifs/$fichier_nom\n\nCandidat : $civ_mail $cand_nom $cand_prenom\n\nUne copie de ce courriel a été envoyé à la scolarité concernée.\n\nCordialement,\n\nL'Application :)");
+                        mail($GLOBALS['__EMAIL_ADMIN'],"$GLOBALS[__ERREUR_SUJET] - Fichier non trouvÃ©", "Lors de l'envoi des Justificatifs, le fichier suivant n'a pu Ãªtre trouvÃ© sur le serveur : \n\nFichier : $GLOBALS[__PUBLIC_DIR_ABS]/$comp_id/justificatifs/$fichier_nom\n\nCandidat : $civ_mail $cand_nom $cand_prenom\n\nUne copie de ce courriel a Ã©tÃ© envoyÃ© Ã  la scolaritÃ© concernÃ©e.\n\nCordialement,\n\nL'Application :)");
                   }
                }
 
                if($liste_fichiers!="")
                {
                   $les_fichiers_suivants=$rows4==1 ? "le fichier suivant" : "les fichiers suivants";
-                  $les_pieces_jointes_suivantes=$rows4==1 ? "la pièce jointe suivante" : "les pièces jointes suivantes";
+                  $les_pieces_jointes_suivantes=$rows4==1 ? "la piÃ¨ce jointe suivante" : "les piÃ¨ces jointes suivantes";
 
-                  $corps_fichiers="4/ Vous devez également télécharger $les_fichiers_suivants et suivre les instructions : " . $liste_fichiers;
+                  $corps_fichiers="4/ Vous devez Ã©galement tÃ©lÃ©charger $les_fichiers_suivants et suivre les instructions : " . $liste_fichiers;
                }
                else
                   $corps_fichiers="";
@@ -2926,7 +2926,7 @@ function send_recap_justifs()
 
             unset($liste_specs);
 
-            // candidature à choix multiples ?
+            // candidature Ã  choix multiples ?
             if($groupe_spec!=-1)
             {
                $liste_specs=array("$cand_id" => array("annee" => "$annee",
@@ -2934,7 +2934,7 @@ function send_recap_justifs()
                                                       "finalite" => "$finalite",
                                                       "formation" => "$formation"));
 
-               // on regarde le nombre de candidatures concernées (elles sont triées dans la requete globale)
+               // on regarde le nombre de candidatures concernÃ©es (elles sont triÃ©es dans la requete globale)
                // attention, algo un peu limite ...
                for($search=($i+1); $search<$rows; $search++)
                {
@@ -2964,9 +2964,9 @@ function send_recap_justifs()
             // On a tout : verrouillage de la formation et envoi du message
             if(isset($liste_specs) && count($liste_specs)>1)
             {
-               $sujet="[$comp_nom] - Renvoi des justificatifs - candidature à choix multiples";
+               $sujet="[$comp_nom] - Renvoi des justificatifs - candidature Ã  choix multiples";
 
-               $corps_message="\nCandidature à choix multiples :\n";
+               $corps_message="\nCandidature Ã  choix multiples :\n";
 
                $nom_formation_corps="ce groupe de formations";
 
@@ -2976,13 +2976,13 @@ function send_recap_justifs()
 
                   // db_query($GLOBALS["dbr"],"UPDATE $GLOBALS[_DB_cand] SET $GLOBALS[_DBU_cand_lock]='1' WHERE $GLOBALS[_DBU_cand_id]='$next_cand_id'");
 
-                  // on avance la boucle d'autant de candidatures que de choix multiples du même groupe
+                  // on avance la boucle d'autant de candidatures que de choix multiples du mÃªme groupe
                   $i++;
                }
             }
             else
             {
-               $sujet="[$comp_nom] - Renvoi des justificatifs et du récapitulatif - $formation";
+               $sujet="[$comp_nom] - Renvoi des justificatifs et du rÃ©capitulatif - $formation";
 
                // db_query($GLOBALS["dbr"],"UPDATE $GLOBALS[_DB_cand] SET $GLOBALS[_DBU_cand_lock]='1' WHERE $GLOBALS[_DBU_cand_id]='$cand_id'");
 
@@ -2993,38 +2993,38 @@ function send_recap_justifs()
 
             $limite_reception_txt=date_fr("j F Y", $date_reception);
 
-            $prefixe=$corps_message; // conservation de l'entête pour le message spécifique à la composante
+            $prefixe=$corps_message; // conservation de l'entÃªte pour le message spÃ©cifique Ã  la composante
 
             $corps_message.="\n\nBonjour $civ_mail ". ucwords(mb_strtolower(stripslashes($cand_nom))) .",
 
-Le délai imparti pour modifier cette formation est échu. Après réception de l'ensemble des pièces requises (liste dans ce message), vos demandes pourront être traitées par la ou les scolarités.
+Le dÃ©lai imparti pour modifier cette formation est Ã©chu. AprÃ¨s rÃ©ception de l'ensemble des piÃ¨ces requises (liste dans ce message), vos demandes pourront Ãªtre traitÃ©es par la ou les scolaritÃ©s.
 
-La procédure à suivre est maintenant la suivante :
+La procÃ©dure Ã  suivre est maintenant la suivante :
 
 1/ Cliquez sur chacun des liens suivants :
-<a href='###__CAND_DIR###/gen_recapitulatif.php?comp_id=$comp_id' target='_blank' class='lien_bleu_12'><b>- récapitulatif des informations que vous avez saisies</b> (format PDF)</a>
-<a href='###__CAND_DIR###/gen_justificatifs.php?cand_id=$cand_id' target='_blank' class='lien_bleu_12'><b>- liste des justificatifs à nous faire parvenir par voie postale pour $nom_formation_corps</b> (format PDF)</a>
+<a href='###__CAND_DIR###/gen_recapitulatif.php?comp_id=$comp_id' target='_blank' class='lien_bleu_12'><b>- rÃ©capitulatif des informations que vous avez saisies</b> (format PDF)</a>
+<a href='###__CAND_DIR###/gen_justificatifs.php?cand_id=$cand_id' target='_blank' class='lien_bleu_12'><b>- liste des justificatifs Ã  nous faire parvenir par voie postale pour $nom_formation_corps</b> (format PDF)</a>
 
 2/ Enregistrez puis imprimez ces documents PDF. Conservez-les car ils pourront vous reservir plus tard.
 
-3/ Envoyez ces documents ainsi que les pièces demandées dans le document \"Justificatifs\" par courrier à l'adresse postale indiquée dans ce message (<b>sauf</b> si une adresse spécifique est précisée dans la liste des justificatifs).
+3/ Envoyez ces documents ainsi que les piÃ¨ces demandÃ©es dans le document \"Justificatifs\" par courrier Ã  l'adresse postale indiquÃ©e dans ce message (<b>sauf</b> si une adresse spÃ©cifique est prÃ©cisÃ©e dans la liste des justificatifs).
 
 $corps_fichiers
 
 <font class='Texte_important_14'><b>IMPORTANT</b> :
 
-Sauf consignes contraires de la scolarité <b>(vérifiez bien le document \"Liste des justificatifs\" ci-dessus)</b> :
+Sauf consignes contraires de la scolaritÃ© <b>(vÃ©rifiez bien le document \"Liste des justificatifs\" ci-dessus)</b> :
 
-- vous devez envoyer vos justificatifs à la scolarité le plus rapidement possible (n'attendez pas la date limite du $limite_reception_txt). Les dossiers hors délais seront examinés lors de la session suivante. Si aucune autre session n'est prévue, votre dossier risque de ne pas être traité.
-- pour les candidatures à choix multiples (spécialités regroupées dans le menu 5-Précandidatures), vous devez envoyer <b>autant d'exemplaires</b> de vos justificatifs <b>que de formations sélectionnées</b> dans cette composante. Si vous n'envoyez pas vos justificatifs en plusieurs exemplaires, toutes vos candidatures <b>ne pourront pas être traitées</b>.</font>
-
-
-Vous pouvez dès à présent suivre l'évolution de votre fiche en ligne (sur cette interface) et vous recevrez prochainement d'autres messages concernant le traitement de votre dossier.
-
-Aucune information supplémentaire sur l'état de votre candidature ne sera donnée par téléphone.
+- vous devez envoyer vos justificatifs Ã  la scolaritÃ© le plus rapidement possible (n'attendez pas la date limite du $limite_reception_txt). Les dossiers hors dÃ©lais seront examinÃ©s lors de la session suivante. Si aucune autre session n'est prÃ©vue, votre dossier risque de ne pas Ãªtre traitÃ©.
+- pour les candidatures Ã  choix multiples (spÃ©cialitÃ©s regroupÃ©es dans le menu 5-PrÃ©candidatures), vous devez envoyer <b>autant d'exemplaires</b> de vos justificatifs <b>que de formations sÃ©lectionnÃ©es</b> dans cette composante. Si vous n'envoyez pas vos justificatifs en plusieurs exemplaires, toutes vos candidatures <b>ne pourront pas Ãªtre traitÃ©es</b>.</font>
 
 
-<b>Rappel</b> : le dépôt d'une précandidature en ligne ne constitue en aucun cas une admission dans la ou les formations demandées.
+Vous pouvez dÃ¨s Ã  prÃ©sent suivre l'Ã©volution de votre fiche en ligne (sur cette interface) et vous recevrez prochainement d'autres messages concernant le traitement de votre dossier.
+
+Aucune information supplÃ©mentaire sur l'Ã©tat de votre candidature ne sera donnÃ©e par tÃ©lÃ©phone.
+
+
+<b>Rappel</b> : le dÃ©pÃ´t d'une prÃ©candidature en ligne ne constitue en aucun cas une admission dans la ou les formations demandÃ©es.
 
 
 Cordialement,
@@ -3038,9 +3038,9 @@ $univ_nom";
 
             $corps_message2=parse_macros($corps_message_composante);
 
-            // Macros spécifiques aux justificatifs (à intégrer dans une autre fonction ?)
-            $new_corps=preg_replace("/%justificatifs%/i", "<a href='###__CAND_DIR###/gen_justificatifs.php?cand_id=$cand_id' target='_blank' class='lien_bleu_12'><b>- liste des justificatifs à nous faire parvenir par voie postale pour $nom_formation_corps</b> (format PDF)</a>", $corps_message2);
-            $new_corps=preg_replace("/%recapitulatif%/i", "<a href='###__CAND_DIR###/gen_recapitulatif.php?comp_id=$comp_id' target='_blank' class='lien_bleu_12'><b>- récapitulatif des informations que vous avez saisies</b> (format PDF)</a>", $new_corps);
+            // Macros spÃ©cifiques aux justificatifs (Ã  intÃ©grer dans une autre fonction ?)
+            $new_corps=preg_replace("/%justificatifs%/i", "<a href='###__CAND_DIR###/gen_justificatifs.php?cand_id=$cand_id' target='_blank' class='lien_bleu_12'><b>- liste des justificatifs Ã  nous faire parvenir par voie postale pour $nom_formation_corps</b> (format PDF)</a>", $corps_message2);
+            $new_corps=preg_replace("/%recapitulatif%/i", "<a href='###__CAND_DIR###/gen_recapitulatif.php?comp_id=$comp_id' target='_blank' class='lien_bleu_12'><b>- rÃ©capitulatif des informations que vous avez saisies</b> (format PDF)</a>", $new_corps);
             $new_corps=preg_replace("/%date_limite%/i", $limite_reception_txt, $new_corps);
             $new_corps=preg_replace("/%adresse_scolarite%/i", $adr_scol, $new_corps);
             $new_corps=preg_replace("/%composante%/i", $comp_nom, $new_corps);
@@ -3049,7 +3049,7 @@ $univ_nom";
             $new_corps=preg_replace("/%nom%/i", ucwords(mb_strtolower(stripslashes($cand_nom))), $new_corps);
                      
             if($liste_fichiers!="")
-               $prefixe.="Ce message contient $les_pieces_jointes_suivantes : $liste_fichiers\n\nCliquez sur les liens pour les télécharger, puis suivez les instructions.\n";
+               $prefixe.="Ce message contient $les_pieces_jointes_suivantes : $liste_fichiers\n\nCliquez sur les liens pour les tÃ©lÃ©charger, puis suivez les instructions.\n";
                      
             $message_complet="$prefixe"."$new_corps";
 
@@ -3059,13 +3059,13 @@ $univ_nom";
                                            "prenom"    => "$cand_prenom",
                                            "email"      => "$cand_email"));
 
-            // Test nouveau système
+            // Test nouveau systÃ¨me
             
-            write_msg("", array("id" => "0", "nom" => "Système", "prenom" => "", "composante" => "$comp_nom", "universite" => "$univ_nom"),
+            write_msg("", array("id" => "0", "nom" => "SystÃ¨me", "prenom" => "", "composante" => "$comp_nom", "universite" => "$univ_nom"),
                      $dest_array, $sujet, $message_complet, "$cand_nom $cand_prenom");
             
             /* avec l'ancien corps de message :
-            write_msg("", array("id" => "0", "nom" => "Système", "prenom" => "", "composante" => "$comp_nom", "universite" => "$univ_nom"),
+            write_msg("", array("id" => "0", "nom" => "SystÃ¨me", "prenom" => "", "composante" => "$comp_nom", "universite" => "$univ_nom"),
                      $dest_array, $sujet, $corps_message, "$cand_nom $cand_prenom");
             */
             // write_evt("", $GLOBALS['__EVT_ID_S_LOCK'], "Verrouillage automatique", $candidat_id, $comp_id);
@@ -3077,7 +3077,7 @@ $univ_nom";
       }  // fin de la boucle for() globale sur les candidats
    } // fin du if($rows)
 
-   // S'il y a des justificatifs vides : mail direct à l'admin (les fiches concernées n'ont normalement pas été verrouillées)
+   // S'il y a des justificatifs vides : mail direct Ã  l'admin (les fiches concernÃ©es n'ont normalement pas Ã©tÃ© verrouillÃ©es)
    if(isset($justificatifs_vides) && count($justificatifs_vides))
    {
       $justifs_txt="";
@@ -3085,8 +3085,8 @@ $univ_nom";
       foreach($justificatifs_vides as $propspec_id => $comp_formation)
          $justifs_txt.="$comp_formation ($propspec_id)\n";
 
-      $headers = "From: $GLOBALS[__EMAIL_ADMIN]" . "\r\n" . "Reply-To: $GLOBALS[__EMAIL_ADMIN]";
-      mail($GLOBALS['__EMAIL_ADMIN'], "[$univ_nom - Verrouillages : justificatifs vides]", "Fiches NON verrouillées pour les formations suivantes : \n\n" . $justifs_txt, $headers);
+      $headers = "From: $GLOBALS[__EMAIL_NOREPLY]" . "\r\n" . "Reply-To: $GLOBALS[__EMAIL_NOREPLY]";
+      mail($GLOBALS['__EMAIL_ADMIN'], "[$univ_nom - Verrouillages : justificatifs vides]", "Fiches NON verrouillÃ©es pour les formations suivantes : \n\n" . $justifs_txt, $headers);
 
       return 1;
    }
@@ -3101,15 +3101,15 @@ $univ_nom";
 //       FONCTIONS POUR LES LANGUES DANS CERTAINES PAGES (LETTRES, NOTAMMENT)
 // ===============================================================================
 
-// Civlité
-// En entrée : 
-// $civ : civilité courte telle qu'elle est enregistrée dans la base
+// CivlitÃ©
+// En entrÃ©e : 
+// $civ : civilitÃ© courte telle qu'elle est enregistrÃ©e dans la base
 // $lang : code de la langue de sortie (ajouter en fonction des besoins)
-// $flag : flag permettant de déterminer si on retourne la version abbrégée (=0), longue (=1) ou destinée à l'adresse (=2)
+// $flag : flag permettant de dÃ©terminer si on retourne la version abbrÃ©gÃ©e (=0), longue (=1) ou destinÃ©e Ã  l'adresse (=2)
 
 function civ_lang($civ, $lang, $flag)
 {
-   // "Mademoiselle" n'est normalement plus utilisé, seuls "Madame" et "Monsieur" sont retournés
+   // "Mademoiselle" n'est normalement plus utilisÃ©, seuls "Madame" et "Monsieur" sont retournÃ©s
    switch($lang)
    {
       case 'EN' : if(!strcasecmp($civ, "Mlle") || !strcasecmp($civ, "Mme") || !strcasecmp($civ, "Madame") || !strcasecmp($civ, "Mademoiselle"))
@@ -3154,11 +3154,11 @@ function civ_lang($civ, $lang, $flag)
 }
 
 // date
-// En entrée :
-// $timestamp : timestamp Unix à convertir en texte
+// En entrÃ©e :
+// $timestamp : timestamp Unix Ã  convertir en texte
 // $lang : langue de sortie
-// $format : abbrégé (=0 : 20/11/2009 par exemple) ou long (=1 : Vendredi 20 Novembre 2009 en français / Friday 20th of November 2009 en anglais)
-// $jour : 1 si le nom du jour doit être affiché, 0 sinon
+// $format : abbrÃ©gÃ© (=0 : 20/11/2009 par exemple) ou long (=1 : Vendredi 20 Novembre 2009 en franÃ§ais / Friday 20th of November 2009 en anglais)
+// $jour : 1 si le nom du jour doit Ãªtre affichÃ©, 0 sinon
 function date_lang($timestamp, $lang, $format, $jour)
 {
    if($jour!=0 && $jour!=1)
@@ -3194,23 +3194,23 @@ function date_lang($timestamp, $lang, $format, $jour)
 //                   GESTION DES MODULES SUPPLEMENTAIRES
 // ==========================================================================
 
-// Découverte et inclusion automatique des modules
+// DÃ©couverte et inclusion automatique des modules
 
 function add_modules()
 {
    $_SESSION["PLUGINS"]=array();
    $cnt=0;
 
-   // Création de la variable de session qui contiendra les nouvelles macros définies par les modules
+   // CrÃ©ation de la variable de session qui contiendra les nouvelles macros dÃ©finies par les modules
    if(!isset($_SESSION["__MACROS_USERS"]) || !is_array($_SESSION["__MACROS_USERS"]))
       $_SESSION["__MACROS_USERS"]=array();
 
-   // Vérification du répertoire contenant les plugins
+   // VÃ©rification du rÃ©pertoire contenant les plugins
    if(isset($GLOBALS["__PLUGINS_DIR_ABS"]) && is_dir($GLOBALS["__PLUGINS_DIR_ABS"]) && is_readable($GLOBALS["__PLUGINS_DIR_ABS"]))
    {
-      // Lecture des fichiers de définition dans le répertoire admin/modules
-      // Chaque fichier doit contenir une unique variable $MODULE : tableau contenant tous les paramètres
-      // Pour ajouter les modules, on inclut les fichiers de définition puis on vérifie le contenu de la variable $MODULE
+      // Lecture des fichiers de dÃ©finition dans le rÃ©pertoire admin/modules
+      // Chaque fichier doit contenir une unique variable $MODULE : tableau contenant tous les paramÃ¨tres
+      // Pour ajouter les modules, on inclut les fichiers de dÃ©finition puis on vÃ©rifie le contenu de la variable $MODULE
 
       // ATTENTION : SUPPOSE QUE LA SYNTAXE DES FICHIERS A ETE VERIFIEE AU PREALABLE
       if(FALSE!=($all_files=scandir("$GLOBALS[__PLUGINS_DIR_ABS]")))
@@ -3220,7 +3220,7 @@ function add_modules()
             // Fichiers "mod_*.php"
             if(0!=preg_match("/mod_[a-zA-Z1-9_\-]+\.php\$/", $entry))
             {
-               // Réinitialisation de la variable créée dans le fichier précédent
+               // RÃ©initialisation de la variable crÃ©Ã©e dans le fichier prÃ©cÃ©dent
                unset($MODULE);
 
                if(is_file("$GLOBALS[__PLUGINS_DIR_ABS]/$entry") && is_readable("$GLOBALS[__PLUGINS_DIR_ABS]/$entry"))
@@ -3242,13 +3242,13 @@ function add_modules()
                            $stop=1;
                      }
 
-                     // Les vérifications sont passées, on ajoute le module
+                     // Les vÃ©rifications sont passÃ©es, on ajoute le module
                      if(!$stop)
                      {
                         $_SESSION["PLUGINS"]["$cnt"]=$MODULE;
 
                         // inclusion d'autres fichiers ?
-                        // ==> A ajouter en paramètre dans le fichier de définition du module
+                        // ==> A ajouter en paramÃ¨tre dans le fichier de dÃ©finition du module
 
                         if(is_array($MODULE["MOD_INCLUDE"]))
                         {

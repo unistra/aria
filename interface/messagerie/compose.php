@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -76,7 +76,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 	$dbr=db_connect();
 
-	// identifiant du destinataire en paramètre crypté
+	// identifiant du destinataire en paramÃ¨tre cryptÃ©
 	if(isset($_GET["p"]) || ((isset($_POST["Suivant"]) || isset($_POST["Suivant_x"])) && isset($_POST["formation"]) && ctype_digit($_POST["formation"])))
 	{
 		if(isset($_GET["p"]) && -1!=($params=get_params($_GET['p'])))
@@ -85,7 +85,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			{
 				$_SESSION["to"]=$params["to"];
 
-				// On vérifie que le destinataire existe bien
+				// On vÃ©rifie que le destinataire existe bien
 				$result=db_query($dbr,"SELECT $_DBC_acces_id, $_DBC_acces_nom, $_DBC_acces_prenom, $_DBC_acces_courriel,
 														$_DBC_acces_absence_debut, $_DBC_acces_absence_fin, $_DBC_acces_absence_msg,
 														$_DBC_acces_absence_active
@@ -105,7 +105,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		{
 			$formation=$_POST["formation"];
 
-			// Une formation a été choisie : on regarde les personnes rattachées à cette dernière
+			// Une formation a Ã©tÃ© choisie : on regarde les personnes rattachÃ©es Ã  cette derniÃ¨re
 			if($formation!=0)
 			{
 				// Nom de la formation
@@ -124,7 +124,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 				db_free_result($res_formation);
 
-				// Récupération des informations du destinataire (avec l'éventuel message d'absence)
+				// RÃ©cupÃ©ration des informations du destinataire (avec l'Ã©ventuel message d'absence)
 				$result=db_query($dbr, "SELECT $_DBC_courriels_propspec_acces_id, $_DBC_acces_nom, $_DBC_acces_prenom, $_DBC_acces_courriel,
 														 $_DBC_acces_absence_debut, $_DBC_acces_absence_fin, $_DBC_acces_absence_msg,
 														 $_DBC_acces_absence_active
@@ -133,10 +133,10 @@ CeCILL-B, et que vous en avez accepté les termes.
 												AND $_DBC_courriels_propspec_propspec_id='$formation'
 												AND $_DBC_courriels_propspec_type='F'");
 			}
-			// Si aucun résultat ou si aucune formation n'a été sélectionnée, on sélectionne :
-			// 1/ soit les utilisateurs attachés aux messages génériques
-			// 2/ en cas d'echec au 1/, ceux ayant un niveau d'accès supérieur à la consultation et qui désirent recevoir les messages des scol (booléen dans la table acces)
-			// TODO 11/01/08 : Créer un système de gestion d'aliases ?
+			// Si aucun rÃ©sultat ou si aucune formation n'a Ã©tÃ© sÃ©lectionnÃ©e, on sÃ©lectionne :
+			// 1/ soit les utilisateurs attachÃ©s aux messages gÃ©nÃ©riques
+			// 2/ en cas d'echec au 1/, ceux ayant un niveau d'accÃ¨s supÃ©rieur Ã  la consultation et qui dÃ©sirent recevoir les messages des scol (boolÃ©en dans la table acces)
+			// TODO 11/01/08 : CrÃ©er un systÃ¨me de gestion d'aliases ?
 
 			if((isset($result) && !db_num_rows($result)) || $formation==0)
 			{
@@ -174,11 +174,11 @@ CeCILL-B, et que vous en avez accepté les termes.
 			}
 		}
 
-		// Réponse à un message ? (paramètre facultatif)
+		// RÃ©ponse Ã  un message ? (paramÃ¨tre facultatif)
 		$reponse=(isset($params["r"]) && $params["r"]==1) ? "1" : "0";
 	}
 
-	if(isset($location)) // paramètre manquant : retour à l'index
+	if(isset($location)) // paramÃ¨tre manquant : retour Ã  l'index
 	{
 		db_close($dbr);
 		
@@ -199,7 +199,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			exit();
 		}
 
-		if(ctype_digit($_SESSION["to"])) // destinataire unique : on complète artificiellement avec un séparateur ";"
+		if(ctype_digit($_SESSION["to"])) // destinataire unique : on complÃ¨te artificiellement avec un sÃ©parateur ";"
 			$_SESSION["to"].=";";
 
 		$dests=explode(";", $_SESSION["to"]);
@@ -212,14 +212,14 @@ CeCILL-B, et que vous en avez accepté les termes.
 			{
 				$array_dests[$i]=array("id" => $dest_id);
 
-				// Absences et réponses automatiques
+				// Absences et rÃ©ponses automatiques
 				if(isset($_SESSION["absences"]) && array_key_exists($dest_id, $_SESSION["absences"]))
 				{
 					// on force le sens du message : candidat => gestion
-					// TODO : réécrire la fonction write_msg pour éviter ça
+					// TODO : rÃ©Ã©crire la fonction write_msg pour Ã©viter Ã§a
 					$_SESSION["auth_id"]=$dest_id;
 					write_msg($dbr, array("id" => $_SESSION["auth_id"], "nom" => $_SESSION["absences"][$dest_id]["nom"], "prenom" => $_SESSION["absences"][$dest_id]["prenom"]),
-										 array("0" => array("id" => $_SESSION["authentifie"])), "Absence : réponse automatique",
+										 array("0" => array("id" => $_SESSION["authentifie"])), "Absence : rÃ©ponse automatique",
 										 $_SESSION["absences"][$dest_id]["message"]);
 
 					unset($_SESSION["auth_id"]);
@@ -260,14 +260,14 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 			if(isset($result))
 			{
-				// Date et contenu du message source, en cas de réponse
+				// Date et contenu du message source, en cas de rÃ©ponse
 				if($reponse && isset($_SESSION["msg_message"]) && isset($_SESSION["msg_id"]) && isset($_SESSION["msg_exp"]))
 				{
 					// Destinataire unique
 					list($msg_dest_id, $msg_dest_nom, $msg_dest_prenom, $msg_dest_email, $absence_debut, $absence_fin,
 						  $absence_msg, $absence_active)=db_fetch_row($result, 0);
 
-					// Absence éventuelle du destinataire
+					// Absence Ã©ventuelle du destinataire
 					$_SESSION["absences"]=array();
 
 					$now=time();
@@ -277,7 +277,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 																				"prenom" => $msg_dest_prenom,
 																				"message" => $absence_msg);
 
-					if(strlen($_SESSION["msg_id"])==16) // Année sur un caractère
+					if(strlen($_SESSION["msg_id"])==16) // AnnÃ©e sur un caractÃ¨re
 					{
 						$date_offset=0;
 						$annee_len=1;
@@ -295,12 +295,12 @@ CeCILL-B, et que vous en avez accepté les termes.
 											substr($_SESSION["msg_id"], 9+$date_offset, 2), substr($_SESSION["msg_id"], 1+$date_offset, 2),
 											substr($_SESSION["msg_id"], 3+$date_offset, 2), $leading_zero . substr($_SESSION["msg_id"], 0, $annee_len));
 
-					$date_txt=$date_txt=date_fr("d/m/y à H\hi", $unix_date);;
+					$date_txt=$date_txt=date_fr("d/m/y Ã  H\hi", $unix_date);;
 
 					$msg_dest="$_SESSION[msg_exp]";
 
 					$sujet=htmlspecialchars("Re: $_SESSION[msg_sujet]", ENT_QUOTES, $default_htmlspecialchars_encoding);
-					$corps="\r\n\r\n\r\n\r\n\r\nLe $date_txt, $_SESSION[msg_exp] a écrit : \r\n";
+					$corps="\r\n\r\n\r\n\r\n\r\nLe $date_txt, $_SESSION[msg_exp] a Ã©crit : \r\n";
 
 					foreach($_SESSION["msg_message"] as $line)
 						$corps.="> " . stripslashes($line);
@@ -318,7 +318,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 					$now=time();
 					$_SESSION["absences"]=array();
 
-					// Récupération du ou des destinataires
+					// RÃ©cupÃ©ration du ou des destinataires
 					for($i=0; $i<$rows_destinataires; $i++)
 					{
 						list($msg_dest_id, $msg_dest_nom, $msg_dest_prenom, $msg_dest_email, $absence_debut, $absence_fin,
@@ -342,7 +342,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 							<table class='encadre_messagerie' width='95%' align='center'>
 							<tr>
 								<td class='td-msg-menu fond_menu2' style='padding:4px 2px 4px 2px;'>
-									<font class='Texte_menu2'><b>Expéditeur :</b></font>
+									<font class='Texte_menu2'><b>ExpÃ©diteur :</b></font>
 								</td>
 								<td class='td-msg-menu fond_menu' style='padding:4px 2px 4px 2px;'>
 									<font class='Texte_menu'>$_SESSION[prenom] $_SESSION[nom]</font>
@@ -379,11 +379,11 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 				db_free_result($result);
 			}
-			else	// Le destinataire n'a pas été passé en paramètre, on propose la liste des destinataires potentiels dans cette composante
+			else	// Le destinataire n'a pas Ã©tÃ© passÃ© en paramÃ¨tre, on propose la liste des destinataires potentiels dans cette composante
 			{
-				message("<center>Votre message sera adressé à la scolarité de l'établissement suivant :
+				message("<center>Votre message sera adressÃ© Ã  la scolaritÃ© de l'Ã©tablissement suivant :
 							<br><b>$_SESSION[composante]</b>
-							<br>Si ce n'est pas ce que vous souhaitez, vous pouvez sélectionner un autre établissement via le lien du menu supérieur.
+							<br>Si ce n'est pas ce que vous souhaitez, vous pouvez sÃ©lectionner un autre Ã©tablissement via le lien du menu supÃ©rieur.
 							</center>", $__INFO);
 
 				$result=db_query($dbr,"SELECT $_DBC_propspec_id, $_DBC_annees_id, $_DBC_annees_annee, $_DBC_specs_nom,
@@ -398,7 +398,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 													ORDER BY $_DBC_annees_ordre, $_DBC_specs_mention_id, $_DBC_specs_nom");
 				$rows=db_num_rows($result);
 
-				// variables initialisées à n'importe quoi
+				// variables initialisÃ©es Ã  n'importe quoi
 				$prev_annee_id="--";
 				$prev_mention="";
 
@@ -406,11 +406,11 @@ CeCILL-B, et que vous en avez accepté les termes.
 				{
 					print("<form action='$php_self' method='POST' name='form1'>
 							<center>
-								<font class='Texte'>Sélectionnez la formation concernée par votre message : </font>
+								<font class='Texte'>SÃ©lectionnez la formation concernÃ©e par votre message : </font>
 
 								<select size='1' name='formation'>
 									<option value='' disabled=1></option>
-									<option value='0'>Message général ou formation hors liste de cet établissement</option>\n");
+									<option value='0'>Message gÃ©nÃ©ral ou formation hors liste de cet Ã©tablissement</option>\n");
 
 					for($i=0; $i<$rows; $i++)
 					{
@@ -424,7 +424,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 								print("</optgroup>\n");
 
 							if($annee=="")
-								$annee="Années particulières";
+								$annee="AnnÃ©es particuliÃ¨res";
 
 							print("<option value='' disabled=1></option>
 										<optgroup label='-------------- $annee -------------- '>
@@ -443,7 +443,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 						else
 							$selected="";
 
-						if($annee=="Années particulières")
+						if($annee=="AnnÃ©es particuliÃ¨res")
 							print("<option value='$propspec_id' label=\"$nom $nom_finalite\" $selected>$nom $nom_finalite</option>\n");
 						else
 							print("<option value='$propspec_id' label=\"$annee $nom $nom_finalite\" $selected>$annee $nom $nom_finalite</option>\n");

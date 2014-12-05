@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -90,14 +90,14 @@ CeCILL-B, et que vous en avez accepté les termes.
 		if(!is_numeric($comp_largeur_logo) || $comp_largeur_logo<=0)
 			$comp_largeur_logo=32;
 
-		// Valeurs par défaut de la position de l'adresse
+		// Valeurs par dÃ©faut de la position de l'adresse
 		if(!is_numeric($comp_adr_pos_x) || $comp_adr_pos_x<=0)
 			$comp_adr_pos_x=109;
 
 		if(!is_numeric($comp_adr_pos_y) || $comp_adr_pos_y<=0)
 			$comp_adr_pos_y=42;
 
-		// Valeurs par défaut de la position du corps de la lettre
+		// Valeurs par dÃ©faut de la position du corps de la lettre
 		if(!is_numeric($comp_corps_pos_x) || $comp_corps_pos_x<=0)
 			$comp_corps_pos_x=60;
 
@@ -107,7 +107,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		if(!empty($comp_logo))
 			$comp_logo=htmlspecialchars(validate_filename($comp_logo),ENT_QUOTES, $default_htmlspecialchars_encoding);
 
-		// Création du répertoire dédié à la composante
+		// CrÃ©ation du rÃ©pertoire dÃ©diÃ© Ã  la composante
 		if(!is_dir("$__GESTION_COMP_STOCKAGE_DIR_ABS/$_SESSION[comp_id]"))
 			mkdir("$__GESTION_COMP_STOCKAGE_DIR_ABS/$_SESSION[comp_id]", 0770);
 
@@ -165,13 +165,13 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 <div class='main'>
 	<?php
-		titre_page_icone("Lettres : modifier les paramètres par défaut", "preferences_32x32_fond.png", 15, "L");
+		titre_page_icone("Lettres : modifier les paramÃ¨tres par dÃ©faut", "preferences_32x32_fond.png", 15, "L");
 
 		if(isset($file_wrong_size))
-			message("Erreur : la taille du logo est limitée à 200ko", $__ERREUR);
+			message("Erreur : la taille du logo est limitÃ©e Ã  200ko", $__ERREUR);
 
 		if(isset($image_type))
-			message("Erreur : le logo doit être au format JPEG", $__ERREUR);
+			message("Erreur : le logo doit Ãªtre au format JPEG", $__ERREUR);
 
 		if(isset($move_error))
 			message("Erreur lors de la copie du logo : merci de contacter rapidement l'administrateur.", $__ERREUR);
@@ -195,7 +195,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	<tr>
 		<td class='td-complet fond_menu2' colspan='3' style='padding:4px 20px 4px 20px;'>
 			<font class='Texte_menu2'>
-				<b>&#8226;&nbsp;&nbsp;Lettres : données par défaut</b>
+				<b>&#8226;&nbsp;&nbsp;Lettres : donnÃ©es par dÃ©faut</b>
 			</font>
 		</td>
 	</tr>
@@ -204,7 +204,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			<font class='Texte_menu2'><b>Adresse du candidat</b></font>
 		</td>
 		<td class='td-milieu fond_menu' width='100'>
-			<img src='<?php echo "$__IMG_DIR/legende_lettre.png"; ?>' border='0' Title='Légende' desc='Légende'>
+			<img src='<?php echo "$__IMG_DIR/legende_lettre.png"; ?>' border='0' Title='LÃ©gende' desc='LÃ©gende'>
 		</td>
 		<td class='td-droite fond_menu'>
 			<font class='Texte_menu'>
@@ -218,7 +218,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			<font class='Texte_menu2'><b>Limites du corps de lettre<br>contenant les paragraphes</b></font>
 		</td>
 		<td class='td-milieu fond_menu' width='100'>
-			<img src='<?php echo "$__IMG_DIR/legende_corps_lettre.png"; ?>' border='0' Title='Légende' desc='Légende'>
+			<img src='<?php echo "$__IMG_DIR/legende_corps_lettre.png"; ?>' border='0' Title='LÃ©gende' desc='LÃ©gende'>
 		</td>
 		<td class='td-droite fond_menu'>
 			<font class='Texte_menu'>
@@ -229,7 +229,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu2'>
-			<font class='Texte_menu2'><b>Texte affiché en signature</b></font>
+			<font class='Texte_menu2'><b>Texte affichÃ© en signature</b></font>
 		</td>
 		<td class='td-droite fond_menu' colspan='2'>
 			<textarea name='texte_signature' rows='5' cols='60'><?php
@@ -240,7 +240,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	<tr>
 		<td class='td-complet fond_menu2' colspan='3' style='padding:4px 20px 4px 20px;'>
 			<font class='Texte_menu2'>
-				<b>&#8226;&nbsp;&nbsp;Paramètres <u>uniquement</u> si le papier à entête n'est pas utilisé</b>
+				<b>&#8226;&nbsp;&nbsp;ParamÃ¨tres <u>uniquement</u> si le papier Ã  entÃªte n'est pas utilisÃ©</b>
 			</font>
 		</td>
 	</tr>
@@ -250,7 +250,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		</td>
 		<td class='td-droite fond_menu' colspan='2'>
 			<font class='Texte_menu'>
-				<input type='file' name='fichier'>&nbsp;&nbsp;<i>Format imposé : <b>jpeg</b>. Taille maximale : 200ko.</i>
+				<input type='file' name='fichier'>&nbsp;&nbsp;<i>Format imposÃ© : <b>jpeg</b>. Taille maximale : 200ko.</i>
 				<?php if(isset($comp_logo) && !empty($comp_logo)) print("<br>Fichier actuel : <b>$comp_logo</b>"); ?>
 			</font>
 		</td>
@@ -265,7 +265,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu2'>
-			<font class='Texte_menu2'><b>Texte affiché<br>au dessus du logo</b></font>
+			<font class='Texte_menu2'><b>Texte affichÃ©<br>au dessus du logo</b></font>
 		</td>
 		<td class='td-droite fond_menu' colspan='2'>
 			<textarea name='texte_logo' rows='5' cols='60'><?php
@@ -275,7 +275,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu2'>
-			<font class='Texte_menu2'><b>Information Scolarité<br>(colonne gauche, bas)</b></font>
+			<font class='Texte_menu2'><b>Information ScolaritÃ©<br>(colonne gauche, bas)</b></font>
 		</td>
 		<td class='td-droite fond_menu' colspan='2'>
 			<textarea name='texte_scol' rows='7' cols='60'><?php

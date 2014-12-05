@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -57,8 +57,8 @@ CeCILL-B, et que vous en avez accepté les termes.
 	include "$__INCLUDE_DIR_ABS/fonctions.php";
 	include "$__INCLUDE_DIR_ABS/db.php";
 
-   // includes spécifiques au module
-	include "include/db.php"; // db.php appellera également update_db.php pour la mise à jour du schéma
+   // includes spÃ©cifiques au module
+	include "include/db.php"; // db.php appellera Ã©galement update_db.php pour la mise Ã  jour du schÃ©ma
 	include "include/vars.php";
 
 	$php_self=$_SERVER['PHP_SELF'];
@@ -95,7 +95,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		{
 			$new_id=$_POST["msg_id"];
 
-			// unicité
+			// unicitÃ©
 			if(db_num_rows(db_query($dbr,"SELECT * FROM $_module_apogee_DB_messages
 													WHERE ($_module_apogee_DBC_messages_nom ILIKE '$msg_nom'
 														OR ($_module_apogee_DBC_messages_contenu!='' AND $_module_apogee_DBC_messages_contenu ILIKE '$msg_contenu'))
@@ -110,7 +110,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 															AND $_module_apogee_DBC_messages_comp_id='$_SESSION[comp_id]'")))
 			$msg_existe="1";
 
-		// vérification des champs
+		// vÃ©rification des champs
 		if($msg_nom=="")
 			$nom_vide=1;
 
@@ -154,37 +154,37 @@ CeCILL-B, et que vous en avez accepté les termes.
 		if(isset($_GET["a"]) || isset($_SESSION["ajout"]))
 		{
 			$_SESSION["ajout"]=1;
-			titre_page_icone("Créer un message", "add_32x32_fond.png", 15, "L");
-			$message="Après avoir créé cet élément, n'oubliez pas de le rattacher aux formations adéquates.";
+			titre_page_icone("CrÃ©er un message", "add_32x32_fond.png", 15, "L");
+			$message="AprÃ¨s avoir crÃ©Ã© cet Ã©lÃ©ment, n'oubliez pas de le rattacher aux formations adÃ©quates.";
 		}
 		else
 		{
 			titre_page_icone("Modifier un message existant", "edit_32x32_fond.png", 15, "L");
-			$message="Attention : la modification affectera toutes les formations rattachées à ce message.";
+			$message="Attention : la modification affectera toutes les formations rattachÃ©es Ã  ce message.";
 		}
 
 		if(isset($nom_vide))
-			message("Erreur : le champ 'Nom' ne doit pas être vide.", $__ERREUR);
+			message("Erreur : le champ 'Nom' ne doit pas Ãªtre vide.", $__ERREUR);
 
 		if(isset($contenu_vides))
-			message("Erreur : le contenu du message ne doit pas être vide.", $__ERREUR);
+			message("Erreur : le contenu du message ne doit pas Ãªtre vide.", $__ERREUR);
 
 		if(isset($msg_existe))
-			message("Erreur : ce nom est déjà utilisé par un autre message.", $__ERREUR);
+			message("Erreur : ce nom est dÃ©jÃ  utilisÃ© par un autre message.", $__ERREUR);
 
 		if(isset($succes))
 		{
 			if(!isset($_SESSION["ajout"]))
-				message("Le message a été modifié avec succès.", $__SUCCES);
+				message("Le message a Ã©tÃ© modifiÃ© avec succÃ¨s.", $__SUCCES);
 			else
-				message("Le massage a été créé avec succès.", $__SUCCES);
+				message("Le massage a Ã©tÃ© crÃ©Ã© avec succÃ¨s.", $__SUCCES);
 		}
 
 		message("$message", $__INFO);
 
 		$dbr=db_connect();
 
-		if(!isset($resultat) && !isset($_GET["a"]) && !isset($_SESSION["ajout"])) // choix de l'élément à modifier
+		if(!isset($resultat) && !isset($_GET["a"]) && !isset($_SESSION["ajout"])) // choix de l'Ã©lÃ©ment Ã  modifier
 		{
 			$result=db_query($dbr, "SELECT $_module_apogee_DBC_messages_msg_id, $_module_apogee_DBC_messages_nom, $_module_apogee_DBC_messages_type
 												FROM $_module_apogee_DB_messages
@@ -195,7 +195,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 			print("<form action='$php_self' method='POST' name='form1'>
 					 <div class='centered_box'>
-						<font class='Texte'>Message à modifier : </font>
+						<font class='Texte'>Message Ã  modifier : </font>
 						<select name='msg_id' size='1'>\n");
 
 			$old_univ="";
@@ -237,9 +237,9 @@ CeCILL-B, et que vous en avez accepté les termes.
 					</div>\n");
 
 			if(isset($erreur_selection))
-				message("Erreur de sélection du message", $__ERREUR);
+				message("Erreur de sÃ©lection du message", $__ERREUR);
 		}
-		else // Message choisi, on récupère les infos actuelles
+		else // Message choisi, on rÃ©cupÃ¨re les infos actuelles
 		{
 			if(isset($_GET["a"]) || isset($_SESSION["ajout"]))
 			{
@@ -280,13 +280,13 @@ CeCILL-B, et que vous en avez accepté les termes.
 		</tr>
 		<tr>
 			<td class='td-gauche fond_menu2'>
-				<font class='Texte_menu2'><b>Type de message (dépend de la catégorie de candidat) :</b></font>
+				<font class='Texte_menu2'><b>Type de message (dÃ©pend de la catÃ©gorie de candidat) :</b></font>
 			</td>
 			<td class='td-droite fond_menu'>
 			   <select name='msg_type' size='1'>
 			      <option value='<?php echo "$_MOD_APOGEE_MSG_PRIMO"."'"; if(isset($msg_type) && $msg_type==$_MOD_APOGEE_MSG_PRIMO) echo "selected='1'"; ?>>Primo-Entrants</option>
-			      <option value='<?php echo "$_MOD_APOGEE_MSG_REINS"."'"; if(isset($msg_type) && $msg_type==$_MOD_APOGEE_MSG_REINS) echo "selected='1'"; ?>>Réinscriptions</option>
-			      <option value='<?php echo "$_MOD_APOGEE_MSG_RESERVE"."'"; if(isset($msg_type) && $msg_type==$_MOD_APOGEE_MSG_RESERVE) echo "selected='1'"; ?>>Admis Sous Réserve</option>
+			      <option value='<?php echo "$_MOD_APOGEE_MSG_REINS"."'"; if(isset($msg_type) && $msg_type==$_MOD_APOGEE_MSG_REINS) echo "selected='1'"; ?>>RÃ©inscriptions</option>
+			      <option value='<?php echo "$_MOD_APOGEE_MSG_RESERVE"."'"; if(isset($msg_type) && $msg_type==$_MOD_APOGEE_MSG_RESERVE) echo "selected='1'"; ?>>Admis Sous RÃ©serve</option>
 				</select>
 			</td>
 		</tr>

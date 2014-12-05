@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -108,11 +108,11 @@ CeCILL-B, et que vous en avez accepté les termes.
 		$univ_nom=trim($_POST['nom']);
 		$univ_adresse=trim($_POST['adresse']);
 
-		$univ_lettres_couleur_texte=trim($_POST['lettres_couleur_texte']); // A déplacer dans les paramètres d'une composante ?
+		$univ_lettres_couleur_texte=trim($_POST['lettres_couleur_texte']); // A dÃ©placer dans les paramÃ¨tres d'une composante ?
 
 		$univ_img_dir=trim($_POST['img_dir']);
 
-		if(!is_dir("$__IMG_DIR_ABS/$univ_img_dir")) // si le répertoire n'existe pas, on conserve quand même la valeur
+		if(!is_dir("$__IMG_DIR_ABS/$univ_img_dir")) // si le rÃ©pertoire n'existe pas, on conserve quand mÃªme la valeur
 			$erreur_img_dir=1;
 
 		//	$univ_logo=$_FILES["fichier_logo"]["name"];
@@ -130,7 +130,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 		// $univ_lettres_couleur_texte="#000000";
 
-		// unicité de l'université
+		// unicitÃ© de l'universitÃ©
 		if(isset($_SESSION["modification"]) && $_SESSION["modification"]==1)
 		{
 			if(db_num_rows(db_query($dbr,"SELECT $_DBC_universites_id FROM $_DB_universites
@@ -174,9 +174,9 @@ CeCILL-B, et que vous en avez accepté les termes.
 																			$_DBU_universites_couleur_texte_lettres='$univ_lettres_couleur_texte'
 										WHERE $_DBU_universites_id='$univ_id'");
 
-				write_evt($dbr, $__EVT_ID_G_ADMIN, "MAJ université $univ_id", "", $univ_id);
+				write_evt($dbr, $__EVT_ID_G_ADMIN, "MAJ universitÃ© $univ_id", "", $univ_id);
 
-				// Si l'université modifiée est celle courante, on met à jour les variables de session de l'utilisateur
+				// Si l'universitÃ© modifiÃ©e est celle courante, on met Ã  jour les variables de session de l'utilisateur
 				if($univ_id==$_SESSION["univ_id"])
 				{
 					$_SESSION["universite"]=$univ_nom;
@@ -190,7 +190,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 				
 				if(db_num_rows($res_univ))
 					list($new_univ_id)=db_fetch_row($res_univ, 0);
-				else // Aucune université, on initialise l'id à 1
+				else // Aucune universitÃ©, on initialise l'id Ã  1
 					$new_univ_id=1;
 					
 				if($new_univ_id=="" || !ctype_digit($new_univ_id))
@@ -200,7 +200,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 				db_query($dbr,"INSERT INTO $_DB_universites VALUES ('$new_univ_id','$univ_nom', '$univ_adresse', '$univ_img_dir', '$univ_css_file', '$univ_lettres_couleur_texte')");
 
-				write_evt($dbr, $__EVT_ID_G_ADMIN, "Nouvelle université (id $new_univ_id)", "", $new_univ_id);
+				write_evt($dbr, $__EVT_ID_G_ADMIN, "Nouvelle universitÃ© (id $new_univ_id)", "", $new_univ_id);
 			}
 
 			db_close($dbr);
@@ -235,28 +235,28 @@ CeCILL-B, et que vous en avez accepté les termes.
 <div class='main'>
 	<?php
 		if($_SESSION["ajout_univ"]==1)
-			titre_page_icone("Ajouter une université", "universite_32x32_fond.png", 30, "L");
+			titre_page_icone("Ajouter une universitÃ©", "universite_32x32_fond.png", 30, "L");
 		elseif($_SESSION["modification"]==1)
-			titre_page_icone("Modifier une université existante", "edit_32x32_fond.png", 30, "L");
+			titre_page_icone("Modifier une universitÃ© existante", "edit_32x32_fond.png", 30, "L");
 		elseif($_SESSION["suppression"]==1)
-			titre_page_icone("Supprimer une université", "trashcan_full_34x34_slick_fond.png", 30, "L");
+			titre_page_icone("Supprimer une universitÃ©", "trashcan_full_34x34_slick_fond.png", 30, "L");
 		else
-			titre_page_icone("Gestion des universités", "universite_32x32_fond.png", 30, "L");
+			titre_page_icone("Gestion des universitÃ©s", "universite_32x32_fond.png", 30, "L");
 
 		if(isset($nom_vide))
-			message("Erreur : le champ 'nom' ne doit pas être vide", $__ERREUR);
+			message("Erreur : le champ 'nom' ne doit pas Ãªtre vide", $__ERREUR);
 
 		if(isset($adresse_vide))
-			message("Erreur : le champ 'adresse' ne doit pas être vide", $__ERREUR);
+			message("Erreur : le champ 'adresse' ne doit pas Ãªtre vide", $__ERREUR);
 
 		if(isset($nom_existe))
-			message("Erreur : cette université existe déjà !", $__ERREUR);
+			message("Erreur : cette universitÃ© existe dÃ©jÃ  !", $__ERREUR);
 
 		if(isset($file_wrong_size))
-			message("Erreur : la taille du logo est limitée à 200ko", $__ERREUR);
+			message("Erreur : la taille du logo est limitÃ©e Ã  200ko", $__ERREUR);
 
 		if(isset($image_wrong_type))
-			message("Erreur : le logo doit être au format JPEG", $__ERREUR);
+			message("Erreur : le logo doit Ãªtre au format JPEG", $__ERREUR);
 
 		if(isset($move_error))
 			message("Erreur lors de la copie du logo : merci de contacter rapidement l'administrateur.", $__ERREUR);
@@ -265,17 +265,17 @@ CeCILL-B, et que vous en avez accepté les termes.
 		{
 			if($_SESSION["modification"]==1)
 			{
-				message("L'université a été modifiée avec succès.", $__SUCCES);
+				message("L'universitÃ© a Ã©tÃ© modifiÃ©e avec succÃ¨s.", $__SUCCES);
 				$_SESSION["modification"]=0;
 			}
 			elseif($_SESSION["ajout_univ"]==1)
 			{
-				message("L'université a été créée avec succès.", $__SUCCES);
+				message("L'universitÃ© a Ã©tÃ© crÃ©Ã©e avec succÃ¨s.", $__SUCCES);
 				$_SESSION["ajout_univ"]=0;
 			}
 			elseif($_SESSION["suppression"]==1)
 			{
-				message("L'université a été supprimée avec succès.", $__SUCCES);
+				message("L'universitÃ© a Ã©tÃ© supprimÃ©e avec succÃ¨s.", $__SUCCES);
 				$_SESSION["suppression"]=0;
 			}
 		}
@@ -283,7 +283,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		print("<form name=\"form1\" enctype=\"multipart/form-data\" method=\"POST\" action=\"$php_self\">
 					<input type='hidden' name='MAX_FILE_SIZE' value='200000'>\n");
 
-		if($_SESSION["ajout_univ"]==0 && $_SESSION["modification"]==0 && $_SESSION["suppression"]==0) // choix de l'université à modifier
+		if($_SESSION["ajout_univ"]==0 && $_SESSION["modification"]==0 && $_SESSION["suppression"]==0) // choix de l'universitÃ© Ã  modifier
 		{
 			$result=db_query($dbr, "SELECT $_DBC_universites_id, $_DBC_universites_nom FROM $_DB_universites
 											ORDER BY $_DBC_universites_nom ASC");
@@ -293,7 +293,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			print("<table cellpadding='4' cellspacing='0' border='0' align='center'>
 					<tr>
 						<td class='td-gauche fond_menu2'>
-							<font class='Texte_menu2'><strong>Université : </strong></font>
+							<font class='Texte_menu2'><strong>UniversitÃ© : </strong></font>
 						</td>
 						<td class='td-droite fond_menu'>
 							<select name='univ_id' size='1'>
@@ -318,11 +318,11 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 					<div class='centered_icons_box'>
 						<a href='index.php' target='_self' class='lien_bleu_12'><img class='icone' src='$__ICON_DIR/back_32x32_fond.png' alt='Retour' border='0'></a>
-						<a href='$php_self?a=1' target='_self' class='lien_bleu_12'><img class='icone' src='$__ICON_DIR/add_32x32_fond.png' alt='Ajouter' title='[Ajouter une université]' border='0'></a>\n");
+						<a href='$php_self?a=1' target='_self' class='lien_bleu_12'><img class='icone' src='$__ICON_DIR/add_32x32_fond.png' alt='Ajouter' title='[Ajouter une universitÃ©]' border='0'></a>\n");
 
 			if($rows)
-				print("<input type='image' class='icone' src='$__ICON_DIR/edit_32x32_fond.png' alt='Modifier' name='modifier' value='Modifier' title='[Modifier une université]'>
-						 <input type='image' class='icone' src='$__ICON_DIR/trashcan_full_32x32_slick_fond.png' alt='Supprimer' name='supprimer' value='Supprimer' title='[Supprimer une université]'>\n");
+				print("<input type='image' class='icone' src='$__ICON_DIR/edit_32x32_fond.png' alt='Modifier' name='modifier' value='Modifier' title='[Modifier une universitÃ©]'>
+						 <input type='image' class='icone' src='$__ICON_DIR/trashcan_full_32x32_slick_fond.png' alt='Supprimer' name='supprimer' value='Supprimer' title='[Supprimer une universitÃ©]'>\n");
 
 			print("</form>
 					</div>
@@ -341,13 +341,13 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 			db_free_result($result);
 
-			// TODO : actuellement, l'avertissement suivant est vrai. Faut-il préférer l'orphelinat pour ces éléments ?
+			// TODO : actuellement, l'avertissement suivant est vrai. Faut-il prÃ©fÃ©rer l'orphelinat pour ces Ã©lÃ©ments ?
 			message("<center>
-							La suppression entrainera automatiquement l'effacement de toutes les composantes, formations et utilisateurs rattachés à cette université.
+							La suppression entrainera automatiquement l'effacement de toutes les composantes, formations et utilisateurs rattachÃ©s Ã  cette universitÃ©.
 							<br>ATTENTION, CECI EST LA DERNIERE CONFIRMATION !
 						</center>", $__WARNING);
 
-			message("Souhaitez vous vraiment supprimer l'université \"$univ_nom\" ?", $__QUESTION);
+			message("Souhaitez vous vraiment supprimer l'universitÃ© \"$univ_nom\" ?", $__QUESTION);
 
 			print("<div class='centered_icons_box'>
 						<a href='$php_self?s=0' target='_self' class='lien_bleu_12'><img class='icone' src='$__ICON_DIR/button_cancel_32x32_fond.png' alt='Annuler' border='0'></a>
@@ -355,11 +355,11 @@ CeCILL-B, et que vous en avez accepté les termes.
 						</form>
 					 </div>\n");
 		}
-		elseif((isset($univ_id) && $_SESSION["modification"]==1) || $_SESSION["ajout_univ"]==1) // université choisie, on récupère les infos actuelles
+		elseif((isset($univ_id) && $_SESSION["modification"]==1) || $_SESSION["ajout_univ"]==1) // universitÃ© choisie, on rÃ©cupÃ¨re les infos actuelles
 		{
 			if($_SESSION["ajout_univ"]==1)
 			{
-				if(!isset($univ_nom)) // un seul test devrait être suffisant
+				if(!isset($univ_nom)) // un seul test devrait Ãªtre suffisant
 				{
 					$univ_nom=$univ_adresse=$univ_img_dir=$univ_css_file=$univ_lettres_couleur_texte="";
 				}
@@ -390,7 +390,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu2'>
-			<font class='Texte_menu2'><b>Nom de l'université :</b></font>
+			<font class='Texte_menu2'><b>Nom de l'universitÃ© :</b></font>
 		</td>
 		<td class='td-droite fond_menu'>
 			<input type='text' name='nom' value='<?php if(isset($univ_nom)) echo htmlspecialchars(stripslashes($univ_nom), ENT_QUOTES, $default_htmlspecialchars_encoding); elseif(isset($current_univ_nom)) echo htmlspecialchars(stripslashes($current_univ_nom), ENT_QUOTES, $default_htmlspecialchars_encoding);?>' maxlength='92' size='60'>
@@ -410,11 +410,11 @@ CeCILL-B, et que vous en avez accepté les termes.
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu2'>
-			<font class='Texte_menu2'><b>Sous-répertoire contenant images et icônes : </b></font>
+			<font class='Texte_menu2'><b>Sous-rÃ©pertoire contenant images et icÃ´nes : </b></font>
 		</td>
 		<td class='td-droite fond_menu'>
 			<input type='text' name='img_dir' value='<?php if(isset($univ_img_dir)) echo htmlspecialchars(stripslashes($univ_img_dir), ENT_QUOTES, $default_htmlspecialchars_encoding); elseif(isset($current_univ_img_dir)) echo htmlspecialchars(stripslashes($current_univ_img_dir), ENT_QUOTES, $default_htmlspecialchars_encoding);?>' maxlength='256' size='60'>
-			&nbsp;<font class='Texte_menu'><i>(Chemin relatif au répertoire "<?php echo "$__IMG_DIR/"; ?>")</i>
+			&nbsp;<font class='Texte_menu'><i>(Chemin relatif au rÃ©pertoire "<?php echo "$__IMG_DIR/"; ?>")</i>
 		</td>
 	</tr>
 	<tr>
@@ -423,16 +423,16 @@ CeCILL-B, et que vous en avez accepté les termes.
 		</td>
 		<td class='td-droite fond_menu' colspan='2'>
 			<font class='Texte_menu'>
-				<input type='file' name='fichier_logo'>&nbsp;&nbsp;<i>Format imposé : <b>jpeg</b>. Dimensions recommandées : L:260px H:120px. Max 200ko.</i>
+				<input type='file' name='fichier_logo'>&nbsp;&nbsp;<i>Format imposÃ© : <b>jpeg</b>. Dimensions recommandÃ©es : L:260px H:120px. Max 200ko.</i>
 				<?php
 					if(!isset($current_univ_img_dir))
 						$current_univ_img_dir=$univ_img_dir;
 
 					if(is_file("$__IMG_DIR_ABS/$current_univ_img_dir/logo.jpg"))
 						print("<br>Fichier actuel : \"<strong>" . preg_replace("/[\/]+/","/", "$__IMG_DIR/$current_univ_img_dir/logo.jpg") . "</strong>\"
-								 <br>Attention : cet emplacement dépend du répertoire indiqué précédemment.");
+								 <br>Attention : cet emplacement dÃ©pend du rÃ©pertoire indiquÃ© prÃ©cÃ©demment.");
 					else
-						print("<br>Aucun fichier <i><strong>logo.jpg</strong></i> dans le répertoire \"$__IMG_DIR_ABS/$current_univ_img_dir\"");
+						print("<br>Aucun fichier <i><strong>logo.jpg</strong></i> dans le rÃ©pertoire \"$__IMG_DIR_ABS/$current_univ_img_dir\"");
 				?>
 			</font>
 		</td>
@@ -468,7 +468,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 					print("</select>\n");
 				}
 				else
-					print("<font class='Texte_important_menu'><b>Erreur : le répertoire $__STATIC_DIR_ABS n'existe pas !</b></font>\n");
+					print("<font class='Texte_important_menu'><b>Erreur : le rÃ©pertoire $__STATIC_DIR_ABS n'existe pas !</b></font>\n");
 			?>
 		</td>
 	</tr>
@@ -489,7 +489,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			else
 				print("<a href='$php_self?m=0&a=0' target='_self'><img class='icone' src='$__ICON_DIR/button_cancel_32x32_fond.png' alt='Annuler' border='0'></a>");
 		?>
-		<input type='image' class='icone' src='<?php echo "$__ICON_DIR/button_ok_32x32_fond.png"; ?>' alt='Valider' title='[Confirmer la création]' name='valider' value='Valider'>
+		<input type='image' class='icone' src='<?php echo "$__ICON_DIR/button_ok_32x32_fond.png"; ?>' alt='Valider' title='[Confirmer la crÃ©ation]' name='valider' value='Valider'>
 		</form>
 	</div>
 

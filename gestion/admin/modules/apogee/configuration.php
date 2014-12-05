@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -57,8 +57,8 @@ CeCILL-B, et que vous en avez accepté les termes.
 	include "$__INCLUDE_DIR_ABS/fonctions.php";
 	include "$__INCLUDE_DIR_ABS/db.php";
 
-	// includes spécifiques au module
-	include "include/db.php"; // db.php appellera également update_db.php pour la mise à jour du schéma
+	// includes spÃ©cifiques au module
+	include "include/db.php"; // db.php appellera Ã©galement update_db.php pour la mise Ã  jour du schÃ©ma
 
 	$php_self=$_SERVER['PHP_SELF'];
 	$_SESSION['CURRENT_FILE']=$php_self;
@@ -94,7 +94,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       $adr_reins=trim($_POST['adr_reins']);
       $adr_rdv=trim($_POST['adr_rdv']);
 
-      if(isset($_POST["all_comp_config"]) && ctype_digit($_POST["all_comp_config"])) // Mise à jour de la config (hors messages) pour toutes les composantes de cette université
+      if(isset($_POST["all_comp_config"]) && ctype_digit($_POST["all_comp_config"])) // Mise Ã  jour de la config (hors messages) pour toutes les composantes de cette universitÃ©
       {
          $univ_id=$_POST["all_comp_config"];
          
@@ -106,7 +106,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          {
             list($composante_id)=db_fetch_row($res_composantes, $i);
    
-            // La configuration existe pour cette composante : mise à jour         
+            // La configuration existe pour cette composante : mise Ã  jour         
             if(db_num_rows(db_query($dbr,"SELECT * FROM $_module_apogee_DB_config WHERE $_module_apogee_DBC_config_comp_id='$composante_id'")))
                db_query($dbr,"UPDATE $_module_apogee_DB_config SET $_module_apogee_DBU_config_code='$univ_lettre_code_apogee',
                                                                    $_module_apogee_DBU_config_prefixe_opi='$prefixe_opi',
@@ -115,7 +115,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                                                                    $_module_apogee_DBU_config_adr_rdv='$adr_rdv',
                                                                    $_module_apogee_DBU_config_adr_conditions='$adr_conditions'
                               WHERE $_module_apogee_DBU_config_comp_id='$composante_id'");
-            else // insertion complète
+            else // insertion complÃ¨te
                db_query($dbr,"INSERT INTO $_module_apogee_DB_config VALUES ('$composante_id','$univ_lettre_code_apogee','$prefixe_opi','$message_primo','$message_lp','$message_reserve','$adr_primo','$adr_reins','$adr_rdv','$adr_conditions')");
 
             write_evt($dbr, $__EVT_ID_G_ADMIN, "MOD_APOGEE : modification de la configuration - Composante id#$composante_id", "", $composante_id);
@@ -124,7 +124,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          db_free_result($res_composantes);
       }
       
-      if(isset($_POST["all_comp_msg"]) && ctype_digit($_POST["all_comp_msg"])) // Mise à jour des messages (uniquement) pour toutes les composantes de cette université
+      if(isset($_POST["all_comp_msg"]) && ctype_digit($_POST["all_comp_msg"])) // Mise Ã  jour des messages (uniquement) pour toutes les composantes de cette universitÃ©
       {
          $univ_id=$_POST["all_comp_msg"];
          
@@ -136,13 +136,13 @@ CeCILL-B, et que vous en avez accepté les termes.
          {
             list($composante_id)=db_fetch_row($res_composantes, $i);
    
-            // La configuration existe pour cette composante : mise à jour         
+            // La configuration existe pour cette composante : mise Ã  jour         
             if(db_num_rows(db_query($dbr,"SELECT * FROM $_module_apogee_DB_config WHERE $_module_apogee_DBC_config_comp_id='$composante_id'")))
                db_query($dbr,"UPDATE $_module_apogee_DB_config SET $_module_apogee_DBU_config_message_primo='$message_primo',
                                                                    $_module_apogee_DBU_config_message_lp='$message_lp',
                                                                    $_module_apogee_DBU_config_message_reserve='$message_reserve'
                               WHERE $_module_apogee_DBU_config_comp_id='$composante_id'");
-            else // insertion complète
+            else // insertion complÃ¨te
                db_query($dbr,"INSERT INTO $_module_apogee_DB_config VALUES ('$composante_id','$univ_lettre_code_apogee','$prefixe_opi','$message_primo','$message_lp','$message_reserve','$adr_primo','$adr_reins','$adr_rdv','$adr_conditions')");
 
             write_evt($dbr, $__EVT_ID_G_ADMIN, "MOD_APOGEE : modification des messages - Composante id#$composante_id", "", $composante_id);
@@ -170,7 +170,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          write_evt($dbr, $__EVT_ID_G_ADMIN, "MOD_APOGEE : modification de la configuration - Composante id#$comp_id", "", $comp_id);
       }		
 
-		// Si la composante modifiée est celle courante, on met à jour les variables de session de l'utilisateur
+		// Si la composante modifiÃ©e est celle courante, on met Ã  jour les variables de session de l'utilisateur
 
 		if($comp_id==$_SESSION["comp_id"])
    		$_SESSION["comp_lettre_apogee"]=$univ_lettre_code_apogee;
@@ -190,18 +190,18 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 <div class='main'>
 	<?php
-		titre_page_icone("Configuration du module Apogée", "edit_32x32_fond.png", 15, "L");
+		titre_page_icone("Configuration du module ApogÃ©e", "edit_32x32_fond.png", 15, "L");
 
 		if(isset($succes))
-			message("Configuration mise à jour avec succès.", $__SUCCES);
+			message("Configuration mise Ã  jour avec succÃ¨s.", $__SUCCES);
 
 		print("<form name=\"form1\" method=\"POST\" action=\"$php_self\">\n");
 
-		// choix de la composante à modifier
+		// choix de la composante Ã  modifier
 		if(!isset($comp_id))
 		{
-         message("Pour appliquer la même configuration à toutes les composantes d'une université, sélectionnez la composante modèle, cochez la case \"Appliquer à toutes les composantes\" puis validez le formulaire.
-                  <br>S'il y a plusieurs universités sur l'interface, répétez la procédure avec une composante de chacune d'elles.", $__INFO);      
+         message("Pour appliquer la mÃªme configuration Ã  toutes les composantes d'une universitÃ©, sÃ©lectionnez la composante modÃ¨le, cochez la case \"Appliquer Ã  toutes les composantes\" puis validez le formulaire.
+                  <br>S'il y a plusieurs universitÃ©s sur l'interface, rÃ©pÃ©tez la procÃ©dure avec une composante de chacune d'elles.", $__INFO);      
 		
          $result=db_query($dbr, "SELECT $_DBC_composantes_id, $_DBC_composantes_nom, $_DBC_composantes_univ_id, $_DBC_universites_nom
                                        FROM $_DB_composantes, $_DB_universites
@@ -215,7 +215,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 				print("<table cellpadding='4' cellspacing='0' border='0' align='center'>
 						<tr>
 							<td class='td-gauche fond_menu2'>
-								<font class='Texte_menu2'><strong>Sélection de la composante : </strong></font>
+								<font class='Texte_menu2'><strong>SÃ©lection de la composante : </strong></font>
 							</td>
 							<td class='td-droite fond_menu'>
 								<select name='comp_id' size='1'>
@@ -264,8 +264,8 @@ CeCILL-B, et que vous en avez accepté les termes.
 			else
 			{
 				message("<center>
-								Aucune composante n'est actuellement configurée.
-								<br>Vous devez créer une composante avant de pouvoir configurer le module.
+								Aucune composante n'est actuellement configurÃ©e.
+								<br>Vous devez crÃ©er une composante avant de pouvoir configurer le module.
 							</center>\n", $__INFO);
 
 				print("<div class='centered_icons_box'>
@@ -276,10 +276,10 @@ CeCILL-B, et que vous en avez accepté les termes.
 		}
 		else
 		{
-         message("Les codes renseignés sur cette page sont <strong>uniquement</strong> utilisés pour générer :
-                  <br>- les <strong>Codes OPI</strong> des candidats admis pour les transferts vers APOGEE (inscriptions intégrales en ligne).
-                  <br>- les <strong>Numéros d'autorisation d'inscription</strong> (en présentiel, avec retrait de dossier) pour les candidats admis (macro <strong>%CODE%</strong>)
-                  <br><br><strong>Ces codes et messages peuvent être spécifiques à chaque composante. Si un message est vide, il ne sera pas envoyé à la catégorie de candidats correspondante !</strong>", $__INFO);
+         message("Les codes renseignÃ©s sur cette page sont <strong>uniquement</strong> utilisÃ©s pour gÃ©nÃ©rer :
+                  <br>- les <strong>Codes OPI</strong> des candidats admis pour les transferts vers APOGEE (inscriptions intÃ©grales en ligne).
+                  <br>- les <strong>NumÃ©ros d'autorisation d'inscription</strong> (en prÃ©sentiel, avec retrait de dossier) pour les candidats admis (macro <strong>%CODE%</strong>)
+                  <br><br><strong>Ces codes et messages peuvent Ãªtre spÃ©cifiques Ã  chaque composante. Si un message est vide, il ne sera pas envoyÃ© Ã  la catÃ©gorie de candidats correspondante !</strong>", $__INFO);
 
 			$result=db_query($dbr,"SELECT $_DBC_composantes_nom, $_DBC_composantes_univ_id FROM $_DB_composantes WHERE $_DBC_composantes_id='$comp_id'");
 
@@ -307,7 +307,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	<table align='center'>
 	<tr>
 		<td class='td-gauche fond_menu2'>
-			<font class='Texte_menu2'><b>Composante sélectionnée :</b></font>
+			<font class='Texte_menu2'><b>Composante sÃ©lectionnÃ©e :</b></font>
 		</td>
 		<td class='td-droite fond_menu'>
 			<font class='Texte_menu'>
@@ -317,13 +317,13 @@ CeCILL-B, et que vous en avez accepté les termes.
 			</font>
 			<br><input type='checkbox' name='all_comp_config' value='<?php echo $universite_id; ?>' style='vertical-align:bottom;'>
          <font class='Texte_menu'>
-            Cocher pour appliquer la configuration (hors messages par défaut) à toutes les composantes de cette université
+            Cocher pour appliquer la configuration (hors messages par dÃ©faut) Ã  toutes les composantes de cette universitÃ©
          </font>
 		</td>
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu2'>
-			<font class='Texte_menu2'><b>Préfixe des codes OPI (Primo-Entrants) :</b></font>
+			<font class='Texte_menu2'><b>PrÃ©fixe des codes OPI (Primo-Entrants) :</b></font>
 		</td>
 		<td class='td-droite fond_menu'>
 			<input type='text' name='prefixe_opi' value='<?php if(isset($prefixe_opi)) echo htmlspecialchars(stripslashes($prefixe_opi), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' maxlength='3' size='16'>
@@ -331,7 +331,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu2'>
-			<font class='Texte_menu2'><b>Première lettre permettant la génération<br>des numéros d'autorisation (prise de RDV) :</b></font>
+			<font class='Texte_menu2'><b>PremiÃ¨re lettre permettant la gÃ©nÃ©ration<br>des numÃ©ros d'autorisation (prise de RDV) :</b></font>
 		</td>
 		<td class='td-droite fond_menu'>
 			<input type='text' name='lettre_code_apogee' value='<?php if(isset($code_apogee)) echo htmlspecialchars(stripslashes($code_apogee), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' maxlength='16' size='16'>
@@ -339,7 +339,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu2'>
-			<font class='Texte_menu2'><b>Site pour les conditions générales d'utilisations (%ADR_COND%) :</b></font>
+			<font class='Texte_menu2'><b>Site pour les conditions gÃ©nÃ©rales d'utilisations (%ADR_COND%) :</b></font>
 		</td>
 		<td class='td-droite fond_menu'>
 			<input type='text' name='adr_conditions' value='<?php if(isset($adr_conditions)) echo htmlspecialchars($adr_conditions, ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' maxlength='256' size='60'>
@@ -347,7 +347,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu2'>
-			<font class='Texte_menu2'><b>Site pour les étudiants Primo Entrants (%ADR_PRIMO%) :</b></font>
+			<font class='Texte_menu2'><b>Site pour les Ã©tudiants Primo Entrants (%ADR_PRIMO%) :</b></font>
 		</td>
 		<td class='td-droite fond_menu'>
 			<input type='text' name='adr_primo' value='<?php if(isset($adr_primo)) echo htmlspecialchars($adr_primo, ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' maxlength='256' size='60'>
@@ -355,7 +355,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu2'>
-			<font class='Texte_menu2'><b>Site pour les Réinscription (%ADR_REINS%) :</b></font>
+			<font class='Texte_menu2'><b>Site pour les RÃ©inscription (%ADR_REINS%) :</b></font>
 		</td>
 		<td class='td-droite fond_menu'>
 			<input type='text' name='adr_reins' value='<?php if(isset($adr_reins)) echo htmlspecialchars($adr_reins, ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' maxlength='256' size='60'>
@@ -375,17 +375,17 @@ CeCILL-B, et que vous en avez accepté les termes.
    <tr>
       <td class='td-complet fond_menu2' style='padding-top:4px; padding-bottom:4px' colspan='2'>
          <font class='Texte'>
-            <strong>Messages par défaut (ces messages peuvent également être propres à chaque formation)</strong>
+            <strong>Messages par dÃ©faut (ces messages peuvent Ã©galement Ãªtre propres Ã  chaque formation)</strong>
             <br><input type='checkbox' name='all_comp_msg' value='<?php echo $universite_id; ?>' style='vertical-align:bottom;'>
             <font class='Texte_menu'>
-               Cocher pour copier ces messages par défaut à toutes les composantes de cette université (les messages spécifiques aux formations ne seront pas remplacés).
+               Cocher pour copier ces messages par dÃ©faut Ã  toutes les composantes de cette universitÃ© (les messages spÃ©cifiques aux formations ne seront pas remplacÃ©s).
             </font>
          </font>
       </td>
    </tr>
    <tr>
       <td class='td-gauche fond_menu2'>
-         <font class='Texte_menu2'><b>Message envoyé à un candidat<br>Primo-entrant <u>pour chaque admission</u> : </b></font>
+         <font class='Texte_menu2'><b>Message envoyÃ© Ã  un candidat<br>Primo-entrant <u>pour chaque admission</u> : </b></font>
       </td>
       <td class='td-droite fond_menu'>
          <textarea name='message_primo' cols='100' rows='12'><?php if(isset($message_primo)) echo htmlspecialchars(stripslashes($message_primo), ENT_QUOTES, $default_htmlspecialchars_encoding); ?></textarea>
@@ -393,7 +393,7 @@ CeCILL-B, et que vous en avez accepté les termes.
    </tr>
    <tr>
       <td class='td-gauche fond_menu2'>
-         <font class='Texte_menu2'><b>Message envoyé à un candidat ayant<br>déjà été inscrit (laisser-passer)<br><u>pour chaque admission</u> : </b></font>
+         <font class='Texte_menu2'><b>Message envoyÃ© Ã  un candidat ayant<br>dÃ©jÃ  Ã©tÃ© inscrit (laisser-passer)<br><u>pour chaque admission</u> : </b></font>
       </td>
       <td class='td-droite fond_menu'>
          <textarea name='message_lp' cols='100' rows='12'><?php if(isset($message_lp)) echo htmlspecialchars(stripslashes($message_lp), ENT_QUOTES, $default_htmlspecialchars_encoding); ?></textarea>
@@ -401,7 +401,7 @@ CeCILL-B, et que vous en avez accepté les termes.
    </tr>
    <tr>
       <td class='td-gauche fond_menu2'>
-         <font class='Texte_menu2'><b>Message envoyé à un candidat "admis sous réserve"<br><u>pour chaque admission</u> : </b></font>
+         <font class='Texte_menu2'><b>Message envoyÃ© Ã  un candidat "admis sous rÃ©serve"<br><u>pour chaque admission</u> : </b></font>
       </td>
       <td class='td-droite fond_menu'>
          <textarea name='message_reserve' cols='100' rows='12'><?php if(isset($message_reserve)) echo htmlspecialchars(stripslashes($message_reserve), ENT_QUOTES, $default_htmlspecialchars_encoding); ?></textarea>

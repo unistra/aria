@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -57,8 +57,8 @@ CeCILL-B, et que vous en avez accepté les termes.
 	include "$__INCLUDE_DIR_ABS/fonctions.php";
 	include "$__INCLUDE_DIR_ABS/db.php";
 
-	// includes spécifiques au module
-	include "include/db.php"; // db.php appellera également update_db.php pour la mise à jour du schéma 
+	// includes spÃ©cifiques au module
+	include "include/db.php"; // db.php appellera Ã©galement update_db.php pour la mise Ã  jour du schÃ©ma 
    include "include/vars.php";
 
 	$php_self=$_SERVER['PHP_SELF'];
@@ -126,10 +126,10 @@ CeCILL-B, et que vous en avez accepté les termes.
 	<?php
       include "include/menu_editeur_messages.php";
 
-		titre_page_icone("Module Apogée : messages spécifiques aux formations", "edit_32x32_fond.png", 15, "L");
+		titre_page_icone("Module ApogÃ©e : messages spÃ©cifiques aux formations", "edit_32x32_fond.png", 15, "L");
 
 		if(isset($succes))
-			message("Messages mis à jour avec succès.", $__SUCCES);
+			message("Messages mis Ã  jour avec succÃ¨s.", $__SUCCES);
 
 		print("<form name=\"form1\" method=\"POST\" action=\"$php_self\">\n");
 	?>
@@ -171,7 +171,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 									print("</optgroup>
 												<option value='' label='' disabled></option>\n");
 
-								$annee_nom=$form_annee_nom=="" ? "Années particulières" : $form_annee_nom;
+								$annee_nom=$form_annee_nom=="" ? "AnnÃ©es particuliÃ¨res" : $form_annee_nom;
 
 								print("<optgroup label='$annee_nom'>\n");
 
@@ -273,7 +273,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 			if($rows)
 			{
-			   // Première boucle : on liste et on conserve les messages rattachés à chaque formation
+			   // PremiÃ¨re boucle : on liste et on conserve les messages rattachÃ©s Ã  chaque formation
 				for($i=0; $i<$rows; $i++)
 				{
 					list($propspec_id, $msg_id, $msg_type)=db_fetch_row($result, $i);
@@ -285,7 +285,7 @@ CeCILL-B, et que vous en avez accepté les termes.
             }
          }
          
-         // Deuxième boucle : on liste les messages existants (id, type, titre)
+         // DeuxiÃ¨me boucle : on liste les messages existants (id, type, titre)
          $result=db_query($dbr,"SELECT $_module_apogee_DBC_messages_msg_id, $_module_apogee_DBC_messages_nom, $_module_apogee_DBC_messages_type
 												FROM $_module_apogee_DB_messages
 										  ORDER BY $_module_apogee_DBC_messages_type, $_module_apogee_DBC_messages_nom");
@@ -309,7 +309,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          
          db_free_result($result);
          
-         // Troisième boucle : on liste toutes les formations. Pour chacune on proposera les messages disponibles, pour chaque type
+         // TroisiÃ¨me boucle : on liste toutes les formations. Pour chacune on proposera les messages disponibles, pour chaque type
          
          $result=db_query($dbr,"SELECT $_DBC_propspec_id, $_DBC_propspec_annee,$_DBC_annees_annee, $_DBC_specs_nom_court,
 													$_DBC_propspec_finalite, $_DBC_specs_mention_id, $_DBC_mentions_nom, $_DBC_propspec_manuelle
@@ -323,7 +323,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 												
 			$rows=db_num_rows($result);
 
-			$old_propspec_id="--"; // on initialise à n'importe quoi (sauf vide)
+			$old_propspec_id="--"; // on initialise Ã  n'importe quoi (sauf vide)
 			$old_annee_id="--"; // idem
 			$old_mention="--"; // idem
 			$j=0; 
@@ -345,9 +345,9 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 					if($annee_id!=$old_annee_id)
 					{
-						$annee=($annee=="") ? "Années particulières" : $annee;
+						$annee=($annee=="") ? "AnnÃ©es particuliÃ¨res" : $annee;
 
-						// Nombre de mentions dans cette année (pour l'affichage)
+						// Nombre de mentions dans cette annÃ©e (pour l'affichage)
 						$res_mentions=db_query($dbr, "SELECT count(distinct($_DBC_specs_mention_id)) FROM $_DB_specs
 																WHERE $_DBC_specs_id IN
 																	(SELECT distinct($_DBC_propspec_id_spec) FROM $_DB_propspec
@@ -372,7 +372,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 						db_free_result($res_mentions);
 						
-						if($i) // Le premier résultat du tableau est particulier (i=0)
+						if($i) // Le premier rÃ©sultat du tableau est particulier (i=0)
 						{
 							print("</table>
 									</td>
@@ -442,7 +442,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                            </td>
                            <td class='fond_menu' style='padding:2px 5px 2px 5px;'>
                               <select name='propspec_msg[$propspec_id][$message_type]'>
-                                 <option value='--'>Message par défaut</option>\n");
+                                 <option value='--'>Message par dÃ©faut</option>\n");
                   
                   if(array_key_exists($message_type, $array_messages))
                   {

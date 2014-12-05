@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -64,7 +64,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 	$dbr=db_connect();
 
-	// Déverrouillage, au cas où
+	// DÃ©verrouillage, au cas oÃ¹
 	if(isset($_SESSION["candidat_id"]))
 		cand_unlock($dbr, $_SESSION["candidat_id"]);
 
@@ -96,7 +96,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 <div class='main'>
 	<?php
-		titre_page_icone("Evolution journalière du nombre de précandidatures", "kpercentage_32x32_fond.png", 15, "L");
+		titre_page_icone("Evolution journaliÃ¨re du nombre de prÃ©candidatures", "kpercentage_32x32_fond.png", 15, "L");
 
 		// Construction de la liste des formations
 		$result=db_query($dbr, "SELECT $_DBC_propspec_id, $_DBC_annees_annee, $_DBC_specs_nom, $_DBC_propspec_finalite
@@ -122,7 +122,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 		db_free_result($result);
 
-		// Boucle sur les précandidatures dans cette composante
+		// Boucle sur les prÃ©candidatures dans cette composante
 		$result=db_query($dbr, "SELECT $_DBC_cand_id, $_DBC_cand_candidat_id, $_DBC_cand_propspec_id, $_DBC_annees_annee, $_DBC_specs_nom,
 													$_DBC_propspec_finalite
 											FROM $_DB_cand, $_DB_annees, $_DB_specs, $_DB_propspec
@@ -146,10 +146,10 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 			$candidat_array=array();
 
-			// Récupération du premier jour, comme référence
+			// RÃ©cupÃ©ration du premier jour, comme rÃ©fÃ©rence
 			list($cand_id, $fiche_candidat_id, $propspec_id, $annee, $spec, $finalite)=db_fetch_row($result, 0);
 
-			// Sur la date, cette partie sert à savoir si l'année est codée sur un ou deux chiffres (2007 => 7 | 2010 => 10)
+			// Sur la date, cette partie sert Ã  savoir si l'annÃ©e est codÃ©e sur un ou deux chiffres (2007 => 7 | 2010 => 10)
 			if(substr(date("y"), 0,1) == "0")
 			{
 				$debut_date="200";
@@ -176,17 +176,17 @@ CeCILL-B, et que vous en avez accepté les termes.
 				$mois=$__MOIS[substr($cand_id, $sub_annee_len, 2)];
 				$jour=substr($cand_id, $sub_annee_len+2, 2);
 
-				// Stats journalières
-				if($old_jour==$jour && $old_mois==$mois && $i!=($rows-1)) // si $i=($rows-1), c'est la dernière précandidature
+				// Stats journaliÃ¨res
+				if($old_jour==$jour && $old_mois==$mois && $i!=($rows-1)) // si $i=($rows-1), c'est la derniÃ¨re prÃ©candidature
 				{
 					$propspec_jour_array[$propspec_id]["nb"]++;
 
-					// Pour le nombre de fiches différentes (si le candidat était déjà dedans, il n'est pas ajouté une nouvelle fois)
+					// Pour le nombre de fiches diffÃ©rentes (si le candidat Ã©tait dÃ©jÃ  dedans, il n'est pas ajoutÃ© une nouvelle fois)
 					$candidat_array[$fiche_candidat_id]=1;
 				}
-				else // On passe au jour suivant ou on traite la dernière précandidature : on affiche le contenu du tableau et on le réinitialise
+				else // On passe au jour suivant ou on traite la derniÃ¨re prÃ©candidature : on affiche le contenu du tableau et on le rÃ©initialise
 				{
-					if($i==($rows-1)) // derniere précandidature  : il faut l'ajouter aux tableaux
+					if($i==($rows-1)) // derniere prÃ©candidature  : il faut l'ajouter aux tableaux
 					{
 						$candidat_array[$fiche_candidat_id]=1;
 						$propspec_jour_array[$propspec_id]["nb"]++;
@@ -209,7 +209,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 									<font class='Texte_menu2'><b>Formations</b></font>
 								</td>
 								<td class='td-milieu fond_menu2' style='text-align:center;'>
-									<font class='Texte_menu2'><b>Ajoutées<br>ce jour</b></font>
+									<font class='Texte_menu2'><b>AjoutÃ©es<br>ce jour</b></font>
 								</td>
 								<td class='td-droite fond_menu2' style='text-align:center;'>
 									<font class='Texte_menu2'><b>Total depuis<br>ouverture</b></font>
@@ -224,10 +224,10 @@ CeCILL-B, et que vous en avez accepté les termes.
 						if(array_key_exists("__EMAIL_ADMIN", $GLOBALS) && trim($GLOBALS["__EMAIL_ADMIN"])!="")
 						{
 							mail($GLOBALS["__EMAIL_ADMIN"],$GLOBALS["__ERREUR_SUJET"], "Erreur de la fonction de tri - \Fichier : $_SESSION[CURRENT_FILE]\nFonction cmp_formations\nIdentifiant : $_SESSION[auth_user]");
-							die("Erreur de la fonction de tri. Un courriel a été envoyé à l'administrateur.");
+							die("Erreur de la fonction de tri. Un courriel a Ã©tÃ© envoyÃ© Ã  l'administrateur.");
 						}
 						else
-							die("Erreur de la fonction de tri. Aucun courriel n'a pu être envoyé à l'administrateur car aucune adresse électronique n'a été configurée.");
+							die("Erreur de la fonction de tri. Aucun courriel n'a pu Ãªtre envoyÃ© Ã  l'administrateur car aucune adresse Ã©lectronique n'a Ã©tÃ© configurÃ©e.");
 					}
 
 					foreach($propspec_jour_array as $current_propspec_id => $form_array)
@@ -253,12 +253,12 @@ CeCILL-B, et que vous en avez accepté les termes.
 									</td>\n");
 					}
 
-					// Remise à 0 des stats journalières
+					// Remise Ã  0 des stats journaliÃ¨res
 					$propspec_jour_array=$formations_array;
 					$old_jour=$jour;
 					$old_mois=$mois;
 
-					// On n'oublie pas d'ajouter la précandidature courante : 1ère du "nouveau jour"
+					// On n'oublie pas d'ajouter la prÃ©candidature courante : 1Ã¨re du "nouveau jour"
 					$candidat_array[$fiche_candidat_id]=1;
 					$propspec_jour_array[$propspec_id]["nb"]++;
 					

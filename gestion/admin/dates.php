@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,36 +20,36 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
 ?>
 <?php
-	// TODO novembre 2008 : ces dates sont-elles obsolètes ... ?
+	// TODO novembre 2008 : ces dates sont-elles obsolÃ¨tes ... ?
 	// OUI
 	
 	session_name("preinsc_gestion");
@@ -72,11 +72,11 @@ CeCILL-B, et que vous en avez accepté les termes.
 		exit();
 	}
 
-	// récupération des données actuelles
+	// rÃ©cupÃ©ration des donnÃ©es actuelles
 	$dbr=db_connect()	;
 	$result=db_query($dbr,"SELECT date_ouverture, date_fermeture FROM configuration");
 
-	if(db_num_rows($result)) // normalement on a un seul résultat dans cette table
+	if(db_num_rows($result)) // normalement on a un seul rÃ©sultat dans cette table
 	{
 		list($cur_date_ouverture, $cur_date_fermeture)=db_fetch_row($result,0);
 		db_free_result($result);
@@ -147,10 +147,10 @@ CeCILL-B, et que vous en avez accepté les termes.
 		titre_page_icone("Dates limites", "clock_32x32_fond.png", 12, "L");
 
 		if(isset($date_ouverture_apres_fermeture))
-			message("Erreur : la date d'ouverture des précandidatures est postérieure à la date de fermeture.", $__ERREUR);
+			message("Erreur : la date d'ouverture des prÃ©candidatures est postÃ©rieure Ã  la date de fermeture.", $__ERREUR);
 
 		if(isset($succes))
-			message("Informations mises à jour avec succès.", $__SUCCES);
+			message("Informations mises Ã  jour avec succÃ¨s.", $__SUCCES);
 
 		message("Les champs en gras sont obligatoires.", $__INFO);
 
@@ -160,7 +160,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	<table align='center'>
 	<tr>
 		<td class='td-gauche fond_menu2'>
-			<font class='Texte_menu2'><b>Date d'ouverture des précandidatures</b></font>
+			<font class='Texte_menu2'><b>Date d'ouverture des prÃ©candidatures</b></font>
 		</td>
 		<td class='td-droite fond_menu'>
 			<select name='jour_ouverture'>
@@ -185,18 +185,18 @@ CeCILL-B, et que vous en avez accepté les termes.
 				<option value='5' <?php if(isset($mois_ouverture) && $mois_ouverture==5) echo "selected"; ?>>Mai</option>
 				<option value='6' <?php if(isset($mois_ouverture) && $mois_ouverture==6) echo "selected"; ?>>Juin</option>
 				<option value='7' <?php if(isset($mois_ouverture) && $mois_ouverture==7) echo "selected"; ?>>Juillet</option>
-				<option value='8' <?php if(isset($mois_ouverture) && $mois_ouverture==8) echo "selected"; ?>>Août</option>
+				<option value='8' <?php if(isset($mois_ouverture) && $mois_ouverture==8) echo "selected"; ?>>AoÃ»t</option>
 				<option value='9' <?php if(isset($mois_ouverture) && $mois_ouverture==9) echo "selected"; ?>>Septembre</option>
 				<option value='10' <?php if(isset($mois_ouverture) && $mois_ouverture==10) echo "selected"; ?>>Octobre</option>
 				<option value='11' <?php if(isset($mois_ouverture) && $mois_ouverture==11) echo "selected"; ?>>Novembre</option>
-				<option value='12' <?php if(isset($mois_ouverture) && $mois_ouverture==12) echo "selected"; ?>>Décembre</option>
+				<option value='12' <?php if(isset($mois_ouverture) && $mois_ouverture==12) echo "selected"; ?>>DÃ©cembre</option>
 			</select>
 			<input type='text' name='annee_ouverture' maxlength="4" size="6" value='<?php if(isset($annee_ouverture)) echo $annee_ouverture; else echo date("Y"); ?>'>
 		</td>
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu2'>
-			<font class='Texte_menu2'><b>Date de fermeture des précandidatures</b></font>
+			<font class='Texte_menu2'><b>Date de fermeture des prÃ©candidatures</b></font>
 		</td>
 		<td class='td-droite fond_menu'>
 			<select name='jour_fermeture'>
@@ -221,11 +221,11 @@ CeCILL-B, et que vous en avez accepté les termes.
 				<option value='5' <?php if(isset($mois_fermeture) && $mois_fermeture==5) echo "selected"; ?>>Mai</option>
 				<option value='6' <?php if(isset($mois_fermeture) && $mois_fermeture==6) echo "selected"; ?>>Juin</option>
 				<option value='7' <?php if(isset($mois_fermeture) && $mois_fermeture==7) echo "selected"; ?>>Juillet</option>
-				<option value='8' <?php if(isset($mois_fermeture) && $mois_fermeture==8) echo "selected"; ?>>Août</option>
+				<option value='8' <?php if(isset($mois_fermeture) && $mois_fermeture==8) echo "selected"; ?>>AoÃ»t</option>
 				<option value='9' <?php if(isset($mois_fermeture) && $mois_fermeture==9) echo "selected"; ?>>Septembre</option>
 				<option value='10' <?php if(isset($mois_fermeture) && $mois_fermeture==10) echo "selected"; ?>>Octobre</option>
 				<option value='11' <?php if(isset($mois_fermeture) && $mois_fermeture==11) echo "selected"; ?>>Novembre</option>
-				<option value='12' <?php if(isset($mois_fermeture) && $mois_fermeture==12) echo "selected"; ?>>Décembre</option>
+				<option value='12' <?php if(isset($mois_fermeture) && $mois_fermeture==12) echo "selected"; ?>>DÃ©cembre</option>
 			</select>
 			<input type='text' name='annee_fermeture' maxlength="4" size="6" value='<?php if(isset($annee_fermeture)) echo $annee_fermeture; else echo date("Y"); ?>'>
 		</td>

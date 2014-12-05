@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -68,17 +68,17 @@ CeCILL-B, et que vous en avez accepté les termes.
       exit();
    }
 
-   // Période définie par l'utilisateur
+   // PÃ©riode dÃ©finie par l'utilisateur
    if(isset($_GET["np"]) && $_GET["np"]==1 && isset($_SESSION["user_periode"]))
       $_SESSION["user_periode"]++;
    elseif(isset($_GET["pp"]) && $_GET["pp"]==1 && isset($_SESSION["user_periode"]))
       $_SESSION["user_periode"]--;
-   elseif(!isset($_SESSION["user_periode"]))   // Par défaut, on considère la période actuelle
+   elseif(!isset($_SESSION["user_periode"]))   // Par dÃ©faut, on considÃ¨re la pÃ©riode actuelle
       $_SESSION["user_periode"]=$__PERIODE;
 
    $dbr=db_connect();
 
-   // Nombre de sessions et de périodes, pour l'affichage
+   // Nombre de sessions et de pÃ©riodes, pour l'affichage
    $result=db_query($dbr, "SELECT count(*) FROM $_DB_session, $_DB_propspec
                               WHERE $_DBC_propspec_id=$_DBC_session_propspec_id
                               AND $_DBC_propspec_comp_id='$_SESSION[comp_id]'
@@ -164,8 +164,8 @@ CeCILL-B, et que vous en avez accepté les termes.
    <?php
       }
 
-      // Navigation entre les périodes
-      // Sessions existantes dans les périodes précédentes / suivantes ?
+      // Navigation entre les pÃ©riodes
+      // Sessions existantes dans les pÃ©riodes prÃ©cÃ©dentes / suivantes ?
 /*      
       $res_periodes=db_query($dbr, "SELECT count(*) FROM $_DB_session, $_DB_propspec
                                        WHERE $_DBC_propspec_id=$_DBC_session_propspec_id
@@ -204,7 +204,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          
             print("<span>
                      <a href='$php_self?pp=1' target='_self' class='lien_navigation_10'><img style='vertical-align:middle; padding-bottom:4px;' border='0' src='$__ICON_DIR/back_16x16_menu2.png'></a>
-                     <a href='$php_self?pp=1' target='_self' class='lien_navigation_10' style='padding-right:10px;'><strong>Année ". ($_SESSION["user_periode"]-1) ."-$_SESSION[user_periode]</strong></a>
+                     <a href='$php_self?pp=1' target='_self' class='lien_navigation_10' style='padding-right:10px;'><strong>AnnÃ©e ". ($_SESSION["user_periode"]-1) ."-$_SESSION[user_periode]</strong></a>
                   </span>\n");
          }
 
@@ -213,7 +213,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          if($_SESSION["user_periode"]<=$__PERIODE)
          {
             print("<span>
-                     <a href='$php_self?np=1' target='_self' class='lien_navigation_10' style='padding-left:10px;'><strong>Année ".($_SESSION["user_periode"]+1)."-".($_SESSION["user_periode"]+2)."</strong></a>
+                     <a href='$php_self?np=1' target='_self' class='lien_navigation_10' style='padding-left:10px;'><strong>AnnÃ©e ".($_SESSION["user_periode"]+1)."-".($_SESSION["user_periode"]+2)."</strong></a>
                      <a href='$php_self?np=1' target='_self' class='lien_navigation_10'><img style='vertical-align:middle; padding-bottom:4px' border='0' src='$__ICON_DIR/forward_16x16_menu2.png'></a>
                   </span>\n");
          }
@@ -225,30 +225,30 @@ CeCILL-B, et que vous en avez accepté les termes.
    ?>
    </div>
    <?php
-      titre_page_icone("Gestion des sessions de candidatures pour l'année $_SESSION[user_periode]-".($_SESSION["user_periode"]+1), "clock_32x32_fond.png", 15, "L");
+      titre_page_icone("Gestion des sessions de candidatures pour l'annÃ©e $_SESSION[user_periode]-".($_SESSION["user_periode"]+1), "clock_32x32_fond.png", 15, "L");
 
       if(isset($_GET["succes"]) && $_GET["succes"]==1)
-         message("Informations mises à jour avec succès.", $__SUCCES);
+         message("Informations mises Ã  jour avec succÃ¨s.", $__SUCCES);
 
       if($nb_formations==0)
-         message("<center>Il n'y a actuellement aucune formation créée (ou activée) pour cette composante.
-                  <br>Vous devez d'abord créer (ou activer) des formations, puis des sessions.</center>", $__INFO);
+         message("<center>Il n'y a actuellement aucune formation crÃ©Ã©e (ou activÃ©e) pour cette composante.
+                  <br>Vous devez d'abord crÃ©er (ou activer) des formations, puis des sessions.</center>", $__INFO);
       elseif(isset($aucune_specialite) && $aucune_specialite==1)
          message("<center>Il n'y a actuellement aucune session de candidatures.
-                  <br>Cliquez sur \"Ajouter une session\" pour en créer une.</center>", $__INFO);
+                  <br>Cliquez sur \"Ajouter une session\" pour en crÃ©er une.</center>", $__INFO);
       else
-         message("Cliquez sur les numéros de sessions pour en modifier les dates", $__INFO);
+         message("Cliquez sur les numÃ©ros de sessions pour en modifier les dates", $__INFO);
    ?>
 
    <table cellpadding='0' cellspacing='0' border='0' align='center'>
    <tr>
       <td>
          <?php
-            $old_annee_id="===="; // on initialise à n'importe quoi (sauf année existante et valeur vide)
+            $old_annee_id="===="; // on initialise Ã  n'importe quoi (sauf annÃ©e existante et valeur vide)
             $old_propspec_id="";
             $old_mention="--";
 
-            $current_session=1; // par défaut
+            $current_session=1; // par dÃ©faut
 
             $_SESSION["all_sessions"]=array();
             $_SESSION["all_sessions_groups"]=array();
@@ -263,7 +263,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                $nom_finalite=$tab_finalite[$finalite];
                
                if($annee=="")
-                  $annee="Années particulières";
+                  $annee="AnnÃ©es particuliÃ¨res";
 
                if($groupe_id!="-1" && $groupe_id!=$old_groupe)
                {
@@ -287,7 +287,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                        $rowspan_count=$nb_groupes;
                           /*
                        $rowspan="<td class='td-gauche fond_menu' rowspan='$rowspan_count'>
-                                   <font class='Texte'>Formations<br>groupées</font>
+                                   <font class='Texte'>Formations<br>groupÃ©es</font>
                                  </td>\n";
                               */
                        $rowspan="";
@@ -336,7 +336,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
                   for($s=1; $s<=$max_session; $s++)
                      print("<td class='fond_menu2' style='padding:4px 20px 4px 20px; white-space:nowrap;'>
-                              <a href='edit_session.php?n=$s' class='lien_rouge12'><b>Session n°$s</b></font>
+                              <a href='edit_session.php?n=$s' class='lien_rouge12'><b>Session nÂ°$s</b></font>
                            </td>\n");
 
                   $current_session=1;
@@ -406,7 +406,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                            $date_ferm_txt=date("Y")==date("Y", $s_fermeture) ? date_fr("j F", $s_fermeture) : date_fr("j M Y", $s_fermeture);
                            $date_rec_txt=date("Y")==date("Y", $s_reception) ? date_fr("j F", $s_reception) : date_fr("j M Y", $s_reception);
    
-                           $dates_txt="$date_ouv_txt - $date_ferm_txt<br>Réception dossiers : $date_rec_txt";
+                           $dates_txt="$date_ouv_txt - $date_ferm_txt<br>RÃ©ception dossiers : $date_rec_txt";
                         }
                         else
                            $dates_txt="<img src='$__ICON_DIR/stop_22x22_menu.png' border='0'>";
@@ -466,7 +466,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                         }
                      }
    
-                     // La formation n'a pas autant de sessions que le nombre maximum : on complète proprement le tableau
+                     // La formation n'a pas autant de sessions que le nombre maximum : on complÃ¨te proprement le tableau
    
                      for($j=$nb_sessions; $j<$max_session; $j++)
                      {

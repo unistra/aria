@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -149,11 +149,11 @@ CeCILL-B, et que vous en avez accepté les termes.
    if(!isset($annee) || !isset($quand) || !isset($objet) || ($objet!="orph" && $objet!="all") || !ctype_digit($annee) || strlen($annee)!=4)
    {
       print("Usage : php nettoyeur.php -o <objet> -a <annee> [--avant|--avant_incluse] [-t]\n
-Paramètres :
--o <objet>  : objet peut être  \"orph\" (fiches orphelines) ou \"all\" (candidatures + fiches orphelines résultantes) ;
--a <annee>  : annee concernée par la suppression (format AAAA). Si l'option -o vaut \"all\", \"annee\" désigne l'année universitaire ; 
---avant|--avant_incluse : Indique si l'année précisée est incluse ou non dans les données à supprimer.
-                           Si aucun paramètre n'est précisé, seule l'année indiquée sera prise en compte.\n
+ParamÃ¨tres :
+-o <objet>  : objet peut Ãªtre  \"orph\" (fiches orphelines) ou \"all\" (candidatures + fiches orphelines rÃ©sultantes) ;
+-a <annee>  : annee concernÃ©e par la suppression (format AAAA). Si l'option -o vaut \"all\", \"annee\" dÃ©signe l'annÃ©e universitaire ; 
+--avant|--avant_incluse : Indique si l'annÃ©e prÃ©cisÃ©e est incluse ou non dans les donnÃ©es Ã  supprimer.
+                           Si aucun paramÃ¨tre n'est prÃ©cisÃ©, seule l'annÃ©e indiquÃ©e sera prise en compte.\n
 --test      : mode test/debug (aucune suppression).\n\n");
                            
       die();
@@ -164,12 +164,12 @@ Paramètres :
    if($quand=="avant0")
    {
       $quand_orph=$quand_all="avant";
-      $quand2="(année non incluse)";
+      $quand2="(annÃ©e non incluse)";
    }
    elseif($quand=="avant1")
    {
       $quand_orph=$quand_all="avant";
-      $quand2="(année incluse)";
+      $quand2="(annÃ©e incluse)";
    }
    else
    {
@@ -182,11 +182,11 @@ Paramètres :
    
    
    if($objet=="orph")
-      $txt="fiches orphelines créées $quand_orph $annee $quand2";
+      $txt="fiches orphelines crÃ©Ã©es $quand_orph $annee $quand2";
    elseif($objet=="all")
-      $txt="candidatures (et fiches orphelines résultantes) $quand_all l'année universitaire $annee_univ_txt $quand2";
+      $txt="candidatures (et fiches orphelines rÃ©sultantes) $quand_all l'annÃ©e universitaire $annee_univ_txt $quand2";
 
-   print("\nNote: en cas de suppression de candidats, les arborescences suivantes seront examinées et nettoyées : 
+   print("\nNote: en cas de suppression de candidats, les arborescences suivantes seront examinÃ©es et nettoyÃ©es : 
 - $GLOBALS[__PUBLIC_DIR_ABS]
 - $GLOBALS[__CAND_MSG_STOCKAGE_DIR_ABS]\n");
 
@@ -198,12 +198,12 @@ Paramètres :
       $confirmation=str_replace("\n", "", fgets(STDIN));
       
       if($confirmation=="" || $confirmation=="n" || $confirmation=="N")
-         die("Annulé.\n");
+         die("AnnulÃ©.\n");
    }
    
    print("$test_txt"."\nTraitement ... \n");
    
-   // Id des composantes pour le nettoyage des fichiers temporaires (requête commune aux suppressions complètes et des fiches orphelines)
+   // Id des composantes pour le nettoyage des fichiers temporaires (requÃªte commune aux suppressions complÃ¨tes et des fiches orphelines)
    $res_comp=db_query($dbr, "SELECT $_DBC_composantes_id FROM $_DB_composantes");
    $rows_comp=db_num_rows($res_comp);
 
@@ -216,11 +216,11 @@ Paramètres :
          case "en"     : $condition_candidat="$_DBC_candidat_id like '$annee_orph%'";
                          break;
 
-         case "avant0" : $limite=$annee_orph;   // année non incluse
+         case "avant0" : $limite=$annee_orph;   // annÃ©e non incluse
                          $condition_candidat="$_DBC_candidat_id < '$limite"."010100000000000'";
                          break;
 
-         case "avant1" : $limite=$annee_orph+1; // année incluse
+         case "avant1" : $limite=$annee_orph+1; // annÃ©e incluse
                          $condition_candidat="$_DBC_candidat_id < '$limite"."010100000000000'";
                          break;
       }
@@ -249,9 +249,9 @@ Paramètres :
 
             if(!db_num_rows(db_query($dbr, "SELECT * FROM $_DB_cand WHERE $_DBC_cand_candidat_id='$c_id'")))
             {
-               // Suppression des messages et des répertoires de l'utilisateur sur le disque
+               // Suppression des messages et des rÃ©pertoires de l'utilisateur sur le disque
                
-               // Sous répertoire du candidat
+               // Sous rÃ©pertoire du candidat
                $sous_rep=sous_rep_msg($c_id);
                
                if(ctype_digit($c_id) && is_dir("$GLOBALS[__CAND_MSG_STOCKAGE_DIR_ABS]/$sous_rep/$c_id") && is_writable("$GLOBALS[__CAND_MSG_STOCKAGE_DIR_ABS]/$sous_rep/$c_id"))
@@ -315,12 +315,12 @@ Paramètres :
       }
       
       // Pour la suppression des candidatures :
-      // 1 - on récupère d'abord les candidats concernés, 
+      // 1 - on rÃ©cupÃ¨re d'abord les candidats concernÃ©s, 
       // 2 - on supprime les candidatures
       // 3 - on reprend la liste des candidats et on supprime les fiches devenues orphelines
       $res_cand_annee=db_query($dbr, "SELECT distinct($_DBC_cand_candidat_id) FROM $_DB_cand WHERE $condition_candidature");
       
-      // Suppression des lignes de l'historique portant sur les candidatures à supprimer
+      // Suppression des lignes de l'historique portant sur les candidatures Ã  supprimer
       if($mode_test)
          print("$test_text"."DELETE FROM $_DB_hist WHERE $_DBC_hist_element_id IN (SELECT $_DBC_cand_id FROM $_DB_cand WHERE $condition_candidature)\n");
       else
@@ -362,16 +362,16 @@ Paramètres :
             
             list($c_id)=db_fetch_row($res_cand_annee, $i);
 
-            if($mode_test) // en mode test, la requête est différente puisque la suppression des candidatures n'a pas eu lieu
+            if($mode_test) // en mode test, la requÃªte est diffÃ©rente puisque la suppression des candidatures n'a pas eu lieu
                $requete="SELECT * FROM $_DB_cand WHERE $_DBC_cand_candidat_id='$c_id' AND $_DBC_cand_periode!='$annee'";
             else
                $requete="SELECT * FROM $_DB_cand WHERE $_DBC_cand_candidat_id='$c_id'";
                
             if(!db_num_rows(db_query($dbr, "$requete")))
             {
-               // Suppression des messages et des répertoires de l'utilisateur sur le disque
+               // Suppression des messages et des rÃ©pertoires de l'utilisateur sur le disque
               
-               // Sous répertoire du candidat
+               // Sous rÃ©pertoire du candidat
                $sous_rep=sous_rep_msg($c_id);
         
                if(ctype_digit($c_id) && is_dir("$GLOBALS[__CAND_MSG_STOCKAGE_DIR_ABS]/$sous_rep/$c_id") && is_writable("$GLOBALS[__CAND_MSG_STOCKAGE_DIR_ABS]/$sous_rep/$c_id"))
@@ -430,43 +430,43 @@ Paramètres :
    if(isset($nb_suppr_candidats))
    {
       if($nb_suppr_candidats==0)
-         print("Aucune fiche n'a été supprimée.\n");
+         print("Aucune fiche n'a Ã©tÃ© supprimÃ©e.\n");
       elseif($nb_suppr_candidats==1)
-         print("Une fiche orpheline a été supprimée.\n");
+         print("Une fiche orpheline a Ã©tÃ© supprimÃ©e.\n");
       else
-         print("$nb_suppr_candidats fiches orphelines ont été supprimées.\n");
+         print("$nb_suppr_candidats fiches orphelines ont Ã©tÃ© supprimÃ©es.\n");
    }
    
    if(isset($nb_suppr_candidatures))
    {
       if($nb_suppr_candidatures==0)
-         print("Aucune candidature n'a été supprimée.\n");
+         print("Aucune candidature n'a Ã©tÃ© supprimÃ©e.\n");
       elseif($nb_suppr_candidatures==1)
-         print("Une candidature a été supprimée.\n");
+         print("Une candidature a Ã©tÃ© supprimÃ©e.\n");
       else
-         print("$nb_suppr_candidatures candidatures ont été supprimées.\n");
+         print("$nb_suppr_candidatures candidatures ont Ã©tÃ© supprimÃ©es.\n");
    }
     
-   // Suppression des anciennes candidatures et des fiches orphelines résultantes
+   // Suppression des anciennes candidatures et des fiches orphelines rÃ©sultantes
    if(isset($nb_suppr_orph))
    {
       if($nb_suppr_orph==0)
-         print("Aucune fiche orpheline n'a été supprimée par la suite.\n");
+         print("Aucune fiche orpheline n'a Ã©tÃ© supprimÃ©e par la suite.\n");
       elseif($nb_suppr_orph==1)
-         print("Une fiche orpheline a été supprimée par la suite.\n");
+         print("Une fiche orpheline a Ã©tÃ© supprimÃ©e par la suite.\n");
       else
-         print("$nb_suppr_orph fiches orphelines ont été supprimées par la suite.\n");
+         print("$nb_suppr_orph fiches orphelines ont Ã©tÃ© supprimÃ©es par la suite.\n");
    }
       
    
    if(isset($suppr_reps))
    {
       if($suppr_reps==0)
-         print("Aucun répertoire utilisateur n'a été supprimé.\n");
+         print("Aucun rÃ©pertoire utilisateur n'a Ã©tÃ© supprimÃ©.\n");
       elseif($suppr_reps==1)
-         print("Un répertoire utilisateur a été supprimé.\n");
+         print("Un rÃ©pertoire utilisateur a Ã©tÃ© supprimÃ©.\n");
       else
-         print("$suppr_reps répertoires utilisateurs ont été supprimés.\n");
+         print("$suppr_reps rÃ©pertoires utilisateurs ont Ã©tÃ© supprimÃ©s.\n");
    }
    
    db_close($dbr);

@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -67,8 +67,8 @@ CeCILL-B, et que vous en avez accepté les termes.
 <div class='main'>
 	<div class='centered_box'>
 		<font class='Texte3'>
-			<b>Dépôt de dossiers de précandidature
-			<br><br>I - Déroulement d'une précandidature en ligne (4/5)</b>
+			<b>DÃ©pÃ´t de dossiers de prÃ©candidature
+			<br><br>I - DÃ©roulement d'une prÃ©candidature en ligne (4/5)</b>
 		</font>
 	</div>
 
@@ -77,41 +77,41 @@ CeCILL-B, et que vous en avez accepté les termes.
 			<u><b>Etape 4 </b> : Verrouillage et justificatifs</u>
 		</font>
 		<font class='Texte'>
-			<br><br>Une fois le délai imparti écoulé, chaque voeu est <strong>automatiquement verrouillé</strong>, la formation en question ne peut alors plus être 
-			modifiée sur votre fiche.
+			<br><br>Une fois le dÃ©lai imparti Ã©coulÃ©, chaque voeu est <strong>automatiquement verrouillÃ©</strong>, la formation en question ne peut alors plus Ãªtre 
+			modifiÃ©e sur votre fiche.
 			<br><br>
 			<b>Attention :</b>
 		</font>
 		<font class='Texte_important'>
-			<br>Votre cursus ne pourra plus être modifié après le verrouillage d'une formation (toutes composantes confondues). Veillez à bien compléter votre fiche
+			<br>Votre cursus ne pourra plus Ãªtre modifiÃ© aprÃ¨s le verrouillage d'une formation (toutes composantes confondues). Veillez Ã  bien complÃ©ter votre fiche
 			<b>avant</b> le verrouillage des formations choisies !
 		</font>
 		<font class='Texte'>
 			<br><br>
-			Cependant, certains éléments pourront toujours être modifiés (comme les éléments de votre identité, en cas de changement d'adresse par exemple).
+			Cependant, certains Ã©lÃ©ments pourront toujours Ãªtre modifiÃ©s (comme les Ã©lÃ©ments de votre identitÃ©, en cas de changement d'adresse par exemple).
 			<br><br>
-			Vous recevrez alors, au plus tard 24 heures après le verrouillage d'un voeu, un courriel de notification vous invitant à consulter la <b>messagerie interne de l'application</b>.
-			C'est via cette messagerie que vous pourrez consulter la liste des pièces justificatives à envoyer <b>par voie postale</b> au
-			service de scolarité de chaque composante concernée par vos demandes.
+			Vous recevrez alors, au plus tard 24 heures aprÃ¨s le verrouillage d'un voeu, un courriel de notification vous invitant Ã  consulter la <b>messagerie interne de l'application</b>.
+			C'est via cette messagerie que vous pourrez consulter la liste des piÃ¨ces justificatives Ã  envoyer <b>par voie postale</b> au
+			service de scolaritÃ© de chaque composante concernÃ©e par vos demandes.
 			<br><br>La messagerie interne est accessible depuis votre fiche (menu "Messagerie").
 		</font>
 		<br><br>
 		<b>Remarques :</b>
 		<font class='Texte_important'>
-			<br>- Vous devrez impérativement envoyer l'intégralité des pièces demandées, et faire remplir les éventuels formulaires par l'équipe pédagogique de votre
-			établissement actuel.
-			<br>- Pour les diplômes en cours de préparation, les justificatifs devront être envoyés dès leur obtention (n'attendez pas pour envoyer le reste des pièces demandées)
-			<br>- Sauf instruction contraire d'une scolarité, vous devrez envoyer un exemplaire de vos justificatifs <b>pour chaque formation demandée</b> (et donc pour
-			chaque courriel reçu).
-			<br>- <b>Aucun dossier incomplet ne sera traité</b>.
+			<br>- Vous devrez impÃ©rativement envoyer l'intÃ©gralitÃ© des piÃ¨ces demandÃ©es, et faire remplir les Ã©ventuels formulaires par l'Ã©quipe pÃ©dagogique de votre
+			Ã©tablissement actuel.
+			<br>- Pour les diplÃ´mes en cours de prÃ©paration, les justificatifs devront Ãªtre envoyÃ©s dÃ¨s leur obtention (n'attendez pas pour envoyer le reste des piÃ¨ces demandÃ©es)
+			<br>- Sauf instruction contraire d'une scolaritÃ©, vous devrez envoyer un exemplaire de vos justificatifs <b>pour chaque formation demandÃ©e</b> (et donc pour
+			chaque courriel reÃ§u).
+			<br>- <b>Aucun dossier incomplet ne sera traitÃ©</b>.
 			<br><br><br>
 		</font>
 	</div>
 	<div class='centered_box' style='padding-bottom:30px;'>
 		<a href='deroulement_3.php' class='lien_bleu_12'><img class='icone icone_texte_d' src='<?php echo "$__ICON_DIR/back_32x32_fond.png"; ?>' border='0'></a>
-		<a href='deroulement_3.php' class='lien_bleu_12' style='padding-right:50px;'><b>Etape 3 : Délai de modification de votre fiche</b></a>
+		<a href='deroulement_3.php' class='lien_bleu_12' style='padding-right:50px;'><b>Etape 3 : DÃ©lai de modification de votre fiche</b></a>
 		<a href='documentation.php' class='lien_bleu_10'>Retour au sommaire</a>
-		<a href='deroulement_5.php' class='lien_bleu_12' style='padding-left:50px;'><b>Etape 5 : Suivi et décision</b></a>
+		<a href='deroulement_5.php' class='lien_bleu_12' style='padding-left:50px;'><b>Etape 5 : Suivi et dÃ©cision</b></a>
 		<a href='deroulement_5.php' class='lien_bleu_12'><img class='icone icone_texte_g' src='<?php echo "$__ICON_DIR/forward_32x32_fond.png"; ?>' border='0'></a>
 	</div>
 </div>

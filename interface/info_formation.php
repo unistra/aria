@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -78,15 +78,15 @@ CeCILL-B, et que vous en avez accepté les termes.
 	$candidat_id=$_SESSION["authentifie"];
 
 	// On peut arriver sur cette page pour deux raisons :
-	// - soit des infos particulières sont attachées à la formation
-	// - soit des renseignements complémentaires sont demandés, et on rappelle au candidat de les remplir
+	// - soit des infos particuliÃ¨res sont attachÃ©es Ã  la formation
+	// - soit des renseignements complÃ©mentaires sont demandÃ©s, et on rappelle au candidat de les remplir
 
 	$dbr=db_connect();
 
 	// information
 	$result=db_query($dbr, "SELECT $_DBC_propspec_info FROM $_DB_propspec WHERE $_DBC_propspec_id='$_SESSION[propspec_id]'");
 
-	// Renseignements complémentaires
+	// Renseignements complÃ©mentaires
 	$count=db_num_rows(db_query($dbr, "SELECT * FROM $_DB_dossiers_ef
 												  WHERE $_DBC_dossiers_ef_propspec_id='$_SESSION[propspec_id]'"));
 
@@ -95,7 +95,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		list($info_formation)=db_fetch_row($result, 0);
 		db_free_result($result);
 /*
-		// Si l'information est vide et qu'il n'y a aucun renseignements complémentaires : on n'affiche que le résumé
+		// Si l'information est vide et qu'il n'y a aucun renseignements complÃ©mentaires : on n'affiche que le rÃ©sumÃ©
 		if(trim($info_formation)=="" && !$count)
 		{		
 			db_close($dbr);
@@ -126,7 +126,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 <div class='main'>
 	<?php
-		titre_page_icone("Résumé de votre voeu et informations spécifiques", "help2_32x32_fond.png", 30, "L");
+		titre_page_icone("RÃ©sumÃ© de votre voeu et informations spÃ©cifiques", "help2_32x32_fond.png", 30, "L");
 
 		$message="";
 
@@ -153,7 +153,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	<table align='center' style='padding:0px 30px 30px 30px;'>
 	<tr>
 		<td class='td-complet fond_menu2' colspan='2' style='padding:4px;'>
-			<font class='Texte_menu2'><b>Vous avez sélectionné la formation suivante : </b></font>
+			<font class='Texte_menu2'><b>Vous avez sÃ©lectionnÃ© la formation suivante : </b></font>
 		</td>
 	</tr>
 	<tr>
@@ -166,7 +166,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu'>
-			<font class='Texte'><strong>Année :</strong></font>
+			<font class='Texte'><strong>AnnÃ©e :</strong></font>
 		</td>
 		<td class='td-droite fond_menu'>
 			<font class='Texte'><?php echo $nom_formation; ?></font>
@@ -178,9 +178,9 @@ CeCILL-B, et que vous en avez accepté les termes.
 	      $cnt=count($_SESSION["array_formations_groupe"]);
 	      
 	      if($cnt==1)
-            $form_txt="la formation suivante a été automatiquement ajoutée";
+            $form_txt="la formation suivante a Ã©tÃ© automatiquement ajoutÃ©e";
 			else
-			   $form_txt="les formations suivantes ont été automatiquement ajoutées";
+			   $form_txt="les formations suivantes ont Ã©tÃ© automatiquement ajoutÃ©es";
 	?>
 	<tr>
 		<td class='td-gauche fond_menu'>
@@ -188,14 +188,14 @@ CeCILL-B, et que vous en avez accepté les termes.
 	   </td>
 	   <td class='td-droite fond_menu'>
          <font class='Texte'>
-           <strong>S'agissant d'une formation à choix multiples, <?php echo $form_txt; ?> à votre fiche :</strong>
+           <strong>S'agissant d'une formation Ã  choix multiples, <?php echo $form_txt; ?> Ã  votre fiche :</strong>
            
            <?php
               foreach($_SESSION["array_formations_groupe"] as $groupe_propspec_id => $groupe_formations_spec_nom)
                  print("<br>- $groupe_formations_spec_nom\n");
 			  ?>
 			  <br><br>
-			  Vous pourrez supprimer ou réordonner ces voeux dans le menu Précandidatures.
+			  Vous pourrez supprimer ou rÃ©ordonner ces voeux dans le menu PrÃ©candidatures.
      </td>
 	</tr>
 	<?php
@@ -227,7 +227,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		<td class='td-droite fond_menu'>
 			<font class='Texte'>
 				<?php echo date_fr("j F", $_SESSION["info_lockdate"]); ?>
-				<br>Si votre fiche est complète (vérifiez bien tous les menus de votre fiche), vous recevrez la liste des justificatifs à cette date.
+				<br>Si votre fiche est complÃ¨te (vÃ©rifiez bien tous les menus de votre fiche), vous recevrez la liste des justificatifs Ã  cette date.
 			</font>
 		</td>
 	</tr>
@@ -253,7 +253,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	</table>
 
 	<?php
-		// Renseignements complémentaires demandés : on affiche un rappel
+		// Renseignements complÃ©mentaires demandÃ©s : on affiche un rappel
 		if($count)
 		{
 			if(isset($_SESSION["info_lockdate"]))
@@ -262,8 +262,8 @@ CeCILL-B, et que vous en avez accepté les termes.
 				$date_verrouillage="verrouillage de ce voeu";
 
 			message("<center>
-							Attention : des <b>renseignements complémentaires</b> sont demandés pour cette formation.
-							<br>N'oubliez pas de compléter les formulaires dans le <b>menu \"6 - Autres renseignements\" avant le $date_verrouillage</b> !
+							Attention : des <b>renseignements complÃ©mentaires</b> sont demandÃ©s pour cette formation.
+							<br>N'oubliez pas de complÃ©ter les formulaires dans le <b>menu \"6 - Autres renseignements\" avant le $date_verrouillage</b> !
 						</center>", $__WARNING);
 		}
 

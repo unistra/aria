@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -69,14 +69,14 @@ CeCILL-B, et que vous en avez accepté les termes.
 		exit();
 	}
 
-	// Condition : la fiche doit être verrouillée ou être une fiche manuelle
+	// Condition : la fiche doit Ãªtre verrouillÃ©e ou Ãªtre une fiche manuelle
 	if((!isset($_SESSION["tab_candidat"]["lock"]) || $_SESSION["tab_candidat"]["lock"]!=1) && $_SESSION["tab_candidat"]["manuelle"]!=1)
 	{
 		header("Location:edit_candidature.php");
 		exit;
 	}
 
-	// identifiant de l'étudiant
+	// identifiant de l'Ã©tudiant
 	$candidat_id=$_SESSION["candidat_id"];
 
 	$dbr=db_connect();
@@ -97,7 +97,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		exit;
 	}
 
-	if(isset($_GET["la_id"]) && is_numeric($_GET["la_id"])) // modification d'un élément existant : l'identifiant est en paramètre
+	if(isset($_GET["la_id"]) && is_numeric($_GET["la_id"])) // modification d'un Ã©lÃ©ment existant : l'identifiant est en paramÃ¨tre
 		$_SESSION["la_id"]=$la_id=$_GET["la_id"];
 	elseif(isset($_GET["suppr"]) && is_numeric($_GET["suppr"]))
 	{
@@ -117,7 +117,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	}
 	elseif(isset($_SESSION["la_id"]))
 		$la_id=$_SESSION["la_id"];
-	else // pas de paramètre : ajout d'une candidature extérieure
+	else // pas de paramÃ¨tre : ajout d'une candidature extÃ©rieure
 		$la_id=0;
 
 	if(isset($_POST["go"]) || isset($_POST["go_x"])) // validation du formulaire
@@ -125,11 +125,11 @@ CeCILL-B, et que vous en avez accepté les termes.
 		$langue=str_replace("'","''", stripslashes(trim($_POST["langue"])));
 		$langue_libre=str_replace("'","''", stripslashes(ucwords(mb_strtolower(trim($_POST["langue_libre"])))));
 
-		if(empty($langue) && !empty($langue_libre)) // on vérifie que ce qui a été saisi dans le champ libre n'est pas dans la liste
+		if(empty($langue) && !empty($langue_libre)) // on vÃ©rifie que ce qui a Ã©tÃ© saisi dans le champ libre n'est pas dans la liste
 		{
 			$result=db_query($dbr,"SELECT $_DBC_liste_langues_langue FROM $_DB_liste_langues WHERE $_DBC_liste_langues_langue ILIKE '$langue_libre'");
 
-			if(db_num_rows($result)) // 1 seul résultat si ça donne quelque chose
+			if(db_num_rows($result)) // 1 seul rÃ©sultat si Ã§a donne quelque chose
 				list($langue)=db_fetch_row($result,0);
 			else
 				$langue=$langue_libre;
@@ -163,7 +163,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 				header("Location:edit_candidature.php");
 				exit();
 			}
-			else	// mise à jour d'une candidature extérieure existante
+			else	// mise Ã  jour d'une candidature extÃ©rieure existante
 			{
 				$req="UPDATE $_DB_langues SET 	$_DBU_langues_langue='$langue',
 															$_DBU_langues_niveau='$niveau',
@@ -185,7 +185,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 	if($la_id!=0)
 	{
-		// récupération des valeurs courantes
+		// rÃ©cupÃ©ration des valeurs courantes
 		$result=db_query($dbr,"SELECT $_DBC_langues_langue, $_DBC_langues_niveau, $_DBC_langues_annees
 										FROM $_DB_langues WHERE $_DBC_langues_id='$la_id'");
 		$rows=db_num_rows($result);
@@ -206,7 +206,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			$ecrit=$niveau_array[1];
 			$parle=$niveau_array[2];
 
-			// Compatibilité
+			// CompatibilitÃ©
 			if(isset($niveau_array[3]))
 				$maternelle=$niveau_array[3];
 			else
@@ -316,7 +316,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 				print("<input type='checkbox' name='lu' value='1' $lu_checked>Lu
 							&nbsp;&nbsp;<input type='checkbox' name='ecrit' value='1' $ecrit_checked>Ecrit
-							&nbsp;&nbsp;<input type='checkbox' name='parle' value='1' $parle_checked>Parlé
+							&nbsp;&nbsp;<input type='checkbox' name='parle' value='1' $parle_checked>ParlÃ©
 							&nbsp;&nbsp;<input type='checkbox' name='maternelle' value='1' $maternelle_checked>Langue Maternelle");
 			?>
 			</font>
@@ -324,7 +324,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu2' style="text-align:right;">
-			<font class='Texte_menu2'><b>Combien d'années la langue a-t'elle été étudiée ?</b></font>
+			<font class='Texte_menu2'><b>Combien d'annÃ©es la langue a-t'elle Ã©tÃ© Ã©tudiÃ©e ?</b></font>
 		</td>
 		<td class='td-droite fond_menu'>
 			<input type='text' name='nb_annees' value='<?php if(isset($cur_nb_annees)) echo htmlspecialchars(stripslashes($cur_nb_annees),ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="25" maxlength="128">

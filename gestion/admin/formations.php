@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -93,7 +93,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 	$dbr=db_connect();
 
-	// Argument chiffré pour un accès direct à la modification d'une formation
+	// Argument chiffrÃ© pour un accÃ¨s direct Ã  la modification d'une formation
 	if(isset($_GET["p"]) && -1!=($params=get_params($_GET['p'])))
 	{
 		if(isset($params["propspec"]) && ctype_digit($params["propspec"])
@@ -102,7 +102,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		{
 			$mod_propspec_id=$params["propspec"];
 
-			// En cas d'annulation ou de validation, on revient à l'offre de formation (plus rapide)
+			// En cas d'annulation ou de validation, on revient Ã  l'offre de formation (plus rapide)
 			$adresse_retour="offre.php";
 		}
 	}
@@ -144,11 +144,11 @@ CeCILL-B, et que vous en avez accepté les termes.
 		if(isset($_POST["propspec_id"]))
 			$propspec_id=$_POST["propspec_id"];
 
-		// IDENTIFIANT LIE A CELUI DE LA COMPOSANTE : OBSOLETE (remplacé par un identifiant de type 'bigint' comme les autres
-		// Motif : lorsqu'il y a trop de formations, l'identifiant peut "déborder" sur ceux utilisés par une autre composante
+		// IDENTIFIANT LIE A CELUI DE LA COMPOSANTE : OBSOLETE (remplacÃ© par un identifiant de type 'bigint' comme les autres
+		// Motif : lorsqu'il y a trop de formations, l'identifiant peut "dÃ©border" sur ceux utilisÃ©s par une autre composante
 
 		/*
-		else // Génération d'un nouvel identifiant
+		else // GÃ©nÃ©ration d'un nouvel identifiant
 		{
 			$result=db_query($dbr, "SELECT max($_DBU_propspec_id)+1 FROM $_DB_propspec
 											WHERE $_DBC_propspec_comp_id='$_SESSION[comp_id]'");
@@ -178,7 +178,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 		$new_flag_pass=isset($_POST["flag_pass"]) && ($_POST["flag_pass"]=='t' || $_POST["flag_pass"]=='f') ? $_POST["flag_pass"] : "f";
 
-		// on récupère la valeur courante pour voir si le mot de passe doit être mis à jour
+		// on rÃ©cupÃ¨re la valeur courante pour voir si le mot de passe doit Ãªtre mis Ã  jour
 		$current_flag_pass=isset($_POST["current_flag_pass"]) && ($_POST["current_flag_pass"]=='t' || $_POST["current_flag_pass"]=='f') ? $_POST["current_flag_pass"] : "f";
 
 		$new_pass=trim($_POST["pass"]);
@@ -227,13 +227,13 @@ CeCILL-B, et que vous en avez accepté les termes.
 		if($new_annee_id=="" || $new_spec_id=="" || $new_selective=="" || $new_entretiens=="" || $new_finalite=="")
 			$champs_vides=1;
 
-		// Validité des champs
+		// ValiditÃ© des champs
 		if($new_frais=="")
 			$new_frais=0;
 		elseif(!is_numeric($new_frais))
 			$format_frais=1;
 
-		// récupération des valeurs courantes, en cas de modification
+		// rÃ©cupÃ©ration des valeurs courantes, en cas de modification
 
 		if(!isset($champs_vides) && !isset($erreur_longueur_pass) && !isset($erreur_pass_confirmation))
 		{
@@ -256,7 +256,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 					if($current_annee!=$new_annee_id || $current_id_spec!=$new_spec_id || $new_finalite!=$current_finalite)
 					{
-						// Unicité de la formation : année + specialité + finalité
+						// UnicitÃ© de la formation : annÃ©e + specialitÃ© + finalitÃ©
 						if(db_num_rows(db_query($dbr, "SELECT * FROM $_DB_propspec
 																	WHERE $_DBC_propspec_annee='$new_annee_id'
 																	AND $_DBC_propspec_id_spec='$new_spec_id'
@@ -266,7 +266,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 					}
 				}
 			}
-			// En cas d'ajout : vérification d'unicité
+			// En cas d'ajout : vÃ©rification d'unicitÃ©
 			elseif(db_num_rows(db_query($dbr, "SELECT * FROM $_DB_propspec
 															WHERE $_DBC_propspec_annee='$new_annee_id'
 															AND $_DBC_propspec_id_spec='$new_spec_id'
@@ -303,7 +303,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 			db_close($dbr);
 
-			// Retour dépendant de la page depuis laquelle on vient
+			// Retour dÃ©pendant de la page depuis laquelle on vient
 			if(isset($_POST["retour"]))
 				header("Location:$_POST[retour]?succes=1");
 			else
@@ -331,44 +331,44 @@ CeCILL-B, et que vous en avez accepté les termes.
 		else
 			titre_page_icone("Gestion des formations", "", 30, "L");
 
-		// Messages d'erreur et de succès
+		// Messages d'erreur et de succÃ¨s
 
 		if(isset($propspec_id_existe_pas) || isset($_GET["erreur_suppr"]))
-			message("Erreur : l'identifiant de formation demandé est incorrect (problème de cohérence de la base ?)", $__ERREUR);
+			message("Erreur : l'identifiant de formation demandÃ© est incorrect (problÃ¨me de cohÃ©rence de la base ?)", $__ERREUR);
 
 		if(isset($champs_vides))
 			message("Erreur : les champs en <strong>gras</strong> sont <strong>obligatoires</strong>.", $__ERREUR);
 
 		if(isset($formation_existe))
-			message("Erreur : cette formation existe déjà !", $__ERREUR);
+			message("Erreur : cette formation existe dÃ©jÃ  !", $__ERREUR);
 
 		if(isset($format_frais))
-			message("Erreur : le champ \"Frais de dossier\" doit être une valeur numérique positive.", $__ERREUR);
+			message("Erreur : le champ \"Frais de dossier\" doit Ãªtre une valeur numÃ©rique positive.", $__ERREUR);
 
 		if(isset($formation_vide))
-			message("Erreur : vous devez sélectionner une formation valide", $__ERREUR);
+			message("Erreur : vous devez sÃ©lectionner une formation valide", $__ERREUR);
 
 		if(isset($erreur_longueur_pass))
-			message("Erreur : le mot de passe sélectionné est trop court (minimum 6 caractères)", $__ERREUR);
+			message("Erreur : le mot de passe sÃ©lectionnÃ© est trop court (minimum 6 caractÃ¨res)", $__ERREUR);
 
 		if(isset($erreur_pass_confirmation))
-			message("Erreur : les mots de passe sont différents", $__ERREUR);
+			message("Erreur : les mots de passe sont diffÃ©rents", $__ERREUR);
 
 		if(isset($succes) && $succes==1)
 		{
 			if($_SESSION["modification"]==1)
 			{
-				message("La formation a été modifiée avec succès.", $__SUCCES);
+				message("La formation a Ã©tÃ© modifiÃ©e avec succÃ¨s.", $__SUCCES);
 				unset($_SESSION["modification"]);
 			}
 			elseif($_SESSION["ajout_formation"]==1)
 			{
-				message("La formation a été créée avec succès.", $__SUCCES);
+				message("La formation a Ã©tÃ© crÃ©Ã©e avec succÃ¨s.", $__SUCCES);
 				unset($_SESSION["ajout_formation"]);
 			}
 			elseif($_SESSION["suppression"]==1)
 			{
-				message("La formation a été supprimée avec succès.", $__SUCCES);
+				message("La formation a Ã©tÃ© supprimÃ©e avec succÃ¨s.", $__SUCCES);
 				unset($_SESSION["suppression"]);
 			}
 		}
@@ -377,7 +377,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 		if((!isset($_SESSION["ajout_formation"]) || $_SESSION["ajout_formation"]==0) && (!isset($_SESSION["modification"]) || $_SESSION["modification"]==0) && (!isset($_SESSION["suppression"]) || $_SESSION["suppression"]==0))
 		{
-			// Choix de la formation à modifier
+			// Choix de la formation Ã  modifier
 			$result=db_query($dbr, "SELECT $_DBC_propspec_id, $_DBC_propspec_annee, $_DBC_annees_annee, $_DBC_propspec_id_spec,
 														$_DBC_specs_nom_court, $_DBC_specs_mention_id, $_DBC_propspec_finalite, $_DBC_mentions_nom,
 														$_DBC_propspec_manuelle, $_DBC_propspec_active
@@ -416,7 +416,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 										<option value='' label='' disabled></option>\n");
 
 						if($form_annee_nom=="")
-							$annee_nom="Années particulières";
+							$annee_nom="AnnÃ©es particuliÃ¨res";
 						else
 							$annee_nom=$form_annee_nom;
 
@@ -461,14 +461,14 @@ CeCILL-B, et que vous en avez accepté les termes.
 			else
 			{
 				$no_elements=1;
-            $message="Il n'y a actuellement aucune formation enregistrée dans cette composante.";
+            $message="Il n'y a actuellement aucune formation enregistrÃ©e dans cette composante.";
 
-            // Vérification du nombre de spécialités disponibles pour la création
+            // VÃ©rification du nombre de spÃ©cialitÃ©s disponibles pour la crÃ©ation
 
             if(!db_num_rows(db_query($dbr, "SELECT * FROM $_DB_specs WHERE $_DBC_specs_comp_id='$_SESSION[comp_id]'")))
             {
                $no_specs=1;
-               $message.="<br>De plus, vous devez dans un premier temps créer une ou plusieurs spécialités avant de pouvoir créer une formation.";
+               $message.="<br>De plus, vous devez dans un premier temps crÃ©er une ou plusieurs spÃ©cialitÃ©s avant de pouvoir crÃ©er une formation.";
             }
 
             message($message, $__INFO);
@@ -513,7 +513,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			$nom_formation=$form_annee_nom=="" ? "$form_spec_nom " . $tab_finalite[$form_finalite] : "$form_annee_nom $form_spec_nom " . $tab_finalite[$form_finalite];
 
 			message("<center>
-							<strong>Attention : </strong> La suppression entrainera également celle de <strong>toutes les candidatures correspondantes</strong>.
+							<strong>Attention : </strong> La suppression entrainera Ã©galement celle de <strong>toutes les candidatures correspondantes</strong>.
 							<br>Souhaitez vous vraiment supprimer la formation \"$nom_formation\" ?
 						</center>", $__QUESTION);
 
@@ -525,7 +525,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		}
 		elseif((isset($propspec_id) && isset($_SESSION["modification"]) && $_SESSION["modification"]==1) || (isset($_SESSION["ajout_formation"]) && $_SESSION["ajout_formation"]==1))
 		{
-			 // ajout ou modification (on récupère les infos actuelles)
+			 // ajout ou modification (on rÃ©cupÃ¨re les infos actuelles)
 
 			if($_SESSION["ajout_formation"]==1)
 			{
@@ -576,7 +576,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 					if($_SESSION["ajout_formation"]==1)
 						print("<strong>Nouvelle formation</strong>\n");
 					else
-						print("<strong>Saisie des nouvelles données</strong>\n");
+						print("<strong>Saisie des nouvelles donnÃ©es</strong>\n");
 				?>
 			</font>
 		</td>
@@ -591,7 +591,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu2'>
-			<font class='Texte_menu2'><strong>Année : </strong></font>
+			<font class='Texte_menu2'><strong>AnnÃ©e : </strong></font>
 		</td>
 		<td class='td-droite fond_menu'>
 			<select size="1" name="annee">
@@ -613,7 +613,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 					{
 						list($annee_id, $annee_nom)=db_fetch_row($result, $i);
 
-						$annee_nom=$annee_nom=="" ? "Années particulières" : $annee_nom;
+						$annee_nom=$annee_nom=="" ? "AnnÃ©es particuliÃ¨res" : $annee_nom;
 
 						$selected=($form_annee_id==$annee_id) ? "selected='1'" : "";
 						
@@ -628,7 +628,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu2'>
-			<font class='Texte_menu2'><strong>Mention / Spécialité : </strong></font>
+			<font class='Texte_menu2'><strong>Mention / SpÃ©cialitÃ© : </strong></font>
 		</td>
 		<td class='td-droite fond_menu'>
 			<select size="1" name="specialite">
@@ -681,7 +681,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu2'>
-			<font class='Texte_menu2'><strong>Finalité :</strong></font>
+			<font class='Texte_menu2'><strong>FinalitÃ© :</strong></font>
 		</td>
 		<td class='td-droite fond_menu'>
 			<select name='finalite'>
@@ -714,7 +714,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu2'>
-			<font class='Texte_menu2'><strong>Formation activée ?</strong></font>
+			<font class='Texte_menu2'><strong>Formation activÃ©e ?</strong></font>
 		</td>
 		<td class='td-droite fond_menu'>
 			<font class='Texte_menu'>
@@ -745,7 +745,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu2'>
-			<font class='Texte_menu2'><strong>Formation gérée manuellement ?</strong><br>(uniquement par la scolarité)</font>
+			<font class='Texte_menu2'><strong>Formation gÃ©rÃ©e manuellement ?</strong><br>(uniquement par la scolaritÃ©)</font>
 		</td>
 		<td class='td-droite fond_menu'>
 			<font class='Texte_menu'>
@@ -810,7 +810,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu2'>
-			<font class='Texte_menu2'><strong>Formation sélective ?</strong></font>
+			<font class='Texte_menu2'><strong>Formation sÃ©lective ?</strong></font>
 		</td>
 		<td class='td-droite fond_menu'>
 			<font class='Texte_menu'>
@@ -841,7 +841,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu2'>
-			<font class='Texte_menu2'><strong>Les candidats sont-ils convoqués à un entretien ?</strong></font>
+			<font class='Texte_menu2'><strong>Les candidats sont-ils convoquÃ©s Ã  un entretien ?</strong></font>
 		</td>
 		<td class='td-droite fond_menu'>
 			<font class='Texte_menu'>
@@ -872,7 +872,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu2'>
-			<font class='Texte_menu2'>Protéger la formation par un mot de passe ?</font>
+			<font class='Texte_menu2'>ProtÃ©ger la formation par un mot de passe ?</font>
 		</td>
 		<td class='td-droite fond_menu'>
 			<font class='Texte_menu'>
@@ -899,7 +899,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 							 <input type='radio' name='flag_pass' value='t' $yes_checked>&nbsp;Oui
 							 &nbsp;&nbsp;<input type='radio' name='flag_pass' value='f' $no_checked>&nbsp;Non\n");
 				?>
-			<i>&nbsp;&nbsp;Le mot de passe ne devra être transmis qu'aux candidats autorisés à sélectionner cette formation.
+			<i>&nbsp;&nbsp;Le mot de passe ne devra Ãªtre transmis qu'aux candidats autorisÃ©s Ã  sÃ©lectionner cette formation.
 			</font>
 		</td>
 	</tr>
@@ -909,7 +909,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		</td>
 		<td class='td-droite fond_menu'>
 			<input type='password' name='pass' value='<?php if((!isset($current_flag_pass) || $current_flag_pass=='f') && isset($new_pass)) echo htmlspecialchars(stripslashes($new_pass), ENT_QUOTES, $default_htmlspecialchars_encoding);?>' maxlength='24' size='32'>
-			<font class='Texte_menu'><i>(6 caractères minimum)</i></font>
+			<font class='Texte_menu'><i>(6 caractÃ¨res minimum)</i></font>
 		</td>
 	</tr>
 	<tr>

@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -85,7 +85,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 		if(isset($selected_comp_id) && ctype_digit($selected_comp_id) && !isset($expand))
 		{
-			// Récupération des paramètres propres à cette composante
+			// RÃ©cupÃ©ration des paramÃ¨tres propres Ã  cette composante
 			$dbr=db_connect();
 
 			$res_composante=db_query($dbr, "SELECT $_DBC_composantes_nom, $_DBC_universites_nom, $_DBC_universites_img_dir,
@@ -158,11 +158,11 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 <div class='main'>
 	<?php
-		titre_page_icone("Sélection de la composante dans laquelle vous souhaitez déposer un dossier", "composante_32x32_fond.png", 15, "L");
+		titre_page_icone("SÃ©lection de la composante dans laquelle vous souhaitez dÃ©poser un dossier", "composante_32x32_fond.png", 15, "L");
 
 		message("<center>
-						<b>Cliquez sur le nom de la composante pour la sélectionner</b> <i>(Entre parenthèses : nombre de formations déjà choisies dans la composante)</i>
-						<br>Si vous souhaitez déposer des dossiers dans plusieurs universités / composantes, <b>vous pourrez toujours revenir sur cette page par la suite</b>.
+						<b>Cliquez sur le nom de la composante pour la sÃ©lectionner</b> <i>(Entre parenthÃ¨ses : nombre de formations dÃ©jÃ  choisies dans la composante)</i>
+						<br>Si vous souhaitez dÃ©poser des dossiers dans plusieurs universitÃ©s / composantes, <b>vous pourrez toujours revenir sur cette page par la suite</b>.
 					</center>", $__INFO);
 
 		$result=db_query($dbr, "SELECT $_DBC_composantes_id, $_DBC_composantes_nom, $_DBC_composantes_univ_id, $_DBC_universites_nom,
@@ -215,7 +215,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 					print("<tr>
 								<td style='padding-right:10px' width='14'>
-									<a href='$php_self?p=$crypt_params2' target='_self'><img src='$__ICON_DIR/moins_11x11.png' width='11' border='0' title='Voir les détails' desc='Détails'></a>
+									<a href='$php_self?p=$crypt_params2' target='_self'><img src='$__ICON_DIR/moins_11x11.png' width='11' border='0' title='Voir les dÃ©tails' desc='DÃ©tails'></a>
 								</td>
 								<td align='left' style='text-align:left; padding-right:10px'>
 									<a href='$php_self?p=$crypt_params' class='lien_bleu_12' target='_self'><b>$comp_nom</b></a>
@@ -226,11 +226,11 @@ CeCILL-B, et que vous en avez accepté les termes.
 								<td align='right'></td>
 							</tr>\n");
 
-					$old_annee="===="; // on initialise à n'importe quoi (sauf année existante et valeur vide)
+					$old_annee="===="; // on initialise Ã  n'importe quoi (sauf annÃ©e existante et valeur vide)
 					$old_propspec_id="";
 					$old_mention="--";
 
-					$current_session=1; // par défaut
+					$current_session=1; // par dÃ©faut
 
 					// Nombre de sessions, pour l'affichage
 					$res_nb_sessions=db_query($dbr, "SELECT count(*) FROM $_DB_session, $_DB_propspec
@@ -247,7 +247,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 					else
 						$max_session=0;
 
-					// Même requête, pour l'année universitaire suivante
+					// MÃªme requÃªte, pour l'annÃ©e universitaire suivante
 					$res_nb_sessions=db_query($dbr, "SELECT count(*) FROM $_DB_session, $_DB_propspec
 																WHERE $_DBC_propspec_id=$_DBC_session_propspec_id
 																AND $_DBC_propspec_comp_id='$comp_id'
@@ -361,12 +361,12 @@ CeCILL-B, et que vous en avez accepté les termes.
 										<font class='Texte_10'>$array_propspec[formation]</font>
 									</td>\n");
 
-						// Pour la séparation entre l'année universitaire courante et la suivante
+						// Pour la sÃ©paration entre l'annÃ©e universitaire courante et la suivante
 						$current_session=1;
 						
 						foreach($array_dates_propspec[$propspec_id]["dates"] as $date_session)
 						{
-							// En cas de passage à la période suivante : on remplit proprement les colonnes vides
+							// En cas de passage Ã  la pÃ©riode suivante : on remplit proprement les colonnes vides
 							if($current_session<=$max_session && $date_session["periode"]==($__PERIODE+1))
 							{
 								for($x=$current_session; $x<=$max_session; $x++)
@@ -395,7 +395,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 					print("<tr>
 								<td style='padding-right:10px' width='14'>
-									<a href='$php_self?p=$crypt_params2' target='_self'><img src='$__ICON_DIR/plus_11x11.png' width='11' border='0' title='Voir les détails' desc='Détails'></a>
+									<a href='$php_self?p=$crypt_params2' target='_self'><img src='$__ICON_DIR/plus_11x11.png' width='11' border='0' title='Voir les dÃ©tails' desc='DÃ©tails'></a>
 								</td>
 								<td align='left' style='text-align:left; padding-right:10px'>
 									<a href='$php_self?p=$crypt_params' class='lien_bleu_12' target='_self'>$comp_nom</a>
@@ -403,7 +403,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 								<td style='padding-right:10px; padding-left:10px; text-align:center;'>
 									<font class='Texte'>$nb_txt</font>
 								</td>
-								<td align='right'><a href='$php_self?p=$crypt_params2' class='lien_bleu_10' target='_self'><i>Détail des dates</i></td>
+								<td align='right'><a href='$php_self?p=$crypt_params2' class='lien_bleu_10' target='_self'><i>DÃ©tail des dates</i></td>
 							</tr>\n");
 
 							// <td align='right'>$dates_txt</td>
@@ -422,7 +422,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	<br>
 	<div class='centered_box'>
 		<font class='Texte_3'>
-			<p>Vous êtes <?php echo $perdu; ?> dans le choix de la composante ?</p>
+			<p>Vous Ãªtes <?php echo $perdu; ?> dans le choix de la composante ?</p>
 			<p>Le <a href='http://www.universites-formations-alsace.fr' class='lien_bleu_14' target='_blank'><strong>Portail des formations universitaires en Alsace</strong></a> peut vous aider :
 			<p><a href='http://www.universites-formations-alsace.fr' class='lien_bleu' target='_blank'><img src='<?php echo "$__IMG_DIR/logo_formations.gif"; ?>' border='0'></a></p>
 		</font>

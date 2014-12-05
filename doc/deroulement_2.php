@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -67,34 +67,34 @@ CeCILL-B, et que vous en avez accepté les termes.
 <div class='main'>
 	<div class='centered_box'>
 		<font class='Texte3'>
-			<b>Dépôt de dossiers de précandidature
-			<br><br>I - Déroulement d'une précandidature en ligne (2/5)</b>
+			<b>DÃ©pÃ´t de dossiers de prÃ©candidature
+			<br><br>I - DÃ©roulement d'une prÃ©candidature en ligne (2/5)</b>
 		</font>
 	</div>
 
 	<div style='width:80%; text-align:justify; margin:0px auto 0px auto; padding-bottom:30px;'>
 		<font class='Texte3'>
-			<u><b>Etape 2 </b> : Présentation de l'interface de saisie</u>
+			<u><b>Etape 2 </b> : PrÃ©sentation de l'interface de saisie</u>
 		</font>
 		<font class='Texte'>
-			<br><br>Une fois vos identifiants reçus par courriel, vous pouvez accéder à l'interface de saisie.
+			<br><br>Une fois vos identifiants reÃ§us par courriel, vous pouvez accÃ©der Ã  l'interface de saisie.
 
-			<br><br><u><b>Sélection de la composante</b></u>
-			<br>Avant de compléter votre fiche, vous devez choisir dans quelle composante vous désirez déposer un dossier de précandidature (sauf si vous avez utilisé un lien
-			direct : dans ce cas, la composante est automatiquement sélectionnée). Au sein de l'interface, vous pouvez à tout moment sélectionner une autre composante afin de
-			déposer d'autres dossiers (cf. partie <b>II - <a href='composantes.php' class='lien2a'>Composantes</a></b>).
+			<br><br><u><b>SÃ©lection de la composante</b></u>
+			<br>Avant de complÃ©ter votre fiche, vous devez choisir dans quelle composante vous dÃ©sirez dÃ©poser un dossier de prÃ©candidature (sauf si vous avez utilisÃ© un lien
+			direct : dans ce cas, la composante est automatiquement sÃ©lectionnÃ©e). Au sein de l'interface, vous pouvez Ã  tout moment sÃ©lectionner une autre composante afin de
+			dÃ©poser d'autres dossiers (cf. partie <b>II - <a href='composantes.php' class='lien2a'>Composantes</a></b>).
 			<br>
-			<br><u><b>Saisie de vos données</b></u>
-			Après avoir sélectionné la composante et validé votre choix, vous pouvez commencer à compléter vos données. L'interface de	saisie est composée
-			de plusieurs menus : <b>chaque menu doit être complété consciencieusement</b> :
+			<br><u><b>Saisie de vos donnÃ©es</b></u>
+			AprÃ¨s avoir sÃ©lectionnÃ© la composante et validÃ© votre choix, vous pouvez commencer Ã  complÃ©ter vos donnÃ©es. L'interface de	saisie est composÃ©e
+			de plusieurs menus : <b>chaque menu doit Ãªtre complÃ©tÃ© consciencieusement</b> :
 		</font>
 		<br><br>
 		<font class='Texte3'>
-			&#8226;&nbsp;<u><b>Menu 1 : Identité</b></u>
+			&#8226;&nbsp;<u><b>Menu 1 : IdentitÃ©</b></u>
 		</font>
 		<font class='Texte'>
 			<br>
-			<br>Ce menu résume les informations entrées lors de votre enregistrement sur l'interface. Elles sont cruciales, vous pouvez les mettre à jour à tout moment.
+			<br>Ce menu rÃ©sume les informations entrÃ©es lors de votre enregistrement sur l'interface. Elles sont cruciales, vous pouvez les mettre Ã  jour Ã  tout moment.
 			<br><br><br>
 		</font>
 		<font class='Texte3'>
@@ -102,17 +102,17 @@ CeCILL-B, et que vous en avez accepté les termes.
 		</font>
 		<font class='Texte'>
 			<br>
-			<br>Ce menu vous permet de renseigner toutes les étapes de votre cursus scolaire, à partir du baccalauréat (ou équivalent) inclus.
+			<br>Ce menu vous permet de renseigner toutes les Ã©tapes de votre cursus scolaire, Ã  partir du baccalaurÃ©at (ou Ã©quivalent) inclus.
 			<br>
-			<br>Lorsque vous devez compléter un champ texte, veillez à le remplir de la manière la plus exacte possible. Des informations
-			incorrectes pourraient affecter le temps de traitement de votre fiche, et vos demandes pourraient ne pas être traitées.
+			<br>Lorsque vous devez complÃ©ter un champ texte, veillez Ã  le remplir de la maniÃ¨re la plus exacte possible. Des informations
+			incorrectes pourraient affecter le temps de traitement de votre fiche, et vos demandes pourraient ne pas Ãªtre traitÃ©es.
 			<br><br>
 		</font>
 		<font class='Texte_important_14'>
-			Chaque étape devra par la suite être justifiée. Pour chaque formation demandée, vous recevrez une liste des pièces à fournir
-			(par voie postale) au service de scolarité de chaque composante concernée par vos demandes.
-			<br><br>Les diplômes en cours de préparation seront à justifier dès l'obtention des résultats, <b>mais vous devez envoyer les
-			pièces déjà en votre possession sans attendre !</b>
+			Chaque Ã©tape devra par la suite Ãªtre justifiÃ©e. Pour chaque formation demandÃ©e, vous recevrez une liste des piÃ¨ces Ã  fournir
+			(par voie postale) au service de scolaritÃ© de chaque composante concernÃ©e par vos demandes.
+			<br><br>Les diplÃ´mes en cours de prÃ©paration seront Ã  justifier dÃ¨s l'obtention des rÃ©sultats, <b>mais vous devez envoyer les
+			piÃ¨ces dÃ©jÃ  en votre possession sans attendre !</b>
 			<br><br>	<br>
 		</font>
 		<font class='Texte3'>
@@ -120,39 +120,39 @@ CeCILL-B, et que vous en avez accepté les termes.
 		</font>
 		<font class='Texte'>
 			<br>
-			<br>Ce menu vous permet de renseigner votre niveau en langues étrangères. Vous pouvez préciser vos compétences (lu, écrit, parlé) pour chaque langue, ainsi que les
-			éventuels diplômes obtenus (TOEIC, TOEFL, TCF, ...).
+			<br>Ce menu vous permet de renseigner votre niveau en langues Ã©trangÃ¨res. Vous pouvez prÃ©ciser vos compÃ©tences (lu, Ã©crit, parlÃ©) pour chaque langue, ainsi que les
+			Ã©ventuels diplÃ´mes obtenus (TOEIC, TOEFL, TCF, ...).
 			<br><br><br>
 		</font>
 		<font class='Texte3'>
-			&#8226;&nbsp;<u><b>Menu 4 : Informations complémentaires et expériences professionnelles</b></u>
+			&#8226;&nbsp;<u><b>Menu 4 : Informations complÃ©mentaires et expÃ©riences professionnelles</b></u>
 		</font>
 		<font class='Texte'>
 			<br>
-			<br>Renseignez ici vos expériences professionnelles (formations, stages, emplois), et autres informations (service national, arrêt et reprise d'études ...)
-			susceptibles d'intéresser les scolarités ou les responsables de Commissions Pédagogiques.
+			<br>Renseignez ici vos expÃ©riences professionnelles (formations, stages, emplois), et autres informations (service national, arrÃªt et reprise d'Ã©tudes ...)
+			susceptibles d'intÃ©resser les scolaritÃ©s ou les responsables de Commissions PÃ©dagogiques.
 			<br><br><br>
 		</font>
 		<font class='Texte3'>
-			&#8226;&nbsp;<u><b>Menu 5 : Précandidatures pour la Composante sélectionnée</b></u>
+			&#8226;&nbsp;<u><b>Menu 5 : PrÃ©candidatures pour la Composante sÃ©lectionnÃ©e</b></u>
 		</font>
 		<font class='Texte'>
 			<br>
-			<br>Ce menu vous permet de sélectionner les formations pour lesquelles vous souhaitez déposer une précandidature.
+			<br>Ce menu vous permet de sÃ©lectionner les formations pour lesquelles vous souhaitez dÃ©poser une prÃ©candidature.
 			<br>
-			<br>Vous devez <b>trier</b> vos voeux </font><font class='Texte_important'><b>par ordre de préférence décroissant</b></font>
-			<font class='Texte'>(en d'autres termes : ce que vous préférez tout en haut de la liste). Sur chaque ligne, des flèches sont présentes à droite pour
-			réordonner vos précandidatures vers le haut ou vers le bas.
+			<br>Vous devez <b>trier</b> vos voeux </font><font class='Texte_important'><b>par ordre de prÃ©fÃ©rence dÃ©croissant</b></font>
+			<font class='Texte'>(en d'autres termes : ce que vous prÃ©fÃ©rez tout en haut de la liste). Sur chaque ligne, des flÃ¨ches sont prÃ©sentes Ã  droite pour
+			rÃ©ordonner vos prÃ©candidatures vers le haut ou vers le bas.
 			<br><br>
 		</font>
-		<font class='Texte_important'><u><b>Remarque concernant les candidatures à choix multiples :</b></u></font>
+		<font class='Texte_important'><u><b>Remarque concernant les candidatures Ã  choix multiples :</b></u></font>
 		<font class='Texte'>
 			<br><br>
-			Dans certaines composantes, des formations sont automatiquement regroupées en une seule candidature.
-			Celà signifie que vous devrez, pour ce voeu particulier, trier là encore par ordre de préférence décroissant les formations/spécialités choisies.
-			D'autres flèches prévues à cet effet, situées cette fois sur le coté gauche, apparaîtront automatiquement.
+			Dans certaines composantes, des formations sont automatiquement regroupÃ©es en une seule candidature.
+			CelÃ  signifie que vous devrez, pour ce voeu particulier, trier lÃ  encore par ordre de prÃ©fÃ©rence dÃ©croissant les formations/spÃ©cialitÃ©s choisies.
+			D'autres flÃ¨ches prÃ©vues Ã  cet effet, situÃ©es cette fois sur le cotÃ© gauche, apparaÃ®tront automatiquement.
 			<br><br><b>Remarque :
-			<br>Sauf instruction contraire de la scolarité, vous devrez envoyer un seul exemplaire des justificatifs demandés pour ces spécialités regroupées.
+			<br>Sauf instruction contraire de la scolaritÃ©, vous devrez envoyer un seul exemplaire des justificatifs demandÃ©s pour ces spÃ©cialitÃ©s regroupÃ©es.
 			<br><br><br>
 		</font>
 		<font class='Texte3'>
@@ -160,26 +160,26 @@ CeCILL-B, et que vous en avez accepté les termes.
 		</font>
 		<font class='Texte'>
 			<br>
-			<br><b>Ce menu n'apparaît que lorsqu'une composante demande des informations complémentaires.</b>
-			<br><br>En fonction des formations sélectionnés, certaines composantes demandent que vous remplissiez des formulaires spéciaux,
-			comme le contenu de vos précédents enseignements, par exemple.
+			<br><b>Ce menu n'apparaÃ®t que lorsqu'une composante demande des informations complÃ©mentaires.</b>
+			<br><br>En fonction des formations sÃ©lectionnÃ©s, certaines composantes demandent que vous remplissiez des formulaires spÃ©ciaux,
+			comme le contenu de vos prÃ©cÃ©dents enseignements, par exemple.
 			<br><br>
 		</font>
 		<font class='Texte_important_14'>
-			<b>Ces champs ne sont pas optionnels, vérifiez bien la présence ou non de ce menu, pour chaque composante</b>
+			<b>Ces champs ne sont pas optionnels, vÃ©rifiez bien la prÃ©sence ou non de ce menu, pour chaque composante</b>
 		</font>
 
 		<font class='Texte_important_14'>
-			<b>Important</b> : un dépôt de précandidature ne signifie en aucun cas que votre demande sera examinée par la Commission Pédagogique : votre
-			précandidature doit d'abord être validée par les scolarités des composantes concernées (justificatifs de votre cursus et prérequis satisfaits
-			pour les formations demandées).
+			<b>Important</b> : un dÃ©pÃ´t de prÃ©candidature ne signifie en aucun cas que votre demande sera examinÃ©e par la Commission PÃ©dagogique : votre
+			prÃ©candidature doit d'abord Ãªtre validÃ©e par les scolaritÃ©s des composantes concernÃ©es (justificatifs de votre cursus et prÃ©requis satisfaits
+			pour les formations demandÃ©es).
 		</font>
 	</div>
 	<div class='centered_box' style='padding-bottom:30px;'>
 		<a href='deroulement_1.php' class='lien_bleu_12'><img class='icone icone_texte_d' src='<?php echo "$__ICON_DIR/back_32x32_fond.png"; ?>' border='0'></a>
 		<a href='deroulement_1.php' class='lien_bleu_12' style='padding-right:50px;'><b>Etape 1 : Identifiant et mot de passe</b></a>
 		<a href='documentation.php' class='lien_bleu_10'>Retour au sommaire</a></td>
-		<a href='deroulement_3.php' class='lien_bleu_12' style='padding-left:50px;'><b>Etape 3 : Délai de modification de votre fiche</b></a>
+		<a href='deroulement_3.php' class='lien_bleu_12' style='padding-left:50px;'><b>Etape 3 : DÃ©lai de modification de votre fiche</b></a>
 		<a href='deroulement_3.php' class='lien_bleu_12'><img class='icone icone_texte_g' src='<?php echo "$__ICON_DIR/forward_32x32_fond.png"; ?>' border='0'></a>
 	</div>
 </div>

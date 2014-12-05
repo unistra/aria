@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,36 +20,36 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
 ?>
 <?php
-	// Vérifications complémentaires au cas où ce fichier serait appelé directement
+	// VÃ©rifications complÃ©mentaires au cas oÃ¹ ce fichier serait appelÃ© directement
 	verif_auth();
 
 	if(!isset($_SESSION["candidat_id"]))
@@ -63,23 +63,23 @@ CeCILL-B, et que vous en avez accepté les termes.
 			</div>\n");
 
 	if(isset($modifs) && $modifs>0)
-		message("Succès de la mise à jour - message envoyé au candidat", $__SUCCES);
+		message("SuccÃ¨s de la mise Ã  jour - message envoyÃ© au candidat", $__SUCCES);
 	elseif(isset($modifs) && $modifs==0)
-		message("Aucune modification effectuée, aucun message n'a été envoyé.", $__SUCCES);
+		message("Aucune modification effectuÃ©e, aucun message n'a Ã©tÃ© envoyÃ©.", $__SUCCES);
 
 	if(isset($precision_vide))
-		message("Attention : le champ 'Précisions' de certaines étapes non justifiées n'a pas été renseigné !", $__WARNING);
+		message("Attention : le champ 'PrÃ©cisions' de certaines Ã©tapes non justifiÃ©es n'a pas Ã©tÃ© renseignÃ© !", $__WARNING);
 
 	if(in_array($_SESSION["niveau"], array("$__LVL_SCOL_MOINS","$__LVL_SCOL_PLUS","$__LVL_RESP","$__LVL_SUPER_RESP","$__LVL_ADMIN")) && ($_SESSION["tab_candidat"]["lock"]==1 || $_SESSION["tab_candidat"]["manuelle"]==1))
 		print("<div class='centered_box'>
 					<a href='cursus.php' target='_self' class='lien2'><img class='icone' src='$__ICON_DIR/add_22x22_fond.png' border='0' alt='Ajouter' desc='Ajouter'></a>
-					<a href='cursus.php' target='_self' class='lien2'>Ajouter manuellement une étape du cursus</a>
+					<a href='cursus.php' target='_self' class='lien2'>Ajouter manuellement une Ã©tape du cursus</a>
 				</div>\n");
 ?>
 	<table style='margin-left:auto; margin-right:auto; padding-bottom:20px;'>
 	<tr>
 		<td colspan='2' class='td-gauche fond_menu2'>
-			<font class='Texte_menu2'><strong>Diplôme / Niveau d'études</strong></font>
+			<font class='Texte_menu2'><strong>DiplÃ´me / Niveau d'Ã©tudes</strong></font>
 		</td>
 		<td class='td-milieu fond_menu2'>
 			<font class='Texte_menu2'><strong>Justification</strong></font>
@@ -87,11 +87,11 @@ CeCILL-B, et que vous en avez accepté les termes.
 	<?php
 		if($_SESSION["tab_candidat"]["lock"]==1 || $_SESSION["tab_candidat"]["manuelle"]==1)
 			print("<td colspan='2' class='td-droite fond_menu2'>
-						<font class='Texte_menu2'><strong>Précisions</strong></font>
+						<font class='Texte_menu2'><strong>PrÃ©cisions</strong></font>
 					 </td>\n");
 		else
 			print("<td class='td-droite fond_menu2'>
-						<font class='Texte_menu2'><strong>Précisions</strong></font>
+						<font class='Texte_menu2'><strong>PrÃ©cisions</strong></font>
 					 </td>\n");
 	?>
 	</tr>
@@ -118,7 +118,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 											ORDER BY $_DBC_cursus_annee DESC)");
 		$rows=db_num_rows($result);
 
-		// compteur de cursus non justifiés (sert à déterminer si une fiche peut être transférée vers la compeda)
+		// compteur de cursus non justifiÃ©s (sert Ã  dÃ©terminer si une fiche peut Ãªtre transfÃ©rÃ©e vers la compeda)
 		$cursus_non_justifies=0;
 
 		// on a des informations sur le cursus, on initialise le tableau
@@ -141,9 +141,9 @@ CeCILL-B, et que vous en avez accepté les termes.
 			else
 				$pays="";
 
-			// si le candidat a été ajourné, on le précise (ça évite de demander un justificatif)
-			if(!empty($mention) && $mention=="Ajourné")
-				$mention="- <strong>Ajourné</strong>";
+			// si le candidat a Ã©tÃ© ajournÃ©, on le prÃ©cise (Ã§a Ã©vite de demander un justificatif)
+			if(!empty($mention) && $mention=="AjournÃ©")
+				$mention="- <strong>AjournÃ©</strong>";
 			else
 				$mention="";
 
@@ -152,7 +152,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			else
 				$moyenne="";
 
-			// Satut de l'étape pour la composante concernée
+			// Satut de l'Ã©tape pour la composante concernÃ©e
 			$result2=db_query($dbr, "SELECT $_DBC_cursus_justif_statut, $_DBC_cursus_justif_precision
 												FROM $_DB_cursus_justif
 											 WHERE $_DBC_cursus_justif_cursus_id='$cu_id'
@@ -172,46 +172,46 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 			db_free_result($result2);
 
-			// Justification des éléments du cursus (cf macros dans vars.php)
-			// 0 = En attente des pièces (valeur par défaut)
-			// -2 = Pièces à fournir dès l'obtention du diplôme (pour les étapes en cours)
-			// -1 = Pièce(s) requise(s) manquante(s)
-			// 1 = Etape du cursus validée
-			// 2 = Etape ne nécessitant aucune justification
+			// Justification des Ã©lÃ©ments du cursus (cf macros dans vars.php)
+			// 0 = En attente des piÃ¨ces (valeur par dÃ©faut)
+			// -2 = PiÃ¨ces Ã  fournir dÃ¨s l'obtention du diplÃ´me (pour les Ã©tapes en cours)
+			// -1 = PiÃ¨ce(s) requise(s) manquante(s)
+			// 1 = Etape du cursus validÃ©e
+			// 2 = Etape ne nÃ©cessitant aucune justification
 
 			switch($justifie)
 			{
 				case	$__CURSUS_NON_JUSTIFIE:			$en_attente_selected=$a_fournir_des_obtention=$non_necessaire_selected=$oui_selected=$pieces_manquantes_selected="";
 																$non_justifie='selected=1';
-																$statut_cursus="Information non confirmée";
+																$statut_cursus="Information non confirmÃ©e";
 																break;
 
 
 				case	$__CURSUS_EN_ATTENTE	:			$non_justifie=$a_fournir_des_obtention=$non_necessaire_selected=$oui_selected=$pieces_manquantes_selected="";
 																$en_attente_selected='selected=1';
 																$cursus_non_justifies++;
-																$statut_cursus="En attente des pièces";
+																$statut_cursus="En attente des piÃ¨ces";
 																break;
 
 				case	$__CURSUS_VALIDE	:				$oui_selected='selected=1';
 																$non_justifie=$a_fournir_des_obtention=$non_necessaire_selected=$en_attente_selected=$pieces_manquantes_selected="";
-																$statut_cursus="Information validée";
+																$statut_cursus="Information validÃ©e";
 																break;
 
 				case	$__CURSUS_PIECES	:				$non_justifie=$a_fournir_des_obtention=$non_necessaire_selected=$oui_selected=$en_attente_selected="";
 																$pieces_manquantes_selected='selected=1';
 																$cursus_non_justifies++;
-																$statut_cursus="Pièces manquantes";
+																$statut_cursus="PiÃ¨ces manquantes";
 																break;
 
 				case	$__CURSUS_NON_NECESSAIRE	:	$non_justifie=$oui_selected=$en_attente_selected=$a_fournir_des_obtention=$pieces_manquantes_selected="";
 																$non_necessaire_selected='selected=1';
-																$statut_cursus="Aucun justificatif nécessaire";
+																$statut_cursus="Aucun justificatif nÃ©cessaire";
 																break;
 
 				case	$__CURSUS_DES_OBTENTION	:		$non_justifie=$oui_selected=$non_necessaire_selected=$en_attente_selected=$pieces_manquantes_selected="";
 																$a_fournir_des_obtention='selected=1';
-																$statut_cursus="Justificatif à fournir dès l'obtention";
+																$statut_cursus="Justificatif Ã  fournir dÃ¨s l'obtention";
 																break;
 			}
 
@@ -221,7 +221,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			$_SESSION["tab_cursus"][$cu_id]["justifie"]=$justifie;
 			$_SESSION["tab_cursus"][$cu_id]["precision"]=$precision;
 
-			// Si la fiche est vérrouillée, on autorise la modification des étapes entrées
+			// Si la fiche est vÃ©rrouillÃ©e, on autorise la modification des Ã©tapes entrÃ©es
 			if(in_array($_SESSION["niveau"], array("$__LVL_SCOL_MOINS","$__LVL_SCOL_PLUS","$__LVL_RESP","$__LVL_SUPER_RESP","$__LVL_ADMIN")) && ($_SESSION["tab_candidat"]["lock"]==1 || $_SESSION["tab_candidat"]["manuelle"]==1))
 			{
 				print("<tr>
@@ -249,12 +249,12 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 			if(in_array($_SESSION["niveau"], array("$__LVL_SAISIE", "$__LVL_SCOL_MOINS","$__LVL_SCOL_PLUS","$__LVL_RESP","$__LVL_SUPER_RESP","$__LVL_ADMIN")) && ($_SESSION["tab_candidat"]["lock"]==1 || $_SESSION["tab_candidat"]["manuelle"]==1))
 				print("<select name='justification_$cu_id' size='1'>
-							<option value='$__CURSUS_EN_ATTENTE' $en_attente_selected>En attente des pièces</option>
-							<option value='$__CURSUS_VALIDE' $oui_selected>Information validée</option>
-							<option value='$__CURSUS_PIECES' $pieces_manquantes_selected>Pièces manquantes</option>
-							<option value='$__CURSUS_DES_OBTENTION' $a_fournir_des_obtention>Justificatif à fournir dès l'obtention</option>
-							<option value='$__CURSUS_NON_NECESSAIRE' $non_necessaire_selected>Aucun justificatif nécessaire</option>
-							<option value='$__CURSUS_NON_JUSTIFIE' $non_justifie>Information jamais confirmée</option>
+							<option value='$__CURSUS_EN_ATTENTE' $en_attente_selected>En attente des piÃ¨ces</option>
+							<option value='$__CURSUS_VALIDE' $oui_selected>Information validÃ©e</option>
+							<option value='$__CURSUS_PIECES' $pieces_manquantes_selected>PiÃ¨ces manquantes</option>
+							<option value='$__CURSUS_DES_OBTENTION' $a_fournir_des_obtention>Justificatif Ã  fournir dÃ¨s l'obtention</option>
+							<option value='$__CURSUS_NON_NECESSAIRE' $non_necessaire_selected>Aucun justificatif nÃ©cessaire</option>
+							<option value='$__CURSUS_NON_JUSTIFIE' $non_justifie>Information jamais confirmÃ©e</option>
 						</select>
 					</td>
 					<td class='td-milieu fond_menu'>
@@ -277,7 +277,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 		if(in_array($_SESSION["niveau"], array("$__LVL_SAISIE", "$__LVL_SCOL_MOINS","$__LVL_SCOL_PLUS","$__LVL_RESP","$__LVL_SUPER_RESP","$__LVL_ADMIN")) && ($_SESSION["tab_candidat"]["lock"]==1 || $_SESSION["tab_candidat"]["manuelle"]==1))
 		{
-			message("Toute modification validée entraîne automatiquement l'envoi d'un message au candidat<br><center>(message global pour l'ensemble des étapes du cursus)</center>", $__WARNING);
+			message("Toute modification validÃ©e entraÃ®ne automatiquement l'envoi d'un message au candidat<br><center>(message global pour l'ensemble des Ã©tapes du cursus)</center>", $__WARNING);
 
 			print("<div class='centered_box'>
 						<input type='image' src='$__ICON_DIR/bouton_valider_128x32_fond.png' alt='Valider les modifications' name='go_cursus' value='Valider les modifications'>

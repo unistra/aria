@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,36 +20,36 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
 ?>
 <?php
-   // Vérifications complémentaires au cas où ce fichier serait appelé directement
+   // VÃ©rifications complÃ©mentaires au cas oÃ¹ ce fichier serait appelÃ© directement
    verif_auth();
 
    if(!isset($_SESSION["candidat_id"]))
@@ -59,59 +59,59 @@ CeCILL-B, et que vous en avez accepté les termes.
    }
 
    print("<div class='centered_box'>
-            <font class='Texte_16'><strong>$_SESSION[onglet] - Candidatures pour l'année universitaire $__PERIODE - " . ($__PERIODE+1) . " - Triées par ordre de préférence décroissant</strong></font>
+            <font class='Texte_16'><strong>$_SESSION[onglet] - Candidatures pour l'annÃ©e universitaire $__PERIODE - " . ($__PERIODE+1) . " - TriÃ©es par ordre de prÃ©fÃ©rence dÃ©croissant</strong></font>
          </div>");
 
    if(in_array($_SESSION["niveau"],array("$__LVL_SCOL_MOINS","$__LVL_SCOL_PLUS","$__LVL_RESP","$__LVL_SUPER_RESP","$__LVL_ADMIN")))
       print("<div class='centered_box'>
-               <a href='ajout_candidature.php' target='_self' class='lien2'><img class='icone' src='$__ICON_DIR/add_22x22_fond.png' border='0' alt='Ajouter' desc='Ajouter' title='[Ajouter une précandidature]></a>
-               <a href='ajout_candidature.php' target='_self' class='lien2'>Ajouter manuellement une précandidature</a>
+               <a href='ajout_candidature.php' target='_self' class='lien2'><img class='icone' src='$__ICON_DIR/add_22x22_fond.png' border='0' alt='Ajouter' desc='Ajouter' title='[Ajouter une prÃ©candidature]></a>
+               <a href='ajout_candidature.php' target='_self' class='lien2'>Ajouter manuellement une prÃ©candidature</a>
             </div>\n");
 
    if(isset($motivation_vide))
-      message("Erreur : la mise en attente d'une précandidature doit obligatoirement être motivée", $__ERREUR);
+      message("Erreur : la mise en attente d'une prÃ©candidature doit obligatoirement Ãªtre motivÃ©e", $__ERREUR);
 
    if(isset($cand_success) && $cand_success>0)
    {
       if(isset($cand_messages) && $cand_messages>0)
       {
-         $au_candidat=$_SESSION['tab_candidat']['civ_texte']=="M." ? "au candidat" : "à la candidate";
+         $au_candidat=$_SESSION['tab_candidat']['civ_texte']=="M." ? "au candidat" : "Ã  la candidate";
             
-         $cand_messages_txt=$cand_messages==1 ? "<br><strong>Un message a été envoyé $au_candidat</strong>" : "<br><strong>$cand_messages messages ont été envoyés $au_candidat</strong>";
+         $cand_messages_txt=$cand_messages==1 ? "<br><strong>Un message a Ã©tÃ© envoyÃ© $au_candidat</strong>" : "<br><strong>$cand_messages messages ont Ã©tÃ© envoyÃ©s $au_candidat</strong>";
       }
       else
          $cand_messages_txt="";
 
       if($cand_success==1)
          message("<center>
-                     La précandidature a été modifiée avec succès.
+                     La prÃ©candidature a Ã©tÃ© modifiÃ©e avec succÃ¨s.
                      $cand_messages_txt
                   </center>", $__SUCCES);
       else
          message("<center>
-                     $cand_success précandidatures modifiées avec succès.
+                     $cand_success prÃ©candidatures modifiÃ©es avec succÃ¨s.
                      $cand_messages_txt
                   </center>", $__SUCCES);
    }
 
    if(isset($rest_succes) && $rest_succes==1)
-      message("La précandidature a été restaurée avec succès", $__SUCCES);
+      message("La prÃ©candidature a Ã©tÃ© restaurÃ©e avec succÃ¨s", $__SUCCES);
 
    if(isset($succes_date) && $succes_date==1)
-      message("Date mise à jour.", $__SUCCES);
+      message("Date mise Ã  jour.", $__SUCCES);
 ?>
 
 <table style='margin:0px auto 0px auto;'>
 
 <?php
-   // nombre total de candidatures (une candidature à choix multiples compte comme une seule candidature) pour cette période
+   // nombre total de candidatures (une candidature Ã  choix multiples compte comme une seule candidature) pour cette pÃ©riode
    $result=db_query($dbr,"SELECT max($_DBC_cand_ordre) FROM $_DB_cand, $_DB_propspec
                            WHERE $_DBC_cand_candidat_id='$candidat_id'
                            AND $_DBC_cand_propspec_id=$_DBC_propspec_id
                            AND $_DBC_propspec_comp_id=$_SESSION[comp_id]
                            AND $_DBC_cand_periode='$__PERIODE'");
 
-   // on aura un résultat, même vide
+   // on aura un rÃ©sultat, mÃªme vide
    list($nb_cand)=db_fetch_row($result,0);
    db_free_result($result);
 
@@ -142,10 +142,10 @@ CeCILL-B, et que vous en avez accepté les termes.
    // compteur pour le calcul des frais
    $total_frais_dossiers=0;
 
-   // on a des candidatures, on créé un tableau en variable de session pour accéder rapidement à certains paramètres
+   // on a des candidatures, on crÃ©Ã© un tableau en variable de session pour accÃ©der rapidement Ã  certains paramÃ¨tres
    $_SESSION["tab_candidatures"]=array();
 
-   $old_groupe_spec=-1; // initialisation à une valeur négative (positive = numéro de groupe)
+   $old_groupe_spec=-1; // initialisation Ã  une valeur nÃ©gative (positive = numÃ©ro de groupe)
 
    // Options d'affichage
    $colspan_global=3;
@@ -163,7 +163,7 @@ CeCILL-B, et que vous en avez accepté les termes.
             $finalite, $frais_dossiers, $statut_frais, $session_id, $affichage_decisions, $ent_date, $ent_heure,
             $ent_lieu, $ent_salle, $notification_envoyee)=db_fetch_row($result,$i);
 
-      // Options de gestion en fonction des droits d'accès de l'utilisateur et de la formations
+      // Options de gestion en fonction des droits d'accÃ¨s de l'utilisateur et de la formations
       if(in_array($_SESSION["niveau"],array("$__LVL_SCOL_PLUS","$__LVL_RESP","$__LVL_SUPER_RESP","$__LVL_ADMIN")))
       {
          // Options de gestion : ajout, suppression, modification de l'ordre et traitement
@@ -174,7 +174,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       }
       elseif($_SESSION["niveau"]=="$__LVL_SCOL_MOINS" && verif_droits_formations($_SESSION["comp_id"], $propspec_id))
       {
-         // Scol "moins" : si l'accès est paramétré : gestion complète
+         // Scol "moins" : si l'accÃ¨s est paramÃ©trÃ© : gestion complÃ¨te
          $options_gestion=1;
          $options_saisie=1;
       }
@@ -184,20 +184,20 @@ CeCILL-B, et que vous en avez accepté les termes.
          $options_gestion=0;
          $options_saisie=1;
       }
-      else // Droits d'accès insuffisants (consultation uniquement)
+      else // Droits d'accÃ¨s insuffisants (consultation uniquement)
       {
          // Colonnes
-         // Si la fiche est verrouillée et que les droits sont corrects :
-         // 1 : Nom de la formation (spécialité) et (en dessous) Statut de la précandidature
+         // Si la fiche est verrouillÃ©e et que les droits sont corrects :
+         // 1 : Nom de la formation (spÃ©cialitÃ©) et (en dessous) Statut de la prÃ©candidature
          // 2 : Frais de dossiers
          $options_gestion=0;
          $options_saisie=0;
       }
 
-      // Paramètres d'affichage différents en fonction du verrouillage de la candidature et des droits d'accès
+      // ParamÃ¨tres d'affichage diffÃ©rents en fonction du verrouillage de la candidature et des droits d'accÃ¨s
       $lock=(isset($_SESSION['tab_candidat']['array_lock'][$cand_id]) && $_SESSION['tab_candidat']['array_lock'][$cand_id]["lock"]==1) ? "1" : "0";
          
-      // Détermination de la session de candidature
+      // DÃ©termination de la session de candidature
       $res_session=db_query($dbr, "SELECT $_DBC_session_id FROM $_DB_session
                                    WHERE $_DBC_session_propspec_id='$propspec_id'
                                    AND $_DBC_session_periode='$__PERIODE'
@@ -215,8 +215,8 @@ CeCILL-B, et que vous en avez accepté les termes.
          else
             $session_num="Session : inconnue";
 /*
-         else // Problème : aucune session définie pour cette candidature
-              // TODO : écrire une fonction pour envoyer un mail d'erreur à l'administrateur
+         else // ProblÃ¨me : aucune session dÃ©finie pour cette candidature
+              // TODO : Ã©crire une fonction pour envoyer un mail d'erreur Ã  l'administrateur
 */         
       }
       else
@@ -247,40 +247,40 @@ CeCILL-B, et que vous en avez accepté les termes.
 
       $choix_multiples_txt="";
    
-      // si groupe_spec est >= 0, on a une candidature à choix multiples : il faut afficher l'ordre différemment (en définissant un rowspan dans le tableau)
-      // Note 1 : on n'effectue la requête qu'une fois
-      // Note 2 : s'il n'y a qu'une candidature dans ce groupe, on ne met pas l'ordre (il faut aller chercher groupe_spec de la réponse suivante dans la requete
+      // si groupe_spec est >= 0, on a une candidature Ã  choix multiples : il faut afficher l'ordre diffÃ©remment (en dÃ©finissant un rowspan dans le tableau)
+      // Note 1 : on n'effectue la requÃªte qu'une fois
+      // Note 2 : s'il n'y a qu'une candidature dans ce groupe, on ne met pas l'ordre (il faut aller chercher groupe_spec de la rÃ©ponse suivante dans la requete
 
-      // Candidature à choix multiples
+      // Candidature Ã  choix multiples
       if($groupe_spec>=0)
       {
-         if(!$derniere_candidature) // on regarde le groupe de la précandidature suivante, s'il y en a une
+         if(!$derniere_candidature) // on regarde le groupe de la prÃ©candidature suivante, s'il y en a une
          {
             list($next_groupe_spec)=db_fetch_result($result, ($i+1), 7);
 
-            // La candidature suivante est dans le même groupe : on n'affiche pas le bord inférieur
+            // La candidature suivante est dans le mÃªme groupe : on n'affiche pas le bord infÃ©rieur
             if($next_groupe_spec==$groupe_spec)
             {
-               $choix_multiples_txt="- Candidature à choix multiples";
+               $choix_multiples_txt="- Candidature Ã  choix multiples";
                $colspan_suppr="";
             }
          }
-         else // toute dernière candidature
+         else // toute derniÃ¨re candidature
             $next_groupe_spec="-1";
 
-         // Par rapport à la candidature précédente :
-         if($groupe_spec==$old_groupe_spec) // même groupe
+         // Par rapport Ã  la candidature prÃ©cÃ©dente :
+         if($groupe_spec==$old_groupe_spec) // mÃªme groupe
          {
             $nouveau_groupe=0;
 
-            // On affiche l'ordre de la précandidature au sein du groupe
+            // On affiche l'ordre de la prÃ©candidature au sein du groupe
             $ordre_spec_txt="$ordre_spec - ";
 
-            $choix_multiples_txt="- Candidature à choix multiples";
+            $choix_multiples_txt="- Candidature Ã  choix multiples";
 
             $colspan_suppr="";
          }
-         elseif(!$derniere_candidature) // nouveau groupe et pas la dernière candidature
+         elseif(!$derniere_candidature) // nouveau groupe et pas la derniÃ¨re candidature
          {
             $nouveau_groupe=1;
 
@@ -293,7 +293,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
             $nb_choix=db_num_rows($result2);
 
-            // Ordre global : la taille (en nombre de lignes de tableau) dépend du nombre de candidatures dans ce groupe
+            // Ordre global : la taille (en nombre de lignes de tableau) dÃ©pend du nombre de candidatures dans ce groupe
             $rowspan_ordre_global=3*$nb_choix;
 
             db_free_result($result2);
@@ -303,13 +303,13 @@ CeCILL-B, et que vous en avez accepté les termes.
                $ordre_spec_txt="$ordre_spec - ";
                $colspan_suppr="";
             }
-            else // candidature choix multiples, mais isolée
+            else // candidature choix multiples, mais isolÃ©e
             {
                $ordre_spec_txt="";
                $colspan_suppr="colspan='2'";
             }
 
-            // On crée un espace entre la nouvelle précandidature et la précédente
+            // On crÃ©e un espace entre la nouvelle prÃ©candidature et la prÃ©cÃ©dente
             if($i!=0)
                print("</table>
                     </td>
@@ -318,7 +318,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                      <td class='fond_page' colspan='$colspan_global' style='height:15px;'></td>
                   </tr>\n");
          }
-         else // nouveau groupe et dernière candidature : considéré comme une candidature normale
+         else // nouveau groupe et derniÃ¨re candidature : considÃ©rÃ© comme une candidature normale
          {
             $nouveau_groupe=1;
             $colspan_suppr="colspan='2'";
@@ -334,17 +334,17 @@ CeCILL-B, et que vous en avez accepté les termes.
                    </tr>\n");
          }
       }
-      else // Groupe = -1 : candidature à choix unique
+      else // Groupe = -1 : candidature Ã  choix unique
       {
          $nouveau_groupe=1;
          $colspan_suppr="colspan='2'";
 
          $rowspan_ordre_global=3;
 
-         // Pas d'affichage de l'ordre de la spécialité
+         // Pas d'affichage de l'ordre de la spÃ©cialitÃ©
          $ordre_spec_txt="";
 
-         // On crée un espace entre la nouvelle précandidature et la précédente
+         // On crÃ©e un espace entre la nouvelle prÃ©candidature et la prÃ©cÃ©dente
          if($i!=0)
             print("</table>
                     </td>
@@ -360,21 +360,21 @@ CeCILL-B, et que vous en avez accepté les termes.
 
       switch($statut)
       {
-         case $__PREC_NON_TRAITEE      :      // précandidature non traitée
+         case $__PREC_NON_TRAITEE      :      // prÃ©candidature non traitÃ©e
                                              $non_traitee_selected="selected";
                                              $plein_droit_selected=$en_attente_selected=$acceptee_selected=$refusee_selected="";
                                              $font_class='Texte_menu';
-                                             $statut_txt="Non traitée";
+                                             $statut_txt="Non traitÃ©e";
                                              break;
 
-         case $__PREC_PLEIN_DROIT      :      // entrée de plein droit
+         case $__PREC_PLEIN_DROIT      :      // entrÃ©e de plein droit
                                              $plein_droit_selected="selected";
                                              $non_traitee_selected=$en_attente_selected=$acceptee_selected=$refusee_selected="";
                                              $font_class='Texte_menu';
                                              $statut_txt="Plein droit";
                                              break;
 
-         case $__PREC_RECEVABLE   :            // précandidature recevable
+         case $__PREC_RECEVABLE   :            // prÃ©candidature recevable
                                              $acceptee_selected="selected";
                                              $plein_droit_selected=$en_attente_selected=$non_traitee_selected=$refusee_selected="";
                                              $font_class='Texte_menu';
@@ -382,36 +382,36 @@ CeCILL-B, et que vous en avez accepté les termes.
                                              // $motivation_decision="";
                                              break;
 
-         case $__PREC_EN_ATTENTE   :         // précandidature en attente
+         case $__PREC_EN_ATTENTE   :         // prÃ©candidature en attente
                                           $en_attente_selected="selected";
                                           $plein_droit_selected=$acceptee_selected=$non_traitee_selected=$refusee_selected="";
                                           $font_class='Texte_menu';
                                           $statut_txt="Dossier mis en attente";
                                           break;
 
-         case $__PREC_NON_RECEVABLE   :      // précandidature non recevable
+         case $__PREC_NON_RECEVABLE   :      // prÃ©candidature non recevable
                                           $refusee_selected="selected";
                                           $plein_droit_selected=$en_attente_selected=$acceptee_selected=$non_traitee_selected="";
                                           $font_class='Texte_menu';
                                           $statut_txt="Non recevable";
                                           break;
 
-         case $__PREC_ANNULEE   :            // précandidature annulée par le candidat
+         case $__PREC_ANNULEE   :            // prÃ©candidature annulÃ©e par le candidat
                                           $font_class='Textegris';
-                                          $statut_txt="Annulée par le candidat";
+                                          $statut_txt="AnnulÃ©e par le candidat";
                                           break;
 
-         default   :   // par défaut : précandidature non traitée
-                     $statut_txt="<font class='Texte_menu'>Non traitée</font>";
+         default   :   // par dÃ©faut : prÃ©candidature non traitÃ©e
+                     $statut_txt="<font class='Texte_menu'>Non traitÃ©e</font>";
                      $font_class='Texte_menu';
-                     $statut_txt="Non traitée";
+                     $statut_txt="Non traitÃ©e";
                      break;
       }
 
-      // On commence à remplir la ligne du tableau
+      // On commence Ã  remplir la ligne du tableau
 
       // ==========================
-      //    Année et ordre global
+      //    AnnÃ©e et ordre global
       // ==========================
       if($nouveau_groupe)
       {
@@ -429,7 +429,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          print("</td>
                   <td class='$td_class fond_menu2'>
                   <font class='Texte_menu2'>
-                     <b>Choix n°$ordre - $annee_longue</b> $choix_multiples_txt <b>- $session_num</b>
+                     <b>Choix nÂ°$ordre - $annee_longue</b> $choix_multiples_txt <b>- $session_num</b>
                   </font>
                </td>\n");
 
@@ -448,7 +448,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                         <input type='text' name='mois_verr_$cand_id' value='$lock_m' size='2' maxlength='2'>&nbsp;
                         <input type='text' name='annee_verr_$cand_id' value='$lock_a' maxlength='4' size='4'>
                         <input type='submit' name='newlockdate_$cand_id' value='Changer la date'>
-                        <input type='submit' name='unlock_$cand_id' value='Déverrouiller'>
+                        <input type='submit' name='unlock_$cand_id' value='DÃ©verrouiller'>
                       </font>
                   </td>\n");
          }
@@ -456,7 +456,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          {
             print("<td class='td-droite fond_menu2'>
                      <img class='icone' src='$__ICON_DIR/stop_22x22_menu2.png' border='0'>
-                     <font class='Texte_important_menu'>Verrouillage prévu le (J/M/A) :
+                     <font class='Texte_important_menu'>Verrouillage prÃ©vu le (J/M/A) :
                         <input type='text' name='jour_verr_$cand_id' value='$lock_j' size='2' maxlength='2'>&nbsp;
                         <input type='text' name='mois_verr_$cand_id' value='$lock_m' size='2' maxlength='2'>&nbsp;
                         <input type='text' name='annee_verr_$cand_id' value='$lock_a' maxlength='4' size='4'>
@@ -475,7 +475,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       }
 
       // ========================
-      //       Spécialité
+      //       SpÃ©cialitÃ©
       // ========================
 
       if($options_gestion)
@@ -489,7 +489,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
          print("</td>\n");
 
-         // Groupe à choix multiples (avec plusieurs choix) ? => flèches
+         // Groupe Ã  choix multiples (avec plusieurs choix) ? => flÃ¨ches
          if($groupe_spec>-1 && ((isset($next_groupe_spec) && $next_groupe_spec==$groupe_spec) || (isset($old_groupe_spec) && $old_groupe_spec==$groupe_spec)))
          {
             print("<td class='td-milieu fond_menu' rowspan='3'>\n");
@@ -547,25 +547,25 @@ CeCILL-B, et que vous en avez accepté les termes.
       else
          $motivation_txt="";
 
-      // Fiche non verrouillée ou mode consultation : lecture seule
+      // Fiche non verrouillÃ©e ou mode consultation : lecture seule
       if((!$options_gestion && !$options_saisie) || !$lock)
       {
          $motivation=$motivation_txt=="" ? "" : "(Motivation : $motivation_txt)";
 
          print("<tr>
                   <td class='$td_class fond_menu'>
-                     <font class='$font_class'>Recevabilité : $statut_txt $motivation</font>
+                     <font class='$font_class'>RecevabilitÃ© : $statut_txt $motivation</font>
                   </td>\n");
       }
       elseif(($options_gestion || $options_saisie) && $lock && ($decision_id==$__DOSSIER_NON_TRAITE || $statut==$__PREC_NON_TRAITEE) && $statut != $__PREC_ANNULEE)
       {
-         // Si la décision de commission n'a pas encore été rendue, on peut encore modifier la recevabilité
+         // Si la dÃ©cision de commission n'a pas encore Ã©tÃ© rendue, on peut encore modifier la recevabilitÃ©
          print("<tr>
                   <td class='$td_class fond_menu'>
                      <font class='$font_class'>
-                        Recevabilité :
+                        RecevabilitÃ© :
                         <select name='statut[$cand_id]' size='1'>
-                           <option value='$__PREC_NON_TRAITEE' $non_traitee_selected>Non traitée</option>
+                           <option value='$__PREC_NON_TRAITEE' $non_traitee_selected>Non traitÃ©e</option>
                            <option value='$__PREC_PLEIN_DROIT' $plein_droit_selected>Plein droit</option>
                            <option value='$__PREC_EN_ATTENTE' $en_attente_selected>Mettre en attente</option>
                            <option value='$__PREC_RECEVABLE' $acceptee_selected>Recevable</option>
@@ -576,15 +576,15 @@ CeCILL-B, et que vous en avez accepté les termes.
                      </font>
                   </td>\n");
       }
-      else // Fiche verrouillée et décision de commission rendue
+      else // Fiche verrouillÃ©e et dÃ©cision de commission rendue
       {
          $motivation=$motivation_txt=="" ? "" : "(Motivation : $motivation_txt)";
 
          print("<tr>
                   <td class='$td_class fond_menu'>
-                     <font class='$font_class'>Recevabilité : $statut_txt $motivation</font>\n");
+                     <font class='$font_class'>RecevabilitÃ© : $statut_txt $motivation</font>\n");
 
-         if($statut==$__PREC_ANNULEE) // possibilité de supprimer l'annulation
+         if($statut==$__PREC_ANNULEE) // possibilitÃ© de supprimer l'annulation
          {
             $crypt_params=crypt_params("cand_id=$cand_id&r=1");
             print("<a href='$php_self?p=$crypt_params' target='_self' class='lien_menu_gauche' style='padding-left:10px;'>Restaurer cette candidature</a>");
@@ -608,20 +608,20 @@ CeCILL-B, et que vous en avez accepté les termes.
                         print("<b>Frais</b> : En attente");
                         break;
 
-            case $__STATUT_FRAIS_ACQUITTES   :   // frais payés
-                        print("<b>Frais</b> : Acquittés");
+            case $__STATUT_FRAIS_ACQUITTES   :   // frais payÃ©s
+                        print("<b>Frais</b> : AcquittÃ©s");
                         break;
 
             case $__STATUT_FRAIS_BOURSIER   :   // Candidat Boursier
                         print("<b>Frais</b> : Candidat boursier");
                         break;
 
-            case $__STATUT_FRAIS_DISPENSE : // candidat dispensé des frais
-                        print("<b>Frais</b> : Candidat dispensé");
+            case $__STATUT_FRAIS_DISPENSE : // candidat dispensÃ© des frais
+                        print("<b>Frais</b> : Candidat dispensÃ©");
                         break;
 
-            case $__STATUT_FRAIS_NON_ACQUITTES   :   // non payés
-                        print("<b>Frais</b> : Non acquittés");
+            case $__STATUT_FRAIS_NON_ACQUITTES   :   // non payÃ©s
+                        print("<b>Frais</b> : Non acquittÃ©s");
                         break;
 
             default : // vide
@@ -640,7 +640,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                         $selected_dispense=$selected_boursier=$selected_payes=$selected_non_payes="";
                         break;
 
-            case $__STATUT_FRAIS_ACQUITTES   :   // frais payés
+            case $__STATUT_FRAIS_ACQUITTES   :   // frais payÃ©s
                         $selected_payes="selected=1";
                         $selected_dispense=$selected_boursier=$selected_en_attente=$selected_non_payes="";
                         break;
@@ -650,12 +650,12 @@ CeCILL-B, et que vous en avez accepté les termes.
                         $selected_dispense=$selected_en_attente=$selected_payes=$selected_non_payes="";
                         break;
 
-            case $__STATUT_FRAIS_DISPENSE : // dispensé
+            case $__STATUT_FRAIS_DISPENSE : // dispensÃ©
                         $selected_dispense="selected=1";
                         $selected_boursier=$selected_en_attente=$selected_payes=$selected_non_payes="";
                         break;
 
-            case $__STATUT_FRAIS_NON_ACQUITTES   :   // non payés
+            case $__STATUT_FRAIS_NON_ACQUITTES   :   // non payÃ©s
                         $selected_non_payes="selected=1";
                         $selected_dispense=$selected_boursier=$selected_payes=$selected_en_attente="";
                         break;
@@ -667,10 +667,10 @@ CeCILL-B, et que vous en avez accepté les termes.
          }
 
          print("<option value='$__STATUT_FRAIS_EN_ATTENTE'  $selected_en_attente>En attente</option>
-                  <option value='$__STATUT_FRAIS_ACQUITTES'  $selected_payes>Frais acquittés</option>
+                  <option value='$__STATUT_FRAIS_ACQUITTES'  $selected_payes>Frais acquittÃ©s</option>
                   <option value='$__STATUT_FRAIS_BOURSIER'  $selected_boursier>Candidat boursier</option>
-                  <option value='$__STATUT_FRAIS_DISPENSE'  $selected_dispense>Candidat dispensé</option>
-                  <option value='$__STATUT_FRAIS_NON_ACQUITTES' $selected_non_payes>Frais non acquittés</option>
+                  <option value='$__STATUT_FRAIS_DISPENSE'  $selected_dispense>Candidat dispensÃ©</option>
+                  <option value='$__STATUT_FRAIS_NON_ACQUITTES' $selected_non_payes>Frais non acquittÃ©s</option>
                </select>\n");
       }
 
@@ -686,26 +686,26 @@ CeCILL-B, et que vous en avez accepté les termes.
       {
          switch($talon_reponse)
          {
-            case 0   :   // talon non renvoyé (par défaut)
-                        $talon_txt="Inexistant ou non renvoyé";
+            case 0   :   // talon non renvoyÃ© (par dÃ©faut)
+                        $talon_txt="Inexistant ou non renvoyÃ©";
                         break;
 
-            case 1   :   // talon renvoyé, inscription confirmée
-                        $talon_txt="Admission confirmée";
+            case 1   :   // talon renvoyÃ©, inscription confirmÃ©e
+                        $talon_txt="Admission confirmÃ©e";
                         break;
 
-            case -1   :   // talon renvoyé, inscription refusée
-                        $talon_txt="Admission refusée";
+            case -1   :   // talon renvoyÃ©, inscription refusÃ©e
+                        $talon_txt="Admission refusÃ©e";
                         break;
 
-            default :    // talon non renvoyé (par défaut)
-                        $talon_txt="Inexistant ou non renvoyé";
+            default :    // talon non renvoyÃ© (par dÃ©faut)
+                        $talon_txt="Inexistant ou non renvoyÃ©";
                         break;
          }
 
-         if($decision_id<0) // pour les dossiers nécessitant encore un traitement
+         if($decision_id<0) // pour les dossiers nÃ©cessitant encore un traitement
             $font='Texteorange';
-         elseif($decision_id>0) // dossiers traités
+         elseif($decision_id>0) // dossiers traitÃ©s
             $font='Textevert_menu';
          else
             $font='Texte_important_menu';
@@ -720,25 +720,25 @@ CeCILL-B, et que vous en avez accepté les termes.
 
          if(($options_gestion || $options_saisie) && $lock)
          {
-            // Affichage du statut de publication des résultats
+            // Affichage du statut de publication des rÃ©sultats
             if(array_key_exists("affichage_decisions", $_SESSION) && $_SESSION["affichage_decisions"]==0)
             {
-               // décisions à afficher en permanence
+               // dÃ©cisions Ã  afficher en permanence
                if($decision_id==$__DOSSIER_ENTRETIEN || $decision_id==$__DOSSIER_ENTRETIEN_TEL)
                   $statut_publication="";
                elseif($affichage_decisions==1)
-                  $statut_publication="(décision visible)";
+                  $statut_publication="(dÃ©cision visible)";
                elseif($affichage_decisions==2)
-                  $statut_publication="(décision visible, accès aux lettres éventuelles activé)";
+                  $statut_publication="(dÃ©cision visible, accÃ¨s aux lettres Ã©ventuelles activÃ©)";
                else
-                  $statut_publication="(décision <b>masquée</b> pour le candidat)";
+                  $statut_publication="(dÃ©cision <b>masquÃ©e</b> pour le candidat)";
             }
-            elseif(array_key_exists("affichage_decisions", $_SESSION) && $_SESSION["affichage_decisions"]==1) // publiées par défaut
-               $statut_publication="(décision publiée)";
-            elseif(array_key_exists("affichage_decisions", $_SESSION) && $_SESSION["affichage_decisions"]==2) // publiées par défaut, accès à la lettre
-               $statut_publication="(décision publiée + lettre)";
+            elseif(array_key_exists("affichage_decisions", $_SESSION) && $_SESSION["affichage_decisions"]==1) // publiÃ©es par dÃ©faut
+               $statut_publication="(dÃ©cision publiÃ©e)";
+            elseif(array_key_exists("affichage_decisions", $_SESSION) && $_SESSION["affichage_decisions"]==2) // publiÃ©es par dÃ©faut, accÃ¨s Ã  la lettre
+               $statut_publication="(dÃ©cision publiÃ©e + lettre)";
             else
-             // Variable inconnue ou décisions publiées par défaut
+             // Variable inconnue ou dÃ©cisions publiÃ©es par dÃ©faut
                $statut_publication="";
 
             // Entretien ? => Affichage de la date, de l'heure, de la salle et du lieu (=adresse)
@@ -755,7 +755,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                {
                   $ent_minute=date("i", $ent_date);
 
-                  $ent_heure_txt=" à $ent_heure" . "h$ent_minute";
+                  $ent_heure_txt=" Ã  $ent_heure" . "h$ent_minute";
                }
                else
                   $ent_heure_txt="";
@@ -821,7 +821,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                            <b>$decision_texte</b> $rang </font><font class='Texte_menu'>$statut_publication
                            <br>$autres_infos
                         </font>
-                        <!-- <font class='Texte_menu'>Talon réponse : $talon_txt</font> -->
+                        <!-- <font class='Texte_menu'>Talon rÃ©ponse : $talon_txt</font> -->
                      </td>
                      <td class='td-droite fond_menu' style='padding-top:5px; padding-bottom:15px;' colspan='2'>
                         <a href='$__GESTION_DIR/lettres/formulaire_commission.php?cand_id=$cand_id' target='_blank' class='lien_menu_gauche'><img style='vertical-align:middle;' src='$__ICON_DIR/player_fwd_16x16_menu.png' border='0'> Form. Commission</a>\n");
@@ -858,7 +858,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                               <b>$decision_texte</b> $rang
                               <br>
                            </font>
-                           <!-- <font class='Texte_menu'>Talon réponse : $talon_txt</font> -->
+                           <!-- <font class='Texte_menu'>Talon rÃ©ponse : $talon_txt</font> -->
                         </td>
                         <td class='td-droite fond_menu' style='padding-top:5px; padding-bottom:15px;' colspan='2'>\n");
 
@@ -907,7 +907,7 @@ CeCILL-B, et que vous en avez accepté les termes.
             <br><br>\n");
 
    if($options_gestion || $options_saisie)
-      message("Les statuts 'Plein droit', 'En attente' et 'Non recevable' entraînent automatiquement l'envoi d'un courriel au candidat<br><center>(un courriel par précandidature)</center>", $__WARNING);
+      message("Les statuts 'Plein droit', 'En attente' et 'Non recevable' entraÃ®nent automatiquement l'envoi d'un courriel au candidat<br><center>(un courriel par prÃ©candidature)</center>", $__WARNING);
 
    db_free_result($result);
 

@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,36 +20,36 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
 ?>
 <?php
-	// Vérifications complémentaires au cas où ce fichier serait appelé directement
+	// VÃ©rifications complÃ©mentaires au cas oÃ¹ ce fichier serait appelÃ© directement
 	verif_auth();
 
 	if(!isset($_SESSION["candidat_id"]))
@@ -61,9 +61,9 @@ CeCILL-B, et que vous en avez accepté les termes.
 	$date_creation=date_fr("j F Y", id_to_date($_SESSION["candidat_id"]));
 
 	print("<div class='centered_box'>
-				<font class='Texte_16'><strong>$_SESSION[onglet] - Historique : candidatures et événements</strong></font>
+				<font class='Texte_16'><strong>$_SESSION[onglet] - Historique : candidatures et Ã©vÃ©nements</strong></font>
 				<br>
-				<font class='Texte'>Fiche candidat créée le $date_creation</font>
+				<font class='Texte'>Fiche candidat crÃ©Ã©e le $date_creation</font>
 			</div>");
 
 	$result=db_query($dbr,"SELECT $_DBC_cand_id, $_DBC_annees_annee, $_DBC_specs_nom, 
@@ -117,7 +117,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 				printf("<tr>
 							<td height='15'>
-								<font class='Texte'><b>Période $periode - %d</b>
+								<font class='Texte'><b>PÃ©riode $periode - %d</b>
 							</td>
 						 </tr>
 						 <tr>
@@ -127,7 +127,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 				print("<table style='border:none;' align='center' width='100%'>
 						 <tr>\n");
 
-				// Réinitialisation de la composante
+				// RÃ©initialisation de la composante
 				$old_comp="--";
 
 				if($periode==$__PERIODE)
@@ -136,7 +136,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 					$class_texte="Texte_menu2";
 					$fond="fond_menu";
 				}
-				else // anciennes périodes : en gris
+				else // anciennes pÃ©riodes : en gris
 				{
 					$fond_menu="fond_gris_B";
 					$class_texte="Texte_menu";
@@ -149,7 +149,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 				print("<tr>
 							<td class='td-gauche $fond_menu'>\n");
 
-				// Admin ou accès dans une autre composante : on peut changer directement de composante avec un lien
+				// Admin ou accÃ¨s dans une autre composante : on peut changer directement de composante avec un lien
 				if(($_SESSION["niveau"]==$__LVL_ADMIN || $_SESSION["niveau"]==$__LVL_SUPPORT)
 					|| db_num_rows(db_query($dbr, "SELECT $_DBC_acces_comp_composante_id FROM $_DB_acces_comp
 															 WHERE $_DBC_acces_comp_acces_id='$_SESSION[auth_id]'
@@ -160,10 +160,10 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 				print("</td>
 							<td class='td-milieu $fond_menu'>
-								<font class='$class_texte'><b>Recevabilité</b></font>
+								<font class='$class_texte'><b>RecevabilitÃ©</b></font>
 							</td>
 							<td class='td-droite $fond_menu'>
-								<font class='$class_texte'><b>Commission Pédagogique</b></font>
+								<font class='$class_texte'><b>Commission PÃ©dagogique</b></font>
 							</td>
 						</tr>\n");
 
@@ -177,32 +177,32 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 			switch($statut)
 			{
-				case $__PREC_NON_TRAITEE	:	// précandidature non traitée
-														$statut_txt="Non traitée";
+				case $__PREC_NON_TRAITEE	:	// prÃ©candidature non traitÃ©e
+														$statut_txt="Non traitÃ©e";
 														break;
 
-				case $__PREC_PLEIN_DROIT	:	// entrée de plein droit
+				case $__PREC_PLEIN_DROIT	:	// entrÃ©e de plein droit
 														$statut_txt="Plein droit";
 														break;
 
-				case $__PREC_RECEVABLE	:		// précandidature recevable
+				case $__PREC_RECEVABLE	:		// prÃ©candidature recevable
 														$statut_txt="Recevable";
 														break;
 
-				case $__PREC_EN_ATTENTE	:		// précandidature en attente
+				case $__PREC_EN_ATTENTE	:		// prÃ©candidature en attente
 														$statut_txt="En attente";
 														break;
 
-				case $__PREC_NON_RECEVABLE	:	// précandidature non recevable
+				case $__PREC_NON_RECEVABLE	:	// prÃ©candidature non recevable
 														$statut_txt="Non recevable";
 														break;
 
-				case $__PREC_ANNULEE	:			// précandidature annulée
-														$statut_txt="Annulée";
+				case $__PREC_ANNULEE	:			// prÃ©candidature annulÃ©e
+														$statut_txt="AnnulÃ©e";
 														break;
 
-				default	:	// par défaut : précandidature non traitée
-									$statut_txt="Non traitée";
+				default	:	// par dÃ©faut : prÃ©candidature non traitÃ©e
+									$statut_txt="Non traitÃ©e";
 									break;
 			}
 
@@ -230,19 +230,19 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 	}
 	else
-		message("Aucune candidature les années passées", $__INFO);
+		message("Aucune candidature les annÃ©es passÃ©es", $__INFO);
 
 	db_free_result($result);
 
-	// Evénements
+	// EvÃ©nements
 
 	if(isset($_SESSION["niveau"]) && in_array($_SESSION["niveau"], array("$__LVL_SUPPORT", "$__LVL_SAISIE","$__LVL_SCOL_MOINS","$__LVL_SCOL_PLUS","$__LVL_RESP","$__LVL_SUPER_RESP","$__LVL_ADMIN")))
 	{
 		// Tri de l'historique :
 		// 1 = tri par date (DESC)
 		// 2 = tri par date (ASC)
-		// 3 = tri par événement (DESC) (puis par date DESC)
-		// 4 = tri par événement (ASC) (puis par date DESC)
+		// 3 = tri par Ã©vÃ©nement (DESC) (puis par date DESC)
+		// 4 = tri par Ã©vÃ©nement (ASC) (puis par date DESC)
 
 		$icon_date_down="1downarrow_green_16x16_menu2.png";
 		$icon_date_up="1uparrow_green_16x16_menu2.png";
@@ -292,7 +292,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 											WHERE $_DBC_hist_c_id='$candidat_id'
 											ORDER BY $tri_historique");
 		}
-		else // Restriction à la composante courante
+		else // Restriction Ã  la composante courante
 			$res_evt=db_query($dbr, "SELECT $_DBC_hist_date, $_DBC_hist_ip, $_DBC_hist_host, $_DBC_hist_g_nom, $_DBC_hist_g_prenom,
 													  $_DBC_hist_g_email,
 													  CASE WHEN $_DBC_hist_comp_id IN (SELECT $_DBC_composantes_id FROM $_DB_composantes)
@@ -312,17 +312,17 @@ CeCILL-B, et que vous en avez accepté les termes.
 		{
 			print("<center>
 						<br>
-						<font class='Texte_16'><b>Evénements liés au candidat</b></font>
+						<font class='Texte_16'><b>EvÃ©nements liÃ©s au candidat</b></font>
 						<br><br>
 						<table align='center' border='0'>
 						<tr>
 							<td class='fond_page' width='16' style='border-color:black; border:solid; border-width:1px;'>&nbsp;</td>
 							<td class='fond_page' style='white-space:nowrap; padding-left:5px; padding-right:20px;'>
-								<font class='Texte'>Evénements Candidat</font>
+								<font class='Texte'>EvÃ©nements Candidat</font>
 							</td>
 							<td class='fond_evenements_gestion' width='16' style='border-color:black; border:solid; border-width:1px;'>&nbsp;</td>
 							<td class='fond_page' style='white-space:nowrap; padding-left:5px; padding-right:20px;'>
-								<font class='Texte'>Evénements Gestion</font>
+								<font class='Texte'>EvÃ©nements Gestion</font>
 							</td>
 							<td class='fond_gris_D' width='16' style='border-color:black; border:solid; border-width:1px;'>&nbsp;</td>
 							<td class='fond_page' style='white-space:nowrap; padding-left:5px;'>
@@ -337,7 +337,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			if($_SESSION["niveau"]==$__LVL_ADMIN || $_SESSION["niveau"]==$__LVL_SUPPORT)
 				print("<tr>
 							<td class='fond_menu2' style='padding-left:20px;' width='16'>
-								<a href='$php_self?th=1'><img src='$__ICON_DIR/$icon_date_down' width='16' border='0' title='Tri dates décroissantes'></a>
+								<a href='$php_self?th=1'><img src='$__ICON_DIR/$icon_date_down' width='16' border='0' title='Tri dates dÃ©croissantes'></a>
 							</td>
 							<td class='fond_menu2' width='16'>
 								<a href='$php_self?th=2'><img src='$__ICON_DIR/$icon_date_up' width='16' border='0' title='Tri dates croissantes'></a>
@@ -355,19 +355,19 @@ CeCILL-B, et que vous en avez accepté les termes.
 								<font class='Texte_menu2'><b>Gestionnaire</b></font>
 							</td>
 							<td class='td-droite fond_menu2' style='margin-right:0px; padding-right:0px; width:16px;'>
-								<a href='$php_self?th=3'><img src='$__ICON_DIR/$icon_evt_down' width='16' height='16' border='0' title='Types événements décroissants'></a>
+								<a href='$php_self?th=3'><img src='$__ICON_DIR/$icon_evt_down' width='16' height='16' border='0' title='Types Ã©vÃ©nements dÃ©croissants'></a>
 							</td>
 							<td class='fond_menu2' style='margin-left:0px; padding-left:0px; width:16px;'>
-								<a href='$php_self?th=4'><img src='$__ICON_DIR/$icon_evt_up' width='16' height='16' border='0' title='Types événements croissants'></a>
+								<a href='$php_self?th=4'><img src='$__ICON_DIR/$icon_evt_up' width='16' height='16' border='0' title='Types Ã©vÃ©nements croissants'></a>
 							</td>
 							<td class='td-droite fond_menu2'>
-								<font class='Texte_menu2'><b>Evénement</b></font>
+								<font class='Texte_menu2'><b>EvÃ©nement</b></font>
 							</td>
 						</tr>\n");
 			else
 				print("<tr>
 							<td class='fond_menu2' style='padding-left:20px;' width='16'>
-								<a href='$php_self?th=1'><img src='$__ICON_DIR/$icon_date_down' width='16' height='16' border='0' title='Tri dates décroissantes'></a>
+								<a href='$php_self?th=1'><img src='$__ICON_DIR/$icon_date_down' width='16' height='16' border='0' title='Tri dates dÃ©croissantes'></a>
 							</td>
 							<td class='fond_menu2' width='16'>
 								<a href='$php_self?th=2'><img src='$__ICON_DIR/$icon_date_up' width='16' height='16' border='0' title='Tri dates croissantes'></a>
@@ -376,13 +376,13 @@ CeCILL-B, et que vous en avez accepté les termes.
 								<font class='Texte_menu2'><b>Date</b></font>
 							</td>
 							<td class='fond_menu2' width='16'>
-								<a href='$php_self?th=3'><img src='$__ICON_DIR/$icon_evt_down' width='16' height='16' border='0' title='Types événements décroissants'></a>
+								<a href='$php_self?th=3'><img src='$__ICON_DIR/$icon_evt_down' width='16' height='16' border='0' title='Types Ã©vÃ©nements dÃ©croissants'></a>
 							</td>
 							<td class='fond_menu2' width='16'>
-								<a href='$php_self?th=4'><img src='$__ICON_DIR/$icon_evt_up' width='16' height='16' border='0' title='Types événements croissants'></a>
+								<a href='$php_self?th=4'><img src='$__ICON_DIR/$icon_evt_up' width='16' height='16' border='0' title='Types Ã©vÃ©nements croissants'></a>
 							</td>
 							<td class='td-droite fond_menu2'>
-								<font class='Texte_menu2'><b>Evénement</b></font>
+								<font class='Texte_menu2'><b>EvÃ©nement</b></font>
 							</td>
 						</tr>\n");
 
@@ -395,7 +395,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 				$hist_comp=($hist_comp=="-1" || $hist_comp=="0") ? "n/a" : $hist_comp;
 				$gestionnaire=$hist_g_nom=="" ? "n/a" : "$hist_g_prenom $hist_g_nom"; 
 
-				if($hist_type_evt >= 3 && $hist_type_evt <=11) // Couleur différente en fonction du type d'événement
+				if($hist_type_evt >= 3 && $hist_type_evt <=11) // Couleur diffÃ©rente en fonction du type d'Ã©vÃ©nement
 					$fond="fond_page"; // Candidat : couleur normale
 				elseif($hist_type_evt >= 104 && $hist_type_evt <=116)
 					$fond="fond_evenements_gestion";	// Gestion

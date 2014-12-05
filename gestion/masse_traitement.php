@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -69,13 +69,13 @@ CeCILL-B, et que vous en avez accepté les termes.
 		exit();
 	}
 
-	// identifiant de l'étudiant
+	// identifiant de l'Ã©tudiant
 	if(isset($_SESSION["candidat_id"]))
 		$candidat_id=$_SESSION["candidat_id"];
 
 	$dbr=db_connect();
 
-	// Déverrouillage, au cas où
+	// DÃ©verrouillage, au cas oÃ¹
 	if(isset($_SESSION["candidat_id"]))
 		cand_unlock($dbr, $_SESSION["candidat_id"]);
 
@@ -101,19 +101,19 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 		$partie=1;
 
-		// On prépare un tableau pour les candidatures dont la décision est saisie de manière incomplète ou erronée
+		// On prÃ©pare un tableau pour les candidatures dont la dÃ©cision est saisie de maniÃ¨re incomplÃ¨te ou erronÃ©e
 		$array_erreurs=array();
 
-		// La méthode de construction de l'identifiant devrait en assurer l'unicité en cas de traitement simultané
+		// La mÃ©thode de construction de l'identifiant devrait en assurer l'unicitÃ© en cas de traitement simultanÃ©
 		$masse_id=$_SESSION['auth_id'] . "_" . time();
 
-		// Tri pour les rangs sur la liste complémentaire
-		// => l'ordre de traitement détermine la manière dont les rangs existants sont décalés
-		// il faut donc parcourir la liste de manière ordonnée
+		// Tri pour les rangs sur la liste complÃ©mentaire
+		// => l'ordre de traitement dÃ©termine la maniÃ¨re dont les rangs existants sont dÃ©calÃ©s
+		// il faut donc parcourir la liste de maniÃ¨re ordonnÃ©e
 
 		// TODO : essayer de faire plus propre pour limiter les boucles
 
-		// 1/ on complète les candidatures à traiter
+		// 1/ on complÃ¨te les candidatures Ã  traiter
 		foreach($_SESSION["candidatures_array"] as $inid => $current_decision_array)
 		{
 			if(array_key_exists("liste_attente", $_POST) && array_key_exists("$inid", $_POST["liste_attente"]) && $_POST["liste_attente"][$inid]!="0" && $_POST["liste_attente"][$inid]!="")
@@ -122,7 +122,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 				$_SESSION["candidatures_array"]["$inid"]["rang_liste"]="0";
 		}
 
-		// 2/ on trie en fonction du nouveau rang (pas de rang ou 0 : en début de liste)
+		// 2/ on trie en fonction du nouveau rang (pas de rang ou 0 : en dÃ©but de liste)
 		$bool=uasort($_SESSION["candidatures_array"],"cmp_rangs_liste_complementaire");
 
 		foreach($_SESSION["candidatures_array"] as $inid => $current_decision_array)
@@ -191,7 +191,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 					$entretien_date=MakeTime($entretien_h,$entretien_m,0,$entretien_mois, $entretien_jour, $entretien_annee);
 					$entretien_heure_texte=$entretien_h . "h" . $entretien_m;
 				}
-				else	// date manquante ou incomplète : erreur
+				else	// date manquante ou incomplÃ¨te : erreur
 				{
 					$array_erreurs[$inid]=$current_decision_array;
 					$array_erreurs[$inid]["decision"]=$new_decision;
@@ -208,8 +208,8 @@ CeCILL-B, et que vous en avez accepté les termes.
 				}
 			}
 
-			// Initialisation de variables pour l'entretien, au cas où ça n'aurait pas été fait dans le bloc précédent
-			// Todo : à traiter plus proprement
+			// Initialisation de variables pour l'entretien, au cas oÃ¹ Ã§a n'aurait pas Ã©tÃ© fait dans le bloc prÃ©cÃ©dent
+			// Todo : Ã  traiter plus proprement
 			if(!isset($entretien_date))
 			{
 				if($entretien_jour!="" && ctype_digit($entretien_jour) && $entretien_mois!="" && ctype_digit($entretien_mois)
@@ -239,8 +239,8 @@ CeCILL-B, et que vous en avez accepté les termes.
 				$new_motivation.="@$mot_libre";
 			}
 
-			// Condition du traitement : décision non vide et différente de la précédente (ou motif différent)
-			// Attention : pour les entretiens, même si la décision est identique, on enregistre les modifications
+			// Condition du traitement : dÃ©cision non vide et diffÃ©rente de la prÃ©cÃ©dente (ou motif diffÃ©rent)
+			// Attention : pour les entretiens, mÃªme si la dÃ©cision est identique, on enregistre les modifications
 
 			if($new_decision!="" && $new_decision!=$__DOSSIER_NON_TRAITE &&
 				($new_decision!=$current_decision_array["decision"]
@@ -252,15 +252,15 @@ CeCILL-B, et que vous en avez accepté les termes.
 			{
 				if($current_decision_array["decision"]<=$__DOSSIER_NON_TRAITE)
 				{
-					// On met la décision à jour puis on insère une ligne dans la table des traitements de masse pour produire les lettres
-					// Au cas où, on supprime toute trace du "traitement de masse" de cette candidature avant l'insertion
+					// On met la dÃ©cision Ã  jour puis on insÃ¨re une ligne dans la table des traitements de masse pour produire les lettres
+					// Au cas oÃ¹, on supprime toute trace du "traitement de masse" de cette candidature avant l'insertion
 
 					$date_prise_decision=time();
 
 					if($new_decision==$__DOSSIER_LISTE || $new_decision==$__DOSSIER_LISTE_ENTRETIEN)
 					{
 						// rang vide : on prend automatiquement le max dans la base, ou 1 si pas de max
-						// on n'oublie pas les années pour les recherches sur l'identifiant d'inscription (timestamp)
+						// on n'oublie pas les annÃ©es pour les recherches sur l'identifiant d'inscription (timestamp)
 
 						if($current_decision_array["rang_liste"]=="" || !ctype_digit($current_decision_array["rang_liste"]) || $current_decision_array["rang_liste"]<1)
 						{
@@ -272,7 +272,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 							list($max_rang)=db_fetch_row($result,0);
 
-							if($max_rang=="") // personne dans la liste complémentaire
+							if($max_rang=="") // personne dans la liste complÃ©mentaire
 								$current_decision_array["rang_liste"]=1;
 							else
 								$current_decision_array["rang_liste"]=$max_rang+1;
@@ -281,7 +281,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 						}
 						else
 						{
-							// Si une candidature est déjà à ce rang là, il faudra tout décaler
+							// Si une candidature est dÃ©jÃ  Ã  ce rang lÃ , il faudra tout dÃ©caler
 
 							if(db_num_rows(db_query($dbr, "SELECT * FROM $_DB_cand
 																		WHERE $_DBC_cand_propspec_id='$propspec_id'
@@ -309,7 +309,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 										db_query($dbr,"UPDATE $_DB_cand SET $_DBU_cand_liste_attente='$next_rang' WHERE $_DBU_cand_id='$dec_cand_id'");
 
-										// Le rang suivant n'est pas consécutif (=trou) : on sort de la boucle
+										// Le rang suivant n'est pas consÃ©cutif (=trou) : on sort de la boucle
 										if($next_rang==($dec_rang+1))
 											$r=$rows_rangs;
 									}
@@ -321,14 +321,14 @@ CeCILL-B, et que vous en avez accepté les termes.
 								}
 							}
 
-							// Il ne reste plus qu'à mettre le rang de notre candidature en cours.
+							// Il ne reste plus qu'Ã  mettre le rang de notre candidature en cours.
 							db_query($dbr,"UPDATE $_DB_cand SET $_DBU_cand_liste_attente='$current_decision_array[rang_liste]' WHERE $_DBU_cand_id='$inid'");
 						}
 					}
 					else
 						$current_decision_array["rang_liste"]=0;
 
-					// Refus, réserve ou mise en attente : saisie obligatoire du motif
+					// Refus, rÃ©serve ou mise en attente : saisie obligatoire du motif
 					if(($new_decision==$__DOSSIER_EN_ATTENTE || $new_decision==$__DOSSIER_SOUS_RESERVE
 						|| $new_decision==$__DOSSIER_REFUS || $new_decision==$__DOSSIER_REFUS_ENTRETIEN
 						|| $new_decision==$__DOSSIER_REFUS_RECOURS) && trim($new_motivation)=="")
@@ -368,15 +368,15 @@ CeCILL-B, et que vous en avez accepté les termes.
 												DELETE FROM $_DB_traitement_masse WHERE $_DBC_traitement_masse_cid='$inid';
 												INSERT INTO $_DB_traitement_masse VALUES ('$masse_id', '$partie', '$inid', '$_SESSION[auth_id]')");
 									
-						write_evt($dbr, $__EVT_ID_G_PREC, "Décision en Masse : \"$_SESSION[nom_formation]\" : " . $_SESSION["decision_array"]["$new_decision"], $current_decision_array["candidat_id"], $inid, "");			
+						write_evt($dbr, $__EVT_ID_G_PREC, "DÃ©cision en Masse : \"$_SESSION[nom_formation]\" : " . $_SESSION["decision_array"]["$new_decision"], $current_decision_array["candidat_id"], $inid, "");			
 						
 						// Si : 
-		            // 1 - les décisions sont publiées 
-      		      // 2 - la notification est activée
-            		// 3 - aucune notification n'a encore été envoyée 
-                  //     - OU la décision est passée d'une décision "partielle" à une décision fixe 
-                  //     - OU la nouvelle décision est "admission confirmée"
-		            // alors on envoie un message au candidat (le message ne contient pas la décision en elle même)
+		            // 1 - les dÃ©cisions sont publiÃ©es 
+      		      // 2 - la notification est activÃ©e
+            		// 3 - aucune notification n'a encore Ã©tÃ© envoyÃ©e 
+                  //     - OU la dÃ©cision est passÃ©e d'une dÃ©cision "partielle" Ã  une dÃ©cision fixe 
+                  //     - OU la nouvelle dÃ©cision est "admission confirmÃ©e"
+		            // alors on envoie un message au candidat (le message ne contient pas la dÃ©cision en elle mÃªme)
             
       		      if((array_key_exists("affichage_decisions", $_SESSION) && (($_SESSION["affichage_decisions"]==0 
             		   && db_num_rows(db_query($dbr, "SELECT * FROM $_DB_propspec WHERE $_DBC_propspec_id=(SELECT $_DBC_cand_propspec_id FROM $_DB_cand WHERE $_DBC_cand_id='$inid') AND $_DBC_propspec_affichage_decisions!='0'")))
@@ -385,11 +385,11 @@ CeCILL-B, et que vous en avez accepté les termes.
       		         && ($current_decision_array["notification_envoyee"]!=1 || $new_decision==$__DOSSIER_ADMISSION_CONFIRMEE || ($current_decision_array["decision"]<=$__DOSSIER_NON_TRAITE && $new_decision>$__DOSSIER_NON_TRAITE)))
 		            {
       		         $message="Bonjour,\n
-La Commission Pédagogique a rendu une décision pour votre candidature à la formation suivante : \n
+La Commission PÃ©dagogique a rendu une dÃ©cision pour votre candidature Ã  la formation suivante : \n
 [gras]$current_decision_array[formation][/gras]\n
-Pour consulter cette décision : 
-- sélectionnez si besoin l'établissement adéquat (menu \"Choisir une autre composante\")
-- dans votre fiche, rendez vous dans le menu \"Précandidatures\".
+Pour consulter cette dÃ©cision : 
+- sÃ©lectionnez si besoin l'Ã©tablissement adÃ©quat (menu \"Choisir une autre composante\")
+- dans votre fiche, rendez vous dans le menu \"PrÃ©candidatures\".
 
 Cordialement,\n\n
 --
@@ -403,14 +403,14 @@ $_SESSION[universite]";
                               		               "prenom" => $current_decision_array["prenom"],
                                     		         "email"  => $current_decision_array["email"]));
 
-		               write_msg("", array("id" => "0", "nom" => "Système", "prenom" => ""), $dest_array, "$_SESSION[composante] - Décision", $message, $current_decision_array["nom"]." ".$current_decision_array["prenom"]);
-      		         write_evt($dbr, $__EVT_ID_G_PREC, "Notification de décision envoyée", $$current_decision_array["candidat_id"], $inid);
+		               write_msg("", array("id" => "0", "nom" => "SystÃ¨me", "prenom" => ""), $dest_array, "$_SESSION[composante] - DÃ©cision", $message, $current_decision_array["nom"]." ".$current_decision_array["prenom"]);
+      		         write_evt($dbr, $__EVT_ID_G_PREC, "Notification de dÃ©cision envoyÃ©e", $$current_decision_array["candidat_id"], $inid);
                
             		   db_query($dbr,"UPDATE $_DB_cand SET $_DBU_cand_notification_envoyee='1' WHERE $_DBU_cand_id='$inid'");
 						}
 					}
 				}
-				else // La candidature a une décision supérieure à 0 : elle a déjà été traitée
+				else // La candidature a une dÃ©cision supÃ©rieure Ã  0 : elle a dÃ©jÃ  Ã©tÃ© traitÃ©e
 					$deja_traitee=$deja_traitee+1;
 			}
 			else
@@ -422,7 +422,7 @@ $_SESSION[universite]";
 
 	unset($_SESSION["candidatures_array"]);
 
-	// Décisions saisies de manière incorrecte ou erronée : on affiche de nouveau ces candidatures
+	// DÃ©cisions saisies de maniÃ¨re incorrecte ou erronÃ©e : on affiche de nouveau ces candidatures
 	if(isset($array_erreurs) && count($array_erreurs))
 		$resultat=1;
 
@@ -434,10 +434,10 @@ $_SESSION[universite]";
 ?>
 <div class='main'>
 	<?php
-		titre_page_icone("Gestion en masse (Commissions Pédagogiques)", "kpersonalizer_32x32_fond.png", 15, "L");
+		titre_page_icone("Gestion en masse (Commissions PÃ©dagogiques)", "kpersonalizer_32x32_fond.png", 15, "L");
 
 		if(isset($selection_invalide))
-			message("Erreur : veuillez sélectionner une formation valide.", $__ERREUR);
+			message("Erreur : veuillez sÃ©lectionner une formation valide.", $__ERREUR);
 
 		if(isset($success))
 		{
@@ -446,9 +446,9 @@ $_SESSION[universite]";
 			if($nb_success>0)
 			{
 				if($nb_success==1)
-					$rapport="- $nb_success décision validée avec succès";
+					$rapport="- $nb_success dÃ©cision validÃ©e avec succÃ¨s";
 				else
-					$rapport="- $nb_success décisions validées avec succès";
+					$rapport="- $nb_success dÃ©cisions validÃ©es avec succÃ¨s";
 			}
 
 			if(isset($deja_traitees) && $deja_traitees>0)
@@ -457,9 +457,9 @@ $_SESSION[universite]";
 					$rapport.="<br>";
 
 				if($deja_traitees==1)
-					$rapport.="- 1 décision non validée (candidature déjà traitée)";
+					$rapport.="- 1 dÃ©cision non validÃ©e (candidature dÃ©jÃ  traitÃ©e)";
 				else
-					$rapport.="- $deja_traitees décisions non validées (candidatures déjà traitées)";
+					$rapport.="- $deja_traitees dÃ©cisions non validÃ©es (candidatures dÃ©jÃ  traitÃ©es)";
 			}
 
 			if(isset($non_traitees) && $non_traitees>0)
@@ -468,9 +468,9 @@ $_SESSION[universite]";
 					$rapport.="<br>";
 
 				if($non_traitees==1)
-					$rapport.="- Une décision non modifiée";
+					$rapport.="- Une dÃ©cision non modifiÃ©e";
 				else
-					$rapport.="- $non_traitees décisions non modifiées";
+					$rapport.="- $non_traitees dÃ©cisions non modifiÃ©es";
 			}
 
 			message("$rapport", $__SUCCES);
@@ -479,9 +479,9 @@ $_SESSION[universite]";
 		elseif(isset($deja_traitee) && $deja_traitee!=0)
 		{
 			if($deja_traitee==1)
-				message("ATTENTION : une décision n'a pas été validée car elle semblait déjà traitée. $nb_success ont été validées avec succès.", $__ERREUR);
+				message("ATTENTION : une dÃ©cision n'a pas Ã©tÃ© validÃ©e car elle semblait dÃ©jÃ  traitÃ©e. $nb_success ont Ã©tÃ© validÃ©es avec succÃ¨s.", $__ERREUR);
 			else
-				message("ATTENTION : $deja_traitee décisions n'ont pas été validées car elles semblaient déjà traitées. $nb_success ont été validées avec succès.", $__ERREUR);
+				message("ATTENTION : $deja_traitee dÃ©cisions n'ont pas Ã©tÃ© validÃ©es car elles semblaient dÃ©jÃ  traitÃ©es. $nb_success ont Ã©tÃ© validÃ©es avec succÃ¨s.", $__ERREUR);
 		}
 		*/
 
@@ -493,7 +493,7 @@ $_SESSION[universite]";
 	<table align='center'>
 	<tr>
 		<td class='td-gauche fond_menu2'>
-			<font class='Texte_menu2'><b>Formation à traiter : </b></font>
+			<font class='Texte_menu2'><b>Formation Ã  traiter : </b></font>
 		</td>
 		<td class='td-droite fond_menu'>
 			<select name='formation' size='1'>
@@ -509,12 +509,12 @@ $_SESSION[universite]";
 														ORDER BY $_DBC_annees_annee, $_DBC_specs_mention_id, $_DBC_specs_nom, $_DBC_propspec_finalite");
 					$rows=db_num_rows($result);
 
-					// variables initialisées à n'importe quoi
+					// variables initialisÃ©es Ã  n'importe quoi
 					$prev_annee="--";
 					$prev_mention="";
 
-					// TODO : dans la base compeda, revoir l'utilisation de la table annee (intégration de annees.id dans
-					// proprietes_specialites, par exemple) et répercuter les changements ici
+					// TODO : dans la base compeda, revoir l'utilisation de la table annee (intÃ©gration de annees.id dans
+					// proprietes_specialites, par exemple) et rÃ©percuter les changements ici
 					for($i=0; $i<$rows; $i++)
 					{
 						list($annee, $nom,$propspec_id, $mention, $mention_nom, $finalite)=db_fetch_row($result,$i);
@@ -527,7 +527,7 @@ $_SESSION[universite]";
 								print("</optgroup>\n");
 
 							if(empty($annee))
-								print("<optgroup label='Années particulières'>\n");
+								print("<optgroup label='AnnÃ©es particuliÃ¨res'>\n");
 							else
 								print("<optgroup label='$annee'>\n");
 
@@ -556,7 +556,7 @@ $_SESSION[universite]";
 	</table>
 
 	<div class='centered_icons_box'>
-		<a href='masse.php' target='_self' class='lien2'><img src='<?php echo "$__ICON_DIR/back_32x32_fond.png"; ?>' alt='Retour au menu précédent' border='0'></a>
+		<a href='masse.php' target='_self' class='lien2'><img src='<?php echo "$__ICON_DIR/back_32x32_fond.png"; ?>' alt='Retour au menu prÃ©cÃ©dent' border='0'></a>
 		<input type="image" border='0' src="<?php echo "$__ICON_DIR/forward_32x32_fond.png"; ?>" alt="Suivant" name="suivant" value="Suivant">
 		</form>
 	</div>
@@ -595,7 +595,7 @@ $_SESSION[universite]";
 					{
 						list($masse_id, $masse_partie, $masse_acces_id, $masse_nom, $masse_prenom)=db_fetch_row($result, $i);
 
-						// Récupération de l'année / spécialité correspondante
+						// RÃ©cupÃ©ration de l'annÃ©e / spÃ©cialitÃ© correspondante
 
 						$result2=db_query($dbr, "SELECT $_DBC_annees_annee, $_DBC_specs_nom_court, $_DBC_propspec_finalite
 															FROM $_DB_annees, $_DB_specs, $_DB_propspec, $_DB_cand
@@ -618,12 +618,12 @@ $_SESSION[universite]";
 							else
 								$formation="$annee_nom $spec_nom $nom_finalite";
 						}
-						else // Ne devrait jamais arriver, en théorie
-							$formation="[Formation indéterminée]";
+						else // Ne devrait jamais arriver, en thÃ©orie
+							$formation="[Formation indÃ©terminÃ©e]";
 
 						db_free_result($result2);
 
-						$masse_array=explode("_", $masse_id); // 1er champ : ID de l'utilisateur, second : date de création
+						$masse_array=explode("_", $masse_id); // 1er champ : ID de l'utilisateur, second : date de crÃ©ation
 
 						if(isset($masse_array[1]))
 							$date_txt=date_fr("j F Y, H\hi:s", $masse_array[1]);
@@ -639,7 +639,7 @@ $_SESSION[universite]";
 					}
 				}
 				else
-					print("<font class='Texte3'><b>Aucun pour l'année universitaire en cours</b></font>\n");
+					print("<font class='Texte3'><b>Aucun pour l'annÃ©e universitaire en cours</b></font>\n");
 
 				db_free_result($result);
 			?>
@@ -649,9 +649,9 @@ $_SESSION[universite]";
 
 	<?php
 		}
-		elseif(isset($resultat)) // résultat de la recherche : saisie des décisions
+		elseif(isset($resultat)) // rÃ©sultat de la recherche : saisie des dÃ©cisions
 		{
-			// on détermine si la filière est sélective ou non et on récupère le nom de l'année et de la spécialité
+			// on dÃ©termine si la filiÃ¨re est sÃ©lective ou non et on rÃ©cupÃ¨re le nom de l'annÃ©e et de la spÃ©cialitÃ©
 			$result=db_query($dbr,"SELECT $_DBC_propspec_selective, $_DBC_annees_annee, $_DBC_specs_nom, $_DBC_propspec_finalite,
 													$_DBC_propspec_entretiens
 												FROM $_DB_propspec, $_DB_annees, $_DB_specs
@@ -666,7 +666,7 @@ $_SESSION[universite]";
 
 			db_free_result($result);
 
-			// On regarde si on doit re-saisir des décisions erronées ou non
+			// On regarde si on doit re-saisir des dÃ©cisions erronÃ©es ou non
 			if(isset($array_erreurs) && count($array_erreurs))
 			{
 				$liste_id_erreurs="(";
@@ -678,14 +678,14 @@ $_SESSION[universite]";
 
 				$condition_erreurs="AND $_DBC_cand_id IN $liste_id_erreurs";
 
-				$message="Erreur : des renseignements sont manquants pour les décisions suivantes : ";
+				$message="Erreur : des renseignements sont manquants pour les dÃ©cisions suivantes : ";
 				$message_type=$__ERREUR;
 			}
 			else
 			{
 				$condition_erreurs="";
-				$message="Attention : seules les candidatures <b>nécessitant encore un traitement</b> apparaîssent.
-                      <br>En fonction des paramètres de configuration, un <strong>message automatique</strong> pourra être envoyé aux candidats lors de la validation du formulaire.";
+				$message="Attention : seules les candidatures <b>nÃ©cessitant encore un traitement</b> apparaÃ®ssent.
+                      <br>En fonction des paramÃ¨tres de configuration, un <strong>message automatique</strong> pourra Ãªtre envoyÃ© aux candidats lors de la validation du formulaire.";
 				$message_type=$__WARNING;
 			}
 
@@ -710,7 +710,7 @@ $_SESSION[universite]";
 			message("$message", $message_type);
 
 			print("<div class='centered_box Texte3'>
-						Décisions pour la formation : <b>$insc_txt</b> ($rows)
+						DÃ©cisions pour la formation : <b>$insc_txt</b> ($rows)
 					</div>\n");
 
 			if($rows)
@@ -722,7 +722,7 @@ $_SESSION[universite]";
 				<table style='margin-left:auto; margin-right:auto;'>
 				<tr>
 					<td class='td-gauche fond_menu2'><font class='Texte_menu2'><b>Candidat(e)</b></td>
-					<td class='td-milieu fond_menu2'><font class='Texte_menu2'><b>Décision</b></td>
+					<td class='td-milieu fond_menu2'><font class='Texte_menu2'><b>DÃ©cision</b></td>
 					<td class='td-milieu fond_menu2'><font class='Texte_menu2'><b>Motivation</b></td>");
 
 				if($entretiens)
@@ -737,13 +737,13 @@ $_SESSION[universite]";
 					$colspan_complet="colspan='4'";
 				}
 
-				print("<td class='td-droite fond_menu2'><font class='Texte_menu2'><b>Rang sur<br>liste complémentaire</b></td>
+				print("<td class='td-droite fond_menu2'><font class='Texte_menu2'><b>Rang sur<br>liste complÃ©mentaire</b></td>
 					</tr>
 					<tr>
 						<td $colspan_complet height='15' class='fond_page'></td>
 					</tr>\n");
 
-				// Récupération des décisions
+				// RÃ©cupÃ©ration des dÃ©cisions
 				$result2=db_query($dbr,"SELECT $_DBC_decisions_id, $_DBC_decisions_texte FROM $_DB_decisions
 													WHERE $_DBC_decisions_id IN (SELECT distinct($_DBC_decisions_comp_dec_id) FROM $_DB_decisions_comp
 																							WHERE $_DBC_decisions_comp_comp_id='$_SESSION[comp_id]')
@@ -1046,7 +1046,7 @@ $_SESSION[universite]";
 			}
 			else
 			{
-				message("Aucune candidature à traiter dans cette formation", $__INFO);
+				message("Aucune candidature Ã  traiter dans cette formation", $__INFO);
 
 				print("<div class='centered_box'>
 							<a href='$php_self' target='_self' class='lien2'><img src='$__ICON_DIR/button_cancel_32x32_fond.png' alt='Retour' border='0'></a>

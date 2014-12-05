@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,36 +20,36 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
 ?>
 <?php
-	// Vérifications complémentaires au cas où ce fichier serait appelé directement
+	// VÃ©rifications complÃ©mentaires au cas oÃ¹ ce fichier serait appelÃ© directement
 	verif_auth();
 
 	if(!isset($_SESSION["candidat_id"]))
@@ -59,11 +59,11 @@ CeCILL-B, et que vous en avez accepté les termes.
 	}
 
 	print("<div class='centered_box'>
-				<font class='Texte_16'><strong>$_SESSION[onglet] - Identité</strong></font>
+				<font class='Texte_16'><strong>$_SESSION[onglet] - IdentitÃ©</strong></font>
 			 </div>\n");
 
 	if(isset($_GET["succes"]) && $_GET["succes"]==1)
-		message("Informations enregistrées avec succès", $__SUCCES);
+		message("Informations enregistrÃ©es avec succÃ¨s", $__SUCCES);
 
 	if((isset($_GET["wsb"]) && $_GET["wsb"]==1) || (isset($_GET["wab"]) && $_GET["wab"]==1))
 	{
@@ -71,15 +71,15 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 		if(isset($_GET["wab"]))
 		{
-			$message.="- l'année d'obtention du baccalauréat (ou équivalent) est requise. Si ".$_SESSION["tab_candidat"]["etudiant_particule"]." ne l'a pas 
-							 pas obtenu, indiquez l'année du dernier diplôme obtenu.";
+			$message.="- l'annÃ©e d'obtention du baccalaurÃ©at (ou Ã©quivalent) est requise. Si ".$_SESSION["tab_candidat"]["etudiant_particule"]." ne l'a pas 
+							 pas obtenu, indiquez l'annÃ©e du dernier diplÃ´me obtenu.";
 
 			if(isset($_GET["wsb"]))
 				$message.="<br>";
 		}
 
 		if(isset($_GET["wsb"]))
-			$message.="- la série du bac doit être précisée. Vous pouvez éventuellement sélectionner \"Sans bac\" si ".$_SESSION["tab_candidat"]["etudiant_particule"]." 
+			$message.="- la sÃ©rie du bac doit Ãªtre prÃ©cisÃ©e. Vous pouvez Ã©ventuellement sÃ©lectionner \"Sans bac\" si ".$_SESSION["tab_candidat"]["etudiant_particule"]." 
 							 ne l'a pas obtenu.";
 
 		message($message, $__WARNING);
@@ -104,7 +104,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 ?>
 	<table align='center' style='padding-bottom:20px;'>
 	<?php
-		// Administrateur : affichage de l'identifiant numÃ©rique (ID dans la base de donnÃ©es)
+		// Administrateur : affichage de l'identifiant numÃƒÂ©rique (ID dans la base de donnÃƒÂ©es)
 		if($_SESSION["niveau"]==$__LVL_ADMIN || $_SESSION["niveau"]==$__LVL_SUPPORT)
 		{			
 	?>
@@ -150,13 +150,13 @@ CeCILL-B, et que vous en avez accepté les termes.
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu2'>
-			<font class='Texte_menu2'><b>Numéros INE</b> : </font>
+			<font class='Texte_menu2'><b>NumÃ©ros INE</b> : </font>
 		</td>
 		<td class='td-droite fond_menu'>
 			<font class='Texte_menu'>
 				<?php
 					if(empty($_SESSION['tab_candidat']['numero_ine']))
-						echo "Non renseigné";
+						echo "Non renseignÃ©";
 					else
 						echo $_SESSION['tab_candidat']['numero_ine'];;
 				?>
@@ -185,7 +185,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	?>
 	<tr>
 		<td nowrap='true' class='td-gauche fond_menu2'>
-			<font class='Texte_menu2'><b>Département de naissance : </b></font>
+			<font class='Texte_menu2'><b>DÃ©partement de naissance : </b></font>
 		</td>
 		<td nowrap='true' class='td-droite fond_menu'>
 			<font class='Texte_menu'><?php echo $_SESSION["tab_candidat"]["dpt_naissance"] . " - " . $_SESSION["tab_candidat"]["nom_departement"]; ?></font>
@@ -204,7 +204,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu2'>
-			<font class='Texte_menu2'><b>Nationalité</b> : </font>
+			<font class='Texte_menu2'><b>NationalitÃ©</b> : </font>
 		</td>
 		<td class='td-droite fond_menu'>
 			<font class='Texte_menu'><?php echo preg_replace("/_/","",$_SESSION['tab_candidat']['nationalite']); ?></font>
@@ -212,14 +212,14 @@ CeCILL-B, et que vous en avez accepté les termes.
 	</tr>
 	
 	<?php
-		// Informations de contact uniquement affichées pour la scolarité
+		// Informations de contact uniquement affichÃ©es pour la scolaritÃ©
 
 		if(in_array($_SESSION["niveau"], array("$__LVL_SUPPORT", "$__LVL_SCOL_MOINS","$__LVL_SCOL_PLUS","$__LVL_RESP","$__LVL_SUPER_RESP","$__LVL_ADMIN")))
 		{
 	?>
 	<tr>
 		<td class='td-gauche fond_menu2'>
-			<font class='Texte_menu2'><b>Téléphone fixe</b> : </font>
+			<font class='Texte_menu2'><b>TÃ©lÃ©phone fixe</b> : </font>
 		</td>
 		<td class='td-droite fond_menu'>
 			<font class='Texte_menu'><?php echo $_SESSION['tab_candidat']['telephone']; ?></font>
@@ -227,7 +227,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu2'>
-			<font class='Texte_menu2'><b>Téléphone portable</b> : </font>
+			<font class='Texte_menu2'><b>TÃ©lÃ©phone portable</b> : </font>
 		</td>
 		<td class='td-droite fond_menu'>
 			<font class='Texte_menu'><?php echo $_SESSION['tab_candidat']['telephone_portable']; ?></font>
@@ -262,7 +262,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu2'>
-			<font class='Texte_menu2'><b>Dernière connexion</b> : </font>
+			<font class='Texte_menu2'><b>DerniÃ¨re connexion</b> : </font>
 		</td>
 		<td class='td-droite fond_menu'>
 			<font class='Texte_menu'><?php echo $_SESSION['tab_candidat']['derniere_connexion']; ?>&nbsp;</font>
@@ -276,7 +276,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	</tr>
 	<tr>
 		<td nowrap='true' class='td-gauche fond_menu2'>
-			<font class='Texte_menu2'><b>Baccalauréat (ou équivalent)</b> : </font>
+			<font class='Texte_menu2'><b>BaccalaurÃ©at (ou Ã©quivalent)</b> : </font>
 		</td>
 		<td nowrap='true' class='td-droite fond_menu'>
 			<font class='Texte_menu'>
@@ -290,8 +290,8 @@ CeCILL-B, et que vous en avez accepté les termes.
 	   <td nowrap='true' class='td-gauche fond_menu2'>
 		   <font class='Texte_menu2'>
    		   <strong>
-	   	      Inscription antérieure
-		         <br />dans cette Université ? :
+	   	      Inscription antÃ©rieure
+		         <br />dans cette UniversitÃ© ? :
    			</strong>
    		</font>
    	</td>

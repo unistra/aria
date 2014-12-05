@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -64,7 +64,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 	$dbr=db_connect();
 
-	// Déverrouillage, au cas où
+	// DÃ©verrouillage, au cas oÃ¹
 	if(isset($_SESSION["candidat_id"]))
 		cand_unlock($dbr, $_SESSION["candidat_id"]);
 
@@ -78,7 +78,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	if(isset($_GET["t"]) && is_numeric($_GET["t"]) && $_GET["t"]>=0 & $_GET["t"]<5) // tri
 		$_SESSION['tri']=$_GET["t"];
 
-	// Par défaut : tri par date
+	// Par dÃ©faut : tri par date
 	if(!isset($_SESSION["tri"]))
 		$_SESSION["tri"]=0;
 
@@ -89,7 +89,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		{
 			$_SESSION["filtre_propspec"]=$_POST["filiere"];
 
-			if(isset($_POST["defaut"]) || isset($_POST["defaut_x"])) // on conserve la valeur par défaut dans la base annuaire
+			if(isset($_POST["defaut"]) || isset($_POST["defaut_x"])) // on conserve la valeur par dÃ©faut dans la base annuaire
 			{
 				$_SESSION["spec_filtre_defaut"]=$_SESSION["filtre_propspec"];
 				db_query($dbr,"UPDATE $_DB_acces SET $_DBU_acces_filtre='$_SESSION[spec_filtre_defaut]' WHERE $_DBU_acces_id='$_SESSION[auth_id]'");
@@ -97,11 +97,11 @@ CeCILL-B, et que vous en avez accepté les termes.
 		}
 	}
 
-	// Filtre par défaut
+	// Filtre par dÃ©faut
 	if(!isset($_SESSION["filtre_propspec"]) && isset($_SESSION['spec_filtre_defaut']))
 		$_SESSION["filtre_propspec"]=$_SESSION['spec_filtre_defaut'];
 
-	// Nettoyage de variables utilisées ailleurs
+	// Nettoyage de variables utilisÃ©es ailleurs
 	unset($_SESSION["cursus_a_valider"]);
 	unset($_SESSION["cursus_transfert"]);
 	unset($_SESSION["candidatures_transfert"]);
@@ -114,10 +114,10 @@ CeCILL-B, et que vous en avez accepté les termes.
 	unset($_SESSION["filtre_dossier"]);
 	unset($_SESSION["filtre_justif"]);
 
-	$_SESSION["onglet"]=1; // onglet par défaut : identité du candidat
+	$_SESSION["onglet"]=1; // onglet par dÃ©faut : identitÃ© du candidat
 
 
-	// Détermination du mode d'affichage : précandidatures ou commission pédagogique
+	// DÃ©termination du mode d'affichage : prÃ©candidatures ou commission pÃ©dagogique
 	if(isset($_GET["mode"]) && ($_GET["mode"]==$__MODE_COMPEDA || $_GET["mode"]==$__MODE_PREC))
 		$_SESSION["mode"]=$_GET["mode"];
 
@@ -125,9 +125,9 @@ CeCILL-B, et que vous en avez accepté les termes.
 		$_SESSION["mode"]=$__MODE_PREC;
 
 	if($_SESSION["mode"]==$__MODE_PREC)
-		$mode_txt="Précandidatures : Recevabilité";
+		$mode_txt="PrÃ©candidatures : RecevabilitÃ©";
 	else
-		$mode_txt="Décisions de Commission Pédagogique";
+		$mode_txt="DÃ©cisions de Commission PÃ©dagogique";
 
 
 	// EN-TETE
@@ -138,7 +138,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 ?>
 
 <div class='main' style='padding-left:4px; padding-right:4px;'>
-	<!-- Attention : sur cette page, on ne peut pas encore utiliser la fonction "titre_page_icone" à cause du changement de mode Précandidatures / Com. Péda. -->
+	<!-- Attention : sur cette page, on ne peut pas encore utiliser la fonction "titre_page_icone" Ã  cause du changement de mode PrÃ©candidatures / Com. PÃ©da. -->
 	<table cellpadding='8' border='0' align='left' cellspacing='0' width='100%'>
 	<tr>
 		<td align='center' width='44'>
@@ -164,9 +164,9 @@ CeCILL-B, et que vous en avez accepté les termes.
 		<td align='center' width='20'>
 			<?php
 				if($_SESSION["mode"]==$__MODE_PREC)
-					print("<a href='$php_self?mode=$__MODE_COMPEDA' class='lien_bleu_14'><b>Passer&nbsp;en&nbsp;mode<br>Commission&nbsp;Pédagogique</b></a>\n");
+					print("<a href='$php_self?mode=$__MODE_COMPEDA' class='lien_bleu_14'><b>Passer&nbsp;en&nbsp;mode<br>Commission&nbsp;PÃ©dagogique</b></a>\n");
 				else
-					print("<a href='$php_self?mode=$__MODE_PREC' class='lien_bleu_14'><b>Passer&nbsp;en&nbsp;mode<br>Précandidatures</b></a>\n");
+					print("<a href='$php_self?mode=$__MODE_PREC' class='lien_bleu_14'><b>Passer&nbsp;en&nbsp;mode<br>PrÃ©candidatures</b></a>\n");
 			?>
 		</td>
 		<?php
@@ -178,8 +178,8 @@ CeCILL-B, et que vous en avez accepté les termes.
 	<br clear='all'>
 	<?php
 		if(in_array($_SESSION["niveau"], array("$__LVL_SAISIE","$__LVL_SCOL_MOINS","$__LVL_SCOL_PLUS","$__LVL_RESP","$__LVL_SUPER_RESP","$__LVL_ADMIN")))
-			message("Ces listes contiennent <b>uniquement</b> les candidatures verrouillées que vous pouvez traiter.
-						<br>Pour voir toutes les fiches, cliquez sur <b>Toutes les fiches</b> dans le menu du bandeau supérieur.",$__WARNING);
+			message("Ces listes contiennent <b>uniquement</b> les candidatures verrouillÃ©es que vous pouvez traiter.
+						<br>Pour voir toutes les fiches, cliquez sur <b>Toutes les fiches</b> dans le menu du bandeau supÃ©rieur.",$__WARNING);
 		else
 			print("<br>\n");
 	?>
@@ -187,35 +187,35 @@ CeCILL-B, et que vous en avez accepté les termes.
 	<font class='Texte'>
 	<b>Trier les fiches : </b></font>
 	<?php
-		// Les tris sont différents en fonction du mode
+		// Les tris sont diffÃ©rents en fonction du mode
 		if($_SESSION["mode"]==$__MODE_PREC)
 		{
 			switch($_SESSION["tri"])
 			{
-				case 0:	print("<font class='Texte'><b>par date</b></font>&nbsp;&nbsp;<a href='index.php?t=1' class='lien_bleu'><b>par nom</b></a>&nbsp;&nbsp;<a href='index.php?t=2' class='lien_bleu'><b>par formation</b></a>&nbsp;&nbsp;<a href='index.php?t=3' class='lien_bleu'><b>par moyenne du dernier diplôme</b></a>");
+				case 0:	print("<font class='Texte'><b>par date</b></font>&nbsp;&nbsp;<a href='index.php?t=1' class='lien_bleu'><b>par nom</b></a>&nbsp;&nbsp;<a href='index.php?t=2' class='lien_bleu'><b>par formation</b></a>&nbsp;&nbsp;<a href='index.php?t=3' class='lien_bleu'><b>par moyenne du dernier diplÃ´me</b></a>");
 							$ordre_tri="date";
-							$order_by="$_DBC_cand_id"; // l'identifiant d'une candidature est un timestamp = date à laquelle la candidature a été entrée
+							$order_by="$_DBC_cand_id"; // l'identifiant d'une candidature est un timestamp = date Ã  laquelle la candidature a Ã©tÃ© entrÃ©e
 							break;
 
-				case 1:	print("<a href='index.php?t=0' class='lien_bleu'><b>par date</b></a>&nbsp;&nbsp;<font class='Texte'><b>par nom</b></font>&nbsp;&nbsp;<a href='index.php?t=2' class='lien_bleu'><b>par formation</b></a>&nbsp;&nbsp;<a href='index.php?t=3' class='lien_bleu'><b>par moyenne du dernier diplôme</b></a>");
+				case 1:	print("<a href='index.php?t=0' class='lien_bleu'><b>par date</b></a>&nbsp;&nbsp;<font class='Texte'><b>par nom</b></font>&nbsp;&nbsp;<a href='index.php?t=2' class='lien_bleu'><b>par formation</b></a>&nbsp;&nbsp;<a href='index.php?t=3' class='lien_bleu'><b>par moyenne du dernier diplÃ´me</b></a>");
 							$ordre_tri="nom";
 							$order_by="$_DBC_candidat_nom, $_DBC_candidat_prenom, $_DBC_propspec_annee, $_DBC_propspec_id_spec";
 							break;
 
-				case 2:	print("<a href='index.php?t=0' class='lien_bleu'><b>par date</b></a>&nbsp;&nbsp;<a href='index.php?t=1' class='lien_bleu'><b>par nom</b></a>&nbsp;&nbsp;<font class='Texte'><b>par formation</b></font>&nbsp;&nbsp;<a href='index.php?t=3' class='lien_bleu'><b>par moyenne du dernier diplôme</b></a>");
+				case 2:	print("<a href='index.php?t=0' class='lien_bleu'><b>par date</b></a>&nbsp;&nbsp;<a href='index.php?t=1' class='lien_bleu'><b>par nom</b></a>&nbsp;&nbsp;<font class='Texte'><b>par formation</b></font>&nbsp;&nbsp;<a href='index.php?t=3' class='lien_bleu'><b>par moyenne du dernier diplÃ´me</b></a>");
 							$ordre_tri="formation";
 							$order_by="$_DBC_annees_ordre, $_DBC_propspec_id_spec, $_DBC_cand_id";
 							break;
 
-				case 3:	print("<a href='index.php?t=0' class='lien_bleu'><b>par date</b></a>&nbsp;&nbsp;<a href='index.php?t=1' class='lien_bleu'><b>par nom</b></a>&nbsp;&nbsp;<a href='index.php?t=2' class='lien_bleu'><b>par formation</b></a>&nbsp;&nbsp;<font class='Texte'><b>par moyenne du dernier diplôme</b></font>");
+				case 3:	print("<a href='index.php?t=0' class='lien_bleu'><b>par date</b></a>&nbsp;&nbsp;<a href='index.php?t=1' class='lien_bleu'><b>par nom</b></a>&nbsp;&nbsp;<a href='index.php?t=2' class='lien_bleu'><b>par formation</b></a>&nbsp;&nbsp;<font class='Texte'><b>par moyenne du dernier diplÃ´me</b></font>");
 							$ordre_tri="note moyenne";
-							// cas particulier : le tri ne se fait pas dans la table Candidats (mais on doit quand même mettre l'ordre ici)
+							// cas particulier : le tri ne se fait pas dans la table Candidats (mais on doit quand mÃªme mettre l'ordre ici)
 							$order_by="$_DBC_cand_id";
 							break;
 
-				default:	print("<font class='Texte'><b>par date</b></font>&nbsp;&nbsp;<a href='index.php?t=1' class='lien_bleu'><b>par nom</b></a>&nbsp;&nbsp;<a href='index.php?t=2' class='lien_bleu'><b>par formation</b></a>&nbsp;&nbsp;<a href='index.php?t=3' class='lien_bleu'><b>par moyenne du dernier diplôme</b></a>");
+				default:	print("<font class='Texte'><b>par date</b></font>&nbsp;&nbsp;<a href='index.php?t=1' class='lien_bleu'><b>par nom</b></a>&nbsp;&nbsp;<a href='index.php?t=2' class='lien_bleu'><b>par formation</b></a>&nbsp;&nbsp;<a href='index.php?t=3' class='lien_bleu'><b>par moyenne du dernier diplÃ´me</b></a>");
 							$ordre_tri="date";
-							$order_by="$_DBC_cand_id"; // l'identifiant d'une candidature est un timestamp = date à laquelle la candidature a été entrée
+							$order_by="$_DBC_cand_id"; // l'identifiant d'une candidature est un timestamp = date Ã  laquelle la candidature a Ã©tÃ© entrÃ©e
 							break;
 			}
 		}
@@ -223,36 +223,36 @@ CeCILL-B, et que vous en avez accepté les termes.
 		{
 			switch($_SESSION["tri"])
 			{
-				case 0:	print("<font class='Texte'><b>par date</b></font>&nbsp;&nbsp;<a href='index.php?t=1' class='lien_bleu'><b>par nom</b></a>&nbsp;&nbsp;<a href='index.php?t=2' class='lien_bleu'><b>par formation</b></a>&nbsp;&nbsp;<a href='index.php?t=3' class='lien_bleu'><b>par moyenne du dernier diplôme</b></a>&nbsp;&nbsp;<a href='index.php?t=4' class='lien_bleu'><b>par date de recevabilité (décr.)</b></a>");
+				case 0:	print("<font class='Texte'><b>par date</b></font>&nbsp;&nbsp;<a href='index.php?t=1' class='lien_bleu'><b>par nom</b></a>&nbsp;&nbsp;<a href='index.php?t=2' class='lien_bleu'><b>par formation</b></a>&nbsp;&nbsp;<a href='index.php?t=3' class='lien_bleu'><b>par moyenne du dernier diplÃ´me</b></a>&nbsp;&nbsp;<a href='index.php?t=4' class='lien_bleu'><b>par date de recevabilitÃ© (dÃ©cr.)</b></a>");
 							$ordre_tri="date";
-							$order_by="$_DBC_cand_id"; // l'identifiant d'une candidature est un timestamp = date à laquelle la candidature a été entrée
+							$order_by="$_DBC_cand_id"; // l'identifiant d'une candidature est un timestamp = date Ã  laquelle la candidature a Ã©tÃ© entrÃ©e
 							break;
 
-				case 1:	print("<a href='index.php?t=0' class='lien_bleu'><b>par date</b></a>&nbsp;&nbsp;<font class='Texte'><b>par nom</b></font>&nbsp;&nbsp;<a href='index.php?t=2' class='lien_bleu'><b>par formation</b></a>&nbsp;&nbsp;<a href='index.php?t=3' class='lien_bleu'><b>par moyenne du dernier diplôme</b></a>&nbsp;&nbsp;<a href='index.php?t=4' class='lien_bleu'><b>par date de recevabilité (décr.)</b></a>");
+				case 1:	print("<a href='index.php?t=0' class='lien_bleu'><b>par date</b></a>&nbsp;&nbsp;<font class='Texte'><b>par nom</b></font>&nbsp;&nbsp;<a href='index.php?t=2' class='lien_bleu'><b>par formation</b></a>&nbsp;&nbsp;<a href='index.php?t=3' class='lien_bleu'><b>par moyenne du dernier diplÃ´me</b></a>&nbsp;&nbsp;<a href='index.php?t=4' class='lien_bleu'><b>par date de recevabilitÃ© (dÃ©cr.)</b></a>");
 							$ordre_tri="nom";
 							$order_by="$_DBC_candidat_nom, $_DBC_candidat_prenom, $_DBC_propspec_annee, $_DBC_propspec_id_spec";
 							break;
 
-				case 2:	print("<a href='index.php?t=0' class='lien_bleu'><b>par date</b></a>&nbsp;&nbsp;<a href='index.php?t=1' class='lien_bleu'><b>par nom</b></a>&nbsp;&nbsp;<font class='Texte'><b>par formation</b></font>&nbsp;&nbsp;<a href='index.php?t=3' class='lien_bleu'><b>par moyenne du dernier diplôme</b></a>&nbsp;&nbsp;<a href='index.php?t=4' class='lien_bleu'><b>par date de recevabilité (décr.)</b></a>");
+				case 2:	print("<a href='index.php?t=0' class='lien_bleu'><b>par date</b></a>&nbsp;&nbsp;<a href='index.php?t=1' class='lien_bleu'><b>par nom</b></a>&nbsp;&nbsp;<font class='Texte'><b>par formation</b></font>&nbsp;&nbsp;<a href='index.php?t=3' class='lien_bleu'><b>par moyenne du dernier diplÃ´me</b></a>&nbsp;&nbsp;<a href='index.php?t=4' class='lien_bleu'><b>par date de recevabilitÃ© (dÃ©cr.)</b></a>");
 							$ordre_tri="formation";
 							$order_by="$_DBC_annees_ordre, $_DBC_propspec_id_spec, $_DBC_cand_id";
 							break;
 
-				case 3:	print("<a href='index.php?t=0' class='lien_bleu'><b>par date</b></a>&nbsp;&nbsp;<a href='index.php?t=1' class='lien_bleu'><b>par nom</b></a>&nbsp;&nbsp;<a href='index.php?t=2' class='lien_bleu'><b>par formation</b></a>&nbsp;&nbsp;<font class='Texte'><b>par moyenne du dernier diplôme</b></font>&nbsp;&nbsp;<a href='index.php?t=4' class='lien_bleu'><b>par date de recevabilité (décr.)</b></a>");
+				case 3:	print("<a href='index.php?t=0' class='lien_bleu'><b>par date</b></a>&nbsp;&nbsp;<a href='index.php?t=1' class='lien_bleu'><b>par nom</b></a>&nbsp;&nbsp;<a href='index.php?t=2' class='lien_bleu'><b>par formation</b></a>&nbsp;&nbsp;<font class='Texte'><b>par moyenne du dernier diplÃ´me</b></font>&nbsp;&nbsp;<a href='index.php?t=4' class='lien_bleu'><b>par date de recevabilitÃ© (dÃ©cr.)</b></a>");
 							$ordre_tri="note moyenne";
-							// cas particulier : le tri ne se fait pas dans la table Candidats (mais on doit quand même mettre l'ordre ici)
+							// cas particulier : le tri ne se fait pas dans la table Candidats (mais on doit quand mÃªme mettre l'ordre ici)
 							$order_by="$_DBC_cand_id";
 							break;
 
-				// Tri par date de recevabilité décroissante / valable uniquement pour le mode commission (aucun sens sinon)
-				case 4:	print("<a href='index.php?t=0' class='lien_bleu'><b>par date</b></a>&nbsp;&nbsp;<a href='index.php?t=1' class='lien_bleu'><b>par nom</b></a>&nbsp;&nbsp;<a href='index.php?t=2' class='lien_bleu'><b>par formation</b></a>&nbsp;&nbsp;<a href='index.php?t=3' class='lien_bleu'><b>par moyenne du dernier diplôme</b></a>&nbsp;&nbsp;<font class='Texte'><b>par date de recevabilité (décr.)</b></font>");
-							$ordre_tri="date de recevabilité décroissante";
+				// Tri par date de recevabilitÃ© dÃ©croissante / valable uniquement pour le mode commission (aucun sens sinon)
+				case 4:	print("<a href='index.php?t=0' class='lien_bleu'><b>par date</b></a>&nbsp;&nbsp;<a href='index.php?t=1' class='lien_bleu'><b>par nom</b></a>&nbsp;&nbsp;<a href='index.php?t=2' class='lien_bleu'><b>par formation</b></a>&nbsp;&nbsp;<a href='index.php?t=3' class='lien_bleu'><b>par moyenne du dernier diplÃ´me</b></a>&nbsp;&nbsp;<font class='Texte'><b>par date de recevabilitÃ© (dÃ©cr.)</b></font>");
+							$ordre_tri="date de recevabilitÃ© dÃ©croissante";
 							$order_by="$_DBC_cand_date_statut DESC";
 							break;
 
-				default:	print("<font class='Texte'><b>par date</b></font>&nbsp;&nbsp;<a href='index.php?t=1' class='lien_bleu'><b>par nom</b></a>&nbsp;&nbsp;<a href='index.php?t=2' class='lien_bleu'><b>par formation</b></a>&nbsp;&nbsp;<a href='index.php?t=3' class='lien_bleu'><b>par moyenne du dernier diplôme</b></a>&nbsp;&nbsp;<a href='index.php?t=4' class='lien_bleu'><b>par date de recevabilité (décr.)</b></a>");
+				default:	print("<font class='Texte'><b>par date</b></font>&nbsp;&nbsp;<a href='index.php?t=1' class='lien_bleu'><b>par nom</b></a>&nbsp;&nbsp;<a href='index.php?t=2' class='lien_bleu'><b>par formation</b></a>&nbsp;&nbsp;<a href='index.php?t=3' class='lien_bleu'><b>par moyenne du dernier diplÃ´me</b></a>&nbsp;&nbsp;<a href='index.php?t=4' class='lien_bleu'><b>par date de recevabilitÃ© (dÃ©cr.)</b></a>");
 							$ordre_tri="date";
-							$order_by="$_DBC_cand_id"; // l'identifiant d'une candidature est un timestamp = date à laquelle la candidature a été entrée
+							$order_by="$_DBC_cand_id"; // l'identifiant d'une candidature est un timestamp = date Ã  laquelle la candidature a Ã©tÃ© entrÃ©e
 							break;
 			}
 		}
@@ -262,12 +262,12 @@ CeCILL-B, et que vous en avez accepté les termes.
 		{
 			$select_ordre_spec=", $_DBC_cand_ordre_spec";
 			$filtre="AND $_DBC_propspec_id='$_SESSION[filtre_propspec]'";
-			$filtre_statut="<font class='Texte_important'><b>(filtre activé)</b></font>";
+			$filtre_statut="<font class='Texte_important'><b>(filtre activÃ©)</b></font>";
 		}
 		else
 		{
 			$filtre=$select_ordre_spec="";
-			$filtre_statut="<font class='Textevert'><b>(filtre désactivé)</b></font>";
+			$filtre_statut="<font class='Textevert'><b>(filtre dÃ©sactivÃ©)</b></font>";
 		}
 	?>
 	<form action='index.php' method='POST' name='form1'>
@@ -277,7 +277,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		<option value="-1">Montrer toutes les formations</option>
 		<option value="-1" disabled='1'></option>
 		<?php
-			// On ne propose que les formations pour lesquelles des candidatures existent et auxquelles l'utilisateur a accès
+			// On ne propose que les formations pour lesquelles des candidatures existent et auxquelles l'utilisateur a accÃ¨s
 			$requete_droits_formations=requete_auth_droits($_SESSION["comp_id"]);
 			
 			$result=db_query($dbr,"SELECT $_DBC_propspec_id, $_DBC_annees_annee, $_DBC_specs_nom_court, $_DBC_propspec_finalite,
@@ -294,7 +294,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 											ORDER BY $_DBC_annees_ordre, $_DBC_specs_nom");
 			$rows=db_num_rows($result);
 
-			$prev_annee="--"; // variable initialisée à n'importe quoi (sauf année existante évidemment)
+			$prev_annee="--"; // variable initialisÃ©e Ã  n'importe quoi (sauf annÃ©e existante Ã©videmment)
 
 			for($i=0; $i<$rows; $i++)
 			{
@@ -306,7 +306,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 						print("</optgroup>\n");
 
 					if(empty($annee))
-						print("<optgroup label='Années particulières'>\n");
+						print("<optgroup label='AnnÃ©es particuliÃ¨res'>\n");
 					else
 						print("<optgroup label='$annee'>\n");
 
@@ -322,8 +322,8 @@ CeCILL-B, et que vous en avez accepté les termes.
 			db_free_result($result);
 		?>
 	</select>
-	&nbsp;&nbsp;<input type='submit' name='valider' value='Valider'>&nbsp;&nbsp;<input type='submit' name='defaut' value='Définir ce filtre par défaut'>&nbsp;&nbsp;&nbsp;<?php print("$filtre_statut"); ?>
-	<br><font class='Texte_10'><i>Seules les formations pour lesquelles des candidatures ont été déposées sont proposées.</i>
+	&nbsp;&nbsp;<input type='submit' name='valider' value='Valider'>&nbsp;&nbsp;<input type='submit' name='defaut' value='DÃ©finir ce filtre par dÃ©faut'>&nbsp;&nbsp;&nbsp;<?php print("$filtre_statut"); ?>
+	<br><font class='Texte_10'><i>Seules les formations pour lesquelles des candidatures ont Ã©tÃ© dÃ©posÃ©es sont proposÃ©es.</i>
 	</form>
 
 	<br>
@@ -344,10 +344,10 @@ CeCILL-B, et que vous en avez accepté les termes.
 			$icone_manuelle1="contact-new_16x16_fond.png";
 			$icone_manuelle2="contact-new_16x16_menu.png";			
 
-			if($_SESSION["tri"]!=3) // Tri 3 : par moyenne (nécessite un traitement à part)
+			if($_SESSION["tri"]!=3) // Tri 3 : par moyenne (nÃ©cessite un traitement Ã  part)
 			{
 				if($_SESSION["mode"]==$__MODE_PREC)
-					// Récupération des précandidatures non traitées : (statut=0), en fonction de la méthode de tri sélectionnée
+					// RÃ©cupÃ©ration des prÃ©candidatures non traitÃ©es : (statut=0), en fonction de la mÃ©thode de tri sÃ©lectionnÃ©e
 					$result=db_query($dbr,"SELECT $_DBC_candidat_id, $_DBC_cand_id, $_DBC_candidat_nom, $_DBC_candidat_prenom, $_DBC_cand_propspec_id,
 															$_DBC_annees_annee, $_DBC_specs_nom_court, $_DBC_propspec_finalite, $_DBC_candidat_manuelle,
 															$_DBC_cand_date_statut $select_ordre_spec,
@@ -398,16 +398,16 @@ CeCILL-B, et que vous en avez accepté les termes.
 					$s=($rows>1) ? "s" : "";
 
 					if($_SESSION["mode"]==$__MODE_PREC)
-						print("<font class='Texte3'><b>$rows précandidature$s non traitée$s (tri par $ordre_tri) : </b></font><br><br>
+						print("<font class='Texte3'><b>$rows prÃ©candidature$s non traitÃ©e$s (tri par $ordre_tri) : </b></font><br><br>
 									<table width='100%' border='0' cellspacing='0' cellpadding='4' align='left'>");
 					else
-						print("<font class='Texte3'><b>$rows fiche$s en attente de décision (tri par $ordre_tri) : </b></font><br><br>
+						print("<font class='Texte3'><b>$rows fiche$s en attente de dÃ©cision (tri par $ordre_tri) : </b></font><br><br>
 									<table width='100%' border='0' cellspacing='0' cellpadding='4' align='left'>");
 
-					// variables initialisées à n'importe quoi
+					// variables initialisÃ©es Ã  n'importe quoi
 					$old_prenom=$old_nom=$old_date="0";
 
-					// Affichage des précandidatures si le tri n'est pas par note moyenne
+					// Affichage des prÃ©candidatures si le tri n'est pas par note moyenne
 
 					$tab_finalite=array("0" => "", "1" => "- Recherche", "2" => "- Pro");
 
@@ -428,13 +428,13 @@ CeCILL-B, et que vous en avez accepté les termes.
 							$ordre_spec_txt="";
 						}
 
-						// En fonction du tri, on n'affiche pas la même date
+						// En fonction du tri, on n'affiche pas la mÃªme date
 						if(isset($_SESSION["tri"]) && $_SESSION["tri"]!=4)
 							$date_creation=date_fr("j F y", id_to_date($candidature_id));
 						else
 							$date_creation=date_fr("j F y", $date_statut);
 
-						// affichage uniquement si informations différentes
+						// affichage uniquement si informations diffÃ©rentes
 
 						if($nom==$old_nom && $prenom==$old_prenom)
 							$nom=$prenom=$date_creation="";
@@ -461,7 +461,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 						if($fiche_manuelle)
 							$td_manuelle="<td class='$fond1' align='center' width='22'>
-													<img src='$__ICON_DIR/$icone_manuelle1' alt='Fiche manuelle' desc='Fiche créée manuellement' border='0'>
+													<img src='$__ICON_DIR/$icone_manuelle1' alt='Fiche manuelle' desc='Fiche crÃ©Ã©e manuellement' border='0'>
 												</td>\n";
 						else
 							$td_manuelle="<td class='$fond1'></td>\n";
@@ -485,9 +485,9 @@ CeCILL-B, et que vous en avez accepté les termes.
 				else
 				{
 					if($_SESSION["mode"]==$__MODE_PREC)
-						print("<font class='Texte3'><b>Aucune précandidature non traitée.</b></font><br>");
+						print("<font class='Texte3'><b>Aucune prÃ©candidature non traitÃ©e.</b></font><br>");
 					else
-						print("<font class='Texte3'><b>Aucune décision de Commission non rendue.</b></font><br>");
+						print("<font class='Texte3'><b>Aucune dÃ©cision de Commission non rendue.</b></font><br>");
 				}
 			}
 			else
@@ -495,7 +495,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 				if($filtre!="")
 				{
 					if($_SESSION["mode"]==$__MODE_PREC)
-						// Récupération des précandidatures non traitées : (statut=0), en fonction de la méthode de tri sélectionnée
+						// RÃ©cupÃ©ration des prÃ©candidatures non traitÃ©es : (statut=0), en fonction de la mÃ©thode de tri sÃ©lectionnÃ©e
 						$result=db_query($dbr,"SELECT $_DBC_candidat_id, $_DBC_cand_id, $_DBC_candidat_nom, $_DBC_candidat_prenom, $_DBC_candidat_manuelle,
 																$_DBC_cand_propspec_id, $_DBC_annees_annee, $_DBC_specs_nom_court, $_DBC_propspec_finalite,
 																$_DBC_cursus_diplome, $_DBC_cursus_intitule, $_DBC_cursus_spec, $_DBC_cursus_annee,
@@ -560,10 +560,10 @@ CeCILL-B, et que vous en avez accepté les termes.
 					{
 						$s=$rows>1 ? "s" : "";
 
-						// variables initialisées à n'importe quoi
+						// variables initialisÃ©es Ã  n'importe quoi
 						$old_prenom=$old_nom=$old_date="0";
 
-						// Affichage des précandidatures si le tri n'est pas par note moyenne
+						// Affichage des prÃ©candidatures si le tri n'est pas par note moyenne
 
 						$candidats_array=array();
 
@@ -578,7 +578,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 							// $date_creation=date_fr("j F y", id_to_date($candidature_id));
 
-							// affichage uniquement si informations différentes
+							// affichage uniquement si informations diffÃ©rentes
 
 							if($candidat_id!=$old_candidat_id)
 							{
@@ -602,7 +602,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 								$candidats_array[$candidat_id]['diplome']="<br>
 																						<font class='Texte'>
 																							<b>$cursus_annee_obtention</b> : $cursus_diplome
-																							<br><b>Intitulé</b> : $cursus_intitule
+																							<br><b>IntitulÃ©</b> : $cursus_intitule
 																							<br><b>Lieu</b> : $lieu
 																							<br><b>Moyenne</b> : $cursus_moyenne $mention
 																						</font>";
@@ -615,17 +615,17 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 						if($cnt=count($candidats_array))
 						{
-							// Attention : avec usort, les clés (id des candidats) du tableau $candidats_array sont perdues
+							// Attention : avec usort, les clÃ©s (id des candidats) du tableau $candidats_array sont perdues
 							usort($candidats_array,"cmp_moyenne_diplome");
 
 							// $nom_finalite=$tab_finalite[$finalite];
 							$formation="$nom_annee, $nom_spec, $tab_finalite[$finalite]";
 
 							if($_SESSION["mode"]==$__MODE_PREC)
-								print("<font class='Texte3'><b>$cnt précandidature$s non traitée$s (tri par $ordre_tri) : </b></font><br><br>
+								print("<font class='Texte3'><b>$cnt prÃ©candidature$s non traitÃ©e$s (tri par $ordre_tri) : </b></font><br><br>
 											<table width='100%' border='0' cellspacing='0' cellpadding='4' align='left'>");
 							else
-								print("<font class='Texte3'><b>$cnt fiche$s en attente de décision (tri par $ordre_tri) : </b></font><br><br>
+								print("<font class='Texte3'><b>$cnt fiche$s en attente de dÃ©cision (tri par $ordre_tri) : </b></font><br><br>
 											<table width='100%' border='0' cellspacing='0' cellpadding='4' align='left'>");
 
 							foreach($candidats_array as $key_candidat => $candidat)
@@ -634,7 +634,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 								if($candidat["fiche_manuelle"])
 									$td_manuelle="<td class='$fond1' align='center' width='22'>
-															<img src='$__ICON_DIR/$icone_manuelle1' alt='Fiche manuelle' desc='Fiche créée manuellement' border='0'>
+															<img src='$__ICON_DIR/$icone_manuelle1' alt='Fiche manuelle' desc='Fiche crÃ©Ã©e manuellement' border='0'>
 														</td>\n";
 								else
 									$td_manuelle="<td class='$fond1'></td>\n";
@@ -664,9 +664,9 @@ CeCILL-B, et que vous en avez accepté les termes.
 					else
 					{
 						if($_SESSION["mode"]==$__MODE_PREC)
-							print("<font class='Texte3'><b>Aucune précandidature partiellement traitée.</b></font><br>");
+							print("<font class='Texte3'><b>Aucune prÃ©candidature partiellement traitÃ©e.</b></font><br>");
 						else
-							print("<font class='Texte3'><b>Aucune décision de Commission partiellement rendue.</b></font><br>");
+							print("<font class='Texte3'><b>Aucune dÃ©cision de Commission partiellement rendue.</b></font><br>");
 					}
 				}
 			}
@@ -674,7 +674,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		</td>
 		<td valign='top' align='left' width='50%'>
 		<?php
-			// réinitialisation de l'ordre des couleurs
+			// rÃ©initialisation de l'ordre des couleurs
 			$texte1="Texte_menu";
 			$texte2="Texte";
 
@@ -690,7 +690,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			if($_SESSION["tri"]!=3)
 			{
 				if($_SESSION["mode"]==$__MODE_PREC)
-					// Récupération des précandidatures EN ATTENTE (statut = 2), en fonction de la méthode de tri sélectionnée
+					// RÃ©cupÃ©ration des prÃ©candidatures EN ATTENTE (statut = 2), en fonction de la mÃ©thode de tri sÃ©lectionnÃ©e
 					$result=db_query($dbr,"SELECT $_DBC_candidat_id, $_DBC_cand_id, $_DBC_candidat_nom, $_DBC_candidat_prenom, $_DBC_cand_propspec_id,
 															$_DBC_annees_annee, $_DBC_specs_nom_court, $_DBC_propspec_finalite, $_DBC_candidat_manuelle,
 															$_DBC_decisions_texte,
@@ -748,13 +748,13 @@ CeCILL-B, et que vous en avez accepté les termes.
 						$s="";
 
 					if($_SESSION["mode"]==$__MODE_PREC)
-						print("<font class='Texte3'><b>$rows précandidature$s partiellement traitée$s (tri par $ordre_tri) : </b></font><br><br>
+						print("<font class='Texte3'><b>$rows prÃ©candidature$s partiellement traitÃ©e$s (tri par $ordre_tri) : </b></font><br><br>
 									<table width='100%' border='0' cellspacing='0' cellpadding='4' align='left'>");
 					else
-						print("<font class='Texte3'><b>$rows décision$s de Commission partielle$s (tri par $ordre_tri) : </b></font><br><br>
+						print("<font class='Texte3'><b>$rows dÃ©cision$s de Commission partielle$s (tri par $ordre_tri) : </b></font><br><br>
 									<table width='100%' border='0' cellspacing='0' cellpadding='4' align='left'>");
 
-					// Affichage des précandidatures
+					// Affichage des prÃ©candidatures
 					for($i=0; $i<$rows; $i++)
 					{
 						list($candidat_id, $candidature_id, $nom,$prenom, $propspec_id, $nom_annee, $nom_spec, $finalite, $fiche_manuelle, $decision, $vu)=db_fetch_row($result,$i);
@@ -765,7 +765,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 						if($fiche_manuelle)
 							$td_manuelle="<td class='$fond1' align='center' width='22'>
-													<img src='$__ICON_DIR/$icone_manuelle1' alt='Fiche manuelle' desc='Fiche créée manuellement' border='0'>
+													<img src='$__ICON_DIR/$icone_manuelle1' alt='Fiche manuelle' desc='Fiche crÃ©Ã©e manuellement' border='0'>
 												</td>\n";
 						else
 							$td_manuelle="<td class='$fond1'></td>\n";
@@ -790,7 +790,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 							print("<tr>
 										<td class='$fond1' nowrap='true' colspan='2'></td>
 										<td class='$fond1' nowrap='true'>
-											<font class='$texte1'><i>Décision actuelle : </i></font>
+											<font class='$texte1'><i>DÃ©cision actuelle : </i></font>
 										</td>
 										<td class='$fond1' nowrap='true' colspan='2'>
 											<font class='$texte1'><i>$decision</i></font>
@@ -811,9 +811,9 @@ CeCILL-B, et que vous en avez accepté les termes.
 				else
 				{
 					if($_SESSION["mode"]==$__MODE_PREC)
-						print("<font class='Texte3'><b>Aucune précandidature partiellement traitée.</b></font><br>");
+						print("<font class='Texte3'><b>Aucune prÃ©candidature partiellement traitÃ©e.</b></font><br>");
 					else
-						print("<font class='Texte3'><b>Aucune décision de Commission partiellement rendue.</b></font><br>");
+						print("<font class='Texte3'><b>Aucune dÃ©cision de Commission partiellement rendue.</b></font><br>");
 				}
 			}
 			else
@@ -821,7 +821,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 				if($filtre!="")
 				{
 					if($_SESSION["mode"]==$__MODE_PREC)
-						// Récupération des précandidatures non traitées : (statut=0), en fonction de la méthode de tri sélectionnée
+						// RÃ©cupÃ©ration des prÃ©candidatures non traitÃ©es : (statut=0), en fonction de la mÃ©thode de tri sÃ©lectionnÃ©e
 						$result=db_query($dbr,"SELECT $_DBC_candidat_id, $_DBC_cand_id, $_DBC_candidat_nom, $_DBC_candidat_prenom, $_DBC_candidat_manuelle,
 																$_DBC_cand_propspec_id, $_DBC_annees_annee, $_DBC_specs_nom_court, $_DBC_propspec_finalite,
 																$_DBC_cursus_diplome, $_DBC_cursus_intitule, $_DBC_cursus_spec,
@@ -889,10 +889,10 @@ CeCILL-B, et que vous en avez accepté les termes.
 						else
 							$s="";
 
-						// variables initialisées à n'importe quoi
+						// variables initialisÃ©es Ã  n'importe quoi
 						$old_prenom=$old_nom=$old_date="0";
 
-						// Affichage des précandidatures si le tri n'est pas par note moyenne
+						// Affichage des prÃ©candidatures si le tri n'est pas par note moyenne
 
 						$candidats_array=array();
 
@@ -907,7 +907,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 							// $date_creation=date_fr("j F y", id_to_date($candidature_id));
 
-							// affichage uniquement si informations différentes
+							// affichage uniquement si informations diffÃ©rentes
 
 							if($candidat_id!=$old_candidat_id)
 							{
@@ -931,7 +931,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 								$candidats_array[$candidat_id]['diplome']="<br>
 																							<font class='Texte'>
 																								<b>$cursus_annee_obtention</b> : $cursus_diplome
-																								<br><b>Intitulé</b> : $cursus_intitule
+																								<br><b>IntitulÃ©</b> : $cursus_intitule
 																								<br><b>Lieu</b> : $lieu
 																								<br><b>Moyenne</b> : $cursus_moyenne $mention
 																							</font>";
@@ -944,24 +944,24 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 						if($cnt=count($candidats_array))
 						{
-							// Attention : avec usort, les clés (id des candidats) du tableau $candidats_array sont perdues
+							// Attention : avec usort, les clÃ©s (id des candidats) du tableau $candidats_array sont perdues
 							usort($candidats_array,"cmp_moyenne_diplome");
 
 							// $nom_finalite=$tab_finalite[$finalite];
 							$formation="$nom_annee, $nom_spec, $tab_finalite[$finalite]";
 
 							if($_SESSION["mode"]==$__MODE_PREC)
-								print("<font class='Texte3'><b>$cnt précandidature$s non traitée$s (tri par $ordre_tri) : </b></font><br><br>
+								print("<font class='Texte3'><b>$cnt prÃ©candidature$s non traitÃ©e$s (tri par $ordre_tri) : </b></font><br><br>
 											<table width='100%' border='0' cellspacing='0' cellpadding='4' align='left'>");
 							else
-								print("<font class='Texte3'><b>$cnt fiche$s en attente de décision (tri par $ordre_tri) : </b></font><br><br>
+								print("<font class='Texte3'><b>$cnt fiche$s en attente de dÃ©cision (tri par $ordre_tri) : </b></font><br><br>
 											<table width='100%' border='0' cellspacing='0' cellpadding='4' align='left'>");
 
 							foreach($candidats_array as $key_candidat => $candidat)
 							{
 								if($candidat["fiche_manuelle"])
 									$td_manuelle="<td class='$fond1' align='center' width='22'>
-															<img src='$__ICON_DIR/$icone_manuelle1' alt='Fiche manuelle' desc='Fiche créée manuellement' border='0'>
+															<img src='$__ICON_DIR/$icone_manuelle1' alt='Fiche manuelle' desc='Fiche crÃ©Ã©e manuellement' border='0'>
 														</td>\n";
 								else
 									$td_manuelle="<td class='$fond1'></td>\n";
@@ -992,9 +992,9 @@ CeCILL-B, et que vous en avez accepté les termes.
 					else
 					{
 						if($_SESSION["mode"]==$__MODE_PREC)
-							print("<font class='Texte3'><b>Aucune précandidature partiellement traitée.</b></font><br>");
+							print("<font class='Texte3'><b>Aucune prÃ©candidature partiellement traitÃ©e.</b></font><br>");
 						else
-							print("<font class='Texte3'><b>Aucune décision de Commission partiellement rendue.</b></font><br>");
+							print("<font class='Texte3'><b>Aucune dÃ©cision de Commission partiellement rendue.</b></font><br>");
 					}
 				}
 			}
@@ -1006,9 +1006,9 @@ CeCILL-B, et que vous en avez accepté les termes.
 	</table>
 
 	<?php
-		// Tri par moyenne : il faut sélectionner une formation
+		// Tri par moyenne : il faut sÃ©lectionner une formation
 		if(isset($_SESSION["tri"]) && $_SESSION["tri"]==3 && isset($filtre) && $filtre=="")
-			message("Le tri par moyenne n'est possible que si <b>un filtre sur une formation</b> a été sélectionné", $__ERREUR);
+			message("Le tri par moyenne n'est possible que si <b>un filtre sur une formation</b> a Ã©tÃ© sÃ©lectionnÃ©", $__ERREUR);
 	?>
 </div>
 <?php

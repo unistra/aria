@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -78,8 +78,8 @@ CeCILL-B, et que vous en avez accepté les termes.
       $liste_champs=array("civilite", "nom", "nom_naissance", "prenom", "prenom2", "jour", "mois", "annee","adresse_1","adr_cp","adr_ville","adr_pays","lieu_naissance","dpt_naissance",
                           "pays_naissance","email","emailconf", "telephone","telephone_portable", "nationalite","num_ine","code_conf");
 
-      // Vérification de la présence de ces champs dans le formulaire.
-      // Si l'un de ces champs manque, c'est probablement le navigateur qui n'est pas adapté
+      // VÃ©rification de la prÃ©sence de ces champs dans le formulaire.
+      // Si l'un de ces champs manque, c'est probablement le navigateur qui n'est pas adaptÃ©
 
       foreach($liste_champs as $post_key)
       {
@@ -91,7 +91,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          }
       }
 
-      // nouvelle vérification de la présence du code (perdu si timeout)
+      // nouvelle vÃ©rification de la prÃ©sence du code (perdu si timeout)
       if(!isset($_SESSION["code_conf"]))
       {
          session_write_close();
@@ -99,8 +99,8 @@ CeCILL-B, et que vous en avez accepté les termes.
          exit();
       }
 
-      // vérification des valeurs entrées dans le formulaire
-      // TODO : vérifications poussées ?
+      // vÃ©rification des valeurs entrÃ©es dans le formulaire
+      // TODO : vÃ©rifications poussÃ©es ?
 
       $civilite=$_POST["civilite"];
 
@@ -131,7 +131,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       $email=mb_strtolower(trim($_POST["email"]));
       $emailconf=mb_strtolower(trim($_POST["emailconf"]));
 
-      if(strcmp($email, $emailconf)) // si les 2 adresses sont différentes ...
+      if(strcmp($email, $emailconf)) // si les 2 adresses sont diffÃ©rentes ...
          $email_inegaux=1;
 
       $telephone=trim($_POST["telephone"]);
@@ -175,7 +175,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       $champs_obligatoires=array($nom,$prenom,$jour,$mois,$annee,$lieu_naissance,$pays_naissance,$adresse_1,$email,$emailconf, $nationalite,$code_conf,$adr_cp, $adr_ville,$adr_pays,$deja_inscrit,$baccalaureat,$serie_bac);
       $cnt_obl=count($champs_obligatoires);
 
-      for($i=0; $i<$cnt_obl; $i++) // vérification des champs obligatoires
+      for($i=0; $i<$cnt_obl; $i++) // vÃ©rification des champs obligatoires
       {
          if($champs_obligatoires[$i]=="")
          {
@@ -184,20 +184,20 @@ CeCILL-B, et que vous en avez accepté les termes.
          }
       }
 
-      // Le département de naissance est obligatoire pour ceux nés en France
+      // Le dÃ©partement de naissance est obligatoire pour ceux nÃ©s en France
       if($pays_naissance=="FR" && $dpt_naissance!="2A" && $dpt_naissance!="2B" && (!ctype_digit($dpt_naissance) || $dpt_naissance<1 || ($dpt_naissance>95 && ($dpt_naissance<971 || $dpt_naissance>987))))
          $bad_dpt_naissance=1;
 
       if(!ctype_digit($jour) || !ctype_digit($mois) || !ctype_digit($annee) || $annee>=date('Y'))
          $bad_date=1;
       else
-         $date_naissance=MakeTime(12,0,0,ltrim($mois,"0"),ltrim($jour,"0"),$annee); // heure : midi (pour éviter les problèmes de décallages horaires)
+         $date_naissance=MakeTime(12,0,0,ltrim($mois,"0"),ltrim($jour,"0"),$annee); // heure : midi (pour Ã©viter les problÃ¨mes de dÃ©callages horaires)
 
       if($code_conf!=$_SESSION["code_conf"])
          $badcode=1;
          
-      // Vérification d'unicité - On se base sur le nom, le prénom et la date de naissance
-      // TODO : vérifier si ces critères sont suffisants
+      // VÃ©rification d'unicitÃ© - On se base sur le nom, le prÃ©nom et la date de naissance
+      // TODO : vÃ©rifier si ces critÃ¨res sont suffisants
 
       if(!isset($bad_date))
       {
@@ -230,10 +230,10 @@ CeCILL-B, et que vous en avez accepté les termes.
       if(!isset($mail_existe) && !isset($champ_vide) && !isset($id_existe) && !isset($badcode) && !isset($email_inegaux) && !isset($bad_date) && !isset($bad_dpt_naissance) && !isset($erreur_ine_bea) 
          && !isset($err_deja_inscrit) && !isset($err_premiere_inscr) && !isset($err_serie_bac) && !isset($err_baccalaureat) && !isset($erreur_ine_obligatoire))
       {
-         // Les données du nouvel utilisateur sont complètes (pas forcément bonnes, mais ça le pénalisera)
-         // On peut créer l'identifiant et le code, l'insérer dans la base et envoyer le mail
+         // Les donnÃ©es du nouvel utilisateur sont complÃ¨tes (pas forcÃ©ment bonnes, mais Ã§a le pÃ©nalisera)
+         // On peut crÃ©er l'identifiant et le code, l'insÃ©rer dans la base et envoyer le mail
 
-         // Création de l'identifiant
+         // CrÃ©ation de l'identifiant
          $new_identifiant=str_replace(" ","",mb_strtolower($nom)); // base de l'identifiant
          $new_identifiant=str_replace("-","",$new_identifiant);
          $base_identifiant=$new_identifiant=preg_replace("/[']+/","",$new_identifiant);
@@ -247,7 +247,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
          while(db_num_rows(db_query($dbr,"SELECT $_DBC_candidat_id FROM $_DB_candidat WHERE $_DBC_candidat_identifiant like '$new_identifiant'")))
          {
-            if($nb_lettres_prenom<=$len_prenom) // si on peut encore utiliser le prénom
+            if($nb_lettres_prenom<=$len_prenom) // si on peut encore utiliser le prÃ©nom
             {
                $new_identifiant=substr($base_prenom, 0, $nb_lettres_prenom) . "." . $base_identifiant;
                $nb_lettres_prenom++;
@@ -259,11 +259,11 @@ CeCILL-B, et que vous en avez accepté les termes.
             }
          }
 
-         // génération du Code Personnel
+         // gÃ©nÃ©ration du Code Personnel
          srand((double)microtime()*1000000);
          $code_conf=mb_strtoupper(md5(rand(0,9999)));
          $new_code=substr($code_conf, 17, 8);
-         // on supprime le chiffre 1, les lettres I, L, O et le zéro : portent à confusion - on les remplace par d'autres caractères
+         // on supprime le chiffre 1, les lettres I, L, O et le zÃ©ro : portent Ã  confusion - on les remplace par d'autres caractÃ¨res
          $new_code=str_replace("0","A", $new_code);
          $new_code=str_replace("O","H", $new_code);
          $new_code=str_replace("1","P", $new_code);
@@ -277,21 +277,21 @@ CeCILL-B, et que vous en avez accepté les termes.
 
          // envoi du mail de confirmation
 
-         $headers = "MIME-Version: 1.0\r\nFrom: $__EMAIL_ADMIN\r\nReply-To: $__EMAIL_ADMIN\r\nContent-Type: text/plain; charset=ISO-8859-15\r\nContent-transfer-encoding: 8bit\r\n\r\n";
+         $headers = "MIME-Version: 1.0\r\nFrom: $__EMAIL_NOREPLY\r\nReply-To: $__EMAIL_NOREPLY\r\nContent-Type: text/plain; charset=UTF-8\r\nContent-transfer-encoding: 8bit\r\n\r\n";
 
-         $corps_message="============================================================\nCeci est un message automatique, merci de ne pas y répondre.\n============================================================\n\n
+         $corps_message="============================================================\nCeci est un message automatique, merci de ne pas y rÃ©pondre.\n============================================================\n\n
 Bonjour $civilite ". preg_replace("/[']+/", "'", $nom) . ",\n
-Les informations vous permettant d'accéder à l'interface de précandidatures sont les suivantes:
+Les informations vous permettant d'accÃ©der Ã  l'interface de prÃ©candidatures sont les suivantes:
 - Adresse : $url_acces
 - Identifiant : ". stripslashes($new_identifiant) . "
 - Code Personnel : $new_code\n
 Attention : respectez bien les minuscules et majuscules lorsque vous entrez ces codes !\n
-Ne perdez surtout pas ces informations : elles vous serviront à consulter certains documents et résultats par la suite.\n\n
+Ne perdez surtout pas ces informations : elles vous serviront Ã  consulter certains documents et rÃ©sultats par la suite.\n\n
 Cordialement,\n\n
 --
 $__SIGNATURE_COURRIELS";
 
-         $ret=mail($email,"[Précandidatures] - Enregistrement", $corps_message, $headers);
+         $ret=mail($email,"[PrÃ©candidatures] - Enregistrement", $corps_message, $headers);
 /*
          $mime->setTXTBody($corps_message);
          $body = $mime->get();
@@ -303,7 +303,7 @@ $__SIGNATURE_COURRIELS";
 
          if($ret==TRUE)
          {
-            // Debug : envoi d'un mail à l'admin
+            // Debug : envoi d'un mail Ã  l'admin
             if($GLOBALS["__DEBUG"]=="t" && $GLOBALS["__DEBUG_ENREGISTREMENT"]=="t" && $GLOBALS["__EMAIL_ADMIN"]!="")
                mail($GLOBALS["__EMAIL_ADMIN"], "$GLOBALS[__DEBUG_SUJET] - Enregistrement : $civilite " . preg_replace("/[']+/", "'", $nom) . " " . preg_replace("/[']+/", "'", $prenom), "Courriel : $email\n\n" . $corps_message, $headers);
 
@@ -403,23 +403,23 @@ $__SIGNATURE_COURRIELS";
 
 Bienvenue sur l'Interface de Candidatures !
 
-Cette interface vous permet de déposer un ou plusieurs dossiers de candidatures dans les composantes enregistrées.
+Cette interface vous permet de dÃ©poser un ou plusieurs dossiers de candidatures dans les composantes enregistrÃ©es.
 
-<strong><u>Quelques conseils pour débuter :</u></strong>
+<strong><u>Quelques conseils pour dÃ©buter :</u></strong>
 
-&#8226;&nbsp;&nbsp;<a href='$__DOC_DIR/documentation.php' target='_blank' class='lien_bleu_12'><b>la documentation</b> : elle résume toute la procédure</a>
+&#8226;&nbsp;&nbsp;<a href='$__DOC_DIR/documentation.php' target='_blank' class='lien_bleu_12'><b>la documentation</b> : elle rÃ©sume toute la procÃ©dure</a>
 
-&#8226;&nbsp;&nbsp;<b>le menu supérieur</b> : il vous permet d'accéder aux fonctionnalités de l'interface :
-&nbsp;&nbsp;- \"Choisir une autre composante\" pour déposer un dossier dans un autre établissement,
-&nbsp;&nbsp;- \"Votre fiche\" pour compléter vos informations (menu par défaut),
+&#8226;&nbsp;&nbsp;<b>le menu supÃ©rieur</b> : il vous permet d'accÃ©der aux fonctionnalitÃ©s de l'interface :
+&nbsp;&nbsp;- \"Choisir une autre composante\" pour dÃ©poser un dossier dans un autre Ã©tablissement,
+&nbsp;&nbsp;- \"Votre fiche\" pour complÃ©ter vos informations (menu par dÃ©faut),
 &nbsp;&nbsp;- \"Rechercher une formation\" pour trouver la composante proposant la formation que vous cherchez,
-&nbsp;&nbsp;- \"Messagerie\" : l'application vous enverra automatiquement des messages (avec notification de réception sur votre adresse électronique), et vous pourrez également l'utiliser pour contacter la scolarité,
+&nbsp;&nbsp;- \"Messagerie\" : l'application vous enverra automatiquement des messages (avec notification de rÃ©ception sur votre adresse Ã©lectronique), et vous pourrez Ã©galement l'utiliser pour contacter la scolaritÃ©,
 &nbsp;&nbsp;- \"Mode d'emploi\" : un lien permanent vers la documentation.
 
-N'hésitez pas à explorer cette interface !
+N'hÃ©sitez pas Ã  explorer cette interface !
 
 
-Vous pouvez maintenant cliquer sur <strong>\"Votre fiche\"</strong> et commencer à compléter les informations demandées.
+Vous pouvez maintenant cliquer sur <strong>\"Votre fiche\"</strong> et commencer Ã  complÃ©ter les informations demandÃ©es.
 
 
 Bien cordialement,
@@ -433,7 +433,7 @@ $__SIGNATURE_COURRIELS";
                                            "prenom"    => preg_replace("/[']+/", "'", $prenom),
                                            "email"      => "$email"));
 
-            write_msg("", array("id" => "0", "nom" => "Système", "prenom" => "", "composante" => "", "universite" => "$__SIGNATURE_COURRIELS"),
+            write_msg("", array("id" => "0", "nom" => "SystÃ¨me", "prenom" => "", "composante" => "", "universite" => "$__SIGNATURE_COURRIELS"),
                           $dest_array, "Bienvenue !", $corps_message, "$nom $prenom", $__FLAG_MSG_NO_NOTIFICATION);
 
             db_close($dbr);
@@ -447,7 +447,7 @@ $__SIGNATURE_COURRIELS";
       }
    }
 
-   // Construction de la liste des pays et nationalités (codes ISO) pour son utilisation dans le formulaire
+   // Construction de la liste des pays et nationalitÃ©s (codes ISO) pour son utilisation dans le formulaire
    $_SESSION["liste_pays_nat_iso"]=array();
    
    $res_pays_nat=db_query($dbr, "SELECT $_DBC_pays_nat_ii_iso, $_DBC_pays_nat_ii_insee, $_DBC_pays_nat_ii_pays, $_DBC_pays_nat_ii_nat
@@ -460,7 +460,7 @@ $__SIGNATURE_COURRIELS";
    {
       list($code_iso, $code_insee, $table_pays, $table_nationalite)=db_fetch_row($res_pays_nat, $p);
       
-      // Construction uniquement si le code insee est présent (pour les exports APOGEE ou autres)
+      // Construction uniquement si le code insee est prÃ©sent (pour les exports APOGEE ou autres)
       if($code_insee!="")
          $_SESSION["liste_pays_nat_iso"]["$code_iso"]=array("pays" => "$table_pays", "nationalite" => $table_nationalite);
 /*      
@@ -481,35 +481,35 @@ $__SIGNATURE_COURRIELS";
       {
          if(array_key_exists("config", $_SESSION) && array_key_exists("__ASSISTANCE", $_SESSION["config"]) && $_SESSION["config"]["__ASSISTANCE"]=="t")
          {
-            message("<strong>Erreur</strong> : une fiche à ce nom existe déjà dans la base Aria.</b>
-                     <br><br><b>1/</b> Si vous avez oublié votre identifiant/code personnel, <a href='recuperation_identifiants.php' class='lien2a'>cliquez ici</a>.
-                     <br><br><b>2/</b> Si vous n'avez jamais rempli ce formulaire (ou si vous avez changé d'adresse électronique) merci de compléter
-                     <br /> le formulaire simplifié <a href='$GLOBALS[__CAND_DIR]/assistance/form_adresse.php' class='lien2a'>à cette adresse</a> pour une demande de changement d'adresse électronique.", $__ERREUR);
+            message("<strong>Erreur</strong> : une fiche Ã  ce nom existe dÃ©jÃ  dans la base Aria.</b>
+                     <br><br><b>1/</b> Si vous avez oubliÃ© votre identifiant/code personnel, <a href='recuperation_identifiants.php' class='lien2a'>cliquez ici</a>.
+                     <br><br><b>2/</b> Si vous n'avez jamais rempli ce formulaire (ou si vous avez changÃ© d'adresse Ã©lectronique) merci de complÃ©ter
+                     <br /> le formulaire simplifiÃ© <a href='$GLOBALS[__CAND_DIR]/assistance/form_adresse.php' class='lien2a'>Ã  cette adresse</a> pour une demande de changement d'adresse Ã©lectronique.", $__ERREUR);
          }
          else
          {
-            message("<strong>Erreur</strong> : une fiche à ce nom existe déjà dans la base Aria.</b>
-                     <br><br><b>1/</b> Si vous avez oublié votre identifiant/code personnel, <a href='recuperation_identifiants.php' class='lien2a'>cliquez ici</a>.
-                     <br><br><b>2/</b> Si vous n'avez jamais rempli ce formulaire (ou si vous avez changé d'adresse électronique), 
-                     <br />merci <a href='mailto:$__EMAIL_SUPPORT' class='lien2a'>d'envoyer un courriel à cette adresse</a>
-                     <strong>avec toutes les données du formulaire</strong>.", $__ERREUR);
+            message("<strong>Erreur</strong> : une fiche Ã  ce nom existe dÃ©jÃ  dans la base Aria.</b>
+                     <br><br><b>1/</b> Si vous avez oubliÃ© votre identifiant/code personnel, <a href='recuperation_identifiants.php' class='lien2a'>cliquez ici</a>.
+                     <br><br><b>2/</b> Si vous n'avez jamais rempli ce formulaire (ou si vous avez changÃ© d'adresse Ã©lectronique), 
+                     <br />merci <a href='mailto:$__EMAIL_SUPPORT' class='lien2a'>d'envoyer un courriel Ã  cette adresse</a>
+                     <strong>avec toutes les donnÃ©es du formulaire</strong>.", $__ERREUR);
          }
       }
       elseif(isset($mail_existe))
       {
          if(array_key_exists("config", $_SESSION) && array_key_exists("__ASSISTANCE", $_SESSION["config"]) && $_SESSION["config"]["__ASSISTANCE"]=="t")
          {
-            message("<strong>Erreur</strong> : cette adresse électronique est déjà utilisée par une autre fiche dans la base Aria.</b>
-                     <br><br><b>1/</b> Si vous avez oublié votre identifiant/code personnel, <a href='recuperation_identifiants.php' class='lien2a'>cliquez ici</a>.
-                     <br><br><b>2/</b> En cas de non réception des identifiants à l'adresse indiquée, vous pouvez compléter le formulaire <a href='$GLOBALS[__CAND_DIR]/assistance/form_adresse.php' class='lien2a'>à cette adresse</a> 
-                     <br>pour une demande de changement d'adresse électronique.", $__ERREUR);
+            message("<strong>Erreur</strong> : cette adresse Ã©lectronique est dÃ©jÃ  utilisÃ©e par une autre fiche dans la base Aria.</b>
+                     <br><br><b>1/</b> Si vous avez oubliÃ© votre identifiant/code personnel, <a href='recuperation_identifiants.php' class='lien2a'>cliquez ici</a>.
+                     <br><br><b>2/</b> En cas de non rÃ©ception des identifiants Ã  l'adresse indiquÃ©e, vous pouvez complÃ©ter le formulaire <a href='$GLOBALS[__CAND_DIR]/assistance/form_adresse.php' class='lien2a'>Ã  cette adresse</a> 
+                     <br>pour une demande de changement d'adresse Ã©lectronique.", $__ERREUR);
          }
          else
          {
-            message("<strong>Erreur</strong> : une fiche à ce nom existe déjà dans la base Aria.</b>
-                     <br><br><b>1/</b> Si vous avez oublié votre identifiant/code personnel, <a href='recuperation_identifiants.php' class='lien2a'>cliquez ici</a>.
-                     <br><br><b>2/</b> Si vous avez changé d'adresse électronique, merci <a href='mailto:$__EMAIL_SUPPORT' class='lien2a'>d'envoyer un courriel à cette adresse</a> 
-                     <br /><strong>avec toutes les données du formulaire</strong>.", $__ERREUR);
+            message("<strong>Erreur</strong> : une fiche Ã  ce nom existe dÃ©jÃ  dans la base Aria.</b>
+                     <br><br><b>1/</b> Si vous avez oubliÃ© votre identifiant/code personnel, <a href='recuperation_identifiants.php' class='lien2a'>cliquez ici</a>.
+                     <br><br><b>2/</b> Si vous avez changÃ© d'adresse Ã©lectronique, merci <a href='mailto:$__EMAIL_SUPPORT' class='lien2a'>d'envoyer un courriel Ã  cette adresse</a> 
+                     <br /><strong>avec toutes les donnÃ©es du formulaire</strong>.", $__ERREUR);
          }
       }
       else
@@ -528,13 +528,13 @@ $__SIGNATURE_COURRIELS";
          if(isset($email_inegaux))
          {
             $message_erreur.=$message_erreur!="" ? "\n<br>" : "";
-            $message_erreur.="- les deux adresses électroniques ne correspondent pas";
+            $message_erreur.="- les deux adresses Ã©lectroniques ne correspondent pas";
          }
 
          if(isset($bad_dpt_naissance))
          {
             $message_erreur.=$message_erreur!="" ? "\n<br>" : "";
-            $message_erreur.="- si vous êtes né(e) en France, le département de naissance est obligatoire";
+            $message_erreur.="- si vous Ãªtes nÃ©(e) en France, le dÃ©partement de naissance est obligatoire";
          }
 
          if(isset($bad_date))
@@ -552,31 +552,31 @@ $__SIGNATURE_COURRIELS";
          if(isset($erreur_ine_obligatoire))
          {
             $message_erreur.=$message_erreur!="" ? "\n<br>" : "";
-            $message_erreur.="- vous avez indiqué avoir déjà été inscrit(e) dans cette Université : le numero INE ou BEA est <strong>obligatoire</strong>";
+            $message_erreur.="- vous avez indiquÃ© avoir dÃ©jÃ  Ã©tÃ© inscrit(e) dans cette UniversitÃ© : le numero INE ou BEA est <strong>obligatoire</strong>";
          }
 
          if(isset($err_deja_inscrit))
          {
             $message_erreur.=$message_erreur!="" ? "\n<br>" : "";
-            $message_erreur.="- vous devez indiquer si vous avez déjà été inscrit(e) ou non dans cette Université";
+            $message_erreur.="- vous devez indiquer si vous avez dÃ©jÃ  Ã©tÃ© inscrit(e) ou non dans cette UniversitÃ©";
          }
 
          if(isset($err_premiere_inscr) && $err_premiere_inscr=="1")
          {
             $message_erreur.=$message_erreur!="" ? "\n<br>" : "";
-            $message_erreur.="- le format de l'année de première inscription dans cette Université est incorrect";
+            $message_erreur.="- le format de l'annÃ©e de premiÃ¨re inscription dans cette UniversitÃ© est incorrect";
          }
 
          if(isset($err_baccalaureat) && $err_baccalaureat=='1')
          {
             $message_erreur.=$message_erreur!="" ? "\n<br>" : "";
-            $message_erreur.="- le format de l'année d'obtention du baccalauréat est incorrect";
+            $message_erreur.="- le format de l'annÃ©e d'obtention du baccalaurÃ©at est incorrect";
          }
 
          if(isset($err_serie_bac))
          {
             $message_erreur.=$message_erreur!="" ? "\n<br>" : "";
-            $message_erreur.="- vous devez sélectionner la série de votre baccalauréat (ou équivalence). Si vous n'avez pas obtenu le baccalauréat, sélectionnez \"Sans bac\" dans le menu déroulant.";
+            $message_erreur.="- vous devez sÃ©lectionner la sÃ©rie de votre baccalaurÃ©at (ou Ã©quivalence). Si vous n'avez pas obtenu le baccalaurÃ©at, sÃ©lectionnez \"Sans bac\" dans le menu dÃ©roulant.";
          }
 
          if($message_erreur!="")
@@ -588,11 +588,11 @@ $__SIGNATURE_COURRIELS";
 
       if(isset($erreur_mail))
          message("Erreur lors de l'envoi du courriel de confirmation.
-                  <br>Merci de vérifier la validité de votre adresse électronique.", $__ERREUR);
+                  <br>Merci de vÃ©rifier la validitÃ© de votre adresse Ã©lectronique.", $__ERREUR);
 
       if(!isset($champ_vide) && !isset($badcode) && !isset($email_inegaux) && !isset($bad_date) && !isset($erreur_mail) && !isset($id_existe))
-         message("Veuillez compléter le formulaire suivant (les champs <font class='Texte_important' style='vertical-align:top;'><b>en rouge</b></font> sont <font class='Texte_important' style='vertical-align:top;'><b><u>obligatoires</u></b></font>).
-                  <br>Vous recevrez alors, par courriel, les codes d'accès qui vous permettront d'accéder aux précandidatures en ligne.", $__INFO);
+         message("Veuillez complÃ©ter le formulaire suivant (les champs <font class='Texte_important' style='vertical-align:top;'><b>en rouge</b></font> sont <font class='Texte_important' style='vertical-align:top;'><b><u>obligatoires</u></b></font>).
+                  <br>Vous recevrez alors, par courriel, les codes d'accÃ¨s qui vous permettront d'accÃ©der aux prÃ©candidatures en ligne.", $__INFO);
    ?>
 
    <form name='form1' action="<?php print("$php_self"); ?>" method="POST">
@@ -600,12 +600,12 @@ $__SIGNATURE_COURRIELS";
    <table style="margin-left:auto; margin-right:auto;">
    <tr>
       <td class='td-complet fond_menu2' colspan='2'>
-         <font class='Texte_menu2' style="font-size:14px"><strong>Identité</strong></font>
+         <font class='Texte_menu2' style="font-size:14px"><strong>IdentitÃ©</strong></font>
       </td>
    </tr>
    <tr>
       <td class='td-gauche fond_menu2' style="text-align:right;">
-         <font class='Texte_important_menu2'><b>Civilité : </b></font>
+         <font class='Texte_important_menu2'><b>CivilitÃ© : </b></font>
       </td>
       <td class='td-droite fond_menu' style="text-align:left;">
          <?php
@@ -655,7 +655,7 @@ $__SIGNATURE_COURRIELS";
    </tr>
    <tr>
       <td class='td-gauche fond_menu2' style="text-align:right;">
-         <font class='Texte_important_menu2'>Nom de naissance (si différent) :</font>
+         <font class='Texte_important_menu2'>Nom de naissance (si diffÃ©rent) :</font>
       </td>
       <td class='td-droite fond_menu' style="text-align:left;">
          <input type='text' name='nom_naissance' value='<?php if(isset($nom_naissance)) echo htmlspecialchars($nom_naissance,ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="25" maxlength="30">
@@ -663,7 +663,7 @@ $__SIGNATURE_COURRIELS";
    </tr>
    <tr>
       <td class='td-gauche fond_menu2' style="text-align:right;">
-         <font class='Texte_important_menu2'><b>Prénom : </b></font>
+         <font class='Texte_important_menu2'><b>PrÃ©nom : </b></font>
       </td>
       <td class='td-droite fond_menu' style="text-align:left;">
          <input type='text' name='prenom' value='<?php if(isset($prenom)) echo htmlspecialchars($prenom,ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="25" maxlength="30">
@@ -671,7 +671,7 @@ $__SIGNATURE_COURRIELS";
    </tr>
    <tr>
       <td class='td-gauche fond_menu2' style="text-align:right;">
-         <font class='Texte_menu2'>Deuxième prénom (recommandé) : </font>
+         <font class='Texte_menu2'>DeuxiÃ¨me prÃ©nom (recommandÃ©) : </font>
       </td>
       <td class='td-droite fond_menu' style="text-align:left;">
          <input type='text' name='prenom2' value='<?php if(isset($deuxieme_prenom)) echo htmlspecialchars($deuxieme_prenom,ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="25" maxlength="30">
@@ -697,7 +697,7 @@ $__SIGNATURE_COURRIELS";
    </tr>
    <tr>
       <td class='td-gauche fond_menu2' style="text-align:right;">
-         <font class='Texte_important_menu2'><b>Si vous êtes né(e) en France, veuillez<br>indiquer le N° de département de naissance : </b></font>
+         <font class='Texte_important_menu2'><b>Si vous Ãªtes nÃ©(e) en France, veuillez<br>indiquer le NÂ° de dÃ©partement de naissance : </b></font>
       </td>
       <td class='td-droite fond_menu' style="text-align:left;">
          <select name='dpt_naissance'>
@@ -746,7 +746,7 @@ $__SIGNATURE_COURRIELS";
    </tr>
    <tr>
       <td class='td-gauche fond_menu2' style="text-align:right;">
-         <font class='Texte_important_menu2'><b>Nationalité : </b></font>
+         <font class='Texte_important_menu2'><b>NationalitÃ© : </b></font>
       </td>
       <td class='td-droite fond_menu' style="text-align:left;">
          <select name='nationalite' size='1'>
@@ -767,7 +767,7 @@ $__SIGNATURE_COURRIELS";
    </tr>
    <tr>
       <td class='td-gauche fond_menu2' style='text-align:right;'>
-         <font class='Texte_important_menu2'><b>Adresse électronique valide (<i>email</i>) : </b></font>
+         <font class='Texte_important_menu2'><b>Adresse Ã©lectronique valide (<i>email</i>) : </b></font>
       </td>
       <td class='td-droite fond_menu' style='text-align:left;'>
          <input type='text' name='email' value='<?php if(isset($email)) echo htmlspecialchars($email,ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="25" maxlength="255">
@@ -775,14 +775,14 @@ $__SIGNATURE_COURRIELS";
          <br>
          <font class='Texte_important_menu'>
             <strong>Attention : </strong>
-            <br>- vérifiez bien que les courriels ne sont pas redirigés dans votre dossier <strong>"Spams"</strong> ou <strong>"Courriers Indésirables"</strong>,
-            <br>- configurez les <strong>filtres</strong> de votre messagerie pour autoriser l'adresse <strong>"<?php echo $__EMAIL_ADMIN; ?>"</strong> à vous envoyer des courriels.
+            <br>- vÃ©rifiez bien que les courriels ne sont pas redirigÃ©s dans votre dossier <strong>"Spams"</strong> ou <strong>"Courriers IndÃ©sirables"</strong>,
+            <br>- configurez les <strong>filtres</strong> de votre messagerie pour autoriser l'adresse <strong>"<?php echo $__EMAIL_NOREPLY; ?>"</strong> Ã  vous envoyer des courriels.
          </font>
       </td>
    </tr>
    <tr>
       <td class='td-gauche fond_menu2' style='text-align:right;'>
-         <font class='Texte_important_menu2'><b>Veuillez confirmer l'adresse électronique : </b></font>
+         <font class='Texte_important_menu2'><b>Veuillez confirmer l'adresse Ã©lectronique : </b></font>
       </td>
       <td class='td-droite fond_menu' style='text-align:left;'>
          <input type='text' name='emailconf' value='<?php if(isset($emailconf)) echo htmlspecialchars($emailconf,ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="25" maxlength="255">
@@ -793,7 +793,7 @@ $__SIGNATURE_COURRIELS";
    </tr>
    <tr>
       <td class='td-complet fond_menu2' colspan='2'>
-         <font class='Texte_menu2' style="font-size:14px"><strong>Adresse postale pour la réception des courriers</strong></font>
+         <font class='Texte_menu2' style="font-size:14px"><strong>Adresse postale pour la rÃ©ception des courriers</strong></font>
       </td>
    </tr>
    <tr>
@@ -869,17 +869,17 @@ $__SIGNATURE_COURRIELS";
    <tr>
       <td class='td-gauche fond_menu2' style="text-align:right;">
          <font class='Texte_important_menu2'>
-            <b>Année d'obtention du baccalauréat (ou équivalent) : </b>
+            <b>AnnÃ©e d'obtention du baccalaurÃ©at (ou Ã©quivalent) : </b>
          </font>
       </td>
       <td class='td-droite fond_menu'>
          <input type='text' name='baccalaureat' value='<?php if(isset($baccalaureat)) echo trim("$baccalaureat"); ?>' size="25" maxlength="4"><font class='Texte'><i>(Format : AAAA)</i></font>
-         <br><font class='Texte_menu_10'><i>Si vous n'avez pas le baccalauréat (et que vous ne le préparez pas cette année), sélectionnez "Sans bac" dans<br>la liste et indiquez l'année du dernier diplôme obtenu</i></font>
+         <br><font class='Texte_menu_10'><i>Si vous n'avez pas le baccalaurÃ©at (et que vous ne le prÃ©parez pas cette annÃ©e), sÃ©lectionnez "Sans bac" dans<br>la liste et indiquez l'annÃ©e du dernier diplÃ´me obtenu</i></font>
       </td>
    </tr>
    <tr>
       <td class='td-gauche fond_menu2' style="text-align:right;">
-         <font class='Texte_important_menu2'><b>Série de votre baccalauréat :</b></font>
+         <font class='Texte_important_menu2'><b>SÃ©rie de votre baccalaurÃ©at :</b></font>
       </td>
       <td class='td-droite fond_menu'>
          <select name='serie_bac' size='1'>
@@ -906,7 +906,7 @@ $__SIGNATURE_COURRIELS";
    </tr>
    <tr>
       <td class='td-gauche fond_menu2' style="text-align:right;">
-         <font class='Texte_important_menu2'><b>Avez vous déjà été inscrit(e) dans cette Université ?</b></font>
+         <font class='Texte_important_menu2'><b>Avez vous dÃ©jÃ  Ã©tÃ© inscrit(e) dans cette UniversitÃ© ?</b></font>
       </td>
       <td class='td-droite fond_menu'>
          <?php
@@ -930,7 +930,7 @@ $__SIGNATURE_COURRIELS";
    </tr>
    <tr>
       <td class='td-gauche fond_menu2' style="text-align:right;">
-         <font class='Texte_important_menu2'><b><u>Si oui</u>, indiquez l'année de première inscription :</b></font>
+         <font class='Texte_important_menu2'><b><u>Si oui</u>, indiquez l'annÃ©e de premiÃ¨re inscription :</b></font>
       </td>
       <td class='td-droite fond_menu'>
          <input type='text' name='premiere_inscr' value='<?php if(isset($premiere_inscr)) echo trim("$premiere_inscr"); ?>' size="25" maxlength="4"><font class='Texte'><i>(Format : AAAA)</i></font>
@@ -938,15 +938,15 @@ $__SIGNATURE_COURRIELS";
    </tr>
    <tr>
       <td class='td-gauche fond_menu2' style="text-align:right;">
-         <font class='Texte_menu2'>Numéro INE <b>ou</b> BEA : </font>
+         <font class='Texte_menu2'>NumÃ©ro INE <b>ou</b> BEA : </font>
       </td>
       <td class='td-droite fond_menu' style="text-align:left;">
-         <input type='text' name='num_ine' value='<?php if(isset($num_ine)) echo htmlspecialchars($num_ine,ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="25" maxlength="11"> <font class='Texte_menu'>(<b>obligatoire</b> si vous avez déjà été inscrit(e) dans cette Université)</font>
+         <input type='text' name='num_ine' value='<?php if(isset($num_ine)) echo htmlspecialchars($num_ine,ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="25" maxlength="11"> <font class='Texte_menu'>(<b>obligatoire</b> si vous avez dÃ©jÃ  Ã©tÃ© inscrit(e) dans cette UniversitÃ©)</font>
       </td>
    </tr>
    <tr>
       <td class='td-gauche fond_menu2' style="text-align:right;">
-         <font class='Texte_menu2'>Numéro de téléphone fixe : </font>
+         <font class='Texte_menu2'>NumÃ©ro de tÃ©lÃ©phone fixe : </font>
       </td>
       <td class='td-droite fond_menu' style="text-align:left;">
          <input type='text' name='telephone' value='<?php if(isset($telephone)) echo htmlspecialchars($telephone,ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="25" maxlength="15">
@@ -954,7 +954,7 @@ $__SIGNATURE_COURRIELS";
    </tr>
    <tr>
       <td class='td-gauche fond_menu2' style="text-align:right;">
-         <font class='Texte_menu2'>Numéro de téléphone portable : </font>
+         <font class='Texte_menu2'>NumÃ©ro de tÃ©lÃ©phone portable : </font>
       </td>
       <td class='td-droite fond_menu' style="text-align:left;">
          <input type='text' name='telephone_portable' value='<?php if(isset($telephone_portable)) echo htmlspecialchars($telephone_portable,ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="25" maxlength="15">
@@ -964,18 +964,18 @@ $__SIGNATURE_COURRIELS";
 
    <div class="centered_box">
       <font class='Texte'>
-         <br><b>Code de confirmation</b> : veuillez recopier le code suivant dans le champ prévu à cet effet :
+         <br><b>Code de confirmation</b> : veuillez recopier le code suivant dans le champ prÃ©vu Ã  cet effet :
       </font>
    </div>
    <?php
-      // génération du code aléatoire
+      // gÃ©nÃ©ration du code alÃ©atoire
       if(!isset($_SESSION["code_conf"]))
       {
          srand((double)microtime()*1000000);
          $nouveau_code=strtoupper(md5(rand(0,9999)));
          $_SESSION["code_conf"]=substr($nouveau_code, 17, 5);
 
-         // on supprime le chiffre 1, le zéro et la lettre O : portent à confusion - on les remplace par d'autres caractères
+         // on supprime le chiffre 1, le zÃ©ro et la lettre O : portent Ã  confusion - on les remplace par d'autres caractÃ¨res
          $_SESSION["code_conf"]=str_replace("0","A", $_SESSION["code_conf"]);
          $_SESSION["code_conf"]=str_replace("O","H", $_SESSION["code_conf"]);
          $_SESSION["code_conf"]=str_replace("1","P", $_SESSION["code_conf"]);

@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -69,13 +69,13 @@ CeCILL-B, et que vous en avez accepté les termes.
 		exit();
 	}
 
-	// identifiant de l'étudiant
+	// identifiant de l'Ã©tudiant
 	if(isset($_SESSION["candidat_id"]))
 		$candidat_id=$_SESSION["candidat_id"];
 
 	$dbr=db_connect();
 
-	// Déverrouillage, au cas où
+	// DÃ©verrouillage, au cas oÃ¹
 	if(isset($_SESSION["candidat_id"]))
 		cand_unlock($dbr, $_SESSION["candidat_id"]);
 
@@ -108,7 +108,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			else
 			{
 				$_SESSION["cur_entretien_salle"]=$salle;
-				$lien_form="<a href='lettres/liste_entretiens.php?jour=$jour&id_form=$propspec_id' class='lien_bleu_10' target='_blank'>Document prêt - cliquez ici pour l'ouvrir (ouverture dans une nouvelle page)</a>";
+				$lien_form="<a href='lettres/liste_entretiens.php?jour=$jour&id_form=$propspec_id' class='lien_bleu_10' target='_blank'>Document prÃªt - cliquez ici pour l'ouvrir (ouverture dans une nouvelle page)</a>";
 				$resultat=2;
 			}
 		}
@@ -123,25 +123,25 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 <div class='main'>
 	<?php
-		titre_page_icone("Entretiens : générer une liste de candidats convoqués à un entretien", "kpersonalizer_32x32_fond.png", 15, "L");
+		titre_page_icone("Entretiens : gÃ©nÃ©rer une liste de candidats convoquÃ©s Ã  un entretien", "kpersonalizer_32x32_fond.png", 15, "L");
 
-		message("Seules les formations dont certains candidats sont convocables à l'entretien apparaîtront", $__INFO);
+		message("Seules les formations dont certains candidats sont convocables Ã  l'entretien apparaÃ®tront", $__INFO);
 
 		if(isset($selection_invalide))
-			message("Erreur : veuillez sélectionner une formation valide dans le menu déroulant.", $__ERREUR);
+			message("Erreur : veuillez sÃ©lectionner une formation valide dans le menu dÃ©roulant.", $__ERREUR);
 
 		if(isset($date_invalide))
-			message("Erreur : veuillez sélectionner une date valide dans le menu déroulant.", $__ERREUR);
+			message("Erreur : veuillez sÃ©lectionner une date valide dans le menu dÃ©roulant.", $__ERREUR);
 
 		if(isset($_GET["erreur"]) && $_GET["erreur"]==1)
-			message("Erreur lors de la génération de la liste. Un message a été envoyé à l'administrateur.", $__ERREUR);
+			message("Erreur lors de la gÃ©nÃ©ration de la liste. Un message a Ã©tÃ© envoyÃ© Ã  l'administrateur.", $__ERREUR);
 
 		if(isset($success) && $nb_success>0)
 		{
 			if($nb_success==1)
-				message("$nb_success décision validée avec succès", $__SUCCES);
+				message("$nb_success dÃ©cision validÃ©e avec succÃ¨s", $__SUCCES);
 			else
-				message("$nb_success décisions validées avec succès", $__SUCCES);
+				message("$nb_success dÃ©cisions validÃ©es avec succÃ¨s", $__SUCCES);
 		}
 
 		print("<form action='$php_self' method='POST' name='form1'>\n");
@@ -192,7 +192,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 							print("</optgroup>
 										<option value='' label='' disabled></option>\n");
 
-						$annee_nom=$form_annee_nom=="" ? "Années particulières" : $form_annee_nom;
+						$annee_nom=$form_annee_nom=="" ? "AnnÃ©es particuliÃ¨res" : $form_annee_nom;
 
 						print("<optgroup label='$annee_nom'>\n");
 
@@ -237,9 +237,9 @@ CeCILL-B, et que vous en avez accepté les termes.
 			else
 			{
 				print("<font class='Texte_important'><b>
-							Sélection impossible :
-							<br>- soit aucun candidat n'est convocable à l'entretien
-							<br>- soit aucune formation n'a été définie dans cette composante
+							SÃ©lection impossible :
+							<br>- soit aucun candidat n'est convocable Ã  l'entretien
+							<br>- soit aucune formation n'a Ã©tÃ© dÃ©finie dans cette composante
 						</b></font>
 					</td>
 				</tr>
@@ -255,7 +255,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 	<?php
 		}
-		elseif(isset($resultat) && $resultat==1) // résultat de la recherche : Choix de la date et de la salle
+		elseif(isset($resultat) && $resultat==1) // rÃ©sultat de la recherche : Choix de la date et de la salle
 		{
 			// Nom de la formation choisie
 			$result=db_query($dbr,"SELECT $_DBC_annees_annee, $_DBC_specs_nom_court, $_DBC_propspec_finalite
@@ -306,7 +306,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 */
 					if($date_base==0)
 					{
-						$date_txt="Date indéterminée";
+						$date_txt="Date indÃ©terminÃ©e";
 						$jour_debut="0";
 					}
 					else
@@ -374,7 +374,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 					</tr>
 					<tr>
 						<td class='td-gauche fond_menu2'>
-							<font class='Texte_menu2'><b>Date sélectionnée : </b></font>
+							<font class='Texte_menu2'><b>Date sÃ©lectionnÃ©e : </b></font>
 						</td>
 						<td class='td-milieu fond_menu2'>
 							<font class='Texte_menu2'><b>$date</b>$salle_txt</font>
@@ -391,10 +391,10 @@ CeCILL-B, et que vous en avez accepté les termes.
 	?>
 
 	<div class='centered_icons_box'>
-		<a href='masse.php' target='_self' class='lien2'><img src='<?php echo "$__ICON_DIR/rew_32x32_fond.png"; ?>' alt='Retour au menu précédent' border='0'></a>
+		<a href='masse.php' target='_self' class='lien2'><img src='<?php echo "$__ICON_DIR/rew_32x32_fond.png"; ?>' alt='Retour au menu prÃ©cÃ©dent' border='0'></a>
 		<?php
 			if(isset($resultat))
-				print("<a href='$php_self' target='_self' class='lien2'><img src='$__ICON_DIR/back_32x32_fond.png' alt='Retour au menu précédent' border='0'></a>");
+				print("<a href='$php_self' target='_self' class='lien2'><img src='$__ICON_DIR/back_32x32_fond.png' alt='Retour au menu prÃ©cÃ©dent' border='0'></a>");
 		?>
 		</form>
 	</div>

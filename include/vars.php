@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,41 +20,41 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
 ?>
 <?php
 
-// Encodage par défaut pour la fonction htmlspecialchars
+// Encodage par dÃ©faut pour la fonction htmlspecialchars
 
-$default_htmlspecialchars_encoding="ISO-8859-15";
+$default_htmlspecialchars_encoding="UTF-8";
 
-// Conversion de l'ancienne configuration, si nécessaire
+// Conversion de l'ancienne configuration, si nÃ©cessaire
 
 if(!is_file(dirname(__FILE__)."/../configuration/aria_config.php") && is_file(dirname(__FILE__)."/../configuration/config.php"))
 {
@@ -63,8 +63,8 @@ if(!is_file(dirname(__FILE__)."/../configuration/aria_config.php") && is_file(di
    $config_file=fopen(dirname(__FILE__)."/../configuration/aria_config.php", "w+b");
 
    $file_str="<?php
-// ARIA - Configuration générée par le script \"gestion/admin/config.php\"\n
-// Paramètres de connexion à la base de données PostgreSQL
+// ARIA - Configuration gÃ©nÃ©rÃ©e par le script \"gestion/admin/config.php\"\n
+// ParamÃ¨tres de connexion Ã  la base de donnÃ©es PostgreSQL
 
 // Adresse du serveur
 \$__DB_HOST = \"$__DB_HOST\";
@@ -84,16 +84,16 @@ if(!is_file(dirname(__FILE__)."/../configuration/aria_config.php") && is_file(di
 // Mot de passe
 \$__DB_PASS = \"".quotemeta($__DB_PASS)."\";
 
-// Répertoires de l'application
-// le reste de la configuration est construite à partir des deux paramètres suivants
+// RÃ©pertoires de l'application
+// le reste de la configuration est construite Ã  partir des deux paramÃ¨tres suivants
 
 // Racine du serveur HTTP (i.e DOCUMENT_ROOT)
 \$__ROOT_DIR = \"$__ROOT_DIR\";
 
-// Répertoire contenant l'application, relativement à \"__ROOT_DIR\"
+// RÃ©pertoire contenant l'application, relativement Ã  \"__ROOT_DIR\"
 \$__MOD_DIR = \"$__MOD_DIR\";
 
-// Répertoire contenant les fichiers includes (absolu)
+// RÃ©pertoire contenant les fichiers includes (absolu)
 \$__INCLUDE_DIR_ABS= \"\$__ROOT_DIR/\$__MOD_DIR/include\";
 
 ?>";
@@ -104,13 +104,13 @@ if(!is_file(dirname(__FILE__)."/../configuration/aria_config.php") && is_file(di
    chmod(dirname(__FILE__)."/../configuration/aria_config.php", 0600);
 }
 
-// Construction de variables à partir du fichier de configuration 'aria_config.php'
+// Construction de variables Ã  partir du fichier de configuration 'aria_config.php'
 
 if(is_file(dirname(__FILE__)."/../configuration/aria_config.php"))
    include dirname(__FILE__)."/../configuration/aria_config.php";
 
-// TEMPORAIRE : les variables contenues dans $_SESSION["config"] sont transformées en variables globales
-// TODO : déterminer la meilleure méthode : globales ou sessions ?
+// TEMPORAIRE : les variables contenues dans $_SESSION["config"] sont transformÃ©es en variables globales
+// TODO : dÃ©terminer la meilleure mÃ©thode : globales ou sessions ?
 if(isset($_SESSION["config"]))
 {
    foreach($_SESSION["config"] as $var => $value)
@@ -118,16 +118,16 @@ if(isset($_SESSION["config"]))
 }
 
 // ===============================================================================
-// Construction de l'arborescence en fonction des paramètres récupérés
+// Construction de l'arborescence en fonction des paramÃ¨tres rÃ©cupÃ©rÃ©s
 // ===============================================================================
 
-// Les chemins absolus ne doivent être utilisés que pour la lecture/écriture de fichiers (i.e : pas les php classiques)
+// Les chemins absolus ne doivent Ãªtre utilisÃ©s que pour la lecture/Ã©criture de fichiers (i.e : pas les php classiques)
 
 // Feuilles de styles et autres fichiers statiques
 // (Disparition de "$__CSS_DIR")
 $GLOBALS["__STATIC_DIR"]=$_SESSION["config"]["__STATIC_DIR"]="$GLOBALS[__MOD_DIR]/static";
 
-// Documentation en ligne pour les candidats (différente de l'aide contextuelle coté gestion)
+// Documentation en ligne pour les candidats (diffÃ©rente de l'aide contextuelle cotÃ© gestion)
 $GLOBALS["__DOC_DIR"]=$_SESSION["config"]["__DOC_DIR"]="$GLOBALS[__MOD_DIR]/doc";
 
 // Gestion et candidats
@@ -152,14 +152,14 @@ $GLOBALS["__CAND_MSG_DIR"]=$_SESSION["config"]["__CAND_MSG_DIR"]="$GLOBALS[__CAN
 // Messagerie Candidats / stockage des messages
 $GLOBALS["__CAND_MSG_STOCKAGE_DIR"]=$_SESSION["config"]["__CAND_MSG_STOCKAGE_DIR"]="$GLOBALS[__CAND_DIR]/fichiers/messagerie";
 
-// Système d'assistance pour les candidats
+// SystÃ¨me d'assistance pour les candidats
 $GLOBALS["__CAND_ASSISTANCE_DIR"]=$_SESSION["config"]["__CAND_ASSISTANCE_DIR"]="$GLOBALS[__CAND_DIR]/assistance";
 
 // Fichiers des composantes (gestion)
 $GLOBALS["__GESTION_COMP_STOCKAGE_DIR"]=$_SESSION["config"]["__GESTION_COMP_STOCKAGE_DIR"]="$GLOBALS[__GESTION_DIR]/fichiers/composantes";
 
 // Fichiers publics
-$GLOBALS["__PUBLIC_DIR"]=$_SESSION["config"]["__PUBLIC_DIR"]="$GLOBALS[__MOD_DIR]/fichiers/composantes"; // Réservé aux fichiers téléchargeables : justificatifs
+$GLOBALS["__PUBLIC_DIR"]=$_SESSION["config"]["__PUBLIC_DIR"]="$GLOBALS[__MOD_DIR]/fichiers/composantes"; // RÃ©servÃ© aux fichiers tÃ©lÃ©chargeables : justificatifs
 
 // Messagerie Gestion
 $GLOBALS["__GESTION_MSG_DIR"]=$_SESSION["config"]["__GESTION_MSG_DIR"]="$GLOBALS[__GESTION_DIR]/messagerie";
@@ -168,9 +168,9 @@ $GLOBALS["__GESTION_MSG_STOCKAGE_DIR"]=$_SESSION["config"]["__GESTION_MSG_STOCKA
 // Modules (plugins) additionnels
 $GLOBALS["__PLUGINS_DIR"]=$_SESSION["config"]["__PLUGINS_DIR"]="$GLOBALS[__GESTION_DIR]/admin/modules";
 
-// Images, icônes et logo par défaut
-// __IMG_DIR est particulière : si une université dispose d'autres icônes dans un autre répertoire (cf Menu Administration / Universités),
-// alors ce répertoire est prioritaire sur celui-ci.
+// Images, icÃ´nes et logo par dÃ©faut
+// __IMG_DIR est particuliÃ¨re : si une universitÃ© dispose d'autres icÃ´nes dans un autre rÃ©pertoire (cf Menu Administration / UniversitÃ©s),
+// alors ce rÃ©pertoire est prioritaire sur celui-ci.
 
 $GLOBALS["__IMG_DIR"]=$_SESSION["config"]["__IMG_DIR"]=isset($_SESSION["img_dir"]) ? "$GLOBALS[__MOD_DIR]/images/$_SESSION[img_dir]" : "$GLOBALS[__MOD_DIR]/images";
 $GLOBALS["__ICON_DIR"]=$_SESSION["config"]["__ICON_DIR"]="$GLOBALS[__IMG_DIR]/icones";
@@ -178,7 +178,7 @@ $GLOBALS["__LOGO_DEFAUT"]=$_SESSION["config"]["__LOGO_DEFAUT"]="$GLOBALS[__ICON_
 
 // ==================================================================================
 //                   CHEMINS ABSOLUS POUR LES REPERTOIRES PRECEDENTS
-//      Automatiquement générés - aucune modification ne devrait être nécessaire
+//      Automatiquement gÃ©nÃ©rÃ©s - aucune modification ne devrait Ãªtre nÃ©cessaire
 // ==================================================================================
 
 $GLOBALS["__MOD_DIR_ABS"]=$_SESSION["config"]["__MOD_DIR_ABS"]="$GLOBALS[__ROOT_DIR]/$GLOBALS[__MOD_DIR]";
@@ -196,18 +196,18 @@ $GLOBALS["__ICON_DIR_ABS"]=$_SESSION["config"]["__ICON_DIR_ABS"]="$GLOBALS[__ROO
 $GLOBALS["__LOGO_DEFAUT_ABS"]=$_SESSION["config"]["__LOGO_DEFAUT_ABS"]="$GLOBALS[__ROOT_DIR]/$GLOBALS[__LOGO_DEFAUT]";
 $GLOBALS["__PLUGINS_DIR_ABS"]=$_SESSION["config"]["__PLUGINS_DIR_ABS"]="$GLOBALS[__ROOT_DIR]/$GLOBALS[__PLUGINS_DIR]";
 
-// Construction de la date limite pour distinguer les anciennes candidatures des nouvelles (= année suivante)
+// Construction de la date limite pour distinguer les anciennes candidatures des nouvelles (= annÃ©e suivante)
 // On se basera sur l'identifiant d'une candidature (format AA MM JJ HH MM SS MS(5), sans les espaces)
-// $__PERIODE : année concernée (candidatures 2007-2008 => période 2007)
+// $__PERIODE : annÃ©e concernÃ©e (candidatures 2007-2008 => pÃ©riode 2007)
 
-// Période "absolue" = année universitaire pour les candidats actuels
-// Obsolète : valeur construite à partir de la configuration
+// PÃ©riode "absolue" = annÃ©e universitaire pour les candidats actuels
+// ObsolÃ¨te : valeur construite Ã  partir de la configuration
 
 /*
 if(!array_key_exists("__PERIODE_ABSOLUE", $GLOBALS))
    $__PERIODE_ABSOLUE=(date('n') < $GLOBALS["__MOIS_LIMITE_CANDIDATURE"]) ? date('Y')-1 : date('Y');
 */
-// Période configurée par un gestionnaire
+// PÃ©riode configurÃ©e par un gestionnaire
 if(isset($_SESSION["current_user_periode"]) && ctype_digit($_SESSION["current_user_periode"]))
    $__PERIODE=$_SESSION["current_user_periode"];
 
@@ -217,13 +217,13 @@ else
 */
 
 // ============================================================================
-//    Constantes pour différentes listes
+//    Constantes pour diffÃ©rentes listes
 // ============================================================================
 
-// Identifiant de l'utilisateur système (expéditeur des messages automatiques)
+// Identifiant de l'utilisateur systÃ¨me (expÃ©diteur des messages automatiques)
 $__USER_SYSTEME_ID=0;
 
-// Etat des précandidatures
+// Etat des prÃ©candidatures
 $__PREC_ANNULEE=-2;
 $__PREC_NON_RECEVABLE=-1;
 $__PREC_NON_TRAITEE=0;
@@ -232,10 +232,10 @@ $__PREC_EN_ATTENTE=2;
 $__PREC_PLEIN_DROIT=3;
 
 
-// TODO : tableau à intégrer dans la base de données, comme les décisions
-$tab_recevabilite=array("$__PREC_ANNULEE" => "Annulée par le candidat",
+// TODO : tableau Ã  intÃ©grer dans la base de donnÃ©es, comme les dÃ©cisions
+$tab_recevabilite=array("$__PREC_ANNULEE" => "AnnulÃ©e par le candidat",
                         "$__PREC_NON_RECEVABLE" => "Non recevable",
-                        "$__PREC_NON_TRAITEE" => "Non traitée",
+                        "$__PREC_NON_TRAITEE" => "Non traitÃ©e",
                         "$__PREC_RECEVABLE" => "Recevable",
                         "$__PREC_EN_ATTENTE" => "En attente",
                         "$__PREC_PLEIN_DROIT" => "Plein droit");
@@ -248,22 +248,22 @@ $__CURSUS_PIECES=-1;
 $__CURSUS_EN_ATTENTE=0;
 $__CURSUS_VALIDE=1;
 $__CURSUS_NON_NECESSAIRE=2;
-$__CURSUS_INSCRIPTION=3; // Documents à fournir lors de l'inscription administrative
+$__CURSUS_INSCRIPTION=3; // Documents Ã  fournir lors de l'inscription administrative
 
-// Types d'éléments pour les dossiers
+// Types d'Ã©lÃ©ments pour les dossiers
 $__ELEM_TYPE_FORM=0;
 $__ELEM_TYPE_UN_CHOIX=1;
 $__ELEM_TYPE_MULTI_CHOIX=2;
 
 
-// ========================================== </Décisions> ===============================================
+// ========================================== </DÃ©cisions> ===============================================
 // TODO :
-// - revoir le caractère "décision définitive" : ajouter un flag dans la base de données
-// - ajouter la gestion intégrale de ces décisions dans l'interface d'administration
-// => mises à jour assez lourdes, les décisions étant présentes partout
-// En attendant, il est vivement déconseillé de modifier les décisions existantes.
+// - revoir le caractÃ¨re "dÃ©cision dÃ©finitive" : ajouter un flag dans la base de donnÃ©es
+// - ajouter la gestion intÃ©grale de ces dÃ©cisions dans l'interface d'administration
+// => mises Ã  jour assez lourdes, les dÃ©cisions Ã©tant prÃ©sentes partout
+// En attendant, il est vivement dÃ©conseillÃ© de modifier les dÃ©cisions existantes.
 
-// Inférieures à 0 : traitement non terminé
+// InfÃ©rieures Ã  0 : traitement non terminÃ©
 $__DOSSIER_ADMIS_AVANT_CONFIRMATION=-7;
 $__DOSSIER_ENTRETIEN_TEL=-6;
 $__DOSSIER_LISTE_ENTRETIEN=-5;
@@ -272,10 +272,10 @@ $__DOSSIER_LISTE=-3;
 $__DOSSIER_EN_ATTENTE=-2;
 $__DOSSIER_SOUS_RESERVE=-1;
 
-// égale à 0 : non traité
+// Ã©gale Ã  0 : non traitÃ©
 $__DOSSIER_NON_TRAITE=0;
 
-// supérieures à 0 : décision prise
+// supÃ©rieures Ã  0 : dÃ©cision prise
 $__DOSSIER_ADMIS=1;
 $__DOSSIER_REFUS=2;
 $__DOSSIER_TRANSMIS=3;
@@ -287,15 +287,15 @@ $__DOSSIER_REFUS_RECOURS=8;
 $__DOSSIER_DESISTEMENT=9;
 $__DOSSIER_ADMISSION_CONFIRMEE=10;
 
-// Listes des décisions à afficher si une formation ne nécessite pas d'entretiens
+// Listes des dÃ©cisions Ã  afficher si une formation ne nÃ©cessite pas d'entretiens
 $__DOSSIER_DECISIONS_SANS_ENTRETIEN=array("-7","-3","-2","-1","0","1","2","3","6","7","8","9","10");
 
-// Liste des décisions à n'afficher que si la formation nécessite un entretien complémentaire
-// (ces décisions sont celles pouvant être prises AVANT l'entretien)
+// Liste des dÃ©cisions Ã  n'afficher que si la formation nÃ©cessite un entretien complÃ©mentaire
+// (ces dÃ©cisions sont celles pouvant Ãªtre prises AVANT l'entretien)
 $__DOSSIER_DECISIONS_AVANT_ENTRETIEN=array("-7","-6", "-5","-4","-3","-2","-1","1","2","3","6","10");
 
-// Liste des décisions à n'afficher que si la formation nécessite un entretien complémentaire
-// (ces décisions sont celles pouvant être prises APRES l'entretien)
+// Liste des dÃ©cisions Ã  n'afficher que si la formation nÃ©cessite un entretien complÃ©mentaire
+// (ces dÃ©cisions sont celles pouvant Ãªtre prises APRES l'entretien)
 $__DOSSIER_DECISIONS_APRES_ENTRETIEN=array("-7","-5","4","5","6","7","8","9","10");
 
 $__DOSSIER_DECISIONS_COURTES=array(
@@ -318,9 +318,9 @@ $__DOSSIER_DECISIONS_COURTES=array(
 "9" => "D",
 "10" => "AD-C");
 
-// ========================================== </Décisions> ===============================================
+// ========================================== </DÃ©cisions> ===============================================
 
-// Statut des frais de dossiers (todo : à mettre dans la base)
+// Statut des frais de dossiers (todo : Ã  mettre dans la base)
 $__STATUT_FRAIS_EN_ATTENTE=0;
 $__STATUT_FRAIS_ACQUITTES=1;
 $__STATUT_FRAIS_BOURSIER=2;
@@ -328,7 +328,7 @@ $__STATUT_FRAIS_DISPENSE=3;
 $__STATUT_FRAIS_NON_ACQUITTES=-1;
 
 // =======================================================================================================
-// Finalités des formations (todo : à mettre dans la base)
+// FinalitÃ©s des formations (todo : Ã  mettre dans la base)
 $__FIN_CLASSIQUE=0;
 $__FIN_RECH=1;
 $__FIN_PRO=2;
@@ -336,7 +336,7 @@ $__FIN_PRO=2;
 $tab_finalite=array("0" => "", "1" => "- Recherche", "2" => "- Pro");
 $tab_finalite_abbregee=array("0" => "", "1" => "R", "2" => "P");
 $tab_finalite_semicomplete=array("0" => "", "1" => "Recherche", "2" => "Professionnelle");
-$tab_finalite_lettres=array("0" => "", "1" => "Finalité Recherche", "2" => "Finalité Professionnelle");
+$tab_finalite_lettres=array("0" => "", "1" => "FinalitÃ© Recherche", "2" => "FinalitÃ© Professionnelle");
 $tab_finalite_complete=$tab_finalite_lettres; // alias
 // =======================================================================================================
 
@@ -364,14 +364,14 @@ $__LVL_SUPPORT=5;
 $__LVL_DESACTIVE=-10;
 
 $tab_niveau=array("$__LVL_ADMIN" => "Administrateur de l'application",
-                  "$__LVL_SUPER_RESP" => "Responsable de scolarité centrale",
+                  "$__LVL_SUPER_RESP" => "Responsable de scolaritÃ© centrale",
                   "$__LVL_RESP" => "Responsable administratif",
-                  "$__LVL_SCOL_PLUS" => "Scolarité avec droits supplémentaires",
-                  "$__LVL_SCOL_MOINS" => "Scolarité avec droits limités", 
+                  "$__LVL_SCOL_PLUS" => "ScolaritÃ© avec droits supplÃ©mentaires",
+                  "$__LVL_SCOL_MOINS" => "ScolaritÃ© avec droits limitÃ©s", 
                   "$__LVL_SAISIE" => "Saisie uniquement", 
                   "$__LVL_CONSULT" => "Consultation uniquement",
                   "$__LVL_SUPPORT" => "Support Informatique",
-                  "$__LVL_DESACTIVE" => "Compte désactivé");
+                  "$__LVL_DESACTIVE" => "Compte dÃ©sactivÃ©");
 
 $tab_niveau_menu=array("$__LVL_ADMIN" => "[A]",
                        "$__LVL_SUPER_RESP" => "[RA+]",
@@ -390,34 +390,34 @@ $tab_niveau_menu=array("$__LVL_ADMIN" => "[A]",
 $__MSG_TYPE_VERROUILLAGE="1";
 
 $__MSG_TYPES=array($__MSG_TYPE_VERROUILLAGE => array("titre" => "Verrouillage de la fiche d'un candidat",
-                                                     "desc" => "Message envoyé automatiquement lors du verrouillage de la fiche d'un candidat :
-- son objectif est de fournir au candidat la suite de la procédure concernant les justificatifs à fournir (cf. Editeur de Justificatifs),
-- la présence de pièces jointes liées aux justificatifs est automatiquement signalée et les liens sont ajoutés (aucune macro n'est nécessaire).",
+                                                     "desc" => "Message envoyÃ© automatiquement lors du verrouillage de la fiche d'un candidat :
+- son objectif est de fournir au candidat la suite de la procÃ©dure concernant les justificatifs Ã  fournir (cf. Editeur de Justificatifs),
+- la prÃ©sence de piÃ¨ces jointes liÃ©es aux justificatifs est automatiquement signalÃ©e et les liens sont ajoutÃ©s (aucune macro n'est nÃ©cessaire).",
                                                      "liste_macros" => "<ul>
 <li><strong><font class='Texte_important'>%justificatifs%</font></strong> : lien vers le fichier PDF contenant la liste des justificatifs</li>
-<li><strong><font class='Texte_important'>%recapitulatif%</font></strong> : lien vers le fichier PDF contenant le récapitulatif de la fiche du candidat</li>
-<li><strong><font class='Texte_important'>%date_limite%</font></strong> : date limite de réception des pièces demandées (cf. dates des sessions de candidatures)</li>
+<li><strong><font class='Texte_important'>%recapitulatif%</font></strong> : lien vers le fichier PDF contenant le rÃ©capitulatif de la fiche du candidat</li>
+<li><strong><font class='Texte_important'>%date_limite%</font></strong> : date limite de rÃ©ception des piÃ¨ces demandÃ©es (cf. dates des sessions de candidatures)</li>
 <li><strong>[gras]...[/gras]</strong> : texte en gras</li>
-<li><strong>[souligner]...[/souligner]</strong> : texte souligné</li>
+<li><strong>[souligner]...[/souligner]</strong> : texte soulignÃ©</li>
 <li><strong>[important]...[/important]</strong> : texte mis en valeur</li>
 <li><strong>[mail=adresse@]texte[/mail]</strong> : lien pour l'envoi d'un courriel</li>
 <li><strong>[lien=http://adresse]texte[/lien]</strong> : lien vers une page HTML</li>
 </ul>",
                                                      "defaut" => "\n\nBonjour %Civ% %Nom%,\n
-Le délai imparti pour modifier cette formation est échu. Après réception de l'ensemble des pièces requises (liste dans ce message), vos demandes pourront être traitées par la ou les scolarités.\n
-La procédure à suivre est maintenant la suivante :\n
+Le dÃ©lai imparti pour modifier cette formation est Ã©chu. AprÃ¨s rÃ©ception de l'ensemble des piÃ¨ces requises (liste dans ce message), vos demandes pourront Ãªtre traitÃ©es par la ou les scolaritÃ©s.\n
+La procÃ©dure Ã  suivre est maintenant la suivante :\n
 1/ Cliquez sur chacun des liens suivants :
 %recapitulatif%
 %justificatifs%\n
 2/ Enregistrez puis imprimez ces documents PDF. Conservez-les car ils pourront vous reservir plus tard.\n
-3/ Envoyez ces documents ainsi que les pièces demandées dans le document \"Justificatifs\" par courrier à l'adresse postale indiquée dans ce message (<b>sauf</b> si une adresse spécifique est précisée dans la liste des justificatifs).\n
+3/ Envoyez ces documents ainsi que les piÃ¨ces demandÃ©es dans le document \"Justificatifs\" par courrier Ã  l'adresse postale indiquÃ©e dans ce message (<b>sauf</b> si une adresse spÃ©cifique est prÃ©cisÃ©e dans la liste des justificatifs).\n
 [important][gras]IMPORTANT[/gras] :\n
-Sauf consignes contraires de la scolarité [gras](vérifiez bien le document \"Liste des justificatifs\" ci-dessus)[/gras] :\n
-- vous devez envoyer vos justificatifs à la scolarité le plus rapidement possible (n'attendez pas la date limite du %date_limite%). Les dossiers hors délais seront examinés lors de la session suivante. Si aucune autre session n'est prévue, votre dossier risque de ne pas être traité.
-- pour les candidatures à choix multiples (spécialités regroupées dans le menu 5-Précandidatures), vous devez envoyer [gras]autant d'exemplaires[/gras] de vos justificatifs [gras]que de formations sélectionnées[/gras] dans cette composante. Si vous n'envoyez pas vos justificatifs en plusieurs exemplaires, toutes vos candidatures [gras]ne pourront pas être traitées[/gras].[/important]\n\n
-Vous pouvez dès à présent suivre l'évolution de votre fiche en ligne (sur cette interface) et vous recevrez prochainement d'autres messages concernant le traitement de votre dossier.\n
-Aucune information supplémentaire sur l'état de votre candidature ne sera donnée par téléphone.\n\n
-[gras]Rappel[/gras] : le dépôt d'une précandidature en ligne ne constitue en aucun cas une admission dans la ou les formations demandées.\n\n
+Sauf consignes contraires de la scolaritÃ© [gras](vÃ©rifiez bien le document \"Liste des justificatifs\" ci-dessus)[/gras] :\n
+- vous devez envoyer vos justificatifs Ã  la scolaritÃ© le plus rapidement possible (n'attendez pas la date limite du %date_limite%). Les dossiers hors dÃ©lais seront examinÃ©s lors de la session suivante. Si aucune autre session n'est prÃ©vue, votre dossier risque de ne pas Ãªtre traitÃ©.
+- pour les candidatures Ã  choix multiples (spÃ©cialitÃ©s regroupÃ©es dans le menu 5-PrÃ©candidatures), vous devez envoyer [gras]autant d'exemplaires[/gras] de vos justificatifs [gras]que de formations sÃ©lectionnÃ©es[/gras] dans cette composante. Si vous n'envoyez pas vos justificatifs en plusieurs exemplaires, toutes vos candidatures [gras]ne pourront pas Ãªtre traitÃ©es[/gras].[/important]\n\n
+Vous pouvez dÃ¨s Ã  prÃ©sent suivre l'Ã©volution de votre fiche en ligne (sur cette interface) et vous recevrez prochainement d'autres messages concernant le traitement de votre dossier.\n
+Aucune information supplÃ©mentaire sur l'Ã©tat de votre candidature ne sera donnÃ©e par tÃ©lÃ©phone.\n\n
+[gras]Rappel[/gras] : le dÃ©pÃ´t d'une prÃ©candidature en ligne ne constitue en aucun cas une admission dans la ou les formations demandÃ©es.\n\n
 Cordialement,\n\n
 --
 %adresse_scolarite%\n
@@ -430,77 +430,77 @@ Cordialement,\n\n
 //                           HISTORIQUE
 // ======================================================================================
 
-// Evénements de l'historique (événements communs)
-$__EVT_ID_COMP=0;           // sélection de composante
+// EvÃ©nements de l'historique (Ã©vÃ©nements communs)
+$__EVT_ID_COMP=0;           // sÃ©lection de composante
 $__EVT_ID_LOGIN=1;          // connexion
-$__EVT_ID_REINIT=2;         // réinitialisation du pass
+$__EVT_ID_REINIT=2;         // rÃ©initialisation du pass
 
-// Historique - événements candidats
+// Historique - Ã©vÃ©nements candidats
 $__EVT_ID_C_REG=3;          // enregistrement
-$__EVT_ID_C_ID=4;           // identité
+$__EVT_ID_C_ID=4;           // identitÃ©
 $__EVT_ID_C_CURSUS=5;       // cursus
 $__EVT_ID_C_LANG=6;         // langues
-$__EVT_ID_C_INFO=7;         // infos complémentaires
+$__EVT_ID_C_INFO=7;         // infos complÃ©mentaires
 $__EVT_ID_C_RENS=8;         // autres renseignements
-$__EVT_ID_C_PREC=9;         // précandidatures
+$__EVT_ID_C_PREC=9;         // prÃ©candidatures
 $__EVT_ID_C_MSG=10;         // messages candidat -> gestion
 $__EVT_ID_C_DOC=11;         // Documents PDF
-$__EVT_UD_C_RECUP=12;       // Récupération des identifiants
+$__EVT_UD_C_RECUP=12;       // RÃ©cupÃ©ration des identifiants
 
-// Historique - événements gestion
-$__EVT_ID_G_ID=104;         // identité (du candidat)
+// Historique - Ã©vÃ©nements gestion
+$__EVT_ID_G_ID=104;         // identitÃ© (du candidat)
 $__EVT_ID_G_CURSUS=105;     // cursus ('')
 $__EVT_ID_G_LANG=106;       // langues ('')
-$__EVT_ID_G_INFO=107;       // infos complémentaires ('')
+$__EVT_ID_G_INFO=107;       // infos complÃ©mentaires ('')
 $__EVT_ID_G_RENS=108;       // autres renseignements ('')
-$__EVT_ID_G_PREC=109;       // précandidatures ('')
+$__EVT_ID_G_PREC=109;       // prÃ©candidatures ('')
 $__EVT_ID_G_MSG=110;        // messages gestion -> candidat
-$__EVT_ID_G_MAN=111;        // mode manuel (à détailler)
-$__EVT_ID_G_LISTE=112;      // liste complémentaire
+$__EVT_ID_G_MAN=111;        // mode manuel (Ã  dÃ©tailler)
+$__EVT_ID_G_LISTE=112;      // liste complÃ©mentaire
 $__EVT_ID_G_MASSE=113;      // gestion de masse
 $__EVT_ID_G_ADMIN=114;      // admin
 $__EVT_ID_G_DOC=115;        // Documents PDF
 $__EVT_ID_G_SESSION=116;    // Sessions
 $__EVT_ID_G_LOCK=117;       // Verrouillage manuel
-$__EVT_ID_G_UNLOCK=118;     // Déverrouillage manuel
+$__EVT_ID_G_UNLOCK=118;     // DÃ©verrouillage manuel
 $__EVT_ID_G_LOCKDATE=119;   // Modification de la date du verrouillage
 $__EVT_ID_G_FILTRES=120;    // Filtre entre les formations
 
-// Historique - évenement système (automatiques)
+// Historique - Ã©venement systÃ¨me (automatiques)
 $__EVT_ID_S_LOCK=200;       // Verrouillage (script)
-$__EVT_ID_S_UNLOCK=201;      // Déverrouillage (cet événement n'arrive jamais via le script :)
+$__EVT_ID_S_UNLOCK=201;      // DÃ©verrouillage (cet Ã©vÃ©nement n'arrive jamais via le script :)
 
-// Nom des événements dans un tableau pour affichage sur la page Historique
+// Nom des Ã©vÃ©nements dans un tableau pour affichage sur la page Historique
 $tab_evenements=array(
-"$__EVT_ID_COMP" => "Sélection composante",
+"$__EVT_ID_COMP" => "SÃ©lection composante",
 "$__EVT_ID_LOGIN" => "Connexion",
-"$__EVT_ID_REINIT" => "Réinitialisation du mot de passe",
+"$__EVT_ID_REINIT" => "RÃ©initialisation du mot de passe",
 "$__EVT_ID_C_REG" => "Enregistrement",
-"$__EVT_ID_C_ID" => "Menu Identité",
+"$__EVT_ID_C_ID" => "Menu IdentitÃ©",
 "$__EVT_ID_C_CURSUS" => "Menu Cursus",
 "$__EVT_ID_C_LANG" => "Menu Langues",
-"$__EVT_ID_C_INFO" => "Menu Infos Complémentaires",
+"$__EVT_ID_C_INFO" => "Menu Infos ComplÃ©mentaires",
 "$__EVT_ID_C_RENS" => "Menu Autres Renseignements",
-"$__EVT_ID_C_PREC" => "Menu Précandidatures",
+"$__EVT_ID_C_PREC" => "Menu PrÃ©candidatures",
 "$__EVT_ID_C_MSG" => "Message Candidat => Gestion",
 "$__EVT_ID_C_DOC" => "Documents PDF",
-"$__EVT_ID_G_ID" => "Menu Identité",
+"$__EVT_ID_G_ID" => "Menu IdentitÃ©",
 "$__EVT_ID_G_CURSUS" => "Menu Cursus",
 "$__EVT_ID_G_LANG" => "Menu Langues",
-"$__EVT_ID_G_INFO" => "Menu Infos Complémentaires",
+"$__EVT_ID_G_INFO" => "Menu Infos ComplÃ©mentaires",
 "$__EVT_ID_G_RENS" => "Menu Autres Renseignements",
-"$__EVT_ID_G_PREC" => "Menu Précandidatures",
+"$__EVT_ID_G_PREC" => "Menu PrÃ©candidatures",
 "$__EVT_ID_G_MSG" => "Message Gestion => Candidat",
 "$__EVT_ID_G_MAN" => "Menu Mode Manuel",
-"$__EVT_ID_G_LISTE" => "Liste Complémentaire",
+"$__EVT_ID_G_LISTE" => "Liste ComplÃ©mentaire",
 "$__EVT_ID_G_MASSE" => "Gestion de Masse",
 "$__EVT_ID_G_ADMIN" => "Admin",
 "$__EVT_ID_G_DOC" => "Documents PDF",
 "$__EVT_ID_G_SESSION" => "Sessions",
 "$__EVT_ID_S_LOCK" => "Verrouillage (script)",
-"$__EVT_ID_S_UNLOCK" => "Déverrouillage",
+"$__EVT_ID_S_UNLOCK" => "DÃ©verrouillage",
 "$__EVT_ID_G_LOCK" => "Verrouillage manuel",
-"$__EVT_ID_G_UNLOCK" => "Déverrouillage manuel",
+"$__EVT_ID_G_UNLOCK" => "DÃ©verrouillage manuel",
 "$__EVT_ID_G_LOCKDATE" => "Date verrouillage",
 "$__EVT_ID_G_FILTRES" => "Filtres formations");
 
@@ -515,9 +515,9 @@ $__MSG_SENT=2;
 $__MSG_TRAITES=3;
 $__MSG_TRASH=4;
 
-$__MSG_DOSSIERS=array(   "$__MSG_INBOX" => "Boîte de réception",
-                        "$__MSG_SENT" => "Envoyés",
-                        "$__MSG_TRAITES" => "Traités",
+$__MSG_DOSSIERS=array(   "$__MSG_INBOX" => "BoÃ®te de rÃ©ception",
+                        "$__MSG_SENT" => "EnvoyÃ©s",
+                        "$__MSG_TRAITES" => "TraitÃ©s",
                         "$__MSG_TRASH" => "Corbeille",);
 
 // Flag pour empecher l'envoi d'un message de notification
@@ -527,7 +527,7 @@ $__FLAG_MSG_NOTIFICATION=1;
 // ======================================================================================
 
 
-// Justificatifs : conditions sur les nationalités
+// Justificatifs : conditions sur les nationalitÃ©s
 
 $__COND_NAT_TOUS=0;
 $__COND_NAT_FR=1;
@@ -535,8 +535,8 @@ $__COND_NAT_NON_FR=2;
 $__COND_NAT_HORS_UE=3;
 $__COND_NAT_UE=4;
 
-// A compléter en fonction de l'adhésion de nouveaux pays
-// Liste obsolète
+// A complÃ©ter en fonction de l'adhÃ©sion de nouveaux pays
+// Liste obsolÃ¨te
 $__PAYS_UE=array(
 'Allemagne', 'Allemand','Allemande',
 'Autriche', 'Autrichien', 'Autrichienne',
@@ -547,7 +547,7 @@ $__PAYS_UE=array(
 'Espagne','Espagnol','Espagnole',
 'Estonie','Estonien','Estonienne',
 'Finlande','Finlandais','Finlandaise',
-'Grèce','Greque','Grec','Grèque',
+'GrÃ¨ce','Greque','Grec','GrÃ¨que',
 'Hongrie','Hongrois','Hongroise',
 'Irlande','Irlandais','Irlandaise',
 'Italie','Italien','Italienne',
@@ -555,43 +555,43 @@ $__PAYS_UE=array(
 'Lituanie','Lituanien','Lituanienne',
 'Luxembourg','Luxembourgeois','Luxembourgeoise',
 'Malte','Maltais','Maltaise',
-'Pays-Bas','Néerlandais','Néerlandaise','Neerlandais','Neerlandaise',
+'Pays-Bas','NÃ©erlandais','NÃ©erlandaise','Neerlandais','Neerlandaise',
 'Pologne','Polonais','Polonaise',
 'Portugal','Portugais','Portugaise',
 'Royaume-Uni','Anglais','Anglaise',
-'République Tchèque','Tchèque','Tcheque',
+'RÃ©publique TchÃ¨que','TchÃ¨que','Tcheque',
 'Roumanie','Roumain','Roumaine',
 'Slovaquie','Slovaque',
-'Slovénie','Slovène','Slovene','Slovéne',
-'Suède', 'Suédois','Suédoise','Suedois', 'Suedoise');
+'SlovÃ©nie','SlovÃ¨ne','Slovene','SlovÃ©ne',
+'SuÃ¨de', 'SuÃ©dois','SuÃ©doise','Suedois', 'Suedoise');
 
 // Nouvelle liste
 $__PAYS_UE_ISO=array('DE','AT','BE','BG','CY','DK','ES','EE','FI','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','GB','CZ','RO','SK','SI','SE');
 
 
-// Mois (pour éviter certaines boucles)
+// Mois (pour Ã©viter certaines boucles)
 $__MOIS=array(
 "1" => "Janvier",
-"2" => "Février",
+"2" => "FÃ©vrier",
 "3" => "Mars",
 "4" => "Avril",
 "5" => "Mai",
 "6" => "Juin",
 "7" => "Juillet",
-"8" => "Août",
+"8" => "AoÃ»t",
 "9" => "Septembre",
 "01" => "Janvier",
-"02" => "Février",
+"02" => "FÃ©vrier",
 "03" => "Mars",
 "04" => "Avril",
 "05" => "Mai",
 "06" => "Juin",
 "07" => "Juillet",
-"08" => "Août",
+"08" => "AoÃ»t",
 "09" => "Septembre",
 "10" => "Octobre",
 "11" => "Novembre",
-"12" => "Décembre");
+"12" => "DÃ©cembre");
 
 if(!isset($_SESSION["css"]))
    $_SESSION["css"]="typo.css";
@@ -616,33 +616,33 @@ $__MENU_MSG=4;
 $__MENU_DOC=5;
 
 // MENUS COLONNE GAUCHE
-// TODO : le menu 3 est spécifique à l'ufr mathinfo  : attention à l'export !
+// TODO : le menu 3 est spÃ©cifique Ã  l'ufr mathinfo  : attention Ã  l'export !
 $menu=array(   '0' => '0 - Documentation',
-               '1' => '1 - Identité',
+               '1' => '1 - IdentitÃ©',
                '2' => '2 - Cursus',
                '3' => '3 - Langues',
-               '4' => '4 - Infos Complémentaires',
-               // '6' => '6 - Candidatures Extérieures',
-               '5' => '5 - Précandidatures');
+               '4' => '4 - Infos ComplÃ©mentaires',
+               // '6' => '6 - Candidatures ExtÃ©rieures',
+               '5' => '5 - PrÃ©candidatures');
 /*
-$menu_gestion=array(   '1' => '1 - Identité',
+$menu_gestion=array(   '1' => '1 - IdentitÃ©',
                      '2' => '2 - Cursus',
                      '3' => '3 - Langues',
-                     '4' => '4 - Infos Complémentaires',
+                     '4' => '4 - Infos ComplÃ©mentaires',
                      '5' => '5 - Autres Renseignements',
-                     '6' => '6 - Précandidatures',
+                     '6' => '6 - PrÃ©candidatures',
                      '7' => '7 - Mode Manuel',
                      '8' => '8 - Documents PDF',
                      '9' => '9 - Historique',
                      '10' => '10 - Messagerie');
 */                     
 
-$menu_gestion=array(   '1' => '1 - Identité',
+$menu_gestion=array(   '1' => '1 - IdentitÃ©',
                      '2' => '2 - Cursus',
                      '3' => '3 - Langues',
-                     '4' => '4 - Infos Complémentaires',
+                     '4' => '4 - Infos ComplÃ©mentaires',
                      '5' => '5 - Autres Renseignements',
-                     '6' => '6 - Précandidatures',
+                     '6' => '6 - PrÃ©candidatures',
                      '7' => '7 - Mode Manuel',
                      '8' => '8 - Documents PDF',
                      '9' => '9 - Historique',
@@ -650,10 +650,10 @@ $menu_gestion=array(   '1' => '1 - Identité',
 
 // Sous menus pour la page de configuration de l'interface
 $menu_config=array(
-'1' => '1 - Paramètres HTTP',
-'2' => '2 - Paramètres LDAP',
+'1' => '1 - ParamÃ¨tres HTTP',
+'2' => '2 - ParamÃ¨tres LDAP',
 '3' => '3 - Administration',
-'4' => '4 - Paramètres interface',
+'4' => '4 - ParamÃ¨tres interface',
 '5' => '5 - Debug');
 
 // Source des comptes
@@ -665,9 +665,9 @@ $__SOURCE_COMPTE=array("$__COMPTE_MANUEL" => "Compte manuel",
                        "$__COMPTE_LDAP" => "LDAP");
 
 // Redirections
-// Code utilisé pour générer des fichiers redirigeant les utilisateurs (candidats / gestionnaires) lorsqu'ils essaient
-// d'accéder à des répertoires auxquels ils ne devraient pas (messagerie notamment, les répertoires doivent rester "lisibles"
-// par Apache mais pas pour les utilisateurs, d'où la création d'indexes dynamiques
+// Code utilisÃ© pour gÃ©nÃ©rer des fichiers redirigeant les utilisateurs (candidats / gestionnaires) lorsqu'ils essaient
+// d'accÃ©der Ã  des rÃ©pertoires auxquels ils ne devraient pas (messagerie notamment, les rÃ©pertoires doivent rester "lisibles"
+// par Apache mais pas pour les utilisateurs, d'oÃ¹ la crÃ©ation d'indexes dynamiques
 
 $__REDIRECTION_CANDIDAT=
 "<?php

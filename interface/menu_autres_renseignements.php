@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,36 +20,36 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
 ?>
 <?php
-	// Vérifications complémentaires au cas où ce fichier serait appelé directement
+	// VÃ©rifications complÃ©mentaires au cas oÃ¹ ce fichier serait appelÃ© directement
 	if(!isset($_SESSION["authentifie"]))
 	{
 		session_write_close();
@@ -80,12 +80,12 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 	$_SESSION["elements_dossier"]=array();
 
-	// La requête est effectuée dans precandidatures.php
+	// La requÃªte est effectuÃ©e dans precandidatures.php
 	for($i=0; $i<$rows_elems; $i++)
 	{
 		list($elem_id, $elem_type, $elem_para, $elem_propspec_id, $elem_vap, $elem_annee, $elem_spec, $elem_finalite, $demande_unique)=db_fetch_row($result_elems, $i);
 
-		// Si l'élément est une demande unique et s'il a déjà été demandé, on ne le demande pas une seconde fois
+		// Si l'Ã©lÃ©ment est une demande unique et s'il a dÃ©jÃ  Ã©tÃ© demandÃ©, on ne le demande pas une seconde fois
 		if($demande_unique=="f" || !in_array($elem_id, $_SESSION['elements_dossier']))
 		{
 			$nom_finalite=$tab_finalite[$elem_finalite];
@@ -95,7 +95,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			else
 			{
 				// Demande globale pour plusieurs formations :
-				// On liste les formations concernées, pour que le candidat organise sa réponse
+				// On liste les formations concernÃ©es, pour que le candidat organise sa rÃ©ponse
 
 				$res_formations=db_query($dbr, "SELECT $_DBC_annees_annee, $_DBC_specs_nom, $_DBC_propspec_finalite
 															FROM $_DB_propspec, $_DB_annees, $_DB_specs, $_DB_dossiers_ef, $_DB_cand
@@ -134,7 +134,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 			$elem_para=nl2br($elem_para);
 
-			// On regarde si le candidat a déjà rempli quelque chose :
+			// On regarde si le candidat a dÃ©jÃ  rempli quelque chose :
 
 			if($demande_unique=="t")
 				$elem_propspec_id=0;
@@ -167,7 +167,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 					$elem_rempli=1;
 					$icone_statut="button_ok_32x32_menu2.png";
 					$font_statut="Textevert";
-					$texte_statut="Formulaire<br>complété";
+					$texte_statut="Formulaire<br>complÃ©tÃ©";
 				}
 				else
 				{
@@ -201,7 +201,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 													break;
 
 				case $__ELEM_TYPE_UN_CHOIX :
-						// Traitement du contenu : normalement une seule réponse : id du choix
+						// Traitement du contenu : normalement une seule rÃ©ponse : id du choix
 						$res_choix=db_query($dbr, "SELECT $_DBC_dossiers_elems_choix_id,$_DBC_dossiers_elems_choix_texte
 																FROM $_DB_dossiers_elems_choix
 															WHERE $_DBC_dossiers_elems_choix_elem_id='$elem_id'
@@ -226,7 +226,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 						break;
 
 				case $__ELEM_TYPE_MULTI_CHOIX :
-						// Traitement du contenu : plusieurs réponses possibles séparées par "|" (id du ou des choix)
+						// Traitement du contenu : plusieurs rÃ©ponses possibles sÃ©parÃ©es par "|" (id du ou des choix)
 						$choix_array=explode("|",$contenu);
 
 						// Affichage des choix
@@ -259,9 +259,9 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 			// if($_SESSION["lock"]==0)
 
-			// Demande individuelle (unique=f) et formation non verrouillée
+			// Demande individuelle (unique=f) et formation non verrouillÃ©e
 			// OU
-			// Demande globale (unique=t) et au moins une des formations n'est pas verrouillée
+			// Demande globale (unique=t) et au moins une des formations n'est pas verrouillÃ©e
 			if(($demande_unique=="f" && $_SESSION["array_lock"][$elem_propspec_id]["lock"]==0)
 				|| ($demande_unique=="t" && db_num_rows(db_query($dbr,"SELECT * FROM $_DB_cand
 																							WHERE $_DBC_cand_candidat_id='$_SESSION[authentifie]'
@@ -274,7 +274,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 				print("<tr>
 							<td class='td-gauche fond_menu2' style='text-align:center; width:40px; padding:4px 10px 4px 20px;'>
 								<a href='renseignements.php?p=$crypt_params' target='_self'><img src='$__ICON_DIR/edit_32x32_menu.png' border='0' alt=''></a>
-								<br><a href='renseignements.php?p=$crypt_params' target='_self' class='lien_menu_gauche'>Compléter<br>cette<br>demande</a>
+								<br><a href='renseignements.php?p=$crypt_params' target='_self' class='lien_menu_gauche'>ComplÃ©ter<br>cette<br>demande</a>
 							</td>
 							<td class='td-milieu fond_menu2' valign='top' style='text-align:justify; padding:4px 20px 4px 20px; white-space: normal;'>
 								<font class='Texte_menu2'>

@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -60,7 +60,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	$php_self=$_SERVER['PHP_SELF'];
 	$_SESSION['CURRENT_FILE']=$php_self;
 
-	// TODO QUESTION 13 mars 2006 : permettre la suppression après verrouillage ?
+	// TODO QUESTION 13 mars 2006 : permettre la suppression aprÃ¨s verrouillage ?
 
 /*
 	if(!isset($_SESSION["lock"]) || $_SESSION["lock"]==1)
@@ -106,7 +106,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			exit;
 		}
 
-		// parametre de groupe pour les candidatures à choix multiples
+		// parametre de groupe pour les candidatures Ã  choix multiples
 		if(isset($params["groupe"]) && $params["groupe"]!=-1)
 			$_SESSION["groupe"]=$params["groupe"];
 		else
@@ -145,9 +145,9 @@ CeCILL-B, et que vous en avez accepté les termes.
 			else
 				$cond_groupe="AND $_DBC_cand_ordre>'$o'";
 
-			// On réordonne les candidatures restantes
+			// On rÃ©ordonne les candidatures restantes
 
-			if(isset($groupe)) // suppression d'une formation au sein d'une candidature à choix multiples, on ne décale que l'ordre des spécialités
+			if(isset($groupe)) // suppression d'une formation au sein d'une candidature Ã  choix multiples, on ne dÃ©cale que l'ordre des spÃ©cialitÃ©s
 			{
 				db_query($dbr,"UPDATE $_DB_cand SET $_DBU_cand_ordre_spec=$_DBU_cand_ordre_spec-1
 										WHERE $_DBU_cand_candidat_id='$candidat_id'
@@ -157,7 +157,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 																			  WHERE $_DBC_propspec_comp_id='$_SESSION[comp_id]')
 										AND 	$_DBU_cand_periode='$__PERIODE'");
 
-				// au cas où on supprimerait ici le dernier élément d'un groupe de spécialités, il faut décaler
+				// au cas oÃ¹ on supprimerait ici le dernier Ã©lÃ©ment d'un groupe de spÃ©cialitÃ©s, il faut dÃ©caler
 				// les candidatures suivantes
 				if(1==db_num_rows(db_query($dbr,"SELECT * FROM $_DB_cand WHERE $_DBC_cand_candidat_id='$candidat_id'
 																AND $_DBC_cand_groupe_spec='$groupe'
@@ -189,7 +189,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 													AND $_DBC_annees_id=$_DBC_propspec_annee
 													AND $_DBC_specs_id=$_DBC_propspec_id_spec");
 
-			if(db_num_rows($res_formation)) // inquiétant si Faux
+			if(db_num_rows($res_formation)) // inquiÃ©tant si Faux
 			{
 				list($nom_annee, $nom_spec, $finalite)=db_fetch_row($res_formation, 0);
 
@@ -215,7 +215,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 													AND $_DBC_annees_id=$_DBC_propspec_annee
 													AND $_DBC_specs_id=$_DBC_propspec_id_spec");
 
-			if(db_num_rows($res_formation)) // inquiétant si Faux
+			if(db_num_rows($res_formation)) // inquiÃ©tant si Faux
 			{
 				list($nom_annee, $nom_spec, $finalite)=db_fetch_row($res_formation, 0);
 
@@ -228,7 +228,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			db_free_result($res_formation);
 
 			// changement de statut
-			// TODO : envoyer les mails à la scol et au candidat
+			// TODO : envoyer les mails Ã  la scol et au candidat
 			db_query($dbr,"UPDATE $_DB_cand SET $_DBU_cand_statut='$__PREC_ANNULEE' WHERE $_DBU_cand_id='$cand_id'");
 		}
 
@@ -240,7 +240,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		header("Location:precandidatures.php");
 		exit;
 	}
-	else // vérification de l'id passée en paramètre
+	else // vÃ©rification de l'id passÃ©e en paramÃ¨tre
 	{
 		$dbr=db_connect()	;
 		
@@ -280,26 +280,26 @@ CeCILL-B, et que vous en avez accepté les termes.
 		if(isset($suppr))
 		{
 			$action="supprimer";
-			titre_page_icone(ucfirst($action) . " une précandidature", "trashcan_full_32x32_slick_fond.png", 30, "L");
+			titre_page_icone(ucfirst($action) . " une prÃ©candidature", "trashcan_full_32x32_slick_fond.png", 30, "L");
 		}
 		else
 		{
 			$action="annuler";
-			titre_page_icone(ucfirst($action) . " une précandidature", "trashcan_full_32x32_slick_fond.png", 30, "L");
+			titre_page_icone(ucfirst($action) . " une prÃ©candidature", "trashcan_full_32x32_slick_fond.png", 30, "L");
 		}
 
 		print("<form action='$php_self' method='POST' name='form1'>
 					<input type='hidden' name='o' value='$ordre'>
 
 					<div class='centered_box'>
-						<font class='Texte3'>Précandidature : $nom_annee $nom_specialite $tab_finalite[$finalite]</font>
+						<font class='Texte3'>PrÃ©candidature : $nom_annee $nom_specialite $tab_finalite[$finalite]</font>
 					</div>");
 
 		if(isset($annuler))
-			message("<center>Une annulation sera automatiquement notifiée à la Scolarité.
-						<br>Une pièce sera également jointe à votre dossier.</center>", $__WARNING);
+			message("<center>Une annulation sera automatiquement notifiÃ©e Ã  la ScolaritÃ©.
+						<br>Une piÃ¨ce sera Ã©galement jointe Ã  votre dossier.</center>", $__WARNING);
 
-		message("Etes-vous sûr de vouloir $action cette précandidature ?", $__QUESTION);
+		message("Etes-vous sÃ»r de vouloir $action cette prÃ©candidature ?", $__QUESTION);
 	?>
 
 	<div class='centered_icons_box'>

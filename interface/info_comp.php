@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -61,10 +61,10 @@ CeCILL-B, et que vous en avez accepté les termes.
 	$_SESSION['CURRENT_FILE']=$php_self;
 
 /*
-	// récupération de l'id de la lettre
+	// rÃ©cupÃ©ration de l'id de la lettre
 	if(isset($_SESSION["info_doc_id"]))
 		$info_doc_id=$_SESSION["info_doc_id"];
-	else	// pas de numéro de lettre : retour à l'index
+	else	// pas de numÃ©ro de lettre : retour Ã  l'index
 	{
 		session_write_close();
 		header("Location:../index.php");
@@ -117,7 +117,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	// ===========================================
 	// ==== AFFICHAGE DES ELEMENTS DU CORPS ====
 	// ==========================================
-	// on boucle sur le tableau (array) contenant tous les éléments, $i étant l'ordre de ces éléments
+	// on boucle sur le tableau (array) contenant tous les Ã©lÃ©ments, $i Ã©tant l'ordre de ces Ã©lÃ©ments
 
 	if($nb_elem_corps)
 	{
@@ -129,7 +129,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			// variable pour les liens (move_element.php, etc)
 			if($i!=0)
 			{
-				$j=$i-1; // élément précédent
+				$j=$i-1; // Ã©lÃ©ment prÃ©cÃ©dent
 				$tt=$elements_corps["$j"]["type"]; // target type (tt)
 			}
 			else
@@ -137,23 +137,23 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 			if($i!=($nb_elem_corps-1))
 			{
-				$k=$i+1; // élément suivant
+				$k=$i+1; // Ã©lÃ©ment suivant
 				$tt2=$elements_corps["$k"]["type"]; // target type (tt)
 			}
 			else
 				$tt2=-1;
 
-			// variables communes à tous les types d'éléments
+			// variables communes Ã  tous les types d'Ã©lÃ©ments
 			
 			$element_id=$elements_corps["$i"]["id"];
 			$element_type=$elements_corps["$i"]["type"];
 
-			// nouvelle ligne dans le tableau pour l'élément en cours
+			// nouvelle ligne dans le tableau pour l'Ã©lÃ©ment en cours
 			print("<tr>\n");
 
 			switch($element_type)
 			{
-				case 2	:	// encadré
+				case 2	:	// encadrÃ©
 									$txt=nl2br($elements_corps["$i"]["texte"]);
 									// $align=$elements_corps["$i"]["alignement"];
 									$txt_align=$elements_corps["$i"]["txt_align"];
@@ -244,7 +244,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 									break;
 
-				case 8	:	// séparateur
+				case 8	:	// sÃ©parateur
 									print("<td align='left' nowrap='true' height='10'></td>\n");
 									break;
 			}

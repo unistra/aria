@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -75,48 +75,48 @@ CeCILL-B, et que vous en avez accepté les termes.
 	<div style='margin-left:auto; margin-right:auto; padding-bottom:20px; width:90%; text-align:justify;'>
 		<font class='Texte_16'><u><b>Fonction principale</b></u></font>
 		<p class='Texte' style='padding-bottom:15px'>
-			<b>Modifier les paramètres de l'interface et les informations liées à votre établissement</b>
+			<b>Modifier les paramÃ¨tres de l'interface et les informations liÃ©es Ã  votre Ã©tablissement</b>
 		</p>
 
 		<font class='Texte_16'>
-			<u><strong>Détail des menus (variables en fonction de votre niveau d'accès)</strong></u>
+			<u><strong>DÃ©tail des menus (variables en fonction de votre niveau d'accÃ¨s)</strong></u>
 		</font>
 		<p class='Texte' style='padding-bottom:15px'>
 			<u><b>Utilisateurs (administrateurs uniquement)</b></u> :
 			<br>- Ajouter, modifier et supprimer un utilisateur de la partie gestion
 			<br>- Renvoyer ses informations d'identification
-			<br>- Modifier ses droits d'accès aux établissements et aux formations
+			<br>- Modifier ses droits d'accÃ¨s aux Ã©tablissements et aux formations
 		</p>
 		<p class='Texte' style='padding-bottom:15px'>
 			<u><b>Composantes</b></u> :
-			<br>- Créer, modifier et supprimer un établissement
+			<br>- CrÃ©er, modifier et supprimer un Ã©tablissement
 			<br>- Modifier la page d'information visible par les candidats
-			<br>- Modifier les décisions utilisées par les Commissions Pédagogiques
-			<br>- Créer, modifier et supprimer des motifs de refus
+			<br>- Modifier les dÃ©cisions utilisÃ©es par les Commissions PÃ©dagogiques
+			<br>- CrÃ©er, modifier et supprimer des motifs de refus
 		</p>
 		<p class='Texte'>
 			<u><b>Offre de formations (options variables en fonction du niveau)</b></u> :
-			<br>- Création, modification et suppression des éléments utilisés pour construire les formations :
+			<br>- CrÃ©ation, modification et suppression des Ã©lÃ©ments utilisÃ©s pour construire les formations :
 			<ul class='Texte' style='padding-bottom:5px;'>
-				<li>Années : L1, L2, L3, Licence Professionnelle, M1, M2, Années particulières (Capacités, Concours, ...)</li>
+				<li>AnnÃ©es : L1, L2, L3, Licence Professionnelle, M1, M2, AnnÃ©es particuliÃ¨res (CapacitÃ©s, Concours, ...)</li>
 				<li>Mentions</li>
-				<li>Spécialités / parcours</li>
+				<li>SpÃ©cialitÃ©s / parcours</li>
 			</ul>
 			<font class='Texte'>
-			- Construction des formations à l'aide de tous ces éléments
-			<br>- Consultation des formations enregistrées sur l'interface
+			- Construction des formations Ã  l'aide de tous ces Ã©lÃ©ments
+			<br>- Consultation des formations enregistrÃ©es sur l'interface
 			</font>
 		</p>
 		<p class='Texte' style='padding-bottom:15px'>
-			<u><b>Paramètres des formations</b></u> :
-			<br>- Ajout d'informations à destination des candidats, pour chaque formation
+			<u><b>ParamÃ¨tres des formations</b></u> :
+			<br>- Ajout d'informations Ã  destination des candidats, pour chaque formation
 			<br>- Gestion des frais de dossier
-			<br>- Liens entre les formations et les membres de la scolarité (pour la messagerie)
-			<br>- Gestion des dates de sessions de candidatures et des commissions pédagogiques
-			<br>- Gestion de la publication des décisions de commissions pédagogiques
-			<br>- Constructeur de dossiers : formulaires que les candidats pourront compléter en ligne
-			<br>- Editeur de lettres : construction des modèles : admission, refus, modalités d'inscription ...
-			<br>- Editeur de justificatifs : listes des pièces demandées aux candidats
+			<br>- Liens entre les formations et les membres de la scolaritÃ© (pour la messagerie)
+			<br>- Gestion des dates de sessions de candidatures et des commissions pÃ©dagogiques
+			<br>- Gestion de la publication des dÃ©cisions de commissions pÃ©dagogiques
+			<br>- Constructeur de dossiers : formulaires que les candidats pourront complÃ©ter en ligne
+			<br>- Editeur de lettres : construction des modÃ¨les : admission, refus, modalitÃ©s d'inscription ...
+			<br>- Editeur de justificatifs : listes des piÃ¨ces demandÃ©es aux candidats
 		</p>
 	</div>
 </div>

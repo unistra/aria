@@ -3,9 +3,9 @@
 // Configuration
 /*
 TODO : 
-- date de début / fin d'extractions
-- possibilité de ne pas mettre de dates
-- gestion de recouvrement de périodes : plusieurs scripts avec l'année universitaire en paramètre ?
+- date de dÃ©but / fin d'extractions
+- possibilitÃ© de ne pas mettre de dates
+- gestion de recouvrement de pÃ©riodes : plusieurs scripts avec l'annÃ©e universitaire en paramÃ¨tre ?
 
 */
 // Activation des extractions par composante
@@ -25,7 +25,7 @@ $_module_apogee_DBU_activ_lp="laisser_passer";
 
 $_module_apogee_DB_config="moduleapogee_config";
 
-$_module_apogee_DBC_config_univ_id="$_module_apogee_DB_config.univ_id"; // compat : remplacé par composante_id
+$_module_apogee_DBC_config_univ_id="$_module_apogee_DB_config.univ_id"; // compat : remplacÃ© par composante_id
 
 $_module_apogee_DBC_config_comp_id="$_module_apogee_DB_config.composante_id";
 $_module_apogee_DBC_config_code="$_module_apogee_DB_config.code";
@@ -55,7 +55,7 @@ $_module_apogee_DBU_config_adr_conditions="adresse_site_conditions";
 // COMPAT (pour le renommage de la table vers moduleapogee_config)
 $_module_apogee_DB_code_univ="moduleapogee_code_universite";
 
-// Codes et versions d'étapes des formations
+// Codes et versions d'Ã©tapes des formations
 
 $_module_apogee_DB_formations="moduleapogee_formations";
 
@@ -83,7 +83,7 @@ $_module_apogee_DBU_centres_gestion_comp_id="composante_id";
 $_module_apogee_DBU_centres_gestion_code="code";
 $_module_apogee_DBU_centres_gestion_nom="nom";
 
-// Numéros OPI
+// NumÃ©ros OPI
 
 $_module_apogee_DB_numeros_opi="moduleapogee_numeros_opi";
 
@@ -111,7 +111,7 @@ $_module_apogee_DBU_codes_LP_code="num";
 $_module_apogee_DBU_codes_LP_cand_id="candidature_id";
 $_module_apogee_DBU_codes_LP_ligne_candidat="ligne_candidat";
 
-// Messages spécifiques aux formations
+// Messages spÃ©cifiques aux formations
 $_module_apogee_DB_messages="moduleapogee_messages";
 
 $_module_apogee_DBC_messages_msg_id="$_module_apogee_DB_messages.message_id";

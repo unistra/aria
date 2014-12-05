@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,41 +20,41 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
 ?>
 <?php
-	// La page générée ici peut être utilisée comme page de garde d'un dossier, imprimée après le premier traitement des
-	// pièces envoyées par le candidat.
-	// Elle indique, en plus du nom du candidat et de la formation concernée :
-	// - les pièces manquantes du cursus (si des précisions existent dans le menu 2-Cursus)
-	// - les autres pièces manquantes indiquées dans le menu 5-Précandidatures
-	// - un champ libre laissant la possibilité à la scolarité d'écrire les autres pièces manquantes
+	// La page gÃ©nÃ©rÃ©e ici peut Ãªtre utilisÃ©e comme page de garde d'un dossier, imprimÃ©e aprÃ¨s le premier traitement des
+	// piÃ¨ces envoyÃ©es par le candidat.
+	// Elle indique, en plus du nom du candidat et de la formation concernÃ©e :
+	// - les piÃ¨ces manquantes du cursus (si des prÃ©cisions existent dans le menu 2-Cursus)
+	// - les autres piÃ¨ces manquantes indiquÃ©es dans le menu 5-PrÃ©candidatures
+	// - un champ libre laissant la possibilitÃ© Ã  la scolaritÃ© d'Ã©crire les autres piÃ¨ces manquantes
 
 	session_name("preinsc_gestion");
 	session_start();
@@ -100,16 +100,16 @@ CeCILL-B, et que vous en avez accepté les termes.
 		// Boucle sur les candidatures
 		if($rows2)
 		{
-			// Ici, on créé UN SEUL FICHIER avec UNE PAGE PAR FORMATION
+			// Ici, on crÃ©Ã© UN SEUL FICHIER avec UNE PAGE PAR FORMATION
 
 			$page_garde=new FPDF("P","mm","A4");
 
 			$page_garde->SetCreator("Application ARIA : Gestion des Candidatures");
-			$page_garde->SetAuthor("Christophe BOCCHECIAMPE - UFR de Mathématique et d'Informatique - Université de Strasbourg");
+			$page_garde->SetAuthor("Christophe BOCCHECIAMPE - UFR de MathÃ©matique et d'Informatique - UniversitÃ© de Strasbourg");
 			$page_garde->SetSubject("Page de Garde");
 			$page_garde->SetTitle("Page de Garde");
 
-			// saut de page automatique, à 15mm du bas
+			// saut de page automatique, Ã  15mm du bas
 			$page_garde->SetAutoPageBreak(1,11);
 			// $page_garde->SetMargins(11,11,11);
 
@@ -120,7 +120,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 				$nom_finalite=$tab_finalite[$finalite];
 
-				// Création du PDF
+				// CrÃ©ation du PDF
 
 				$page_garde->AddPage();
 
@@ -143,7 +143,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 				$page_garde->SetFont('arial',"B",10);
 
 				$page_garde->MultiCell(0, 5, $_SESSION["tab_candidat"]["civ_texte"] . " " . $_SESSION["tab_candidat"]["nom"] . " " . $_SESSION["tab_candidat"]["prenom"], 0, "L");
-				$page_garde->MultiCell(0, 5, $_SESSION["tab_candidat"]["ne_le"] . " " . $_SESSION["tab_candidat"]["txt_naissance"] . " à " . $_SESSION["tab_candidat"]["lieu_naissance"], 0, "L");
+				$page_garde->MultiCell(0, 5, $_SESSION["tab_candidat"]["ne_le"] . " " . $_SESSION["tab_candidat"]["txt_naissance"] . " Ã  " . $_SESSION["tab_candidat"]["lieu_naissance"], 0, "L");
 
 				$page_garde->Ln(8);
 
@@ -154,7 +154,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 															$motif_texte=$cand_motivation!="" ? ": $cand_motivation" : "";
 															break;
 
-					case $__PREC_NON_TRAITEE	:	$statut_txt="Non traitée";
+					case $__PREC_NON_TRAITEE	:	$statut_txt="Non traitÃ©e";
 															$motif_texte="";
 															break;
 
@@ -168,7 +168,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 				}
 
 				$page_garde->SetFont('arial',"",10);
-				$page_garde->MultiCell(0, 5, "Recevabilité : $statut_txt $motif_texte", 0, "J");
+				$page_garde->MultiCell(0, 5, "RecevabilitÃ© : $statut_txt $motif_texte", 0, "J");
 
 				$result=db_query($dbr, "SELECT $_DBC_cursus_id, $_DBC_cursus_annee, $_DBC_cursus_diplome, $_DBC_cursus_intitule,
 														$_DBC_cursus_spec
@@ -181,7 +181,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 				if($rows)
 				{
 					$page_garde->SetFont('arial',"B",12);
-					$page_garde->MultiCell(0, 5, "\nEtapes non justifiées du cursus :", 0, "J");
+					$page_garde->MultiCell(0, 5, "\nEtapes non justifiÃ©es du cursus :", 0, "J");
 
 					// Boucle sur le cursus
 					for($j=0; $j<$rows; $j++)
@@ -199,7 +199,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 						$page_garde->SetFont('arial',"I",10);
                   */
-						// Statut et précisions (si disponibles) - on ne prend que les étapes non validées
+						// Statut et prÃ©cisions (si disponibles) - on ne prend que les Ã©tapes non validÃ©es
 						$res_statut_cursus=db_query($dbr,"SELECT $_DBC_cursus_justif_statut, $_DBC_cursus_justif_precision
 																		FROM $_DB_cursus_justif
 																	WHERE $_DBC_cursus_justif_cursus_id='$cursus_id'
@@ -207,7 +207,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 																	AND $_DBC_cursus_justif_periode='$__PERIODE'
 																	AND $_DBC_cursus_justif_statut NOT IN ('$__CURSUS_VALIDE', '$__CURSUS_NON_NECESSAIRE')");
 
-						$rows_statut=db_num_rows($res_statut_cursus); // Normalement : zéro ou un résultat
+						$rows_statut=db_num_rows($res_statut_cursus); // Normalement : zÃ©ro ou un rÃ©sultat
 
 						if($rows_statut)
 						{
@@ -217,13 +217,13 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 							switch($cursus_statut)
 							{
-								case $__CURSUS_NON_JUSTIFIE	:	$statut_txt="- Non justifié";
+								case $__CURSUS_NON_JUSTIFIE	:	$statut_txt="- Non justifiÃ©";
 																			break;
 
-								case $__CURSUS_DES_OBTENTION	:	$statut_txt="- A fournir dès l'obtention";
+								case $__CURSUS_DES_OBTENTION	:	$statut_txt="- A fournir dÃ¨s l'obtention";
 																			break;
 
-								case $__CURSUS_PIECES			:	$statut_txt="- Pièces manquantes";
+								case $__CURSUS_PIECES			:	$statut_txt="- PiÃ¨ces manquantes";
 																			break;
 
 								case $__CURSUS_EN_ATTENTE		:	$statut_txt="- En attente";
@@ -241,7 +241,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 						}
 						else
 						{
-							$statut_txt="- En attente"; // statut par défaut
+							$statut_txt="- En attente"; // statut par dÃ©faut
 							$precision_txt="";
 						}
                  
@@ -258,7 +258,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 				$page_garde->Ln(10);
 
-				// Même chose pour l'état de cette candidature ?
+				// MÃªme chose pour l'Ã©tat de cette candidature ?
 
 				$page_garde->SetFont('arial',"B",12);
 				$page_garde->MultiCell(0, 5, "Autres documents manquants (champ libre) :", 0, "J");
@@ -276,9 +276,9 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 			$page_garde->Output("$__GESTION_COMP_STOCKAGE_DIR_ABS/$_SESSION[comp_id]/$nom_fichier");
 
-			write_evt($dbr, $__EVT_ID_G_DOC, "Génération Page de garde", $candidat_id, $candidature_id);
+			write_evt($dbr, $__EVT_ID_G_DOC, "GÃ©nÃ©ration Page de garde", $candidat_id, $candidature_id);
 
-			// Attention : chemin relatif à www-root (document_root du serveur Apache)
+			// Attention : chemin relatif Ã  www-root (document_root du serveur Apache)
 			echo "<HTML><SCRIPT>document.location='$__GESTION_COMP_STOCKAGE_DIR/$_SESSION[comp_id]/$nom_fichier';</SCRIPT></HTML>";
 		} // fin du if($rows2)
 
@@ -309,13 +309,13 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 		titre_page_icone("Edition d'une page de garde du dossier", "edu_languages_32x32_fond.png", 15, "L");
 
-		message("<strong>Cette page contiendra par défaut :</strong>
+		message("<strong>Cette page contiendra par dÃ©faut :</strong>
 					<br>- le nom du candidat et de la formation choisie
-					<br>- les étapes du cursus encore non justifiées (avec le détail complété dans le menu 2-Cursus)
-					<br>- le statut de la recevabilité de la précandidature (avec la motivation éventuelle)
+					<br>- les Ã©tapes du cursus encore non justifiÃ©es (avec le dÃ©tail complÃ©tÃ© dans le menu 2-Cursus)
+					<br>- le statut de la recevabilitÃ© de la prÃ©candidature (avec la motivation Ã©ventuelle)
 					<br>
-					<br>Le champ ci-dessous vous permet d'indiquer librement les éventuelles autres pièces manquantes (ces informations
-					ne seront pas conservées une fois le formulaire validé).", $__INFO);
+					<br>Le champ ci-dessous vous permet d'indiquer librement les Ã©ventuelles autres piÃ¨ces manquantes (ces informations
+					ne seront pas conservÃ©es une fois le formulaire validÃ©).", $__INFO);
 
 		message("<strong>Il ne doit en aucun cas contenir de remarques personnelles sur le candidat.</strong>", $__WARNING);
 ?>
@@ -323,12 +323,12 @@ CeCILL-B, et que vous en avez accepté les termes.
 	<table align='center'>
 	<tr>
 		<td class='td-complet fond_menu2'>
-			<font class='Texte_menu2'><b>Indiquez si vous le souhaitez les autres pièces manquantes au dossier :</b></font>
+			<font class='Texte_menu2'><b>Indiquez si vous le souhaitez les autres piÃ¨ces manquantes au dossier :</b></font>
 		</td>
 	</tr>
 	<tr>
 		<td class='td-milieu fond_menu'>
-			<textarea cols="80" rows="10" name="autres" title="Autres pièces manquantes"></textarea>
+			<textarea cols="80" rows="10" name="autres" title="Autres piÃ¨ces manquantes"></textarea>
 		</td>
 	</tr>
 	</table>

@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -54,7 +54,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
    // Blocage si le fichier gestion/admin/config.php existe encore
    if(is_file("../gestion/admin/config.php") && is_readable("../gestion/admin/config.php"))
-      die("Configuration de l'interface incomplète - Accès impossible.\n");
+      die("Configuration de l'interface incomplÃ¨te - AccÃ¨s impossible.\n");
 
 	include "../configuration/aria_config.php";
 	include "$__INCLUDE_DIR_ABS/vars.php";
@@ -80,7 +80,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 	if(isset($_POST["valider1"]) || isset($_POST["valider1_x"])) // validation du formulaire - 1er bouton
 	{
-		// vérification identifiant/code d'accès
+		// vÃ©rification identifiant/code d'accÃ¨s
 		$identifiant=strtolower(trim($_POST["identifiant"]));
 		$code_personnel=trim($_POST["code_personnel"]);
 
@@ -105,14 +105,14 @@ CeCILL-B, et que vous en avez accepté les termes.
 											FROM $_DB_candidat
 										WHERE $_DBC_candidat_identifiant LIKE '$identifiant'
 										AND $_DBC_candidat_code_acces LIKE '$code_personnel'");
-		if(db_num_rows($result)) // on a une réponse positive : le code existe
+		if(db_num_rows($result)) // on a une rÃ©ponse positive : le code existe
 		{
 			list($candidat_id,$civilite,$nom,$nom_naissance, $prenom,$prenom2,$date_naissance,$lieu_naissance,$dpt_naissance,$nationalite_code,$nationalite,$telephone, $telephone_portable, 
 			     $adresse_1,$adresse_2,$adresse_3,$numero_ine,$email, $connexion, $pays_naissance_code, $pays_naissance, $adr_cp, $adr_ville, $adr_pays_code, $adr_pays, 
 				  $cursus_en_cours, $deja_inscrit, $annee_premiere_inscr, $annee_bac, $serie_bac)=db_fetch_row($result,0);
 			db_free_result($result);
 			
-			// Département de naissance
+			// DÃ©partement de naissance
 			$res_departements=db_query($dbr, "SELECT $_DBC_departements_fr_nom FROM $_DB_departements_fr
                                            WHERE $_DBC_departements_fr_numero='$dpt_naissance'");
 
@@ -123,7 +123,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 			db_free_result($res_departements);
 
-			// Série du bac
+			// SÃ©rie du bac
 			$res_series_bac=db_query($dbr, "SELECT $_DBC_diplomes_bac_intitule FROM $_DB_diplomes_bac
 													  WHERE $_DBC_diplomes_bac_code='$serie_bac'");
 
@@ -167,16 +167,16 @@ CeCILL-B, et que vous en avez accepté les termes.
 			$_SESSION["serie_bac"]=$serie_bac;
 			$_SESSION["nom_serie_bac"]=$nom_serie_bac;
 
-			$_SESSION["onglet"]=0; // onglet par défaut : doc
+			$_SESSION["onglet"]=0; // onglet par dÃ©faut : doc
 
-			// Mise à jour de la date de dernière connexion et du couple IP / HOST
+			// Mise Ã  jour de la date de derniÃ¨re connexion et du couple IP / HOST
 			$date_cnx=time();
 
 			$last_ip=$_SERVER["REMOTE_ADDR"];
 			$last_host=&gethostbyaddr($_SERVER['REMOTE_ADDR']);
 			$last_user_agent=$_SERVER["HTTP_USER_AGENT"];
 
-         // Niveau supplémentaire dans l'arborescence des messages
+         // Niveau supplÃ©mentaire dans l'arborescence des messages
          $_SESSION["MSG_SOUS_REP"]=sous_rep_msg($_SESSION["authentifie"]);
 
 			if($browser=&get_browser(null, true))
@@ -191,7 +191,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 																 $_DBU_candidat_dernier_user_agent='$last_user_agent'
 								WHERE $_DBU_candidat_id='$candidat_id'");
 
-			// création du vecteur d'encryption (utilisé pour crypter les paramètres)
+			// crÃ©ation du vecteur d'encryption (utilisÃ© pour crypter les paramÃ¨tres)
 /*
 			$td=mcrypt_module_open("tripledes", "", "cbc", "");
 			$_SESSION["iv"]=generate_pass();
@@ -203,7 +203,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          mcrypt_module_close($td);
 
 			// Historique : log de la connexion dans la BDD
-			write_evt($dbr, $__EVT_ID_LOGIN, "Connexion réussie", $candidat_id, $candidat_id);
+			write_evt($dbr, $__EVT_ID_LOGIN, "Connexion rÃ©ussie", $candidat_id, $candidat_id);
 
 			// Chargement des plugins
 			if(function_exists("add_modules"))
@@ -232,7 +232,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 				db_free_result($result);
 
-				// Présence d'une lettre d'information (non vide) ?
+				// PrÃ©sence d'une lettre d'information (non vide) ?
 				if(db_num_rows(db_query($dbr, "SELECT * FROM $_DB_comp_infos_encadre WHERE $_DBC_comp_infos_encadre_info_id
 															IN (SELECT $_DBC_comp_infos_id FROM $_DB_comp_infos 
 																 WHERE $_DBC_comp_infos_comp_id='$_SESSION[comp_id]')")))
@@ -271,17 +271,17 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 			$time_erreur=date_fr("j F Y, H:i");
 
-			// On écrit dans le champ "last_error" le code entré par le candidat et la date de cette erreur (à des fins de vérification coté admin)
-			// Si l'identifiant n'existe pas, ça ne changera rien
+			// On Ã©crit dans le champ "last_error" le code entrÃ© par le candidat et la date de cette erreur (Ã  des fins de vÃ©rification cotÃ© admin)
+			// Si l'identifiant n'existe pas, Ã§a ne changera rien
 			db_query($dbr, "UPDATE $_DB_candidat SET $_DBU_candidat_derniere_erreur_code='$time_erreur - [$code_personnel]'
 								 WHERE $_DBU_candidat_identifiant LIKE '$identifiant'");
 
 			$identification_incorrecte=1;
 			unset($code_personnel);
 
-			// Historique : log de l'échec dans la BDD
+			// Historique : log de l'Ã©chec dans la BDD
 			$identifiant=stripslashes(preg_replace("/'/","''",preg_replace("/[\\\]*/","",$identifiant)));
-			write_evt($dbr, $__EVT_ID_LOGIN, "Connexion échouée - $identifiant");
+			write_evt($dbr, $__EVT_ID_LOGIN, "Connexion Ã©chouÃ©e - $identifiant");
 			$identifiant=preg_replace("/[']+/","'",$identifiant);
 		}
 	}
@@ -289,7 +289,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		$_SESSION["conditions_ok"]=1;
 	else
 	{
-		// on nettoie la session et on retourne à l'index
+		// on nettoie la session et on retourne Ã  l'index
 		session_unset();
 		session_destroy();
 		session_write_close();
@@ -309,7 +309,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 		$prev_periode=$__PERIODE-1 . "-$__PERIODE";
 
-		message("Si vous avez déjà rempli une fiche sur cette interface l'année passée, vous pouvez réutiliser vos anciens identifiants", $__INFO);
+		message("Si vous avez dÃ©jÃ  rempli une fiche sur cette interface l'annÃ©e passÃ©e, vous pouvez rÃ©utiliser vos anciens identifiants", $__INFO);
 /*
 		if(!isset($_SESSION["interface_ouverte"]) || $_SESSION["interface_ouverte"]==0)
 			message("<center>
@@ -369,7 +369,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 	<?php
 /*
-		// TODO : Maintenance : à scripter autrement
+		// TODO : Maintenance : Ã  scripter autrement
 
 		$heures=date("H", time());
 		$minutes=date("i", time());
@@ -388,9 +388,9 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 		print("<center>
 					<font class='Texte_important'>
-						<b>Maintenance programmée aujourd'hui de 12h à 13h30 (temps restant : $temps_restant)</b>
-						<br>Ce service sera indisponible pendant la durée de la maintenance mais vos données ne seront pas perdues.
-						<br>Merci pour votre compréhension</b>
+						<b>Maintenance programmÃ©e aujourd'hui de 12h Ã  13h30 (temps restant : $temps_restant)</b>
+						<br>Ce service sera indisponible pendant la durÃ©e de la maintenance mais vos donnÃ©es ne seront pas perdues.
+						<br>Merci pour votre comprÃ©hension</b>
 					</font>
 				</center>\n");
 */

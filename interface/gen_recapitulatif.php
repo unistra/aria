@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright UniversitÈ de Strasbourg
+Copyright Universit√© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des ÈlÈments Ècrits par des tiers, placÈs sous les licences suivantes :
+L'application utilise des √©l√©ments √©crits par des tiers, plac√©s sous les licences suivantes :
 
-IcÙnes :
+Ic√¥nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant ‡ des candidats de dÈposer un ou plusieurs
-dossiers de candidatures dans une universitÈ, et aux gestionnaires de cette derniËre de traiter ces
+Ce logiciel est un programme informatique permettant √† des candidats de d√©poser un ou plusieurs
+dossiers de candidatures dans une universit√©, et aux gestionnaires de cette derni√®re de traiter ces
 demandes.
 
-Ce logiciel est rÈgi par la licence CeCILL-B soumise au droit franÁais et respectant les principes de
+Ce logiciel est r√©gi par la licence CeCILL-B soumise au droit fran√ßais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusÈe par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffus√©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilitÈ au code source et des droits de copie, de modification et de
-redistribution accordÈs par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÈe.
-Pour les mÍmes raisons, seule une responsabilitÈ restreinte pËse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concÈdants successifs.
+En contrepartie de l'accessibilit√© au code source et des droits de copie, de modification et de
+redistribution accord√©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limit√©e.
+Pour les m√™mes raisons, seule une responsabilit√© restreinte p√®se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les conc√©dants successifs.
 
-A cet Ègard l'attention de l'utilisateur est attirÈe sur les risques associÈs au chargement, ‡
-l'utilisation, ‡ la modification et/ou au dÈveloppement et ‡ la reproduction du logiciel par l'utilisateur
-Ètant donnÈ sa spÈcificitÈ de logiciel libre, qui peut le rendre complexe ‡ manipuler et qui le rÈserve
-donc ‡ des dÈveloppeurs et des professionnels avertis possÈdant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invitÈs ‡ charger et tester l'adÈquation du logiciel ‡ leurs
-besoins dans des conditions permettant d'assurer la sÈcuritÈ de leurs systËmes et ou de leurs donnÈes et,
-plus gÈnÈralement, ‡ l'utiliser et l'exploiter dans les mÍmes conditions de sÈcuritÈ.
+A cet √©gard l'attention de l'utilisateur est attir√©e sur les risques associ√©s au chargement, √†
+l'utilisation, √† la modification et/ou au d√©veloppement et √† la reproduction du logiciel par l'utilisateur
+√©tant donn√© sa sp√©cificit√© de logiciel libre, qui peut le rendre complexe √† manipuler et qui le r√©serve
+donc √† des d√©veloppeurs et des professionnels avertis poss√©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invit√©s √† charger et tester l'ad√©quation du logiciel √† leurs
+besoins dans des conditions permettant d'assurer la s√©curit√© de leurs syst√®mes et ou de leurs donn√©es et,
+plus g√©n√©ralement, √† l'utiliser et l'exploiter dans les m√™mes conditions de s√©curit√©.
 
-Le fait que vous puissiez accÈder ‡ cet en-tÍte signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez acceptÈ les termes.
+Le fait que vous puissiez acc√©der √† cet en-t√™te signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez accept√© les termes.
 
 =======================================================================================================
 */
@@ -84,7 +84,7 @@ CeCILL-B, et que vous en avez acceptÈ les termes.
 	elseif(isset($_SESSION["comp_id"]) && ctype_digit($_SESSION["comp_id"]))
 		$comp_id=$_SESSION["comp_id"];
 	else
-		die("ParamËtres incorrects : merci de contacter rapidement l'administrateur systËme (lien 'Signaler un problËme technique')\n");
+		die("Param√®tres incorrects : merci de contacter rapidement l'administrateur syst√®me (lien 'Signaler un probl√®me technique')\n");
 
 	$condition_comp="AND $_DBC_propspec_comp_id='$comp_id'";
 	$condition_comp_autres="AND $_DBC_propspec_comp_id!='$comp_id'";
@@ -94,22 +94,22 @@ CeCILL-B, et que vous en avez acceptÈ les termes.
 	// Utilisation de la librairie fpdf (libre)
 	require("$__FPDF_DIR_ABS/fpdf.php");
 
-	// CrÈation du document. P = Portrait, unitÈ = millimËtre (mm), Page = A4
+	// Cr√©ation du document. P = Portrait, unit√© = millim√®tre (mm), Page = A4
 	$page_garde_pdf=new FPDF("P","mm","A4");
-	$page_garde_pdf->SetCreator("Application de Gestion des Candidatures de l'UniversitÈ de Strasbourg");
-	$page_garde_pdf->SetAuthor("Christophe BOCCHECIAMPE - UFR de MathÈmatique et d'Informatique - UniversitÈ de Strasbourg");
-	$page_garde_pdf->SetSubject("Page de Garde ‡ joindre au dossier");
+	$page_garde_pdf->SetCreator("Application de Gestion des Candidatures de l'Universit√© de Strasbourg");
+	$page_garde_pdf->SetAuthor("Christophe BOCCHECIAMPE - UFR de Math√©matique et d'Informatique - Universit√© de Strasbourg");
+	$page_garde_pdf->SetSubject("Page de Garde √† joindre au dossier");
 
 	$page_garde_pdf->SetAutoPageBreak(1,11);
 
 	// TODO : ATTENTION : NE PAS OUBLIER DE GENERER LA FONTE ARIBLK.TTF LORS D'UN CHANGEMENT DE MACHINE
 	$page_garde_pdf->AddFont("arial_black");
 
-	// Compteur pour savoir si tout s'est bien passÈ, ‡ la fin
+	// Compteur pour savoir si tout s'est bien pass√©, √† la fin
 	$nb_pages=0;
 
 
-	// TODO 6 mars 2006 : optimiser le code (appels ‡ la base de donnÈes, switch() ‡ simplifier, ...)
+	// TODO 6 mars 2006 : optimiser le code (appels √† la base de donn√©es, switch() √† simplifier, ...)
 
 	$result=db_query($dbr,"SELECT $_DBC_candidat_id, $_DBC_candidat_civilite, $_DBC_candidat_nom, $_DBC_candidat_prenom,
 											$_DBC_candidat_date_naissance, 
@@ -132,58 +132,58 @@ CeCILL-B, et que vous en avez acceptÈ les termes.
 												  ELSE '' END as adresse_pays
 								FROM $_DB_candidat WHERE $_DBC_candidat_id='$candidat_id'");
 
-	$rows=db_num_rows($result); // normalement, un seul rÈsultat
+	$rows=db_num_rows($result); // normalement, un seul r√©sultat
 
 	if($rows)
 	{
-		// GÈnÈration du PDF rÈcapitulatif
+		// G√©n√©ration du PDF r√©capitulatif
 		list($cand_id,$cand_civ,$cand_nom,$cand_prenom,$cand_naissance,$cand_nat_code, $cand_nat,$cand_tel,$cand_adr_1,$cand_adr_2,$cand_adr_3,$cand_num_ine, 
 			  $cand_email,$cand_lieu_naissance, $pays_naissance_code, $pays_naissance, $cand_lockdate, $adr_cp,$adr_ville,
 			  $adr_pays_code, $adr_pays)=db_fetch_row($result,0);
 
 		switch($cand_civ)
 		{
-			case "M" : 		$ne_le="NÈ le";
+			case "M" : 		$ne_le="N√© le";
 								$civ_mail="M.";
 								$inscrit="inscrit";
 								break;
 
-			case	"Mlle"	: 	$ne_le="NÈe le";
+			case	"Mlle"	: 	$ne_le="N√©e le";
 									$civ_mail="Mlle";
 									$inscrit="inscrite";
 									break;
 
-			case	"Mme"	: 	$ne_le="NÈe le";
+			case	"Mme"	: 	$ne_le="N√©e le";
 								$civ_mail="Mme";
 								$inscrit="inscrite";
 								break;
 
-			default			:	$ne_le="NÈ le";
+			default			:	$ne_le="N√© le";
 									$civ_mail="M.";
 									$inscrit="inscrit";
 		}
 
 		$naissance_txt=date_fr("j F Y",$cand_naissance);
 
-		$identite="Candidat : $cand_nom $cand_prenom, $ne_le $naissance_txt ($cand_lieu_naissance, $pays_naissance)\nNationalitÈ : $cand_nat";
+		$identite="Candidat : $cand_nom $cand_prenom, $ne_le $naissance_txt ($cand_lieu_naissance, $pays_naissance)\nNationalit√© : $cand_nat";
 
 		if($cand_num_ine!="")
-			$identite.="\nNumÈro INE : $cand_num_ine";
+			$identite.="\nNum√©ro INE : $cand_num_ine";
 
 		$page_garde_pdf->AddPage();
 
-		// IncrÈmentation du Compteur pour savoir si tout s'est bien passÈ, ‡ la fin
+		// Incr√©mentation du Compteur pour savoir si tout s'est bien pass√©, √† la fin
 		$nb_pages++;
 
 		$page_garde_pdf->SetFont('Arial','B',14);
 
 		$date=time();
 
-		$titre="PrÈcandidatures - ". date_fr("j F Y",$date);
+		$titre="Pr√©candidatures - ". date_fr("j F Y",$date);
 		$page_garde_pdf->Cell(0,10,$titre,1,1,'C');
 
 		$page_garde_pdf->SetFont('Arial','',10);
-		$page_garde_pdf->Cell(0,10,'Merci d\'imprimer ce document et de le joindre ‡ CHAQUE correspondance courrier.',0,1,'C');
+		$page_garde_pdf->Cell(0,10,'Merci d\'imprimer ce document et de le joindre √† CHAQUE correspondance courrier.',0,1,'C');
 
 		$page_garde_pdf->SetFont('Arial','B',12);
 		$page_garde_pdf->Cell(0,10,'Vous',0,1,'L');
@@ -191,7 +191,7 @@ CeCILL-B, et que vous en avez acceptÈ les termes.
 		$page_garde_pdf->SetFont('Arial','',10);
 		$page_garde_pdf->MultiCell(0,6,$identite,0,'L');
 
-		// Adresse : formatage un peu spÈcial : tableau
+		// Adresse : formatage un peu sp√©cial : tableau
 		$page_garde_pdf->Cell(20,6,'Adresse : ',0,0,'L');
 
       $adresse=$cand_adr_1;
@@ -204,7 +204,7 @@ CeCILL-B, et que vous en avez acceptÈ les termes.
 
 
 		// =============================
-		// 		RÈsumÈ du cursus
+		// 		R√©sum√© du cursus
 		// =============================
 
 		$result2=db_query($dbr,"(SELECT 	$_DBC_cursus_id, $_DBC_cursus_diplome, $_DBC_cursus_intitule, $_DBC_cursus_annee, $_DBC_cursus_ecole,
@@ -252,7 +252,7 @@ CeCILL-B, et que vous en avez acceptÈ les termes.
 
 				if(!empty($mention))
 				{
-					if($mention=="AjournÈ" || $mention=="Sans objet")
+					if($mention=="Ajourn√©" || $mention=="Sans objet")
 						$mention_txt=" - $mention";
 					else
 						$mention_txt=" - Mention " . mb_strtolower($mention);
@@ -267,11 +267,11 @@ CeCILL-B, et que vous en avez acceptÈ les termes.
 
 				$page_garde_pdf->MultiCell(0,6,$cursus,0,'L');
 
-				// SpÈcialitÈ : affichage sur une nouvelle ligne, avec l'alinÈa adÈquat (largeur = annÈe d'obtention)
+				// Sp√©cialit√© : affichage sur une nouvelle ligne, avec l'alin√©a ad√©quat (largeur = ann√©e d'obtention)
 				if(trim($spec)!="")
 				{
 					$alinea_w=$page_garde_pdf->GetStringWidth("$annee_obt :");
-					$spec_txt="SpÈcialitÈ : $spec";
+					$spec_txt="Sp√©cialit√© : $spec";
 
 					$page_garde_pdf->SetX(11+$alinea_w);
 					$page_garde_pdf->MultiCell(0,6,$spec_txt,0,'L');
@@ -305,7 +305,7 @@ CeCILL-B, et que vous en avez acceptÈ les termes.
 			{
 				list($la_id, $langue, $niveau, $nb_annees)=db_fetch_row($result2,$j);
 
-				// DiplÙmes obtenus dans cette langue
+				// Dipl√¥mes obtenus dans cette langue
 				$result3=db_query($dbr,"SELECT $_DBC_langues_dip_id, $_DBC_langues_dip_nom, $_DBC_langues_dip_annee, $_DBC_langues_dip_resultat
 													FROM $_DB_langues_dip WHERE $_DBC_langues_dip_langue_id='$la_id'
 												ORDER BY $_DBC_langues_dip_annee");
@@ -331,7 +331,7 @@ CeCILL-B, et que vous en avez acceptÈ les termes.
 					if(!empty($niveau_txt))
 						$niveau_txt.=", ";
 
-					$niveau_txt.="ParlÈ";
+					$niveau_txt.="Parl√©";
 				}
 
 				if(array_key_exists("3", $niveau_langue) && $niveau_langue[3])
@@ -343,7 +343,7 @@ CeCILL-B, et que vous en avez acceptÈ les termes.
 				}
 
 				if(!empty($nb_annees))
-					$nb_annees=" - Nombre d'annÈes : $nb_annees";
+					$nb_annees=" - Nombre d'ann√©es : $nb_annees";
 
 				$page_garde_pdf->MultiCell(0,6,"- $langue ($niveau_txt$nb_annees)",0,'L');
 
@@ -364,7 +364,7 @@ CeCILL-B, et que vous en avez acceptÈ les termes.
 							$langue_txt="$langue_dip";
 
 						if(!empty($langue_dip_resultat))
-							$langue_txt.="   RÈsultat / Mention : $langue_dip_resultat";
+							$langue_txt.="   R√©sultat / Mention : $langue_dip_resultat";
 
 						$page_garde_pdf->MultiCell(0,6,"   $langue_txt",0,'L');
 					}
@@ -379,7 +379,7 @@ CeCILL-B, et que vous en avez acceptÈ les termes.
 		$page_garde_pdf->Ln(6);
 
 		// ==================================================================
-		// 	Informations complÈmentaires et expÈriences professionnelles
+		// 	Informations compl√©mentaires et exp√©riences professionnelles
 		// ==================================================================
 
 		$result2=db_query($dbr,"SELECT $_DBC_infos_comp_id, $_DBC_infos_comp_texte, $_DBC_infos_comp_annee, $_DBC_infos_comp_duree
@@ -391,7 +391,7 @@ CeCILL-B, et que vous en avez acceptÈ les termes.
 		if($rows2)
 		{
 			$page_garde_pdf->SetFont('Arial','B',12);
-			$page_garde_pdf->Cell(0,10,'Informations complÈmentaires et expÈriences professionnelles',0,1,'L');
+			$page_garde_pdf->Cell(0,10,'Informations compl√©mentaires et exp√©riences professionnelles',0,1,'L');
 
 			$page_garde_pdf->SetFont('Arial','',10);
 
@@ -415,7 +415,7 @@ CeCILL-B, et que vous en avez acceptÈ les termes.
 		$page_garde_pdf->SetFont('Arial','',10);
 
 		// ==========================================
-		// 				PrÈcandidatures
+		// 				Pr√©candidatures
 		// ==========================================
 
 		// Calcul des frais de dossiers
@@ -439,11 +439,11 @@ CeCILL-B, et que vous en avez acceptÈ les termes.
 
 		if($rows2)
 		{
-			// on conserve les formations, on les utilisera plus tard (Èvite une boucle pour les renseignements complÈmentaires)
+			// on conserve les formations, on les utilisera plus tard (√©vite une boucle pour les renseignements compl√©mentaires)
 			$array_propspec=array();
 
 			$page_garde_pdf->SetFont('Arial','B',12);
-			$page_garde_pdf->Cell(0,10,"Vos prÈcandidatures pour cette composante :",0,1,'L');	
+			$page_garde_pdf->Cell(0,10,"Vos pr√©candidatures pour cette composante :",0,1,'L');	
 
 			for($j=0; $j<$rows2; $j++)
 			{
@@ -452,7 +452,7 @@ CeCILL-B, et que vous en avez acceptÈ les termes.
 				if($cand_periode!=$old_periode)
 				{
 					$page_garde_pdf->SetFont('Arial','B',10);
-					$page_garde_pdf->Cell(0,6,"AnnÈe universitaire $cand_periode-".($cand_periode+1)." :",0,1,'L');
+					$page_garde_pdf->Cell(0,6,"Ann√©e universitaire $cand_periode-".($cand_periode+1)." :",0,1,'L');
 					$page_garde_pdf->SetFont('Arial','',10);
 					$old_periode=$cand_periode;
 				}
@@ -482,7 +482,7 @@ CeCILL-B, et que vous en avez acceptÈ les termes.
 		db_free_result($result2);
 
 		// ===================================================
-		// 		Renseignements supplÈmentaires
+		// 		Renseignements suppl√©mentaires
 		// ===================================================
 
 		$result2=db_query($dbr,"(SELECT distinct($_DBC_dossiers_elems_para), $_DBC_dossiers_elems_contenu_para,
@@ -521,10 +521,10 @@ CeCILL-B, et que vous en avez acceptÈ les termes.
 
 		if($rows2)
 		{
-			// Indicateur pour savoir ‡ quel endroit afficher le titre de la section "Autres renseignements"
+			// Indicateur pour savoir √† quel endroit afficher le titre de la section "Autres renseignements"
 			$premier_element=1;
 
-			// Initialisation du tableau qui contiendra les ÈlÈments devant Ítre imprimÈs sur une page seule
+			// Initialisation du tableau qui contiendra les √©l√©ments devant √™tre imprim√©s sur une page seule
 			$array_elements_nouvelle_page=array();
 
 			$prev_propspec_id="--";
@@ -536,7 +536,7 @@ CeCILL-B, et que vous en avez acceptÈ les termes.
 				if($propspec_id!=$prev_propspec_id)
 				{
 					if($propspec_id==0)
-						$texte_formation="Question(s) relative(s) ‡ toutes les formations choisies :";
+						$texte_formation="Question(s) relative(s) √† toutes les formations choisies :";
 					elseif(array_key_exists($propspec_id, $array_propspec))
 						$texte_formation="Question(s) relative(s) au ".$array_propspec[$propspec_id]." :";
 
@@ -557,7 +557,7 @@ CeCILL-B, et que vous en avez acceptÈ les termes.
 							break;
 
 						case $__ELEM_TYPE_UN_CHOIX :
-							// Traitement du contenu : normalement une seule rÈponse : id du choix
+							// Traitement du contenu : normalement une seule r√©ponse : id du choix
 							if(ctype_digit($contenu))
 							{
 								$res_choix=db_query($dbr, "SELECT $_DBC_dossiers_elems_choix_texte
@@ -576,7 +576,7 @@ CeCILL-B, et que vous en avez acceptÈ les termes.
 							break;
 
 						case $__ELEM_TYPE_MULTI_CHOIX :
-							// Traitement du contenu : plusieurs rÈponses possibles sÈparÈes par "|" (id du ou des choix)
+							// Traitement du contenu : plusieurs r√©ponses possibles s√©par√©es par "|" (id du ou des choix)
 							$contenu_txt="";
 							$choix_array=explode("|",$contenu);
 							
@@ -618,14 +618,14 @@ CeCILL-B, et que vous en avez acceptÈ les termes.
 					} // fin du switch
 				} // fin du if(contenu)
 
-				// Le contenu est prÍt : si l'ÈlÈment ne doit pas figurer sur une page ‡ part, on l'ajoute tel quel
-				// sinon, on le stocke et on l'affichera en dernier (prÈvoir une fonction ?)
+				// Le contenu est pr√™t : si l'√©l√©ment ne doit pas figurer sur une page √† part, on l'ajoute tel quel
+				// sinon, on le stocke et on l'affichera en dernier (pr√©voir une fonction ?)
 				if($nouvelle_page!="t")
 				{
 					if($premier_element)
 					{
 						$page_garde_pdf->SetFont('Arial','B',12);
-						$page_garde_pdf->Cell(0,10,'Autres renseignements demandÈs par la ScolaritÈ (texte en italique : ÈnoncÈ)',0,1,'L');
+						$page_garde_pdf->Cell(0,10,'Autres renseignements demand√©s par la Scolarit√© (texte en italique : √©nonc√©)',0,1,'L');
 						$premier_element=0;
 					}
 
@@ -637,14 +637,14 @@ CeCILL-B, et que vous en avez acceptÈ les termes.
 					if(isset($contenu_txt_final) && !empty($contenu_txt_final))
 						$page_garde_pdf->MultiCell(0,6, $contenu_txt_final, 0, 'J');
 					else
-						$page_garde_pdf->MultiCell(0,6, "Champ non complÈtÈ.", 0, 'J');
+						$page_garde_pdf->MultiCell(0,6, "Champ non compl√©t√©.", 0, 'J');
 
 					$page_garde_pdf->Ln(3);
 				}
 				else
 				{
 					if(!isset($contenu_txt_final) || empty($contenu_txt_final))
-						$contenu_txt_final="Champ non complÈtÈ";
+						$contenu_txt_final="Champ non compl√©t√©";
 
 					$array_elements_nouvelle_page["$j"]=array("formation_enonce" => "$texte_formation\n$para",
 																			"contenu" => "$contenu_txt_final");
@@ -678,7 +678,7 @@ CeCILL-B, et que vous en avez acceptÈ les termes.
 			$page_garde_pdf->Ln(6);
 
 			$page_garde_pdf->SetFont('Arial','B',12);
-			$page_garde_pdf->Cell(0,10,"Autres prÈcandidatures pour l'annÈe $__PERIODE-".($__PERIODE+1)." :",0,1,'L');
+			$page_garde_pdf->Cell(0,10,"Autres pr√©candidatures pour l'ann√©e $__PERIODE-".($__PERIODE+1)." :",0,1,'L');
 
 			$page_garde_pdf->SetFont('Arial','',10);
 
@@ -714,7 +714,7 @@ CeCILL-B, et que vous en avez acceptÈ les termes.
 		db_free_result($result2);
 	}
 
-	// ElÈments sur une seule page
+	// El√©ments sur une seule page
 	if(isset($array_elements_nouvelle_page) && is_array($array_elements_nouvelle_page) && count($array_elements_nouvelle_page))
 	{
 		$count=count($array_elements_nouvelle_page);
@@ -725,7 +725,7 @@ CeCILL-B, et que vous en avez acceptÈ les termes.
 			$page_garde_pdf->AddPage();
 
 			$page_garde_pdf->SetFont('Arial','IB',10);
-			$page_garde_pdf->MultiCell(0,6, "[Autres renseignements sur page(s) sÈparÈe(s) - $cnt/$count]", 0, 'J');
+			$page_garde_pdf->MultiCell(0,6, "[Autres renseignements sur page(s) s√©par√©e(s) - $cnt/$count]", 0, 'J');
 
 			$page_garde_pdf->SetFont('Arial','I',8);
 			$page_garde_pdf->MultiCell(0,6, $element_nouvelle_page["formation_enonce"],0,'J');
@@ -750,9 +750,9 @@ CeCILL-B, et que vous en avez acceptÈ les termes.
 
 		$page_garde_pdf->Output("$__CAND_COMP_STOCKAGE_DIR_ABS/$comp_id/$_SESSION[authentifie]/$nom_fichier");
 
-		write_evt($dbr, $__EVT_ID_C_DOC, "GÈnÈration du rÈcapitulatif", $candidat_id, $comp_id);
+		write_evt($dbr, $__EVT_ID_C_DOC, "G√©n√©ration du r√©capitulatif", $candidat_id, $comp_id);
 
-		// Attention aux variables utilisÈes : chemin relatif ‡ www-root (document_root du serveur Apache)
+		// Attention aux variables utilis√©es : chemin relatif √† www-root (document_root du serveur Apache)
 		echo "<HTML><SCRIPT>document.location='$__CAND_COMP_STOCKAGE_DIR/$comp_id/$_SESSION[authentifie]/$nom_fichier';</SCRIPT></HTML>";
 	}
 	db_free_result($result);

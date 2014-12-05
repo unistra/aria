@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -141,11 +141,11 @@ CeCILL-B, et que vous en avez accepté les termes.
 		if($new_annee_nom_complet=="")
 			$nom_complet_vide=1;
 
-		// Détermination de l'ID de l'année
+		// DÃ©termination de l'ID de l'annÃ©e
 		if(isset($_POST["annee_id"]))
 			$annee_id=$_POST["annee_id"];
 
-		// unicité de l'année
+		// unicitÃ© de l'annÃ©e
 		if(isset($annee_id) && ctype_digit($annee_id))
 		{
 			if(db_num_rows(db_query($dbr,"SELECT $_DBC_annees_id FROM $_DB_annees
@@ -162,7 +162,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 																	$_DBU_annees_annee_longue='$new_annee_nom_complet'
 									WHERE $_DBU_annees_id='$annee_id'");
 
-				write_evt($dbr, $__EVT_ID_G_ADMIN, "MAJ Année $annee_id", "", $annee_id);
+				write_evt($dbr, $__EVT_ID_G_ADMIN, "MAJ AnnÃ©e $annee_id", "", $annee_id);
 			}
 			else
 			{
@@ -186,7 +186,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 				db_query($dbr, "INSERT INTO $_DB_annees VALUES ('$new_annee_id','$new_annee_nom', '$new_annee_nom_complet', '$new_annee_ordre')");
 
-				write_evt($dbr, $__EVT_ID_G_ADMIN, "Nouvelle année $new_annee_id", "", $new_annee_id);
+				write_evt($dbr, $__EVT_ID_G_ADMIN, "Nouvelle annÃ©e $new_annee_id", "", $new_annee_id);
 			}
 
 			db_close($dbr);
@@ -206,7 +206,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 																	  WHERE $_DBC_annees_id='$annee_id');
 								DELETE FROM $_DB_annees WHERE $_DBC_annees_id='$annee_id';");
 
-			write_evt($dbr, $__EVT_ID_G_ADMIN, "Suppression année $annee_id", "", $annee_id);
+			write_evt($dbr, $__EVT_ID_G_ADMIN, "Suppression annÃ©e $annee_id", "", $annee_id);
 
 			db_close($dbr);
 
@@ -227,47 +227,47 @@ CeCILL-B, et que vous en avez accepté les termes.
 <div class='main'>
 	<?php
 		if($_SESSION["ajout_annee"]==1)
-			titre_page_icone("Ajouter une année", "add_32x32_fond.png", 15, "L");
+			titre_page_icone("Ajouter une annÃ©e", "add_32x32_fond.png", 15, "L");
 		elseif($_SESSION["modification"]==1)
-			titre_page_icone("Modifier une année existante", "edit_32x32_fond.png", 15, "L");
+			titre_page_icone("Modifier une annÃ©e existante", "edit_32x32_fond.png", 15, "L");
 		elseif($_SESSION["suppression"]==1)
-			titre_page_icone("Supprimer une année", "trashcan_full_32x32_slick_fond.png", 15, "L");
+			titre_page_icone("Supprimer une annÃ©e", "trashcan_full_32x32_slick_fond.png", 15, "L");
 		else
-			titre_page_icone("Gestion des années", "", 15, "L");
+			titre_page_icone("Gestion des annÃ©es", "", 15, "L");
 
 		if(isset($nom_complet_vide))
-			message("Erreur : le champ 'nom complet' ne doit pas être vide", $__ERREUR);
+			message("Erreur : le champ 'nom complet' ne doit pas Ãªtre vide", $__ERREUR);
 
 		if(isset($nom_existe))
-			message("Erreur : cette année existe déjà !", $__ERREUR);
+			message("Erreur : cette annÃ©e existe dÃ©jÃ  !", $__ERREUR);
 
 		if(isset($succes))
 		{
 			if($_SESSION["modification"]==1)
 			{
-				message("L'année a été modifiée avec succès.", $__SUCCES);
+				message("L'annÃ©e a Ã©tÃ© modifiÃ©e avec succÃ¨s.", $__SUCCES);
 				$_SESSION["modification"]=0;
 			}
 			elseif($_SESSION["ajout_annee"]==1)
 			{
-				message("L'année a été créée avec succès.", $__SUCCES);
+				message("L'annÃ©e a Ã©tÃ© crÃ©Ã©e avec succÃ¨s.", $__SUCCES);
 				$_SESSION["ajout_annee"]=0;
 			}
 			elseif($_SESSION["suppression"]==1)
 			{
-				message("L'année a été supprimée avec succès.", $__SUCCES);
+				message("L'annÃ©e a Ã©tÃ© supprimÃ©e avec succÃ¨s.", $__SUCCES);
 				$_SESSION["suppression"]=0;
 			}
 		}
 
 		message("<center>
-						Attention : cette liste est <strong>partagée par toutes les composantes</strong>.
-						<br>Toute modification affectera <strong>toutes les formations et toutes les candidatures associées</strong>.
+						Attention : cette liste est <strong>partagÃ©e par toutes les composantes</strong>.
+						<br>Toute modification affectera <strong>toutes les formations et toutes les candidatures associÃ©es</strong>.
 					</center>", $__WARNING);
 
 		print("<form action='$php_self' method='POST' name='form1'>\n");
 
-		if($_SESSION["ajout_annee"]==0 && $_SESSION["modification"]==0 && $_SESSION["suppression"]==0) // choix de l'année à modifier
+		if($_SESSION["ajout_annee"]==0 && $_SESSION["modification"]==0 && $_SESSION["suppression"]==0) // choix de l'annÃ©e Ã  modifier
 		{
 			$result=db_query($dbr, "SELECT $_DBC_annees_id, $_DBC_annees_annee, $_DBC_annees_annee_longue, $_DBC_annees_ordre
 													FROM $_DB_annees
@@ -278,7 +278,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			print("<table cellpadding='4' cellspacing='0' align='center'>
 					<tr>
 						<td class='td-complet fond_menu2' colspan='4'>
-							<font class='Texte_menu2'><strong>Années</font>
+							<font class='Texte_menu2'><strong>AnnÃ©es</font>
 						</td>
 					</tr>\n");
 
@@ -286,10 +286,10 @@ CeCILL-B, et que vous en avez accepté les termes.
 			{
 				list($annee_id, $annee_nom, $annee_nom_complet, $annee_ordre)=db_fetch_row($result,$i);
 
-				// le nom court peut être vide
+				// le nom court peut Ãªtre vide
 				$annee_txt=$annee_nom=="" ? $annee_nom_complet : "$annee_nom_complet ($annee_nom)";
 
-				// vérification de l'ordre et rectification si nécessaire
+				// vÃ©rification de l'ordre et rectification si nÃ©cessaire
 				if($annee_ordre!=$i)
 				{
 					db_query($dbr,"UPDATE $_DB_annees SET $_DBU_annees_ordre='$i' WHERE $_DBC_annees_id='$annee_id'");
@@ -324,14 +324,14 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 					<div class='centered_icons_box'>
 						<a href='index.php' target='_self' class='lien_bleu_12'><img class='icone' src='$__ICON_DIR/back_32x32_fond.png' alt='Retour' border='0'></a>
-						<a href='$php_self?a=1' target='_self' class='lien_bleu_12'><img class='icone' src='$__ICON_DIR/add_32x32_fond.png' alt='Ajouter' title='[Ajouter une année]' border='0'></a>
+						<a href='$php_self?a=1' target='_self' class='lien_bleu_12'><img class='icone' src='$__ICON_DIR/add_32x32_fond.png' alt='Ajouter' title='[Ajouter une annÃ©e]' border='0'></a>
 					</div>\n");
 		}
 		elseif($_SESSION["suppression"]==1)
 		{
-			// TODO : ajouter des mécanismes de protection pour :
+			// TODO : ajouter des mÃ©canismes de protection pour :
 			// - ne pas supprimer la composante lorsqu'il s'agit de la composante courante
-			// - ne pas supprimer la dernière composante de la base (?)
+			// - ne pas supprimer la derniÃ¨re composante de la base (?)
 
 			print("<input type='hidden' name='annee_id' value='$annee_id'>");
 
@@ -340,7 +340,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 			list($annee_nom, $annee_nom_complet)=db_fetch_row($result,0);
 
-			// le nom court peut être vide
+			// le nom court peut Ãªtre vide
 			$annee_txt=$annee_nom=="" ? $annee_nom_complet : "$annee_nom_complet ($annee_nom)";
 
 			db_free_result($result);
@@ -360,24 +360,24 @@ CeCILL-B, et que vous en avez accepté les termes.
 			list($nb_candidatures)=db_fetch_row($result, 0);
 
 			if($nb_formations!="0" && $nb_candidatures!="0")
-				$txt_avertissement="<br><strong>Il y a actuellement $nb_formations formations et $nb_candidatures candidatures utilisant cette 'année'.</strong><br>";
+				$txt_avertissement="<br><strong>Il y a actuellement $nb_formations formations et $nb_candidatures candidatures utilisant cette 'annÃ©e'.</strong><br>";
 			elseif($nb_formations!="0")
-				$txt_avertissement="<br><strong>Il y a actuellement $nb_formations formations (mais aucune candidature) utilisant cette 'année'.</strong><br>";
+				$txt_avertissement="<br><strong>Il y a actuellement $nb_formations formations (mais aucune candidature) utilisant cette 'annÃ©e'.</strong><br>";
 			else
-				$txt_avertissement="<br><strong>Aucune formation (ni aucune candidature) n'utilise actuellement cette 'année'.</strong><br>";
+				$txt_avertissement="<br><strong>Aucune formation (ni aucune candidature) n'utilise actuellement cette 'annÃ©e'.</strong><br>";
 
 			// le cas $nb_formations=="" et $nb_candidatures!="" n'est pas possible
 
 			db_free_result($result);
 
-			// TODO : actuellement, l'avertissement suivant est vrai. Faut-il préférer l'orphelinat pour ces éléments ?
+			// TODO : actuellement, l'avertissement suivant est vrai. Faut-il prÃ©fÃ©rer l'orphelinat pour ces Ã©lÃ©ments ?
 			message("<center>
-							La suppression entrainera automatiquement celle de toutes les formations liées à cette année, ainsi que les candidatures associées.
+							La suppression entrainera automatiquement celle de toutes les formations liÃ©es Ã  cette annÃ©e, ainsi que les candidatures associÃ©es.
 							$txt_avertissement
 							<br>ATTENTION, CECI EST LA DERNIERE CONFIRMATION !
 						</center>", $__WARNING);
 
-			message("Souhaitez vous vraiment supprimer l'année \"$annee_txt\" ?", $__QUESTION);
+			message("Souhaitez vous vraiment supprimer l'annÃ©e \"$annee_txt\" ?", $__QUESTION);
 
 			print("<div class='centered_icons_box'>
 						<a href='$php_self?s=0' target='_self' class='lien_bleu_12'><img class='icone' src='$__ICON_DIR/button_cancel_32x32_fond.png' alt='Annuler' border='0'></a>
@@ -385,11 +385,11 @@ CeCILL-B, et que vous en avez accepté les termes.
 						</form>
 					</div>\n");
 		}
-		elseif((isset($annee_id) && $_SESSION["modification"]==1) || $_SESSION["ajout_annee"]==1) // année choisie, on récupère les infos actuelles
+		elseif((isset($annee_id) && $_SESSION["modification"]==1) || $_SESSION["ajout_annee"]==1) // annÃ©e choisie, on rÃ©cupÃ¨re les infos actuelles
 		{
 			if($_SESSION["ajout_annee"]==1)
 			{
-				if(!isset($annee_nom)) // un seul test devrait être suffisant
+				if(!isset($annee_nom)) // un seul test devrait Ãªtre suffisant
 					$annee_nom=$annee_nom_complet="";
 			}
 			else
@@ -416,7 +416,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu2'>
-			<font class='Texte_menu2'>Nom court (peut être vide) :</font>
+			<font class='Texte_menu2'>Nom court (peut Ãªtre vide) :</font>
 		</td>
 		<td class='td-droite fond_menu'>
 			<input type='text' name='nom' value='<?php if(isset($new_annee_nom)) echo htmlspecialchars(stripslashes($new_annee_nom), ENT_QUOTES, $default_htmlspecialchars_encoding); elseif(isset($current_annee_nom)) echo htmlspecialchars(stripslashes($current_annee_nom), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' maxlength='20' size='30'>
@@ -439,7 +439,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			else
 				print("<a href='$php_self?m=0&a=0' target='_self'><img class='icone' src='$__ICON_DIR/button_cancel_32x32_fond.png' alt='Annuler' border='0'></a>");
 		?>
-		<input type='image' class='icone' src='<?php echo "$__ICON_DIR/button_ok_32x32_fond.png"; ?>' alt='Valider' title='[Confirmer la création]' name='valider' value='Valider'>
+		<input type='image' class='icone' src='<?php echo "$__ICON_DIR/button_ok_32x32_fond.png"; ?>' alt='Valider' title='[Confirmer la crÃ©ation]' name='valider' value='Valider'>
 		</form>
 	</div>
 	<?php

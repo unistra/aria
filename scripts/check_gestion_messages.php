@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,56 +20,56 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
 ?>
 <?php
-   // Vérification quotidienne des messages en attente pour les gestionnaires
-   // Chaque membre reçoit un message de notification s'il a des messages non lus dans la
-   // boîte de réception
+   // VÃ©rification quotidienne des messages en attente pour les gestionnaires
+   // Chaque membre reÃ§oit un message de notification s'il a des messages non lus dans la
+   // boÃ®te de rÃ©ception
 
    session_name("preinsc");
    session_start();
 
    if(is_file("../configuration/aria_config.php")) include "../configuration/aria_config.php";
-   else die("Fichier \"configuration/aria_config.php\" non trouvé");
+   else die("Fichier \"configuration/aria_config.php\" non trouvÃ©");
 
    if(is_file("../include/vars.php")) include "../include/vars.php";
-   else die("Fichier \"include/vars.php\" non trouvé");
+   else die("Fichier \"include/vars.php\" non trouvÃ©");
 
    if(is_file("../include/fonctions.php")) include "../include/fonctions.php";
-   else die("Fichier \"include/fonctions.php\" non trouvé");
+   else die("Fichier \"include/fonctions.php\" non trouvÃ©");
 
    if(is_file("../include/db.php")) include "../include/db.php";
-   else die("Fichier \"include/db.php\" non trouvé");
+   else die("Fichier \"include/db.php\" non trouvÃ©");
 
    if(is_file("../include/access_functions.php")) include "../include/access_functions.php";
-   else die("Fichier \"include/access_functions.php\" non trouvé");
+   else die("Fichier \"include/access_functions.php\" non trouvÃ©");
 
    $dbr=db_connect();
 
@@ -78,7 +78,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
    if($load_config==FALSE) // config absente : erreur
       $erreur_config=1;
-   elseif($load_config==-1) // paramètre(s) manquant(s) : avertissement
+   elseif($load_config==-1) // paramÃ¨tre(s) manquant(s) : avertissement
       $warn_config=1;
 /*
    include "../configuration/aria_config.php";
@@ -98,7 +98,7 @@ CeCILL-B, et que vous en avez accepté les termes.
    $limite=$current_date-(30*86400); // date - 30 jours
       
    // Date courante au format AA MM JJ HH MM SS MS(5)
-   // (lorsqu'on se base sur les identifiants, i.e sur la date de création de la fiche)
+   // (lorsqu'on se base sur les identifiants, i.e sur la date de crÃ©ation de la fiche)
    $limite_id=new_id($limite);
 
    $result=db_query($dbr, "SELECT $_DBC_acces_id, $_DBC_acces_nom, $_DBC_acces_prenom, $_DBC_acces_courriel,
@@ -114,13 +114,13 @@ CeCILL-B, et que vous en avez accepté les termes.
 
    if($rows)
    {
-      $headers="From: $__EMAIL_ADMIN" . "\r\n" . "Reply-To: $__EMAIL_ADMIN";
+      $headers="From: $__EMAIL_NOREPLY" . "\r\n" . "Reply-To: $__EMAIL_NOREPLY";
       
       for($i=0; $i<$rows; $i++)
       {
          list($acces_id, $acces_nom, $acces_prenom, $acces_courriel)=db_fetch_row($result, $i);
 
-         // Sous répertoire
+         // Sous rÃ©pertoire
          $sous_rep=sous_rep_msg($acces_id);
 
          $files=glob("$__GESTION_MSG_STOCKAGE_DIR_ABS/$sous_rep/$acces_id/$__MSG_INBOX/*.0");
@@ -131,7 +131,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          
          if($nb)
          {
-            $liste_messages="Résumé : \n";
+            $liste_messages="RÃ©sumÃ© : \n";
 
             foreach($files as $filename)
             {
@@ -146,7 +146,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                $liste_messages.="- $expediteur\t$sujet\n";
             }
 
-            $corps_message="[ARIA - Vérification quotidienne]\n\nBonjour, \n\nVous avez actuellement $nb message$s non lu$s sur l'interface de gestion des candidatures.\n\nRappel de l'adresse : $__URL_GESTION\n\n$liste_messages\n\nCordialement,\n\nLe système ;-)";
+            $corps_message="[ARIA - VÃ©rification quotidienne]\n\nBonjour, \n\nVous avez actuellement $nb message$s non lu$s sur l'interface de gestion des candidatures.\n\nRappel de l'adresse : $__URL_GESTION\n\n$liste_messages\n\nCordialement,\n\nLe systÃ¨me ;-)";
             mail($acces_courriel,"Candidatures : message$s en attente", $corps_message, $headers);
             // echo "$acces_courriel\n$corps_message\n=============================\n\n";
          }

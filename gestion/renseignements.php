@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -68,12 +68,12 @@ CeCILL-B, et que vous en avez accepté les termes.
 		exit();
 	}
 
-	// identifiant de l'étudiant
+	// identifiant de l'Ã©tudiant
 	$candidat_id=$_SESSION["candidat_id"];
 
 	$dbr=db_connect();
 
-	if(isset($_GET["p"]) && -1!=($params=get_params($_GET['p']))) // modification de l'élément existant : l'identifiant est en paramètre
+	if(isset($_GET["p"]) && -1!=($params=get_params($_GET['p']))) // modification de l'Ã©lÃ©ment existant : l'identifiant est en paramÃ¨tre
 	{
 		if(isset($params["elem_id"]) && is_numeric($params["elem_id"]))
 			$_SESSION["elem_id"]=$elem_id=$params["elem_id"];
@@ -131,15 +131,15 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 	if(isset($_POST["valider"]) || isset($_POST["valider_x"])) // validation du formulaire
 	{
-		// Récupération et nettoyage
-		// TODO : à faire sur tous les champs de tous les formulaires
+		// RÃ©cupÃ©ration et nettoyage
+		// TODO : Ã  faire sur tous les champs de tous les formulaires
 
 		if(!isset($_SESSION["elem_propspec"]))
-			$_SESSION["elem_propspec"]=0; // demande unique : reliée à toutes les formations
+			$_SESSION["elem_propspec"]=0; // demande unique : reliÃ©e Ã  toutes les formations
 
 		if($_SESSION["elem_type"]==$__ELEM_TYPE_FORM)
 		{
-			// Si le contenu est de type texte, on nettoie les retours de ligne (maximum 2 pour éviter le texte exagéremment aéré)
+			// Si le contenu est de type texte, on nettoie les retours de ligne (maximum 2 pour Ã©viter le texte exagÃ©remment aÃ©rÃ©)
 			$contenu=preg_replace("/[\r\n]{3,50}/", "\r\n\r\n", strip_tags(trim($_POST["champ"])));
 			$contenu=clean_word_str($contenu);
 			$contenu=preg_replace("/[']+/", "''", stripslashes($contenu));
@@ -176,20 +176,20 @@ CeCILL-B, et que vous en avez accepté les termes.
 				$erreur_min_choix=1;
 		}
 
-		if(!isset($erreur_min_choix) && !isset($erreur_max_choix) && !isset($reponse_vide) && !isset($_SESSION["elem_contenu_id"])) // nouvel élement
+		if(!isset($erreur_min_choix) && !isset($erreur_max_choix) && !isset($reponse_vide) && !isset($_SESSION["elem_contenu_id"])) // nouvel Ã©lement
 		{
 			$req="INSERT INTO $_DB_dossiers_elems_contenu VALUES ('$candidat_id', '$_SESSION[elem_id]', '$_SESSION[comp_id]', '$contenu', '$_SESSION[elem_propspec]', '$__PERIODE');";
 
 			db_query($dbr, $req);
 
-			write_evt($dbr, $__EVT_ID_G_RENS, "Ajout contenu renseignement complémentaire", $candidat_id, $_SESSION["elem_id"], $req);
+			write_evt($dbr, $__EVT_ID_G_RENS, "Ajout contenu renseignement complÃ©mentaire", $candidat_id, $_SESSION["elem_id"], $req);
 
 			db_close($dbr);
 
 			header("Location:edit_candidature.php?succes=1");
 			exit();
 		}
-		elseif(!isset($erreur_min_choix) && !isset($erreur_max_choix) && !isset($reponse_vide)) // mise à jour
+		elseif(!isset($erreur_min_choix) && !isset($erreur_max_choix) && !isset($reponse_vide)) // mise Ã  jour
 		{
 			{
 				$req="UPDATE $_DB_dossiers_elems_contenu SET $_DBU_dossiers_elems_contenu_para='$contenu'
@@ -227,14 +227,14 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 		if(isset($erreur_min_choix))
 		{
-			$txt_choix=$_SESSION["choix_min"]==1 ? "une réponse" : "$_SESSION[choix_min] réponses";
-			message("Erreur : vous devez sélectionner au moins $txt_choix", $__ERREUR);
+			$txt_choix=$_SESSION["choix_min"]==1 ? "une rÃ©ponse" : "$_SESSION[choix_min] rÃ©ponses";
+			message("Erreur : vous devez sÃ©lectionner au moins $txt_choix", $__ERREUR);
 		}
 
 		if(isset($erreur_max_choix))
 		{
-			$txt_choix=$_SESSION["choix_max"]==1 ? "d'une réponse" : "de $_SESSION[choix_max] réponses";
-			message("Erreur : vous ne devez pas sélectionner plus $txt_choix", $__ERREUR);
+			$txt_choix=$_SESSION["choix_max"]==1 ? "d'une rÃ©ponse" : "de $_SESSION[choix_max] rÃ©ponses";
+			message("Erreur : vous ne devez pas sÃ©lectionner plus $txt_choix", $__ERREUR);
 		}
 
 		print("<form action='$php_self' method='POST' name='form1'>\n");
@@ -255,7 +255,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		}
 		else
 		{
-			unset($_SESSION["elem_contenu_id"]); // juste au cas où ...
+			unset($_SESSION["elem_contenu_id"]); // juste au cas oÃ¹ ...
 			$contenu="";
 		}
 
@@ -274,15 +274,15 @@ CeCILL-B, et que vous en avez accepté les termes.
 	<tr>
 		<td class='td-gauche fond_menu' style='text-align:justify; padding:8px 20px 8px 20px;'>
 			<?php
-				// Le contenu proposé dépend du type d'élément : soit un formulaire simple, soit une liste à choix
+				// Le contenu proposÃ© dÃ©pend du type d'Ã©lÃ©ment : soit un formulaire simple, soit une liste Ã  choix
 				switch($_SESSION["elem_type"])
 				{
 					case $__ELEM_TYPE_FORM :		// Le plus simple : champ texte
 						print("<textarea name='champ' class='textArea' rows='10'>$contenu</textarea>\n");
 						break;
 
-					case $__ELEM_TYPE_UN_CHOIX :	// Liste à choix, une réponse possible
-						// Traitement du contenu : normalement une seule réponse : id du choix
+					case $__ELEM_TYPE_UN_CHOIX :	// Liste Ã  choix, une rÃ©ponse possible
+						// Traitement du contenu : normalement une seule rÃ©ponse : id du choix
 						if($contenu!="" && ctype_digit($contenu))
 						{
 							if(!db_num_rows(db_query($dbr, "SELECT * FROM $_DB_dossiers_elems_choix
@@ -291,7 +291,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 								$contenu="";
 						}
 
-						// Sélection et affichage des choix
+						// SÃ©lection et affichage des choix
 						$res_choix=db_query($dbr, "SELECT $_DBC_dossiers_elems_choix_id, $_DBC_dossiers_elems_choix_texte
 																FROM $_DB_dossiers_elems_choix
 															WHERE $_DBC_dossiers_elems_choix_elem_id='$elem_id'
@@ -326,8 +326,8 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 						break;
 
-					case $__ELEM_TYPE_MULTI_CHOIX :	// Liste à choix, plusieurs réponses possibles
-						// Traitement du contenu : plusieurs réponses possibles séparées par "|" (id du ou des choix)
+					case $__ELEM_TYPE_MULTI_CHOIX :	// Liste Ã  choix, plusieurs rÃ©ponses possibles
+						// Traitement du contenu : plusieurs rÃ©ponses possibles sÃ©parÃ©es par "|" (id du ou des choix)
 						if($contenu!="")
 						{
 							$choix_array=explode("|",$contenu);
@@ -363,7 +363,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 							}
 						}
 
-						// Sélection et affichage des choix
+						// SÃ©lection et affichage des choix
 						$res_choix=db_query($dbr, "SELECT $_DBC_dossiers_elems_choix_id, $_DBC_dossiers_elems_choix_texte
 																FROM $_DB_dossiers_elems_choix
 															WHERE $_DBC_dossiers_elems_choix_elem_id='$elem_id'

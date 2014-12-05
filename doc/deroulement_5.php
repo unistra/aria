@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -67,40 +67,40 @@ CeCILL-B, et que vous en avez accepté les termes.
 <div class='main'>
 	<div class='centered_box'>
 		<font class='Texte3'>
-			<b>Dépôt de dossiers de précandidature
-			<br><br>I - Déroulement d'une précandidature en ligne (5/5)</b>
+			<b>DÃ©pÃ´t de dossiers de prÃ©candidature
+			<br><br>I - DÃ©roulement d'une prÃ©candidature en ligne (5/5)</b>
 		</font>
 	</div>
 
 	<div style='width:80%; text-align:justify; margin:0px auto 0px auto; padding-bottom:30px;'>
 		<font class='Texte3'>
-			<u><b>Etape 5 </b> : Suivi et décision</u>
+			<u><b>Etape 5 </b> : Suivi et dÃ©cision</u>
 		</font>
 		<font class='Texte'>
-			<br><br>Pendant toute la durée du traitement, vous pourrez consulter votre fiche afin de suivre en temps réel
-			l'évolution de son traitement (validation des justificatifs envoyés, suivi des précandidatures, ...). Vous recevrez également des
-			messages vous informant du statut de vos demandes, <b>en particulier dans le cas où des pièces essentielles manqueraient à vos dossiers</b>.
+			<br><br>Pendant toute la durÃ©e du traitement, vous pourrez consulter votre fiche afin de suivre en temps rÃ©el
+			l'Ã©volution de son traitement (validation des justificatifs envoyÃ©s, suivi des prÃ©candidatures, ...). Vous recevrez Ã©galement des
+			messages vous informant du statut de vos demandes, <b>en particulier dans le cas oÃ¹ des piÃ¨ces essentielles manqueraient Ã  vos dossiers</b>.
 			<br><br>
 		<font class='Texte_important'>
-			<b>Important</b> : en aucun cas un courriel ne peut se substituer à une lettre officielle de l'université. Aucun recours ne
-			sera accepté sur seule présentation des courriels envoyés par l'interface de précandidatures en ligne.
+			<b>Important</b> : en aucun cas un courriel ne peut se substituer Ã  une lettre officielle de l'universitÃ©. Aucun recours ne
+			sera acceptÃ© sur seule prÃ©sentation des courriels envoyÃ©s par l'interface de prÃ©candidatures en ligne.
 			<br><br><br>
 		</font>
 		<font class='Texte3'>
-			<u>Examen par la Commission Pédagogique et notification de la décision finale</u>
+			<u>Examen par la Commission PÃ©dagogique et notification de la dÃ©cision finale</u>
 		</font>
 		<font class='Texte'>
-			<br><br>En cas de recevabilité de vos précandidatures (dossier complet et prérequis vérifiés), ces dernières seront examinées par les différentes Commissions Pédagogiques qui donneront
-			un avis définitif sur votre admission dans la ou les formations demandées. Cette décision vous sera alors notifiée par courrier à l'adresse que vous aurez indiquée lors
+			<br><br>En cas de recevabilitÃ© de vos prÃ©candidatures (dossier complet et prÃ©requis vÃ©rifiÃ©s), ces derniÃ¨res seront examinÃ©es par les diffÃ©rentes Commissions PÃ©dagogiques qui donneront
+			un avis dÃ©finitif sur votre admission dans la ou les formations demandÃ©es. Cette dÃ©cision vous sera alors notifiÃ©e par courrier Ã  l'adresse que vous aurez indiquÃ©e lors
 			de votre enregistrement sur l'interface.
 
 			<br><br>
-			<u>Remarque sur l'affichage des décisions en ligne</u>
-			<br><br>Certaines composantes diffèrent la publication des décisions de la Commission Pédagogique. Lorsque c'est le cas, la mention "<b>En attente de publication</b>" apparaît dans le menu
-			"5 - Précandidatures", et vous devez attendre que la composante ait validé ces décisions. La date de publication peut varier en fonction des composantes et des formations.
+			<u>Remarque sur l'affichage des dÃ©cisions en ligne</u>
+			<br><br>Certaines composantes diffÃ¨rent la publication des dÃ©cisions de la Commission PÃ©dagogique. Lorsque c'est le cas, la mention "<b>En attente de publication</b>" apparaÃ®t dans le menu
+			"5 - PrÃ©candidatures", et vous devez attendre que la composante ait validÃ© ces dÃ©cisions. La date de publication peut varier en fonction des composantes et des formations.
 			<br><br>
 		</font>
-		<font class='Texte_important'><b>Aucune date de publication ne sera donnée par courriel ou par téléphone.</b></font>
+		<font class='Texte_important'><b>Aucune date de publication ne sera donnÃ©e par courriel ou par tÃ©lÃ©phone.</b></font>
 	</div>
 	<div class='centered_box' style='padding-bottom:30px;'>
 		<a href='deroulement_4.php' class='lien_bleu_12'><img class='icone icone_texte_d' src='<?php echo "$__ICON_DIR/back_32x32_fond.png"; ?>' border='0'></a>

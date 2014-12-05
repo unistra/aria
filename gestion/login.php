@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -52,7 +52,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	session_name("preinsc_gestion");
 	session_start();
 
-	// Conservation de variables pour les accès directs
+	// Conservation de variables pour les accÃ¨s directs
 	if(isset($_SESSION["fiche_id"]))	$fiche_id=$_SESSION["fiche_id"];
 	if(isset($_SESSION["dco"])) $co=$_SESSION["dco"];
 
@@ -63,19 +63,19 @@ CeCILL-B, et que vous en avez accepté les termes.
 	if(isset($co)) $_SESSION["dco"]=$co;
 
    if(is_file("../include/vars.php")) include "../include/vars.php";
-   else die("Fichier \"include/vars.php\" non trouvé");
+   else die("Fichier \"include/vars.php\" non trouvÃ©");
 
    if(is_file("../include/fonctions.php")) include "../include/fonctions.php";
-   else die("Fichier \"include/fonctions.php\" non trouvé");
+   else die("Fichier \"include/fonctions.php\" non trouvÃ©");
 
    if(is_file("../include/db.php")) include "../include/db.php";
-   else die("Fichier \"include/db.php\" non trouvé");
+   else die("Fichier \"include/db.php\" non trouvÃ©");
 
    if(is_file("../include/access_functions.php")) include "../include/access_functions.php";
-   else die("Fichier \"include/access_functions.php\" non trouvé");
+   else die("Fichier \"include/access_functions.php\" non trouvÃ©");
 
    if(is_file("../include/fonctions_ldap.php")) include "../include/fonctions_ldap.php";
-   else die("Fichier \"include/fonctions_ldap\" non trouvé");
+   else die("Fichier \"include/fonctions_ldap\" non trouvÃ©");
    
    $dbr=db_connect();
 
@@ -84,12 +84,12 @@ CeCILL-B, et que vous en avez accepté les termes.
 
    if($load_config===FALSE) // config absente : erreur
       $erreur_config=1;
-   elseif($load_config==-1) // paramètre(s) manquant(s) : avertissement
+   elseif($load_config==-1) // paramÃ¨tre(s) manquant(s) : avertissement
       $warn_config=1;
 
    // Blocage si le fichier gestion/admin/config.php existe encore
    if(is_file("admin/config.php") && is_readable("admin/config.php"))
-      die("Le fichier gestion/admin/config.php doit impérativement être supprimé ou déplacé pour utiliser l'application (vous pouvez également modifier les droits de lecture).\n");
+      die("Le fichier gestion/admin/config.php doit impÃ©rativement Ãªtre supprimÃ© ou dÃ©placÃ© pour utiliser l'application (vous pouvez Ã©galement modifier les droits de lecture).\n");
 
 	$php_self=$_SERVER['PHP_SELF'];
 	$_SESSION['CURRENT_FILE']=$php_self;
@@ -107,10 +107,10 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 		$_SESSION["auth_nom"]=$user=strtolower($_POST["user"]);
 
-      // Le mot de passe ne sera utilisé que si le compte est local (LDAP sinon)
+      // Le mot de passe ne sera utilisÃ© que si le compte est local (LDAP sinon)
 		$pass=$_POST["pass"];
 
-		// Accès direct à une composante ?
+		// AccÃ¨s direct Ã  une composante ?
 		if(isset($_SESSION["dco"]))
 			$result=db_query($dbr,"SELECT $_DBC_acces_id, $_DBC_acces_nom, $_DBC_acces_prenom, $_DBC_acces_courriel, $_DBC_acces_pass,
 													$_DBC_acces_filtre, $_DBC_composantes_nom, $_DBC_universites_nom,
@@ -160,11 +160,11 @@ CeCILL-B, et que vous en avez accepté les termes.
 					$_SESSION["avertir_decision"],
 					$_SESSION["auth_source"])=db_fetch_row($result,0);
 
-         // Niveau supplémentaire dans l'arborescence des messages
+         // Niveau supplÃ©mentaire dans l'arborescence des messages
          $_SESSION["MSG_SOUS_REP"]=sous_rep_msg($_SESSION["auth_id"]);
 
-			// L'accès direct a réussi : on met cette composante par défaut
-			// TODO : requête doublon : à corriger
+			// L'accÃ¨s direct a rÃ©ussi : on met cette composante par dÃ©faut
+			// TODO : requÃªte doublon : Ã  corriger
 			if(isset($_SESSION["dco"]) && isset($_SESSION["fiche_id"]))
 			{
 				if($_SESSION["comp_id"]!=$_SESSION["dco"])
@@ -200,36 +200,36 @@ CeCILL-B, et que vous en avez accepté les termes.
             
          if(isset($auth_ok) && $auth_ok==1)
 			{
-				// le pass est correct, on vérifie les droits (consultation de la table appropriée dans l'annuaire)
+				// le pass est correct, on vÃ©rifie les droits (consultation de la table appropriÃ©e dans l'annuaire)
 
-				// Compte désactivé ?
+				// Compte dÃ©sactivÃ© ?
 				if($_SESSION["niveau"]!="$__LVL_DESACTIVE")
 				{
 					$_SESSION['auth_user']=$user;
 
-					if(empty($_SESSION["auth_email"])) // normalement, ne devrait JAMAIS être possible, mais par précaution ...
+					if(empty($_SESSION["auth_email"])) // normalement, ne devrait JAMAIS Ãªtre possible, mais par prÃ©caution ...
 						$_SESSION['auth_email']=$_SESSION["courriel_scol"];
 
 					$_SESSION['tri']=0;
-					$_SESSION["onglet"]=1; // onglet par défaut : identite du candidat
+					$_SESSION["onglet"]=1; // onglet par dÃ©faut : identite du candidat
 
-					// Mode par défaut : commission pour le mode consultation (enseignants), précandidatures pour les autres
+					// Mode par dÃ©faut : commission pour le mode consultation (enseignants), prÃ©candidatures pour les autres
 					if(in_array($_SESSION["niveau"], array("$__LVL_SAISIE","$__LVL_SCOL_MOINS","$__LVL_SCOL_PLUS","$__LVL_RESP","$__LVL_SUPER_RESP","$__LVL_ADMIN")))
 						$_SESSION["mode"]=$__MODE_PREC;
 					else
 						$_SESSION["mode"]=$__MODE_COMPEDA;
 
-					// Filtre par défaut
+					// Filtre par dÃ©faut
 					if($_SESSION['spec_filtre_defaut']=="")
 						$_SESSION['spec_filtre_defaut']="-1";
 
-					// création du vecteur d'encryption (utilisé pour chiffrer les paramètres)
+					// crÃ©ation du vecteur d'encryption (utilisÃ© pour chiffrer les paramÃ¨tres)
 					$td=mcrypt_module_open("tripledes", "", "cbc", "");
 					$_SESSION["iv"]=mcrypt_create_iv(mcrypt_enc_get_iv_size($td), MCRYPT_RAND);
 					mcrypt_module_close($td);
 
 					// Log de la connexion dans la BDD
-					write_evt($dbr, $__EVT_ID_LOGIN, "Connexion réussie", "", $_SESSION["auth_id"]);
+					write_evt($dbr, $__EVT_ID_LOGIN, "Connexion rÃ©ussie", "", $_SESSION["auth_id"]);
 
 					// Multi-composantes ?
 					
@@ -243,8 +243,8 @@ CeCILL-B, et que vous en avez accepté les termes.
 					
 					$_SESSION["multi_composantes"]=$nb_droits_composantes>1 ? "1" : "0";
 					
-					// Pour chaque composante à laquelle l'utilisateur a accès, on créé un tableau qui contiendra (peut être) le détail des formations accessibles
-					// Si le tableau reste vide, l'utilisateur aura accès à toutes les formations de la composante
+					// Pour chaque composante Ã  laquelle l'utilisateur a accÃ¨s, on crÃ©Ã© un tableau qui contiendra (peut Ãªtre) le dÃ©tail des formations accessibles
+					// Si le tableau reste vide, l'utilisateur aura accÃ¨s Ã  toutes les formations de la composante
 					for($d=0; $d<$nb_droits_composantes; $d++)
 					{
 						list($droits_comp_id)=db_fetch_row($res_droits_composantes, $d);
@@ -277,7 +277,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 					db_free_result($res_droits_formations);
 																	
 
-					// Les candidats de cette composante sont-ils soumis à des entretiens ? (utile pour le menu et la gestion du calendrier)
+					// Les candidats de cette composante sont-ils soumis Ã  des entretiens ? (utile pour le menu et la gestion du calendrier)
 					$_SESSION["composante_entretiens"]=db_num_rows(db_query($dbr, "SELECT * FROM $_DB_propspec WHERE $_DBC_propspec_comp_id='$_SESSION[comp_id]' AND $_DBC_propspec_entretiens='1'")) ? "1" : "0";
 
 					
@@ -287,8 +287,8 @@ CeCILL-B, et que vous en avez accepté les termes.
 						add_modules();
 
 					// on sort.
-					// Pour les admins et le support => page de recherche immédiatement 
-					// Sinon, si la composante / un candidat est déjà paramétré, on va directement à la page correspondante
+					// Pour les admins et le support => page de recherche immÃ©diatement 
+					// Sinon, si la composante / un candidat est dÃ©jÃ  paramÃ©trÃ©, on va directement Ã  la page correspondante
                if(in_array($_SESSION["niveau"], array("$__LVL_ADMIN", "$__LVL_SUPPORT")))
                   header("Location:recherche.php");
 					elseif(($_SESSION["niveau"]=="$__LVL_SUPER_RESP" || $_SESSION["multi_composantes"]) && !isset($_SESSION["dco"]))
@@ -321,7 +321,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 				case 2	: $evenement="Echec : '" . str_replace("'","''", $user) . "' : Identifiant inconnu";
 									break;
 
-				case 3	: $evenement="Echec : '" . str_replace("'","''", $user) . "' : Compte désactivé";
+				case 3	: $evenement="Echec : '" . str_replace("'","''", $user) . "' : Compte dÃ©sactivÃ©";
 									break;
 			}
 
@@ -343,11 +343,11 @@ CeCILL-B, et que vous en avez accepté les termes.
 		print("<form action='$php_self' method='POST' name='form1'>\n");
 
       if(isset($erreur_config))
-         message("La configuration de l'interface n'a pu être chargée. Merci de contacter rapidement l'administrateur de l'application.", $__ERREUR);
+         message("La configuration de l'interface n'a pu Ãªtre chargÃ©e. Merci de contacter rapidement l'administrateur de l'application.", $__ERREUR);
 
       if(isset($warn_config))
-         message("La configuration de l'interface est incomplète (paramètres manquants).
-                  <br>- si vous êtes l'administrateur, identifiez vous et complétez la configuration,
+         message("La configuration de l'interface est incomplÃ¨te (paramÃ¨tres manquants).
+                  <br>- si vous Ãªtes l'administrateur, identifiez vous et complÃ©tez la configuration,
                   <br>- dans le cas contraire, merci de contacter rapidement l'administrateur de l'application.", $__WARNING);
 
 		if(isset($auth_error))
@@ -356,11 +356,11 @@ CeCILL-B, et que vous en avez accepté les termes.
 				message("Identifiant ou mot de passe incorrect", $__ERREUR);
 
 			if($auth_error==2)
-				message("Accès non autorisé à cette application", $__ERREUR);
+				message("AccÃ¨s non autorisÃ© Ã  cette application", $__ERREUR);
 
 			if($auth_error==3)
 				message("<center>
-								Votre compte a été désactivé.
+								Votre compte a Ã©tÃ© dÃ©sactivÃ©.
 								<br>Si vous pensez qu'il s'agit d'une erreur, merci de contacter l'administrateur de l'application.
 							</center>", $__ERREUR);
 		}

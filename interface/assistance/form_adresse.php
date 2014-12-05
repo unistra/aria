@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -64,8 +64,8 @@ CeCILL-B, et que vous en avez accepté les termes.
 
    if(isset($_POST["Valider"]) || isset($_POST["Valider_x"])) // validation du formulaire
    {
-      // vérification des valeurs entrées dans le formulaire
-      // TODO : vérifications poussées
+      // vÃ©rification des valeurs entrÃ©es dans le formulaire
+      // TODO : vÃ©rifications poussÃ©es
 
       $civilite=$_POST["civilite"];
 
@@ -85,7 +85,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       $email=mb_strtolower(trim($_POST["email"]));
       $emailconf=mb_strtolower(trim($_POST["emailconf"]));
 
-      if(strcmp($email, $emailconf)) // si les 2 adresses sont différentes ...
+      if(strcmp($email, $emailconf)) // si les 2 adresses sont diffÃ©rentes ...
          $email_inegaux=1;
 
       $nationalite_code=$_POST["nationalite"];
@@ -100,7 +100,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       $champs_obligatoires=array($nom,$prenom,$jour,$mois,$annee,$lieu_naissance,$pays_naissance_code,$email,$emailconf,$nationalite_code);
       $cnt_obl=count($champs_obligatoires);
 
-      for($i=0; $i<$cnt_obl; $i++) // vérification des champs obligatoires
+      for($i=0; $i<$cnt_obl; $i++) // vÃ©rification des champs obligatoires
       {
          if($champs_obligatoires[$i]=="")
          {
@@ -112,7 +112,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       if(!ctype_digit($jour) || !ctype_digit($mois) || !ctype_digit($annee) || $annee>=date('Y'))
          $erreur_date_naissance=1;
 
-      // Le nouveau mail et l'ancien ne doivent pas être identiques
+      // Le nouveau mail et l'ancien ne doivent pas Ãªtre identiques
       /*
       if($email == $old_email)
          $ancien_nouveau_identiques=1;
@@ -123,8 +123,8 @@ CeCILL-B, et que vous en avez accepté les termes.
 
       if(!isset($champ_vide) && !isset($email_inegaux) && !isset($new_email_existe) && !isset($erreur_date_naissance) && !isset($erreur_ine_bea))
       {
-         // Construction du corps du message en fonction des données du formulaire
-         // Le corps contient un tableau HTML : il est affiché dans la messagerie, on peut donc utiliser le format désiré
+         // Construction du corps du message en fonction des donnÃ©es du formulaire
+         // Le corps contient un tableau HTML : il est affichÃ© dans la messagerie, on peut donc utiliser le format dÃ©sirÃ©
 
          $identite=$prenom2!="" ? "$civilite. $nom $prenom ($prenom2)" : "$civilite. $nom $prenom";
 
@@ -133,21 +133,21 @@ CeCILL-B, et que vous en avez accepté les termes.
          $corps_message="<table cellpadding='4' border='0' valign='top'>
                          <tr>
                             <td class='td-complet fond_menu2' colspan='2'>
-                               <font class='Texte_menu2'><strong>Détails de la requête :</strong></font>
+                               <font class='Texte_menu2'><strong>DÃ©tails de la requÃªte :</strong></font>
                             </td>
                          </tr>
                          <tr>
                             <td class='td-gauche'><font class='Texte'><strong>Candidat(e) :</strong></font></td>
                             <td class='td-droite'>
-                               <font class='Texte'>$identite, né(e) le $jour/$mois/$annee à $lieu_naissance (".$_SESSION["liste_pays_nat_iso"]["$pays_naissance_code"]["pays"].")</font>
+                               <font class='Texte'>$identite, nÃ©(e) le $jour/$mois/$annee Ã  $lieu_naissance (".$_SESSION["liste_pays_nat_iso"]["$pays_naissance_code"]["pays"].")</font>
                             </td>
                          </tr>
                          <tr>
-                            <td class='td-gauche'><font class='Texte'><strong>Nationalité :</strong></font></td>
+                            <td class='td-gauche'><font class='Texte'><strong>NationalitÃ© :</strong></font></td>
                             <td class='td-droite'><font class='Texte'>".$_SESSION["liste_pays_nat_iso"]["$nationalite_code"]["nationalite"]."</font></td>
                          </tr>
                          <tr>
-                            <td class='td-gauche'><font class='Texte'><strong>Numéro INE :</strong></font></td>
+                            <td class='td-gauche'><font class='Texte'><strong>NumÃ©ro INE :</strong></font></td>
                             <td class='td-droite'><font class='Texte'>$num_ine</font></td>
                          </tr>
                          <tr>
@@ -160,19 +160,19 @@ CeCILL-B, et que vous en avez accepté les termes.
                          </tr>
                          <tr>
                             <td class='td-gauche'><font class='Texte'><strong>Autres :</strong></font></td>
-                            <td class='td-droite' style='white-space:normal;'><font class='Texte'>$autres_infos</font></td>
+                            <td class='td-droite' style='white-space:normal'><font class='Texte'>$autres_infos</font></td>
                           </tr>
                           </table><br>\n";
 
-         // On cherche le candidat dans la base de données à partir des informations, puis on écrit le résultat
+         // On cherche le candidat dans la base de donnÃ©es Ã  partir des informations, puis on Ã©crit le rÃ©sultat
           // de la recherche dans le message.
 
-         // Nettoyage de la chaine de caractères pour la requête à la base de données
-         // caractères à traiter : à á â ã ä å  ç  è é ê ë  ì í î ï  ñ  ð ò ó ô õ ö  ù ú û ü  ý ÿ *
+         // Nettoyage de la chaine de caractÃ¨res pour la requÃªte Ã  la base de donnÃ©es
+         // caractÃ¨res Ã  traiter : Ã  Ã¡ Ã¢ Ã£ Ã¤ Ã¥  Ã§  Ã¨ Ã© Ãª Ã«  Ã¬ Ã­ Ã® Ã¯  Ã±  Ã° Ã² Ã³ Ã´ Ãµ Ã¶  Ã¹ Ãº Ã» Ã¼  Ã½ Ã¿ *
          $rech_nom=preg_replace("/[ ]+/", " ", clean_str_requete($nom));
          $rech_prenom=preg_replace("/[ ]+/", " ", clean_str_requete($prenom));
 
-         // Critères de recherche : nom, prénom, ancien et nouvel email, numéro INE, ...
+         // CritÃ¨res de recherche : nom, prÃ©nom, ancien et nouvel email, numÃ©ro INE, ...
 
          // Conditions variables pour les champs non obligatoires
          $condition_old_email=$old_email!="" ? "OR $_DBC_candidat_email ILIKE '$old_email'" : "";
@@ -196,17 +196,17 @@ CeCILL-B, et que vous en avez accepté les termes.
          {
             if($rows_recherche==1)
                $corps_message.="<font class='Texte'>
-                                    Le candidat suivant semble correspondre aux critères.
-                                    <br>- S'il correspond, sélectionnez-le et validez : son adresse électronique sera mise à jour et ses identifiants seront renvoyés.
+                                    Le candidat suivant semble correspondre aux critÃ¨res.
+                                    <br>- S'il correspond, sÃ©lectionnez-le et validez : son adresse Ã©lectronique sera mise Ã  jour et ses identifiants seront renvoyÃ©s.
                                     <br>- Dans le cas contraire, utilisez le <a href='$__GESTION_DIR/recherche.php' class='lien_bleu_12' style='vertical-align:top;'>menu Recherche</a> de l'application.
-                                    <br>- Après validation, ce message sera automatiquement placé dans le dossier \"Traités\".
+                                    <br>- AprÃ¨s validation, ce message sera automatiquement placÃ© dans le dossier \"TraitÃ©s\".
                                  </font>\n";
             else
                $corps_message.="<font class='Texte'>
-                                 Les candidats suivants semblent correspondre aux critères.
-                                 <br>- Si l'un d'eux correspond, sélectionnez-le et validez : son adresse électronique sera mise à jour et ses identifiants seront renvoyés.
+                                 Les candidats suivants semblent correspondre aux critÃ¨res.
+                                 <br>- Si l'un d'eux correspond, sÃ©lectionnez-le et validez : son adresse Ã©lectronique sera mise Ã  jour et ses identifiants seront renvoyÃ©s.
                                  <br>- Dans le cas contraire, utilisez le <a href='$__GESTION_DIR/recherche.php' class='lien_bleu_12' style='vertical-align:top;'>menu Recherche</a> de l'application.
-                                 <br>- Après validation, ce message sera automatiquement placé dans le dossier \"Traités\".
+                                 <br>- AprÃ¨s validation, ce message sera automatiquement placÃ© dans le dossier \"TraitÃ©s\".
                               </font>\n";
 
             $corps_message.="<br><br>
@@ -217,13 +217,13 @@ CeCILL-B, et que vous en avez accepté les termes.
                               <tr>
                                  <td class='td-gauche fond_menu2' colspan='2'><font class='Texte_menu2'><strong>Candidat(e)</strong></font></td>
                                  <td class='td-milieu fond_menu2' colspan='2'><font class='Texte_menu2'><strong>Naissance</strong></font></td>
-                                 <td class='td-milieu fond_menu2'><font class='Texte_menu2'><strong>Nationalité</strong></font></td>
-                                 <td class='td-milieu fond_menu2'><font class='Texte_menu2'><strong>Numéro INE</strong></font></td>
+                                 <td class='td-milieu fond_menu2'><font class='Texte_menu2'><strong>NationalitÃ©</strong></font></td>
+                                 <td class='td-milieu fond_menu2'><font class='Texte_menu2'><strong>NumÃ©ro INE</strong></font></td>
                                  <td class='td-milieu fond_menu2'><font class='Texte_menu2'><strong>Adresse @</strong></font></td>
                               </tr>";
 
             // Les actions sont possibles directement depuis le message (uniquement pour les admins, pour le moment : prudence.)
-            // Elles sont traitées dans le fichiers gestion/messagerie/message.php (à déplacer ?)
+            // Elles sont traitÃ©es dans le fichiers gestion/messagerie/message.php (Ã  dÃ©placer ?)
 
             for($rech_i=0; $rech_i<$rows_recherche; $rech_i++)
             {
@@ -261,9 +261,9 @@ CeCILL-B, et que vous en avez accepté les termes.
          {
             $le_candidat=$civilite=="M" ? "le candidat" : "la candidate";
 
-            $corps_message.="Aucun candidat trouvé avec ces critères : recherche manuelle nécessaire
+            $corps_message.="Aucun candidat trouvÃ© avec ces critÃ¨res : recherche manuelle nÃ©cessaire
                              <br />
-                             <input type='checkbox' name='mail_inconnu' value='$email'> Envoyer un message automatique invitant $le_candidat à s'enregistrer.
+                             <input type='checkbox' name='mail_inconnu' value='$email'> Envoyer un message automatique invitant $le_candidat Ã  s'enregistrer.
                              <br /><br />
                              <div class='centered_icons_box'>
                                 <input type='image' src='$__ICON_DIR/button_ok_32x32_blanc.png' alt='Valider' name='Valider_form_adresse' value='Valider'>
@@ -278,7 +278,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
          $res_admins=db_query($dbr,"SELECT $_DBC_acces_id FROM $_DB_acces WHERE $_DBC_acces_niveau='$__LVL_ADMIN' AND $_DBC_acces_reception_msg_systeme='t'");
 
-         // Prévoir le cas où aucun admin n'est présent dans la base : envoyer à l'adresse de debug ?
+         // PrÃ©voir le cas oÃ¹ aucun admin n'est prÃ©sent dans la base : envoyer Ã  l'adresse de debug ?
          if($rows_admin=db_num_rows($res_admins))
          {
             for($admin_i=0; $admin_i<$rows_admin; $admin_i++)
@@ -295,14 +295,14 @@ CeCILL-B, et que vous en avez accepté les termes.
 
          $corps_message=preg_replace("/[ ]+/", " ", preg_replace("/[\r]*[\n]+/","", $corps_message));
 
-         $sujet_message="ASSISTANCE : adresse électronique - $identite";
+         $sujet_message="ASSISTANCE : adresse Ã©lectronique - $identite";
 
-         write_msg_2($dbr, array("id" => "0", "nom" => "Système", "prenom" => "", "src_type" => "gestion", "composante" => "", "universite" => "$__SIGNATURE_COURRIELS"),
+         write_msg_2($dbr, array("id" => "0", "nom" => "SystÃ¨me", "prenom" => "", "src_type" => "gestion", "composante" => "", "universite" => "$__SIGNATURE_COURRIELS"),
                      $array_dests, $sujet_message,$corps_message);
 
          $succes=1;
 
-         // write_evt("", $__EVT_ID_C_ID, "MAJ Identité", $candidat_id, $candidat_id, ereg_replace("[']+","''", stripslashes($requete)));
+         // write_evt("", $__EVT_ID_C_ID, "MAJ IdentitÃ©", $candidat_id, $candidat_id, ereg_replace("[']+","''", stripslashes($requete)));
          // db_close($dbr);
       }
    }
@@ -315,7 +315,7 @@ CeCILL-B, et que vous en avez accepté les termes.
    else
       $cur_annee=$cur_mois=$cur_jour="";
    
-   // Construction de la liste des pays et nationalités (codes ISO) pour son utilisation dans le formulaire
+   // Construction de la liste des pays et nationalitÃ©s (codes ISO) pour son utilisation dans le formulaire
    $_SESSION["liste_pays_nat_iso"]=array();
    
    $res_pays_nat=db_query($dbr, "SELECT $_DBC_pays_nat_ii_iso, $_DBC_pays_nat_ii_insee, $_DBC_pays_nat_ii_pays, $_DBC_pays_nat_ii_nat
@@ -328,7 +328,7 @@ CeCILL-B, et que vous en avez accepté les termes.
    {
       list($code_iso, $code_insee, $table_pays, $table_nationalite)=db_fetch_row($res_pays_nat, $p);
       
-      // Construction uniquement si le code insee est présent (pour les exports APOGEE ou autres)
+      // Construction uniquement si le code insee est prÃ©sent (pour les exports APOGEE ou autres)
       if($code_insee!="")
          $_SESSION["liste_pays_nat_iso"]["$code_iso"]=array("pays" => "$table_pays", "nationalite" => $table_nationalite);
 /*      
@@ -343,23 +343,23 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 <div class='main'>
    <?php
-      titre_page_icone("Demande de modification de l'adresse électronique", "mail_send_32x32_fond.png", 15, "L");
+      titre_page_icone("Demande de modification de l'adresse Ã©lectronique", "mail_send_32x32_fond.png", 15, "L");
 
       $message_erreur="";
 
       if(isset($ancien_nouveau_identiques))
-         $message_erreur.="- la nouvelle adresse doit être différente de l'ancienne (utilisez le formulaire de renvoi des identifiants si nécessaire)";
+         $message_erreur.="- la nouvelle adresse doit Ãªtre diffÃ©rente de l'ancienne (utilisez le formulaire de renvoi des identifiants si nÃ©cessaire)";
          
       if(isset($new_email_existe))
       {
          $message_erreur.=$message_erreur!="" ? "\n<br>" : "";
-         $message_erreur.="- un compte existe déjà avec le nouveau courriel indiqué : merci d'utiliser le <a class='lien2' href='../recuperation_identifiants.php'>formulaire de renvoi des identifiants</a>";
+         $message_erreur.="- un compte existe dÃ©jÃ  avec le nouveau courriel indiquÃ© : merci d'utiliser le <a class='lien2' href='../recuperation_identifiants.php'>formulaire de renvoi des identifiants</a>";
       }
 
       if(isset($email_inegaux))
       {
          $message_erreur.=$message_erreur!="" ? "\n<br>" : "";
-         $message_erreur.="- les deux adresses électroniques ne correspondent pas";
+         $message_erreur.="- les deux adresses Ã©lectroniques ne correspondent pas";
       }
 
       if(isset($erreur_date_naissance))
@@ -385,7 +385,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
       if(isset($succes))
       {
-         message("Merci. Un message a été envoyé à l'administrateur, il traitera votre demande dans les meilleurs délais.
+         message("Merci. Un message a Ã©tÃ© envoyÃ© Ã  l'administrateur, il traitera votre demande dans les meilleurs dÃ©lais.
                   <br>Si les informations sont correctes, vous recevrez un courriel contenant vos identifiants.", $__SUCCES);
 
          print("<div class='centered_icons_box'>
@@ -399,14 +399,14 @@ CeCILL-B, et que vous en avez accepté les termes.
    <form action="<?php print("$php_self"); ?>" method="POST">
 
    <?php
-      message("Merci de compléter et de valider le formulaire suivant (les champs <strong>en gras</strong> sont <strong>obligatoires</strong>).
-               <br><br><strong>Hormis l'adresse électronique, les données doivent être identiques à celles entrées lors de votre enregistrement</strong>.", $__INFO);
+      message("Merci de complÃ©ter et de valider le formulaire suivant (les champs <strong>en gras</strong> sont <strong>obligatoires</strong>).
+               <br><br><strong>Hormis l'adresse Ã©lectronique, les donnÃ©es doivent Ãªtre identiques Ã  celles entrÃ©es lors de votre enregistrement</strong>.", $__INFO);
    ?>
 
    <table align='center'>
    <tr>
       <td class='td-gauche fond_menu2'>
-         <font class='Texte_important_menu2'><strong>Civilité : </strong></font>
+         <font class='Texte_important_menu2'><strong>CivilitÃ© : </strong></font>
       </td>
       <td class='td-droite fond_menu'>
          <?php
@@ -458,7 +458,7 @@ CeCILL-B, et que vous en avez accepté les termes.
    </tr>
    <tr>
       <td class='td-gauche fond_menu2'>
-         <font class='Texte_important_menu2'><strong>Prénom : </strong></font>
+         <font class='Texte_important_menu2'><strong>PrÃ©nom : </strong></font>
       </td>
       <td class='td-droite fond_menu'>
          <input type='text' name='prenom' value='<?php if(isset($prenom)) echo htmlspecialchars(stripslashes($prenom), ENT_QUOTES, $default_htmlspecialchars_encoding); elseif(isset($_SESSION["prenom"])) echo htmlspecialchars(stripslashes($_SESSION["prenom"]), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="25" maxlength="30">
@@ -466,7 +466,7 @@ CeCILL-B, et que vous en avez accepté les termes.
    </tr>
    <tr>
       <td class='td-gauche fond_menu2'>
-         <font class='Texte_menu2'>Deuxième prénom : </font>
+         <font class='Texte_menu2'>DeuxiÃ¨me prÃ©nom : </font>
       </td>
       <td class='td-droite fond_menu'>
          <input type='text' name='prenom2' value='<?php if(isset($prenom2)) echo htmlspecialchars(stripslashes($prenom2), ENT_QUOTES, $default_htmlspecialchars_encoding); elseif(isset($_SESSION["prenom2"])) echo htmlspecialchars(stripslashes($_SESSION["prenom2"]), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="25" maxlength="30">
@@ -513,7 +513,7 @@ CeCILL-B, et que vous en avez accepté les termes.
    </tr>
    <tr>
       <td class='td-gauche fond_menu2'>
-         <font class='Texte_important_menu2'><strong>Nationalité : </strong></font>
+         <font class='Texte_important_menu2'><strong>NationalitÃ© : </strong></font>
       </td>
       <td class='td-droite fond_menu'>
          <select name='nationalite' size='1'>
@@ -534,24 +534,24 @@ CeCILL-B, et que vous en avez accepté les termes.
    </tr>
    <tr>
       <td class='td-gauche fond_menu2'>
-         <font class='Texte_menu2'>Numéro INE <strong>ou</strong> BEA : </font>
+         <font class='Texte_menu2'>NumÃ©ro INE <strong>ou</strong> BEA : </font>
       </td>
       <td class='td-droite fond_menu'>
-         <input type='text' name='num_ine' value='<?php if(isset($num_ine)) echo htmlspecialchars(stripslashes($num_ine), ENT_QUOTES, $default_htmlspecialchars_encoding); elseif(isset($_SESSION["numero_ine"])) echo htmlspecialchars($_SESSION["numero_ine"],ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="25" maxlength="11"> <font class='Texte_menu'><i>(si vous en possédez un)</i></font>
+         <input type='text' name='num_ine' value='<?php if(isset($num_ine)) echo htmlspecialchars(stripslashes($num_ine), ENT_QUOTES, $default_htmlspecialchars_encoding); elseif(isset($_SESSION["numero_ine"])) echo htmlspecialchars($_SESSION["numero_ine"],ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="25" maxlength="11"> <font class='Texte_menu'><i>(si vous en possÃ©dez un)</i></font>
       </td>
    </tr>
    <tr>
       <td class='td-gauche fond_menu2'>
-         <font class='Texte_menu2'>Ancienne adresse électronique : </font>
+         <font class='Texte_menu2'>Ancienne adresse Ã©lectronique : </font>
       </td>
       <td class='td-droite fond_menu2'>
          <input type='text' name='old_email' value='<?php if(isset($old_email)) echo htmlspecialchars(stripslashes($old_email), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="40" maxlength="255">
-         <font class='Texte_menu'><i>(Vivement conseillé)</i></font>
+         <font class='Texte_menu'><i>(Vivement conseillÃ©)</i></font>
       </td>
    </tr>
    <tr>
       <td class='td-gauche fond_menu2'>
-         <font class='Texte_important_menu2'><strong>Nouvelle adresse électronique (<i>email</i>) : </strong></font>
+         <font class='Texte_important_menu2'><strong>Nouvelle adresse Ã©lectronique (<i>email</i>) : </strong></font>
       </td>
       <td class='td-droite fond_menu2'>
          <input type='text' name='email' value='<?php if(isset($email)) echo htmlspecialchars(stripslashes($email), ENT_QUOTES, $default_htmlspecialchars_encoding); elseif(isset($_SESSION["email"])) echo htmlspecialchars($_SESSION["email"],ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="40" maxlength="255">
@@ -560,21 +560,21 @@ CeCILL-B, et que vous en avez accepté les termes.
    </tr>
    <tr>
       <td class='td-gauche fond_menu2'>
-         <font class='Texte_important_menu2'><strong>Confirmation de la nouvelle adresse électronique : </strong></font>
+         <font class='Texte_important_menu2'><strong>Confirmation de la nouvelle adresse Ã©lectronique : </strong></font>
       </td>
       <td class='td-droite fond_menu2'>
          <input type='text' name='emailconf' value='<?php if(isset($emailconf)) echo htmlspecialchars(stripslashes($emailconf), ENT_QUOTES, $default_htmlspecialchars_encoding); elseif(isset($_SESSION["email"])) echo htmlspecialchars($_SESSION["email"],ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="40" maxlength="255">
          <br>
          <font class='Texte_important_menu'>
             <strong>Attention : </strong>
-            <br>- vérifiez bien que les courriels ne sont pas redirigés dans votre dossier <strong>"Spams"</strong> ou <strong>"Courriers Indésirables"</strong>,
-            <br>- configurez les <strong>filtres</strong> de votre messagerie pour autoriser l'expéditeur <strong>"<?php echo $__EMAIL_ADMIN; ?>"</strong> à vous envoyer des courriels.
+            <br>- vÃ©rifiez bien que les courriels ne sont pas redirigÃ©s dans votre dossier <strong>"Spams"</strong> ou <strong>"Courriers IndÃ©sirables"</strong>,
+            <br>- configurez les <strong>filtres</strong> de votre messagerie pour autoriser l'expÃ©diteur <strong>"<?php echo $__EMAIL_ADMIN; ?>"</strong> Ã  vous envoyer des courriels.
          </font>
       </td>
    </tr>
    <tr>
       <td class='td-gauche fond_menu2'>
-         <font class='Texte_menu2'>Commentaires éventuels :</font>
+         <font class='Texte_menu2'>Commentaires Ã©ventuels :</font>
       </td>
       <td class='td-droite fond_menu2'>
          <textarea name='autres' cols="40" rows="5"><?php if(isset($autres_infos)) echo htmlspecialchars(stripslashes($autres_infos), ENT_QUOTES, $default_htmlspecialchars_encoding); ?></textarea>

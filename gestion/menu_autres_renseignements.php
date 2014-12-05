@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,36 +20,36 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
 ?>
 <?php
-	// Vérifications complémentaires au cas où ce fichier serait appelé directement
+	// VÃ©rifications complÃ©mentaires au cas oÃ¹ ce fichier serait appelÃ© directement
 	verif_auth();
 
 	if(!isset($_SESSION["candidat_id"]))
@@ -61,7 +61,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	// Nettoyage
 	unset($_SESSION["current_choix"]);
 
-	// Onglet supplémentaire si le dossier le demande (CF. Constructeur de Dossiers dans la partie Gestion)
+	// Onglet supplÃ©mentaire si le dossier le demande (CF. Constructeur de Dossiers dans la partie Gestion)
 	$result_elems=db_query($dbr, "SELECT $_DBC_dossiers_elems_id, $_DBC_dossiers_elems_type, $_DBC_dossiers_elems_intitule,
 													 $_DBC_dossiers_ef_propspec_id, $_DBC_dossiers_elems_para, $_DBC_dossiers_elems_vap,
 													 $_DBC_dossiers_elems_unique
@@ -84,8 +84,8 @@ CeCILL-B, et que vous en avez accepté les termes.
 				<font class='Texte_16'><strong>$_SESSION[onglet] - Autres Renseignements Obligatoires</strong></font>
 			</div>");
 
-	// Tableau utilisé pour ne pas afficher plusieurs fois les demandes uniques
-	// demande dont la réponse est commune à plusieurs formations
+	// Tableau utilisÃ© pour ne pas afficher plusieurs fois les demandes uniques
+	// demande dont la rÃ©ponse est commune Ã  plusieurs formations
 
 	$elements_dossier_array=array();
 
@@ -99,7 +99,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		{
 			list($elem_id, $elem_type, $elem_intitule, $elem_propspec_id, $elem_para, $elem_vap, $demande_unique)=db_fetch_row($result_elems, $i);
 
-			// Si l'élément est une demande unique et s'il a déjà été affiché, on passe au suivant
+			// Si l'Ã©lÃ©ment est une demande unique et s'il a dÃ©jÃ  Ã©tÃ© affichÃ©, on passe au suivant
 			if($demande_unique=="f" || !in_array($elem_id, $elements_dossier_array))
 			{
 				$elem_para=nl2br($elem_para);
@@ -116,7 +116,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 				else
 					$cond_propspec="AND $_DBC_propspec_id='$elem_propspec_id'";
 
-				// on liste la ou les formations concernées
+				// on liste la ou les formations concernÃ©es
 				$res_formations=db_query($dbr, "SELECT $_DBC_annees_annee, $_DBC_specs_nom, $_DBC_propspec_finalite
 															FROM $_DB_propspec, $_DB_annees, $_DB_specs, $_DB_dossiers_ef, $_DB_cand
 														WHERE $_DBC_annees_id=$_DBC_propspec_annee
@@ -181,7 +181,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 							break;
 
-					case $__ELEM_TYPE_UN_CHOIX : // normalement une seule réponse : id du choix
+					case $__ELEM_TYPE_UN_CHOIX : // normalement une seule rÃ©ponse : id du choix
 							$res_choix=db_query($dbr, "SELECT $_DBC_dossiers_elems_choix_id,$_DBC_dossiers_elems_choix_texte
 																	FROM $_DB_dossiers_elems_choix
 																WHERE $_DBC_dossiers_elems_choix_elem_id='$elem_id'
@@ -208,7 +208,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 							break;
 
-					case $__ELEM_TYPE_MULTI_CHOIX : // plusieurs réponses possibles séparées par "|" (id du ou des choix)
+					case $__ELEM_TYPE_MULTI_CHOIX : // plusieurs rÃ©ponses possibles sÃ©parÃ©es par "|" (id du ou des choix)
 
 							$choix_array=explode("|",$contenu);
 
@@ -242,9 +242,9 @@ CeCILL-B, et que vous en avez accepté les termes.
 				}
 
 				if(isset($aucun_contenu) && $aucun_contenu==1)
-					$contenu_txt="Champ non complété par " . $_SESSION["tab_candidat"]["etudiant_particule"] . ".";
+					$contenu_txt="Champ non complÃ©tÃ© par " . $_SESSION["tab_candidat"]["etudiant_particule"] . ".";
 
-				// Si la fiche est verrouillée, on autorise la modification et la suppression
+				// Si la fiche est verrouillÃ©e, on autorise la modification et la suppression
 				if(in_array($_SESSION["niveau"], array("$__LVL_SCOL_MOINS","$__LVL_SCOL_PLUS","$__LVL_RESP","$__LVL_SUPER_RESP","$__LVL_ADMIN")) && ($_SESSION["tab_candidat"]["lock"]==1 || $_SESSION["tab_candidat"]["manuelle"]==1))
 				{
 					$colspan="colspan='2'";
@@ -278,7 +278,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 					print("<td class='td-gauche fond_menu' align='center' style='width:40px; padding:4px 10px 4px 10px;'>
 								<a href='renseignements.php?p=$crypt_params' target='_self'><img src='$__ICON_DIR/edit_32x32_menu.png' border='0' alt=''></a>
 								<br>
-								<a href='renseignements.php?p=$crypt_params' target='_self' class='lien_menu_gauche'>Compléter<br>cette<br>demande</a>
+								<a href='renseignements.php?p=$crypt_params' target='_self' class='lien_menu_gauche'>ComplÃ©ter<br>cette<br>demande</a>
 							</td>\n");
 				}
 
@@ -298,8 +298,8 @@ CeCILL-B, et que vous en avez accepté les termes.
 	}
 	else
 		message("<center>
-						Ce dossier ne comporte aucun élément complémentaire.
-						<br>Pour en ajouter, veuillez passer par le menu \"Administration => Constructeur de dossiers\" (réservé aux Gestionnaires).
+						Ce dossier ne comporte aucun Ã©lÃ©ment complÃ©mentaire.
+						<br>Pour en ajouter, veuillez passer par le menu \"Administration => Constructeur de dossiers\" (rÃ©servÃ© aux Gestionnaires).
 					</center>\n", $__INFO);
 
 	db_free_result($result_elems);

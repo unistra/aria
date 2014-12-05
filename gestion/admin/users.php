@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -89,7 +89,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
    $dbr=db_connect();
 
-   // Sélection de la source
+   // SÃ©lection de la source
    if((isset($_POST["valider_source"]) || isset($_POST["valider_source_x"])) && isset($_POST["source"]))
    {
       $_SESSION["source"]=trim($_POST["source"]);
@@ -165,7 +165,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       {
          db_query($dbr,"DELETE FROM $_DB_acces WHERE $_DBC_acces_id='$user_id'");
 
-         // Sous répertoire de la messagerie
+         // Sous rÃ©pertoire de la messagerie
          $sous_rep=sous_rep_msg($user_id);
 
          if(is_dir("$GLOBALS[__GESTION_MSG_STOCKAGE_DIR_ABS]/$sous_rep/$user_id") && is_writable("$GLOBALS[__GESTION_MSG_STOCKAGE_DIR_ABS]/$sous_rep/$user_id"))
@@ -208,7 +208,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
       if($_SESSION["source"]==$GLOBALS["__COMPTE_MANUEL"])
       {
-         // Ajout d'utilisateur et passe vide : on génère un nouveau pass
+         // Ajout d'utilisateur et passe vide : on gÃ©nÃ¨re un nouveau pass
          if($_SESSION["ajout_user"]==1 && $new_pass=="" && $new_pass_conf=="")
          {
             if($new_pass=="" && $new_pass_conf=="")
@@ -217,7 +217,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                srand((double)microtime()*1000000);
                $code_conf=mb_strtoupper(md5(rand(0,9999)));
                $new_pass=substr($code_conf, 17, 8);
-               // on supprime le chiffre 1, le zéro et la lettre O : portent à confusion - on les remplace par d'autres caractères
+               // on supprime le chiffre 1, le zÃ©ro et la lettre O : portent Ã  confusion - on les remplace par d'autres caractÃ¨res
                $new_pass=str_replace("0","A", $new_pass);
                $new_pass=str_replace("O","H", $new_pass);
                $new_pass=str_replace("1","P", $new_pass);
@@ -241,7 +241,7 @@ CeCILL-B, et que vous en avez accepté les termes.
             $update_pass="";
       }
 
-      // récupération des valeurs courantes, en cas de modification
+      // rÃ©cupÃ©ration des valeurs courantes, en cas de modification
       if($_SESSION["ajout_user"]==0 && isset($user_id))
       {
          $result=db_query($dbr,"SELECT $_DBC_acces_login, $_DBC_acces_nom, $_DBC_acces_prenom, $_DBC_acces_courriel, 
@@ -275,7 +275,7 @@ CeCILL-B, et que vous en avez accepté les termes.
             }
          }
 
-         // On vérifie si le login n'existe pas déjà (s'il a été modifié)
+         // On vÃ©rifie si le login n'existe pas dÃ©jÃ  (s'il a Ã©tÃ© modifiÃ©)
          if(db_num_rows(db_query($dbr,"SELECT $_DBC_acces_id FROM $_DB_acces
                                        WHERE $_DBC_acces_login ILIKE '$new_login'
                                        AND $_DBC_acces_id!='$user_id'")))
@@ -308,7 +308,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                            WHERE $_DBU_acces_id='$user_id'");
          else
          {
-            // Valeurs par défaut :
+            // Valeurs par dÃ©faut :
             $default_filtre=$default_absence_message=$default_signature_texte="";
             $default_absence_active='f';
             $default_signature_active='t';
@@ -321,12 +321,12 @@ CeCILL-B, et que vous en avez accepté les termes.
             db_query($dbr,"INSERT INTO $_DB_acces_comp VALUES('$user_id', '$new_composante');");
 
             // mail
-            $headers = "From: $GLOBALS[__EMAIL_ADMIN]" . "\r\n" ."Reply-To: $GLOBALS[__EMAIL_ADMIN]";
+            $headers = "From: $GLOBALS[__EMAIL_NOREPLY]" . "\r\n" ."Reply-To: $GLOBALS[__EMAIL_NOREPLY]";
             
             if($new_source==$GLOBALS["__COMPTE_LDAP"])
-               $corps_message="\nBonjour, \n\n\nUn compte vous a été créé sur l'interface de Gestion des Candidatures en ligne.\n\nLes identifiants vous permettant d'y accéder sont identiques à ceux de l'ENT. \n\n- Adresse de l'application : $__URL_GESTION\n\n\nCordialement,\n\n\n--\n$__SIGNATURE_ADMIN";
+               $corps_message="\nBonjour, \n\n\nUn compte vous a Ã©tÃ© crÃ©Ã© sur l'interface de Gestion des Candidatures en ligne.\n\nLes identifiants vous permettant d'y accÃ©der sont identiques Ã  ceux de l'ENT. \n\n- Adresse de l'application : $__URL_GESTION\n\n\nCordialement,\n\n\n--\n$__SIGNATURE_ADMIN";
             elseif($new_source==$GLOBALS["__COMPTE_MANUEL"])
-               $corps_message="\nBonjour, \n\n\nUn compte vous a été créé sur l'interface de Gestion des Candidatures en ligne.\n\nLes informations vous permettant d'y accéder sont les suivantes : \n\n- Adresse : $__URL_GESTION\n\n- Identifiant : ". stripslashes($new_login) . "\n- Code Personnel : $new_pass\n\n\nCordialement,\n\n\n--\n$__SIGNATURE_ADMIN";
+               $corps_message="\nBonjour, \n\n\nUn compte vous a Ã©tÃ© crÃ©Ã© sur l'interface de Gestion des Candidatures en ligne.\n\nLes informations vous permettant d'y accÃ©der sont les suivantes : \n\n- Adresse : $__URL_GESTION\n\n- Identifiant : ". stripslashes($new_login) . "\n- Code Personnel : $new_pass\n\n\nCordialement,\n\n\n--\n$__SIGNATURE_ADMIN";
                
             $ret=mail($new_mail,"[Aria - Gestion des Candidatures] - Enregistrement", $corps_message, $headers);
          }
@@ -334,8 +334,8 @@ CeCILL-B, et que vous en avez accepté les termes.
          $succes=1;
       
       
-         // Renvoi des informations à l'utilisateur
-         // Attention : le pass est automatiquement changé (non conservé en clair)
+         // Renvoi des informations Ã  l'utilisateur
+         // Attention : le pass est automatiquement changÃ© (non conservÃ© en clair)
 
          if(isset($_POST["renvoyer"]) && $_POST["renvoyer"]==1 && $_SESSION["ajout_user"]==0 && isset($user_id) && isset($new_mail) && isset($new_login))
          {
@@ -344,7 +344,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                srand((double)microtime()*1000000);
                $code_conf=mb_strtoupper(md5(rand(0,9999)));
                $new_pass=substr($code_conf, 17, 8);
-               // on supprime le chiffre 1, le zéro et la lettre O : portent à confusion - on les remplace par d'autres caractères
+               // on supprime le chiffre 1, le zÃ©ro et la lettre O : portent Ã  confusion - on les remplace par d'autres caractÃ¨res
                $new_pass=str_replace("0","A", $new_pass);
                $new_pass=str_replace("O","H", $new_pass);
                $new_pass=str_replace("1","P", $new_pass);
@@ -353,8 +353,8 @@ CeCILL-B, et que vous en avez accepté les termes.
             }
 
             // mail
-            $headers = "From: $GLOBALS[__EMAIL_ADMIN]" . "\r\n" ."Reply-To: $GLOBALS[__EMAIL_ADMIN]";
-            $corps_message="\nBonjour, \n\n\nLes informations pour vous connecter à l'interface ARIA de Gestion des Candidatures en ligne sont les suivantes : \n\n- Adresse : $__URL_GESTION\n\n-Identifiant : ". stripslashes($new_login) . "\n- Code Personnel : $new_pass\n\n\nCordialement,\n\n\n--\n$__SIGNATURE_ADMIN";
+            $headers = "From: $GLOBALS[__EMAIL_NOREPLY]" . "\r\n" ."Reply-To: $GLOBALS[__EMAIL_NOREPLY]";
+            $corps_message="\nBonjour, \n\n\nLes informations pour vous connecter Ã  l'interface ARIA de Gestion des Candidatures en ligne sont les suivantes : \n\n- Adresse : $__URL_GESTION\n\n-Identifiant : ". stripslashes($new_login) . "\n- Code Personnel : $new_pass\n\n\nCordialement,\n\n\n--\n$__SIGNATURE_ADMIN";
             $ret=mail($new_mail,"[Aria - Gestion des Candidatures] - Vos identifiants", $corps_message, $headers);
 
             db_query($dbr,"UPDATE $_DB_acces SET $_DBU_acces_pass='$md5_pass' WHERE $_DBU_acces_id='$user_id'");
@@ -362,148 +362,148 @@ CeCILL-B, et que vous en avez accepté les termes.
             $succes_renvoi=1;      
          }
 
-			if((isset($_POST["copie_messages"]) && $_POST["copie_messages"]=="1" && isset($_POST["copie_messages_user_id"]) && ctype_digit($_POST["copie_messages_user_id"]))
-			   || (isset($_POST["marquer_lus"]) && $_POST["marquer_lus"]=="1"))
-			{
-				// Il faut modifier l'entête de chaque message non lu et le copier dans le répertoire cible avec les bonnes informations
-				
-				// TODO : écrire des fonctions pour l'accès aux messages et à leurs paramètres
+      if((isset($_POST["copie_messages"]) && $_POST["copie_messages"]=="1" && isset($_POST["copie_messages_user_id"]) && ctype_digit($_POST["copie_messages_user_id"]))
+         || (isset($_POST["marquer_lus"]) && $_POST["marquer_lus"]=="1"))
+      {
+        // Il faut modifier l'entÃªte de chaque message non lu et le copier dans le rÃ©pertoire cible avec les bonnes informations
+        
+        // TODO : Ã©crire des fonctions pour l'accÃ¨s aux messages et Ã  leurs paramÃ¨tres
 
-				$sous_rep_user=sous_rep_msg($_SESSION[auth_id]);
-				
-				if(isset($_POST["copie_messages_user_id"]))
-				{
-					$destinataire_id=$_POST["copie_messages_user_id"];
-					$sous_rep_destinataire=sous_rep_msg($destinataire_id);
-				}
-				
-				if(is_dir("$__GESTION_MSG_STOCKAGE_DIR_ABS/$sous_rep_user/$_SESSION[auth_id]/"))
-   			{
-		   	   if(FALSE!==($contenu_repertoire=scandir("$GLOBALS[__GESTION_MSG_STOCKAGE_DIR_ABS]/$sous_rep_user/$_SESSION[auth_id]/$__MSG_INBOX", 1)))
-					{
-						if(FALSE!==($key=array_search(".", $contenu_repertoire)))
-				         unset($contenu_repertoire[$key]);
+        $sous_rep_user=sous_rep_msg($_SESSION[auth_id]);
+        
+        if(isset($_POST["copie_messages_user_id"]))
+        {
+          $destinataire_id=$_POST["copie_messages_user_id"];
+          $sous_rep_destinataire=sous_rep_msg($destinataire_id);
+        }
+        
+        if(is_dir("$__GESTION_MSG_STOCKAGE_DIR_ABS/$sous_rep_user/$_SESSION[auth_id]/"))
+        {
+           if(FALSE!==($contenu_repertoire=scandir("$GLOBALS[__GESTION_MSG_STOCKAGE_DIR_ABS]/$sous_rep_user/$_SESSION[auth_id]/$__MSG_INBOX", 1)))
+          {
+            if(FALSE!==($key=array_search(".", $contenu_repertoire)))
+                 unset($contenu_repertoire[$key]);
 
-         			if(FALSE!==($key=array_search("..", $contenu_repertoire)))
-			         	unset($contenu_repertoire[$key]);
+              if(FALSE!==($key=array_search("..", $contenu_repertoire)))
+                unset($contenu_repertoire[$key]);
 
-          			if(FALSE!==($key=array_search("index.php", $contenu_repertoire)))
-				         unset($contenu_repertoire[$key]);
+                if(FALSE!==($key=array_search("index.php", $contenu_repertoire)))
+                 unset($contenu_repertoire[$key]);
 
-						foreach($contenu_repertoire as $nom_fichier)
-						{
-							$path="$__GESTION_MSG_STOCKAGE_DIR_ABS/$sous_rep_user/$_SESSION[auth_id]/$__MSG_INBOX/$nom_fichier";
-							$file_or_dir_name=$nom_fichier;
-							
-							if(is_dir($path)) // Répertoire : message avec pièce(s) jointe(s)
-				         {
-					         // On regarde le contenu du répertoire. Normalement, le message a le même nom que ce dernier, terminé par .0 ou .1
-					         if(is_file("$path/$nom_fichier.0"))
-								{
-									$nom_complet="$path/$nom_fichier.0";
-									$nom_fichier="$file_or_dir_name.0";
-								}
-								elseif(is_file("$path/$nom_fichier.1"))
-								{
-									$nom_complet="$path/$nom_fichier.1";
-									$nom_fichier="$file_or_dir_name.1";
-								}
-							}
-							else
-							   $nom_complet=$path;
+            foreach($contenu_repertoire as $nom_fichier)
+            {
+              $path="$__GESTION_MSG_STOCKAGE_DIR_ABS/$sous_rep_user/$_SESSION[auth_id]/$__MSG_INBOX/$nom_fichier";
+              $file_or_dir_name=$nom_fichier;
+              
+              if(is_dir($path)) // RÃ©pertoire : message avec piÃ¨ce(s) jointe(s)
+                 {
+                   // On regarde le contenu du rÃ©pertoire. Normalement, le message a le mÃªme nom que ce dernier, terminÃ© par .0 ou .1
+                   if(is_file("$path/$nom_fichier.0"))
+                {
+                  $nom_complet="$path/$nom_fichier.0";
+                  $nom_fichier="$file_or_dir_name.0";
+                }
+                elseif(is_file("$path/$nom_fichier.1"))
+                {
+                  $nom_complet="$path/$nom_fichier.1";
+                  $nom_fichier="$file_or_dir_name.1";
+                }
+              }
+              else
+                 $nom_complet=$path;
 
-							// Identifiant du message = date
-							// Format : AA(1 ou 2) MM JJ HH Mn SS µS(5)
+              // Identifiant du message = date
+              // Format : AA(1 ou 2) MM JJ HH Mn SS ÂµS(5)
 
-							if(strlen($nom_fichier)==18) // Année sur un caractère (16 pour l'identifiant + ".0" ou ".1" pour le flag "read")
-							{
-								$date_offset=0;
-								$annee_len=1;
-								$leading_zero="0";
-								$msg_id=substr($nom_fichier, 0, 16);
-								$msg_read=substr($nom_fichier, 17, 1);
-							}
-							else // Année sur 2 caractères (chaine : 19 caractères)
-							{
-								$date_offset=1;
-								$annee_len=2;
-								$leading_zero="";
-								$msg_id=substr($nom_fichier, 0, 17);
-								$msg_read=substr($nom_fichier, 18, 1);
-							}
-							
-							if(!$msg_read)
-							{
-							   if(($array_file=file("$nom_complet"))==FALSE)
-								{
-									mail($__EMAIL_ADMIN, "[Précandidatures] - Erreur d'ouverture de mail", "Fichier : $nom_complet\n\nUtilisateur : $_SESSION[auth_prenom] $_SESSION[auth_nom]");
+              if(strlen($nom_fichier)==18) // AnnÃ©e sur un caractÃ¨re (16 pour l'identifiant + ".0" ou ".1" pour le flag "read")
+              {
+                $date_offset=0;
+                $annee_len=1;
+                $leading_zero="0";
+                $msg_id=substr($nom_fichier, 0, 16);
+                $msg_read=substr($nom_fichier, 17, 1);
+              }
+              else // AnnÃ©e sur 2 caractÃ¨res (chaine : 19 caractÃ¨res)
+              {
+                $date_offset=1;
+                $annee_len=2;
+                $leading_zero="";
+                $msg_id=substr($nom_fichier, 0, 17);
+                $msg_read=substr($nom_fichier, 18, 1);
+              }
+              
+              if(!$msg_read)
+              {
+                 if(($array_file=file("$nom_complet"))==FALSE)
+                {
+                  mail($__EMAIL_ADMIN, "[PrÃ©candidatures] - Erreur d'ouverture de mail", "Fichier : $nom_complet\n\nUtilisateur : $_SESSION[auth_prenom] $_SESSION[auth_nom]");
 
-									die("Erreur d'ouverture du fichier. Un message a été envoyé à l'administrateur.");
-								}
+                  die("Erreur d'ouverture du fichier. Un message a Ã©tÃ© envoyÃ© Ã  l'administrateur.");
+                }
 
-								$msg_exp_id=$array_file["0"];
-								$msg_exp=$array_file["1"];
-								$msg_to_id=$array_file["2"];
-								$msg_to=$array_file["3"];
-								$msg_sujet=stripslashes($array_file["4"]);
-				
-								// On ne transfère pas les messages système non lus
-								if($msg_exp_id!="0")
-								{
-/*				
-							   	$res_from=db_query($dbr,"SELECT $_DBC_candidat_nom, $_DBC_candidat_prenom
-                                                    	FROM $_DB_candidat
-                                                 	 WHERE $_DBC_candidat_id='$msg_exp_id'");
+                $msg_exp_id=$array_file["0"];
+                $msg_exp=$array_file["1"];
+                $msg_to_id=$array_file["2"];
+                $msg_to=$array_file["3"];
+                $msg_sujet=stripslashes($array_file["4"]);
+        
+                // On ne transfÃ¨re pas les messages systÃ¨me non lus
+                if($msg_exp_id!="0")
+                {
+/*        
+                  $res_from=db_query($dbr,"SELECT $_DBC_candidat_nom, $_DBC_candidat_prenom
+                                                      FROM $_DB_candidat
+                                                   WHERE $_DBC_candidat_id='$msg_exp_id'");
 
-						     		if(db_num_rows($res_from))
-						      	{
-  							     		$array_from=array("id"    => $msg_exp_id);
+                    if(db_num_rows($res_from))
+                    {
+                        $array_from=array("id"    => $msg_exp_id);
 
- 						        		list($array_from["nom"], $array_from["prenom"])=db_fetch_row($res_from, 0);
+                        list($array_from["nom"], $array_from["prenom"])=db_fetch_row($res_from, 0);
 
-						        		$array_dest=array("0" => array("id"    => $destinataire_id));
+                        $array_dest=array("0" => array("id"    => $destinataire_id));
 
-										echo "copie : $nom_fichier => $destinataire_id/\n<br>";
-						       	 	$retour_copie=copy_msg("", $__MSG_INBOX, $nom_fichier, $destinataire_id);
-						   	   }
+                    echo "copie : $nom_fichier => $destinataire_id/\n<br>";
+                      $retour_copie=copy_msg("", $__MSG_INBOX, $nom_fichier, $destinataire_id);
+                   }
 
-						         db_free_result($res_from);
-*/									
+                     db_free_result($res_from);
+*/                  
 
-					       	 	$retour_copie=copy_msg("", $__MSG_INBOX, $file_or_dir_name, $destinataire_id);
-								}
-								
-								if(isset($_POST["marquer_lus"]) && $_POST["marquer_lus"]==1)
-								{
-								   if(is_dir($path))
-									{
-										// Attention : il faut bien tenir compte du répertoire
-		            				rename("$nom_complet", "$__GESTION_MSG_STOCKAGE_DIR_ABS/$sous_rep_user/$_SESSION[auth_id]/$__MSG_INBOX/$msg_id/$msg_id".".1");
-									}
-								   else
-									{
-										rename("$nom_complet", "$__GESTION_MSG_STOCKAGE_DIR_ABS/$sous_rep_user/$_SESSION[auth_id]/$__MSG_INBOX/$msg_id".".1");
-									}
-								}
-							}
-						}
-					}
-			   }
-			}
-			
-			if(isset($_POST["marquer_lus"]) && $_POST["marquer_lus"]=="1")
-			{
-			}
+                    $retour_copie=copy_msg("", $__MSG_INBOX, $file_or_dir_name, $destinataire_id);
+                }
+                
+                if(isset($_POST["marquer_lus"]) && $_POST["marquer_lus"]==1)
+                {
+                   if(is_dir($path))
+                  {
+                    // Attention : il faut bien tenir compte du rÃ©pertoire
+                        rename("$nom_complet", "$__GESTION_MSG_STOCKAGE_DIR_ABS/$sous_rep_user/$_SESSION[auth_id]/$__MSG_INBOX/$msg_id/$msg_id".".1");
+                  }
+                   else
+                  {
+                    rename("$nom_complet", "$__GESTION_MSG_STOCKAGE_DIR_ABS/$sous_rep_user/$_SESSION[auth_id]/$__MSG_INBOX/$msg_id".".1");
+                  }
+                }
+              }
+            }
+          }
+         }
+      }
+      
+      if(isset($_POST["marquer_lus"]) && $_POST["marquer_lus"]=="1")
+      {
+      }
       }
    }
-	elseif((isset($_POST["recherche"]) || isset($_POST["recherche_x"])) && trim($_POST["recherche_nom"])!="")
-	{
-	   $recherche=1;
-		$nom_recherche=trim($_POST["recherche_nom"]);
-	}
-	elseif(isset($_POST["clear_form"]) || isset($_POST["clear_form_x"]))
-	{
-	}
+  elseif((isset($_POST["recherche"]) || isset($_POST["recherche_x"])) && trim($_POST["recherche_nom"])!="")
+  {
+     $recherche=1;
+    $nom_recherche=trim($_POST["recherche_nom"]);
+  }
+  elseif(isset($_POST["clear_form"]) || isset($_POST["clear_form_x"]))
+  {
+  }
    else
    {
       unset($_SESSION["resultat_recherche_ldap"]);
@@ -529,99 +529,99 @@ CeCILL-B, et que vous en avez accepté les termes.
       else
          titre_page_icone("Gestion des utilisateurs", "contacts_32x32_fond.png", 30, "L");
 
-      // Messages d'erreur et de succès
+      // Messages d'erreur et de succÃ¨s
 
       if(isset($user_id_existe_pas) || isset($_GET["erreur_suppr"]))
-         message("Erreur : l'identifiant demandé est incorrect (problème de cohérence de la base ?)", $__ERREUR);
+         message("Erreur : l'identifiant demandÃ© est incorrect (problÃ¨me de cohÃ©rence de la base ?)", $__ERREUR);
 
       if(isset($champs_vides))
          message("Erreur : les champs en <b>gras</b> sont <b>obligatoires</b>.", $__ERREUR);
 
       if(isset($pass_vide))
-         message("Erreur : le mot de passe ne peut pas être vide.", $__ERREUR);
+         message("Erreur : le mot de passe ne peut pas Ãªtre vide.", $__ERREUR);
 
       if(isset($login_existe))
-         message("Erreur : cet identifiant est déjà utilisé.", $__ERREUR);
+         message("Erreur : cet identifiant est dÃ©jÃ  utilisÃ©.", $__ERREUR);
 
       if(isset($pass_dont_match))
-         message("Erreur : les mots de passe sont différents.", $__ERREUR);
+         message("Erreur : les mots de passe sont diffÃ©rents.", $__ERREUR);
 
       if(isset($nom_existe) && $nom_existe==1)
-         message("Attention : couple nom/prénom déjà présent dans la base.", $__WARNING);
+         message("Attention : couple nom/prÃ©nom dÃ©jÃ  prÃ©sent dans la base.", $__WARNING);
 
       if(isset($erreur_ldap) && $erreur_ldap==1)
          message("Erreur lors de la recherche LDAP", $__ERREUR);
 
       if(isset($erreur_pass_court) && $erreur_pass_court==1)
-         message("Erreur : le mot de passe entré est trop court (7 caractères minimum)", $__ERREUR);
+         message("Erreur : le mot de passe entrÃ© est trop court (7 caractÃ¨res minimum)", $__ERREUR);
 
       if(isset($erreur_pass_match) && $erreur_pass_match==1)
-         message("Erreur : les mots de passe sont différents", $__ERREUR);       
+         message("Erreur : les mots de passe sont diffÃ©rents", $__ERREUR);       
 
       if(isset($succes) && $succes==1)
       {
          if($_SESSION["modification"]==1)
          {
-            message("L'utilisateur a été modifié avec succès.", $__SUCCES);
+            message("L'utilisateur a Ã©tÃ© modifiÃ© avec succÃ¨s.", $__SUCCES);
             $_SESSION["modification"]=0;
             unset($_SESSION["source"]);
          }
          elseif($_SESSION["ajout_user"]==1)
          {
             if(isset($warn_pass_vide) && $warn_pass_vide==1)
-               $warn_txt="<br><strong>Un mot de passe aléatoire a été généré pour l'utilisateur.</strong>";
+               $warn_txt="<br><strong>Un mot de passe alÃ©atoire a Ã©tÃ© gÃ©nÃ©rÃ© pour l'utilisateur.</strong>";
             else
-               $warn_txt="<br><strong>Le mot de passe entré lui a été attribué.</strong>";
+               $warn_txt="<br><strong>Le mot de passe entrÃ© lui a Ã©tÃ© attribuÃ©.</strong>";
 
-            message("L'utilisateur a été créé avec succès.$warn_txt", $__SUCCES);
+            message("L'utilisateur a Ã©tÃ© crÃ©Ã© avec succÃ¨s.$warn_txt", $__SUCCES);
 
             $_SESSION["ajout_user"]=0;
             unset($_SESSION["source"]);
          }
          elseif($_SESSION["suppression"]==1)
          {
-            message("L'utilisateur a été supprimé avec succès.", $__SUCCES);
+            message("L'utilisateur a Ã©tÃ© supprimÃ© avec succÃ¨s.", $__SUCCES);
             $_SESSION["suppression"]=0;
             unset($_SESSION["source"]);
          }
       }
-		
+    
       if(isset($succes_renvoi) && $succes_renvoi==1)
       {
-         message("Informations envoyées à l'utilisateur avec succès.", $__SUCCES);
+         message("Informations envoyÃ©es Ã  l'utilisateur avec succÃ¨s.", $__SUCCES);
          $_SESSION["modification"]=0;
          unset($_SESSION["source"]);
       }
 
       print("<form action='$php_self' method='POST' name='form1'>\n");
 
-      if($_SESSION["ajout_user"]==0 && $_SESSION["modification"]==0 && $_SESSION["suppression"]==0)  // Choix de l'utilisateur à modifier
+      if($_SESSION["ajout_user"]==0 && $_SESSION["modification"]==0 && $_SESSION["suppression"]==0)  // Choix de l'utilisateur Ã  modifier
       {
-			if(!isset($recherche))
-			   $nom_recherche="";
-			
+      if(!isset($recherche))
+         $nom_recherche="";
+      
          print("<table cellpadding='4' align='center'>
                 <tr>
                   <td class='fond_menu2' align='right'>
                      <font class='Texte_menu2' style='font-weight:bold;'>Recherche par nom / identifiant : </font>
                   </td>
                   <td class='fond_menu'>
-						   <input type='text' name='recherche_nom' value=\"".stripslashes($nom_recherche)."\" maxlength='30' size='30'>
-						</td>
+               <input type='text' name='recherche_nom' value=\"".stripslashes($nom_recherche)."\" maxlength='30' size='30'>
+            </td>
                   <td class='fond_menu' style='text-align:center;'>");
-						
-			if(isset($nom_recherche) && trim($nom_recherche!=""))
-			   print("<input type='image' src='$__ICON_DIR/cancel_16x16_menu.png' alt='Effacer le formulaire' name='clear_form' value='Effacer le formulaire'>");
-						
-		   print("     <input type='image' src='$__ICON_DIR/forward_16x16_menu.png' alt='Rechercher' name='recherche' value='Rechercher'>
-						</td>
-				   </tr>");
+            
+      if(isset($nom_recherche) && trim($nom_recherche!=""))
+         print("<input type='image' src='$__ICON_DIR/cancel_16x16_menu.png' alt='Effacer le formulaire' name='clear_form' value='Effacer le formulaire'>");
+            
+       print("     <input type='image' src='$__ICON_DIR/forward_16x16_menu.png' alt='Rechercher' name='recherche' value='Rechercher'>
+            </td>
+           </tr>");
 
-			$critere_recherche=isset($nom_recherche) && trim($nom_recherche!="") ? "AND ($_DBC_acces_nom ILIKE '$nom_recherche"."%"."' OR $_DBC_acces_login ILIKE '$nom_recherche"."%"."')" : "";
-			
-			if(isset($nom_recherche) && trim($nom_recherche!=""))
-			{		
-   		   $result_recherche=db_query($dbr, "(SELECT $_DBC_acces_id, $_DBC_acces_niveau as aniveau, $_DBC_acces_nom as anom,
+      $critere_recherche=isset($nom_recherche) && trim($nom_recherche!="") ? "AND ($_DBC_acces_nom ILIKE '$nom_recherche"."%"."' OR $_DBC_acces_login ILIKE '$nom_recherche"."%"."')" : "";
+      
+      if(isset($nom_recherche) && trim($nom_recherche!=""))
+      {   
+         $result_recherche=db_query($dbr, "(SELECT $_DBC_acces_id, $_DBC_acces_niveau as aniveau, $_DBC_acces_nom as anom,
                                                       $_DBC_acces_prenom as aprenom, $_DBC_acces_login, '0' as cnom
                                                   FROM $_DB_acces
                                                WHERE $_DBC_acces_niveau IN ('$GLOBALS[__LVL_ADMIN]','$GLOBALS[__LVL_SUPPORT]','$GLOBALS[__LVL_SUPER_RESP]')
@@ -668,19 +668,19 @@ CeCILL-B, et que vous en avez accepté les termes.
                               ORDER BY cnom, aniveau DESC, anom, aprenom");
          
          $rows=db_num_rows($result);
-			
-			if(isset($recherche))
+      
+      if(isset($recherche))
          {
-			   print("<tr>
+         print("<tr>
                       <td class='fond_menu2' align='right'>
-                         <font class='Texte_menu2' style='font-weight:bold;'>Résultat de la recherche : </font>
+                         <font class='Texte_menu2' style='font-weight:bold;'>RÃ©sultat de la recherche : </font>
                       </td>
                       <td class='fond_menu' colspan='2'>");
 
-   			if(!$rows_recherche)
-   			   print("<font class='Texte_menu'>Aucun utilisateur ne correspond à votre recherche</font>");
-   			else
-   			{
+        if(!$rows_recherche)
+           print("<font class='Texte_menu'>Aucun utilisateur ne correspond Ã  votre recherche</font>");
+        else
+        {
                print("<select name='user_id_recherche' size='1'>
                         <option value=''></option>\n");
    
@@ -697,7 +697,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                         print("</optgroup>
                                  <option value='' label='' disabled></option>\n");
                      if($comp_nom=="0")
-                        print("<optgroup label='==== Administrateurs, support et accès étendus ===='>\n");
+                        print("<optgroup label='==== Administrateurs, support et accÃ¨s Ã©tendus ===='>\n");
                      else
                         print("<optgroup label='==== ".htmlspecialchars($comp_nom, ENT_QUOTES, $default_htmlspecialchars_encoding)." ===='>\n");
    
@@ -724,11 +724,11 @@ CeCILL-B, et que vous en avez accepté les termes.
                      
                      <input type='image' class='icone' src='$__ICON_DIR/edit_16x16_menu.png' alt='Modifier' name='modifier_recherche' value='Modifier' title='[Modifier un utilisateur]'>
                      <input type='image' class='icone' src='$__ICON_DIR/trashcan_full_16x16_slick_menu.png' alt='Supprimer' name='supprimer_recherche' value='Supprimer' title='[Supprimer un utilisateur]'>");
-   		   }
-		   
-		      print("</td>
-		          </tr>\n");
-		   
+         }
+       
+          print("</td>
+              </tr>\n");
+       
          }
          
          print("<tr>
@@ -736,7 +736,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                 </tr>
                 <tr>
                    <td class='fond_menu2' align='right'>
-                      <font class='Texte_menu2' style='font-weight:bold;'>Liste complète des utilisateurs : </font>
+                      <font class='Texte_menu2' style='font-weight:bold;'>Liste complÃ¨te des utilisateurs : </font>
                    </td>
                    <td class='fond_menu' colspan='2'>
 
@@ -756,7 +756,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                   print("</optgroup>
                               <option value='' label='' disabled></option>\n");
                if($comp_nom=="0")
-                  print("<optgroup label='==== Administrateurs, support et accès étendus ===='>\n");
+                  print("<optgroup label='==== Administrateurs, support et accÃ¨s Ã©tendus ===='>\n");
                else
                   print("<optgroup label='==== ".htmlspecialchars($comp_nom, ENT_QUOTES, $default_htmlspecialchars_encoding)." ===='>\n");
 
@@ -812,7 +812,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
          message("<center>
                      Souhaitez vous vraiment supprimer \"$current_prenom $current_nom\" de la liste des utilisateurs ?
-                     <br>(Tous ses messages seront supprimés)
+                     <br>(Tous ses messages seront supprimÃ©s)
                   </center>", $__QUESTION);
 
          print("<div class='centered_icons_box'>
@@ -826,10 +826,10 @@ CeCILL-B, et que vous en avez accepté les termes.
          if(!isset($_SESSION["source"]))
          {
             // On regarde les sources disponibles (le compte manuel est toujours possible : count=1)
-            // S'il y a en plus qu'une, on donne le choix à l'utilisateur
+            // S'il y a en plus qu'une, on donne le choix Ã  l'utilisateur
             $count=1;
             
-            // Code à compléter en cas d'ajout d'autres sources
+            // Code Ã  complÃ©ter en cas d'ajout d'autres sources
             if(isset($GLOBALS["__LDAP_ACTIF"]) && $GLOBALS["__LDAP_ACTIF"]=="t")
                $count++;
             
@@ -841,7 +841,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                       <tr>
                         <td class='td-complet fond_menu2' colspan='2' style='padding:4px 20px 4px 20px;'>
                            <font class='Texte_menu2' style='vertical-align:middle;'>
-                              <b>Création d'un compte</b>
+                              <b>CrÃ©ation d'un compte</b>
                            </font>
                         </td>
                       </tr>
@@ -877,12 +877,12 @@ CeCILL-B, et que vous en avez accepté les termes.
                }
                 
                print("</select>
-                      <input type='submit' style='margin-left:10px;' name='valider_source' value='Sélectionner'>
+                      <input type='submit' style='margin-left:10px;' name='valider_source' value='SÃ©lectionner'>
                         </td>
                      </tr>
                      </table>\n");
             }
-            else // Par défaut
+            else // Par dÃ©faut
                $_SESSION["source"]=$GLOBALS["__COMPTE_MANUEL"];
          }
          
@@ -893,7 +893,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          }
          
       }
-      elseif((isset($user_id) && $_SESSION["modification"]==1)) // modification (on récupère les infos actuelles)
+      elseif((isset($user_id) && $_SESSION["modification"]==1)) // modification (on rÃ©cupÃ¨re les infos actuelles)
       {
          $result=db_query($dbr,"SELECT $_DBC_acces_login, $_DBC_acces_nom, $_DBC_acces_prenom, $_DBC_acces_courriel,
                                        $_DBC_acces_composante_id, $_DBC_acces_niveau, $_DBC_acces_reception_msg_scol, 
@@ -923,12 +923,12 @@ CeCILL-B, et que vous en avez accepté les termes.
    <tr>
       <td class='td-complet fond_menu2' style='padding:4px 20px 4px 20px;' colspan='2'>
          <font class='Texte_menu2' style='vertical-align:middle;'>
-            <b>&#8226;&nbsp;&nbsp;Données du compte utilisateur</b>
+            <b>&#8226;&nbsp;&nbsp;DonnÃ©es du compte utilisateur</b>
          </font>
       </td>      
    </tr>
    <?php
-      // Ajout d'un utilisateur : possibilité de recherche dans LDAP si le module est activé
+      // Ajout d'un utilisateur : possibilitÃ© de recherche dans LDAP si le module est activÃ©
       if($_SESSION["ajout_user"]==1)
       {
          if($GLOBALS["__LDAP_ACTIF"]=="t" && $_SESSION["source"]==$GLOBALS["__COMPTE_LDAP"])
@@ -943,7 +943,7 @@ CeCILL-B, et que vous en avez accepté les termes.
             if(isset($_SESSION["resultat_recherche_ldap"]))
             {
                if(!count($_SESSION["resultat_recherche_ldap"]))
-                  print("<br /><font class='Texte'>Aucun résultat</font>\n");                  
+                  print("<br /><font class='Texte'>Aucun rÃ©sultat</font>\n");                  
                else
                {
                   print("<br /><select name='selection_ldap'>\n");
@@ -958,7 +958,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                   }
                   
                   print("</select>
-                         <input type='submit' style='margin-left:10px;' name='selectionner' value='Sélectionner'>\n");
+                         <input type='submit' style='margin-left:10px;' name='selectionner' value='SÃ©lectionner'>\n");
                }
             }
    ?>
@@ -1041,7 +1041,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       </td>
    </tr>
    <tr>
-      <td class='td-gauche fond_menu2'><font class='Texte_menu2'><b>Prénom</b></font></td>
+      <td class='td-gauche fond_menu2'><font class='Texte_menu2'><b>PrÃ©nom</b></font></td>
       <td class='td-droite fond_menu'>
       <?php 
          if(isset($new_prenom))
@@ -1063,7 +1063,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       </td>
    </tr>
    <tr>
-      <td class='td-gauche fond_menu2'><font class='Texte_menu2'><b>Courrier électronique : </b></font></td>
+      <td class='td-gauche fond_menu2'><font class='Texte_menu2'><b>Courrier Ã©lectronique : </b></font></td>
       <td class='td-droite fond_menu'>
       <?php 
          if(isset($new_mail))
@@ -1073,7 +1073,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          else
             $mail="";           
             
-         // LDAP : le mail peut être multivalué
+         // LDAP : le mail peut Ãªtre multivaluÃ©
          if($_SESSION["source"]==$GLOBALS["__COMPTE_LDAP"])
          {
             if(is_array($mail) && count($mail)>1)
@@ -1093,7 +1093,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                       <input type='hidden' name='email' value='$cur_mail'>\n");
             }
             else
-               print("<font class='Texte_menu'>Erreur : aucun courriel n'a été trouvé dans l'annuaire</font>
+               print("<font class='Texte_menu'>Erreur : aucun courriel n'a Ã©tÃ© trouvÃ© dans l'annuaire</font>
                       <input type='hidden' name='email' value=''>\n");
          }
          elseif($_SESSION["source"]!=$GLOBALS["__COMPTE_MANUEL"])
@@ -1158,7 +1158,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       </td>
    </tr>
    <tr>
-      <td class='td-gauche fond_menu2'><font class='Texte_menu2'><b>Droits d'accès</b></font></td>
+      <td class='td-gauche fond_menu2'><font class='Texte_menu2'><b>Droits d'accÃ¨s</b></font></td>
       <td class='td-droite fond_menu'>
          <select name='niveau'>
             <?php
@@ -1180,11 +1180,11 @@ CeCILL-B, et que vous en avez accepté les termes.
       {
    ?>
    <tr>
-      <td class='td-gauche fond_menu2'><font class='Texte_menu2'>Nouveau mot de passe (<strong>7 caractères minimum</strong>) :</font></td>
+      <td class='td-gauche fond_menu2'><font class='Texte_menu2'>Nouveau mot de passe (<strong>7 caractÃ¨res minimum</strong>) :</font></td>
       <td class='td-droite fond_menu'><input type='password' name='pass' value='<?php if(isset($new_pass)) print($new_pass); ?>' size='40'>
          <?php
             if(isset($_SESSION["ajout_user"]) && $_SESSION["ajout_user"]==1)
-               print("<font class='Texte_menu'><i>(Facultatif : généré automatiquement si vide)</i><font>\n");
+               print("<font class='Texte_menu'><i>(Facultatif : gÃ©nÃ©rÃ© automatiquement si vide)</i><font>\n");
          ?>
       </td>
    </tr>
@@ -1193,23 +1193,23 @@ CeCILL-B, et que vous en avez accepté les termes.
       <td class='td-droite fond_menu'><input type='password' name='conf_pass' value='<?php if(isset($new_pass_conf)) print($new_pass_conf); ?>' size='40'></td>
    </tr>
    <tr>
-      <td class='td-gauche fond_menu2'><font class='Texte_menu2'>Envoyer le nouveau mot de passe<br>ou générer un mot de passe aléatoire</font></td>
+      <td class='td-gauche fond_menu2'><font class='Texte_menu2'>Envoyer le nouveau mot de passe<br>ou gÃ©nÃ©rer un mot de passe alÃ©atoire</font></td>
       <td class='td-droite fond_menu'><input type='checkbox' name='renvoyer' value='1'></td>
    </tr>
    <?php
       }
    ?>
-	<tr>
-	   <td colspan='2' height='10' class='fond_page'></td>
+  <tr>
+     <td colspan='2' height='10' class='fond_page'></td>
    </tr>
-	<tr>
+  <tr>
       <td class='td-complet fond_menu2' colspan='2'>
-			<font class='Texte_menu2' style='vertical-align:middle;'><b>&#8226;&nbsp;&nbsp;Messagerie interne</b></font>
-		</td>
-	</tr>
+      <font class='Texte_menu2' style='vertical-align:middle;'><b>&#8226;&nbsp;&nbsp;Messagerie interne</b></font>
+    </td>
+  </tr>
    <tr>
       <td class='td-gauche fond_menu2'>
-         <font class='Texte_menu2'><b>Destinataire potentiel des messages<br>envoyés par les candidats ?</b></font>
+         <font class='Texte_menu2'><b>Destinataire potentiel des messages<br>envoyÃ©s par les candidats ?</b></font>
       </td>
       <td class='td-droite fond_menu'>
          <font class='Texte_menu'>
@@ -1240,7 +1240,7 @@ CeCILL-B, et que vous en avez accepté les termes.
    </tr>
    <tr>
       <td class='td-gauche fond_menu2'>
-         <font class='Texte_menu2'><b>Destinataire des messages système ?</b></font>
+         <font class='Texte_menu2'><b>Destinataire des messages systÃ¨me ?</b></font>
       </td>
       <td class='td-droite fond_menu'>
          <font class='Texte_menu'>
@@ -1273,13 +1273,13 @@ CeCILL-B, et que vous en avez accepté les termes.
       if($_SESSION["ajout_user"]==0)
       {
    ?>
-	<tr>
-      <td class='td-gauche fond_menu2'><font class='Texte_menu2'>Transférer les messages 'non lus' à un autre utilisateur</font></td>
+  <tr>
+      <td class='td-gauche fond_menu2'><font class='Texte_menu2'>TransfÃ©rer les messages 'non lus' Ã  un autre utilisateur</font></td>
       <td class='td-droite fond_menu'>
-			<input type='checkbox' name='copie_messages' value='1' style='vertical-align:middle;'>
-			
-			<?php
-				$result=db_query($dbr, "(SELECT $_DBC_acces_id, $_DBC_acces_niveau as aniveau, $_DBC_acces_nom as anom,
+      <input type='checkbox' name='copie_messages' value='1' style='vertical-align:middle;'>
+      
+      <?php
+        $result=db_query($dbr, "(SELECT $_DBC_acces_id, $_DBC_acces_niveau as aniveau, $_DBC_acces_nom as anom,
                                          $_DBC_acces_prenom as aprenom, $_DBC_acces_login, '0' as cnom
                                     FROM $_DB_acces
                                     WHERE $_DBC_acces_niveau IN ('$GLOBALS[__LVL_ADMIN]','$GLOBALS[__LVL_SUPPORT]','$GLOBALS[__LVL_SUPER_RESP]'))
@@ -1297,9 +1297,9 @@ CeCILL-B, et que vous en avez accepté les termes.
                                  AND $_DBC_acces_comp_acces_id=$_DBC_acces_id
                                  AND $_DBC_acces_niveau NOT IN ('$GLOBALS[__LVL_ADMIN]','$GLOBALS[__LVL_SUPPORT]','$GLOBALS[__LVL_SUPER_RESP]'))
                               ORDER BY cnom, aniveau DESC, anom, aprenom");
-										
-			   print("<font class='Texte_menu'>Destinataire : </font>
-				       <select name='copie_messages_user_id' size='1'>
+                    
+         print("<font class='Texte_menu'>Destinataire : </font>
+               <select name='copie_messages_user_id' size='1'>
                      <option value=''></option>\n");
 
             $old_comp="--";
@@ -1316,9 +1316,9 @@ CeCILL-B, et que vous en avez accepté les termes.
                   if($i!=0)
                      print("</optgroup>
                               <option value='' label='' disabled></option>\n");
-										
+                    
                   if($comp_nom=="0")
-                     print("<optgroup label='==== Administrateurs, support et accès étendus ===='>\n");
+                     print("<optgroup label='==== Administrateurs, support et accÃ¨s Ã©tendus ===='>\n");
                   else
                      print("<optgroup label='==== ".htmlspecialchars($comp_nom, ENT_QUOTES, $default_htmlspecialchars_encoding)." ===='>\n");
 
@@ -1344,17 +1344,17 @@ CeCILL-B, et que vous en avez accepté les termes.
 
             print("</optgroup>
                   </select>"); 
-			?>
-			
-		</td>
-	</tr>
-	<tr>
-      <td class='td-gauche fond_menu2'><font class='Texte_menu2'>Marquer tous les messages comme 'lus' (irréversible)</font></td>
+      ?>
+      
+    </td>
+  </tr>
+  <tr>
+      <td class='td-gauche fond_menu2'><font class='Texte_menu2'>Marquer tous les messages comme 'lus' (irrÃ©versible)</font></td>
       <td class='td-droite fond_menu'><input type='checkbox' name='marquer_lus' value='1'></td>
-	</tr>
-	<?php
-	}
-	?>
+  </tr>
+  <?php
+  }
+  ?>
    </table>
 
    <script language='javascript'>

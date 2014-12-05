@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,36 +20,36 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
 ?>
 <?php
-	// Vérifications complémentaires au cas où ce fichier serait appelé directement
+	// VÃ©rifications complÃ©mentaires au cas oÃ¹ ce fichier serait appelÃ© directement
 	if(!isset($_SESSION["authentifie"]))
 	{
 		session_write_close();
@@ -65,13 +65,13 @@ CeCILL-B, et que vous en avez accepté les termes.
 	}
 
 	print("<div class='centered_box'>
-				<font class='Texte_16'><strong>$_SESSION[onglet] - Votre cursus scolaire complet (jusqu'à l'année en cours incluse)</strong></font>
+				<font class='Texte_16'><strong>$_SESSION[onglet] - Votre cursus scolaire complet (jusqu'Ã  l'annÃ©e en cours incluse)</strong></font>
 			</div>");
 
-	message("- Chaque étape du cursus devra être <b>justifiée</b>.
-				<br>- Après verrouillage de chaque formation choisie, vous recevrez un message contenant la liste des pièces à fournir <b>par voie postale</b>.", $__WARNING);
+	message("- Chaque Ã©tape du cursus devra Ãªtre <b>justifiÃ©e</b>.
+				<br>- AprÃ¨s verrouillage de chaque formation choisie, vous recevrez un message contenant la liste des piÃ¨ces Ã  fournir <b>par voie postale</b>.", $__WARNING);
 
-	// Dans l'ordre : étapes en cours puis diplome obtenus par années décroissantes
+	// Dans l'ordre : Ã©tapes en cours puis diplome obtenus par annÃ©es dÃ©croissantes
 	$result=db_query($dbr,"(SELECT 	$_DBC_cursus_id, $_DBC_cursus_diplome, $_DBC_cursus_intitule, $_DBC_cursus_annee,
 												$_DBC_cursus_ecole, $_DBC_cursus_ville, 
 												CASE WHEN $_DBC_cursus_pays IN (SELECT $_DBC_pays_nat_ii_iso FROM $_DB_pays_nat_ii WHERE $_DBC_pays_nat_ii_iso=$_DBC_cursus_pays) 
@@ -99,7 +99,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		print("<table align='center'>
 					<tr>
 						<td colspan='4' class='td-gauche fond_menu2' style='vertical-align:top;'>
-							<font class='Texte_menu2'><b>Diplôme</font>
+							<font class='Texte_menu2'><b>DiplÃ´me</font>
 						</td>
 					</tr>\n");
 
@@ -120,9 +120,9 @@ CeCILL-B, et que vous en avez accepté les termes.
 			else
 				$pays="";
 
-			// si le candidat a été ajourné, on le précise (ça évite de demander un justificatif)
-			if(!empty($mention) && $mention=="Ajourné")
-				$mention="- <b>Ajourné</b>";
+			// si le candidat a Ã©tÃ© ajournÃ©, on le prÃ©cise (Ã§a Ã©vite de demander un justificatif)
+			if(!empty($mention) && $mention=="AjournÃ©")
+				$mention="- <b>AjournÃ©</b>";
 			else
 				$mention="";
 
@@ -151,15 +151,15 @@ CeCILL-B, et que vous en avez accepté les termes.
 			switch($justifie)
 			{
 				case	$__CURSUS_NON_JUSTIFIE	:
-									$justifie="<font class='Texte_important_menu'>Information non confirmée</font>";
+									$justifie="<font class='Texte_important_menu'>Information non confirmÃ©e</font>";
 									break;
 
 				case	$__CURSUS_VALIDE	:
-									$justifie="<font class='Textevert_menu'>Justificatifs reçus</font>";
+									$justifie="<font class='Textevert_menu'>Justificatifs reÃ§us</font>";
 									break;
 
 				case	$__CURSUS_PIECES	:
-									$justifie="<font class='Texte_important_menu'>Pièces manquantes $precision</font>";
+									$justifie="<font class='Texte_important_menu'>PiÃ¨ces manquantes $precision</font>";
 									break;
 
 				case	$__CURSUS_EN_ATTENTE	:
@@ -167,17 +167,17 @@ CeCILL-B, et que vous en avez accepté les termes.
 									break;
 
 				case $__CURSUS_DES_OBTENTION	:
-									$justifie="<font class='Texte_important_menu'>Justificatif à fournir dès l'obtention du diplôme</font>";
+									$justifie="<font class='Texte_important_menu'>Justificatif Ã  fournir dÃ¨s l'obtention du diplÃ´me</font>";
 									break;
 
 				case $__CURSUS_NON_NECESSAIRE	:
-									$justifie="<font class='Textevert_menu'>Justificatifs non nécessaires</font>";
+									$justifie="<font class='Textevert_menu'>Justificatifs non nÃ©cessaires</font>";
 									break;
 			}
 
 
-			// Condition particulière pour le cursus:
-			// Si une candidature est verrouillée, le candidat ne peut plus le modifier (sauf en envoyant des pièces par courrier)
+			// Condition particuliÃ¨re pour le cursus:
+			// Si une candidature est verrouillÃ©e, le candidat ne peut plus le modifier (sauf en envoyant des piÃ¨ces par courrier)
 
 			if(!$_SESSION["lock"])
 			{
@@ -221,9 +221,9 @@ CeCILL-B, et que vous en avez accepté les termes.
 	if(!isset($_SESSION["lock"]) || (isset($_SESSION["lock"]) && $_SESSION["lock"]==0))
 		print("<div class='centered_box'>
 					<a href='cursus.php' target='_self' class='lien2'><img class='icone' src='$__ICON_DIR/add_22x22_fond.png' border='0' alt='Ajouter' desc='Ajouter'></a>
-					<a href='cursus.php' target='_self' class='lien2'>Ajouter une étape à votre cursus</a>
+					<a href='cursus.php' target='_self' class='lien2'>Ajouter une Ã©tape Ã  votre cursus</a>
 				 </div>");
 	else
-		message("<center>Une composante a déjà verrouillé l'un de vos voeux : vous ne pouvez plus modifier votre cursus en ligne
-					<br><strong>Toute information complémentaire doit être envoyée par courrier aux composantes concernées</strong></center>", $__INFO);
+		message("<center>Une composante a dÃ©jÃ  verrouillÃ© l'un de vos voeux : vous ne pouvez plus modifier votre cursus en ligne
+					<br><strong>Toute information complÃ©mentaire doit Ãªtre envoyÃ©e par courrier aux composantes concernÃ©es</strong></center>", $__INFO);
 ?>

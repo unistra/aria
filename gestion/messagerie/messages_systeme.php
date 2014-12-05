@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,39 +20,39 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
 ?>
 <?php
-   // Messages systèmes : traitement des actions possibles via le formulaire inclus dans le message
-   // TODO : mettre ça ailleurs ?
+   // Messages systÃ¨mes : traitement des actions possibles via le formulaire inclus dans le message
+   // TODO : mettre Ã§a ailleurs ?
 
-   // Mise à jour du mail et renvoi des identifiants
+   // Mise Ã  jour du mail et renvoi des identifiants
 
    if((isset($_POST["Valider_form_adresse"]) || isset($_POST["Valider_form_adresse_x"])) && isset($_SESSION["niveau"]) && $_SESSION["niveau"]=="$__LVL_ADMIN")
    {
@@ -65,7 +65,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       if(array_key_exists("mail_inconnu", $_POST))
          $email_candidat_pour_enregistrement=trim($_POST["mail_inconnu"]);
 
-      // Vérification du format de l'adresse email (TODO : regexp à contrôler/compléter et généraliser
+      // VÃ©rification du format de l'adresse email (TODO : regexp Ã  contrÃ´ler/complÃ©ter et gÃ©nÃ©raliser
       if(array_key_exists("new_mail", $_POST) && $_POST["new_mail"]!="" && preg_match("/[[:alnum:]\.\-\_]@[[:alnum:]\-\_]+[[:alnum:]\-\_\.]*\.[[:alnum:]]+\$/", $_POST["new_mail"]))
          $new_email=strtolower($_POST["new_mail"]);
       else
@@ -75,14 +75,14 @@ CeCILL-B, et que vous en avez accepté les termes.
       {
          db_query($dbr,"UPDATE $_DB_candidat SET $_DBU_candidat_email='$new_email' WHERE $_DBU_candidat_id='$sel_candidat_id'");
 
-         // Mise à jour des informations de session si le candidat traité est le candidat actuel
+         // Mise Ã  jour des informations de session si le candidat traitÃ© est le candidat actuel
          if(array_key_exists("tab_candidat", $_SESSION) && isset($_SESSION['candidat_id']) && $sel_candidat_id==$_SESSION['candidat_id'])
             $_SESSION['tab_candidat']['email']=$new_email;
 
          write_evt($dbr, $__EVT_ID_G_MAN, "[Assistance] - Nouveau courriel : $new_email", $sel_candidat_id, $sel_candidat_id);
 
          // Renvoi des identifiants
-         // TODO : créer une fonction et des variables pour les messages ...
+         // TODO : crÃ©er une fonction et des variables pour les messages ...
 
          $res_candidat=db_query($dbr,"SELECT $_DBC_candidat_civilite, $_DBC_candidat_nom, $_DBC_candidat_identifiant, $_DBC_candidat_code_acces
                                           FROM $_DB_candidat
@@ -108,39 +108,39 @@ CeCILL-B, et que vous en avez accepté les termes.
                default       : $civ_texte="M.";
             }
 
-            $headers = "MIME-Version: 1.0\r\nFrom: $__EMAIL_ADMIN\r\nReply-To: $_SESSION[auth_email]\r\nContent-Type: text/plain; charset=ISO-8859-15\r\nContent-transfer-encoding: 8bit\r\n\r\n";
+            $headers = "MIME-Version: 1.0\r\nFrom: $__EMAIL_NOREPLY\r\nReply-To: $__EMAIL_NOREPLY\r\nContent-Type: text/plain; charset=UTF-8\r\nContent-transfer-encoding: 8bit\r\n\r\n";
 
-            $corps_message="============================================================\nCeci est un message automatique, merci de ne pas y répondre.\n============================================================\n
+            $corps_message="============================================================\nCeci est un message automatique, merci de ne pas y rÃ©pondre.\n============================================================\n
 Bonjour $civ_texte $cand_nom,\n
 
-Suite à votre requête, votre adresse électronique a été modifiée sur l'interface ARIA.
+Suite Ã  votre requÃªte, votre adresse Ã©lectronique a Ã©tÃ© modifiÃ©e sur l'interface ARIA.
 
-Les informations vous permettant d'accéder à l'interface de précandidatures sont les suivantes:
+Les informations vous permettant d'accÃ©der Ã  l'interface de prÃ©candidatures sont les suivantes:
 - Adresse : $__URL_CANDIDAT
 - Identifiant : ". stripslashes($cand_identifiant) . "
 - Code Personnel : $cand_pass\n
 Ces informations sont strictement confidentielles.\n
-Conservez-les, car elles vous seront utiles pour suivre l'évolution de vos dossiers.\n\n
+Conservez-les, car elles vous seront utiles pour suivre l'Ã©volution de vos dossiers.\n\n
 Cordialement,\n\n
 --
 $_SESSION[universite]";
 
-            $ret=mail($new_email,"[$_SESSION[universite] - Précandidatures en ligne] - Vos identifiants", $corps_message, $headers);
+            $ret=mail($new_email,"[$_SESSION[universite] - PrÃ©candidatures en ligne] - Vos identifiants", $corps_message, $headers);
 
             if($ret!=true)
             {
-               mail($__EMAIL_ADMIN,"[$_SESSION[universite] - ERREUR Précandidatures] - Erreur d'envoi de courriel", "Erreur lors du renvoi manuel des identifiants\n\nFiche : " . $_SESSION['tab_candidat']['nom'] . " " . $_SESSION['tab_candidat']['prenom'] . "\nID :  $candidat_id\nEmail : " . $_SESSION['tab_candidat']['email']);
+               mail($__EMAIL_ADMIN,"[$_SESSION[universite] - ERREUR PrÃ©candidatures] - Erreur d'envoi de courriel", "Erreur lors du renvoi manuel des identifiants\n\nFiche : " . $_SESSION['tab_candidat']['nom'] . " " . $_SESSION['tab_candidat']['prenom'] . "\nID :  $candidat_id\nEmail : " . $_SESSION['tab_candidat']['email']);
 
                $erreur_envoi_mail=-1;
             }
-            else // Succès de la procédure : on met le message dans le dossier "Traités"
+            else // SuccÃ¨s de la procÃ©dure : on met le message dans le dossier "TraitÃ©s"
             {
                if(!is_dir("$__GESTION_MSG_STOCKAGE_DIR_ABS/$_SESSION[MSG_SOUS_REP]/$_SESSION[auth_id]/$__MSG_TRAITES"))
                {
                   if(FALSE==mkdir("$__GESTION_MSG_STOCKAGE_DIR_ABS/$_SESSION[MSG_SOUS_REP]/$_SESSION[auth_id]/$__MSG_TRAITES", 0770, TRUE))
                   {
-                     mail($__EMAIL_ADMIN, "[Précandidatures] - Erreur de création de répertoire", "Répertoire : $__GESTION_MSG_STOCKAGE_DIR_ABS/$_SESSION[MSG_SOUS_REP]/$_SESSION[auth_id]/$__MSG_TRAITES\n\nUtilisateur : $_SESSION[auth_prenom] $_SESSION[auth_nom]");
-                     die("Erreur système lors de la création du dossier destination. Un message a été envoyé à l'administrateur.");
+                     mail($__EMAIL_ADMIN, "[PrÃ©candidatures] - Erreur de crÃ©ation de rÃ©pertoire", "RÃ©pertoire : $__GESTION_MSG_STOCKAGE_DIR_ABS/$_SESSION[MSG_SOUS_REP]/$_SESSION[auth_id]/$__MSG_TRAITES\n\nUtilisateur : $_SESSION[auth_prenom] $_SESSION[auth_nom]");
+                     die("Erreur systÃ¨me lors de la crÃ©ation du dossier destination. Un message a Ã©tÃ© envoyÃ© Ã  l'administrateur.");
                   }
                }
 
@@ -155,7 +155,7 @@ $_SESSION[universite]";
                   exit();
                }
                else
-                  mail($__EMAIL_ADMIN, "[Précandidatures] - Erreur de déplacement de message", "Source : $_SESSION[current_message_filename]\nDestination : $__GESTION_MSG_STOCKAGE_DIR_ABS/$_SESSION[MSG_SOUS_REP]/$_SESSION[auth_id]/$__MSG_TRAITES/$new_name\n\nUtilisateur : $_SESSION[auth_prenom] $_SESSION[auth_nom]");
+                  mail($__EMAIL_ADMIN, "[PrÃ©candidatures] - Erreur de dÃ©placement de message", "Source : $_SESSION[current_message_filename]\nDestination : $__GESTION_MSG_STOCKAGE_DIR_ABS/$_SESSION[MSG_SOUS_REP]/$_SESSION[auth_id]/$__MSG_TRAITES/$new_name\n\nUtilisateur : $_SESSION[auth_prenom] $_SESSION[auth_nom]");
             }
          }
 
@@ -166,14 +166,14 @@ $_SESSION[universite]";
       elseif(isset($email_candidat_pour_enregistrement) && !empty($email_candidat_pour_enregistrement))
       {
          
-         $headers = "MIME-Version: 1.0\r\nFrom: $__EMAIL_ADMIN\r\nReply-To: $_SESSION[auth_email]\r\nContent-Type: text/plain; charset=ISO-8859-15\r\nContent-transfer-encoding: 8bit\r\n\r\n";
+         $headers = "MIME-Version: 1.0\r\nFrom: $__EMAIL_NOREPLY\r\nReply-To: $__EMAIL_NOREPLY\r\nContent-Type: text/plain; charset=UTF-8\r\nContent-transfer-encoding: 8bit\r\n\r\n";
 
-         $corps_message="============================================================\nCeci est un message automatique, merci de ne pas y répondre.\n============================================================\n
+         $corps_message="============================================================\nCeci est un message automatique, merci de ne pas y rÃ©pondre.\n============================================================\n
 Bonjour,\n
 
-Nous ne pouvons malheureusement pas valider votre demande de changement d'adresse électronique. En effet, nous n'avons pu vous identifier dans notre base de données à partir des renseignements que vous nous avez fournis.
+Nous ne pouvons malheureusement pas valider votre demande de changement d'adresse Ã©lectronique. En effet, nous n'avons pu vous identifier dans notre base de donnÃ©es Ã  partir des renseignements que vous nous avez fournis.
 
-Nous vous conseillons donc de compléter le formulaire d'enregistrement accessible depuis la page d'accueil à cette adresse (après avoir validé les conditions d'utilisation) : 
+Nous vous conseillons donc de complÃ©ter le formulaire d'enregistrement accessible depuis la page d'accueil Ã  cette adresse (aprÃ¨s avoir validÃ© les conditions d'utilisation) : 
 
 $__URL_CANDIDAT 
 
@@ -183,22 +183,22 @@ Cordialement,\n\n
 --
 $_SESSION[universite]";
 
-         $ret=mail($email_candidat_pour_enregistrement, "[$_SESSION[universite] - Précandidatures en ligne] - Votre demande de changement d'adresse", $corps_message, $headers);
+         $ret=mail($email_candidat_pour_enregistrement, "[$_SESSION[universite] - PrÃ©candidatures en ligne] - Votre demande de changement d'adresse", $corps_message, $headers);
 
          if($ret!=true)
          {
-            mail($__EMAIL_ADMIN,"[$_SESSION[universite] - ERREUR Précandidatures] - Erreur d'envoi de courriel", "Erreur lors du renvoi manuel des identifiants ($email_candidat_pour_enregistrement)");
+            mail($__EMAIL_ADMIN,"[$_SESSION[universite] - ERREUR PrÃ©candidatures] - Erreur d'envoi de courriel", "Erreur lors du renvoi manuel des identifiants ($email_candidat_pour_enregistrement)");
 
             $erreur_envoi_mail=-1;
          }
-         else // Succès de la procédure : on met le message dans le dossier "Traités"
+         else // SuccÃ¨s de la procÃ©dure : on met le message dans le dossier "TraitÃ©s"
          {
             if(!is_dir("$__GESTION_MSG_STOCKAGE_DIR_ABS/$_SESSION[MSG_SOUS_REP]/$_SESSION[auth_id]/$__MSG_TRAITES"))
             {
                if(FALSE==mkdir("$__GESTION_MSG_STOCKAGE_DIR_ABS/$_SESSION[MSG_SOUS_REP]/$_SESSION[auth_id]/$__MSG_TRAITES", 0770, TRUE))
                {
-                  mail($__EMAIL_ADMIN, "[Précandidatures] - Erreur de création de répertoire", "Répertoire : $__GESTION_MSG_STOCKAGE_DIR_ABS/$_SESSION[MSG_SOUS_REP]/$_SESSION[auth_id]/$__MSG_TRAITES\n\nUtilisateur : $_SESSION[auth_prenom] $_SESSION[auth_nom]");
-                  die("Erreur système lors de la création du dossier destination. Un message a été envoyé à l'administrateur.");
+                  mail($__EMAIL_ADMIN, "[PrÃ©candidatures] - Erreur de crÃ©ation de rÃ©pertoire", "RÃ©pertoire : $__GESTION_MSG_STOCKAGE_DIR_ABS/$_SESSION[MSG_SOUS_REP]/$_SESSION[auth_id]/$__MSG_TRAITES\n\nUtilisateur : $_SESSION[auth_prenom] $_SESSION[auth_nom]");
+                  die("Erreur systÃ¨me lors de la crÃ©ation du dossier destination. Un message a Ã©tÃ© envoyÃ© Ã  l'administrateur.");
                }
             }
 
@@ -213,12 +213,12 @@ $_SESSION[universite]";
                exit();
             }
             else
-               mail($__EMAIL_ADMIN, "[Précandidatures] - Erreur de déplacement de message", "Source : $_SESSION[current_message_filename]\nDestination : $__GESTION_MSG_STOCKAGE_DIR_ABS/$_SESSION[MSG_SOUS_REP]/$_SESSION[auth_id]/$__MSG_TRAITES/$new_name\n\nUtilisateur : $_SESSION[auth_prenom] $_SESSION[auth_nom]");
+               mail($__EMAIL_ADMIN, "[PrÃ©candidatures] - Erreur de dÃ©placement de message", "Source : $_SESSION[current_message_filename]\nDestination : $__GESTION_MSG_STOCKAGE_DIR_ABS/$_SESSION[MSG_SOUS_REP]/$_SESSION[auth_id]/$__MSG_TRAITES/$new_name\n\nUtilisateur : $_SESSION[auth_prenom] $_SESSION[auth_nom]");
          }
       }
    }
 
-   // Déverrouillage
+   // DÃ©verrouillage
 
    if((isset($_POST["Valider_form_deverrouillage"]) || isset($_POST["Valider_form_deverrouillage_x"])) && isset($_POST["candidat_id"]) && isset($_SESSION["niveau"]) && $_SESSION["niveau"]=="$__LVL_ADMIN")
    {
@@ -230,16 +230,16 @@ $_SESSION[universite]";
       else
          $message="";
 
-      // Tableau contenant les candidatures à déverrouiller
+      // Tableau contenant les candidatures Ã  dÃ©verrouiller
       if(isset($_POST["rien"]) && $_POST["rien"]==1)
       {
-         $intro="Suite à votre requête, aucune formation n'a été déverrouillée.\n";
+         $intro="Suite Ã  votre requÃªte, aucune formation n'a Ã©tÃ© dÃ©verrouillÃ©e.\n";
       }
       elseif(array_key_exists("cand_id", $_POST) && count($_POST["cand_id"]))
       {
          $dev_cand_array=$_POST["cand_id"];
 
-         // Pour chaque candidature sélectionnée, on récupère le nom (pour le message) et la nouvelle date de verrouillage.
+         // Pour chaque candidature sÃ©lectionnÃ©e, on rÃ©cupÃ¨re le nom (pour le message) et la nouvelle date de verrouillage.
 /*
          foreach($dev_cand_array as $candidature_id)
          {
@@ -253,7 +253,7 @@ $_SESSION[universite]";
                print("DBG : mois : ".$_POST["mois_verr"]["$candidature_id"]."<br>\n");
 
             if(array_key_exists("annee_verr", $_POST) && array_key_exists("$candidature_id", $_POST["annee_verr"]))
-               print("DBG : année : ".$_POST["annee_verr"]["$candidature_id"]."<br>\n");
+               print("DBG : annÃ©e : ".$_POST["annee_verr"]["$candidature_id"]."<br>\n");
 
          }
 */
@@ -270,14 +270,14 @@ $_SESSION[universite]";
                // Nouvelle date de verrouillage
                $new_lockdate=MakeTime("2", "0", "0", $_POST["mois_verr"]["$candidature_id"], $_POST["jour_verr"]["$candidature_id"], $_POST["annee_verr"]["$candidature_id"]);
 
-               // Si la "nouvelle" date est déjà passée ...
+               // Si la "nouvelle" date est dÃ©jÃ  passÃ©e ...
                if($new_lockdate<time())
                   $new_lockdate=MakeTime("2", "0", "0", date("m"), date("d")+1, date("Y"));
 
-               // Cas des candidatures à choix multiples : on déverrouille tout le groupe
+               // Cas des candidatures Ã  choix multiples : on dÃ©verrouille tout le groupe
 
-               // A cause des candidatures à choix multiples, on risque de déverrouiller plusieurs fois la même formation
-               // => évité à l'aide du tableau $formations_traitees
+               // A cause des candidatures Ã  choix multiples, on risque de dÃ©verrouiller plusieurs fois la mÃªme formation
+               // => Ã©vitÃ© Ã  l'aide du tableau $formations_traitees
 
                $formations_groupes="";
 
@@ -313,7 +313,7 @@ $_SESSION[universite]";
                         $nom_formation=$nom_annee=="" ? "$nom_spec" : "$nom_annee $nom_spec";
                         $nom_formation.=$tab_finalite["$nom_finalite"]=="" ? "" : " $tab_finalite[$nom_finalite]";
 
-                        write_evt($dbr, $__EVT_ID_G_MAN, "[Assistance] - Déverrouillage manuel", $form_candidat_id, $mult_cand_id);
+                        write_evt($dbr, $__EVT_ID_G_MAN, "[Assistance] - DÃ©verrouillage manuel", $form_candidat_id, $mult_cand_id);
 
                         $formations_groupes.="<tr>
                                                 <td class='td-gauche fond_menu'><font class='Texte'>$nom_formation</font></td>
@@ -346,7 +346,7 @@ $_SESSION[universite]";
       {
          if(isset($formations_deverrouillees) && $formations_deverrouillees!="")
          {
-            $intro="Suite à votre requête, la ou les formations suivantes ont été déverrouillées :\n";
+            $intro="Suite Ã  votre requÃªte, la ou les formations suivantes ont Ã©tÃ© dÃ©verrouillÃ©es :\n";
 
             $formations_deverrouillees="<table>
                                        <tr>
@@ -384,7 +384,7 @@ $_SESSION[universite]";
                default      :  $civ_texte="M.";
             }
 
-            $headers = "MIME-Version: 1.0\r\nFrom: $__EMAIL_ADMIN\r\nReply-To: $_SESSION[auth_email]\r\nContent-Type: text/plain; charset=ISO-8859-15\r\nContent-transfer-encoding: 8bit\r\n\r\n";
+            $headers = "MIME-Version: 1.0\r\nFrom: $__EMAIL_NOREPLY\r\nReply-To: $__EMAIL_NOREPLY\r\nContent-Type: text/plain; charset=UTF-8\r\nContent-transfer-encoding: 8bit\r\n\r\n";
 
             $corps_message="Bonjour $civ_texte $cand_nom,\n
 $intro
@@ -398,22 +398,22 @@ $message";
                                            "email"   => $cand_email,
                                            "dest_type" => "candidat"));
 
-            $sujet="[Assistance] - Demande de déverrouillage";
+            $sujet="[Assistance] - Demande de dÃ©verrouillage";
             $msg_dest="$cand_prenom $cand_nom";
 
-            write_msg_2($dbr, array("id" => "0", "nom" => "Système", "prenom" => "", "src_type" => "gestion", "composante" => "", "universite" => "$__SIGNATURE_COURRIELS"),
+            write_msg_2($dbr, array("id" => "0", "nom" => "SystÃ¨me", "prenom" => "", "src_type" => "gestion", "composante" => "", "universite" => "$__SIGNATURE_COURRIELS"),
                         $array_dest, $sujet, $corps_message);
 
             // write_msg($dbr, array("id" => $_SESSION["auth_id"], "nom" => $_SESSION["auth_nom"], "prenom" => $_SESSION["auth_prenom"]), $array_dest, $sujet, $corps_message, $msg_dest);
 
-            // Fin de la procédure : on met le message dans le dossier "Traités"
+            // Fin de la procÃ©dure : on met le message dans le dossier "TraitÃ©s"
 
             if(!is_dir("$__GESTION_MSG_STOCKAGE_DIR_ABS/$_SESSION[MSG_SOUS_REP]/$_SESSION[auth_id]/$__MSG_TRAITES"))
             {
                if(FALSE==mkdir("$__GESTION_MSG_STOCKAGE_DIR_ABS/$_SESSION[MSG_SOUS_REP]/$_SESSION[auth_id]/$__MSG_TRAITES", 0770, TRUE))
                {
-                  mail($__EMAIL_ADMIN, "[Précandidatures] - Erreur de création de répertoire", "Répertoire : $__GESTION_MSG_STOCKAGE_DIR_ABS/$_SESSION[MSG_SOUS_REP]/$_SESSION[auth_id]/$__MSG_TRAITES\n\nUtilisateur : $_SESSION[auth_prenom] $_SESSION[auth_nom]");
-                  die("Erreur système lors de la création du dossier destination. Un message a été envoyé à l'administrateur.");
+                  mail($__EMAIL_ADMIN, "[PrÃ©candidatures] - Erreur de crÃ©ation de rÃ©pertoire", "RÃ©pertoire : $__GESTION_MSG_STOCKAGE_DIR_ABS/$_SESSION[MSG_SOUS_REP]/$_SESSION[auth_id]/$__MSG_TRAITES\n\nUtilisateur : $_SESSION[auth_prenom] $_SESSION[auth_nom]");
+                  die("Erreur systÃ¨me lors de la crÃ©ation du dossier destination. Un message a Ã©tÃ© envoyÃ© Ã  l'administrateur.");
                }
             }
 
@@ -428,7 +428,7 @@ $message";
                exit();
             }
             else
-               mail($__EMAIL_ADMIN, "[Précandidatures] - Erreur de déplacement de message", "Source : $_SESSION[current_message_filename]\nDestination : $__GESTION_MSG_STOCKAGE_DIR_ABS/$_SESSION[MSG_SOUS_REP]/$_SESSION[auth_id]/$__MSG_TRAITES/$new_name\n\nUtilisateur : $_SESSION[auth_prenom] $_SESSION[auth_nom]");
+               mail($__EMAIL_ADMIN, "[PrÃ©candidatures] - Erreur de dÃ©placement de message", "Source : $_SESSION[current_message_filename]\nDestination : $__GESTION_MSG_STOCKAGE_DIR_ABS/$_SESSION[MSG_SOUS_REP]/$_SESSION[auth_id]/$__MSG_TRAITES/$new_name\n\nUtilisateur : $_SESSION[auth_prenom] $_SESSION[auth_nom]");
          }
 
          db_free_result($res_candidat);

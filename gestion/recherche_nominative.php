@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -66,7 +66,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 	$dbr=db_connect();
 
-	// Déverrouillage, au cas où
+	// DÃ©verrouillage, au cas oÃ¹
 	if(isset($_SESSION["candidat_id"]))
 		cand_unlock($dbr, $_SESSION["candidat_id"]);
 
@@ -85,11 +85,11 @@ CeCILL-B, et que vous en avez accepté les termes.
 		$nom=mb_strtolower(trim($_POST["nom"]));
 		$rechmail=$_POST["email"];
 
-		// Nettoyage de la chaine de caractères pour la requête à la base de données
-		// caractères à traiter : à á â ã ä å  ç  è é ê ë  ì í î ï  ñ  ð ò ó ô õ ö  ù ú û ü  ý ÿ *
+		// Nettoyage de la chaine de caractÃ¨res pour la requÃªte Ã  la base de donnÃ©es
+		// caractÃ¨res Ã  traiter : Ã  Ã¡ Ã¢ Ã£ Ã¤ Ã¥  Ã§  Ã¨ Ã© Ãª Ã«  Ã¬ Ã­ Ã® Ã¯  Ã±  Ã° Ã² Ã³ Ã´ Ãµ Ã¶  Ã¹ Ãº Ã» Ã¼  Ã½ Ã¿ *
 		$nom=clean_str_requete($nom);
 
-		// les noms sont stockés en majuscule dans la base, on doit faire la conversion ici, sinon les majuscules accentuées ne sont pas trouvées avec ILIKE
+		// les noms sont stockÃ©s en majuscule dans la base, on doit faire la conversion ici, sinon les majuscules accentuÃ©es ne sont pas trouvÃ©es avec ILIKE
 		$nom=mb_strtoupper($nom);
 
 		if((empty($rechmail) || $rechmail=="") && (empty($nom) || $nom==""))
@@ -139,7 +139,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		}
 	}
 
-	// Message de masse - Récupération des adresses destination et vérification de la liste
+	// Message de masse - RÃ©cupÃ©ration des adresses destination et vÃ©rification de la liste
 	if((isset($_POST["courriels_masse"]) || isset($_POST["courriels_masse_x"])) && isset($_POST["liste"]) && $_POST["liste"]==1 && isset($_SESSION["mail_masse"]))
 	{
 		foreach($_SESSION["mail_masse"] as $mail_candidat_id => $mail_candidat_array)
@@ -153,7 +153,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			$liste_vide=1;
 			unset($_SESSION["mail_masse"]);
 
-			// Rappel des paramètres pour rester sur la page de résultat
+			// Rappel des paramÃ¨tres pour rester sur la page de rÃ©sultat
 			$checked_message=$_SESSION["checked_message"];
 			$requete=$_SESSION["requete"];
 
@@ -188,19 +188,19 @@ CeCILL-B, et que vous en avez accepté les termes.
 		titre_page_icone("Recherche nominative", "xmag_32x32_fond.png", 30, "L");
 
 		if(isset($champs_vides))
-			message("Le formulaire ne doit pas être vide", $__ERREUR);
+			message("Le formulaire ne doit pas Ãªtre vide", $__ERREUR);
 
 		if(isset($bad_rech))
-			message("La chaîne recherchée contient des caractères non autorisée", $__ERREUR);
+			message("La chaÃ®ne recherchÃ©e contient des caractÃ¨res non autorisÃ©e", $__ERREUR);
 
 		if(isset($_GET["masse"]) && $_GET["masse"]==1)
-			message("Le message de masse a été envoyé avec succès.", $__SUCCES);
+			message("Le message de masse a Ã©tÃ© envoyÃ© avec succÃ¨s.", $__SUCCES);
 
 		if(!isset($nb_trouves))
 		{
 			print("<form action='$php_self' method='POST' name='form1'>\n");
 
-			message("Seuls les candidats sans voeu ou ayant déposé un dossier dans votre composante apparaitront.", $__INFO);
+			message("Seuls les candidats sans voeu ou ayant dÃ©posÃ© un dossier dans votre composante apparaitront.", $__INFO);
 	?>
 
 	<table align='center'>
@@ -211,7 +211,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu'>
-			<font class='Texte_menu'><b>Par nom ou début du nom : </b></font>
+			<font class='Texte_menu'><b>Par nom ou dÃ©but du nom : </b></font>
 		</td>
 		<td class='td-droite fond_menu'>
 			<input type='text' name='nom' value='' maxlength='30' size='30'>
@@ -231,13 +231,13 @@ CeCILL-B, et que vous en avez accepté les termes.
    ?>
 	<tr>
 		<td class='td-gauche fond_menu'>
-			<font class='Texte_menu'><b>Sélection par défaut des candidats<br>pour l'envoi d'un message</b></font>
+			<font class='Texte_menu'><b>SÃ©lection par dÃ©faut des candidats<br>pour l'envoi d'un message</b></font>
 		</td>
 		<td class='td-droite fond_menu'>
 			<font class='Texte_menu'>
-				<input type='radio' name='selection' value='1' checked='1'>&nbsp;&nbsp;Sélectionner <b>tous</b> les candidats
+				<input type='radio' name='selection' value='1' checked='1'>&nbsp;&nbsp;SÃ©lectionner <b>tous</b> les candidats
 				<br>
-				<input type='radio' name='selection' value='0'>&nbsp;&nbsp;Ne sélectionner <b>aucun</b> candidat
+				<input type='radio' name='selection' value='0'>&nbsp;&nbsp;Ne sÃ©lectionner <b>aucun</b> candidat
 			</font>
 		</td>
 	</tr>
@@ -247,7 +247,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	</table>
 
 	<div class='centered_icons_box'>
-		<a href='recherche.php' target='_self' class='lien2'><img src='<?php echo "$__ICON_DIR/back_32x32_fond.png"; ?>' alt='Retour au menu précédent' border='0'></a>
+		<a href='recherche.php' target='_self' class='lien2'><img src='<?php echo "$__ICON_DIR/back_32x32_fond.png"; ?>' alt='Retour au menu prÃ©cÃ©dent' border='0'></a>
 		<input type="image" src="<?php echo "$__ICON_DIR/button_ok_32x32_fond.png"; ?>" alt="Rechercher" name="recherche" value="Rechercher">
 		</form>
 	</div>
@@ -258,7 +258,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 	<?php
 		}
-		else // résultat de la recherche
+		else // rÃ©sultat de la recherche
 		{
 			print("<form action='$php_self' method='POST' name='form1'>
 						<input type='hidden' name='liste' value='1'>\n");
@@ -267,11 +267,11 @@ CeCILL-B, et que vous en avez accepté les termes.
 			{
 				if($nb_trouves>1)
 					print("<div class='centered_box'>
-								<font class='Texte'><i>$nb_trouves candidat(e)s trouvé(e)s :</i></font>
+								<font class='Texte'><i>$nb_trouves candidat(e)s trouvÃ©(e)s :</i></font>
 							 </div>\n");
 				else
 					print("<div class='centered_box'>
-								<font class='Texte'><i>$nb_trouves candidat(e) trouvé(e) :</i></font>
+								<font class='Texte'><i>$nb_trouves candidat(e) trouvÃ©(e) :</i></font>
 							 </div>\n");
 
 				if(isset($flag_all))
@@ -288,13 +288,13 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 				if(in_array($_SESSION["niveau"], array("$__LVL_SAISIE", "$__LVL_SCOL_MOINS","$__LVL_SCOL_PLUS","$__LVL_RESP","$__LVL_SUPER_RESP","$__LVL_ADMIN")))
 					print("<td class='td-gauche fond_menu2' style='text-align:center'>
-								<font class='Texte_menu2'><b>Sélection pour<br>message de masse</b></font>
+								<font class='Texte_menu2'><b>SÃ©lection pour<br>message de masse</b></font>
 							</td>\n");
 
 				print("<td class='td-milieu fond_menu2' style='text-align:center' width='22'></td>
 							<td class='td-milieu fond_menu2'><font class='Texte_menu2'><b>Candidat(e)</b></font></td>
 							<td class='td-milieu fond_menu2'><font class='Texte_menu2'><b>Naissance</b></font></td>
-							<td class='td-milieu fond_menu2'><font class='Texte_menu2'><b>Nationalité</b></font></td>\n");
+							<td class='td-milieu fond_menu2'><font class='Texte_menu2'><b>NationalitÃ©</b></font></td>\n");
 
 				if(in_array($_SESSION["niveau"], array("$__LVL_SUPPORT", "$__LVL_SAISIE", "$__LVL_SCOL_MOINS","$__LVL_SCOL_PLUS","$__LVL_RESP","$__LVL_SUPER_RESP","$__LVL_ADMIN")))
 					print("<td class='td-milieu fond_menu2'><font class='Texte_menu2'><b>Courriel</b></font></td>\n");
@@ -330,18 +330,18 @@ CeCILL-B, et que vous en avez accepté les termes.
 					$current_letter=strtolower(substr($nom,0,1));
 
 					if(empty($lieu))
-						$lieu="non renseigné";
+						$lieu="non renseignÃ©";
 
 					if(empty($nationalite))
-						$nationalite="non renseignée";
+						$nationalite="non renseignÃ©e";
 
 					if($nom_naissance!=$nom && $nom_naissance!="")
 					{
-					  // le nom de naissance peut-il être différent pour un homme ? (oui)
+					  // le nom de naissance peut-il Ãªtre diffÃ©rent pour un homme ? (oui)
 					  if($civilite=="M")
-					     $nom.=" (né $nom_naissance)";
+					     $nom.=" (nÃ© $nom_naissance)";
 					  else
-					     $nom.=" (née $nom_naissance)";
+					     $nom.=" (nÃ©e $nom_naissance)";
 				   }
 
 					if(isset($flag_all) && $current_letter!=$old_letter)
@@ -364,7 +364,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 					if($manuelle)
 						print("<td class='td-gauche $fond2' style='text-align:center;' width='22'>
-									<img src='$__ICON_DIR/$icone_manuelle2' alt='Fiche manuelle' desc='Fiche créée manuellement' border='0'>
+									<img src='$__ICON_DIR/$icone_manuelle2' alt='Fiche manuelle' desc='Fiche crÃ©Ã©e manuellement' border='0'>
 								</td>\n");
 					else
 						print("<td class='td-gauche $fond2' style='text-align:center;' width='22'></td>\n");
@@ -373,7 +373,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 								<a href='edit_candidature.php?rech=1&cid=$candidat_id' target='_self' class='$lien2'><b>$civilite. $nom $prenom</b></a>
 							</td>
 							<td class='td-milieu $fond2'>
-								<font class='$texte2'>$naissance à $lieu</font>
+								<font class='$texte2'>$naissance Ã  $lieu</font>
 							</td>
 							<td class='td-milieu $fond2'>
 								<font class='$texte2'>$nationalite</font>
@@ -402,7 +402,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 						print("<td class='td-milieu $fond2' valign='top'>
 									<font class='$texte2'>
 										<b>ID</b> :
-										<br><b>Accès</b> :
+										<br><b>AccÃ¨s</b> :
 										<br><b>IP / Host</b> :
 										<br><b>User Agent</b> :
 									</font>
@@ -438,7 +438,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			}
 			else
 			{
-				message("Aucun candidat ne correspond à votre recherche", $__WARNING);
+				message("Aucun candidat ne correspond Ã  votre recherche", $__WARNING);
 
 				print("<div class='centered_box' style='padding-top:20px;'>
 							<a href='$php_self' target='_self' class='lien2'><img border='0' src='$__ICON_DIR/back_32x32.png' alt='Nouvelle recherche' desc='Nouvelle recherche'></a>

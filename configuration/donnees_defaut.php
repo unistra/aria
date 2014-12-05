@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,79 +20,79 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
 ?>
 <?php
-// Ce fichier contient les données insérées par défaut lorsqu'une composante est créée (décision, motifs de refus, etc.)
-// Si vous conservez ces données, vous devrez si besoin les modifier ou les compléter via l'interface de configuration.
+// Ce fichier contient les donnÃ©es insÃ©rÃ©es par dÃ©faut lorsqu'une composante est crÃ©Ã©e (dÃ©cision, motifs de refus, etc.)
+// Si vous conservez ces donnÃ©es, vous devrez si besoin les modifier ou les complÃ©ter via l'interface de configuration.
 
 // DECISIONS
-// Insertion si le paramètre $__DEFAUT_DECISIONS=1 est présent dans le fichier de configuration
+// Insertion si le paramÃ¨tre $__DEFAUT_DECISIONS=1 est prÃ©sent dans le fichier de configuration
 function insert_default_decisions($dbr, $comp_id)
 {
 	db_query($dbr, "INSERT INTO $GLOBALS[_DB_decisions_comp] (SELECT '$comp_id', $GLOBALS[_DBC_decisions_id] FROM $GLOBALS[_DB_decisions] ORDER BY id)");
 }
 
 
-// Motifs de refus : tableau de tableaux à trois éléments :
-// - le texte court : utilisé dans les menus et dans les lettres lorsqu'il n'y a pas de texte long.
-// - le texte long (facultatif) est utilisé comme paragraphe dans les lettres (si renseigné).
-// - un booléen (0 ou 1) indiquant si le motif est exclusif (devant être utilisé seul, et prioritaire sur les autres) ou non.
+// Motifs de refus : tableau de tableaux Ã  trois Ã©lÃ©ments :
+// - le texte court : utilisÃ© dans les menus et dans les lettres lorsqu'il n'y a pas de texte long.
+// - le texte long (facultatif) est utilisÃ© comme paragraphe dans les lettres (si renseignÃ©).
+// - un boolÃ©en (0 ou 1) indiquant si le motif est exclusif (devant Ãªtre utilisÃ© seul, et prioritaire sur les autres) ou non.
 
-// Pour ne pas insérer de motifs par défaut, deux solutions :
-// - soit mettre à variable $__DEFAUT_MOTIFS dans le fichier de configuration (préféré)
+// Pour ne pas insÃ©rer de motifs par dÃ©faut, deux solutions :
+// - soit mettre Ã  variable $__DEFAUT_MOTIFS dans le fichier de configuration (prÃ©fÃ©rÃ©)
 // - soit commenter la variable $__DEFAUT_MOTIFS_REFUS
 // - soit supprimer son contenu
 
 $__DEFAUT_MOTIFS_REFUS=array(
-	array("Résultats insuffisants", "", 0),
-	array("Résultats insuffisants à l'examen du BTS", "", 0),
-	array("Résultats insuffisants en 1er cycle", "", 0),
-	array("Pas d'avis favorable de poursuite d'études", "", 0),
-	array("Prérequis en informatique non satisfaits", "", 0),
-	array("Cursus inadapté", "", 0),
+	array("RÃ©sultats insuffisants", "", 0),
+	array("RÃ©sultats insuffisants Ã  l'examen du BTS", "", 0),
+	array("RÃ©sultats insuffisants en 1er cycle", "", 0),
+	array("Pas d'avis favorable de poursuite d'Ã©tudes", "", 0),
+	array("PrÃ©requis en informatique non satisfaits", "", 0),
+	array("Cursus inadaptÃ©", "", 0),
 	array("Nombre maximum d'inscriptions atteint",
-			"Le dossier n'a pu etre retenu compte tenu du nombre de dossiers soumis et de leur qualité.", 1),
-	array("Non présentation à l'entretien de sélection","", 0),
-	array("Pas d'offre apprentissage adaptée",
-			"Pas de proposition de contrat d'apprentissage en adéquation avec votre parcours", 0),
+			"Le dossier n'a pu etre retenu compte tenu du nombre de dossiers soumis et de leur qualitÃ©.", 1),
+	array("Non prÃ©sentation Ã  l'entretien de sÃ©lection","", 0),
+	array("Pas d'offre apprentissage adaptÃ©e",
+			"Pas de proposition de contrat d'apprentissage en adÃ©quation avec votre parcours", 0),
 	array("Candidat sans contrat d'apprentissage",
 			"Vous ne justifiez pas de la signature d'un contrat d'apprentissage.", 0));
 
 
 // =================================================================
-// 			Fonctions relatives aux données décrites ci-dessus
+// 			Fonctions relatives aux donnÃ©es dÃ©crites ci-dessus
 // =================================================================
 
-// Fonction d'insertion des motifs par défaut
+// Fonction d'insertion des motifs par dÃ©faut
 // Deux arguments obligatoires :
-// - $dbr : base de données ouverte
+// - $dbr : base de donnÃ©es ouverte
 // - $comp_id : identifiant de la composante
  
 function insert_default_motifs($dbr, $comp_id)
@@ -101,13 +101,13 @@ function insert_default_motifs($dbr, $comp_id)
 	{
 		foreach($GLOBALS["__DEFAUT_MOTIFS_REFUS"] as $array_decision)
 		{
-			// Chaque élément de $GLOBALS["__DEFAUT_MOTIFS_REFUS"] doit également être un tableau à
-			// trois éléments (texte court / texte long / caractère exclusif)
-			// Le contenu de ces éléments relève de l'administrateur ...
+			// Chaque Ã©lÃ©ment de $GLOBALS["__DEFAUT_MOTIFS_REFUS"] doit Ã©galement Ãªtre un tableau Ã 
+			// trois Ã©lÃ©ments (texte court / texte long / caractÃ¨re exclusif)
+			// Le contenu de ces Ã©lÃ©ments relÃ¨ve de l'administrateur ...
 			if(is_array($array_decision) && count($array_decision)==3)
 			{
 				// Calcul du nouvel identifiant
-				// Avec max(), on aura un résultat, même vide
+				// Avec max(), on aura un rÃ©sultat, mÃªme vide
 				list($new_id)=db_fetch_row(db_query($dbr, "SELECT max($GLOBALS[_DBC_motifs_refus_id])+1 FROM $GLOBALS[_DB_motifs_refus]"), 0);
 
 				if($new_id=="") $new_id=0;
@@ -116,12 +116,12 @@ function insert_default_motifs($dbr, $comp_id)
 				$motif_court=str_replace("'", "''", preg_replace("/[']+/", "'", $array_decision[0]));
 				$motif_long=str_replace("'", "''", preg_replace("/[']+/", "'", $array_decision[1]));
 
-				// TODO : créer des fonctions d'accès pour toutes ces opérations ...
+				// TODO : crÃ©er des fonctions d'accÃ¨s pour toutes ces opÃ©rations ...
 				db_query($dbr, "INSERT INTO $GLOBALS[_DB_motifs_refus] VALUES ('$new_id', '$motif_court', '$motif_long', '$exclusif', '$comp_id')");
 			}
 		}
 	}
 	
-	// Mise à jour de la séquence
+	// Mise Ã  jour de la sÃ©quence
    db_query($dbr, "SELECT setval('motifs_refus_id_seq', (select max($GLOBALS[_DBU_motifs_refus_id]) from $GLOBALS[_DB_motifs_refus]))");
 }

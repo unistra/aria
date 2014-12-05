@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -69,8 +69,8 @@ CeCILL-B, et que vous en avez accepté les termes.
 		exit();
 	}
 
-	// Le paramètre transmis est le numéro de la commission
-	// (= numéro d'intervalle d'ouverture : commission 1 = premier intervalle, etc)
+	// Le paramÃ¨tre transmis est le numÃ©ro de la commission
+	// (= numÃ©ro d'intervalle d'ouverture : commission 1 = premier intervalle, etc)
 	if(isset($_GET["n"]) && ctype_digit($_GET["n"]) && isset($_SESSION["all_commissions"]))
 		$n_intervalle=$_GET["n"];
 	elseif(array_key_exists("intervalle_n", $_POST) && isset($_SESSION["all_commissions"]))
@@ -120,7 +120,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 											AND $_DBU_commissions_id='$commission_id'
 											AND $_DBU_commissions_periode='$_SESSION[user_periode]'");
 
-					// Vérification des candidatures existantes
+					// VÃ©rification des candidatures existantes
 					if(isset($_SESSION["all_commissions"]) && array_key_exists($propspec_id, $_SESSION["all_commissions"]) && array_key_exists($n_intervalle, $_SESSION["all_commissions"][$propspec_id]))
 					{
 						$cur_date=$_SESSION["all_commissions"][$propspec_id][$n_intervalle]["com"];
@@ -132,7 +132,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 																		AND $_DBC_cand_periode='$_SESSION[user_periode]'
 																		AND $_DBC_cand_date_decision!='$new_date_commission'");
 
-							// on aura toujours un résultat, même nul
+							// on aura toujours un rÃ©sultat, mÃªme nul
 							list($nb_existantes)=db_fetch_row($res_existantes, 0);
 
 							if($nb_existantes)
@@ -150,12 +150,12 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 				write_evt($dbr, $__EVT_ID_G_SESSION, "Modification globale commission $commission_id ($propspec_id)");
 
-				// Des dates doivent peut-être être mises à jour dans les candidatures
-				// On pose la question à l'utilisateur
+				// Des dates doivent peut-Ãªtre Ãªtre mises Ã  jour dans les candidatures
+				// On pose la question Ã  l'utilisateur
 			}
 		}
 
-		// Champs individuels si le champ "all" n'a pas été utilisé
+		// Champs individuels si le champ "all" n'a pas Ã©tÃ© utilisÃ©
 		if(!isset($new_date_commission))
 		{
 			$result=db_query($dbr,"SELECT $_DBC_propspec_id FROM $_DB_propspec 
@@ -172,14 +172,14 @@ CeCILL-B, et que vous en avez accepté les termes.
 			{
 				list($propspec_id)=db_fetch_row($result, $i);
 
-				// Texte par défaut (cette valeur sera modifiée en cas d'erreur)
+				// Texte par dÃ©faut (cette valeur sera modifiÃ©e en cas d'erreur)
 				$array_fond[$propspec_id]="fond_menu";
 
 				unset($new_date_com);
 
 				$commission_id=$_POST["com_id"][$propspec_id];
 
-				// Si tous les champs sont vides ou si la case est décochée : suppression de la commission pour cette formation
+				// Si tous les champs sont vides ou si la case est dÃ©cochÃ©e : suppression de la commission pour cette formation
 				if((array_key_exists($propspec_id, $_POST["jour_com"]) && array_key_exists($propspec_id, $_POST["mois_com"]) && array_key_exists($propspec_id, $_POST["annee_com"])
 					&& $_POST["jour_com"][$propspec_id]=="" && $_POST["mois_com"][$propspec_id]=="" && $_POST["annee_com"][$propspec_id]=="")
 					|| !isset($_POST["activ"]) || (isset($_POST["activ"]) && !array_key_exists($propspec_id, $_POST["activ"])))
@@ -215,7 +215,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 							if(!ctype_digit($annee_com) || $annee_com<date("Y"))
 								$annee_com=date("Y");
 
-							$new_date_com=MakeTime(0,30,0,$mois_com, $jour_com, $annee_com); // date au format unix : le jour même, le matin
+							$new_date_com=MakeTime(0,30,0,$mois_com, $jour_com, $annee_com); // date au format unix : le jour mÃªme, le matin
 
 							// print("DBG : $propspec_id => $new_date_com\n<br>");
 						}
@@ -226,7 +226,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 					if($erreur_format)
 						$total_erreurs_format++;
 
-					// Aucune erreur et champs à mettre à jour déterminés : on complète la requête globale
+					// Aucune erreur et champs Ã  mettre Ã  jour dÃ©terminÃ©s : on complÃ¨te la requÃªte globale
 					if(!$erreur_format)
 					{
 						if(isset($new_date_com) && (!array_key_exists("$propspec_id",$_SESSION["all_commissions"])
@@ -240,7 +240,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 																				AND $_DBC_cand_periode='$_SESSION[user_periode]'
 																				AND $_DBC_cand_date_decision!='$new_date_com'");
 
-							// on aura toujours un résultat, même nul
+							// on aura toujours un rÃ©sultat, mÃªme nul
 							list($nb_existantes)=db_fetch_row($res_existantes, 0);
 
 							if($nb_existantes)
@@ -260,7 +260,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 											AND $_DBU_commissions_id='$commission_id'
 											AND $_DBU_commissions_periode='$_SESSION[user_periode]'; ";
 
-							// Vérification des candidatures existantes
+							// VÃ©rification des candidatures existantes
 							if(isset($_SESSION["all_commissions"]) && array_key_exists($propspec_id, $_SESSION["all_commissions"]) && array_key_exists($n_intervalle, $_SESSION["all_commissions"][$propspec_id]))
 							{
 								$cur_date=$_SESSION["all_commissions"][$propspec_id][$n_intervalle]["com"];
@@ -272,7 +272,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 																				AND $_DBC_cand_periode='$_SESSION[user_periode]'
 																				AND $_DBC_cand_date_decision!='$new_date_com'");
 
-									// on aura toujours un résultat, même nul
+									// on aura toujours un rÃ©sultat, mÃªme nul
 									list($nb_existantes)=db_fetch_row($res_existantes, 0);
 
 									if($nb_existantes)
@@ -293,7 +293,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 				}
 			} // fin du for
 
-			// Boucle terminée : on exécute la requête globale pour les champs non erronés
+			// Boucle terminÃ©e : on exÃ©cute la requÃªte globale pour les champs non erronÃ©s
 			if(!empty($requete))
 				db_query($dbr, $requete);
 
@@ -348,7 +348,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		exit();	
 	}
 
-	// Sélection des formations, pour affichage
+	// SÃ©lection des formations, pour affichage
 	if(isset($maj_dates_propspec_array) && count($maj_dates_propspec_array))
 	{
 		$critere_existantes="AND $_DBC_propspec_id IN (";
@@ -386,7 +386,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 <div class='main'>
 	<?php
-		titre_page_icone("Modifier les dates de la commission n°$n_intervalle", "clock_32x32_fond.png", 15, "L");
+		titre_page_icone("Modifier les dates de la commission nÂ°$n_intervalle", "clock_32x32_fond.png", 15, "L");
 
 		print("<form action='$php_self' method='POST' name='form1'>
 				<input type='hidden' name='intervalle_n' value='$n_intervalle'>\n");
@@ -396,14 +396,14 @@ CeCILL-B, et que vous en avez accepté les termes.
 		elseif(isset($total_erreurs_format) && $total_erreurs_format>1)
 			message("$total_erreurs lignes contiennent au moins une date dont <strong>le format est incorrect</strong>", $__ERREUR);
 
-		// MAJ des dates dans les candidatures, éventuellement
+		// MAJ des dates dans les candidatures, Ã©ventuellement
 		if(isset($maj_dates_propspec_array) && count($maj_dates_propspec_array) && isset($result) && $rows)
 		{
 			$_SESSION["maj_dates"]=$maj_dates_propspec_array;
 
 			message("<center>
-							Certaines candidatures ont été enregistrées avec une autre date de commission.
-							<br>Souhaitez vous les mettre à jour avec la nouvelle date ?
+							Certaines candidatures ont Ã©tÃ© enregistrÃ©es avec une autre date de commission.
+							<br>Souhaitez vous les mettre Ã  jour avec la nouvelle date ?
 						</center>", $__QUESTION);
 
 			print("<table cellpadding='0' cellspacing='0' border='0' align='center'>
@@ -411,7 +411,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 						<td>\n");
 
 
-			$old_annee="===="; // on initialise à n'importe quoi (sauf vide)
+			$old_annee="===="; // on initialise Ã  n'importe quoi (sauf vide)
 			$old_propspec_id="";
 			$old_mention="--";
 
@@ -420,7 +420,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 				list($propspec_id, $annee, $spec_nom, $finalite, $mention)=db_fetch_row($result, $i);
 
 				$nom_finalite=$tab_finalite[$finalite];
-				$annee=$annee=="" ? "Années particulières" : $annee;
+				$annee=$annee=="" ? "AnnÃ©es particuliÃ¨res" : $annee;
 
 				if($annee!=$old_annee)
 				{
@@ -438,7 +438,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 									<font class='Texte_menu2'><b>Formation</b></font>
 								</td>
 								<td class='fond_menu2' style='padding:4px 20px 4px 20px; text-align:center;'>
-									<font class='Texte_menu2'><b>Candidatures à mettre à jour :</b></font>
+									<font class='Texte_menu2'><b>Candidatures Ã  mettre Ã  jour :</b></font>
 								</td>
 							</tr>
 							<tr>
@@ -475,7 +475,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 							<td class='td-milieu fond_menu'>
 								<font class='Texte_menu'>\n");
 
-				// On cherche les sessions auxquelles la commission est susceptible d'être "rattachée"
+				// On cherche les sessions auxquelles la commission est susceptible d'Ãªtre "rattachÃ©e"
 
 				$res_sessions=db_query($dbr, "SELECT distinct($_DBC_cand_session_id), $_DBC_session_ouverture,$_DBC_session_fermeture
 															FROM $_DB_cand, $_DB_session
@@ -501,7 +501,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 				db_free_result($res_sessions);
 
-				print("<!-- <br><input style='padding-right:10px;' type='radio' name='maj[$propspec_id]' value='-3' checked>Uniquement celles enregistrées avec l'ancienne date -->
+				print("<!-- <br><input style='padding-right:10px;' type='radio' name='maj[$propspec_id]' value='-3' checked>Uniquement celles enregistrÃ©es avec l'ancienne date -->
 						<input style='padding-right:10px;' type='radio' name='maj[$propspec_id]' value='-1'>Aucune
 						<br><input style='padding-right:10px;' type='radio' name='maj[$propspec_id]' value='-2'>Toutes (!)
 					</font>
@@ -534,19 +534,19 @@ CeCILL-B, et que vous en avez accepté les termes.
 		<td class='td-gauche fond_menu2' colspan='2'>
 			<font class='Texte_menu2'>
 				<b>Modifier toutes les dates (prioritaire sur les modifications individuelles) ...</b>
-				<br>Attention : seules les formations "actives" (cases cochées) seront prises en compte.
+				<br>Attention : seules les formations "actives" (cases cochÃ©es) seront prises en compte.
 			</font>
 		</td>
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu2'>
-			<font class='Texte_menu2'><b>Commission Pédagogique : </b></font>
+			<font class='Texte_menu2'><b>Commission PÃ©dagogique : </b></font>
 		</td>
 		<td class='td-droite fond_menu'>
 			<font class='Texte_menu'>
 				Jour :&nbsp;<input type='text' name='jour_com_all' value='' size='4' maxlength='2'>&nbsp;
 				Mois :&nbsp;<input type='text' name='mois_com_all' value='' size='4' maxlength='2'>&nbsp;
-				Année :&nbsp;<input type='text' name='annee_com_all' value='' maxlength='4' size='6'>
+				AnnÃ©e :&nbsp;<input type='text' name='annee_com_all' value='' maxlength='4' size='6'>
 			</font>
 		</td>
 	</tr>
@@ -554,7 +554,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 	<table align='center' width='70%'>
 		<?php
-			$old_annee="===="; // on initialise à n'importe quoi (sauf vide)
+			$old_annee="===="; // on initialise Ã  n'importe quoi (sauf vide)
 			$old_propspec_id="";
 			$old_mention="--";
 
@@ -563,7 +563,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 				list($propspec_id, $annee, $spec_nom, $finalite, $mention)=db_fetch_row($result, $i);
 
 				$nom_finalite=$tab_finalite[$finalite];
-				$annee=$annee=="" ? "Années particulières" : $annee;
+				$annee=$annee=="" ? "AnnÃ©es particuliÃ¨res" : $annee;
 
 				// print_r($_SESSION["all_commissions"][$propspec_id]);
 

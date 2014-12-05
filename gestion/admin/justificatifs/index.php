@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -82,7 +82,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	if(array_key_exists("filtre_justif", $_SESSION) && $_SESSION["filtre_justif"]!=-1)
 	{
 		$filtre=1;
-		$filtre_statut="<font class='Texte_important'><b>(sélection activée)</b></font>";
+		$filtre_statut="<font class='Texte_important'><b>(sÃ©lection activÃ©e)</b></font>";
 	}
 	elseif(isset($_GET["pid"]) && ctype_digit($_GET["pid"])
 			 && db_num_rows(db_query($dbr, "SELECT * FROM $_DB_propspec WHERE $_DBC_propspec_id='$_GET[pid]'
@@ -90,12 +90,12 @@ CeCILL-B, et que vous en avez accepté les termes.
 	{
 		$filtre=1;
 		$_SESSION["filtre_justif"]=$_GET["pid"];
-		$filtre_statut="<font class='Texte_important'><b>(sélection activée)</b></font>";
+		$filtre_statut="<font class='Texte_important'><b>(sÃ©lection activÃ©e)</b></font>";
 	}
 	else
 	{
 		$filtre=0;
-		$filtre_statut="<font class='Texte'><b>(sélection désactivée)</b></font>";
+		$filtre_statut="<font class='Texte'><b>(sÃ©lection dÃ©sactivÃ©e)</b></font>";
 	}
 
 	// EN-TETE
@@ -149,7 +149,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 									print("</optgroup>
 												<option value='' label='' disabled></option>\n");
 
-								$annee_nom=$form_annee_nom=="" ? "Années particulières" : $form_annee_nom;
+								$annee_nom=$form_annee_nom=="" ? "AnnÃ©es particuliÃ¨res" : $form_annee_nom;
 
 								print("<optgroup label='$annee_nom'>\n");
 
@@ -218,12 +218,12 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 					// variable pour les liens (move_element.php, etc)
 					if($justif_ordre!=0)
-						$j=$justif_ordre-1; // élément précédent
+						$j=$justif_ordre-1; // Ã©lÃ©ment prÃ©cÃ©dent
 
 					if($justif_ordre!=($nb_elem_corps-1))
-						$k=$justif_ordre+1; // élément suivant
+						$k=$justif_ordre+1; // Ã©lÃ©ment suivant
 
-					// nouvelle ligne dans le tableau pour l'élément en cours
+					// nouvelle ligne dans le tableau pour l'Ã©lÃ©ment en cours
 					print("<tr>
 								<td width='50' style='white-space:nowrap'>
 									<input type='radio' style='vertical-align:middle;' name='position_insertion_corps' value='$justif_ordre'>
@@ -237,7 +237,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 					$texte=empty($txt) ? $justif_titre : "<b>$justif_titre</b><br>$txt";
 
-					$txt_taille='10'; // à ajouter dans les paramètres ?
+					$txt_taille='10'; // Ã  ajouter dans les paramÃ¨tres ?
 					$txt_gras=0;
 					$txt_italique=0;
 
@@ -276,7 +276,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		{
 			unset($_SESSION["filtre_justif_nom"]);
 			
-			// Détermination des justificatifs communs à toutes les formations existantes de cette composante
+			// DÃ©termination des justificatifs communs Ã  toutes les formations existantes de cette composante
 
          $result=db_query($dbr, "SELECT $_DBC_justifs_jf_justif_id
 												FROM $_DB_justifs_jf, $_DB_justifs
@@ -301,7 +301,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			
 			db_free_result($result);
 
-			// Formations n'ayant aucun justificatif rattaché
+			// Formations n'ayant aucun justificatif rattachÃ©
 			$result=db_query($dbr,"SELECT $_DBC_propspec_id, $_DBC_propspec_annee,$_DBC_annees_annee, $_DBC_specs_nom_court,
 													$_DBC_propspec_finalite, $_DBC_specs_mention_id, $_DBC_mentions_nom, $_DBC_propspec_manuelle
 												FROM $_DB_propspec, $_DB_annees, $_DB_specs, $_DB_mentions
@@ -322,7 +322,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 						<tr>
 						<td align='left'>
 							<font class='Texte'>
-								<b><u>Formation(s) sans aucun justificatif rattaché : </u></b><br>\n");
+								<b><u>Formation(s) sans aucun justificatif rattachÃ© : </u></b><br>\n");
 
 				for($i=0; $i<$rows; $i++)
 				{
@@ -341,13 +341,13 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 			print("<div class='centered_box'>
 						<font class='Texte'>
-							<b>Les justificatifs <font class='Textevert' style='vertical-align:top;'>en vert</font> sont rattachés à <u>toutes les formations</u></b>
+							<b>Les justificatifs <font class='Textevert' style='vertical-align:top;'>en vert</font> sont rattachÃ©s Ã  <u>toutes les formations</u></b>
 						</font>
 					</div>\n");
 
 			db_free_result($result);
 
-			// Sélection des justificatifs rattachés à chaque formation
+			// SÃ©lection des justificatifs rattachÃ©s Ã  chaque formation
 			$result=db_query($dbr,"SELECT $_DBC_propspec_id, $_DBC_propspec_annee,$_DBC_annees_annee, $_DBC_specs_nom_court,
 													$_DBC_propspec_finalite, $_DBC_specs_mention_id, $_DBC_mentions_nom, $_DBC_propspec_manuelle,
 													$_DBC_justifs_id, $_DBC_justifs_jf_ordre, $_DBC_justifs_intitule, $_DBC_justifs_jf_nationalite
@@ -363,7 +363,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 			$rows=db_num_rows($result);
 
-			$old_propspec_id="--"; // on initialise à n'importe quoi (sauf vide)
+			$old_propspec_id="--"; // on initialise Ã  n'importe quoi (sauf vide)
 			$old_annee_id="--"; // idem
 			$old_mention="--"; // idem
 			$j=0;
@@ -379,7 +379,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 					{
 						if($i)
 						{
-							// Fin des justificatifs pour la formation : on liste maintenant les fichiers rattachés
+							// Fin des justificatifs pour la formation : on liste maintenant les fichiers rattachÃ©s
 							// Attention, l'identifiant de la formation est $old_propspec_id et non $propspec_id :)
 							$res_fichiers=db_query($dbr,"SELECT $_DBC_justifs_fichiers_nom
 																		FROM $_DB_justifs_fichiers, $_DB_justifs_ff
@@ -412,9 +412,9 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 						if($annee_id!=$old_annee_id)
 						{
-							$annee=($annee=="") ? "Années particulières" : $annee;
+							$annee=($annee=="") ? "AnnÃ©es particuliÃ¨res" : $annee;
 
-							// Nombre de mentions dans cette année (pour l'affichage)
+							// Nombre de mentions dans cette annÃ©e (pour l'affichage)
 							$res_mentions=db_query($dbr, "SELECT count(distinct($_DBC_specs_mention_id)) FROM $_DB_specs
 																WHERE $_DBC_specs_id IN
 																	(SELECT distinct($_DBC_propspec_id_spec) FROM $_DB_propspec
@@ -439,7 +439,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 							db_free_result($res_mentions);
 
-							if($i) // Le premier résultat du tableau est particulier (i=0)
+							if($i) // Le premier rÃ©sultat du tableau est particulier (i=0)
 							{
 								print("</table>
 										</td>
@@ -502,7 +502,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 									<td class='fond_menu' style='padding-left:5px; padding-right:5px; width:16px;'></td>
 									<td class='fond_menu' style='padding-left:5px; padding-right:5px; width:16px;'>\n");
 
-						// Affichage des flèches
+						// Affichage des flÃ¨ches
 
 						if($i!=($rows-1))
 						{
@@ -561,7 +561,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 					$old_propspec_id=$propspec_id;
 				}
 
-				// Fichiers attachés pour la dernière formation de la liste
+				// Fichiers attachÃ©s pour la derniÃ¨re formation de la liste
 				$res_fichiers=db_query($dbr,"SELECT $_DBC_justifs_fichiers_nom
 															FROM $_DB_justifs_fichiers, $_DB_justifs_ff
 														WHERE $_DBC_justifs_ff_fichier_id=$_DBC_justifs_fichiers_id

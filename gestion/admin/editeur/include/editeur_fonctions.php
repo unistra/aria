@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,37 +20,37 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
 ?>
 <?php
 
-// en fonction de l'entier en paramètre, donne l'alignement d'un objet
+// en fonction de l'entier en paramÃ¨tre, donne l'alignement d'un objet
 
 function get_align($int_align)
 {
@@ -72,7 +72,7 @@ function get_align($int_align)
 	}
 }
 
-// Pareil mais avec les paramètres de FPDF
+// Pareil mais avec les paramÃ¨tres de FPDF
 function get_fpdf_align($int_align)
 {
 	if(!is_numeric($int_align))
@@ -93,46 +93,46 @@ function get_fpdf_align($int_align)
 	}
 }
 
-// Définition des fonctions utilisées pour les macros
-// La redéfinition des macros n'est pas nécessaire à chaque inclusion du fichier editeur_fonctions, d'où le test d'existence
+// DÃ©finition des fonctions utilisÃ©es pour les macros
+// La redÃ©finition des macros n'est pas nÃ©cessaire Ã  chaque inclusion du fichier editeur_fonctions, d'oÃ¹ le test d'existence
 
 if(!isset($_SESSION["__MACROS"]) || !is_array($_SESSION["__MACROS"]) || !count($_SESSION["__MACROS"]))
 {
-	/* Les macros sont utilisables dans le corps des modèles de lettres. Elles doivent être encadrées par le caractère "%" pour
-	pouvoir être reconnue => %macro%
+	/* Les macros sont utilisables dans le corps des modÃ¨les de lettres. Elles doivent Ãªtre encadrÃ©es par le caractÃ¨re "%" pour
+	pouvoir Ãªtre reconnue => %macro%
 
-	Liste des macros prédéfinies :
+	Liste des macros prÃ©dÃ©finies :
 	
 	"civilite" : M. Mme ou Mlle, en fonction du candidat (sensible aux majuscules : Civilite => Mme | CIVILITE => MME)
 	"nom" : nom du candidat (sensible aux majuscules : Nom => Durand | NOM => DURAND)
-	"prenom" : prénom du candidat (sensible aux majuscules)
+	"prenom" : prÃ©nom du candidat (sensible aux majuscules)
 	"date_naissance" : date de naissance (ex: "18 janvier 1990")
-	"ville_naissance" : ville de naissance telle que l'a entrée le candidat
-	"pays_naissance" : pays de naissance (même remarque)
-	"annee_universitaire" : année concernée par la candidature (ex: "2009-2010")
-	"formation" : nom de la formation, en toute lettre (ex: "L3 Mathématique Parcours Magistère 1ère année")
-	"responsable" : nom du responsable de la formation lorsqu'il est renseigné (sensible aux majuscules)
-						 -> s'il n'est pas renseigné, on indique seulement "Le Responsable"
-	"courriel_responsable" : adresse électronique du responsable de la formation si renseignée
-	"date_commission" : date de la commission pédagogique pour la formation concernée. La date est enregistrée dans la
-							  candidature au moment de son dépôt, donc si la date a changé depuis, le changement ne sera pas
-							  répercuté ici.
-	"rang_liste_complementaire" : rang du candidat sur la liste complémentaire
-	"entretien" : date, heure et lieu de la convocation à un entretien complémentaire
-	"cursus" : cursus du candidat (attention : n'apparaissent que les étapes marquées "justifiées" par la scolarité dans
+	"ville_naissance" : ville de naissance telle que l'a entrÃ©e le candidat
+	"pays_naissance" : pays de naissance (mÃªme remarque)
+	"annee_universitaire" : annÃ©e concernÃ©e par la candidature (ex: "2009-2010")
+	"formation" : nom de la formation, en toute lettre (ex: "L3 MathÃ©matique Parcours MagistÃ¨re 1Ã¨re annÃ©e")
+	"responsable" : nom du responsable de la formation lorsqu'il est renseignÃ© (sensible aux majuscules)
+						 -> s'il n'est pas renseignÃ©, on indique seulement "Le Responsable"
+	"courriel_responsable" : adresse Ã©lectronique du responsable de la formation si renseignÃ©e
+	"date_commission" : date de la commission pÃ©dagogique pour la formation concernÃ©e. La date est enregistrÃ©e dans la
+							  candidature au moment de son dÃ©pÃ´t, donc si la date a changÃ© depuis, le changement ne sera pas
+							  rÃ©percutÃ© ici.
+	"rang_liste_complementaire" : rang du candidat sur la liste complÃ©mentaire
+	"entretien" : date, heure et lieu de la convocation Ã  un entretien complÃ©mentaire
+	"cursus" : cursus du candidat (attention : n'apparaissent que les Ã©tapes marquÃ©es "justifiÃ©es" par la scolaritÃ© dans
 				  le menu "2-Cursus" des fiches)
-	"transmission" : en cas de transmission de dossier, année vers laquelle le dossier du candidat est transmis
-	"motivation" : motif(s) de refus, de mise en attente ou d'admission sous réserve
-	"masculin_feminin" : accord masculin/féminin d'un nom, adjectif, en fonction du genre du candidat.
+	"transmission" : en cas de transmission de dossier, annÃ©e vers laquelle le dossier du candidat est transmis
+	"motivation" : motif(s) de refus, de mise en attente ou d'admission sous rÃ©serve
+	"masculin_feminin" : accord masculin/fÃ©minin d'un nom, adjectif, en fonction du genre du candidat.
 								ex : %le candidat/la candidate%, %admis/admise%
-	"date" : date à laquelle la lettre est générée ("5 mai 2009")
-	"decisions_multiples" : pour les candidatures à choix multiples (i.e plusieurs formations regroupées en une candidature),
-									cette macro affiche les décisions de chaque "sous-choix". L'affichage s'arrête dès qu'une
-									admission est trouvée (car le traitement en Commission s'arrête dans ce cas là).
-	"transmission_multiple" : cas particulier de la macro précédente : transfert de dossier dans une candidature à choix
+	"date" : date Ã  laquelle la lettre est gÃ©nÃ©rÃ©e ("5 mai 2009")
+	"decisions_multiples" : pour les candidatures Ã  choix multiples (i.e plusieurs formations regroupÃ©es en une candidature),
+									cette macro affiche les dÃ©cisions de chaque "sous-choix". L'affichage s'arrÃªte dÃ¨s qu'une
+									admission est trouvÃ©e (car le traitement en Commission s'arrÃªte dans ce cas lÃ ).
+	"transmission_multiple" : cas particulier de la macro prÃ©cÃ©dente : transfert de dossier dans une candidature Ã  choix
 									  multiples
-	"signature" : cette macro est remplacée soit par le champ "signature" par défaut (appliqué à toutes les lettres), soit
-					  au champ "signature" propre à la lettre générée (i.e lorsqu'on ne veut pas du champ par défaut).
+	"signature" : cette macro est remplacÃ©e soit par le champ "signature" par dÃ©faut (appliquÃ© Ã  toutes les lettres), soit
+					  au champ "signature" propre Ã  la lettre gÃ©nÃ©rÃ©e (i.e lorsqu'on ne veut pas du champ par dÃ©faut).
 	
 	*/
 
@@ -191,7 +191,7 @@ if(!isset($_SESSION["__MACROS"]) || !is_array($_SESSION["__MACROS"]) || !count($
 				if($count_cursus)
 				{
 					// on ne prend que les 2 derniers diplomes obtenus
-					// TODO : à vérifier
+					// TODO : Ã  vÃ©rifier
 					$texte_cursus="";
 
 					if($count_cursus>2)
@@ -210,7 +210,7 @@ if(!isset($_SESSION["__MACROS"]) || !is_array($_SESSION["__MACROS"]) || !count($
 					$txt=str_ireplace("%cursus%", $texte_cursus, $txt);
 				}
 				else
-					$txt=str_ireplace("%cursus%", "- Néant", $txt);',
+					$txt=str_ireplace("%cursus%", "- NÃ©ant", $txt);',
 
 "transmission" => '$txt=preg_replace("/%Transmission%/", $candidature_array["transmission"], $txt);
 						$txt=preg_replace("/%transmission%/", mb_strtolower($candidature_array["transmission"]), $txt);
@@ -219,7 +219,7 @@ if(!isset($_SESSION["__MACROS"]) || !is_array($_SESSION["__MACROS"]) || !count($
 "motivation" => '$txt=str_ireplace("%motifs%", $candidature_array["motivation"], $txt);
 					 $txt=str_ireplace("%motif%", $candidature_array["motivation"], $txt);',
 
-"masculin_feminin" => 'if(preg_match_all("/%[a-zA-Zàáâãäåçèéêëìíîïñðòóôõöùúûüýÿ]+\/[a-zA-Zàáâãäåçèéêëìíîïñðòóôõöùúûüýÿ]+%/", $txt, $resultats))
+"masculin_feminin" => 'if(preg_match_all("/%[a-zA-ZÃ Ã¡Ã¢Ã£Ã¤Ã¥Ã§Ã¨Ã©ÃªÃ«Ã¬Ã­Ã®Ã¯Ã±Ã°Ã²Ã³Ã´ÃµÃ¶Ã¹ÃºÃ»Ã¼Ã½Ã¿]+\/[a-zA-ZÃ Ã¡Ã¢Ã£Ã¤Ã¥Ã§Ã¨Ã©ÃªÃ«Ã¬Ã­Ã®Ã¯Ã±Ã°Ã²Ã³Ã´ÃµÃ¶Ã¹ÃºÃ»Ã¼Ã½Ã¿]+%/", $txt, $resultats))
 							{
 								foreach($resultats[0] as $valeur)
 								{
@@ -249,11 +249,11 @@ if(!isset($_SESSION["__MACROS"]) || !is_array($_SESSION["__MACROS"]) || !count($
 
 										foreach($candidatures_multiples_array as $ordre_cand => $cand_m_array)
 										{
-											// Dossier transmis : la décision réelle est "refus"
+											// Dossier transmis : la dÃ©cision rÃ©elle est "refus"
 											if($cand_m_array["decision"]==$GLOBALS["__DOSSIER_TRANSMIS"])
-												$decisions_multiples_texte.="Choix " . ($ordre_cand+1) . " : " . str_replace("\n", " ", $cand_m_array["texte_formation"]) . "\nDécision : Refus";
+												$decisions_multiples_texte.="Choix " . ($ordre_cand+1) . " : " . str_replace("\n", " ", $cand_m_array["texte_formation"]) . "\nDÃ©cision : Refus";
 											else {
-												$decisions_multiples_texte.="Choix " . ($ordre_cand+1) . " : " . str_replace("\n", " ", $cand_m_array["texte_formation"]) . "\nDécision : $cand_m_array[decision_txt]";
+												$decisions_multiples_texte.="Choix " . ($ordre_cand+1) . " : " . str_replace("\n", " ", $cand_m_array["texte_formation"]) . "\nDÃ©cision : $cand_m_array[decision_txt]";
 												
 												if(trim($cand_m_array["motivation"])=="") {
 												   $decisions_multiples_texte.="\n\n";
@@ -261,7 +261,7 @@ if(!isset($_SESSION["__MACROS"]) || !is_array($_SESSION["__MACROS"]) || !count($
 										   }
 
 											if($cand_m_array["decision"]==$GLOBALS["__DOSSIER_REFUS"] || $cand_m_array["decision"]==$GLOBALS["__DOSSIER_TRANSMIS"])
-												$decisions_multiples_texte.=" (" . str_replace("\n",", ", $cand_m_array["motivation"]) . ").\n\n"; // Todo : affichage des motifs à peaufiner
+												$decisions_multiples_texte.=" (" . str_replace("\n",", ", $cand_m_array["motivation"]) . ").\n\n"; // Todo : affichage des motifs Ã  peaufiner
 											elseif($cand_m_array["decision"]==$GLOBALS["__DOSSIER_LISTE"])
 												$decisions_multiples_texte.=" (rang actuel : $cand_m_array[rang_attente]).\n";
 											elseif($cand_m_array["decision"]==$GLOBALS["__DOSSIER_ADMIS"] || $cand_m_array["decision"]==$GLOBALS["__DOSSIER_ADMIS_AVANT_CONFIRMATION"] 
@@ -271,9 +271,9 @@ if(!isset($_SESSION["__MACROS"]) || !is_array($_SESSION["__MACROS"]) || !count($
 													$decisions_multiples_texte.=" (" . str_replace("\n",", ", $cand_m_array["motivation"]) . ").\n\n";
 
                                     /*
-												// admission trouvée : on s\'arrête là et on affiche un message s\'il reste des voeux
+												// admission trouvÃ©e : on s\'arrÃªte lÃ  et on affiche un message s\'il reste des voeux
 												if($ordre_cand!=$ordre_dernier_choix)
-													$decisions_multiples_texte.="\n\nDans la mesure où vos candidatures ont été classées par ordre de préférence et qu\'un voeu a été retenu, la Commission pédagogique n\'a pas examiné les voeux placés après celui-ci.";
+													$decisions_multiples_texte.="\n\nDans la mesure oÃ¹ vos candidatures ont Ã©tÃ© classÃ©es par ordre de prÃ©fÃ©rence et qu\'un voeu a Ã©tÃ© retenu, la Commission pÃ©dagogique n\'a pas examinÃ© les voeux placÃ©s aprÃ¨s celui-ci.";
 
 												break;
 												*/
@@ -306,8 +306,8 @@ if(!isset($_SESSION["__MACROS"]) || !is_array($_SESSION["__MACROS"]) || !count($
 
 "signature" => 'if(stristr($txt, "%signature%"))
 					{
-						// Récupération de la signature de la lettre (ou celle par défaut)
-						// TODO : passer par un paramètre de la fonction ($lettre_array) ?
+						// RÃ©cupÃ©ration de la signature de la lettre (ou celle par dÃ©faut)
+						// TODO : passer par un paramÃ¨tre de la fonction ($lettre_array) ?
 						$result2=db_query($dbr,"SELECT $GLOBALS[_DBC_lettres_txt_sign], $GLOBALS[_DBC_lettres_flag_txt_sign]
 																		FROM $GLOBALS[_DB_lettres]
 																		WHERE $GLOBALS[_DBC_lettres_id]=\'$_SESSION[lettre_id]\'");
@@ -316,7 +316,7 @@ if(!isset($_SESSION["__MACROS"]) || !is_array($_SESSION["__MACROS"]) || !count($
 						{
 							list($texte_signature, $flag_signature)=db_fetch_row($result2, 0);
 
-							if($flag_signature=="t") // signature par défaut ; il faut récupérer celle de la table "composantes"
+							if($flag_signature=="t") // signature par dÃ©faut ; il faut rÃ©cupÃ©rer celle de la table "composantes"
 							{
 								$res_comp=db_query($dbr, "SELECT $GLOBALS[_DBC_composantes_txt_sign] FROM $GLOBALS[_DB_composantes]
 																				WHERE $GLOBALS[_DBC_composantes_id]=\'$_SESSION[comp_id]\'");
@@ -327,7 +327,7 @@ if(!isset($_SESSION["__MACROS"]) || !is_array($_SESSION["__MACROS"]) || !count($
 								db_free_result($res_comp);
 							}
 
-							// Il faut appliquer cette fonction sur la signature (en supprimant les champs %signature% éventuels,
+							// Il faut appliquer cette fonction sur la signature (en supprimant les champs %signature% Ã©ventuels,
 							// sinon on obtient une boucle infinie)
 
 							$txt=preg_replace("/%signature%/i", $texte_signature, $txt);
@@ -340,20 +340,20 @@ if(!isset($_SESSION["__MACROS"]) || !is_array($_SESSION["__MACROS"]) || !count($
 }
 
 // Traitement des macros, version 2 :
-// Les macros sont définies dans un tableau : à chacune, on associe une fonction anonyme (via "create_function")
-// pour son traitement. Ceci permet à des modules complémentaires d'en ajouter de nouvelles ou de redéfinir des
+// Les macros sont dÃ©finies dans un tableau : Ã  chacune, on associe une fonction anonyme (via "create_function")
+// pour son traitement. Ceci permet Ã  des modules complÃ©mentaires d'en ajouter de nouvelles ou de redÃ©finir des
 // macros existantes
 
-// TODO : réfléchir sur la nécessité de passer $dbr en paramètre
+// TODO : rÃ©flÃ©chir sur la nÃ©cessitÃ© de passer $dbr en paramÃ¨tre
 
 function pdf_traitement_macros($dbr, $txt, $cand_array, $candidature_array, $cursus_array, $lettre_lang)
 {
-	// On applique chaque portion de code (ce ne sont pas réellement des fonctions) au texte
-	// Inconvénient : avec une fonction par macro, on ne traite qu'une macro à la fois.
+	// On applique chaque portion de code (ce ne sont pas rÃ©ellement des fonctions) au texte
+	// InconvÃ©nient : avec une fonction par macro, on ne traite qu'une macro Ã  la fois.
 	foreach($_SESSION["__MACROS"] as $nom_macro => $code_macro)
 		eval($code_macro);
 
-	// Macros définies par les utilisateurs (modules)
+	// Macros dÃ©finies par les utilisateurs (modules)
 	if(isset($_SESSION["__MACROS_USERS"]) && is_array($_SESSION["__MACROS_USERS"]) && count($_SESSION["__MACROS_USERS"]))
 	{
 		foreach($_SESSION["__MACROS_USERS"] as $nom_macro => $code_macro)
@@ -364,9 +364,9 @@ function pdf_traitement_macros($dbr, $txt, $cand_array, $candidature_array, $cur
 }
 
 // GET_TABLE_NAME
-// Determine le nom de la table en fonction du type d'un élément
+// Determine le nom de la table en fonction du type d'un Ã©lÃ©ment
 // ARGUMENT :
-// - type d'élément (entier)
+// - type d'Ã©lÃ©ment (entier)
 // RETOUR
 //- nom de la table correspondante et des colonnes utiles
 function get_table_name($type)
@@ -393,13 +393,13 @@ function get_table_name($type)
 							return $return_array;
 							break;
 
-		default: return FALSE; // normalement l'argument $type est vérifié AVANT l'appel à la fonction
+		default: return FALSE; // normalement l'argument $type est vÃ©rifiÃ© AVANT l'appel Ã  la fonction
 	}
 
 }
 
 
-// décide si les boutons monter/descendre doivent être affichés
+// dÃ©cide si les boutons monter/descendre doivent Ãªtre affichÃ©s
 
 function show_up_down($i,$pos,$nb_elem,$element_type,$target_type,$target_type2)
 {
@@ -443,7 +443,7 @@ function menu_editeur_3($chemin)
 		else
 			print("<font class='Texteblanc'>$nom</font>");
 
-		// ! dernier élément
+		// ! dernier Ã©lÃ©ment
 		if($cnt_path!=1)
 			print("<font class='Texteblanc'>&nbsp;<b>></b>&nbsp;</font>");
 		array_shift($chemin);
@@ -452,7 +452,7 @@ function menu_editeur_3($chemin)
 	print("</td>
 				<td height='24' background='$GLOBALS[__IMG_DIR]/fond_menu_haut.jpg' align='right' valign='middle' nowrap='true'>
 					<font class='Texteblanc'>
-						<a href='$GLOBALS[__GESTION_DIR]/login.php' class='lien_blanc'>Déconnecter</a>&nbsp;&nbsp;
+						<a href='$GLOBALS[__GESTION_DIR]/login.php' class='lien_blanc'>DÃ©connecter</a>&nbsp;&nbsp;
 					</font>
 				</td>
 			</tr>
@@ -460,18 +460,18 @@ function menu_editeur_3($chemin)
 }
 
 // GET_ALL_ELEMENTS
-// Construction d'un tableau contenant les éléments composant une lettre
+// Construction d'un tableau contenant les Ã©lÃ©ments composant une lettre
 // ARGUMENTS :
-// - db : ressource correspondant à une connexion à une bdd
-// - lettre_id : identifiant de la lettre concernée
+// - db : ressource correspondant Ã  une connexion Ã  une bdd
+// - lettre_id : identifiant de la lettre concernÃ©e
 // RETOUR
-// - array contenant les éléments (clés=ordre des éléments)
+// - array contenant les Ã©lÃ©ments (clÃ©s=ordre des Ã©lÃ©ments)
 
 function get_all_elements($db, $lettre_id)
 {
-	// fonction qui recherche tous les éléments d'un article et qui retourne un tableau contenant ces éléments triés
+	// fonction qui recherche tous les Ã©lÃ©ments d'un article et qui retourne un tableau contenant ces Ã©lÃ©ments triÃ©s
 
-	// initialisation du tableau d'éléments
+	// initialisation du tableau d'Ã©lÃ©ments
 	$elements=array();
 
 	// ENCADRES (type_element = 2)
@@ -482,7 +482,7 @@ function get_all_elements($db, $lettre_id)
 
 	$rows=db_num_rows($result);
 
-	// on met chaque encadré dans le tableau
+	// on met chaque encadrÃ© dans le tableau
 	for($i=0; $i<$rows ; $i++)
 	{
 		list($id,$texte,$txt_align,$ordre)=db_fetch_row($result, $i);
@@ -492,11 +492,11 @@ function get_all_elements($db, $lettre_id)
 			$line=__LINE__;
 			if(array_key_exists("__EMAIL_ADMIN", $GLOBALS) && trim($GLOBALS["__EMAIL_ADMIN"])!="")
 			{
-				mail($GLOBALS["__EMAIL_ADMIN"],$GLOBALS["__ERREUR_SUJET"], "Erreur dans $err_file, ligne $line\n'Base de données incohérente'\nIdentifiant : $_SESSION[auth_user]");
-				die("Erreur : base de données incohérente. Un courriel a été envoyé à l'administrateur.");
+				mail($GLOBALS["__EMAIL_ADMIN"],$GLOBALS["__ERREUR_SUJET"], "Erreur dans $err_file, ligne $line\n'Base de donnÃ©es incohÃ©rente'\nIdentifiant : $_SESSION[auth_user]");
+				die("Erreur : base de donnÃ©es incohÃ©rente. Un courriel a Ã©tÃ© envoyÃ© Ã  l'administrateur.");
 			}
 			else
-				die("Erreur : base de données incohérente. Aucun courriel n'a pu être envoyé à l'administrateur car aucune adresse électronique n'a été configurée.");
+				die("Erreur : base de donnÃ©es incohÃ©rente. Aucun courriel n'a pu Ãªtre envoyÃ© Ã  l'administrateur car aucune adresse Ã©lectronique n'a Ã©tÃ© configurÃ©e.");
 		}
 		else
 			$elements["$ordre"]=array("type" => 2, "id" => $id, "texte" => $texte, "txt_align" => $txt_align);
@@ -522,11 +522,11 @@ function get_all_elements($db, $lettre_id)
 			
 			if(array_key_exists("__EMAIL_ADMIN", $GLOBALS) && trim($GLOBALS["__EMAIL_ADMIN"])!="")
 			{
-				mail($GLOBALS["__EMAIL_ADMIN"],$GLOBALS["__ERREUR_SUJET"], "Erreur dans $err_file, ligne $line\n'Base de données incohérente'\nIdentifiant : $_SESSION[auth_user]");
-				die("Erreur : base de données incohérente. Un courriel a été envoyé à l'administrateur.");
+				mail($GLOBALS["__EMAIL_ADMIN"],$GLOBALS["__ERREUR_SUJET"], "Erreur dans $err_file, ligne $line\n'Base de donnÃ©es incohÃ©rente'\nIdentifiant : $_SESSION[auth_user]");
+				die("Erreur : base de donnÃ©es incohÃ©rente. Un courriel a Ã©tÃ© envoyÃ© Ã  l'administrateur.");
 			}
 			else
-				die("Erreur : base de données incohérente. Aucun courriel n'a pu être envoyé à l'administrateur car aucune adresse électronique n'a été configurée.");
+				die("Erreur : base de donnÃ©es incohÃ©rente. Aucun courriel n'a pu Ãªtre envoyÃ© Ã  l'administrateur car aucune adresse Ã©lectronique n'a Ã©tÃ© configurÃ©e.");
 		}
 		else
 			$elements["$ordre"]=array("type" => 5, "id" => $id, "texte" => $texte, "txt_align" => $txt_align,
@@ -535,7 +535,7 @@ function get_all_elements($db, $lettre_id)
 	}
 	db_free_result($result);
 
-	// Séparateurs (type 8)
+	// SÃ©parateurs (type 8)
 	$result=db_query($db,"SELECT $GLOBALS[_DBC_sepa_lettre_id], $GLOBALS[_DBC_sepa_ordre], $GLOBALS[_DBC_sepa_nb_lignes]
 									FROM $GLOBALS[_DB_sepa]
 									WHERE $GLOBALS[_DBC_sepa_lettre_id]='$lettre_id'
@@ -543,7 +543,7 @@ function get_all_elements($db, $lettre_id)
 
 	$rows=db_num_rows($result);
 
-	// on met chaque séparateur dans le tableau
+	// on met chaque sÃ©parateur dans le tableau
 	for($i=0; $i<$rows ; $i++)
 	{
 		list($id,$ordre,$nb_lignes)=db_fetch_row($result, $i);
@@ -554,11 +554,11 @@ function get_all_elements($db, $lettre_id)
 			
 			if(array_key_exists("__EMAIL_ADMIN", $GLOBALS) && trim($GLOBALS["__EMAIL_ADMIN"])!="")
 			{
-				mail($GLOBALS["__EMAIL_ADMIN"],$GLOBALS["__ERREUR_SUJET"], "Erreur dans $err_file, ligne $line\n'Base de données incohérente'\nIdentifiant : $_SESSION[auth_user]");
-				die("Erreur : base de données incohérente. Un courriel a été envoyé à l'administrateur.");
+				mail($GLOBALS["__EMAIL_ADMIN"],$GLOBALS["__ERREUR_SUJET"], "Erreur dans $err_file, ligne $line\n'Base de donnÃ©es incohÃ©rente'\nIdentifiant : $_SESSION[auth_user]");
+				die("Erreur : base de donnÃ©es incohÃ©rente. Un courriel a Ã©tÃ© envoyÃ© Ã  l'administrateur.");
 			}
 			else
-				die("Erreur : base de données incohérente. Aucun courriel n'a pu être envoyé à l'administrateur car aucune adresse électronique n'a été configurée.");
+				die("Erreur : base de donnÃ©es incohÃ©rente. Aucun courriel n'a pu Ãªtre envoyÃ© Ã  l'administrateur car aucune adresse Ã©lectronique n'a Ã©tÃ© configurÃ©e.");
 		}
 		else
 			$elements["$ordre"]=array("type" => 8, "id" => $id, "nb_lignes" => $nb_lignes);

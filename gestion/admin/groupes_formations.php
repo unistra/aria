@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -93,7 +93,7 @@ CeCILL-B, et que vous en avez accepté les termes.
    }
    */
    
-   if(isset($_POST["creer"]) || isset($_POST["creer_x"])) // création d'un nouveau groupe
+   if(isset($_POST["creer"]) || isset($_POST["creer_x"])) // crÃ©ation d'un nouveau groupe
    {
       $propspec_id=$_POST["selection"];
       $nom_groupe=trim($_POST["nom"]);
@@ -104,8 +104,8 @@ CeCILL-B, et que vous en avez accepté les termes.
          $auto="f";
          
         
-      // TODO : réfléchir sur la notion de dates communes
-      // Entretemps, la réponse est toujours non
+      // TODO : rÃ©flÃ©chir sur la notion de dates communes
+      // Entretemps, la rÃ©ponse est toujours non
       $dates_communes='f';  
          
       /*   
@@ -123,7 +123,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          $nom_existe=1;
       else
       {
-         // unicité du couple année/specialité : un couple ne peut appartenir qu'à un seul groupe !
+         // unicitÃ© du couple annÃ©e/specialitÃ© : un couple ne peut appartenir qu'Ã  un seul groupe !
          $result=db_query($dbr,"SELECT $_DBC_groupes_spec_groupe FROM $_DB_groupes_spec
                                  WHERE $_DBC_groupes_spec_propspec_id='$propspec_id'");
 
@@ -131,7 +131,7 @@ CeCILL-B, et que vous en avez accepté les termes.
             $groupe_existe_deja=1;
          else
          {
-            // sélection de l'identifiant du nouveau groupe
+            // sÃ©lection de l'identifiant du nouveau groupe
             $result=db_query($dbr,"SELECT max($_DBC_groupes_spec_groupe)+1 FROM $_DB_groupes_spec");
             list($new_id)=db_fetch_row($result,0);
             db_free_result($result);
@@ -140,10 +140,10 @@ CeCILL-B, et que vous en avez accepté les termes.
             if($new_id=="")
                $new_id=0;
 
-            // Comportement spécial :
-            // Si le $new_id est déjà présent dans la colonne groupe_spec de la table candidature, il faut incrémenter $new_id
-            // jusqu'à ce qu'on trouve un identifiant non utilisé
-            // TODO : pas terrible, à modifier
+            // Comportement spÃ©cial :
+            // Si le $new_id est dÃ©jÃ  prÃ©sent dans la colonne groupe_spec de la table candidature, il faut incrÃ©menter $new_id
+            // jusqu'Ã  ce qu'on trouve un identifiant non utilisÃ©
+            // TODO : pas terrible, Ã  modifier
 
             while(db_num_rows(db_query($dbr,"SELECT * FROM $_DB_cand WHERE $_DBC_cand_groupe_spec='$new_id'")))
                $new_id++;
@@ -158,7 +158,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       $ajout=1;
    }
    
-   if(isset($_POST["modifier"]) || isset($_POST["modifier_x"])) // Modifier les propriétés d'un groupe
+   if(isset($_POST["modifier"]) || isset($_POST["modifier_x"])) // Modifier les propriÃ©tÃ©s d'un groupe
    {
       $nom_groupe=trim($_POST["nom"]);
       $auto=$_POST["auto"];
@@ -187,7 +187,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       $mod=1;
    }
    
-   if(isset($_POST["ajouter"]) || isset($_POST["ajouter_x"])) // Ajouter une spécialité à un groupe
+   if(isset($_POST["ajouter"]) || isset($_POST["ajouter_x"])) // Ajouter une spÃ©cialitÃ© Ã  un groupe
    {
       $propspec_id=$_POST["selection"];
       $groupe=$_POST["groupe"];
@@ -196,7 +196,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          $formation_vide=1;
       else
       {
-         // unicité du couple année/specialité : un couple ne peut appartenir qu'à un seul groupe !
+         // unicitÃ© du couple annÃ©e/specialitÃ© : un couple ne peut appartenir qu'Ã  un seul groupe !
 /*
          $result=db_query($dbr,"SELECT groupe FROM $_DB_groupes_spec WHERE annee_id='$annee_id' AND spec_id='$spec'");
          if(db_num_rows($result))
@@ -228,11 +228,11 @@ CeCILL-B, et que vous en avez accepté les termes.
       }
       $ajout=1;
    }
-   elseif(isset($_POST["suppr"]) || isset($_POST["suppr_x"])) // Supprimer un groupe ou une spécialité (ou les 2)
+   elseif(isset($_POST["suppr"]) || isset($_POST["suppr_x"])) // Supprimer un groupe ou une spÃ©cialitÃ© (ou les 2)
    {
       $suppr_groupe=$_POST["suppr_groupe"];
 
-      // si $_POST["suppr_spec"] est présent, on ne supprime que la spécialité au sein du groupe
+      // si $_POST["suppr_spec"] est prÃ©sent, on ne supprime que la spÃ©cialitÃ© au sein du groupe
       if(array_key_exists("suppr_propspec", $_POST))
          $suppr_propspec="AND $_DBC_groupes_spec_propspec_id='".$_POST["suppr_propspec"]."'";
       else
@@ -254,13 +254,13 @@ CeCILL-B, et que vous en avez accepté les termes.
    <?php
       if(isset($ajout) && $ajout==1)
       {
-         titre_page_icone("Créer un groupe de formations", "add_32x32_fond.png", 15, "L");
+         titre_page_icone("CrÃ©er un groupe de formations", "add_32x32_fond.png", 15, "L");
          $ajout=1;
       }
       elseif((isset($_GET["addspec"]) && $_GET["addspec"]==1)
             && (isset($_GET["groupe"]) || (isset($_GET["groupe"]) && $_GET["groupe"]==0) && ctype_digit($_GET["groupe"]))
             && (isset($_GET["annee"]) || (isset($_GET["annee"]) && $_GET["annee"]==0) && ctype_digit($_GET["annee"])))
-         titre_page_icone("Ajouter une formation à un groupe", "edit_32x32_fond.png", 15, "L");
+         titre_page_icone("Ajouter une formation Ã  un groupe", "edit_32x32_fond.png", 15, "L");
       elseif((isset($_GET["supgrp"]) || (isset($_GET["supgrp"]) && $_GET["supgrp"]==0)) && ctype_digit($_GET["supgrp"]))
          titre_page_icone("Supprimer un groupe de formations", "trashcan_full_32x32_slick_fond.png", 15, "L");
       elseif((isset($_GET["supspec"]) || (isset($_GET["supspec"]) && $_GET["supspec"]==0)) && ctype_digit($_GET["supspec"])
@@ -268,26 +268,26 @@ CeCILL-B, et que vous en avez accepté les termes.
          titre_page_icone("Sortir une formation d'un groupe", "trashcan_full_32x32_slick_fond.png", 15, "L");
       elseif(isset($mod) && $mod==1 && ((isset($groupe) && ctype_digit($groupe)) || (isset($_GET["groupe"]) && ctype_digit($_GET["groupe"]))))
       {
-         titre_page_icone("Modifier les propriétés d'un groupe", "edit_32x32_fond.png", 15, "L");
+         titre_page_icone("Modifier les propriÃ©tÃ©s d'un groupe", "edit_32x32_fond.png", 15, "L");
          $mod=1;
       }
       else
-         titre_page_icone("Formations à choix multiples", "liste_32x32_fond.png", 15, "L");
+         titre_page_icone("Formations Ã  choix multiples", "liste_32x32_fond.png", 15, "L");
 
       if(isset($succes) && $succes==1)
-         message("Option validée", $__SUCCES);
+         message("Option validÃ©e", $__SUCCES);
 
       if(isset($formation_vide))
-         message("Erreur : vous devez choisir une formation à ajouter au groupe", $__ERREUR);
+         message("Erreur : vous devez choisir une formation Ã  ajouter au groupe", $__ERREUR);
          
       if(isset($nom_vide))
-         message("Erreur : le nom du groupe ne doit pas être vide", $__ERREUR);
+         message("Erreur : le nom du groupe ne doit pas Ãªtre vide", $__ERREUR);
 
       if(isset($nom_existe))
-         message("Erreur : un groupe possédant ce nom existe déjà", $__ERREUR);
+         message("Erreur : un groupe possÃ©dant ce nom existe dÃ©jÃ ", $__ERREUR);
 
       if(isset($groupe_existe_deja))
-         message("Erreur : cette formation appartient déjà à un groupe !", $__ERREUR);
+         message("Erreur : cette formation appartient dÃ©jÃ  Ã  un groupe !", $__ERREUR);
 
       if(isset($groupe_existe_pas) || (isset($groupe_existe_pas) && $groupe_existe_pas==0))
          message("Erreur : le groupe #$groupe_existe_pas n'existe pas.", $__ERREUR);
@@ -299,7 +299,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          //         CREATION D'UN GROUPE
          // =================================
 
-         message("Les candidatures existantes ne seront pas affectées par l'ajout d'un groupe.", $__INFO);
+         message("Les candidatures existantes ne seront pas affectÃ©es par l'ajout d'un groupe.", $__INFO);
 
          print("<form action='$php_self' method='POST' name='form1'>\n");
          
@@ -360,7 +360,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <!--
       <tr>
          <td class='td-gauche fond_menu2'>
-            <font class='Texte_menu2'><b>Dates de sessions communes à toutes<br />les formations du groupe ?</b></font>
+            <font class='Texte_menu2'><b>Dates de sessions communes Ã  toutes<br />les formations du groupe ?</b></font>
          </td>
          <td class='td-droite fond_menu'>
             <font class='Texte'>
@@ -372,7 +372,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       -->
       <tr>
          <td class='td-gauche fond_menu2'>
-            <font class='Texte_menu2'><b>Formation à ajouter au nouveau groupe</b></font>
+            <font class='Texte_menu2'><b>Formation Ã  ajouter au nouveau groupe</b></font>
          </td>
          <td class='td-droite fond_menu'>
             <select size="1" name="selection">
@@ -388,10 +388,10 @@ CeCILL-B, et que vous en avez accepté les termes.
                                           ORDER BY $_DBC_annees_ordre, $_DBC_specs_nom, $_DBC_propspec_finalite");
                   $rows=db_num_rows($result);
 
-                  $prev_annee="--"; // variable initialisée à n'importe quoi
+                  $prev_annee="--"; // variable initialisÃ©e Ã  n'importe quoi
 
-                  // TODO : dans la base compeda, revoir l'utilisation de la table annee (intégration de annees.id dans
-                  // proprietes_specialites, par exemple) et répercuter les changements ici
+                  // TODO : dans la base compeda, revoir l'utilisation de la table annee (intÃ©gration de annees.id dans
+                  // proprietes_specialites, par exemple) et rÃ©percuter les changements ici
                   for($i=0; $i<$rows; $i++)
                   {
                      list($cur_annee, $spec_nom, $cur_propspec_id, $finalite)=db_fetch_row($result,$i);
@@ -405,7 +405,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                                     <option value='' label='' disabled></option>\n");
 
                         if(empty($cur_annee))
-                           $annee_nom="Années particulières";
+                           $annee_nom="AnnÃ©es particuliÃ¨res";
                         else
                            $annee_nom="$cur_annee";
 
@@ -430,7 +430,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
       <div class='centered_icons_box'>
          <a href='groupes_formations.php' target='_self' class='lien2'><img src='<?php echo "$__ICON_DIR/button_cancel_32x32_fond.png"; ?>' alt='Retour' border='0'></a>
-         <input type="image" src="<?php echo "$__ICON_DIR/button_ok_32x32_fond.png"; ?>" alt="Créer" name="creer" value="Créer">
+         <input type="image" src="<?php echo "$__ICON_DIR/button_ok_32x32_fond.png"; ?>" alt="CrÃ©er" name="creer" value="CrÃ©er">
          </form>
       </div>
 
@@ -442,7 +442,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          //         MODIFICATION DES PROPRIETES D'UN GROUPE
          // =======================================================
 
-         message("Les candidatures existantes ne seront pas affectées par les modifications validées.", $__WARNING);
+         message("Les candidatures existantes ne seront pas affectÃ©es par les modifications validÃ©es.", $__WARNING);
 
          if(isset($_GET["groupe"]))
             $groupe=$_GET["groupe"];
@@ -459,7 +459,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          $rows=db_num_rows($result);
       
          if(!$rows)
-            message("Erreur : le groupe passé en paramètre n'existe pas.", $__ERREUR);
+            message("Erreur : le groupe passÃ© en paramÃ¨tre n'existe pas.", $__ERREUR);
          else
          {
             list($current_auto, $current_nom_groupe, $current_dates_communes)=db_fetch_row($result, 0);
@@ -530,7 +530,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          <!--
          <tr>
          <td class='td-gauche fond_menu2'>
-            <font class='Texte_menu2'><b>Dates de sessions communes à toutes<br />les formations du groupe ?</b></font>
+            <font class='Texte_menu2'><b>Dates de sessions communes Ã  toutes<br />les formations du groupe ?</b></font>
          </td>
          <td class='td-droite fond_menu'>
             <font class='Texte'>
@@ -570,16 +570,16 @@ CeCILL-B, et que vous en avez accepté les termes.
       <table align='center'>
       <tr>
          <td class='td-gauche fond_menu2'>
-            <font class='Texte_menu2'><b>Formation à ajouter au groupe</b></font>
+            <font class='Texte_menu2'><b>Formation Ã  ajouter au groupe</b></font>
          </td>
          <td class='td-droite fond_menu'>
             <select size="1" name="selection">
                <option value=""></option>
                <?php
                   // requete :
-                  // - sélection des spécialités disponibles dans la même année
-                  // - les spécialités ne sont pas encore dans le groupe (évite l'ajout de doublons)
-                  // TODO : généraliser ces requêtes (exemple : ajout d'inscriptions)
+                  // - sÃ©lection des spÃ©cialitÃ©s disponibles dans la mÃªme annÃ©e
+                  // - les spÃ©cialitÃ©s ne sont pas encore dans le groupe (Ã©vite l'ajout de doublons)
+                  // TODO : gÃ©nÃ©raliser ces requÃªtes (exemple : ajout d'inscriptions)
 
                   $result=db_query($dbr,"SELECT $_DBC_annees_annee, $_DBC_specs_nom, $_DBC_propspec_id, $_DBC_propspec_finalite
                                              FROM $_DB_propspec, $_DB_specs, $_DB_annees
@@ -591,14 +591,14 @@ CeCILL-B, et que vous en avez accepté les termes.
                                           AND $_DBC_propspec_id NOT IN (SELECT $_DBC_groupes_spec_propspec_id
                                                                         FROM $_DB_groupes_spec)
                                              ORDER BY $_DBC_annees_ordre, $_DBC_specs_nom, $_DBC_propspec_finalite");
-                  // normalement $rows est positif, sinon on n'aurait même pas du arriver là (lien désactivé si aucune formation disponible)
-                  // TODO : généraliser aussi la désactivation des liens
+                  // normalement $rows est positif, sinon on n'aurait mÃªme pas du arriver lÃ  (lien dÃ©sactivÃ© si aucune formation disponible)
+                  // TODO : gÃ©nÃ©raliser aussi la dÃ©sactivation des liens
                   $rows=db_num_rows($result);
 
-                  $prev_annee="--"; // variable initialisée à n'importe quoi
+                  $prev_annee="--"; // variable initialisÃ©e Ã  n'importe quoi
 
-                  // TODO : dans la base compeda, revoir l'utilisation de la table annee (intégration de annees.id dans
-                  // proprietes_specialites, par exemple) et répercuter les changements ici
+                  // TODO : dans la base compeda, revoir l'utilisation de la table annee (intÃ©gration de annees.id dans
+                  // proprietes_specialites, par exemple) et rÃ©percuter les changements ici
                   for($i=0; $i<$rows; $i++)
                   {
                      list($cur_annee, $spec_nom, $cur_propspec_id, $finalite)=db_fetch_row($result,$i);
@@ -612,7 +612,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                                     <option value='' label='' disabled></option>\n");
 
                         if(empty($cur_annee))
-                           $annee_nom="Années particulières";
+                           $annee_nom="AnnÃ©es particuliÃ¨res";
                         else
                            $annee_nom="$cur_annee";
 
@@ -650,28 +650,28 @@ CeCILL-B, et que vous en avez accepté les termes.
          // ==============================================
          
          message("<center>
-                     Les candidatures existantes ne seront pas affectées par la suppression d'un groupe.
-                     <br>La suppression n'affecte que le groupe, les formations qu'il contient ne sont pas concernées.
+                     Les candidatures existantes ne seront pas affectÃ©es par la suppression d'un groupe.
+                     <br>La suppression n'affecte que le groupe, les formations qu'il contient ne sont pas concernÃ©es.
                   </center>", $__INFO);
 
          print("<form action='$php_self' method='POST' name='form1'>\n");
 
          $suppr_groupe=$_GET["supgrp"];
 
-         // vérification de l'existence du groupe
+         // vÃ©rification de l'existence du groupe
 
          $result=db_query($dbr,"SELECT * FROM $_DB_groupes_spec WHERE $_DBC_groupes_spec_groupe='$suppr_groupe'");
          if(db_num_rows($result)) // le groupe existe
          {
             db_free_result($result);
 
-            // On vérifie que le groupe n'est pas utilisé dans une candidature et on affiche un avertissement au cas où
+            // On vÃ©rifie que le groupe n'est pas utilisÃ© dans une candidature et on affiche un avertissement au cas oÃ¹
             if(db_num_rows(db_query($dbr,"SELECT * FROM $_DB_cand WHERE $_DBC_cand_periode='$__PERIODE' AND $_DBC_cand_groupe_spec='$suppr_groupe'")))
-               $remarque="<br>(Remarque : ce groupe est utilisé dans plusieurs candidatures existantes)";
+               $remarque="<br>(Remarque : ce groupe est utilisÃ© dans plusieurs candidatures existantes)";
             else
-               $remarque="<br>(Remarque : ce groupe n'est pas utilisé dans les candidatures existantes)";
+               $remarque="<br>(Remarque : ce groupe n'est pas utilisÃ© dans les candidatures existantes)";
 
-            message("<center>Etes-vous sûr(e) de vouloir supprimer ce groupe de formations ?
+            message("<center>Etes-vous sÃ»r(e) de vouloir supprimer ce groupe de formations ?
                      $remarque</center>", $__QUESTION);
 
             print("</font>
@@ -683,7 +683,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                      </form>
                   </div>\n");
          }
-         else // ne devrait jamais arriver, mais par précaution ...
+         else // ne devrait jamais arriver, mais par prÃ©caution ...
          {
             db_free_result($result);
             $groupe_existe_pas=$suppr_groupe;
@@ -700,11 +700,11 @@ CeCILL-B, et que vous en avez accepté les termes.
          $groupe=$_GET["groupe"];
          $spec=$_GET["supspec"];
 
-         message("Les candidatures existantes ne seront pas affectées par cette suppression", $__INFO);
+         message("Les candidatures existantes ne seront pas affectÃ©es par cette suppression", $__INFO);
 
          print("<form action='$php_self' method='POST' name='form1'>\n");
 
-         // vérification de l'existence du groupe
+         // vÃ©rification de l'existence du groupe
 
          $result=db_query($dbr,"SELECT count(*) FROM $_DB_groupes_spec WHERE $_DBC_groupes_spec_groupe='$groupe'");
          list($count)=db_fetch_row($result,0);
@@ -715,18 +715,18 @@ CeCILL-B, et que vous en avez accepté les termes.
 
             if($count==1)
             {
-               // On vérifie que le groupe n'est pas utilisé dans une inscription et on affiche un avertissement au cas où
+               // On vÃ©rifie que le groupe n'est pas utilisÃ© dans une inscription et on affiche un avertissement au cas oÃ¹
 
                if(db_num_rows(db_query($dbr,"SELECT * FROM $_DB_cand WHERE $_DBC_cand_periode='$__PERIODE' AND $_DBC_cand_groupe_spec='$groupe'")))
-                  $remarque="(Remarque : ce groupe est utilisé par plusieurs candidatures existantes)";
+                  $remarque="(Remarque : ce groupe est utilisÃ© par plusieurs candidatures existantes)";
                else
-                  $remarque="(Remarque : ce groupe n'est utilisé dans aucune candidature existante)";
+                  $remarque="(Remarque : ce groupe n'est utilisÃ© dans aucune candidature existante)";
 
-               message("<center>Attention : la suppression de cette formation entraînera la suppression du groupe !
+               message("<center>Attention : la suppression de cette formation entraÃ®nera la suppression du groupe !
                         $remarque</center>", $__WARNING);
             }
 
-            message("Etes-vous sûr(e) de vouloir sortir cette formation de ce groupe ?", $__QUESTION);
+            message("Etes-vous sÃ»r(e) de vouloir sortir cette formation de ce groupe ?", $__QUESTION);
 
             print("<input type='hidden' name='suppr_propspec' value='$spec'>
                    <input type='hidden' name='suppr_groupe' value='$groupe'>
@@ -737,7 +737,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                      </form>
                   </div>\n");
          }
-         else // ne devrait jamais arriver, mais par précaution ...
+         else // ne devrait jamais arriver, mais par prÃ©caution ...
          {
             db_free_result($result);
             $groupe_existe_pas=$groupe;
@@ -746,7 +746,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       else
       {
          // ==============================================
-         //   LISTE DES GROUPES EXISTANTS (menu par défaut)
+         //   LISTE DES GROUPES EXISTANTS (menu par dÃ©faut)
          // ==============================================
 
          $result=db_query($dbr,"SELECT $_DBC_propspec_id, $_DBC_annees_id, $_DBC_annees_annee, $_DBC_specs_nom, $_DBC_specs_mention_id,
@@ -765,7 +765,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          {
             print("<table cellpadding='4' cellspacing='0' border='0' align='center'>");
       
-            // initialisation pour repérer les changements
+            // initialisation pour repÃ©rer les changements
             $old_groupe=-1;
             $old_annee=-1;
       
@@ -780,7 +780,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                else
                   $nom_groupe="\"$nom_groupe\"";
 
-               // noms de l'année et de la spécialité
+               // noms de l'annÃ©e et de la spÃ©cialitÃ©
                if($annee_id!=$old_annee)
                   $old_annee=$annee_id;
          
@@ -791,7 +791,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                               <td height='20' class='fond_page'></td>
                            </tr>\n");
 
-                  // pour savoir si on peut ajouter une spécialité à ce groupe
+                  // pour savoir si on peut ajouter une spÃ©cialitÃ© Ã  ce groupe
                   $result3=db_query($dbr,"SELECT count(*) FROM $_DB_propspec, $_DB_specs
                                              WHERE $_DBC_propspec_annee='$annee_id'
                                           AND $_DBC_specs_id=$_DBC_propspec_id_spec
@@ -805,13 +805,13 @@ CeCILL-B, et que vous en avez accepté les termes.
                   db_free_result($result3);
 
                   if($count)
-                     $ajout_spec="<a href='$php_self?addspec=1&groupe=$groupe&annee=$annee_id' target='_self' class='lien_menu_gauche'>Ajouter une formation à ce groupe</a>";
+                     $ajout_spec="<a href='$php_self?addspec=1&groupe=$groupe&annee=$annee_id' target='_self' class='lien_menu_gauche'>Ajouter une formation Ã  ce groupe</a>";
                   else
-                     $ajout_spec="<font class='Texte_menu2'><i>Aucune formation supplémentaire disponible pour ce groupe</i></font>";
+                     $ajout_spec="<font class='Texte_menu2'><i>Aucune formation supplÃ©mentaire disponible pour ce groupe</i></font>";
 
                   if(isset($auto) && $auto=="t")
                   {
-                    $auto="Candidature : ajout automatique de toutes les formations : <strong>activé</strong>";
+                    $auto="Candidature : ajout automatique de toutes les formations : <strong>activÃ©</strong>";
                   /*
                     $yes_checked="checked='1'";
                     $no_checked="";
@@ -819,7 +819,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                   }
                   else
                   {
-                    $auto="Candidature : ajout automatique de toutes les formations : <strong>désactivé</strong>";
+                    $auto="Candidature : ajout automatique de toutes les formations : <strong>dÃ©sactivÃ©</strong>";
                     /*
                     $auto="f";
                     $no_checked="checked='1'";
@@ -839,7 +839,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                               <a href='$php_self?supgrp=$groupe' target='_self' class='lien_menu_gauche'><img src='$__ICON_DIR/trashcan_full_16x16_slick_menu2.png' alt='Supprimer' width='16' height='16' border='0'></a>
                            </td>
                            <td class='fond_menu2' nowrap='true' valign='middle' colspan='2'>
-                              <a href='$php_self?mod=1&groupe=$groupe' target='_self' class='lien_menu_gauche'>Groupe $nom_groupe - Année : $nom_annee</a>
+                              <a href='$php_self?mod=1&groupe=$groupe' target='_self' class='lien_menu_gauche'>Groupe $nom_groupe - AnnÃ©e : $nom_annee</a>
                            </td>
                            <td class='fond_menu2' align='right' nowrap='true' valign='middle'>$ajout_spec</td>
                         </tr>
@@ -883,13 +883,13 @@ CeCILL-B, et que vous en avez accepté les termes.
          else
          {
             print("<div class='centered_box'>
-                     <font class='Texte3'><strong>Aucun groupe défini.</strong></font>
+                     <font class='Texte3'><strong>Aucun groupe dÃ©fini.</strong></font>
                    </div>");
          }
       
          print("<div class='centered_icons_box'>
                   <a href='index.php?ajout=1' class='lien_bleu'><img src='$__ICON_DIR/back_32x32_fond.png' border='0' alt='Retour au menu Configuration'></a>
-                  <a href='$php_self?ajout=1' class='lien_bleu'><img src='$__ICON_DIR/add_32x32_fond.png' border='0' alt='Créer un groupe de formations'></a>
+                  <a href='$php_self?ajout=1' class='lien_bleu'><img src='$__ICON_DIR/add_32x32_fond.png' border='0' alt='CrÃ©er un groupe de formations'></a>
                 </div>\n");
       
          db_free_result($result);

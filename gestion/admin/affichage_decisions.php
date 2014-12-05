@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright UniversitÈ de Strasbourg
+Copyright Universit√© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des ÈlÈments Ècrits par des tiers, placÈs sous les licences suivantes :
+L'application utilise des √©l√©ments √©crits par des tiers, plac√©s sous les licences suivantes :
 
-IcÙnes :
+Ic√¥nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant ‡ des candidats de dÈposer un ou plusieurs
-dossiers de candidatures dans une universitÈ, et aux gestionnaires de cette derniËre de traiter ces
+Ce logiciel est un programme informatique permettant √† des candidats de d√©poser un ou plusieurs
+dossiers de candidatures dans une universit√©, et aux gestionnaires de cette derni√®re de traiter ces
 demandes.
 
-Ce logiciel est rÈgi par la licence CeCILL-B soumise au droit franÁais et respectant les principes de
+Ce logiciel est r√©gi par la licence CeCILL-B soumise au droit fran√ßais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusÈe par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffus√©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilitÈ au code source et des droits de copie, de modification et de
-redistribution accordÈs par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÈe.
-Pour les mÍmes raisons, seule une responsabilitÈ restreinte pËse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concÈdants successifs.
+En contrepartie de l'accessibilit√© au code source et des droits de copie, de modification et de
+redistribution accord√©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limit√©e.
+Pour les m√™mes raisons, seule une responsabilit√© restreinte p√®se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les conc√©dants successifs.
 
-A cet Ègard l'attention de l'utilisateur est attirÈe sur les risques associÈs au chargement, ‡
-l'utilisation, ‡ la modification et/ou au dÈveloppement et ‡ la reproduction du logiciel par l'utilisateur
-Ètant donnÈ sa spÈcificitÈ de logiciel libre, qui peut le rendre complexe ‡ manipuler et qui le rÈserve
-donc ‡ des dÈveloppeurs et des professionnels avertis possÈdant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invitÈs ‡ charger et tester l'adÈquation du logiciel ‡ leurs
-besoins dans des conditions permettant d'assurer la sÈcuritÈ de leurs systËmes et ou de leurs donnÈes et,
-plus gÈnÈralement, ‡ l'utiliser et l'exploiter dans les mÍmes conditions de sÈcuritÈ.
+A cet √©gard l'attention de l'utilisateur est attir√©e sur les risques associ√©s au chargement, √†
+l'utilisation, √† la modification et/ou au d√©veloppement et √† la reproduction du logiciel par l'utilisateur
+√©tant donn√© sa sp√©cificit√© de logiciel libre, qui peut le rendre complexe √† manipuler et qui le r√©serve
+donc √† des d√©veloppeurs et des professionnels avertis poss√©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invit√©s √† charger et tester l'ad√©quation du logiciel √† leurs
+besoins dans des conditions permettant d'assurer la s√©curit√© de leurs syst√®mes et ou de leurs donn√©es et,
+plus g√©n√©ralement, √† l'utiliser et l'exploiter dans les m√™mes conditions de s√©curit√©.
 
-Le fait que vous puissiez accÈder ‡ cet en-tÍte signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez acceptÈ les termes.
+Le fait que vous puissiez acc√©der √† cet en-t√™te signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez accept√© les termes.
 
 =======================================================================================================
 */
@@ -96,7 +96,7 @@ CeCILL-B, et que vous en avez acceptÈ les termes.
 	{
 		foreach($_POST["formations"] as $propspec_id => $nouveau_statut)
 		{
-			if($nouveau_statut==0 || $nouveau_statut==1 || $nouveau_statut==2) // DÈcisions masquÈes / publiÈes / publiÈes avec courriers
+			if($nouveau_statut==0 || $nouveau_statut==1 || $nouveau_statut==2) // D√©cisions masqu√©es / publi√©es / publi√©es avec courriers
 				db_query($dbr, "UPDATE $_DB_propspec SET $_DBU_propspec_affichage_decisions='$nouveau_statut' WHERE $_DBU_propspec_id='$propspec_id'");
 		}
 
@@ -105,10 +105,10 @@ CeCILL-B, et que vous en avez acceptÈ les termes.
 	
 	if((isset($succes) && $succes!=3) || isset($_POST["envoyer_tout"]))
 	{
-      // Si on a publiÈ des dÈcisions et que la composante est configurÈe pour envoyer des notifications, on propose d'envoyer toutes celles en attente
+      // Si on a publi√© des d√©cisions et que la composante est configur√©e pour envoyer des notifications, on propose d'envoyer toutes celles en attente
       if(isset($_SESSION["avertir_decision"]) && $_SESSION["avertir_decision"]==1 && !isset($_POST["masquer_tout"]))
       {
-         if(isset($_POST["formations"]) && count($_POST["formations"])) // Liste des formations concernÈes
+         if(isset($_POST["formations"]) && count($_POST["formations"])) // Liste des formations concern√©es
          {
             $liste_formations="";
                
@@ -124,7 +124,7 @@ CeCILL-B, et que vous en avez acceptÈ les termes.
          elseif(isset($_POST["publier_tout"]) || isset($_POST["publier_lettres"]) || isset($_POST["envoyer_tout"])) // toutes les formations
             $requete_formations="";
 
-         // SÈlection des candidatures concernÈes
+         // S√©lection des candidatures concern√©es
          $res_formations=db_query($dbr, "SELECT $_DBC_cand_id, $_DBC_candidat_id, $_DBC_candidat_civilite, $_DBC_candidat_nom, $_DBC_candidat_prenom, $_DBC_candidat_email,
                                                 $_DBC_annees_annee, $_DBC_specs_nom, $_DBC_propspec_finalite
                                          FROM $_DB_cand, $_DB_propspec, $_DB_candidat, $_DB_annees, $_DB_specs
@@ -169,14 +169,14 @@ CeCILL-B, et que vous en avez acceptÈ les termes.
    {
       foreach($_SESSION["tab_envoyer_notifications"] as $cand_id => $cand_array)
       {   
-         // TODO : Message ‡ mettre dans la base de donnÈes avec les macros adÈquates
+         // TODO : Message √† mettre dans la base de donn√©es avec les macros ad√©quates
       
          $message="Bonjour,\n
-La Commission PÈdagogique a rendu une dÈcision pour votre candidature ‡ la formation suivante : \n
+La Commission P√©dagogique a rendu une d√©cision pour votre candidature √† la formation suivante : \n
 [gras]$cand_array[nom_complet][/gras]\n
-Pour consulter cette dÈcision : 
-- sÈlectionnez si besoin l'Ètablissement adÈquat (menu \"Choisir une autre composante\")
-- dans votre fiche, rendez vous dans le menu \"PrÈcandidatures\".
+Pour consulter cette d√©cision : 
+- s√©lectionnez si besoin l'√©tablissement ad√©quat (menu \"Choisir une autre composante\")
+- dans votre fiche, rendez vous dans le menu \"Pr√©candidatures\".
 
 Cordialement,\n\n
 --
@@ -190,9 +190,9 @@ $_SESSION[universite]";
                                         "prenom" => $cand_array["prenom"],
                                         "email"  => $cand_array["email"]));
 
-         write_msg("", array("id" => "0", "nom" => "SystËme", "prenom" => ""), $dest_array, "$_SESSION[composante] - DÈcision", $message, $cand_array["nom"]." ".$cand_array["prenom"]);
+         write_msg("", array("id" => "0", "nom" => "Syst√®me", "prenom" => ""), $dest_array, "$_SESSION[composante] - D√©cision", $message, $cand_array["nom"]." ".$cand_array["prenom"]);
          
-         write_evt($dbr, $__EVT_ID_G_PREC, "Notification de dÈcision envoyÈe", $cand_array["candidat_id"], $cand_id);
+         write_evt($dbr, $__EVT_ID_G_PREC, "Notification de d√©cision envoy√©e", $cand_array["candidat_id"], $cand_id);
                
          db_query($dbr,"UPDATE $_DB_cand SET $_DBU_cand_notification_envoyee='1' WHERE $_DBU_cand_id='$cand_id'");
       }   
@@ -211,22 +211,22 @@ $_SESSION[universite]";
 
 <div class='main'>
 	<?php
-		titre_page_icone("Commissions PÈdagogiques : affichage des dÈcisions", "ksysv_32x32_fond.png", 15, "L");
+		titre_page_icone("Commissions P√©dagogiques : affichage des d√©cisions", "ksysv_32x32_fond.png", 15, "L");
 
 		if(isset($succes))
 		{
 		   switch($succes)
 		   {		   
-		      case 1 : message("Les dÈcisions sont maintenant <strong>publiÈes</strong> (lettres non accessibles).", $__SUCCES);
+		      case 1 : message("Les d√©cisions sont maintenant <strong>publi√©es</strong> (lettres non accessibles).", $__SUCCES);
 		               break;
 		      
-		      case 2 : message("Les dÈcisions sont maintenant <strong>publiÈes</strong> et les lettres sont <strong>accessibles aux candidats</strong>.", $__SUCCES);
+		      case 2 : message("Les d√©cisions sont maintenant <strong>publi√©es</strong> et les lettres sont <strong>accessibles aux candidats</strong>.", $__SUCCES);
 		               break;
 		      
-		      case 3 : message("Les dÈcisions sont maintenant <strong>masquÈes</strong>.", $__SUCCES);
+		      case 3 : message("Les d√©cisions sont maintenant <strong>masqu√©es</strong>.", $__SUCCES);
 		               break;
 		      
-		      case 4 : message("ParamËtres des formations validÈs avec succËs.", $__SUCCES);
+		      case 4 : message("Param√®tres des formations valid√©s avec succ√®s.", $__SUCCES);
 		               break;
          }
       }
@@ -245,33 +245,33 @@ $_SESSION[universite]";
             $x="x";
          }
                
-         message("Il y a <strong>$num_formations dÈcision$s</strong> en attente de notification au$x candidat$s concernÈ$s (aucun message n'a encore ÈtÈ envoyÈ).
-                  <br><br><center><strong>Souhaitez-vous envoyer $ce message$s immÈdiatement ?</strong></center>
+         message("Il y a <strong>$num_formations d√©cision$s</strong> en attente de notification au$x candidat$s concern√©$s (aucun message n'a encore √©t√© envoy√©).
+                  <br><br><center><strong>Souhaitez-vous envoyer $ce message$s imm√©diatement ?</strong></center>
                   <br><strong>Important :</strong>
-                  <br>- vous pouvez dÈclencher cet envoi ‡ tout moment en cliquant sur \"Envoyer les notifications ...\" sur l'Ècran prÈcÈdent ;
-                  <br>- en fonction du nombre de notifications, les envois peuvent prendre plusieurs minutes. En cas de validation, merci de <strong>patienter</strong> jusqu'au retour ‡ l'Ècran prÈcÈdent ;
-                  <br>- les messages automatiques ne <strong>contiennent pas</strong> les dÈcisions, seul un message standard est envoyÈ ;
-                  <br>- conformÈment ‡ la configuration de l'Ètablissement, les futures dÈcisions seront <strong>automatiquement notifiÈes</strong> si les dÈcisions sont en mode \"publiÈes\".", $__QUESTION);
+                  <br>- vous pouvez d√©clencher cet envoi √† tout moment en cliquant sur \"Envoyer les notifications ...\" sur l'√©cran pr√©c√©dent ;
+                  <br>- en fonction du nombre de notifications, les envois peuvent prendre plusieurs minutes. En cas de validation, merci de <strong>patienter</strong> jusqu'au retour √† l'√©cran pr√©c√©dent ;
+                  <br>- les messages automatiques ne <strong>contiennent pas</strong> les d√©cisions, seul un message standard est envoy√© ;
+                  <br>- conform√©ment √† la configuration de l'√©tablissement, les futures d√©cisions seront <strong>automatiquement notifi√©es</strong> si les d√©cisions sont en mode \"publi√©es\".", $__QUESTION);
                         
          print("<form action='$php_self' method='POST' name='form2'>
                 
                 <div class='centered_box'>
                    <input type='submit' alt='Ne pas envoyer les messages' name='aucun_envoi' value='Je ne souhaite PAS envoyer les messages'>
-                   <input type='submit' alt='Envoyer les messages' name='envoyer' value='Oui : envoyer les messages immÈdiatement'>
+                   <input type='submit' alt='Envoyer les messages' name='envoyer' value='Oui : envoyer les messages imm√©diatement'>
                 </div>
    	          </form>\n");                        
       }      
       else
       {
          if(isset($aucun_message))
-            message("Les messages de notification n'ont pas ÈtÈ envoyÈs", $__INFO);
+            message("Les messages de notification n'ont pas √©t√© envoy√©s", $__INFO);
          elseif(isset($count_envoyes))
-            message("$count_envoyes message(s) de notification envoyÈ(s).", $__INFO);
+            message("$count_envoyes message(s) de notification envoy√©(s).", $__INFO);
       
-		message("1/ Seules les dÈcisions publiÈes sont visibles par les candidats. Les dÈcisions prises <b>aprËs</b> publication seront automatiquement publiÈes.
-					<br>2/ En cas de sÈlection individuelle des formations, n'oubliez pas de <b>valider les modifications</b> gr‚ce ‡ l'icÙne situÈe sous les tableaux.", $__INFO);
+		message("1/ Seules les d√©cisions publi√©es sont visibles par les candidats. Les d√©cisions prises <b>apr√®s</b> publication seront automatiquement publi√©es.
+					<br>2/ En cas de s√©lection individuelle des formations, n'oubliez pas de <b>valider les modifications</b> gr√¢ce √† l'ic√¥ne situ√©e sous les tableaux.", $__INFO);
 
-		// Option particuliËre pour l'envoi des messages de notification
+		// Option particuli√®re pour l'envoi des messages de notification
 		if(isset($_SESSION["avertir_decision"]) && $_SESSION["avertir_decision"]==1 && 
 		   $count_envois=db_num_rows(db_query($dbr, "SELECT * FROM $_DB_cand,$_DB_propspec WHERE $_DBC_propspec_id=$_DBC_cand_propspec_id 
 		                                                                                   AND $_DBC_cand_periode='$__PERIODE' 
@@ -295,18 +295,18 @@ $_SESSION[universite]";
 					<table cellpadding='0' cellspacing='0' border='0' align='center'>
 					<tr>
 						<td class='fond_menu2' colspan='3' align='center' style='padding:4px 10px 4px 10px; border-style:solid; border-color:black; border-width:1px 1px 0px 1px;'>
-							<font class='Texte_menu2'><b>Options spÈciales (‡ effet immÈdiat)</b></font>
+							<font class='Texte_menu2'><b>Options sp√©ciales (√† effet imm√©diat)</b></font>
 						</td>
 					</tr>
 					<tr>
 						<td class='fond_menu2' align='center' width='33%' style='padding:4px 10px 4px 10px; border-style:solid; border-width:0px 0px $bottom_border 1px;'>
-						   <input type='submit' name='masquer_tout' value='Masquer toutes les dÈcisions'>	
+						   <input type='submit' name='masquer_tout' value='Masquer toutes les d√©cisions'>	
 						</td>
 						<td class='fond_menu2' align='center' width='33%' style='padding:4px 10px 4px 10px; border-style:solid; border-width:0px 0px $bottom_border 0px;'>
-                     <input type='submit' name='publier_tout' value='Publier toutes les dÈcisions'>
+                     <input type='submit' name='publier_tout' value='Publier toutes les d√©cisions'>
 						</td>
 						<td class='fond_menu2' align='center' width='34%' style='padding:4px 10px 4px 10px; border-style:solid; border-width:0px 1px $bottom_border 0px;'>
-							<input type='submit' name='publier_lettres' value='Publier les dÈcisions + Lettres accessibles aux candidats'>
+							<input type='submit' name='publier_lettres' value='Publier les d√©cisions + Lettres accessibles aux candidats'>
 						</td>
 					</tr>\n");
 					
@@ -314,7 +314,7 @@ $_SESSION[universite]";
 		{
 		   print("<tr>
 					   <td class='fond_menu2' align='center' colspan='3' style='padding:4px 0px 4px 0px; border-style:solid; border-width:0px 1px 1px 1px;'>
-					      <input type='submit' alt='Envoyer les messages' name='envoyer_tout' value='Envoyer les notifications de prises de dÈcisions aux candidats'>
+					      <input type='submit' alt='Envoyer les messages' name='envoyer_tout' value='Envoyer les notifications de prises de d√©cisions aux candidats'>
 					      <br><font class='Texte'><i>(Il y a $count_envois message(s) en attente)</i></font>
 					   </td>
                </tr>\n");
@@ -338,7 +338,7 @@ $_SESSION[universite]";
 
 		$rows=db_num_rows($result);
 
-		$old_annee_id="===="; // on initialise ‡ n'importe quoi (sauf annÈe existante et valeur vide)
+		$old_annee_id="===="; // on initialise √† n'importe quoi (sauf ann√©e existante et valeur vide)
 		$old_propspec_id="";
 		$old_mention="--";
 
@@ -348,23 +348,23 @@ $_SESSION[universite]";
 
 			$nom_finalite=$tab_finalite[$finalite];
 
-			$annee=$annee=="" ? "AnnÈes particuliËres" : $annee;
+			$annee=$annee=="" ? "Ann√©es particuli√®res" : $annee;
 
 			$masquer_checked=$publier_checked=$publier_lettres_checked="";
 
 			if($affichage_decisions==0)
 			{
-				$statut_actuel="<font class='Texte_important_menu'>MasquÈes</font>";
+				$statut_actuel="<font class='Texte_important_menu'>Masqu√©es</font>";
 				$masquer_checked="checked";
 			}
 			elseif($affichage_decisions==1)
 			{
-            $statut_actuel="<font class='Textevert_menu'>PubliÈes</font>";
+            $statut_actuel="<font class='Textevert_menu'>Publi√©es</font>";
             $publier_checked="checked";
 			}
          elseif($affichage_decisions==2)
          {
-         	$statut_actuel="<font class='Textevert_menu'>PubliÈes et lettres accessibles</font>";
+         	$statut_actuel="<font class='Textevert_menu'>Publi√©es et lettres accessibles</font>";
          	$publier_lettres_checked="checked";
          	
 			}
@@ -387,7 +387,7 @@ $_SESSION[universite]";
 								<font class='Texte_menu2'><b>&#8226;&nbsp;&nbsp;$mention</b></font>
 							</td>
 							<td class='fond_menu2' style='padding:4px 10px 4px 10px; white-space:nowrap;'>
-								<font class='Texte_menu2'><b>Statut actuel des dÈcisions</b></font>
+								<font class='Texte_menu2'><b>Statut actuel des d√©cisions</b></font>
 							</td>
 							<td class='fond_menu2' colspan='6' style='padding:4px 10px 4px 10px; white-space:nowrap; border-style:solid; border-width:0px 1px 0px 0px;'>
 								<font class='Texte_menu2'><b>Nouveau statut</b></font>

@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -69,38 +69,38 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 <div class='main'>
 	<?php
-		titre_page_icone("[Aide] Création manuelle d'une fiche candidat", "help-browser_32x32_fond.png", 15, "L");
+		titre_page_icone("[Aide] CrÃ©ation manuelle d'une fiche candidat", "help-browser_32x32_fond.png", 15, "L");
 	?>
 
 	<div style='margin-left:auto; margin-right:auto; padding-bottom:20px; width:90%; text-align:justify;'>
 		<font class='Texte_16'><u><b>Fonction principale</b></u></font>
 		<p class='Texte'>
-			<b>Ajouter un candidat dans la base de données pour traiter ses candidatures</b>
+			<b>Ajouter un candidat dans la base de donnÃ©es pour traiter ses candidatures</b>
 		</p>
 		<p class='Texte'>
-			Lorsqu'un candidat n'est pas passé par l'interface et que vous recevez un dossier papier, vous pouvez
-			créer ce candidat dans la base de données afin de traiter ses demandes. On parle alors de <b>Fiche manuelle</b>.
-			Les renseignements demandés sur ce formulaire sont les mêmes que ceux qu'un candidat doit normalement
-			compléter (les champs en rouge sont obligatoires).
+			Lorsqu'un candidat n'est pas passÃ© par l'interface et que vous recevez un dossier papier, vous pouvez
+			crÃ©er ce candidat dans la base de donnÃ©es afin de traiter ses demandes. On parle alors de <b>Fiche manuelle</b>.
+			Les renseignements demandÃ©s sur ce formulaire sont les mÃªmes que ceux qu'un candidat doit normalement
+			complÃ©ter (les champs en rouge sont obligatoires).
 		</p>
 		<p class='Texte'>
-			Une fois la fiche créée, vous devrez ensuite compléter chaque menu composant sa fiche : cursus, langues, informations
-			complémentaires et les formations demandées.
+			Une fois la fiche crÃ©Ã©e, vous devrez ensuite complÃ©ter chaque menu composant sa fiche : cursus, langues, informations
+			complÃ©mentaires et les formations demandÃ©es.
 		</p>
 
 		<p class='Texte' style='padding-bottom:15px;'>
-			Dans les listes de candidats, les fiches manuelles sont identifiées par l'icône suivante : <img style='vertical-align:middle;' src='<?php echo "$__ICON_DIR/contact-new_16x16_fond.png"; ?>' border='0' alt=''>
+			Dans les listes de candidats, les fiches manuelles sont identifiÃ©es par l'icÃ´ne suivante : <img style='vertical-align:middle;' src='<?php echo "$__ICON_DIR/contact-new_16x16_fond.png"; ?>' border='0' alt=''>
 		</p>
 
 		<font class='Texte_16'><u><b>Remarques importantes</b></u></font>
 		<p class='Texte'>
-			<u><b>Adresse électronique</b></u> : si vous créez une fiche manuelle, le candidat ne pourra pas accéder à
-			sa fiche car il n'aura ni identifiant, ni mot de passe. S'il demande à accéder à sa fiche (c'est son droit le
+			<u><b>Adresse Ã©lectronique</b></u> : si vous crÃ©ez une fiche manuelle, le candidat ne pourra pas accÃ©der Ã 
+			sa fiche car il n'aura ni identifiant, ni mot de passe. S'il demande Ã  accÃ©der Ã  sa fiche (c'est son droit le
 			plus strict), vous devez :
 			<ol class='Texte'>
-				<li>renseigner son adresse électronique (soit au moment de la création, soit dans le menu "Mode manuel"
+				<li>renseigner son adresse Ã©lectronique (soit au moment de la crÃ©ation, soit dans le menu "Mode manuel"
 				de sa fiche)</li>
-				<li>dans le menu "Mode manuel", cliquer sur l'icône "Renvoyer les identifiants".</li>
+				<li>dans le menu "Mode manuel", cliquer sur l'icÃ´ne "Renvoyer les identifiants".</li>
 			</ol>
 		</p>
 		<p class='Texte' style='padding-bottom:15px;'>

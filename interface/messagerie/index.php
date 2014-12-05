@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -96,13 +96,13 @@ CeCILL-B, et que vous en avez accepté les termes.
 	elseif(isset($_SESSION["msg_offset"]))
 		$offset=$_SESSION["msg_offset"];
 
-	// Sélection / désélection des messages
+	// SÃ©lection / dÃ©sÃ©lection des messages
 	if(isset($_GET["sa"]) && $_GET["sa"]==1)
 		$checked="checked";
 	elseif((isset($_GET["sa"]) && $_GET["sa"]==0) || !isset($_GET["sa"]))
 		$checked="";
 
-	// Suppression ou déplacement des messages sélectionnés
+	// Suppression ou dÃ©placement des messages sÃ©lectionnÃ©s
 
 	if((isset($_POST["move"]) || isset($_POST["move_x"])) && isset($_SESSION["current_dossier"]) && isset($_POST["newfolder"]) && isset($_POST["selection"]))
 	{
@@ -116,8 +116,8 @@ CeCILL-B, et que vous en avez accepté les termes.
 				{
 					if(FALSE==mkdir("$__CAND_MSG_STOCKAGE_DIR_ABS/$_SESSION[MSG_SOUS_REP]/$_SESSION[authentifie]/$nouveau_dossier", 0770, TRUE))
 					{
-						mail($__EMAIL_ADMIN, "[Précandidatures] - Erreur de création de répertoire", "Répertoire : $__CAND_MSG_STOCKAGE_DIR_ABS/$_SESSION[MSG_SOUS_REP]/$_SESSION[authentifie]/$nouveau_dossier");
-						die("Erreur système lors de la création du dossier destination. Un message a été envoyé à l'administrateur.");
+						mail($__EMAIL_ADMIN, "[PrÃ©candidatures] - Erreur de crÃ©ation de rÃ©pertoire", "RÃ©pertoire : $__CAND_MSG_STOCKAGE_DIR_ABS/$_SESSION[MSG_SOUS_REP]/$_SESSION[authentifie]/$nouveau_dossier");
+						die("Erreur systÃ¨me lors de la crÃ©ation du dossier destination. Un message a Ã©tÃ© envoyÃ© Ã  l'administrateur.");
 					}
 				}
 
@@ -125,7 +125,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 				    && is_dir("$__CAND_MSG_STOCKAGE_DIR_ABS/$_SESSION[MSG_SOUS_REP]/$_SESSION[authentifie]/$nouveau_dossier"))
 					rename("$__CAND_MSG_STOCKAGE_DIR_ABS/$_SESSION[MSG_SOUS_REP]/$_SESSION[authentifie]/$_SESSION[current_dossier]/$filename", "$__CAND_MSG_STOCKAGE_DIR_ABS/$_SESSION[MSG_SOUS_REP]/$_SESSION[authentifie]/$nouveau_dossier/$filename");
 				else
-					mail($__EMAIL_ADMIN, "[Précandidatures] - Erreur de déplacement de message", "Source : $__CAND_MSG_STOCKAGE_DIR_ABS/$_SESSION[MSG_SOUS_REP]/$_SESSION[authentifie]/$_SESSION[current_dossier]/$filename\nDestination : $__CAND_MSG_STOCKAGE_DIR_ABS/$_SESSION[MSG_SOUS_REP]/$_SESSION[authentifie]/$nouveau_dossier/$filename");
+					mail($__EMAIL_ADMIN, "[PrÃ©candidatures] - Erreur de dÃ©placement de message", "Source : $__CAND_MSG_STOCKAGE_DIR_ABS/$_SESSION[MSG_SOUS_REP]/$_SESSION[authentifie]/$_SESSION[current_dossier]/$filename\nDestination : $__CAND_MSG_STOCKAGE_DIR_ABS/$_SESSION[MSG_SOUS_REP]/$_SESSION[authentifie]/$nouveau_dossier/$filename");
 			}
 		}
 	}
@@ -155,7 +155,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		{
 			$points=array(".", "..");
 
-			$del_files=array_diff($del, $points); // suppression des répertoires . et .. de la liste des fichiers à supprimer
+			$del_files=array_diff($del, $points); // suppression des rÃ©pertoires . et .. de la liste des fichiers Ã  supprimer
 			
 			foreach($del_files as $file)
 				@unlink("$__CAND_MSG_STOCKAGE_DIR_ABS/$_SESSION[MSG_SOUS_REP]/$_SESSION[authentifie]/$__MSG_TRASH/$file");
@@ -184,21 +184,21 @@ CeCILL-B, et que vous en avez accepté les termes.
 			titre_page_icone("Messagerie interne", "email_32x32_fond.png", 15, "L");
 
 			if(isset($_GET["sent"]) && $_GET["sent"]==1)
-				message("Votre message a été envoyé.", $__SUCCES);
+				message("Votre message a Ã©tÃ© envoyÃ©.", $__SUCCES);
 
 			if(!is_dir("$__CAND_MSG_STOCKAGE_DIR_ABS/$_SESSION[MSG_SOUS_REP]/$_SESSION[authentifie]/"))
 			{
 				if(FALSE==mkdir("$__CAND_MSG_STOCKAGE_DIR_ABS/$_SESSION[MSG_SOUS_REP]/$_SESSION[authentifie]/$current_dossier", 0770, TRUE))
 				{
-					mail($__EMAIL_ADMIN, "[Précandidatures] - Erreur de création de répertoire", "Répertoire : $__CAND_MSG_STOCKAGE_DIR_ABS/$_SESSION[MSG_SOUS_REP]/$_SESSION[authentifie]/$current_dossier\n\nUtilisateur : $_SESSION[nom] $_SESSION[prenom]");
+					mail($__EMAIL_ADMIN, "[PrÃ©candidatures] - Erreur de crÃ©ation de rÃ©pertoire", "RÃ©pertoire : $__CAND_MSG_STOCKAGE_DIR_ABS/$_SESSION[MSG_SOUS_REP]/$_SESSION[authentifie]/$current_dossier\n\nUtilisateur : $_SESSION[nom] $_SESSION[prenom]");
 
-					die("Erreur système lors de la création de votre répertoire personnel. Un message a été envoyé à l'administrateur.");
+					die("Erreur systÃ¨me lors de la crÃ©ation de votre rÃ©pertoire personnel. Un message a Ã©tÃ© envoyÃ© Ã  l'administrateur.");
 				}
 			}
 
 			$_SESSION["contenu_repertoire"] = scandir("$__CAND_MSG_STOCKAGE_DIR_ABS/$_SESSION[MSG_SOUS_REP]/$_SESSION[authentifie]/$current_dossier", 1);
 
-			// 3 éléments à ne pas inclure dans la recherche : ".", "..", et "index.php"
+			// 3 Ã©lÃ©ments Ã  ne pas inclure dans la recherche : ".", "..", et "index.php"
 			if(FALSE!==($key=array_search(".", $_SESSION["contenu_repertoire"])))
 				unset($_SESSION["contenu_repertoire"][$key]);
 
@@ -224,8 +224,8 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 			$_SESSION["msg_offset"]=$offset;
 
-			// Calcul des numéros de messages et de la présence/absence de flèches pour aller à la page suivante/précédente
-			if($_SESSION["msg_offset"]>0)	 // lien vers la page précédente
+			// Calcul des numÃ©ros de messages et de la prÃ©sence/absence de flÃ¨ches pour aller Ã  la page suivante/prÃ©cÃ©dente
+			if($_SESSION["msg_offset"]>0)	 // lien vers la page prÃ©cÃ©dente
 			{
 				$prev_offset=$_SESSION["msg_offset"]-20;
 
@@ -244,7 +244,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 			if(($_SESSION["msg_offset"]+20)<$nb_msg) // encore des messages
 			{
-				// texte affiché
+				// texte affichÃ©
 				if(($_SESSION["msg_offset"]+40)<$nb_msg)
 				 	$limite_texte=$_SESSION["msg_offset"]+40;
 				else
@@ -264,14 +264,14 @@ CeCILL-B, et que vous en avez accepté les termes.
 				$limite_sup_msg=$nb_msg;
 			}
 
-			if($limite_sup_msg) // Si on a des messages, on propose des liens supplémentaires
+			if($limite_sup_msg) // Si on a des messages, on propose des liens supplÃ©mentaires
 			{
-				// Lien "Sélection / désélection"
+				// Lien "SÃ©lection / dÃ©sÃ©lection"
 				// if(isset($select_all) && $select_all==1)
 				if(!empty($checked))
-					$lien_select_deselect="<a href='$php_self?sa=0' class='lien_menu_gauche'>Tout désélectionner</a>";
+					$lien_select_deselect="<a href='$php_self?sa=0' class='lien_menu_gauche'>Tout dÃ©sÃ©lectionner</a>";
 				else
-					$lien_select_deselect="<a href='$php_self?sa=1' class='lien_menu_gauche'>Tout sélectionner</a>";
+					$lien_select_deselect="<a href='$php_self?sa=1' class='lien_menu_gauche'>Tout sÃ©lectionner</a>";
 
 				// Lien "Vider la corbeille"
 				if($current_dossier==$__MSG_TRASH)
@@ -282,15 +282,15 @@ CeCILL-B, et que vous en avez accepté les termes.
 			else
 				$lien_select_deselect=$lien_corbeille="";
 
-			// changement de nom pour la colonne "Expéditeur" si le dossier est "Envoyés"
-			$col_name=$current_dossier==$__MSG_SENT ? "Destinataire" : "Expéditeur";
+			// changement de nom pour la colonne "ExpÃ©diteur" si le dossier est "EnvoyÃ©s"
+			$col_name=$current_dossier==$__MSG_SENT ? "Destinataire" : "ExpÃ©diteur";
 
 			print("<form action='$php_self' method='POST' name='form1'>
 						<table class='encadre_messagerie' width='95%' align='center'>
 						<tr>
 							<td class='td-msg-titre fond_menu2' style='border-right:0px; padding:1px 2px 1px 2px;' colspan='2'>
 								<font class='Texte_menu2'>
-									<a href='compose.php' class='lien_menu_gauche'>Nouveau message</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href='$php_self' class='lien_menu_gauche'>Rafraîchir</a>$lien_corbeille
+									<a href='compose.php' class='lien_menu_gauche'>Nouveau message</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href='$php_self' class='lien_menu_gauche'>RafraÃ®chir</a>$lien_corbeille
 								</font>
 							</td>
 							<td class='td-msg-titre fond_menu2' style='vertical-align:middle; text-align:right; border-left:0px; padding:1px 2px 1px 2px;' colspan='2'>
@@ -310,7 +310,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 												<option value='$__MSG_TRASH'>$__MSG_DOSSIERS[$__MSG_TRASH]</option>
 											</select>
 											&nbsp;
-											<input type='submit' name='move' value='Déplacer'>&nbsp;&nbsp;&nbsp;<input type='submit' name='suppr' value='Supprimer'>
+											<input type='submit' name='move' value='DÃ©placer'>&nbsp;&nbsp;&nbsp;<input type='submit' name='suppr' value='Supprimer'>
 <!--
 										</td>
 
@@ -358,9 +358,9 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 				$file_or_dir_name=$nom_fichier=$_SESSION["contenu_repertoire"][$i];
 
-				if(is_dir($fichier)) // Répertoire : message avec pièce(s) jointe(s)
+				if(is_dir($fichier)) // RÃ©pertoire : message avec piÃ¨ce(s) jointe(s)
 				{
-					// On regarde le contenu du répertoire. Normalement, le message a le même nom que ce dernier, terminé par .0 ou .1
+					// On regarde le contenu du rÃ©pertoire. Normalement, le message a le mÃªme nom que ce dernier, terminÃ© par .0 ou .1
 					if(is_file("$fichier/$nom_fichier.0"))
 					{
 						$fichier.="/$nom_fichier.0";
@@ -377,7 +377,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 				else
 					$crypt_params=crypt_params("msg=$fichier");
 
-				if(strlen($nom_fichier)==18) // Année sur un caractère (16 pour l'identifiant + ".0" ou ".1" pour le flag "read")
+				if(strlen($nom_fichier)==18) // AnnÃ©e sur un caractÃ¨re (16 pour l'identifiant + ".0" ou ".1" pour le flag "read")
 				{
 					$date_offset=0;
 					$annee_len=1;
@@ -385,7 +385,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 					$msg_id=substr($nom_fichier, 0, 16);
 					$msg_read=substr($nom_fichier, 17, 1);
 				}
-				else // Année sur 2 caractères (chaine : 19 caractères)
+				else // AnnÃ©e sur 2 caractÃ¨res (chaine : 19 caractÃ¨res)
 				{
 					$date_offset=1;
 					$annee_len=2;
@@ -396,9 +396,9 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 				if(($array_file=file("$fichier"))==FALSE)
 				{
-					mail($__EMAIL_ADMIN, "[Précandidatures] - Erreur d'ouverture de mail", "Fichier : $fichier\n\nUtilisateur : $_SESSION[nom] $_SESSION[prenom]");
+					mail($__EMAIL_ADMIN, "[PrÃ©candidatures] - Erreur d'ouverture de mail", "Fichier : $fichier\n\nUtilisateur : $_SESSION[nom] $_SESSION[prenom]");
 
-					die("Erreur d'ouverture du fichier. Un message a été envoyé à l'administrateur.");
+					die("Erreur d'ouverture du fichier. Un message a Ã©tÃ© envoyÃ© Ã  l'administrateur.");
 				}
 
 				$msg_exp_id=$array_file["0"];
@@ -413,7 +413,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 				$unix_date=mktime(substr($msg_id, 5+$date_offset, 2), substr($msg_id, 7+$date_offset, 2), substr($msg_id, 9+$date_offset, 2),
 										substr($msg_id, 1+$date_offset, 2), substr($msg_id, 3+$date_offset, 2), $leading_zero . substr($msg_id, 0, $annee_len));
 
-				if($msg_id<$date_today) // le message n'est pas du jour : on affiche la date entière (date + heure)
+				if($msg_id<$date_today) // le message n'est pas du jour : on affiche la date entiÃ¨re (date + heure)
 					$date_txt=date_fr("d/m/y - H\hi", $unix_date);
 				else // message du jour : on n'affiche que l'heure
 					$date_txt=date_fr("H\hi", $unix_date);
@@ -441,7 +441,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 							</td>
 							<td class='td-msg' width='5%' style='text-align:center; $style_bg'>\n");
 
-				// Impossible de sélectionner (et donc supprimer) un message de l'utilisateur Système
+				// Impossible de sÃ©lectionner (et donc supprimer) un message de l'utilisateur SystÃ¨me
 				
 				if($msg_exp_id!=$__USER_SYSTEME_ID)
 					print("<font class='Texte_menu'><input type='checkbox' name='selection[]' value='$file_or_dir_name' $checked>\n");

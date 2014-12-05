@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,65 +20,65 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
 ?>
 <?php
    // Script d'extraction des admissions pour injections OPI
-   // il doit être lancé via le shell
+   // il doit Ãªtre lancÃ© via le shell
 
    session_name("preinsc_gestion");
    session_start();
 
    if(FALSE===chdir(dirname(__FILE__)))
-      die("Impossible de changer le répertoire courant (". dirname(__FILE__) . ")");
+      die("Impossible de changer le rÃ©pertoire courant (". dirname(__FILE__) . ")");
 
    if(is_file("../../../../../configuration/aria_config.php")) include "../../../../../configuration/aria_config.php";
-   else die("Fichier \"configuration/aria_config.php\" non trouvé");
+   else die("Fichier \"configuration/aria_config.php\" non trouvÃ©");
 
    if(is_file("../../../../../include/vars.php")) include "../../../../../include/vars.php";
-   else die("Fichier \"include/vars.php\" non trouvé");
+   else die("Fichier \"include/vars.php\" non trouvÃ©");
 
    if(is_file("../../../../../include/fonctions.php")) include "../../../../../include/fonctions.php";
-   else die("Fichier \"include/fonctions.php\" non trouvé");
+   else die("Fichier \"include/fonctions.php\" non trouvÃ©");
 
    if(is_file("../../../../../include/db.php")) include "../../../../../include/db.php";
-   else die("Fichier \"include/db.php\" non trouvé");
+   else die("Fichier \"include/db.php\" non trouvÃ©");
 
    if(is_file("../../../../../include/access_functions.php")) include "../../../../../include/access_functions.php";
-   else die("Fichier \"include/access_functions.php\" non trouvé");
+   else die("Fichier \"include/access_functions.php\" non trouvÃ©");
 
    if(is_file("../../../../../gestion/admin/editeur/include/editeur_fonctions.php")) include "../../../../../gestion/admin/editeur/include/editeur_fonctions.php";
-   else die("Fichier \"gestion/admin/editeur/include/editeur_fonctions.php\" non trouvé");
+   else die("Fichier \"gestion/admin/editeur/include/editeur_fonctions.php\" non trouvÃ©");
 
    if(isset($argv[1]) && (!strcasecmp($argv[1], "test") || !strcasecmp($argv[1], "-test") || !strcasecmp($argv[1], "--test") || !strcasecmp($argv[1], "-t") || !strcasecmp($argv[1], "--t")))
    {
-      print("Mode Test. Aucun enregistrement dans la base de données et aucun message envoyé (sauf au compte \"administrateur\")\n");
+      print("Mode Test. Aucun enregistrement dans la base de donnÃ©es et aucun message envoyÃ© (sauf au compte \"administrateur\")\n");
       $LOCAL_OPI_NUM=$max_opi_nb=0;
       $TESTMODE=1;
       $TESTCNT=0;
@@ -94,10 +94,10 @@ CeCILL-B, et que vous en avez accepté les termes.
 
    if($load_config==FALSE) // config absente : erreur
       $erreur_config=1;
-   elseif($load_config==-1) // paramêtre(s) manquant(s) : avertissement
+   elseif($load_config==-1) // paramÃªtre(s) manquant(s) : avertissement
       $warn_config=1;
 
-   // partie du schéma de la base spécifique au module apogee
+   // partie du schÃ©ma de la base spÃ©cifique au module apogee
    include "../include/db.php";
    include "../include/vars.php";
 
@@ -108,9 +108,9 @@ CeCILL-B, et que vous en avez accepté les termes.
    if(function_exists("add_modules"))
       add_modules();
 
-   // $__PERIODE="2009"; <== déterminée par $__INCLUDE_DIR_ABS/vars.php
+   // $__PERIODE="2009"; <== dÃ©terminÃ©e par $__INCLUDE_DIR_ABS/vars.php
 
-   // Construction de la liste des pays et nationalités (codes ISO) pour son utilisation dans le formulaire
+   // Construction de la liste des pays et nationalitÃ©s (codes ISO) pour son utilisation dans le formulaire
    $_SESSION["liste_pays_nat_iso"]=array();
    
    $res_pays_nat=db_query($dbr, "SELECT $_DBC_pays_nat_ii_iso, $_DBC_pays_nat_ii_insee, $_DBC_pays_nat_ii_pays, $_DBC_pays_nat_ii_nat
@@ -123,7 +123,7 @@ CeCILL-B, et que vous en avez accepté les termes.
    {
       list($code_iso, $code_insee, $table_pays, $table_nationalite)=db_fetch_row($res_pays_nat, $p);
       
-      // Construction uniquement si le code insee est présent (pour les exports APOGEE ou autres)
+      // Construction uniquement si le code insee est prÃ©sent (pour les exports APOGEE ou autres)
       if($code_insee!="")
       {
          $_SESSION["liste_pays_nat_iso"]["$code_iso"]=array("insee" => "$code_insee", "pays" => "$table_pays", "nationalite" => $table_nationalite);
@@ -135,17 +135,17 @@ CeCILL-B, et que vous en avez accepté les termes.
 
    // -----------
 
-   // Requête principale : sélection des candidats admis
-   // Attention : les décisions doivent avoir été "publiées" pour pouvoir être extraites
+   // RequÃªte principale : sÃ©lection des candidats admis
+   // Attention : les dÃ©cisions doivent avoir Ã©tÃ© "publiÃ©es" pour pouvoir Ãªtre extraites
 
-   // en mode test, on inclut aussi les candidats déjà extraits
+   // en mode test, on inclut aussi les candidats dÃ©jÃ  extraits
    if($TESTMODE==1)
       $condition_normale="";
    else
    {
-      // Condition pour la création d'un numéro OPI et l'envoi d'un message: 
-      // - soit le candidat n'a pas encore été transféré
-      // - soit il a déjà été transféré avec une "admission sous réserve" et la décision est passée à "Admis"
+      // Condition pour la crÃ©ation d'un numÃ©ro OPI et l'envoi d'un message: 
+      // - soit le candidat n'a pas encore Ã©tÃ© transfÃ©rÃ©
+      // - soit il a dÃ©jÃ  Ã©tÃ© transfÃ©rÃ© avec une "admission sous rÃ©serve" et la dÃ©cision est passÃ©e Ã  "Admis"
       $condition_normale="AND $_DBC_cand_id NOT IN (SELECT $_module_apogee_DBC_numeros_opi_cand_id FROM $_module_apogee_DB_numeros_opi)";
    }
 
@@ -270,7 +270,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
    if($nb_result)
    {
-      // </numéro OPI>
+      // </numÃ©ro OPI>
       for($i=0; $i<$nb_result; $i++)
       {
          list($cand_nom, $cand_prenom, $c_prenom2, $c_date_naissance, $c_tel, $c_ine, $c_nat_iso, $cand_email, $c_lieu_naissance,
@@ -297,13 +297,13 @@ CeCILL-B, et que vous en avez accepté les termes.
          $c_adr_code_postal=preg_replace('/[\\\]/', '', preg_replace('/[\']+/','\'', trim($c_adr_code_postal)));
          $c_adr_ville=preg_replace('/[\\\]/', '', preg_replace('/[\']+/','\'', trim($c_adr_ville)));
 
-         // calcul de la longueur du préfixe pour pouvoir le supprimer dans la requête suivante
-         // cette étape est dans la boucle FOR car le préfixe peut être différent en cas d'universités multiples
-         // TODO : à optimiser (stockage dans un tableau ?) pour éviter les calculs inutiles
+         // calcul de la longueur du prÃ©fixe pour pouvoir le supprimer dans la requÃªte suivante
+         // cette Ã©tape est dans la boucle FOR car le prÃ©fixe peut Ãªtre diffÃ©rent en cas d'universitÃ©s multiples
+         // TODO : Ã  optimiser (stockage dans un tableau ?) pour Ã©viter les calculs inutiles
          $prefixe_len=strlen($PREFIXE_OPI)+1;
 
-         // Initialisation du compteur OPI (numéro de référence, les suivants sont calculés en incrémentant le max)
-         // Le calcul se fait en masquant le préfixe OPI configuré
+         // Initialisation du compteur OPI (numÃ©ro de rÃ©fÃ©rence, les suivants sont calculÃ©s en incrÃ©mentant le max)
+         // Le calcul se fait en masquant le prÃ©fixe OPI configurÃ©
          // En mode test, le compteur est uniquement local
          if($TESTMODE==0)
          {
@@ -327,20 +327,20 @@ CeCILL-B, et que vous en avez accepté les termes.
          else
             $max_opi_nb++;
          
-         // Extraction uniquement si les informations minimales sont complètes
+         // Extraction uniquement si les informations minimales sont complÃ¨tes
          if($c_serie_bac!="" && $c_annee_bac!="" && $f_cet!="" && $f_vet!="" && $f_centre_gestion!="")
          {
             $c_nat_insee=$_SESSION["liste_pays_nat_iso"]["$c_nat_iso"]["insee"];
             $c_pays_naissance_insee=$_SESSION["liste_pays_nat_iso"]["$c_pays_naissance_iso"]["insee"];
             $c_adr_pays_insee=$_SESSION["liste_pays_nat_iso"]["$c_adr_pays_iso"]["insee"];
 
-            // Numéro OPI
-            // La longueur du numéro OPI est de 10 caractères (préfixe inclus), on complète avec des zéros : PREFIXE /0..0/ numéro.
+            // NumÃ©ro OPI
+            // La longueur du numÃ©ro OPI est de 10 caractÃ¨res (prÃ©fixe inclus), on complÃ¨te avec des zÃ©ros : PREFIXE /0..0/ numÃ©ro.
             if($current_opi_nb=="")
             {
                $opi="$PREFIXE_OPI".str_repeat("0", (10-strlen($PREFIXE_OPI)-strlen($max_opi_nb)))."$max_opi_nb";
 
-               $max_opi_nb++; // on incrémente la référence pour la génération du numéro suivant
+               $max_opi_nb++; // on incrÃ©mente la rÃ©fÃ©rence pour la gÃ©nÃ©ration du numÃ©ro suivant
             }
             else
                $opi=$current_opi_nb;
@@ -396,8 +396,8 @@ CeCILL-B, et que vous en avez accepté les termes.
             if(strlen($c_dpt_naissance)<3)
                $c_dpt_naissance.=str_repeat(" ", (3-strlen($c_dpt_naissance)));
 
-            // Type et code pour le lieu de naissance (pays ou département)
-            if($c_pays_naissance_iso=="FR") // France ==> on met le département
+            // Type et code pour le lieu de naissance (pays ou dÃ©partement)
+            if($c_pays_naissance_iso=="FR") // France ==> on met le dÃ©partement
             {
                $c_code_naissance=$c_dpt_naissance;
                $type_code_naissance="D";
@@ -440,9 +440,9 @@ CeCILL-B, et que vous en avez accepté les termes.
                $adresse_cp_ville=str_repeat(" ", 32);
             }
 
-            // Si l'adresse dépasse : utiliser adr_ligne_2 et adr_ligne_3 prévues dans les batchs OPI ?
+            // Si l'adresse dÃ©passe : utiliser adr_ligne_2 et adr_ligne_3 prÃ©vues dans les batchs OPI ?
 
-            // Année et série du bac : si vides : ne pas inclure dans l'extraction ?
+            // AnnÃ©e et sÃ©rie du bac : si vides : ne pas inclure dans l'extraction ?
             if(($c_annee_bac!="" && strlen($c_annee_bac)!=4) || $c_annee_bac=="")
                $c_annee_bac=str_repeat(" ", 4);
 
@@ -452,8 +452,8 @@ CeCILL-B, et que vous en avez accepté les termes.
                $c_serie_bac=$c_serie_bac.str_repeat(" ", (4-strlen($c_serie_bac)));
 
 
-            // Pas obligatoire : à confirmer
-            // Il faudra peut être ajouter l'année de première inscription dans l'enseignement supérieur
+            // Pas obligatoire : Ã  confirmer
+            // Il faudra peut Ãªtre ajouter l'annÃ©e de premiÃ¨re inscription dans l'enseignement supÃ©rieur
             if(!$c_deja_inscrit || ($c_premiere_inscr!="" && strlen($c_premiere_inscr)!=4))
                $c_premiere_inscr=str_repeat(" ", 4);
 
@@ -480,8 +480,8 @@ CeCILL-B, et que vous en avez accepté les termes.
             $nom_formation=$annee_nom!="" ? "$annee_nom $spec_nom" : "$spec_nom";
             $nom_formation.=$tab_finalite[$finalite]!="" ? " $tab_finalite[$finalite]" : "";
 
-            // Macros spécifiques à ce message
-            // Si le candidat est admis sous réserve, on a un message différent et le voeu n'est pas enregistré (uniquement le candidat)            
+            // Macros spÃ©cifiques Ã  ce message
+            // Si le candidat est admis sous rÃ©serve, on a un message diffÃ©rent et le voeu n'est pas enregistrÃ© (uniquement le candidat)            
             // Si le message type est vide, on ne fait rien
             if($cand_decision=="$__DOSSIER_SOUS_RESERVE")
             {
@@ -505,23 +505,23 @@ CeCILL-B, et que vous en avez accepté les termes.
             // Code d'autorisation
             $candidature_array=__get_candidature($dbr, $cand_id);
 				$candidat_array=__get_infos_candidat($dbr, $c_id);
-            $cursus_array=array(); // cursus inutile : tableau vide pour appel à la fonction
+            $cursus_array=array(); // cursus inutile : tableau vide pour appel Ã  la fonction
 				$lang="FR";
 
 				if(is_array($candidature_array) && is_array($candidat_array))        
             {   
 				   $corps_message=pdf_traitement_macros($dbr, $corps_message, $candidat_array, $candidature_array, $cursus_array, $lang);
 				 
-				   // dirty hack : ré-extraction directe du code pour stockage dans la base
+				   // dirty hack : rÃ©-extraction directe du code pour stockage dans la base
 				   $code_lp=trim(pdf_traitement_macros($dbr, "%code%", $candidat_array, $candidature_array, $cursus_array, $lang));
             }
             else // TODO : ajouter des alertes par mail en cas d'erreur
             {
                if(!is_array($candidature_array))
-                  print("Erreur : impossible de récupérer les informations de la candidature (__get_candidature_array(), #id $cand_id)\n");
+                  print("Erreur : impossible de rÃ©cupÃ©rer les informations de la candidature (__get_candidature_array(), #id $cand_id)\n");
                   
                if(!is_array($candidat_array))
-                  print("Erreur : impossible de récupérer les informations du candidat (__get_candidat_array(), #id $c_id)\n");
+                  print("Erreur : impossible de rÃ©cupÃ©rer les informations du candidat (__get_candidat_array(), #id $c_id)\n");
             }
 
             // Si le message n'est pas vide, on enregistre et on envoie
@@ -533,10 +533,10 @@ CeCILL-B, et que vous en avez accepté les termes.
                                               "prenom" => "$cand_prenom",
                                               "email"  => "$cand_email"));
 
-               write_msg("", array("id" => "0", "nom" => "Système", "prenom" => ""), $dest_array, "Inscription administrative - $nom_formation",
+               write_msg("", array("id" => "0", "nom" => "SystÃ¨me", "prenom" => ""), $dest_array, "Inscription administrative - $nom_formation",
                         $corps_message, "$cand_nom $cand_prenom");
 
-               // Dernière étape : insertion dans la table
+               // DerniÃ¨re Ã©tape : insertion dans la table
                
                if($update_reserve=="0")
                   db_query($dbr,"INSERT INTO $_module_apogee_DB_numeros_opi VALUES ('$opi','$cand_id','$ligne_candidat','$ligne_voeu','$new_temoin_reserve')");
@@ -546,7 +546,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                                                                            $_module_apogee_DBU_numeros_opi_temoin_reserve='$new_temoin_reserve'
                                                                      WHERE $_module_apogee_DBU_numeros_opi_cand_id='$cand_id'");
             }
-            elseif($TESTMODE==1) // envoi d'un seul message à l'admin
+            elseif($TESTMODE==1) // envoi d'un seul message Ã  l'admin
             {
                $TEST_CAND.="$ligne_candidat\n";
                
@@ -555,7 +555,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
                if(!$TESTCNT)
                {
-                  $sent=write_msg_2($dbr, array("id" => "0", "nom" => "Système", "prenom" => "", "src_type" => "gestion", "composante" => "", "universite" => "$GLOBALS[__SIGNATURE_COURRIELS]"),
+                  $sent=write_msg_2($dbr, array("id" => "0", "nom" => "SystÃ¨me", "prenom" => "", "src_type" => "gestion", "composante" => "", "universite" => "$GLOBALS[__SIGNATURE_COURRIELS]"),
                                     array("0" => array("id" => 0, "dest_type" => "gestion")), "[Extractions : Test Primo]", $corps_message);
                   $TESTCNT=1;
                }
@@ -580,8 +580,8 @@ CeCILL-B, et que vous en avez accepté les termes.
 
          if($rows_extr)
          {
-            $fichier_candidats=fopen("extractions/candidats_$date.opi","w") or die("Impossible de créer le fichier \"candidats_$date.opi\"");
-            $fichier_voeux=fopen("extractions/voeux_$date.opi","w") or die("Impossible de créer le fichier \"voeux_$date.opi\"");
+            $fichier_candidats=fopen("extractions/candidats_$date.opi","w") or die("Impossible de crÃ©er le fichier \"candidats_$date.opi\"");
+            $fichier_voeux=fopen("extractions/voeux_$date.opi","w") or die("Impossible de crÃ©er le fichier \"voeux_$date.opi\"");
 
             for($i=0; $i<$rows_extr; $i++)
             {
@@ -599,8 +599,8 @@ CeCILL-B, et que vous en avez accepté les termes.
       }
       else
       {
-         $fichier_candidats=fopen("extractions/candidats_$date.opi","w") or die("Impossible de créer le fichier \"candidats_$date.opi\"");
-         $fichier_voeux=fopen("extractions/voeux_$date.opi","w") or die("Impossible de créer le fichier \"voeux_$date.opi\"");
+         $fichier_candidats=fopen("extractions/candidats_$date.opi","w") or die("Impossible de crÃ©er le fichier \"candidats_$date.opi\"");
+         $fichier_voeux=fopen("extractions/voeux_$date.opi","w") or die("Impossible de crÃ©er le fichier \"voeux_$date.opi\"");
 
          fwrite($fichier_candidats, preg_replace("/[']+/","'",$TEST_CAND));
          fwrite($fichier_voeux, preg_replace("/[']+/","'",$TEST_VOEUX));

@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -63,7 +63,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	menu_sup_simple();
 */
 
-	// Conversion des valeurs de type 'tailles mémoires' (xM ou xG) utilisées dans les fichiers de configuration en octets
+	// Conversion des valeurs de type 'tailles mÃ©moires' (xM ou xG) utilisÃ©es dans les fichiers de configuration en octets
 	// Source : http://php.net/manual/en/function.ini-get.php (cf "Exemple #1") avec les remarques de "peter" (commentaire du 29/07/2008)
 	function return_bytes($val)
 	{
@@ -80,8 +80,8 @@ CeCILL-B, et que vous en avez accepté les termes.
 		return $val;
 	}
 
-	// Test de connexion à la base, pour la vérification de l'installation
-	// Presque identifique à db_connect, mais l'échec de connexion n'entraine rien
+	// Test de connexion Ã  la base, pour la vÃ©rification de l'installation
+	// Presque identifique Ã  db_connect, mais l'Ã©chec de connexion n'entraine rien
 
 	function db_test()
 	{
@@ -120,7 +120,7 @@ font.Texte
 
 <div>
 	<?php
-//		titre_page_icone("Vérification de l'installation", "ksysv_32x32_fond.png", 10, "L");
+//		titre_page_icone("VÃ©rification de l'installation", "ksysv_32x32_fond.png", 10, "L");
 
 		print("<table style='margin-left:auto; margin-right:auto; padding-bottom:20px;'>
 				 <tr>
@@ -131,14 +131,14 @@ font.Texte
 						<font class='Texte'><strong>Statut</strong></font>
 					</td>
 					<td class='fond_menu2' style='padding:4px;'>
-						<font class='Texte'><strong>Erreurs/Détail</strong></font>
+						<font class='Texte'><strong>Erreurs/DÃ©tail</strong></font>
 					</td>
 					<td class='fond_menu2' style='padding:4px;'>
 						<font class='Texte'><strong>Commentaires</strong></font>
 					</td>
 				 </tr>\n");
 
-		// Test des fonctionnalités PHP
+		// Test des fonctionnalitÃ©s PHP
 		
 		//  Version PHP (>5)
 		$php_version=phpversion();
@@ -151,15 +151,15 @@ font.Texte
 			print("<img src='$__ICON_DIR/stop_22x22.png' border='0' desc='Echec' title='Echec'>
 					</td>
 					<td class='fond_menu' style='padding:4px;'>
-						<font class='Texte'>Mettre à jour PHP - module HTTP et Ligne de commande (CLI) - en version 5</font>
+						<font class='Texte'>Mettre Ã  jour PHP - module HTTP et Ligne de commande (CLI) - en version 5</font>
 					</td>
 					<td class='fond_menu' style='padding:4px;'></td>
 				</tr>\n");
 		else
-			print("<img src='$__ICON_DIR/button_ok_22x22.png' border='0' desc='Succès' title='Succès'>
+			print("<img src='$__ICON_DIR/button_ok_22x22.png' border='0' desc='SuccÃ¨s' title='SuccÃ¨s'>
 					</td>
 					<td class='fond_menu' style='padding:4px;'></td>
-					<td class='fond_menu' style='padding:4px;'><font class='Texte'>Version $php_version installée</font></td>
+					<td class='fond_menu' style='padding:4px;'><font class='Texte'>Version $php_version installÃ©e</font></td>
 				</tr>\n");
 
 		// PHP-CLI
@@ -168,27 +168,27 @@ font.Texte
 					<td class='fond_menu' style='padding:4px; text-align:center'>\n");
 
 		$array_result=array();
-		$retstr=exec("which php 2>&1", $array_result, $retval); // retval vaut 0 si la commande a réussi
+		$retstr=exec("which php 2>&1", $array_result, $retval); // retval vaut 0 si la commande a rÃ©ussi
 
 		if($retval)
 			print("<img src='$__ICON_DIR/stop_22x22.png' border='0' desc='Echec' title='Echec'>
 					</td>
 					<td class='fond_menu' style='padding:4px;'>
-						<font class='Texte'>Exécutable \"php\" non trouvé.</font>
+						<font class='Texte'>ExÃ©cutable \"php\" non trouvÃ©.</font>
 					</td>
 					<td class='fond_menu' style='padding:4px;'>
 				      <font class='Texte'>
-							Vérifier le chemin d'accès ou installer la version \"CLI\" de PHP en plus du module HTTP.
+							VÃ©rifier le chemin d'accÃ¨s ou installer la version \"CLI\" de PHP en plus du module HTTP.
 						</font>
 					</td>
 				</tr>\n");
 		else
 		{
-			print("<img src='$__ICON_DIR/button_ok_22x22.png' border='0' desc='Succès' title='Succès'>
+			print("<img src='$__ICON_DIR/button_ok_22x22.png' border='0' desc='SuccÃ¨s' title='SuccÃ¨s'>
 					</td>
 					<td class='fond_menu' style='padding:4px;'></td>					
 					<td class='fond_menu' style='padding:4px;'><font class='Texte'>
-						Exécutable trouvé : ");
+						ExÃ©cutable trouvÃ© : ");
 
 			foreach($array_result as $line)
 				print("$line<br>\n");
@@ -197,9 +197,9 @@ font.Texte
 				</tr>\n");
 		}
 
-		// Tests des modules complémentaires
+		// Tests des modules complÃ©mentaires
 		// posix
-		// Informations pouvant être nécessaires le cas échéant (nécessitent le support des fonctions posix)
+		// Informations pouvant Ãªtre nÃ©cessaires le cas Ã©chÃ©ant (nÃ©cessitent le support des fonctions posix)
 		if(function_exists("posix_getpwuid") && function_exists("posix_geteuid") && function_exists("posix_getgrgid") && function_exists("posix_getegid"))
 		{
 			$current_process_uid=posix_geteuid();
@@ -240,8 +240,8 @@ font.Texte
 		$fonctions_sessions=function_exists("session_start") && function_exists("session_destroy") ? "1" : "0";
 
 		// PEAR:Mail
-		// récupération et découpage de la variable include_path, puis recherche du ou des fichiers voulus
-		// TODO : autre méthode pour tester une classe, sans inclure le fichier php et sans créer d'objet ?
+		// rÃ©cupÃ©ration et dÃ©coupage de la variable include_path, puis recherche du ou des fichiers voulus
+		// TODO : autre mÃ©thode pour tester une classe, sans inclure le fichier php et sans crÃ©er d'objet ?
 
 		$array_path=explode(":", get_include_path());
 
@@ -263,9 +263,9 @@ font.Texte
 
 		// Affichage
 
-		$txt_erreurs=$fonctions_posix ? "" : "Vérifier la présence de l'extension \"posix\"";
-		$icone=$fonctions_posix ? "<img src='$__ICON_DIR/button_ok_22x22.png' border='0' desc='Succès' title='Succès'>" : "<img src='$__ICON_DIR/stop_22x22.png' border='0' desc='Echec' title='Echec'>";
-		$detail="Fonctions testées : posix_getpwuid, posix_geteuid, posix_getgrgid, posix_getegid";
+		$txt_erreurs=$fonctions_posix ? "" : "VÃ©rifier la prÃ©sence de l'extension \"posix\"";
+		$icone=$fonctions_posix ? "<img src='$__ICON_DIR/button_ok_22x22.png' border='0' desc='SuccÃ¨s' title='SuccÃ¨s'>" : "<img src='$__ICON_DIR/stop_22x22.png' border='0' desc='Echec' title='Echec'>";
+		$detail="Fonctions testÃ©es : posix_getpwuid, posix_geteuid, posix_getgrgid, posix_getegid";
 
 		print("<tr>
 					<td style='padding:4px; background-color:#CCDDEE;' colspan='4'>
@@ -279,9 +279,9 @@ font.Texte
 				 	<td class='fond_menu' style='padding:4px;'><font class='Texte'>$detail</font></td>
 			  </tr>\n");
 
-		$txt_erreurs=$fonctions_mcrypt ? "" : "Vérifier la présence de l'extension \"Mcrypt\"";
-		$icone=$fonctions_mcrypt ? "<img src='$__ICON_DIR/button_ok_22x22.png' border='0' desc='Succès' title='Succès'>" : "<img src='$__ICON_DIR/stop_22x22.png' border='0' desc='Echec' title='Echec'>";
-		$detail="Fonctions testées : mcrypt_module_open, mcrypt_create_iv";
+		$txt_erreurs=$fonctions_mcrypt ? "" : "VÃ©rifier la prÃ©sence de l'extension \"Mcrypt\"";
+		$icone=$fonctions_mcrypt ? "<img src='$__ICON_DIR/button_ok_22x22.png' border='0' desc='SuccÃ¨s' title='SuccÃ¨s'>" : "<img src='$__ICON_DIR/stop_22x22.png' border='0' desc='Echec' title='Echec'>";
+		$detail="Fonctions testÃ©es : mcrypt_module_open, mcrypt_create_iv";
 
 		print("<tr>
 					<td class='fond_menu' style='padding:4px;'><font class='Texte'><strong>PHP : Fonctions mcrypt</strong></font></td>
@@ -290,9 +290,9 @@ font.Texte
 				 	<td class='fond_menu' style='padding:4px;'><font class='Texte'>$detail</font></td>
 			  	</tr>\n");
 
-      $txt_erreurs=$fonctions_mbstring ? "" : "Vérifier la présence de l'extension \"mbstring\"";
-      $icone=$fonctions_mbstring ? "<img src='$__ICON_DIR/button_ok_22x22.png' border='0' desc='Succès' title='Succès'>" : "<img src='$__ICON_DIR/stop_22x22.png' border='0' desc='Echec' title='Echec'>";
-      $detail="Fonctions testées : mb_strtoupper, mb_strtolower";
+      $txt_erreurs=$fonctions_mbstring ? "" : "VÃ©rifier la prÃ©sence de l'extension \"mbstring\"";
+      $icone=$fonctions_mbstring ? "<img src='$__ICON_DIR/button_ok_22x22.png' border='0' desc='SuccÃ¨s' title='SuccÃ¨s'>" : "<img src='$__ICON_DIR/stop_22x22.png' border='0' desc='Echec' title='Echec'>";
+      $detail="Fonctions testÃ©es : mb_strtoupper, mb_strtolower";
 
       print("<tr>
                <td class='fond_menu' style='padding:4px;'><font class='Texte'><strong>PHP : Fonctions mbstring</strong></font></td>
@@ -301,9 +301,9 @@ font.Texte
                <td class='fond_menu' style='padding:4px;'><font class='Texte'>$detail</font></td>
             </tr>\n");
 
-		$txt_erreurs=$fonctions_ctype ? "" : "Vérifier la présence de l'extension \"Ctype\"";
-		$icone=$fonctions_ctype ? "<img src='$__ICON_DIR/button_ok_22x22.png' border='0' desc='Succès' title='Succès'>" : "<img src='$__ICON_DIR/stop_22x22.png' border='0' desc='Echec' title='Echec'>";
-		$detail="Fonction testée : ctype_digit";
+		$txt_erreurs=$fonctions_ctype ? "" : "VÃ©rifier la prÃ©sence de l'extension \"Ctype\"";
+		$icone=$fonctions_ctype ? "<img src='$__ICON_DIR/button_ok_22x22.png' border='0' desc='SuccÃ¨s' title='SuccÃ¨s'>" : "<img src='$__ICON_DIR/stop_22x22.png' border='0' desc='Echec' title='Echec'>";
+		$detail="Fonction testÃ©e : ctype_digit";
 
 		print("<tr>
 					<td class='fond_menu' style='padding:4px;'><font class='Texte'><strong>PHP : Fonctions ctype</strong></font></td>
@@ -312,9 +312,9 @@ font.Texte
 				 	<td class='fond_menu' style='padding:4px;'><font class='Texte'>$detail</font></td>
 			  </tr>\n");
 
-		$txt_erreurs=$fonctions_gmp ? "" : "Vérifier la présence de l'extension \"GMP\"";
-		$icone=$fonctions_gmp ? "<img src='$__ICON_DIR/button_ok_22x22.png' border='0' desc='Succès' title='Succès'>" : "<img src='$__ICON_DIR/stop_22x22.png' border='0' desc='Echec' title='Echec'>";
-		$detail="Fonctions testées : gmp_init, gmp_mod, gmp_strval";
+		$txt_erreurs=$fonctions_gmp ? "" : "VÃ©rifier la prÃ©sence de l'extension \"GMP\"";
+		$icone=$fonctions_gmp ? "<img src='$__ICON_DIR/button_ok_22x22.png' border='0' desc='SuccÃ¨s' title='SuccÃ¨s'>" : "<img src='$__ICON_DIR/stop_22x22.png' border='0' desc='Echec' title='Echec'>";
+		$detail="Fonctions testÃ©es : gmp_init, gmp_mod, gmp_strval";
 
 		print("<tr>
 					<td class='fond_menu' style='padding:4px;'><font class='Texte'><strong>PHP : Fonctions GMP</strong></font></td>
@@ -323,9 +323,9 @@ font.Texte
 				 	<td class='fond_menu' style='padding:4px;'><font class='Texte'>$detail</font></td>
 			  </tr>\n");
 
-		$txt_erreurs=$fonctions_gd ? "" : "Vérifier la présence de l'extension \"gd\"";
-		$icone=$fonctions_gd ? "<img src='$__ICON_DIR/button_ok_22x22.png' border='0' desc='Succès' title='Succès'>" : "<img src='$__ICON_DIR/stop_22x22.png' border='0' desc='Echec' title='Echec'>";
-		$detail="Fonctions testées : imagecreatefrompng, imagepng";
+		$txt_erreurs=$fonctions_gd ? "" : "VÃ©rifier la prÃ©sence de l'extension \"gd\"";
+		$icone=$fonctions_gd ? "<img src='$__ICON_DIR/button_ok_22x22.png' border='0' desc='SuccÃ¨s' title='SuccÃ¨s'>" : "<img src='$__ICON_DIR/stop_22x22.png' border='0' desc='Echec' title='Echec'>";
+		$detail="Fonctions testÃ©es : imagecreatefrompng, imagepng";
 
 		print("<tr>
 					<td class='fond_menu' style='padding:4px;'><font class='Texte'><strong>PHP : Fonctions gd</strong></font></td>
@@ -334,9 +334,9 @@ font.Texte
 				 	<td class='fond_menu' style='padding:4px;'><font class='Texte'>$detail</font></td>
 			  	</tr>\n");
 
-		$txt_erreurs=$fonctions_postgresql ? "" : "Vérifier la présence de l'extension \"PostgreSQL\"";
-		$icone=$fonctions_postgresql ? "<img src='$__ICON_DIR/button_ok_22x22.png' border='0' desc='Succès' title='Succès'>" : "<img src='$__ICON_DIR/stop_22x22.png' border='0' desc='Echec' title='Echec'>";
-		$detail="Fonctions testées : pg_connect, pg_query";
+		$txt_erreurs=$fonctions_postgresql ? "" : "VÃ©rifier la prÃ©sence de l'extension \"PostgreSQL\"";
+		$icone=$fonctions_postgresql ? "<img src='$__ICON_DIR/button_ok_22x22.png' border='0' desc='SuccÃ¨s' title='SuccÃ¨s'>" : "<img src='$__ICON_DIR/stop_22x22.png' border='0' desc='Echec' title='Echec'>";
+		$detail="Fonctions testÃ©es : pg_connect, pg_query";
 
 		print("<tr>
 					<td class='fond_menu' style='padding:4px;'><font class='Texte'><strong>PHP : Fonctions PostgreSQL</strong></font></td>
@@ -345,9 +345,9 @@ font.Texte
 				 	<td class='fond_menu' style='padding:4px;'><font class='Texte'>$detail</font></td>
 			  	</tr>\n");
 
-		$txt_erreurs=$fonctions_sessions ? "" : "Vérifier la présence de l'extension \"Sessions\"";
-		$icone=$fonctions_sessions ? "<img src='$__ICON_DIR/button_ok_22x22.png' border='0' desc='Succès' title='Succès'>" : "<img src='$__ICON_DIR/stop_22x22.png' border='0' desc='Echec' title='Echec'>";
-		$detail="Fonctions testées : session_start, session_destroy";
+		$txt_erreurs=$fonctions_sessions ? "" : "VÃ©rifier la prÃ©sence de l'extension \"Sessions\"";
+		$icone=$fonctions_sessions ? "<img src='$__ICON_DIR/button_ok_22x22.png' border='0' desc='SuccÃ¨s' title='SuccÃ¨s'>" : "<img src='$__ICON_DIR/stop_22x22.png' border='0' desc='Echec' title='Echec'>";
+		$detail="Fonctions testÃ©es : session_start, session_destroy";
 
 		print("<tr>
 					<td class='fond_menu' style='padding:4px;'><font class='Texte'><strong>PHP : Fonctions Sessions</strong></font></td>
@@ -356,8 +356,8 @@ font.Texte
 				 	<td class='fond_menu' style='padding:4px;'><font class='Texte'>$detail</font></td>
 			  	</tr>\n");
 
-		$txt_erreurs=$fonctions_mails ? "" : "Vérifier la présence de l'extension \"PEAR:Mail\"";
-		$icone=$fonctions_mails ? "<img src='$__ICON_DIR/button_ok_22x22.png' border='0' desc='Succès' title='Succès'>" : "<img src='$__ICON_DIR/stop_22x22.png' border='0' desc='Echec' title='Echec'>";
+		$txt_erreurs=$fonctions_mails ? "" : "VÃ©rifier la prÃ©sence de l'extension \"PEAR:Mail\"";
+		$icone=$fonctions_mails ? "<img src='$__ICON_DIR/button_ok_22x22.png' border='0' desc='SuccÃ¨s' title='SuccÃ¨s'>" : "<img src='$__ICON_DIR/stop_22x22.png' border='0' desc='Echec' title='Echec'>";
 		$detail="Fichier \"Mail.php\" dans le <i>path</i>
 					<br>(".get_include_path().")";
 
@@ -368,8 +368,8 @@ font.Texte
 				 	<td class='fond_menu' style='padding:4px;'><font class='Texte'>$detail</font></td>
 			  	</tr>\n");
 
-		$txt_erreurs=$fonctions_mime ? "" : "Vérifier la présence de l'extension \"PEAR:Mail_Mime\"";
-		$icone=$fonctions_mime ? "<img src='$__ICON_DIR/button_ok_22x22.png' border='0' desc='Succès' title='Succès'>" : "<img src='$__ICON_DIR/stop_22x22.png' border='0' desc='Echec' title='Echec'>";
+		$txt_erreurs=$fonctions_mime ? "" : "VÃ©rifier la prÃ©sence de l'extension \"PEAR:Mail_Mime\"";
+		$icone=$fonctions_mime ? "<img src='$__ICON_DIR/button_ok_22x22.png' border='0' desc='SuccÃ¨s' title='SuccÃ¨s'>" : "<img src='$__ICON_DIR/stop_22x22.png' border='0' desc='Echec' title='Echec'>";
 		$detail="Fichier \"Mail/mime.php\" dans le <i>path</i>
 					<br>(".get_include_path().")";
 
@@ -380,9 +380,9 @@ font.Texte
 				 	<td class='fond_menu' style='padding:4px;'><font class='Texte'>$detail</font></td>
 			  	</tr>\n");
 
-		$txt_erreurs=$fonctions_pdf ? "" : "Vérifier la présence de l'extension \"FPDF\"";
-		$icone=$fonctions_pdf ? "<img src='$__ICON_DIR/button_ok_22x22.png' border='0' desc='Succès' title='Succès'>" : "<img src='$__ICON_DIR/stop_22x22.png' border='0' desc='Echec' title='Echec'>";
-		$detail="Fichier cherché : ". preg_replace("/[\/]+/","/", "$__FPDF_DIR_ABS/fpdf.php");
+		$txt_erreurs=$fonctions_pdf ? "" : "VÃ©rifier la prÃ©sence de l'extension \"FPDF\"";
+		$icone=$fonctions_pdf ? "<img src='$__ICON_DIR/button_ok_22x22.png' border='0' desc='SuccÃ¨s' title='SuccÃ¨s'>" : "<img src='$__ICON_DIR/stop_22x22.png' border='0' desc='Echec' title='Echec'>";
+		$detail="Fichier cherchÃ© : ". preg_replace("/[\/]+/","/", "$__FPDF_DIR_ABS/fpdf.php");
 
 		print("<tr>
 					<td class='fond_menu' style='padding:4px;'><font class='Texte'><strong>PHP : Fonctions FPDF</strong></font></td>
@@ -392,7 +392,7 @@ font.Texte
 			  	</tr>\n");
 
 
-		// PARAMETRES et références pour les valeurs numériques
+		// PARAMETRES et rÃ©fÃ©rences pour les valeurs numÃ©riques
 		$ref_max_execution_time=3600; // en secondes
 		$ref_max_input_time=600; // en secondes
 		$ref_memory_limit=512*pow(1024, 2); // 512M, en octets
@@ -407,8 +407,8 @@ font.Texte
 		$conf_upload_max_filesize=return_bytes(ini_get("upload_max_filesize"));
 		$conf_sendmail_path=ini_get("sendmail_path");
 
-		$txt_erreurs=$ref_max_execution_time<=$conf_max_execution_time ? "Valeur actuelle : $conf_max_execution_time secs" : "Valeur recommandée : 3600 secondes (actuelle : $conf_max_execution_time)";
-		$icone=$ref_max_execution_time<=$conf_max_execution_time ? "<img src='$__ICON_DIR/button_ok_22x22.png' border='0' desc='Succès' title='Succès'>" : "<img src='$__ICON_DIR/stop_22x22.png' border='0' desc='Echec' title='Echec'>";
+		$txt_erreurs=$ref_max_execution_time<=$conf_max_execution_time ? "Valeur actuelle : $conf_max_execution_time secs" : "Valeur recommandÃ©e : 3600 secondes (actuelle : $conf_max_execution_time)";
+		$icone=$ref_max_execution_time<=$conf_max_execution_time ? "<img src='$__ICON_DIR/button_ok_22x22.png' border='0' desc='SuccÃ¨s' title='SuccÃ¨s'>" : "<img src='$__ICON_DIR/stop_22x22.png' border='0' desc='Echec' title='Echec'>";
 
 		print("<tr>
 					<td class='fond_menu2' style='padding:4px;' colspan='4'>
@@ -418,8 +418,8 @@ font.Texte
 				<tr>
 					<td class='fond_menu2' style='padding:4px;' colspan='4'>
 						<font class='Texte'>
-							<strong>Attention : ces options doivent être paramétrées à la fois pour le serveur HTTP et php en ligne de commande (CLI) (fichiers de configuration distincts)
-							<br>Seule le configuration HTTP est vérifiée ici.</strong>
+							<strong>Attention : ces options doivent Ãªtre paramÃ©trÃ©es Ã  la fois pour le serveur HTTP et php en ligne de commande (CLI) (fichiers de configuration distincts)
+							<br>Seule le configuration HTTP est vÃ©rifiÃ©e ici.</strong>
 						</font>
 					</td>
 				</tr>
@@ -430,8 +430,8 @@ font.Texte
 				 	<td class='fond_menu' style='padding:4px;'></td>
 			  	</tr>\n");
 
-		$txt_erreurs=$ref_max_input_time<=$conf_max_input_time ? "Valeur actuelle : $conf_max_input_time secs" : "Valeur recommandée : 600 secondes (actuelle : $conf_max_input_time)";
-		$icone=$ref_max_input_time<=$conf_max_input_time ? "<img src='$__ICON_DIR/button_ok_22x22.png' border='0' desc='Succès' title='Succès'>" : "<img src='$__ICON_DIR/stop_22x22.png' border='0' desc='Echec' title='Echec'>";
+		$txt_erreurs=$ref_max_input_time<=$conf_max_input_time ? "Valeur actuelle : $conf_max_input_time secs" : "Valeur recommandÃ©e : 600 secondes (actuelle : $conf_max_input_time)";
+		$icone=$ref_max_input_time<=$conf_max_input_time ? "<img src='$__ICON_DIR/button_ok_22x22.png' border='0' desc='SuccÃ¨s' title='SuccÃ¨s'>" : "<img src='$__ICON_DIR/stop_22x22.png' border='0' desc='Echec' title='Echec'>";
 
 		print("<tr>
 					<td class='fond_menu' style='padding:4px;'><font class='Texte'><strong>max_input_time</strong></font></td>
@@ -440,8 +440,8 @@ font.Texte
 				 	<td class='fond_menu' style='padding:4px;'></td>
 			  	</tr>\n");
 		
-		$txt_erreurs=$ref_memory_limit<=$conf_memory_limit ? $conf_memory_limit/pow(1024,2)."M" : "Valeur recommandée : 512M (actuelle : ".$conf_memory_limit/pow(1024,2)."M)";
-		$icone=$ref_memory_limit<=$conf_memory_limit ? "<img src='$__ICON_DIR/button_ok_22x22.png' border='0' desc='Succès' title='Succès'>" : "<img src='$__ICON_DIR/stop_22x22.png' border='0' desc='Echec' title='Echec'>";
+		$txt_erreurs=$ref_memory_limit<=$conf_memory_limit ? $conf_memory_limit/pow(1024,2)."M" : "Valeur recommandÃ©e : 512M (actuelle : ".$conf_memory_limit/pow(1024,2)."M)";
+		$icone=$ref_memory_limit<=$conf_memory_limit ? "<img src='$__ICON_DIR/button_ok_22x22.png' border='0' desc='SuccÃ¨s' title='SuccÃ¨s'>" : "<img src='$__ICON_DIR/stop_22x22.png' border='0' desc='Echec' title='Echec'>";
 
 		print("<tr>
 					<td class='fond_menu' style='padding:4px;'><font class='Texte'><strong>post_max_size</strong></font></td>
@@ -450,8 +450,8 @@ font.Texte
 				 	<td class='fond_menu' style='padding:4px;'></td>
 			  	</tr>\n");
 
-		$txt_erreurs=$ref_post_max_size<=$conf_post_max_size ? $conf_post_max_size/pow(1024,2)."M" : "Valeur recommandée : 16M (actuelle : ".$conf_post_max_size/pow(1024,2)."M)";
-		$icone=$ref_post_max_size<=$conf_post_max_size ? "<img src='$__ICON_DIR/button_ok_22x22.png' border='0' desc='Succès' title='Succès'>" : "<img src='$__ICON_DIR/stop_22x22.png' border='0' desc='Echec' title='Echec'>";
+		$txt_erreurs=$ref_post_max_size<=$conf_post_max_size ? $conf_post_max_size/pow(1024,2)."M" : "Valeur recommandÃ©e : 16M (actuelle : ".$conf_post_max_size/pow(1024,2)."M)";
+		$icone=$ref_post_max_size<=$conf_post_max_size ? "<img src='$__ICON_DIR/button_ok_22x22.png' border='0' desc='SuccÃ¨s' title='SuccÃ¨s'>" : "<img src='$__ICON_DIR/stop_22x22.png' border='0' desc='Echec' title='Echec'>";
 
 		print("<tr>
 					<td class='fond_menu' style='padding:4px;'><font class='Texte'><strong>post_max_size</strong></font></td>
@@ -461,7 +461,7 @@ font.Texte
 			  	</tr>\n");
 
 		$txt_erreurs=$conf_file_uploads=="1" ? "" : "Autoriser l'envoi de fichier (\"file_uploads = On\")";
-		$icone=$conf_file_uploads=="1" ? "<img src='$__ICON_DIR/button_ok_22x22.png' border='0' desc='Succès' title='Succès'>" : "<img src='$__ICON_DIR/stop_22x22.png' border='0' desc='Echec' title='Echec'>";
+		$icone=$conf_file_uploads=="1" ? "<img src='$__ICON_DIR/button_ok_22x22.png' border='0' desc='SuccÃ¨s' title='SuccÃ¨s'>" : "<img src='$__ICON_DIR/stop_22x22.png' border='0' desc='Echec' title='Echec'>";
 
 		print("<tr>
 					<td class='fond_menu' style='padding:4px;'><font class='Texte'><strong>file_uploads</strong></font></td>
@@ -470,8 +470,8 @@ font.Texte
 				 	<td class='fond_menu' style='padding:4px;'></td>
 			  	</tr>\n");
 
-		$txt_erreurs=$ref_upload_max_filesize<=$conf_upload_max_filesize ? $conf_upload_max_filesize/pow(1024,2)."M" : "Valeur recommandée : 16M (actuelle : ".$conf_upload_max_filesize/pow(1024,2)."M)";
-		$icone=$ref_upload_max_filesize<=$conf_upload_max_filesize ? "<img src='$__ICON_DIR/button_ok_22x22.png' border='0' desc='Succès' title='Succès'>" : "<img src='$__ICON_DIR/stop_22x22.png' border='0' desc='Echec' title='Echec'>";
+		$txt_erreurs=$ref_upload_max_filesize<=$conf_upload_max_filesize ? $conf_upload_max_filesize/pow(1024,2)."M" : "Valeur recommandÃ©e : 16M (actuelle : ".$conf_upload_max_filesize/pow(1024,2)."M)";
+		$icone=$ref_upload_max_filesize<=$conf_upload_max_filesize ? "<img src='$__ICON_DIR/button_ok_22x22.png' border='0' desc='SuccÃ¨s' title='SuccÃ¨s'>" : "<img src='$__ICON_DIR/stop_22x22.png' border='0' desc='Echec' title='Echec'>";
 
 		print("<tr>
 					<td class='fond_menu' style='padding:4px;'><font class='Texte'><strong>upload_max_filesize</strong></font></td>
@@ -481,10 +481,10 @@ font.Texte
 			  	</tr>\n");
 		/*
 			TODO / Question :
-			- Utilisateur "administrateur" : vérifier le changement du mot de passe par défaut ?
+			- Utilisateur "administrateur" : vÃ©rifier le changement du mot de passe par dÃ©faut ?
 		*/
 
-		// Accès à la base de données
+		// AccÃ¨s Ã  la base de donnÃ©es
 		// Possible uniquement si les fonctions postgres sont disponibles
 
 		print("<tr>
@@ -493,7 +493,7 @@ font.Texte
 					</td>
 				</tr>
 				<tr>
-					<td class='fond_menu' style='padding:4px;'><font class='Texte'><strong>Accès à la base de données</strong></font></td>
+					<td class='fond_menu' style='padding:4px;'><font class='Texte'><strong>AccÃ¨s Ã  la base de donnÃ©es</strong></font></td>
 					<td class='fond_menu' style='padding:4px; text-align:center'>\n");
 
 		if($fonctions_postgresql)
@@ -502,18 +502,18 @@ font.Texte
 				print("<img src='$__ICON_DIR/stop_22x22.png' border='0' desc='Echec' title='Echec'>
 						</td>
 						<td class='fond_menu' style='padding:4px;' colspan='2'>
-							<font class='Texte'><strong>Vérifier que :</strong>
-								<br>- les paramètres du fichier de configuration (configuration/aria_config.php) sont corrects,
-								<br>- le serveur de bases de données est en cours d'exécution aux paramètres (droits d'accès, SSL, etc)
-								<br>- la configuration de la base de données correspond,
-								<br>- la base de données a bien été créée,
-								<br>- le schéma de la base a bien été défini (fichier aria_schema.sql),
-								<br>- l'utilisateur défini dans le fichier de configuration a accès à la base de données.
+							<font class='Texte'><strong>VÃ©rifier que :</strong>
+								<br>- les paramÃ¨tres du fichier de configuration (configuration/aria_config.php) sont corrects,
+								<br>- le serveur de bases de donnÃ©es est en cours d'exÃ©cution aux paramÃ¨tres (droits d'accÃ¨s, SSL, etc)
+								<br>- la configuration de la base de donnÃ©es correspond,
+								<br>- la base de donnÃ©es a bien Ã©tÃ© crÃ©Ã©e,
+								<br>- le schÃ©ma de la base a bien Ã©tÃ© dÃ©fini (fichier aria_schema.sql),
+								<br>- l'utilisateur dÃ©fini dans le fichier de configuration a accÃ¨s Ã  la base de donnÃ©es.
 							</font>
 						</td>
 					</tr>\n");
 			else
-				print("<img src='$__ICON_DIR/button_ok_22x22.png' border='0' desc='Succès' title='Succès'>
+				print("<img src='$__ICON_DIR/button_ok_22x22.png' border='0' desc='SuccÃ¨s' title='SuccÃ¨s'>
 						</td>
 						<td class='fond_menu' style='padding:4px;'></td>
 						<td class='fond_menu' style='padding:4px;'></td>
@@ -528,22 +528,22 @@ font.Texte
 						<td class='fond_menu' style='padding:4px;'></td>
 					</tr>\n");
 
-      // Présence du fichier de configuration gestion/admin/config.php (bloquante)
+      // PrÃ©sence du fichier de configuration gestion/admin/config.php (bloquante)
       print("<tr>
                <td class='fond_menu' style='padding:4px;'><font class='Texte'><strong>Fichier config.php</strong></font></td>
                <td class='fond_menu' style='padding:4px; text-align:center'>\n");
 
       if(is_file("$GLOBALS[__ROOT_DIR]/$GLOBALS[__GESTION_DIR]/admin/config.php"))
       {
-         $txt_erreurs="Présent<br>";
-         $commentaire="Une fois la configuration terminée, vous devez <b>supprimer le fichier gestion/admin/config.php</b><br>pour débloquer l'accès à l'application.";
+         $txt_erreurs="PrÃ©sent<br>";
+         $commentaire="Une fois la configuration terminÃ©e, vous devez <b>supprimer le fichier gestion/admin/config.php</b><br>pour dÃ©bloquer l'accÃ¨s Ã  l'application.";
          print("<img src='$__ICON_DIR/stop_22x22.png' border='0' desc='Echec' title='Echec'>\n");
       }
       else
       {
          $txt_erreurs="Absent (ok)";
          $commentaire="";
-         print("<img src='$__ICON_DIR/button_ok_22x22.png' border='0' desc='Succès' title='Succès'>\n");
+         print("<img src='$__ICON_DIR/button_ok_22x22.png' border='0' desc='SuccÃ¨s' title='SuccÃ¨s'>\n");
       }
 
       print("</td>
@@ -557,7 +557,7 @@ font.Texte
 		
 		// Arborescence
 
-		// Création du tableau des répertoires à vérifier, avec les droits (Lecture, Ecriture)
+		// CrÃ©ation du tableau des rÃ©pertoires Ã  vÃ©rifier, avec les droits (Lecture, Ecriture)
 		$all_dirs=array($GLOBALS["__ROOT_DIR"] => "L",
 							 $GLOBALS["__MOD_DIR_ABS"] => "L",
 							 $GLOBALS["__INCLUDE_DIR_ABS"]=> "L",
@@ -575,7 +575,7 @@ font.Texte
 							 $GLOBALS["__GESTION_MSG_STOCKAGE_DIR_ABS"] => "LE",
                       "$GLOBALS[__MOD_DIR_ABS]/configuration" => "LE");
 
-		// Pour les répertoires suivants, on doit également ajouter chaque sous-répertoire (dédiés aux composantes)
+		// Pour les rÃ©pertoires suivants, on doit Ã©galement ajouter chaque sous-rÃ©pertoire (dÃ©diÃ©s aux composantes)
 		$subdir_array=array($GLOBALS["__PUBLIC_DIR_ABS"],
 								  $GLOBALS["__CAND_COMP_STOCKAGE_DIR_ABS"],
 								  $GLOBALS["__GESTION_COMP_STOCKAGE_DIR_ABS"]);
@@ -588,7 +588,7 @@ font.Texte
 			{
 				$contenu_repertoire  = scandir("$subdir", 0);
 
-				// On ne considère que les sous-répertoires : suppression des fichiers de l'index: ".svn" "." et ".."
+				// On ne considÃ¨re que les sous-rÃ©pertoires : suppression des fichiers de l'index: ".svn" "." et ".."
 				foreach($contenu_repertoire as $key => $dir)
 				{
 					if($dir!="." && $dir!=".." && $dir!=".svn" && is_dir("$subdir/$dir"))
@@ -597,9 +597,9 @@ font.Texte
 			}
 		}
 
-		// Affichage en deux étapes :
-		// 1/ Présence des répertoires
-		// 2/ Droits lecture / écriture dans les répertoires adéquats
+		// Affichage en deux Ã©tapes :
+		// 1/ PrÃ©sence des rÃ©pertoires
+		// 2/ Droits lecture / Ã©criture dans les rÃ©pertoires adÃ©quats
 
 		$dir_erreurs_presence="";
 		$dir_erreurs_droits="";
@@ -632,7 +632,7 @@ font.Texte
 						if(is_array($array_pw) && is_array($array_gr))
 						{
 							$details_droits.="<br><strong>".preg_replace("/[\/]+/","/", $repertoire)." :</strong>
-												  <br>- <u>Répertoire</u> : Propriétaire : $array_pw[name] - Groupe : $array_gr[name]
+												  <br>- <u>RÃ©pertoire</u> : PropriÃ©taire : $array_pw[name] - Groupe : $array_gr[name]
 												  <br>- <u>Serveur HTTP</u> - Utilisateur : $current_process_username - Groupe : $current_process_group_name
 												  <br>";
 						}
@@ -649,13 +649,13 @@ font.Texte
 
 		if($dir_erreurs_presence!="")
 		{
-			$txt_erreurs="Répertoires manquants ou inaccessibles :<br>";
+			$txt_erreurs="RÃ©pertoires manquants ou inaccessibles :<br>";
 			print("<img src='$__ICON_DIR/stop_22x22.png' border='0' desc='Echec' title='Echec'>\n");
 		}
 		else
 		{
 			$txt_erreurs="";
-			print("<img src='$__ICON_DIR/button_ok_22x22.png' border='0' desc='Succès' title='Succès'>\n");
+			print("<img src='$__ICON_DIR/button_ok_22x22.png' border='0' desc='SuccÃ¨s' title='SuccÃ¨s'>\n");
 		}
 
 		print("</td>
@@ -670,7 +670,7 @@ font.Texte
 				 <td class='fond_menu' style='padding:4px;'></td>
 			  </tr>
 				<tr>
-					<td class='fond_menu' style='padding:4px;'><font class='Texte'><strong>Droits lecture/écriture</strong></font></td>
+					<td class='fond_menu' style='padding:4px;'><font class='Texte'><strong>Droits lecture/Ã©criture</strong></font></td>
 					<td class='fond_menu' style='padding:4px; text-align:center'>\n");
 
 		if($dir_erreurs_droits!="")
@@ -681,7 +681,7 @@ font.Texte
 		else
 		{
 			$txt_erreurs="";			
-			print("<img src='$__ICON_DIR/button_ok_22x22.png' border='0' desc='Succès' title='Succès'>\n");
+			print("<img src='$__ICON_DIR/button_ok_22x22.png' border='0' desc='SuccÃ¨s' title='SuccÃ¨s'>\n");
 		}
 
 		print("</td>

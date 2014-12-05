@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -80,11 +80,11 @@ CeCILL-B, et que vous en avez accepté les termes.
 		$intitule=trim($_POST['intitule']);
 		$texte=$_POST['texte'];
 
-		if(!isset($_SESSION["ajout"]) && array_key_exists("modele_id", $_POST)) // Modification d'un modèle existant
+		if(!isset($_SESSION["ajout"]) && array_key_exists("modele_id", $_POST)) // Modification d'un modÃ¨le existant
 		{
 			$new_id=$_POST["modele_id"];
 
-			// unicité
+			// unicitÃ©
 			if(db_num_rows(db_query($dbr,"SELECT * FROM $_DB_msg_modeles
 													WHERE ($_DBC_msg_modeles_intitule ILIKE '$intitule' OR $_DBC_msg_modeles_texte ILIKE '$texte')
 													AND $_DBC_msg_modeles_id!='$new_id'
@@ -97,7 +97,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 													 AND $_DBC_msg_modeles_acces_id='$_SESSION[auth_id]'")))
 			$modele_existe="1";
 
-		// vérification des champs
+		// vÃ©rification des champs
 		if($intitule=="")
 			$intitule_vide=1;
 
@@ -140,31 +140,31 @@ CeCILL-B, et que vous en avez accepté les termes.
 		if(isset($_GET["a"]) || isset($_SESSION["ajout"]))
 		{
 			$_SESSION["ajout"]=1;
-			titre_page_icone("Créer un modèle de courriel", "add_32x32_fond.png", 15, "L");
+			titre_page_icone("CrÃ©er un modÃ¨le de courriel", "add_32x32_fond.png", 15, "L");
 		}
 		else
-			titre_page_icone("Modifier un modèle de courriel existant", "edit_32x32_fond.png", 15, "L");
+			titre_page_icone("Modifier un modÃ¨le de courriel existant", "edit_32x32_fond.png", 15, "L");
 
 		if(isset($intitule_vide))
-			message("Erreur : le champ 'Intitulé' ne doit pas être vide", $__ERREUR);
+			message("Erreur : le champ 'IntitulÃ©' ne doit pas Ãªtre vide", $__ERREUR);
 
 		if(isset($infos_vides))
-			message("Erreur : le champ 'Contenu' ne doit pas être vide", $__ERREUR);
+			message("Erreur : le champ 'Contenu' ne doit pas Ãªtre vide", $__ERREUR);
 
 		if(isset($modele_existe))
-			message("Erreur : cet intitulé de modèle existe déjà.", $__ERREUR);
+			message("Erreur : cet intitulÃ© de modÃ¨le existe dÃ©jÃ .", $__ERREUR);
 
 		if(isset($succes))
 		{
 			if(!isset($_SESSION["ajout"]))
-				message("Le modèle a été modifiée avec succès.", $__SUCCES);
+				message("Le modÃ¨le a Ã©tÃ© modifiÃ©e avec succÃ¨s.", $__SUCCES);
 			else
-				message("Le modèle a été créé avec succès.", $__SUCCES);
+				message("Le modÃ¨le a Ã©tÃ© crÃ©Ã© avec succÃ¨s.", $__SUCCES);
 		}
 
 		$dbr=db_connect();
 
-		if(!isset($resultat) && !isset($_GET["a"]) && !isset($_SESSION["ajout"])) // choix de l'élément à modifier
+		if(!isset($resultat) && !isset($_GET["a"]) && !isset($_SESSION["ajout"])) // choix de l'Ã©lÃ©ment Ã  modifier
 		{
 			$result=db_query($dbr, "SELECT $_DBC_msg_modeles_id, $_DBC_msg_modeles_intitule
 												FROM $_DB_msg_modeles
@@ -177,7 +177,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			{
 				print("<form action='$php_self' method='POST' name='form1'>
 						 <center>
-							<font class='Texte'>Modèle à modifier : </font>
+							<font class='Texte'>ModÃ¨le Ã  modifier : </font>
 							<select name='modele_id' size='1'>\n");
 
 				$old_univ="";
@@ -209,7 +209,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			}
 			else
 			{
-				message("Il n'y a actuellement aucun modèle à modifier.", $__ERREUR);
+				message("Il n'y a actuellement aucun modÃ¨le Ã  modifier.", $__ERREUR);
 
 				print("<div class='centered_box'>
 							<a href='../index.php' target='_self'><img src='$__ICON_DIR/back_32x32_fond.png' alt='Retour' border='0'></a>
@@ -217,9 +217,9 @@ CeCILL-B, et que vous en avez accepté les termes.
 			}
 
 			if(isset($erreur_selection))
-				message("Erreur de sélection du modèle", $__ERREUR);
+				message("Erreur de sÃ©lection du modÃ¨le", $__ERREUR);
 		}
-		else // élément choisi, on récupère les infos actuelles
+		else // Ã©lÃ©ment choisi, on rÃ©cupÃ¨re les infos actuelles
 		{
 			if(isset($_GET["a"]) || isset($_SESSION["ajout"]))
 			{
@@ -252,7 +252,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		</tr>
 		<tr>
 			<td class='td-gauche fond_menu2'>
-				<font class='Texte_menu2'><b>Intitulé du modèle</b></font>
+				<font class='Texte_menu2'><b>IntitulÃ© du modÃ¨le</b></font>
 			</td>
 			<td class='td-droite fond_menu'>
 				<input type='text' name='intitule' value='<?php if(isset($intitule)) echo htmlspecialchars(stripslashes($intitule), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' maxlength='196' size='70'>
@@ -293,20 +293,20 @@ CeCILL-B, et que vous en avez accepté les termes.
 		<table border='0' cellpadding='2' align='center' style='padding-bottom:20px;'>
 		<tr>
 			<td align='justify' colspan='2' class='fond_menu2' style='padding:4px;'>
-				<font class='Texte_menu2'><b>Les modèles peuvent s'adapter aux informations de chaque candidat(e) grâce aux macros suivantes : </b></font>
+				<font class='Texte_menu2'><b>Les modÃ¨les peuvent s'adapter aux informations de chaque candidat(e) grÃ¢ce aux macros suivantes : </b></font>
 			</td>
 		</tr>
 		<tr>
-			<td align='justify'><font class='Texte'><b>%Civilité%</b></font></td>
-			<td align='justify'><font class='Texte'>Civilité du candidat (Monsieur, Madame, Mademoiselle - sensible aux majuscules)</font></td>
+			<td align='justify'><font class='Texte'><b>%CivilitÃ©%</b></font></td>
+			<td align='justify'><font class='Texte'>CivilitÃ© du candidat (Monsieur, Madame, Mademoiselle - sensible aux majuscules)</font></td>
 		</tr>
 		<tr>
 			<td align='justify'><font class='Texte'><b>%Nom%</b></font></td>
 			<td align='justify'><font class='Texte'>Nom du candidat (sensible aux majuscules : %NOM%, %Nom%, %nom%)</font></td>
 		</tr>
 		<tr>
-			<td align='justify'><font class='Texte'><b>%Prénom%</b></font></td>
-			<td align='justify'><font class='Texte'>Prénom du candidat (même remarque)</font></td>
+			<td align='justify'><font class='Texte'><b>%PrÃ©nom%</b></font></td>
+			<td align='justify'><font class='Texte'>PrÃ©nom du candidat (mÃªme remarque)</font></td>
 		</tr>
 		<tr>
 			<td align='justify'><font class='Texte'><b>%naissance%</b></font></td>
@@ -322,15 +322,15 @@ CeCILL-B, et que vous en avez accepté les termes.
 		</tr>
 		<tr>
 			<td align='justify'><font class='Texte'><b>%Responsable%</b></font></td>
-			<td align='justify'><font class='Texte'>Responsable de la Formation (champ à compléter dans les propriétés de chaque formation)</font></td>
+			<td align='justify'><font class='Texte'>Responsable de la Formation (champ Ã  complÃ©ter dans les propriÃ©tÃ©s de chaque formation)</font></td>
 		</tr>
 		<tr>
 			<td align='justify'><font class='Texte'><b>%courriel_responsable%</b></font></td>
-			<td align='justify'><font class='Texte'>Adresse électronique du responsable de la formation (même remarque)</font></td>
+			<td align='justify'><font class='Texte'>Adresse Ã©lectronique du responsable de la formation (mÃªme remarque)</font></td>
 		</tr>
 		<tr>
-			<td align='justify'><font class='Texte'><b>%année_universitaire%</b></font></td>
-			<td align='justify'><font class='Texte'>Année universitaire à venir <?php echo "(i.e \"$__PERIODE/" . ($__PERIODE+1) . "\")"; ?></font></td>
+			<td align='justify'><font class='Texte'><b>%annÃ©e_universitaire%</b></font></td>
+			<td align='justify'><font class='Texte'>AnnÃ©e universitaire Ã  venir <?php echo "(i.e \"$__PERIODE/" . ($__PERIODE+1) . "\")"; ?></font></td>
 		</tr>
 		<tr>
 			<td align='justify'><font class='Texte'><b>%aaaa/bbbb%</b> (grammaire)</font></td>

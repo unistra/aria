@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -110,7 +110,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	}
 	elseif(isset($_POST["go_envoyer"]) || isset($_POST["go_envoyer_x"]))
 	{
-		// informations liées au fichier envoyé
+		// informations liÃ©es au fichier envoyÃ©
 		$file_name=$_FILES["fichier"]["name"];
 		$file_size=$_FILES["fichier"]["size"];
 		$file_tmp_name=$_FILES["fichier"]["tmp_name"];
@@ -130,7 +130,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			$destination_path="$__PUBLIC_DIR_ABS/$_SESSION[comp_id]/justificatifs/$file_name";
 
 			$x=0;
-			while(is_file("$destination_path")) // le fichier existe deja : on change le nom en ajoutant un numéro
+			while(is_file("$destination_path")) // le fichier existe deja : on change le nom en ajoutant un numÃ©ro
 			{
 				$test_file_name=$x. "-$file_name";
 				$destination_path="$__PUBLIC_DIR_ABS/$_SESSION[comp_id]/justificatifs/$test_file_name";
@@ -164,20 +164,20 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 <div class='main'>
 	<?php
-		titre_page_icone("Justificatifs : gestion des pièces jointes", "document-export_32x32_fond.png", 30, "L");
+		titre_page_icone("Justificatifs : gestion des piÃ¨ces jointes", "document-export_32x32_fond.png", 30, "L");
 
 		if(isset($erreur_copie_fichier))
-			message("Erreur : impossible de copier le fichier reçu. Merci de contacter l'administrateur.", $__ERREUR);
+			message("Erreur : impossible de copier le fichier reÃ§u. Merci de contacter l'administrateur.", $__ERREUR);
 
 		if(isset($trop_gros))
-			message("Erreur : le fichier envoyé est trop gros (max : 16Mo)", $__ERREUR);
+			message("Erreur : le fichier envoyÃ© est trop gros (max : 16Mo)", $__ERREUR);
 
 		if(isset($fichier_vide))
-			message("Erreur : aucun fichier sélectionné.", $__ERREUR);
+			message("Erreur : aucun fichier sÃ©lectionnÃ©.", $__ERREUR);
 
 		if(isset($copie_ok))
 			message("<center>
-							Fichier transféré avec succès.
+							Fichier transfÃ©rÃ© avec succÃ¨s.
 							<br><b>N'oubliez pas de le rattacher aux formations voulues !</b>
 						</center>", $__SUCCES);
 
@@ -202,7 +202,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	<tr>
 		<td align='center' valign='top' width='50%'>
 			<font class='Titre' face="Arial" size="4" style="font-weight: bold;">
-				Fichiers actuellement stockés sur le serveur :
+				Fichiers actuellement stockÃ©s sur le serveur :
 			</font>
 			<br><br>
 
@@ -216,12 +216,12 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 				$nb_fichiers=count($_SESSION["contenu_repertoire"]);
 
-				if($nb_fichiers==2) // uniquement les répertoire . et ..
+				if($nb_fichiers==2) // uniquement les rÃ©pertoire . et ..
 					print("<font class='Texte3'><b>Il n'y a aucun fichier dans l'espace de stockage.</b></font>
 								<br><br><br>\n");
 				else
 				{
-					$nb_reel_fichiers=$nb_fichiers-2; // on supprime les répertoires . et ..
+					$nb_reel_fichiers=$nb_fichiers-2; // on supprime les rÃ©pertoires . et ..
 
 					if($nb_reel_fichiers>1)
 						$txt="$nb_reel_fichiers fichiers : ";
@@ -236,7 +236,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 								</tr>
 								<tr>
 									<td class='fond_menu2' nowrap='true' valign='top' style='padding:4px 4px 4px 10px;'>
-										<font class='Texte_menu2'><b>Dernière modification</b></font>
+										<font class='Texte_menu2'><b>DerniÃ¨re modification</b></font>
 									</td>
 									<td class='fond_menu2' align='center' nowrap='true' valign='top' style='padding:4px;'>
 										<font class='Texte_menu2'><b>Nom</b></font>
@@ -245,7 +245,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 										<font class='Texte_menu2'><b>Taille (en octets)</b></font>
 									</td>
 									<td class='fond_menu2' align='center' nowrap='true' valign='top' style='padding:4px 10px 4px 4px;'>
-										<font class='Texte_menu2'><b>Sélection</b></font>
+										<font class='Texte_menu2'><b>SÃ©lection</b></font>
 									</td>
 								</tr>\n");
 
@@ -262,7 +262,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 														WHERE $_DBC_justifs_fichiers_nom='$nom_fichier'
 														AND $_DBC_justifs_fichiers_comp_id='$_SESSION[comp_id]'");
 
-						if(db_num_rows($result)) // normalement, un seul résultat
+						if(db_num_rows($result)) // normalement, un seul rÃ©sultat
 						{
 							list($fichier_id)=db_fetch_row($result,0);
 
@@ -292,7 +292,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 					print("<tr>
 								<td colspan='4' align='center' valign='top' nowrap='true' style='padding:4px 10px 4px 10px;'>
-									<input type='submit' name='go_supprimer' value='Supprimer les fichiers sélectionnés'>
+									<input type='submit' name='go_supprimer' value='Supprimer les fichiers sÃ©lectionnÃ©s'>
 								</td>
 							</tr>
 							</table>
@@ -311,7 +311,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			<table>
 			<tr>
 				<td class='fond_menu2' colspan='2' align='left' style='padding:4px 10px 4px 10px;'>
-					<font class='Texte_menu2'><b>Sélection du fichier (Taille : 16Mo maximum) :</b></font>
+					<font class='Texte_menu2'><b>SÃ©lection du fichier (Taille : 16Mo maximum) :</b></font>
 				</td>
 			</tr>
 			<tr>

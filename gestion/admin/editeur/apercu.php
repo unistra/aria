@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -65,7 +65,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	verif_auth("../../login.php");
 
 	if(!isset($_SESSION["lettre_id"]))
-		die("Impossible d'afficher l'aperçu : lettre non déterminée (utilisation de la touche \"Retour\" (Back) de votre navigateur ?)");
+		die("Impossible d'afficher l'aperÃ§u : lettre non dÃ©terminÃ©e (utilisation de la touche \"Retour\" (Back) de votre navigateur ?)");
 
 	$Y=date("Y");
 	$Z=$Y+1;
@@ -75,7 +75,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 	$dbr=db_connect();
 
-	// On prend le premier étudiant qu'on trouve dans cette composante
+	// On prend le premier Ã©tudiant qu'on trouve dans cette composante
 	$result=db_query($dbr, "SELECT $_DBC_candidat_id, $_DBC_cand_id FROM $_DB_candidat, $_DB_cand, $_DB_propspec
 										WHERE $_DBC_cand_candidat_id=$_DBC_candidat_id
 										AND  $_DBC_propspec_id=$_DBC_cand_propspec_id
@@ -92,7 +92,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		$cursus_array=__get_cursus($dbr, $candidat_id);
 		$candidature_array=__get_candidature($dbr, $cand_id);
 	}
-	else // on fabrique un candidat de toute pièce
+	else // on fabrique un candidat de toute piÃ¨ce
 	{
 		$fake=1;
 
@@ -106,7 +106,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		$adresse="24 Rue des Peupliers\n67000 Strasbourg";
 		$candidat_array["lieu_naissance"]="Strasbourg";
 		$candidat_array["pays_naissance"]="France";
-		$candidat_array["nationalite"]="Française";
+		$candidat_array["nationalite"]="FranÃ§aise";
 		$candidat_array["telephone"]="01 23 45 67 89";
 
 		$candidat_array["naissance"]=date_fr("j/m/Y",$candidat_array["naissance_unix"]);
@@ -115,22 +115,22 @@ CeCILL-B, et que vous en avez accepté les termes.
 		// Cursus
 		$cursus_array=array();
 
-		$cursus_array[0]["cursus"]="- Baccalauréat S";
-		$cursus_array[0]["lieu"]="- Lycée Kleber, Strasbourg, France";
+		$cursus_array[0]["cursus"]="- BaccalaurÃ©at S";
+		$cursus_array[0]["lieu"]="- LycÃ©e Kleber, Strasbourg, France";
 		$cursus_array[0]["date"]="1997";
 
-		$cursus_array[1]["cursus"]="- CPGE 1ère année";
+		$cursus_array[1]["cursus"]="- CPGE 1Ã¨re annÃ©e";
 		$cursus_array[1]["lieu"]="- INSA, Rennes, France";
 		$cursus_array[1]["date"]="1999";
 
-		$cursus_array[2]["cursus"]="- IUP GMI 1ère année";
+		$cursus_array[2]["cursus"]="- IUP GMI 1Ã¨re annÃ©e";
 		$cursus_array[2]["lieu"]="- ULP, Strasbourg, France";
 		$cursus_array[2]["date"]="2000";
 
 		// Candidature
 		$candidature_array=array();
 
-      // Formation : on essaye d'abord de trouver une formation liée à la lettre
+      // Formation : on essaye d'abord de trouver une formation liÃ©e Ã  la lettre
       $result_fake=db_query($dbr,"SELECT $_DBC_propspec_id, $_DBC_annees_annee, $_DBC_specs_nom, $_DBC_specs_nom_court,
 		   										  $_DBC_propspec_selective, $_DBC_propspec_resp, $_DBC_propspec_mailresp
  		   							 	    FROM $_DB_annees, $_DB_specs, $_DB_propspec, $_DB_lettres_propspec
@@ -155,11 +155,11 @@ CeCILL-B, et que vous en avez accepté les termes.
 									   											LIMIT 1)");
 		}
 
-		// Aperçu impossible si les données minimales sont absentes
-		// TODO : ce message devrait plutôt apparaître dans le menu de l'éditeur (et rendre le lien "Aperçu" inopérant)
+		// AperÃ§u impossible si les donnÃ©es minimales sont absentes
+		// TODO : ce message devrait plutÃ´t apparaÃ®tre dans le menu de l'Ã©diteur (et rendre le lien "AperÃ§u" inopÃ©rant)
 		if(!db_num_rows($result_fake))
-         die("Impossible de créer un aperçu : les données de la base sont insuffisantes pour créer un modèle cohérent.
-              <br>Il est conseillé de configurer l'offre de formations de la composante avant de manipuler l'Editeur de Lettres.");
+         die("Impossible de crÃ©er un aperÃ§u : les donnÃ©es de la base sont insuffisantes pour crÃ©er un modÃ¨le cohÃ©rent.
+              <br>Il est conseillÃ© de configurer l'offre de formations de la composante avant de manipuler l'Editeur de Lettres.");
 
 		list($candidature_array["propspec_id"],
 				$candidature_array["annee"],
@@ -218,9 +218,9 @@ CeCILL-B, et que vous en avez accepté les termes.
 				  $flag_txt_sign, $flag_adr_cand, $flag_date, $flag_adr_pos, $adr_pos_x, $adr_pos_y, $flag_corps_pos,
 					$corps_pos_x, $corps_pos_y,$lettre_lang)=db_fetch_row($result2,0);
 		else
-			die("Lettre non trouvée : merci de contacter rapidement l'administrateur.");
+			die("Lettre non trouvÃ©e : merci de contacter rapidement l'administrateur.");
 
-		// Modification des paramètres en fonction de la langue de la lettre
+		// Modification des paramÃ¨tres en fonction de la langue de la lettre
 		/*
 		$candidat_array["civilite"]=civ_lang($candidat_array["civilite"], $lettre_lang, 0);
 		$candidat_array["civ_texte"]=civ_lang($candidat_array["civilite"], $lettre_lang, 1);
@@ -235,9 +235,9 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 		db_free_result($result2);
 
-		// Informations par défaut, si besoin
-		// ==> Si un flag vaut "t" (TRUE), ça signifie qu'on doit prendre la valeur par défaut
-		// ==> S'il faut "f" (FALSE), on prend l'info spécifique à cette lettre
+		// Informations par dÃ©faut, si besoin
+		// ==> Si un flag vaut "t" (TRUE), Ã§a signifie qu'on doit prendre la valeur par dÃ©faut
+		// ==> S'il faut "f" (FALSE), on prend l'info spÃ©cifique Ã  cette lettre
 
 		if($flag_logo=='t' || $flag_txt_logo=='t' || $flag_txt_scol=='t' || $flag_txt_sign=='t' || $flag_adr_pos=='t' || $flag_corps_pos=='t')
 		{
@@ -255,7 +255,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 				list($logo_defaut, $txt_logo_defaut, $txt_scol_defaut, $txt_sign_defaut, $largeur_logo_defaut, $univ_couleur_texte,
 					  $adr_pos_x_defaut, $adr_pos_y_defaut, $corps_pos_x_defaut, $corps_pos_y_defaut)=db_fetch_row($result2,0);
 			else
-				die("Composante non trouvée : merci de contacter rapidement l'administrateur.");
+				die("Composante non trouvÃ©e : merci de contacter rapidement l'administrateur.");
 
 			db_free_result($result2);
 
@@ -280,15 +280,15 @@ CeCILL-B, et que vous en avez accepté les termes.
 			// Utilisation de la librairie fpdf (libre)
 			require("$__FPDF_DIR_ABS/fpdf.php");
 
-			// Création du PDF
+			// CrÃ©ation du PDF
 			$lettre_decision=new FPDF("P","mm","A4");
 
-			$lettre_decision->SetCreator("Application de Gestion des Candidatures de l'Université de Strasbourg");
-			$lettre_decision->SetAuthor("Christophe BOCCHECIAMPE - UFR de Mathématique et d'Informatique - Université de Strasbourg");
-			$lettre_decision->SetSubject("Décision de la Commission Pédagogique");
-			$lettre_decision->SetTitle("Décision de la Commission Pédagogique");
+			$lettre_decision->SetCreator("Application de Gestion des Candidatures de l'UniversitÃ© de Strasbourg");
+			$lettre_decision->SetAuthor("Christophe BOCCHECIAMPE - UFR de MathÃ©matique et d'Informatique - UniversitÃ© de Strasbourg");
+			$lettre_decision->SetSubject("DÃ©cision de la Commission PÃ©dagogique");
+			$lettre_decision->SetTitle("DÃ©cision de la Commission PÃ©dagogique");
 
-			// saut de page automatique, à 15mm du bas
+			// saut de page automatique, Ã  15mm du bas
 			$lettre_decision->SetAutoPageBreak(1,11);
 			// $lettre_decision->SetMargins(11,11,11);
 
@@ -305,7 +305,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 				if(!empty($univ_couleur_texte))
 				{
-					// La couleur doit être convertie hexa (#112233) => décimal
+					// La couleur doit Ãªtre convertie hexa (#112233) => dÃ©cimal
 					$texte_R=hexdec(substr($univ_couleur_texte, 1, 2));
 					$texte_V=hexdec(substr($univ_couleur_texte, 3, 2));
 					$texte_B=hexdec(substr($univ_couleur_texte, 5, 2));
@@ -373,7 +373,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 				}
 			}
 
-			// Hauteur de référence pour le texte écrit dans la colonne gauche
+			// Hauteur de rÃ©fÃ©rence pour le texte Ã©crit dans la colonne gauche
 			$txt_scol_hauteur_courante=$lettre_decision->GetY();
 
 			$lettre_decision->SetFont('arial','',10);
@@ -408,7 +408,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 				$lettre_decision->MultiCell(0,5,$candidat_adresse, 0, "L");
 			}
 
-			// A partir d'ici, on extrait les informations de la lettre correspondant à la décision
+			// A partir d'ici, on extrait les informations de la lettre correspondant Ã  la dÃ©cision
 
 			$elements_corps=get_all_elements($dbr, $_SESSION["lettre_id"]);
 			$nb_elem_corps=count($elements_corps);
@@ -419,14 +419,14 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 				for($j=0; $j<$nb_elem_corps; $j++)
 				{
-					// variables communes à tous les types d'éléments
+					// variables communes Ã  tous les types d'Ã©lÃ©ments
 
 					$element_id=$elements_corps["$j"]["id"];
 					$element_type=$elements_corps["$j"]["type"];
 
 					switch($element_type)
 					{
-						case 2	:	// encadré (toujours centré par rapport à la page)
+						case 2	:	// encadrÃ© (toujours centrÃ© par rapport Ã  la page)
 										$txt=$elements_corps["$j"]["texte"];
 										// $align=$elements_corps["$i"]["alignement"];
 										$txt_align=$elements_corps["$j"]["txt_align"];
@@ -436,10 +436,10 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 										$largeur_texte_encadre=$lettre_decision->GetStringWidth($txt);
 
-										// Macros prédéfinies
+										// Macros prÃ©dÃ©finies
 										$txt=pdf_traitement_macros($dbr, $txt, $candidat_array, $candidature_array, $cursus_array, $lettre_lang);
 
-										// si ça dépasse, on force la taille de la cellule (au max : 0)
+										// si Ã§a dÃ©passe, on force la taille de la cellule (au max : 0)
 										if($largeur_texte_encadre>=$__LARGEUR_MAX_CORPS)
 										{
 											$largeur_encadre=0;
@@ -467,7 +467,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 										$txt_taille=$elements_corps["$j"]["taille"];
 										$txt_marge_gauche=$elements_corps["$j"]["marge_gauche"];
 
-										// Macros prédéfinies
+										// Macros prÃ©dÃ©finies
 										$txt=pdf_traitement_macros($dbr, $txt, $candidat_array, $candidature_array, $cursus_array, $lettre_lang);
 
 										// alignement du texte du paragraphe
@@ -500,7 +500,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 										break;
 
-						case 8	:	// séparateur
+						case 8	:	// sÃ©parateur
 										$hauteur=ctype_digit($elements_corps["$j"]["nb_lignes"]) && $elements_corps["$j"]["nb_lignes"]>1 ? $elements_corps["$j"]["nb_lignes"]*5 : 5;
 
 										$lettre_decision->Ln($hauteur);
@@ -510,7 +510,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 				}
 			}
 
-			// Scolarité
+			// ScolaritÃ©
 			if(!empty($txt_scol))
 			{
 				// Calcul de la hauteur du texte, en nombre de lignes (on compte les \n)
@@ -519,7 +519,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 				$hauteur_txt=substr_count($txt_scol, "\n");
 				$hauteur_txt_mm=5*$hauteur_txt;
 				
-				$hauteur_disponible=275-$txt_scol_hauteur_courante; // (en millimètres)
+				$hauteur_disponible=275-$txt_scol_hauteur_courante; // (en millimÃ¨tres)
 
 				$Y_txt_scol=$txt_scol_hauteur_courante+($hauteur_disponible-$hauteur_txt_mm);
 
@@ -547,17 +547,17 @@ CeCILL-B, et que vous en avez accepté les termes.
 				// $lettre_decision->MultiCell(51,5,$txt_scol, 0, "R");
 			}
 
-			// Génération du fichier et copie dans le répertoire
+			// GÃ©nÃ©ration du fichier et copie dans le rÃ©pertoire
 
 			$nom_fichier=$_SESSION["auth_user"] . "_apercu_decision.pdf";
 
-			// TODO : centraliser ces fonctions de création automatique de chemins
+			// TODO : centraliser ces fonctions de crÃ©ation automatique de chemins
 			if(!is_dir("$__GESTION_COMP_STOCKAGE_DIR_ABS/$_SESSION[comp_id]"))
 				mkdir("$__GESTION_COMP_STOCKAGE_DIR_ABS/$_SESSION[comp_id]", 0770);
 
 			$lettre_decision->Output("$__GESTION_COMP_STOCKAGE_DIR_ABS/$_SESSION[comp_id]/$nom_fichier");
 
-			// Attention : chemin relatif à www-root (document_root du serveur Apache)
+			// Attention : chemin relatif Ã  www-root (document_root du serveur Apache)
 			echo "<HTML><SCRIPT>document.location='$__GESTION_COMP_STOCKAGE_DIR/$_SESSION[comp_id]/$nom_fichier';</SCRIPT></HTML>";
 		}
 	}

@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -69,7 +69,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 <div class='main'>
 	<?php
-		titre_page_icone("[Aide] Recherche générale", "help-browser_32x32_fond.png", 15, "L");
+		titre_page_icone("[Aide] Recherche gÃ©nÃ©rale", "help-browser_32x32_fond.png", 15, "L");
 	?>
 		
 	<div style='margin-left:auto; margin-right:auto; padding-bottom:20px; width:90%; text-align:justify;'>
@@ -78,30 +78,30 @@ CeCILL-B, et que vous en avez accepté les termes.
 			<b>Trouver une ou plusieurs fiches en fonction d'une formation et du statut des fiches</b>
 		</p>
 
-		<font class='Texte_16'><u><b>Fonctionnalités et options</b></u></font>
+		<font class='Texte_16'><u><b>FonctionnalitÃ©s et options</b></u></font>
 		<p class='Texte' style='padding-bottom:15px;'>
-			<u><b>Statut de la recevabilité</b></u> : filtre sur la recevabilité des fiches. Cochez les statuts que vous désirez
-			voir apparaître dans le résultat de votre recherche.
+			<u><b>Statut de la recevabilitÃ©</b></u> : filtre sur la recevabilitÃ© des fiches. Cochez les statuts que vous dÃ©sirez
+			voir apparaÃ®tre dans le rÃ©sultat de votre recherche.
 		</p>
 		<p class='Texte' style='padding-bottom:15px;'>
-			<u><b>Décision de la Commission</b></u> : filtre sur les décisions rendues par la Commission Pédagogique. Cochez
-			les décisions que vous désirez voir apparaître dans le résultat de votre recherche. La sélection d'une décision implique
-			automatiquement le statut "Recevable" des fiches (les fiches non recevables ne sont pas traitées par la Commission
-			Pédagogique).
+			<u><b>DÃ©cision de la Commission</b></u> : filtre sur les dÃ©cisions rendues par la Commission PÃ©dagogique. Cochez
+			les dÃ©cisions que vous dÃ©sirez voir apparaÃ®tre dans le rÃ©sultat de votre recherche. La sÃ©lection d'une dÃ©cision implique
+			automatiquement le statut "Recevable" des fiches (les fiches non recevables ne sont pas traitÃ©es par la Commission
+			PÃ©dagogique).
 		</p>
 		<p class='Texte' style='padding-bottom:15px;'>
-			<u><b>Sélection pour l'envoi de message</b></u> : il est possible d'envoyer un message à un groupe de candidats
-			en fonction du résultat de votre recherche. Si vous activez cette option, tous les candidats trouvés seront
-			sélectionnés : ils seront tous destinataires de votre éventuel message (vous devrez alors désélectionner un par
+			<u><b>SÃ©lection pour l'envoi de message</b></u> : il est possible d'envoyer un message Ã  un groupe de candidats
+			en fonction du rÃ©sultat de votre recherche. Si vous activez cette option, tous les candidats trouvÃ©s seront
+			sÃ©lectionnÃ©s : ils seront tous destinataires de votre Ã©ventuel message (vous devrez alors dÃ©sÃ©lectionner un par
 			un les candidats ne devant pas recevoir ce message).
 		</p>
 		<p class='Texte' style='padding-bottom:15px;'>
-			<u><b>Inclure les candidats des années précédentes</b></u> (option active par défaut) : si vous n'activez pas cette
-			option, seuls les candidats ayant créé leur fiche en <?php echo date("Y"); ?> apparaitront dans le résultat de la
+			<u><b>Inclure les candidats des annÃ©es prÃ©cÃ©dentes</b></u> (option active par dÃ©faut) : si vous n'activez pas cette
+			option, seuls les candidats ayant crÃ©Ã© leur fiche en <?php echo date("Y"); ?> apparaitront dans le rÃ©sultat de la
 			recherche.
 		</p>
 		<p class='Texte' style='padding-bottom:5px;'>
-			<b>Les informations affichées peuvent varier en fonction de votre niveau d'accès</b>.
+			<b>Les informations affichÃ©es peuvent varier en fonction de votre niveau d'accÃ¨s</b>.
 		</p>
 	</div>
 </div>

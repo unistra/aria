@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -85,15 +85,15 @@ CeCILL-B, et que vous en avez accepté les termes.
 		// Utilisation de la librairie fpdf (libre)
 		require("$__FPDF_DIR_ABS/fpdf.php");
 
-		// Création du PDF
+		// CrÃ©ation du PDF
 		$justificatifs=new FPDF("P","mm","A4");
 
-		$justificatifs->SetCreator("Application de Gestion des Candidatures de l'Université de Strasbourg");
-		$justificatifs->SetAuthor("Christophe BOCCHECIAMPE - UFR de Mathématique et d'Informatique - Université de Strasbourg");
+		$justificatifs->SetCreator("Application de Gestion des Candidatures de l'UniversitÃ© de Strasbourg");
+		$justificatifs->SetAuthor("Christophe BOCCHECIAMPE - UFR de MathÃ©matique et d'Informatique - UniversitÃ© de Strasbourg");
 		$justificatifs->SetSubject("Justificatifs");
 		$justificatifs->SetTitle("Justificatifs");
 
-		// saut de page automatique, à 15mm du bas
+		// saut de page automatique, Ã  15mm du bas
 		$justificatifs->SetAutoPageBreak(1,11);
 		// $justificatifs->SetMargins(11,11,11);
 
@@ -105,7 +105,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		// $justificatifs->SetFont('arial_black','',12);
 		// $justificatifs->SetTextColor(0, 91, 209);
 		// $justificatifs->Cell(42,5,"UFR",0, 2, "R");
-		// $justificatifs->Cell(42,5,"de mathématique",0, 2, "R");
+		// $justificatifs->Cell(42,5,"de mathÃ©matique",0, 2, "R");
 		//$justificatifs->Cell(42,5,"et d'informatique",0, 2, "R");
 
 		// $justificatifs->Line(11, 41, 53, 41);
@@ -122,7 +122,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		$justificatifs->MultiCell(0,5,$candidat_adresse, 0, "L");
 	*/
 
-		// Premier élément : position fixe (à affiner manuellement, sans doute)
+		// Premier Ã©lÃ©ment : position fixe (Ã  affiner manuellement, sans doute)
 		// $justificatifs->SetXY(60, 78);
 
 		$justificatifs->SetXY(20, 15);
@@ -146,14 +146,14 @@ CeCILL-B, et que vous en avez accepté les termes.
 			$justificatifs->Ln(5);
 		}
 
-		// Génération du fichier et copie dans le répertoire
+		// GÃ©nÃ©ration du fichier et copie dans le rÃ©pertoire
 
 		$nom_fichier=clean_str($_SESSION["auth_user"] . "_apercu_Justificatifs.pdf");
 		// $justificatifs->Output("$nom_fichier", "I");
 
 		$justificatifs->Output("$__GESTION_COMP_STOCKAGE_DIR_ABS/$_SESSION[comp_id]/$nom_fichier");
 
-		// Attention : ce chemin doit être relatif à www-root (document_root du serveur Apache)
+		// Attention : ce chemin doit Ãªtre relatif Ã  www-root (document_root du serveur Apache)
 		echo "<HTML><SCRIPT>document.location='$__GESTION_COMP_STOCKAGE_DIR/$_SESSION[comp_id]/$nom_fichier';</SCRIPT></HTML>";
 	}
 

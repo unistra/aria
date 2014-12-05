@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,37 +20,37 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
 ?>
 <?php
 
-// Description de la base de données
+// Description de la base de donnÃ©es
 
 // Table "acces"
 $_DB_acces="acces";
@@ -102,7 +102,7 @@ $_DBU_acces_candidats_lus_acces_id="acces_id";
 $_DBU_acces_candidats_lus_candidat_id="candidat_id";
 $_DBU_acces_candidats_lus_periode="periode";
 
-// Accès_composante
+// AccÃ¨s_composante
 
 $_DB_acces_comp="acces_composantes";
 $_DBC_acces_comp_acces_id="$_DB_acces_comp.id_acces";
@@ -111,7 +111,7 @@ $_DBC_acces_comp_composante_id="$_DB_acces_comp.id_composante";
 $_DBU_acces_comp_acces_id="id_acces";
 $_DBU_acces_comp_composante_id="id_composante";
 
-// Accès formations
+// AccÃ¨s formations
 
 $_DB_droits_formations="droits_formations";
 $_DBC_droits_formations_acces_id="$_DB_droits_formations.acces_id";
@@ -382,7 +382,7 @@ $_DBU_cursus_diplomes_id="id";
 $_DBU_cursus_diplomes_intitule="intitule";
 $_DBU_cursus_diplomes_niveau="niveau";
 
-/* OBSOLETE : retour à la liste des diplômes lisibles par tous
+/* OBSOLETE : retour Ã  la liste des diplÃ´mes lisibles par tous
 $_DB_cursus_apogee="cursus_diplomes_apogee";
 $_DBC_cursus_apogee_code="$_DB_cursus_apogee.code";
 $_DBC_cursus_apogee_libelle_long="$_DB_cursus_apogee.libelle_long";
@@ -394,7 +394,7 @@ $_DBU_cursus_apogee_libelle_court="libelle_court";
 */
 
 
-// Justification des étapes du cursus
+// Justification des Ã©tapes du cursus
 $_DB_cursus_justif="cursus_justificatifs";
 $_DBC_cursus_justif_cursus_id="$_DB_cursus_justif.cursus_id";
 $_DBC_cursus_justif_comp_id="$_DB_cursus_justif.composante_id";
@@ -553,7 +553,7 @@ $_DBC_hist_c_id="$_DB_hist.candidat_id";
 $_DBC_hist_c_nom="$_DB_hist.c_nom";
 $_DBC_hist_c_prenom="$_DB_hist.c_prenom";
 $_DBC_hist_c_email="$_DB_hist.c_email";
-// évenement
+// Ã©venement
 $_DBC_hist_element_id="$_DB_hist.element_id";
 $_DBC_hist_type_evt="$_DB_hist.type_evenement";
 $_DBC_hist_evt="$_DB_hist.evenement";
@@ -624,7 +624,7 @@ $_DBU_comp_infos_para_italique="italique";
 $_DBU_comp_infos_para_align="alignement";
 $_DBU_comp_infos_para_taille="taille";
 
-// Encadrés
+// EncadrÃ©s
 $_DB_comp_infos_encadre="composantes_infos_encadres";
 $_DBC_comp_infos_encadre_info_id="$_DB_comp_infos_encadre.info_id";
 $_DBC_comp_infos_encadre_texte="$_DB_comp_infos_encadre.texte";
@@ -650,7 +650,7 @@ $_DBU_comp_infos_fichiers_txt_align="fichier";
 $_DBU_comp_infos_fichiers_ordre="ordre";
 
 
-// Séparateurs
+// SÃ©parateurs
 $_DB_comp_infos_sepa="composantes_infos_separateurs";
 $_DBC_comp_infos_sepa_info_id="$_DB_comp_infos_sepa.info_id";
 $_DBC_comp_infos_sepa_ordre="$_DB_comp_infos_sepa.ordre";
@@ -692,7 +692,7 @@ $_DBU_justifs_jf_propspec_id="propspec_id";
 $_DBU_justifs_jf_ordre="ordre";
 $_DBU_justifs_jf_nationalite="condition_nationalite";
 
-// Fichiers attachés aux courriels
+// Fichiers attachÃ©s aux courriels
 
 $_DB_justifs_fichiers="justifs_fichiers";
 
@@ -820,7 +820,7 @@ $_DBU_para_taille="taille";
 $_DBU_para_marge_g="marge_gauche";
 
 
-// Encadrés
+// EncadrÃ©s
 $_DB_encadre="lettres_encadres";
 $_DBC_encadre_lettre_id="$_DB_encadre.lettre_id";
 $_DBC_encadre_texte="$_DB_encadre.texte";
@@ -832,7 +832,7 @@ $_DBU_encadre_texte="texte";
 $_DBU_encadre_txt_align="txt_align";
 $_DBU_encadre_ordre="ordre";
 
-// Séparateurs
+// SÃ©parateurs
 $_DB_sepa="lettres_separateurs";
 $_DBC_sepa_lettre_id="$_DB_sepa.lettre_id";
 $_DBC_sepa_ordre="$_DB_sepa.ordre";
@@ -842,7 +842,7 @@ $_DBU_sepa_lettre_id="lettre_id";
 $_DBU_sepa_ordre="ordre";
 $_DBU_sepa_nb_lignes="nb_lignes";
 
-// Rapport lettres / décisions
+// Rapport lettres / dÃ©cisions
 $_DB_lettres_dec="lettres_decisions";
 $_DBC_lettres_dec_lettre_id="$_DB_lettres_dec.lettre_id";
 $_DBC_lettres_dec_dec_id="$_DB_lettres_dec.decision_id";
@@ -850,7 +850,7 @@ $_DBC_lettres_dec_dec_id="$_DB_lettres_dec.decision_id";
 $_DBU_lettres_dec_lettre_id="lettre_id";
 $_DBU_lettres_dec_dec_id="decision_id";
 
-// Rapport lettres / filières
+// Rapport lettres / filiÃ¨res
 $_DB_lettres_propspec="lettres_propspec";
 $_DBC_lettres_propspec_lettre_id="$_DB_lettres_propspec.lettre_id";
 $_DBC_lettres_propspec_propspec_id="$_DB_lettres_propspec.propspec_id";
@@ -858,7 +858,7 @@ $_DBC_lettres_propspec_propspec_id="$_DB_lettres_propspec.propspec_id";
 $_DBU_lettres_propspec_lettre_id="lettre_id";
 $_DBU_lettres_propspec_propspec_id="filiere_id";
 
-// Rapport lettres / groupes de formations à choix multiples
+// Rapport lettres / groupes de formations Ã  choix multiples
 $_DB_lettres_groupes="lettres_groupes";
 $_DBC_lettres_groupes_lettre_id="$_DB_lettres_groupes.lettre_id";
 $_DBC_lettres_groupes_groupe_id="$_DB_lettres_groupes.groupe_id";
@@ -895,7 +895,7 @@ $_DBU_messages_actif="actif";
 
 // =================== Messageries ============================
 
-// Modèles des messages pour la partie gestion
+// ModÃ¨les des messages pour la partie gestion
 
 $_DB_msg_modeles="msg_modeles";
 $_DBC_msg_modeles_id="$_DB_msg_modeles.id";
@@ -938,7 +938,7 @@ $_DBU_note_note="note";
 $_DBU_note_annee="annee";
 $_DBU_note_rang="rang";
 
-// Pays et nationalités avec codes INSEE et ISO 3166
+// Pays et nationalitÃ©s avec codes INSEE et ISO 3166
 $_DB_pays_nat_ii="pays_nationalites_iso_insee";
 $_DBC_pays_nat_ii_iso="$_DB_pays_nat_ii.iso3166";
 $_DBC_pays_nat_ii_insee="$_DB_pays_nat_ii.insee";
@@ -950,7 +950,7 @@ $_DBU_pays_nat_ii_insee="insee";
 $_DBU_pays_nat_ii_pays="pays";
 $_DBU_pays_nat_ii_nat="nationalite";
 
-// Départements français
+// DÃ©partements franÃ§ais
 $_DB_departements_fr="departements_fr";
 
 $_DBC_departements_fr_numero="$_DB_departements_fr.numero";
@@ -1120,6 +1120,7 @@ $_DBC_systeme_ldap_attr_prenom="$_DB_systeme.ldap_attr_prenom";
 $_DBC_systeme_ldap_attr_pass="$_DB_systeme.ldap_attr_pass";
 $_DBC_systeme_ldap_attr_mail="$_DB_systeme.ldap_attr_mail";
 $_DBC_systeme_courriel_support="$_DB_systeme.courriel_support";
+$_DBC_systeme_courriel_support="$_DB_systeme.courriel_noreply";
 
 $_DBU_systeme_titre_html="titre_html";
 $_DBU_systeme_titre_page="titre_page";
@@ -1161,6 +1162,7 @@ $_DBU_systeme_ldap_attr_prenom="ldap_attr_prenom";
 $_DBU_systeme_ldap_attr_pass="ldap_attr_pass";
 $_DBU_systeme_ldap_attr_mail="ldap_attr_mail";
 $_DBU_systeme_courriel_support="courriel_support";
+$_DBC_systeme_courriel_support="courriel_noreply";
 
 
 $_DB_traitement_masse="traitement_masse";
@@ -1203,7 +1205,7 @@ $_DBU_universites_css="css";
 $_DBU_universites_couleur_texte_lettres="couleur_texte_lettres";
 
 
-// Connexion à une base de données
+// Connexion Ã  une base de donnÃ©es
 function db_connect()
 {
    $ssl_config=(isset($GLOBALS["__DB_SSLMODE"]) && $GLOBALS["__DB_SSLMODE"]!="") ? "sslmode=$GLOBALS[__DB_SSLMODE]" : "";
@@ -1217,17 +1219,17 @@ function db_connect()
       
       if(array_key_exists("__EMAIL_ADMIN", $GLOBALS) && trim($GLOBALS["__EMAIL_ADMIN"])!="")
       {
-         mail($GLOBALS["__EMAIL_ADMIN"],$GLOBALS["__ERREUR_SUJET"], "Fichier : $err_file\nErreur de connexion à la base de données ($error_msg)");
-         die("Erreur de connexion à la base de données. Un courriel a été envoyé à l'administrateur.");
+         mail($GLOBALS["__EMAIL_ADMIN"],$GLOBALS["__ERREUR_SUJET"], "Fichier : $err_file\nErreur de connexion Ã  la base de donnÃ©es ($error_msg)");
+         die("Erreur de connexion Ã  la base de donnÃ©es. Un courriel a Ã©tÃ© envoyÃ© Ã  l'administrateur.");
       }
       else
-         die("Erreur de connexion à la base de données. Aucun courriel n'a pu être envoyé à l'administrateur car aucune adresse électronique n'a été configurée.");
+         die("Erreur de connexion Ã  la base de donnÃ©es. Aucun courriel n'a pu Ãªtre envoyÃ© Ã  l'administrateur car aucune adresse Ã©lectronique n'a Ã©tÃ© configurÃ©e.");
    }
-   // die("Erreur de connexion à la base de données : " . pg_errormessage());
+   // die("Erreur de connexion Ã  la base de donnÃ©es : " . pg_errormessage());
    return $dbr;
 }
 
-// Récupération du nombre d'éléments contenus dans un résultat de requête à une bdd
+// RÃ©cupÃ©ration du nombre d'Ã©lÃ©ments contenus dans un rÃ©sultat de requÃªte Ã  une bdd
 function db_num_rows($result)
 {
    // php < 4.2.0
@@ -1238,12 +1240,12 @@ function db_num_rows($result)
 }
 
 // DB_QUERY
-// requête à une base de données
+// requÃªte Ã  une base de donnÃ©es
 // ARGUMENTS :
-// - dbr : ressource correspondant à une connexion à une bdd
-// - query : requête
+// - dbr : ressource correspondant Ã  une connexion Ã  une bdd
+// - query : requÃªte
 // RETOUR :
-// - ressource correspondant au résultat de la requête
+// - ressource correspondant au rÃ©sultat de la requÃªte
 function db_query($dbr,$query)
 {
    // php > 4.2.0
@@ -1256,14 +1258,14 @@ function db_query($dbr,$query)
       $error_msg=pg_last_error($dbr);
 
       // TODO : EXPERIMENTAL
-      // En cas d''erreur de type "duplicate key", on retente la requête 1 seconde après
+      // En cas d''erreur de type "duplicate key", on retente la requÃªte 1 seconde aprÃ¨s
       if(strstr($error_msg,"duplicate key"))
       {
          db_free_result($result);
          sleep(1);
          $result=pg_query($dbr,$query);
 
-         if($result!=FALSE) // 2ème essai concluant : on sort normalement
+         if($result!=FALSE) // 2Ã¨me essai concluant : on sort normalement
             return $result;
          else
             $error_msg=pg_last_error($dbr);
@@ -1274,24 +1276,24 @@ function db_query($dbr,$query)
 
       if(array_key_exists("__EMAIL_ADMIN", $GLOBALS) && trim($GLOBALS["__EMAIL_ADMIN"])!="")
       {
-         mail($GLOBALS["__EMAIL_ADMIN"],$GLOBALS["__ERREUR_SUJET"], "Fichier : $err_file\npg_query : erreur de requête à la base de données ($error_msg)\nRequête fautive : $query");
-         die("Erreur de requête à la base de données. Un courriel a été envoyé à l'administrateur.");
+         mail($GLOBALS["__EMAIL_ADMIN"],$GLOBALS["__ERREUR_SUJET"], "Fichier : $err_file\npg_query : erreur de requÃªte Ã  la base de donnÃ©es ($error_msg)\nRequÃªte fautive : $query");
+         die("Erreur de requÃªte Ã  la base de donnÃ©es. Un courriel a Ã©tÃ© envoyÃ© Ã  l'administrateur.");
       }
       else
-         die("Erreur de requête à la base de données. Aucun courriel n'a pu être envoyé à l'administrateur car aucune adresse électronique n'a été configurée.");
+         die("Erreur de requÃªte Ã  la base de donnÃ©es. Aucun courriel n'a pu Ãªtre envoyÃ© Ã  l'administrateur car aucune adresse Ã©lectronique n'a Ã©tÃ© configurÃ©e.");
    }
 
    return $result;
 }
 
 
-// Même fonction mais gestion différente des erreurs :
-// la table étant verrouillée, si une erreur survient, on doit déverrouiller la table par un rollback
-// Attention, vars.php doit être inclus : utilisation de la fonction new_id()
+// MÃªme fonction mais gestion diffÃ©rente des erreurs :
+// la table Ã©tant verrouillÃ©e, si une erreur survient, on doit dÃ©verrouiller la table par un rollback
+// Attention, vars.php doit Ãªtre inclus : utilisation de la fonction new_id()
 
 function db_locked_query($dbr, $table, $query)
 {
-   // Génération d'un nouvel identifiant
+   // GÃ©nÃ©ration d'un nouvel identifiant
    if(stripos($query, "##NEW_ID##"))
    {
       $new_id=new_id();
@@ -1309,11 +1311,11 @@ function db_locked_query($dbr, $table, $query)
       
       if(array_key_exists("__EMAIL_ADMIN", $GLOBALS) && trim($GLOBALS["__EMAIL_ADMIN"])!="")
       {
-         mail($GLOBALS["__EMAIL_ADMIN"],$GLOBALS["__ERREUR_SUJET"], "Fichier : $err_file\ndb_locked_query : Erreur BEGIN (table $table)\nRequête fautive : $query");
-         die("Base de données : Transaction impossible. Un courriel a été envoyé à l'administrateur.");
+         mail($GLOBALS["__EMAIL_ADMIN"],$GLOBALS["__ERREUR_SUJET"], "Fichier : $err_file\ndb_locked_query : Erreur BEGIN (table $table)\nRequÃªte fautive : $query");
+         die("Base de donnÃ©es : Transaction impossible. Un courriel a Ã©tÃ© envoyÃ© Ã  l'administrateur.");
       }
       else
-         die("Base de données : Transaction impossible. Aucun courriel n'a pu être envoyé à l'administrateur car aucune adresse électronique n'a été configurée.");
+         die("Base de donnÃ©es : Transaction impossible. Aucun courriel n'a pu Ãªtre envoyÃ© Ã  l'administrateur car aucune adresse Ã©lectronique n'a Ã©tÃ© configurÃ©e.");
    }
 
    if(!pg_query($dbr, "LOCK $table;"))
@@ -1328,14 +1330,14 @@ function db_locked_query($dbr, $table, $query)
       
       if(array_key_exists("__EMAIL_ADMIN", $GLOBALS) && trim($GLOBALS["__EMAIL_ADMIN"])!="")
       {
-         mail($GLOBALS["__EMAIL_ADMIN"],$GLOBALS["__ERREUR_SUJET"], "Fichier : $err_file\ndb_locked_query : Erreur LOCK (table $table)\nRequête fautive : $query");
-         die("Base de données : Transaction impossible. Un courriel a été envoyé à l'administrateur.");
+         mail($GLOBALS["__EMAIL_ADMIN"],$GLOBALS["__ERREUR_SUJET"], "Fichier : $err_file\ndb_locked_query : Erreur LOCK (table $table)\nRequÃªte fautive : $query");
+         die("Base de donnÃ©es : Transaction impossible. Un courriel a Ã©tÃ© envoyÃ© Ã  l'administrateur.");
       }
       else
-         die("Base de données : Transaction impossible. Aucun courriel n'a pu être envoyé à l'administrateur car aucune adresse électronique n'a été configurée.");
+         die("Base de donnÃ©es : Transaction impossible. Aucun courriel n'a pu Ãªtre envoyÃ© Ã  l'administrateur car aucune adresse Ã©lectronique n'a Ã©tÃ© configurÃ©e.");
    }
 
-   // Verrouillage OK : on envoie la requête
+   // Verrouillage OK : on envoie la requÃªte
    if(!pg_query($dbr, $query))
    {
       $err_file=$_SESSION['CURRENT_FILE'];
@@ -1348,14 +1350,14 @@ function db_locked_query($dbr, $table, $query)
       
       if(array_key_exists("__EMAIL_ADMIN", $GLOBALS) && trim($GLOBALS["__EMAIL_ADMIN"])!="")
       {
-         mail($GLOBALS["__EMAIL_ADMIN"],$GLOBALS["__ERREUR_SUJET"], "Fichier : $err_file\npg_query : erreur de requête à la base de données ($error_msg)\nRequête fautive : $query");
-         die("Erreur de requête à la base de données. Un courriel a été envoyé à l'administrateur.");
+         mail($GLOBALS["__EMAIL_ADMIN"],$GLOBALS["__ERREUR_SUJET"], "Fichier : $err_file\npg_query : erreur de requÃªte Ã  la base de donnÃ©es ($error_msg)\nRequÃªte fautive : $query");
+         die("Erreur de requÃªte Ã  la base de donnÃ©es. Un courriel a Ã©tÃ© envoyÃ© Ã  l'administrateur.");
       }
       else
-         die("Erreur de requête à la base de données. Aucun courriel n'a pu être envoyé à l'administrateur car aucune adresse électronique n'a été configurée.");
+         die("Erreur de requÃªte Ã  la base de donnÃ©es. Aucun courriel n'a pu Ãªtre envoyÃ© Ã  l'administrateur car aucune adresse Ã©lectronique n'a Ã©tÃ© configurÃ©e.");
    }
 
-   // tout s'est bien passé : on commit et on envoie l'identifiant généré, si nécessaire
+   // tout s'est bien passÃ© : on commit et on envoie l'identifiant gÃ©nÃ©rÃ©, si nÃ©cessaire
    if(!pg_query($dbr, "COMMIT WORK;"))
    {
       $err_file=$_SESSION['CURRENT_FILE'];
@@ -1368,11 +1370,11 @@ function db_locked_query($dbr, $table, $query)
       
       if(array_key_exists("__EMAIL_ADMIN", $GLOBALS) && trim($GLOBALS["__EMAIL_ADMIN"])!="")
       {
-         mail($GLOBALS["__EMAIL_ADMIN"],$GLOBALS["__ERREUR_SUJET"], "Fichier : $err_file\ndb_locked_query : Erreur COMMIT (table $table)\nRequête fautive : $query");
-         die("Base de données : Transaction impossible. Un courriel a été envoyé à l'administrateur.");
+         mail($GLOBALS["__EMAIL_ADMIN"],$GLOBALS["__ERREUR_SUJET"], "Fichier : $err_file\ndb_locked_query : Erreur COMMIT (table $table)\nRequÃªte fautive : $query");
+         die("Base de donnÃ©es : Transaction impossible. Un courriel a Ã©tÃ© envoyÃ© Ã  l'administrateur.");
       }
       else
-         die("Base de données : Transaction impossible. Aucun courriel n'a pu être envoyé à l'administrateur car aucune adresse électronique n'a été configurée.");
+         die("Base de donnÃ©es : Transaction impossible. Aucun courriel n'a pu Ãªtre envoyÃ© Ã  l'administrateur car aucune adresse Ã©lectronique n'a Ã©tÃ© configurÃ©e.");
    }
    
 
@@ -1382,10 +1384,10 @@ function db_locked_query($dbr, $table, $query)
 
 
 // DB_FETCH_ROW
-// récupération d'une partie du résultat d'une requête à une bdd
+// rÃ©cupÃ©ration d'une partie du rÃ©sultat d'une requÃªte Ã  une bdd
 // ARGUMENTS :
-// - result=variable contenant la totalité du résultat
-// - i=ligne à récupérer
+// - result=variable contenant la totalitÃ© du rÃ©sultat
+// - i=ligne Ã  rÃ©cupÃ©rer
 // RETOUR :
 // - array contenant la ligne en question
 function db_fetch_row($result, $i)
@@ -1393,7 +1395,7 @@ function db_fetch_row($result, $i)
    return (pg_fetch_row($result, $i));
 }
 
-// Récupération d'un champ particulier (rang x, en comptant à partir de 0)
+// RÃ©cupÃ©ration d'un champ particulier (rang x, en comptant Ã  partir de 0)
 function db_fetch_result($result, $i, $x)
 {
    return (pg_fetch_result($result, $i, $x));
@@ -1412,7 +1414,7 @@ function db_fetch_all($result)
    return (pg_fetch_all($result));
 }
 
-// Libération des ressources allouées à une requête bdd
+// LibÃ©ration des ressources allouÃ©es Ã  une requÃªte bdd
 function db_free_result($result)
 {
    // php < 4.2.0
@@ -1431,13 +1433,13 @@ function db_connection_status($db)
       return 1;
 }
 
-// Nettoyage des chaînes de caractères
+// Nettoyage des chaÃ®nes de caractÃ¨res
 function db_escape_string($db, $str)
 {
    return pg_escape_string($db, $str);
 }
 
-// fermeture d'une connexion à une bdd
+// fermeture d'une connexion Ã  une bdd
 function db_close($db)
 {
    pg_close($db);

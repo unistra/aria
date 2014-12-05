@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -57,8 +57,8 @@ CeCILL-B, et que vous en avez accepté les termes.
 	include "$__INCLUDE_DIR_ABS/fonctions.php";
 	include "$__INCLUDE_DIR_ABS/db.php";
 
-   // includes spécifiques au module
-	include "include/db.php"; // db.php appellera également update_db.php pour la mise à jour du schéma 
+   // includes spÃ©cifiques au module
+	include "include/db.php"; // db.php appellera Ã©galement update_db.php pour la mise Ã  jour du schÃ©ma 
    include "include/vars.php";
 
 	$php_self=$_SERVER['PHP_SELF'];
@@ -66,7 +66,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 	verif_auth("$__GESTION_DIR/login.php");
 
-	// récupération de variables
+	// rÃ©cupÃ©ration de variables
 
 	$dbr=db_connect();
 
@@ -75,7 +75,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 	if(isset($_SESSION["filtre_apogee_propspec"]) && $_SESSION["filtre_apogee_propspec"]!="-1")
 	{
-		// Nouvel élément pour une formation déterminée
+		// Nouvel Ã©lÃ©ment pour une formation dÃ©terminÃ©e
 		$condition_selection="AND $_module_apogee_DBC_messages_type NOT IN (SELECT distinct($_module_apogee_DBC_messages_type) 
 		                                                                       FROM $_module_apogee_DB_messages, $_module_apogee_DB_messages_formations
                                                                           WHERE $_module_apogee_DBC_messages_msg_id=$_module_apogee_DBC_messages_formations_msg_id
@@ -88,7 +88,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	{
 		$_SESSION["msg_id"]=$_POST["msg_id"];
 
-		// Si on filtrait sur une formation le traitement s'arrête là (?)
+		// Si on filtrait sur une formation le traitement s'arrÃªte lÃ  (?)
 		if(isset($_SESSION["filtre_apogee_propspec"]) && $_SESSION["filtre_apogee_propspec"]!="-1")
 		{
 			db_query($dbr, "INSERT INTO $_module_apogee_DB_messages_formations VALUES('$_SESSION[filtre_justif]', '$_SESSION[msg_id]')");
@@ -100,7 +100,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	}
 	elseif(isset($_POST["go_valider"]) || isset($_POST["go_valider_x"]))
 	{
-		// On liste les formations actuellement rattachées
+		// On liste les formations actuellement rattachÃ©es
 		$res_actuels=db_query($dbr, "SELECT $_module_apogee_DBC_messages_formations_propspec_id
 												FROM $_module_apogee_DB_messages_formations
 											  WHERE $_module_apogee_DBC_messages_formations_msg_id='$_SESSION[msg_id]'");
@@ -142,7 +142,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 			db_free_result($result);
 		}
-		else // Sélection individuelle
+		else // SÃ©lection individuelle
 		{
 			$requete="";
 
@@ -153,7 +153,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 					if(!array_key_exists($formation_id, $array_actuels))
 						$requete.="INSERT INTO $_module_apogee_DB_messages_formations VALUES('$formation_id', '$_SESSION[msg_id]'); ";
 
-					// Suppression de la formation traitée dans le tableau "actuels"
+					// Suppression de la formation traitÃ©e dans le tableau "actuels"
 					unset($array_actuels[$formation_id]);
 				}
 			}
@@ -186,7 +186,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		else
 			titre_page_icone("Rattacher un message", "edit_32x32_fond.png", 2, "L");
 			
-      message("Une formation grisée indique qu'un message de ce type a déjà été configuré pour cette dernière", $__INFO);
+      message("Une formation grisÃ©e indique qu'un message de ce type a dÃ©jÃ  Ã©tÃ© configurÃ© pour cette derniÃ¨re", $__INFO);
 	?>
 
 	<form method='post' action='<?php echo $php_self; ?>'>
@@ -203,7 +203,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 				</td>
 			</tr>
 			<?php
-				// Formation filtrée (et donc forcée)
+				// Formation filtrÃ©e (et donc forcÃ©e)
 				if(isset($_SESSION["filtre_apogee_propspec"]) && $_SESSION["filtre_apogee_propspec"]!="-1")
 				{
 					$result=db_query($dbr,"(SELECT $_DBC_propspec_id, $_DBC_annees_annee, $_DBC_specs_nom_court, $_DBC_propspec_finalite
@@ -220,7 +220,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 						print("<tr>
 									<td class='td-gauche fond_menu2'>
-										<font class='Texte_menu2'><b>Formation sélectionnée : </b></font>
+										<font class='Texte_menu2'><b>Formation sÃ©lectionnÃ©e : </b></font>
 									</td>
 									<td class='td-droite fond_menu'>
 										<font class='Texte_menu'><b>$formation</b></font>
@@ -279,7 +279,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 							if(isset($_SESSION["filtre_apogee_propspec"]) && $_SESSION["filtre_apogee_propspec"]!="-1")
 								print("<font class='Texte_menu'>
-								         <i>Seuls les messages non reliés à cette formation sont sélectionnables.
+								         <i>Seuls les messages non reliÃ©s Ã  cette formation sont sÃ©lectionnables.
 								         <br />Chaque formation ne peut avoir qu'un seul message par type.
                                  </i>
                                </font>\n");
@@ -287,7 +287,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 						else
 						{
 							$no_element=1;
-							print("<font class='Texte_menu'>Plus aucun message n'est disponible (ou aucun message créé).<br></font>\n");
+							print("<font class='Texte_menu'>Plus aucun message n'est disponible (ou aucun message crÃ©Ã©).<br></font>\n");
 						}
 					}
 					else
@@ -325,13 +325,13 @@ CeCILL-B, et que vous en avez accepté les termes.
 			<tr>
 				<td class='td-gauche fond_menu2'>
 					<font class='Texte_menu2'>
-						<b>Sélectionner toutes les formations</b>
+						<b>SÃ©lectionner toutes les formations</b>
 					</font>
 				</td>
 				<td class='td-droite fond_menu'>
 					<font class='Texte_menu'>
 						<input type='checkbox' name='toutes_formations' value='1'>
-						&nbsp;(<i>si cochée, cette case est prioritaire sur la sélection individuelle</i>)
+						&nbsp;(<i>si cochÃ©e, cette case est prioritaire sur la sÃ©lection individuelle</i>)
 					</font>
 				</td>
 			</tr>
@@ -339,7 +339,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			<br>
 
 			<?php
-				// Nombre max de mentions pour les années de cette composantes (pour affichage)
+				// Nombre max de mentions pour les annÃ©es de cette composantes (pour affichage)
 				$res_mentions=db_query($dbr, "SELECT count(distinct($_DBC_specs_mention_id)) FROM $_DB_specs,$_DB_propspec
 														WHERE $_DBC_propspec_id_spec=$_DBC_specs_id
 														AND $_DBC_propspec_comp_id ='$_SESSION[comp_id]'
@@ -379,7 +379,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 				if($rows)
 				{
-					// On liste les formations actuellement rattachées au message sélectionné
+					// On liste les formations actuellement rattachÃ©es au message sÃ©lectionnÃ©
 					$res_actuels=db_query($dbr, "SELECT $_module_apogee_DBC_messages_formations_propspec_id
 															FROM $_module_apogee_DB_messages_formations
 														  WHERE $_module_apogee_DBC_messages_formations_msg_id='$_SESSION[msg_id]'");
@@ -396,7 +396,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 					db_free_result($res_actuels);
 
-					$old_propspec_id="--"; // on initialise à n'importe quoi (sauf vide)
+					$old_propspec_id="--"; // on initialise Ã  n'importe quoi (sauf vide)
 					$old_annee_id="--"; // idem
 					$old_mention="--"; // idem
 					$j=0;
@@ -411,7 +411,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 						$checked=(array_key_exists($propspec_id, $array_actuels) || (isset($_SESSION["filtre_justif"]) && $_SESSION["filtre_justif"]==$propspec_id)) ? "checked" : "";
 						
-						// Si un message de même type est déjà rattaché à cette formation, on ne peut pas ajouter ce message
+						// Si un message de mÃªme type est dÃ©jÃ  rattachÃ© Ã  cette formation, on ne peut pas ajouter ce message
 						if(db_num_rows(db_query($dbr,"SELECT * FROM $_module_apogee_DB_messages_formations, $_module_apogee_DB_messages
 						                              WHERE $_module_apogee_DBC_messages_formations_propspec_id='$propspec_id'
 						                              AND $_module_apogee_DBC_messages_formations_msg_id=$_module_apogee_DBC_messages_msg_id
@@ -428,9 +428,9 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 						if($annee_id!=$old_annee_id)
 						{
-							$annee=$annee=="" ? "Années particulières" : $annee;
+							$annee=$annee=="" ? "AnnÃ©es particuliÃ¨res" : $annee;
 
-							if($i) // Le premier résultat du tableau est particulier (i=0)
+							if($i) // Le premier rÃ©sultat du tableau est particulier (i=0)
 							{
 								print("</table>
 										</td>\n");

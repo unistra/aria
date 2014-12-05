@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -63,12 +63,12 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 	verif_auth("$__GESTION_DIR/login.php");
 
-	// Paramètre permettant de masquer/afficher les formations désactivées
+	// ParamÃ¨tre permettant de masquer/afficher les formations dÃ©sactivÃ©es
 	if(isset($_GET["m"]) && ($_GET["m"]==1 || $_GET["m"]==0))
 		$_SESSION["affichage_masquees"]=$masquees=$_GET["m"];
 	elseif(isset($_SESSION["affichage_masquees"]))
 		$masquees=$_SESSION["affichage_masquees"];
-	else // par défaut : masquées
+	else // par dÃ©faut : masquÃ©es
 		$masquees=0;
 
 	$dbr=db_connect();
@@ -85,19 +85,19 @@ CeCILL-B, et que vous en avez accepté les termes.
 		titre_page_icone("Liste des formations", "contents_32x32_fond.png", 10, "L");
 
 		if(isset($_GET["succes"]) && $_GET["succes"]==1)
-			message("La formation a été modifiée avec succès.", $__SUCCES);
+			message("La formation a Ã©tÃ© modifiÃ©e avec succÃ¨s.", $__SUCCES);
 			
 		if(isset($_GET["info_succes"]) && $_GET["info_succes"]==1)
-			message("Les informations sur la formation ont été enregistrées avec succès.", $__SUCCES);
+			message("Les informations sur la formation ont Ã©tÃ© enregistrÃ©es avec succÃ¨s.", $__SUCCES);
 
 		if(isset($masquees) && $masquees==1)
 		{
 			$condition_masquees="";
-			$lien_masquees="<a href='$php_self?m=0' class='lien_bleu_12'><strong>Masquer les formations désactivées</strong></a>";
+			$lien_masquees="<a href='$php_self?m=0' class='lien_bleu_12'><strong>Masquer les formations dÃ©sactivÃ©es</strong></a>";
 
 			message("<center>
-							Les formations sur fond gris sont désactivées.
-							<br>Elles n'apparaissent pas sur la plupart des listes et les candidats ne pourront pas les sélectionner
+							Les formations sur fond gris sont dÃ©sactivÃ©es.
+							<br>Elles n'apparaissent pas sur la plupart des listes et les candidats ne pourront pas les sÃ©lectionner
 							<br><br>$lien_masquees
 						</center>", $__INFO);
 
@@ -107,7 +107,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 													 AND $_DBC_propspec_comp_id='$_SESSION[comp_id]'")))
 		{
 			$condition_masquees="AND $_DBC_propspec_active='1'";
-			$lien_masquees="<a href='$php_self?m=1' class='lien_bleu_12'><strong>Afficher les formations désactivées</strong></a>";
+			$lien_masquees="<a href='$php_self?m=1' class='lien_bleu_12'><strong>Afficher les formations dÃ©sactivÃ©es</strong></a>";
 
 			message("$lien_masquees", $__INFO);
 		}
@@ -128,7 +128,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 		$rows=db_num_rows($result);
 
-		$old_annee="===="; // on initialise à n'importe quoi (sauf vide)
+		$old_annee="===="; // on initialise Ã  n'importe quoi (sauf vide)
 		$old_mention="===="; // idem
 		$j=0;
 
@@ -144,7 +144,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 				$nom_finalite=$tab_finalite_semicomplete[$finalite];
 
 				if($annee=="")
-					$annee="Années particulières";
+					$annee="AnnÃ©es particuliÃ¨res";
 
 				if($annee!=$old_annee)
 				{
@@ -158,7 +158,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 										<font class='Texte_menu2'><b>$annee</b></font>
 									</td>
 									<td class='fond_menu2' style='padding:4px 10px 4px 10px;' width='80'>
-                              <font class='Texte_menu2'><b>Finalité</b></font>
+                              <font class='Texte_menu2'><b>FinalitÃ©</b></font>
                            </td>
 									<td class='fond_menu2' style='padding:4px 10px 4px 10px;' width='150'>
 										<font class='Texte_menu2'><b>Responsable</b></font>
@@ -206,7 +206,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 
 				if($info_formation!="") {
-					if(strlen($info_formation)>70) // 70 caractères : bon compromis pour afficher un aperçu du texte ?
+					if(strlen($info_formation)>70) // 70 caractÃ¨res : bon compromis pour afficher un aperÃ§u du texte ?
 						$info_formation=substr($info_formation, 0, 70) . " [...]";
 					
 					// suppression des retours de ligne superflus

@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,37 +20,37 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
 ?>
 <?php
 	// Gestion des filtres entre les formations
-	// Exemple : si un candidat a sélectionné la formation X, alors il ne peut pas sélectionner la formation Y
+	// Exemple : si un candidat a sÃ©lectionnÃ© la formation X, alors il ne peut pas sÃ©lectionner la formation Y
 
 	session_name("preinsc_gestion");
 	session_start();
@@ -71,7 +71,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		exit();
 	}
 
-	// paramètre chiffré : identifiant du filtre en cas de modification
+	// paramÃ¨tre chiffrÃ© : identifiant du filtre en cas de modification
 	if(isset($_GET["p"]) && -1!=($params=get_params($_GET['p'])))
 	{
 		if(isset($params["fid"]) && ctype_digit($params["fid"]))
@@ -83,11 +83,11 @@ CeCILL-B, et que vous en avez accepté les termes.
 	}
 	elseif(isset($_SESSION["fid"]) && ctype_digit($_SESSION["fid"]))
 		$_SESSION["modification"]=1;
-	else // pas de paramètre : ajout d'une étape au cursus
+	else // pas de paramÃ¨tre : ajout d'une Ã©tape au cursus
 		$_SESSION["ajout"]=1;
 
 	// TRAITEMENT DES FORMULAIRES
-	// En fonction de l'étape, on ne stocke pas les valeurs dans les mêmes variables
+	// En fonction de l'Ã©tape, on ne stocke pas les valeurs dans les mÃªmes variables
 	if(isset($_POST["suivant"]) || isset($_POST["suivant_x"]))
 	{
 		if($_SESSION["etape"]==1)
@@ -110,24 +110,24 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 			$_SESSION["etape"]=3;
 
-			// Récapitulatif
-			// Formation complète : champ prioritaire
+			// RÃ©capitulatif
+			// Formation complÃ¨te : champ prioritaire
 			if($_SESSION["filtre_formations_condition_propspec"]!="-1")
 			{
 				$_SESSION["filtre_condition"]=$_SESSION["tab_formations"][$_SESSION["filtre_formations_condition_propspec"]];
 				$_SESSION["filtre_condition_txt"]="";
 			}
-			else // construction année / mention / spécialité / finalite
+			else // construction annÃ©e / mention / spÃ©cialitÃ© / finalite
 			{
 				$_SESSION["filtre_condition"]="";
 				$_SESSION["filtre_condition_txt"]="";
 				$cnt=0;
 
 				if($_SESSION["filtre_formations_condition_annee"]!="-1")
-					$_SESSION["filtre_condition"].="<strong>Année</strong> : " . $_SESSION["tab_annees"][$_SESSION["filtre_formations_condition_annee"]];
+					$_SESSION["filtre_condition"].="<strong>AnnÃ©e</strong> : " . $_SESSION["tab_annees"][$_SESSION["filtre_formations_condition_annee"]];
 				else
 				{
-					$_SESSION["filtre_condition_txt"].="l'année";
+					$_SESSION["filtre_condition_txt"].="l'annÃ©e";
 					$cnt++;
 				}
 
@@ -145,22 +145,22 @@ CeCILL-B, et que vous en avez accepté les termes.
 				if($_SESSION["filtre_formations_condition_specialite"]!="-1")
 				{
 					$_SESSION["filtre_condition"]=$_SESSION["filtre_condition"]=="" ? "" : ", ";
-					$_SESSION["filtre_condition"].="<strong>Spécialité</strong> : " . $_SESSION["tab_specs"][$_SESSION["filtre_formations_condition_specialite"]];
+					$_SESSION["filtre_condition"].="<strong>SpÃ©cialitÃ©</strong> : " . $_SESSION["tab_specs"][$_SESSION["filtre_formations_condition_specialite"]];
 				}
 				else
 				{
-					$_SESSION["filtre_condition_txt"].=$_SESSION["filtre_condition_txt"]=="" ? "la spécialité" : ", la spécialité";
+					$_SESSION["filtre_condition_txt"].=$_SESSION["filtre_condition_txt"]=="" ? "la spÃ©cialitÃ©" : ", la spÃ©cialitÃ©";
 					$cnt++;
 				}
 
 				if($_SESSION["filtre_formations_condition_finalite"]!="-1")
 				{
 					$_SESSION["filtre_condition"]=$_SESSION["filtre_condition"]=="" ? "" : ", ";
-					$_SESSION["filtre_condition"].=$tab_finalite[$_SESSION["filtre_formations_condition_finalite"]]=="" ? "" : "</strong>Finalité</strong> : " . $tab_finalite_complete[$_SESSION["filtre_formations_condition_finalite"]];
+					$_SESSION["filtre_condition"].=$tab_finalite[$_SESSION["filtre_formations_condition_finalite"]]=="" ? "" : "</strong>FinalitÃ©</strong> : " . $tab_finalite_complete[$_SESSION["filtre_formations_condition_finalite"]];
 				}
 				else
 				{
-					$_SESSION["filtre_condition_txt"].=$_SESSION["filtre_condition_txt"]=="" ? "la finalité" : ", la finalité";
+					$_SESSION["filtre_condition_txt"].=$_SESSION["filtre_condition_txt"]=="" ? "la finalitÃ©" : ", la finalitÃ©";
 					$cnt++;
 				}
 
@@ -173,25 +173,25 @@ CeCILL-B, et que vous en avez accepté les termes.
 				}
 			}
 
-			// Même chose pour la cible
+			// MÃªme chose pour la cible
 
-			// Formation complète : champ prioritaire
+			// Formation complÃ¨te : champ prioritaire
 			if($_SESSION["filtre_formations_cible_propspec"]!="-1")
 			{
 				$filtre_cible=$_SESSION["tab_formations"][$_SESSION["filtre_formations_cible_propspec"]];
 				$filtre_cible_txt="";
 			}
-			else // construction année / mention / spécialité / finalite
+			else // construction annÃ©e / mention / spÃ©cialitÃ© / finalite
 			{
 				$filtre_cible="";
 				$filtre_cible_txt="";
 				$cnt=0;
 
 				if($_SESSION["filtre_formations_cible_annee"]!="-1")
-					$filtre_cible.="<strong>Année</strong> : " . $_SESSION["tab_annees"][$_SESSION["filtre_formations_cible_annee"]];
+					$filtre_cible.="<strong>AnnÃ©e</strong> : " . $_SESSION["tab_annees"][$_SESSION["filtre_formations_cible_annee"]];
 				else
 				{
-					$filtre_cible_txt.="l'année";
+					$filtre_cible_txt.="l'annÃ©e";
 					$cnt++;
 				}
 
@@ -209,22 +209,22 @@ CeCILL-B, et que vous en avez accepté les termes.
 				if($_SESSION["filtre_formations_cible_specialite"]!="-1")
 				{
 					$filtre_cible=$filtre_cible=="" ? "" : ", ";
-					$filtre_cible.="<strong>Spécialité</strong> : " . $_SESSION["tab_specs"][$_SESSION["filtre_formations_cible_specialite"]];
+					$filtre_cible.="<strong>SpÃ©cialitÃ©</strong> : " . $_SESSION["tab_specs"][$_SESSION["filtre_formations_cible_specialite"]];
 				}
 				else
 				{
-					$filtre_cible_txt.=$filtre_cible_txt=="" ? "la spécialité" : ", la spécialité";
+					$filtre_cible_txt.=$filtre_cible_txt=="" ? "la spÃ©cialitÃ©" : ", la spÃ©cialitÃ©";
 					$cnt++;
 				}
 
 				if($_SESSION["filtre_formations_cible_finalite"]!="-1")
 				{
 					$filtre_cible=$filtre_cible=="" ? "" : ", ";
-					$filtre_cible.=$tab_finalite[$_SESSION["filtre_formations_cible_finalite"]]=="" ? "" : "</strong>Finalité</strong> : " . $tab_finalite_complete[$_SESSION["filtre_formations_cible_finalite"]];
+					$filtre_cible.=$tab_finalite[$_SESSION["filtre_formations_cible_finalite"]]=="" ? "" : "</strong>FinalitÃ©</strong> : " . $tab_finalite_complete[$_SESSION["filtre_formations_cible_finalite"]];
 				}
 				else
 				{
-					$filtre_cible_txt.=$filtre_cible_txt=="" ? "la finalité" : ", la finalité";
+					$filtre_cible_txt.=$filtre_cible_txt=="" ? "la finalitÃ©" : ", la finalitÃ©";
 					$cnt++;
 				}
 
@@ -241,7 +241,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 	$dbr=db_connect();
 
-	// Validation : création / modification du filtre
+	// Validation : crÃ©ation / modification du filtre
 	if(isset($_POST["valider"]) || isset($_POST["valider_x"]))
 	{
 		$_SESSION["filtre_formations_nom"]=$filtre_nom=$_POST["nom_filtre"];
@@ -254,7 +254,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		{
 			if(isset($_SESSION["modification"]) && $_SESSION["modification"]==1)
 			{
-				// Unicité
+				// UnicitÃ©
 				if(db_num_rows(db_query($dbr, "SELECT * FROM $_DB_filtres
 															WHERE $_DBC_filtres_cond_propspec_id='$_SESSION[filtre_formations_condition_propspec]'
 															AND $_DBC_filtres_cond_annee_id='$_SESSION[filtre_formations_condition_annee]'
@@ -292,7 +292,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			}
 			elseif(isset($_SESSION["ajout"]) && $_SESSION["ajout"]==1)
 			{
-				// Unicité
+				// UnicitÃ©
 				if(db_num_rows(db_query($dbr, "SELECT * FROM $_DB_filtres
 															WHERE $_DBC_filtres_cond_propspec_id='$_SESSION[filtre_formations_condition_propspec]'
 															AND $_DBC_filtres_cond_annee_id='$_SESSION[filtre_formations_condition_annee]'
@@ -308,7 +308,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 					$filtre_existe=1;
 				else
 				{
-					// Création du filtre défini
+					// CrÃ©ation du filtre dÃ©fini
 					$new_fid=db_locked_query($dbr, $_DB_filtres, "INSERT INTO $_DB_filtres VALUES (
 																					'##NEW_ID##',
 																					'$filtre_nom',
@@ -326,7 +326,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 					write_evt($dbr, $__EVT_ID_G_FILTRES, "Ajout filtre $new_fid", "", $new_fid);
 
-					// Création du filtre réciproque ? (s'il n'existe pas déjà)
+					// CrÃ©ation du filtre rÃ©ciproque ? (s'il n'existe pas dÃ©jÃ )
 					if(isset($_POST["reciproque"]) && $_POST["reciproque"]==1)
 					{
 						if(!db_num_rows(db_query($dbr, "SELECT * FROM $_DB_filtres
@@ -344,7 +344,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 						{
 							$new_fid=db_locked_query($dbr, $_DB_filtres, "INSERT INTO $_DB_filtres VALUES (
 																						'##NEW_ID##',
-																						'$filtre_nom (réciproque)',
+																						'$filtre_nom (rÃ©ciproque)',
 																						'$_SESSION[comp_id]',
 																						'$_SESSION[filtre_formations_cible_propspec]',
 																						'$_SESSION[filtre_formations_cible_annee]',
@@ -357,7 +357,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 																						'$_SESSION[filtre_formations_condition_specialite]',
 																						'$_SESSION[filtre_formations_condition_finalite]')");
 
-							write_evt($dbr, $__EVT_ID_G_FILTRES, "Ajout filtre réciproque $new_fid", "", $new_fid);
+							write_evt($dbr, $__EVT_ID_G_FILTRES, "Ajout filtre rÃ©ciproque $new_fid", "", $new_fid);
 						}
 					}
 
@@ -374,10 +374,10 @@ CeCILL-B, et que vous en avez accepté les termes.
 		}
 	}
 
-	// Changement d'étape
+	// Changement d'Ã©tape
 	if(isset($_GET["e"]) && ctype_digit($_GET["e"]) && ($_GET["e"]==1 || $_GET["e"]==2 || $_GET["e"]==3))
 		$_SESSION["etape"]=$_GET["e"];
-	elseif(!isset($_SESSION["etape"]))	// Etape par défaut
+	elseif(!isset($_SESSION["etape"]))	// Etape par dÃ©faut
 		$_SESSION["etape"]=1;
 
 	// EN-TETE
@@ -390,23 +390,23 @@ CeCILL-B, et que vous en avez accepté les termes.
 <div class='main'>
 	<?php
 		if(isset($_SESSION["ajout"]))
-			titre_page_icone("Ajouter un filtre : étape $_SESSION[etape]", "applications-science_32x32_fond.png", 15, "L");
+			titre_page_icone("Ajouter un filtre : Ã©tape $_SESSION[etape]", "applications-science_32x32_fond.png", 15, "L");
 		elseif(isset($_SESSION["modification"]))
-			titre_page_icone("Modifier un filtre : étape $_SESSION[etape]", "applications-science_32x32_fond.png", 15, "L");
+			titre_page_icone("Modifier un filtre : Ã©tape $_SESSION[etape]", "applications-science_32x32_fond.png", 15, "L");
 
 		print("<form action='$php_self' method='POST' name='form1'>\n");
 
 		if(isset($filtre_existe))
-			message("Erreur : un filtre avec des paramètres identiques existe déjà.", $__ERREUR);
+			message("Erreur : un filtre avec des paramÃ¨tres identiques existe dÃ©jÃ .", $__ERREUR);
 
 		switch($_SESSION["etape"])
 		{
 			case 1	:	message("<center>
-											<strong>Etape 1</strong> : sélection de la condition (<strong>voeu choisi par le candidat</strong>)
-											<br>(le caractère * signifie \"n'importe quel élémént\")
+											<strong>Etape 1</strong> : sÃ©lection de la condition (<strong>voeu choisi par le candidat</strong>)
+											<br>(le caractÃ¨re * signifie \"n'importe quel Ã©lÃ©mÃ©nt\")
 										</center>", $__INFO);
 
-							// conservation en mémoire des champs select en cas de retour ou de modification
+							// conservation en mÃ©moire des champs select en cas de retour ou de modification
 							if(isset($_SESSION["filtre_formations_condition_propspec"]) && $_SESSION["filtre_formations_condition_propspec"]!="-1")
 								$cur_val_propspec=$_SESSION["filtre_formations_condition_propspec"];
 							elseif(isset($_SESSION["fid"]) && array_key_exists($_SESSION["fid"], $_SESSION["tab_filtres"]) && $_SESSION["tab_filtres"][$_SESSION["fid"]]["cond_propspec_id"]!="-1")
@@ -437,11 +437,11 @@ CeCILL-B, et que vous en avez accepté les termes.
 							break;
 
 			case 2	:	message("<center>
-											<strong>Etape 2</strong> : sélection de la conséquence (<strong>ce que ne peut plus choisir le candidat</strong>)
-											<br>(le caractère * signifie \"n'importe quel élémént\")
+											<strong>Etape 2</strong> : sÃ©lection de la consÃ©quence (<strong>ce que ne peut plus choisir le candidat</strong>)
+											<br>(le caractÃ¨re * signifie \"n'importe quel Ã©lÃ©mÃ©nt\")
 										</center>", $__INFO);
 
-							// mémoire des champs select en cas de retour ou de modification
+							// mÃ©moire des champs select en cas de retour ou de modification
 							if(isset($_SESSION["filtre_formations_cible_propspec"]) && $_SESSION["filtre_formations_cible_propspec"]!="-1")
 								$cur_val_propspec=$_SESSION["filtre_formations_cible_propspec"];
 							elseif(isset($_SESSION["fid"]) && array_key_exists($_SESSION["fid"], $_SESSION["tab_filtres"]) && $_SESSION["tab_filtres"][$_SESSION["fid"]]["cible_propspec_id"]!="-1")
@@ -471,7 +471,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 							break;
 
-			case 3	: 	message("<strong>Dernière étape</strong> : récapitulatif, options et confirmation", $__INFO);
+			case 3	: 	message("<strong>DerniÃ¨re Ã©tape</strong> : rÃ©capitulatif, options et confirmation", $__INFO);
 
 							if(isset($_SESSION["filtre_formations_nom"]))
 								$cur_val_nom=$_SESSION["filtre_formations_nom"];
@@ -485,7 +485,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 		if($_SESSION["etape"]!="3")
 		{
-			// Sélection d'une formation complète
+			// SÃ©lection d'une formation complÃ¨te
 			$result=db_query($dbr, "SELECT $_DBC_propspec_id, $_DBC_propspec_annee, $_DBC_annees_annee, $_DBC_propspec_id_spec,
 													 $_DBC_specs_nom, $_DBC_specs_mention_id, $_DBC_propspec_finalite, $_DBC_mentions_nom,
 													 $_DBC_propspec_manuelle, $_DBC_propspec_active
@@ -502,7 +502,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			print("<table cellpadding='4' align='center'>
 					<tr>
 						<td class='fond_menu2' colspan='2'>
-							<font class='Texte_menu2'><strong>Sélectionnez une formation ... </strong></font>
+							<font class='Texte_menu2'><strong>SÃ©lectionnez une formation ... </strong></font>
 						</td>
 					</tr>
 					<tr>
@@ -531,7 +531,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 							print("</optgroup>
 										<option value='-1' label='' disabled></option>\n");
 
-						$annee_nom=$form_annee_nom=="" ? "Années particulières" : $form_annee_nom;
+						$annee_nom=$form_annee_nom=="" ? "AnnÃ©es particuliÃ¨res" : $form_annee_nom;
 
 						print("<optgroup label='$annee_nom'>\n");
 
@@ -575,15 +575,15 @@ CeCILL-B, et que vous en avez accepté les termes.
 				print("</optgroup>
 						</select>
 						<br>
-						<font class='Texte_important_menu'><strong>S'il est utilisé, ce champ sera prioritaire sur les suivants.</strong></font>\n");
+						<font class='Texte_important_menu'><strong>S'il est utilisÃ©, ce champ sera prioritaire sur les suivants.</strong></font>\n");
 			}
 			else
-				print("<font class='Texte_menu'><i>Aucune formation enregistrée</i></font>\n");
+				print("<font class='Texte_menu'><i>Aucune formation enregistrÃ©e</i></font>\n");
 
 			print("</td>
 					</tr>\n");
 
-			// Sélection d'une année
+			// SÃ©lection d'une annÃ©e
 			$result=db_query($dbr, "SELECT $_DBC_annees_id, $_DBC_annees_annee FROM $_DB_annees ORDER BY $_DBC_annees_ordre");
 			$rows=db_num_rows($result);
 
@@ -592,12 +592,12 @@ CeCILL-B, et que vous en avez accepté les termes.
 					 </tr>
 					 <tr>
 						<td class='fond_menu2' colspan='2'>
-							<font class='Texte_menu2'>... <strong>ou</strong> une combinaison des élements suivants :</font>
+							<font class='Texte_menu2'>... <strong>ou</strong> une combinaison des Ã©lements suivants :</font>
 						</td>
 					</tr>
 					<tr>
 						<td class='fond_menu2' align='right'>
-							<font class='Texte_menu2' style='font-weight:bold;'>Année : </font>
+							<font class='Texte_menu2' style='font-weight:bold;'>AnnÃ©e : </font>
 						</td>
 						<td class='fond_menu'>\n");
 
@@ -612,7 +612,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 				{
 					list($form_annee_id, $form_annee_nom)=db_fetch_row($result, $i);
 
-					$form_annee_nom=$form_annee_nom=="" ? "Années particulières" : $form_annee_nom;
+					$form_annee_nom=$form_annee_nom=="" ? "AnnÃ©es particuliÃ¨res" : $form_annee_nom;
 
 					$_SESSION["tab_annees"][$form_annee_id]=$form_annee_nom;
 
@@ -625,12 +625,12 @@ CeCILL-B, et que vous en avez accepté les termes.
 						</select>\n");
 			}
 			else
-				print("<font class='Texte_menu'><i>Aucune année enregistrée</i></font>\n");
+				print("<font class='Texte_menu'><i>Aucune annÃ©e enregistrÃ©e</i></font>\n");
 
 			print("</td>
 					</tr>\n");
 
-			// Sélection d'une mention
+			// SÃ©lection d'une mention
 			$result=db_query($dbr, "SELECT $_DBC_mentions_id, $_DBC_mentions_nom FROM $_DB_mentions
 												WHERE $_DBC_mentions_comp_id='$_SESSION[comp_id]'
 											ORDER BY $_DBC_mentions_nom");
@@ -665,12 +665,12 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 			}
 			else
-				print("<font class='Texte_menu'><i>Aucune mention enregistrée</i></font>\n");
+				print("<font class='Texte_menu'><i>Aucune mention enregistrÃ©e</i></font>\n");
 
 			print("</td>
 					</tr>\n");
 
-			// Sélection d'une spécialité
+			// SÃ©lection d'une spÃ©cialitÃ©
 			$result=db_query($dbr, "SELECT $_DBC_specs_id, $_DBC_specs_nom, $_DBC_mentions_nom FROM $_DB_specs, $_DB_mentions
 												WHERE $_DBC_mentions_id=$_DBC_specs_mention_id
 												AND $_DBC_specs_comp_id='$_SESSION[comp_id]'
@@ -679,7 +679,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 			print("<tr>
 						<td class='fond_menu2' align='right'>
-							<font class='Texte_menu2' style='font-weight:bold;'>Spécialité : </font>
+							<font class='Texte_menu2' style='font-weight:bold;'>SpÃ©cialitÃ© : </font>
 						</td>
 						<td class='fond_menu'>\n");
 
@@ -718,7 +718,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 			}
 			else
-				print("<font class='Texte_menu'><i>Aucune spécialité enregistrée</i></font>\n");
+				print("<font class='Texte_menu'><i>Aucune spÃ©cialitÃ© enregistrÃ©e</i></font>\n");
 
 			if(isset($cur_val_finalite))
 			{
@@ -748,12 +748,12 @@ CeCILL-B, et que vous en avez accepté les termes.
 					</tr>
 					<tr>
 						<td class='fond_menu2' align='right'>
-							<font class='Texte_menu2' style='font-weight:bold;'>Finalité : </font>
+							<font class='Texte_menu2' style='font-weight:bold;'>FinalitÃ© : </font>
 						</td>
 						<td class='fond_menu'>
 							<select name='finalite' size='1'>
 								<option value='-1' $select_all>*</option>
-								<option value='0' $select_sans>Formations sans finalité</option>
+								<option value='0' $select_sans>Formations sans finalitÃ©</option>
 								<option value='1' $select_rech>Recherche</option>
 								<option value='2' $select_pro>Professionnelle</option>
 							</select>
@@ -810,7 +810,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 						</td>
 						<td class='fond_menu'>
 							<input type='text' name='nom_filtre' value='$cur_val_nom' size='40' maxlength='40'>
-							<font class='Texte_menu'><i>(40 caractères maximum)</i></font>
+							<font class='Texte_menu'><i>(40 caractÃ¨res maximum)</i></font>
 						</td>
 					</tr>\n");
 
@@ -821,7 +821,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 							</tr>
 							<tr>
 								<td class='fond_menu2' align='right'>
-									<font class='Texte_menu2' style='font-weight:bold;'>Créer automatiquement le filtre réciproque ?</font>
+									<font class='Texte_menu2' style='font-weight:bold;'>CrÃ©er automatiquement le filtre rÃ©ciproque ?</font>
 								</td>
 								<td class='fond_menu'>
 									<input style='vertical-align:middle; padding-right:5px;' type='radio' name='reciproque' value='1'><font class='Texte_menu'>Oui</font>

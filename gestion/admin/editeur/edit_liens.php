@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -63,7 +63,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 	verif_auth("../../login.php");
 
-	// Modification des propriétés
+	// Modification des propriÃ©tÃ©s
 	if(isset($_SESSION["lettre_id"]))
 		$lettre_id=$_SESSION["lettre_id"];
 	else
@@ -72,14 +72,14 @@ CeCILL-B, et que vous en avez accepté les termes.
 		exit;
 	}
 
-	// section exécutée lorsque le formulaire est validé
+	// section exÃ©cutÃ©e lorsque le formulaire est validÃ©
 	if(isset($_POST["go"]) || isset($_POST["go_x"]))
 	{
 		$dbr=db_connect();
 
-		// Décisions associées
+		// DÃ©cisions associÃ©es
 
-		// Nettoyage préalable (économise des vérifications)
+		// Nettoyage prÃ©alable (Ã©conomise des vÃ©rifications)
 		db_query($dbr, "DELETE FROM $_DB_lettres_dec WHERE $_DBC_lettres_dec_lettre_id='$lettre_id'");
 
 		if(array_key_exists("decision", $_POST))
@@ -88,7 +88,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 				db_query($dbr, "INSERT INTO $_DB_lettres_dec VALUES ('$lettre_id', '$dec_id')");
 		}
 		
-		// Menu des options particulières
+		// Menu des options particuliÃ¨res
 
 		if(isset($_POST["options_particulieres"]) && $_POST["options_particulieres"]!="")
 		{
@@ -165,7 +165,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			list($current_titre, $current_choix_multiples)=db_fetch_row($result,0);
 			db_free_result($result);
 
-			// on doit récupérer les décisions associées à cette lettre
+			// on doit rÃ©cupÃ©rer les dÃ©cisions associÃ©es Ã  cette lettre
 
 			$result=db_query($dbr, "SELECT $_DBC_lettres_dec_dec_id FROM $_DB_lettres_dec WHERE $_DBC_lettres_dec_lettre_id='$lettre_id'");
 			$rows=db_num_rows($result);
@@ -192,7 +192,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		<tr>
 			<td class='fond_menu2' colspan='2' style='padding:4px 20px 4px 20px;'>
 				<font class='Texte_menu2'>
-					<b>&#8226;&nbsp;&nbsp;Décisions pour lesquelles imprimer cette lettre :</b>
+					<b>&#8226;&nbsp;&nbsp;DÃ©cisions pour lesquelles imprimer cette lettre :</b>
 				</font>
 			</td>
 		</tr>
@@ -247,7 +247,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 			$rows=db_num_rows($result);
 
-			$old_annee="===="; // on initialise à n'importe quoi (sauf vide)
+			$old_annee="===="; // on initialise Ã  n'importe quoi (sauf vide)
 
 			if($rows)
 			{
@@ -273,7 +273,7 @@ CeCILL-B, et que vous en avez accepté les termes.
             $rows_groupes=db_num_rows($res_groupes);
 
             if($rows_groupes) {
-               $selection_groupes="<br><b>Pour les formations à choix multiples : sélection du ou des groupes concerné(s) :</b><br />\n";
+               $selection_groupes="<br><b>Pour les formations Ã  choix multiples : sÃ©lection du ou des groupes concernÃ©(s) :</b><br />\n";
 
                for($j=0; $j<$rows_groupes; $j++) {
                   list($groupe_id, $groupe_nom)=db_fetch_row($res_groupes, $j);
@@ -291,24 +291,24 @@ CeCILL-B, et que vous en avez accepté les termes.
 				print("<table align='center'>
 							<tr>
 								<td class='fond_menu2' align='center' colspan='2' style='padding:4px 20px 4px 20px;'>
-									<font class='Texte_menu2'><b>Formations concernées par cette lettre</b></font>
+									<font class='Texte_menu2'><b>Formations concernÃ©es par cette lettre</b></font>
 								</td>
 								<tr>
 									<td class='fond_menu2' align='center' colspan='2' style='padding:4px 20px 4px 20px;'>
-										<font class='Texte_menu2'><b>Options particulières</b></font>
+										<font class='Texte_menu2'><b>Options particuliÃ¨res</b></font>
 									</td>
 								</tr>
 								<tr>
 									<td class='fond_page' align='left' colspan='2' style='padding:4px 20px 4px 20px;'>
 										<select name='options_particulieres'>
 											<option value='' $none_selected></option>
-											<option value='toutes_formations'>Sélectionner toutes les formations</option>
-											<option value='aucune_formation'>Ne sélectionner aucune formation</option>
-											<option value='choix_multiples' $multiples_selected>Ne s'applique qu'aux formations à choix multiples</option>
+											<option value='toutes_formations'>SÃ©lectionner toutes les formations</option>
+											<option value='aucune_formation'>Ne sÃ©lectionner aucune formation</option>
+											<option value='choix_multiples' $multiples_selected>Ne s'applique qu'aux formations Ã  choix multiples</option>
 										</select>
 										<br>
 										<font class='Texte'>
-											<b>Si vous utilisez ce menu, il est inutile de sélectionner individuellement les formations ci-dessous.</b>
+											<b>Si vous utilisez ce menu, il est inutile de sÃ©lectionner individuellement les formations ci-dessous.</b>
                                  <br>");
 
             if(isset($selection_groupes)) {
@@ -336,7 +336,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 						$checked="";
 
 					if($annee=="")
-						$annee="Années particulières";
+						$annee="AnnÃ©es particuliÃ¨res";
 
 					if($annee!=$old_annee)
 					{

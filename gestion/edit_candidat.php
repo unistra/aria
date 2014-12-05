@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -68,8 +68,8 @@ CeCILL-B, et que vous en avez accepté les termes.
 		exit();
 	}
 
-	// Condition : la fiche doit être verrouillée
-	// TODO : désactivé, à vérifier ou redéfinir
+	// Condition : la fiche doit Ãªtre verrouillÃ©e
+	// TODO : dÃ©sactivÃ©, Ã  vÃ©rifier ou redÃ©finir
 /*
 	if((!isset($_SESSION["tab_candidat"]["lock"]) || $_SESSION["tab_candidat"]["lock"]!=1) && $_SESSION["tab_candidat"]["manuelle"]!=1)
 	{
@@ -78,7 +78,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	}
 */
 
-	// identifiant de l'étudiant
+	// identifiant de l'Ã©tudiant
 	$candidat_id=$_SESSION["candidat_id"];
 
 	$dbr=db_connect();
@@ -101,8 +101,8 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 	if(isset($_POST["go"]) || isset($_POST["go_x"])) // validation du formulaire
 	{
-		// vérification des valeurs entrées dans le formulaire
-		// TODO : vérifications poussées
+		// vÃ©rification des valeurs entrÃ©es dans le formulaire
+		// TODO : vÃ©rifications poussÃ©es
 
 		$civilite=$_POST["civilite"];
 
@@ -153,7 +153,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		// Ajouter le cas "sans bac"
 		$annee_bac=$_POST["annee_bac"];
 
-		// L'année et la série du bac ne sont pas obligatoires pour la partie gestion, mais on avertit l'utilisateur
+		// L'annÃ©e et la sÃ©rie du bac ne sont pas obligatoires pour la partie gestion, mais on avertit l'utilisateur
 		if($serie_bac=="")
 			$warn_serie_bac="wsb=1";
 
@@ -177,7 +177,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 		$cnt_obl=count($champs_obligatoires);
 
-		for($i=0; $i<$cnt_obl; $i++) // vérification des champs obligatoires
+		for($i=0; $i<$cnt_obl; $i++) // vÃ©rification des champs obligatoires
 		{
 			if($champs_obligatoires[$i]=="")
 			{
@@ -186,7 +186,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			}
 		}
 
-		// Le département de naissance est obligatoire pour ceux nés en France
+		// Le dÃ©partement de naissance est obligatoire pour ceux nÃ©s en France
 		if($pays_naissance_code=="FR" && $dpt_naissance!="2A" && $dpt_naissance!="2B" && (!ctype_digit($dpt_naissance) || $dpt_naissance<1 || ($dpt_naissance>95 && ($dpt_naissance<971 || $dpt_naissance>987))))
 			$bad_dpt_naissance=1;
 
@@ -196,8 +196,8 @@ CeCILL-B, et que vous en avez accepté les termes.
 		{
 			$date_naissance=MakeTime(12,0,0,$mois,$jour,$annee);
 
-			// Vérification d'unicité si (nom/prenom/date de naissance) a changé
-			// TODO : vérifier si ces critères sont suffisants
+			// VÃ©rification d'unicitÃ© si (nom/prenom/date de naissance) a changÃ©
+			// TODO : vÃ©rifier si ces critÃ¨res sont suffisants
 
 			if(strtolower($_SESSION['tab_candidat']["nom"])!=strtolower($nom) || strtolower($_SESSION['tab_candidat']["prenom"])!=strtolower($prenom) || strtolower($_SESSION['tab_candidat']["naissance"])!=strtolower($date_naissance))
 			{
@@ -219,10 +219,10 @@ CeCILL-B, et que vous en avez accepté les termes.
 		if(!isset($champ_vide) && !isset($id_existe) && !isset($erreur_date_naissance) && !isset($bad_dpt_naissance) && !isset($erreur_ine_bea)
 			&& !isset($err_deja_inscrit) && !isset($err_annee_premiere_inscr) && !isset($err_serie_bac) && !isset($err_annee_bac) && !isset($erreur_ine_obligatoire))
 		{
-			// Les données du nouvel utilisateur sont complètes (pas forcément bonnes, mais ça le pénalisera)
-			// On peut créer l'identifiant et le code, l'insérer dans la base et envoyer le mail
+			// Les donnÃ©es du nouvel utilisateur sont complÃ¨tes (pas forcÃ©ment bonnes, mais Ã§a le pÃ©nalisera)
+			// On peut crÃ©er l'identifiant et le code, l'insÃ©rer dans la base et envoyer le mail
 
-			// Requete stockée dans une variable pour pouvoir l'enregistrer dans l'historique
+			// Requete stockÃ©e dans une variable pour pouvoir l'enregistrer dans l'historique
 			$req="UPDATE $_DB_candidat SET $_DBU_candidat_civilite='$civilite',
 													 $_DBU_candidat_nom='$nom',
 													 $_DBU_candidat_nom_naissance='$nom_naissance',
@@ -249,8 +249,8 @@ CeCILL-B, et que vous en avez accepté les termes.
 													 $_DBU_candidat_serie_bac='$serie_bac'
 											 WHERE $_DBU_candidat_id='$candidat_id';";
 
-			// Requête : on n'utilise pas la variable "$req" car on ne peut pas "l'échapper" correctement (les ' sont doublés
-			// partout, c'est ok pour les valeurs, mais pas pour leur délimitation ...
+			// RequÃªte : on n'utilise pas la variable "$req" car on ne peut pas "l'Ã©chapper" correctement (les ' sont doublÃ©s
+			// partout, c'est ok pour les valeurs, mais pas pour leur dÃ©limitation ...
 			db_query($dbr, "UPDATE $_DB_candidat SET $_DBU_candidat_civilite='$civilite',
 													 $_DBU_candidat_nom='$nom',
 													 $_DBU_candidat_nom_naissance='$nom_naissance',
@@ -277,7 +277,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 													 $_DBU_candidat_serie_bac='$serie_bac'
 											 WHERE $_DBU_candidat_id='$candidat_id';");
 
-			write_evt($dbr, $__EVT_ID_G_ID, "Identité modifiée", $candidat_id, $candidat_id, stripslashes($req));
+			write_evt($dbr, $__EVT_ID_G_ID, "IdentitÃ© modifiÃ©e", $candidat_id, $candidat_id, stripslashes($req));
 
 			db_close($dbr);
 
@@ -330,7 +330,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			else
 				$_SESSION['tab_candidat']["nom_departement"]="";
 
-			// Série du bac
+			// SÃ©rie du bac
 			if($serie_bac!="" && isset($_SESSION["intitules_series_bac"]["$serie_bac"]))
 				$_SESSION['tab_candidat']["nom_serie_bac"]=$_SESSION["intitules_series_bac"]["$serie_bac"];
 			else
@@ -355,7 +355,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		$cur_jour=date_fr("d", $_SESSION['tab_candidat']['naissance']);
 	}
 	
-	// Construction de la liste des pays et nationalités (codes ISO) pour son utilisation dans le formulaire
+	// Construction de la liste des pays et nationalitÃ©s (codes ISO) pour son utilisation dans le formulaire
 	$_SESSION["liste_pays_nat_iso"]=array();
 	
 	$res_pays_nat=db_query($dbr, "SELECT $_DBC_pays_nat_ii_iso, $_DBC_pays_nat_ii_insee, $_DBC_pays_nat_ii_pays, $_DBC_pays_nat_ii_nat
@@ -368,7 +368,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	{
 		list($code_iso, $code_insee, $table_pays, $table_nationalite)=db_fetch_row($res_pays_nat, $p);
 		
-		// Construction uniquement si le code insee est présent (pour les exports APOGEE ou autres)
+		// Construction uniquement si le code insee est prÃ©sent (pour les exports APOGEE ou autres)
 		if($code_insee!="")
 			$_SESSION["liste_pays_nat_iso"]["$code_iso"]=array("pays" => "$table_pays", "nationalite" => $table_nationalite);
 /*		
@@ -392,15 +392,15 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 				 <form action='$php_self' method='POST' name='form1'>");
 
-		titre_page_icone("Identité du candidat", "contacts_32x32_fond.png", 15, "L");
+		titre_page_icone("IdentitÃ© du candidat", "contacts_32x32_fond.png", 15, "L");
 
 		if(isset($success))
-			message("Informations mises à jour avec succès", $__SUCCES);
+			message("Informations mises Ã  jour avec succÃ¨s", $__SUCCES);
 
 		$message_erreur="";
 
 		if(isset($bad_dpt_naissance))
-			$message_erreur.="- si le candidat / la candidate est né(e) en France, le département de naissance est obligatoire";
+			$message_erreur.="- si le candidat / la candidate est nÃ©(e) en France, le dÃ©partement de naissance est obligatoire";
 
 		if(isset($erreur_date_naissance))
 		{
@@ -417,31 +417,31 @@ CeCILL-B, et que vous en avez accepté les termes.
       if(isset($erreur_ine_obligatoire))
       {
          $message_erreur.=$message_erreur!="" ? "\n<br>" : "";
-         $message_erreur.="- Si l'étudiant(e) déjà été inscrit(e) dans cette Université : le numero INE ou BEA est <strong>obligatoire</strong>";
+         $message_erreur.="- Si l'Ã©tudiant(e) dÃ©jÃ  Ã©tÃ© inscrit(e) dans cette UniversitÃ© : le numero INE ou BEA est <strong>obligatoire</strong>";
       }
 
 		if(isset($err_deja_inscrit))
 		{
 			$message_erreur.=$message_erreur!="" ? "\n<br>" : "";
-			$message_erreur.="- vous devez indiquer si le candidat / la candidate a déjà été inscrit(e) ou non dans cette Université";
+			$message_erreur.="- vous devez indiquer si le candidat / la candidate a dÃ©jÃ  Ã©tÃ© inscrit(e) ou non dans cette UniversitÃ©";
 		}
 
 		if(isset($err_annee_premiere_inscr))
 		{
 			$message_erreur.=$message_erreur!="" ? "\n<br>" : "";
-			$message_erreur.="- le format de l'année de première inscription dans cette Université est incorrect (AAAA)";
+			$message_erreur.="- le format de l'annÃ©e de premiÃ¨re inscription dans cette UniversitÃ© est incorrect (AAAA)";
 		}
 
 		if(isset($err_annee_bac))
 		{
 			$message_erreur.=$message_erreur!="" ? "\n<br>" : "";
-			$message_erreur.="- le format de l'année d'obtention du baccalauréat est incorrect (AAAA)";
+			$message_erreur.="- le format de l'annÃ©e d'obtention du baccalaurÃ©at est incorrect (AAAA)";
 		}
 /*
 		if(isset($err_serie_bac))
 		{
 			$message_erreur.=$message_erreur!="" ? "\n<br>" : "";
-			$message_erreur.="- vous devez sélectionner la série du baccalauréat (ou équivalence). Si le candidat / la candidate n'a pas obtenu le baccalauréat, sélectionnez \"Sans bac\" dans le menu déroulant.";
+			$message_erreur.="- vous devez sÃ©lectionner la sÃ©rie du baccalaurÃ©at (ou Ã©quivalence). Si le candidat / la candidate n'a pas obtenu le baccalaurÃ©at, sÃ©lectionnez \"Sans bac\" dans le menu dÃ©roulant.";
 		}
 */
 		if($message_erreur!="")
@@ -453,8 +453,8 @@ CeCILL-B, et que vous en avez accepté les termes.
 		if(isset($champ_vide))
 			message("Formulaire incomplet: les champs en gras sont <u>obligatoires</u>", $__ERREUR);
 		elseif(isset($id_existe))
-			message("<center>Erreur : les nouvelles données correspondent à une entrée déjà existante dans la base</center>
-						<br>Si vous pensez qu'il s'agit d'une autre personne ayant les mêmes nom, prénom et date de naissance, merci <a href='mailto:$__EMAIL_SUPPORT' class='lien2a'>d'envoyer un mail à cette adresse</a> avec toutes les données du formulaire.", $__ERREUR);
+			message("<center>Erreur : les nouvelles donnÃ©es correspondent Ã  une entrÃ©e dÃ©jÃ  existante dans la base</center>
+						<br>Si vous pensez qu'il s'agit d'une autre personne ayant les mÃªmes nom, prÃ©nom et date de naissance, merci <a href='mailto:$__EMAIL_SUPPORT' class='lien2a'>d'envoyer un mail Ã  cette adresse</a> avec toutes les donnÃ©es du formulaire.", $__ERREUR);
 		else
 			message("Rappel : les champs en gras sont <u>obligatoires</u>", $__WARNING);
 	?>
@@ -462,12 +462,12 @@ CeCILL-B, et que vous en avez accepté les termes.
 	<table align='center'>
 	<tr>
 		<td class='td-complet fond_menu2' colspan='2'>
-			<font class='Texte_menu2' style="font-size:14px"><strong>Identité</strong></font>
+			<font class='Texte_menu2' style="font-size:14px"><strong>IdentitÃ©</strong></font>
 		</td>
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu2' style="text-align:right;">
-			<font class='Texte_important_menu2'><b>Civilité : </b></font>
+			<font class='Texte_important_menu2'><b>CivilitÃ© : </b></font>
 		</td>
 		<td class='td-droite fond_menu'>
 			<?php
@@ -517,7 +517,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu2' style="text-align:right;">
-			<font class='Texte_important_menu2'><b>Nom de naissance (si différent) : </b></font>
+			<font class='Texte_important_menu2'><b>Nom de naissance (si diffÃ©rent) : </b></font>
 		</td>
 		<td class='td-droite fond_menu'>
 			<input type='text' name='nom_naissance' value='<?php if(isset($nom_naissance)) echo htmlspecialchars(stripslashes($nom_naissance), ENT_QUOTES, $default_htmlspecialchars_encoding); else echo htmlspecialchars(stripslashes($_SESSION['tab_candidat']["nom_naissance"]),ENT_QUOTES, $default_htmlspecialchars_encoding) ?>' size="25" maxlength="30">
@@ -525,7 +525,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu2' style="text-align:right;">
-			<font class='Texte_important_menu2'><b>Prénom : </b></font>
+			<font class='Texte_important_menu2'><b>PrÃ©nom : </b></font>
 		</td>
 		<td class='td-droite fond_menu'>
 			<input type='text' name='prenom' value='<?php if(isset($prenom)) echo htmlspecialchars(stripslashes($prenom), ENT_QUOTES, $default_htmlspecialchars_encoding); else echo htmlspecialchars(stripslashes($_SESSION['tab_candidat']["prenom"]),ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="25" maxlength="30">
@@ -533,7 +533,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu2' style="text-align:right;">
-			<font class='Texte_important_menu2'><b>Deuxième prénom (facultatif) : </b></font>
+			<font class='Texte_important_menu2'><b>DeuxiÃ¨me prÃ©nom (facultatif) : </b></font>
 		</td>
 		<td class='td-droite fond_menu'>
 			<input type='text' name='prenom2' value='<?php if(isset($prenom2)) echo htmlspecialchars(stripslashes($prenom2), ENT_QUOTES, $default_htmlspecialchars_encoding); else echo htmlspecialchars(stripslashes($_SESSION['tab_candidat']["prenom2"]),ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="25" maxlength="30">
@@ -559,7 +559,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu2' style="text-align:right;">
-			<font class='Texte_important_menu2'><b>Si né(e) en France<br>N° du département de naissance: </b></font>
+			<font class='Texte_important_menu2'><b>Si nÃ©(e) en France<br>NÂ° du dÃ©partement de naissance: </b></font>
 		</td>
 		<td class='td-droite fond_menu'>
 			<select name='dpt_naissance'>
@@ -612,7 +612,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu2' style="text-align:right;">
-			<font class='Texte_important_menu2'><b>Nationalité : </b></font>
+			<font class='Texte_important_menu2'><b>NationalitÃ© : </b></font>
 		</td>
 		<td class='td-droite fond_menu'>
 			<select name='nationalite' size='1'>
@@ -633,7 +633,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu2' style="text-align:right;">
-			<font class='Texte_important_menu2'><b>Adresse électronique valide (<i>email</i>) : </b></font>
+			<font class='Texte_important_menu2'><b>Adresse Ã©lectronique valide (<i>email</i>) : </b></font>
 		</td>
 		<td class='td-droite fond_menu'>
 			<input type='text' name='email' value='<?php if(isset($email)) echo htmlspecialchars(stripslashes($email),ENT_QUOTES, $default_htmlspecialchars_encoding); else echo htmlspecialchars($_SESSION['tab_candidat']["email"],ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="25" maxlength="255"> <font class='Texte_menu'><i>(Facultative dans le cas d'une fiche manuelle)</i></font>
@@ -644,7 +644,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	</tr>
 	<tr>
 		<td class='td-complet fond_menu2' colspan='2'>
-			<font class='Texte_menu2' style="font-size:14px"><strong>Adresse postale pour la réception des courriers</strong></font>
+			<font class='Texte_menu2' style="font-size:14px"><strong>Adresse postale pour la rÃ©ception des courriers</strong></font>
 		</td>
 	</tr>
 	<tr>
@@ -713,23 +713,23 @@ CeCILL-B, et que vous en avez accepté les termes.
 	</tr>
 	<tr>
 		<td class='td-complet fond_menu2' colspan='2'>
-			<font class='Texte_menu2' style="font-size:14px"><strong>Baccalauréat (ou équivalent) : précisions</strong></font>
+			<font class='Texte_menu2' style="font-size:14px"><strong>BaccalaurÃ©at (ou Ã©quivalent) : prÃ©cisions</strong></font>
 		</td>
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu2' style="text-align:right;">
 			<font class='Texte_important_menu2'>
-				<b>Année d'obtention du baccalauréat<br>(ou équivalent) ?</b>
+				<b>AnnÃ©e d'obtention du baccalaurÃ©at<br>(ou Ã©quivalent) ?</b>
 			</font>
 		</td>
 		<td class='td-droite fond_menu'>
 			<input type='text' name='annee_bac' value='<?php if(isset($annee_bac)) echo "$annee_bac"; elseif(isset($_SESSION["tab_candidat"]["annee_bac"])) echo $_SESSION["tab_candidat"]["annee_bac"]; ?>' size="25" maxlength="4"><font class='Texte'><i>(Format : YYYY)</i></font>
-			<br><font class='Texte_menu_10'><i>Si le candidat n'a pas le baccalauréat (et qu'il n'est pas en cours de préparation), sélectionnez "Sans bac" dans<br>la liste et indiquez l'année du dernier diplôme obtenu</i></font>
+			<br><font class='Texte_menu_10'><i>Si le candidat n'a pas le baccalaurÃ©at (et qu'il n'est pas en cours de prÃ©paration), sÃ©lectionnez "Sans bac" dans<br>la liste et indiquez l'annÃ©e du dernier diplÃ´me obtenu</i></font>
 		</td>
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu2' style="text-align:right;">
-			<font class='Texte_important_menu2'><b>Série du baccalauréat (ou équivalent) :</b></font>
+			<font class='Texte_important_menu2'><b>SÃ©rie du baccalaurÃ©at (ou Ã©quivalent) :</b></font>
 		</td>
 		<td class='td-droite fond_menu'>
 			<select name='serie_bac' size='1'>
@@ -763,12 +763,12 @@ CeCILL-B, et que vous en avez accepté les termes.
 	</tr>
 	<tr>
 		<td class='td-complet fond_menu2' colspan='2'>
-			<font class='Texte_menu2' style="font-size:14px"><strong>Inscriptions antérieures</strong></font>
+			<font class='Texte_menu2' style="font-size:14px"><strong>Inscriptions antÃ©rieures</strong></font>
 		</td>
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu2' style="text-align:right;">
-			<font class='Texte_important_menu2'><b>Le candidat/la candidate a-t'il/elle déjà été inscrit(e) dans cette Université ?</b></font>
+			<font class='Texte_important_menu2'><b>Le candidat/la candidate a-t'il/elle dÃ©jÃ  Ã©tÃ© inscrit(e) dans cette UniversitÃ© ?</b></font>
 		</td>
 		<td class='td-droite fond_menu'>
 			<?php
@@ -792,7 +792,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu2' style="text-align:right;">
-			<font class='Texte_important_menu2'><b><u>Si oui</u>, indiquez l'année de première inscription :</b></font>
+			<font class='Texte_important_menu2'><b><u>Si oui</u>, indiquez l'annÃ©e de premiÃ¨re inscription :</b></font>
 		</td>
 		<td class='td-droite fond_menu'>
 			<input type='text' name='annee_premiere_inscr' value='<?php if(isset($annee_premiere_inscr)) echo "$annee_premiere_inscr"; elseif(isset($_SESSION["tab_candidat"]["annee_premiere_inscr"])) echo $_SESSION["tab_candidat"]["annee_premiere_inscr"]; ?>' size="25" maxlength="4"><font class='Texte'><i>(Format : YYYY)</i></font>
@@ -800,10 +800,10 @@ CeCILL-B, et que vous en avez accepté les termes.
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu2' style="text-align:right;">
-			<font class='Texte_menu'>Numéro INE <b>ou</b> BEA : </font>
+			<font class='Texte_menu'>NumÃ©ro INE <b>ou</b> BEA : </font>
 		</td>
 		<td class='td-droite fond_menu'>
-			<input type='text' name='num_ine' value='<?php if(isset($num_ine)) echo htmlspecialchars($num_ine,ENT_QUOTES, $default_htmlspecialchars_encoding); else echo htmlspecialchars($_SESSION['tab_candidat']["numero_ine"],ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="25" maxlength="11"> <font class='Texte_menu'>(<b>obligatoire</b> si vous avez déjà été inscrit(e) dans cette Université)</font>
+			<input type='text' name='num_ine' value='<?php if(isset($num_ine)) echo htmlspecialchars($num_ine,ENT_QUOTES, $default_htmlspecialchars_encoding); else echo htmlspecialchars($_SESSION['tab_candidat']["numero_ine"],ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="25" maxlength="11"> <font class='Texte_menu'>(<b>obligatoire</b> si vous avez dÃ©jÃ  Ã©tÃ© inscrit(e) dans cette UniversitÃ©)</font>
 		</td>
 	</tr>
 	<tr>
@@ -816,7 +816,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu2' style="text-align:right;">
-			<font class='Texte_menu2'>Téléphone fixe : </font>
+			<font class='Texte_menu2'>TÃ©lÃ©phone fixe : </font>
 		</td>
 		<td class='td-droite fond_menu'>
 			<input type='text' name='telephone' value='<?php if(isset($telephone)) echo htmlspecialchars($telephone,ENT_QUOTES, $default_htmlspecialchars_encoding); else echo htmlspecialchars($_SESSION['tab_candidat']["telephone"],ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="25" maxlength="15">
@@ -824,7 +824,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu2' style="text-align:right;">
-			<font class='Texte_menu2'>Téléphone portable : </font>
+			<font class='Texte_menu2'>TÃ©lÃ©phone portable : </font>
 		</td>
 		<td class='td-droite fond_menu'>
 			<input type='text' name='telephone_portable' value='<?php if(isset($telephone_portable)) echo htmlspecialchars($telephone_portable,ENT_QUOTES, $default_htmlspecialchars_encoding); else echo htmlspecialchars($_SESSION['tab_candidat']["telephone_portable"],ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="25" maxlength="15">

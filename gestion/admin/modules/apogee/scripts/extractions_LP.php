@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,65 +20,65 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
 ?>
 <?php
    // Script d'extraction des admissions pour injections OPI
-   // il doit être lancé via le shell
+   // il doit Ãªtre lancÃ© via le shell
 
 	session_name("preinsc_gestion");
 	session_start();
 
    if(FALSE===chdir(dirname(__FILE__)))
-      die("Impossible de changer le répertoire courant (". dirname(__FILE__) . ")");
+      die("Impossible de changer le rÃ©pertoire courant (". dirname(__FILE__) . ")");
 
    if(is_file("../../../../../configuration/aria_config.php")) include "../../../../../configuration/aria_config.php";
-   else die("Fichier \"configuration/aria_config.php\" non trouvé");
+   else die("Fichier \"configuration/aria_config.php\" non trouvÃ©");
 
    if(is_file("../../../../../include/vars.php")) include "../../../../../include/vars.php";
-   else die("Fichier \"include/vars.php\" non trouvé");
+   else die("Fichier \"include/vars.php\" non trouvÃ©");
 
    if(is_file("../../../../../include/fonctions.php")) include "../../../../../include/fonctions.php";
-   else die("Fichier \"include/fonctions.php\" non trouvé");
+   else die("Fichier \"include/fonctions.php\" non trouvÃ©");
 
    if(is_file("../../../../../include/db.php")) include "../../../../../include/db.php";
-   else die("Fichier \"include/db.php\" non trouvé");
+   else die("Fichier \"include/db.php\" non trouvÃ©");
 
    if(is_file("../../../../../include/access_functions.php")) include "../../../../../include/access_functions.php";
-   else die("Fichier \"include/access_functions.php\" non trouvé");
+   else die("Fichier \"include/access_functions.php\" non trouvÃ©");
    
    if(is_file("../../../../../gestion/admin/editeur/include/editeur_fonctions.php")) include "../../../../../gestion/admin/editeur/include/editeur_fonctions.php";
-   else die("Fichier \"gestion/admin/editeur/include/editeur_fonctions.php\" non trouvé");
+   else die("Fichier \"gestion/admin/editeur/include/editeur_fonctions.php\" non trouvÃ©");
 
    if(isset($argv[1]) && (!strcasecmp($argv[1], "test") || !strcasecmp($argv[1], "-test") || !strcasecmp($argv[1], "--test") || !strcasecmp($argv[1], "-t") || !strcasecmp($argv[1], "--t")))
    {
-      print("Mode Test. Aucun enregistrement dans la base de données et aucun message envoyé (sauf au compte \"administrateur\")\n");
+      print("Mode Test. Aucun enregistrement dans la base de donnÃ©es et aucun message envoyÃ© (sauf au compte \"administrateur\")\n");
       $TESTMODE=1;
       $TESTCNT=0;
       $TEST_CAND=$TEST_VOEUX="";
@@ -93,10 +93,10 @@ CeCILL-B, et que vous en avez accepté les termes.
 
    if($load_config==FALSE) // config absente : erreur
       $erreur_config=1;
-   elseif($load_config==-1) // paramètre(s) manquant(s) : avertissement
+   elseif($load_config==-1) // paramÃ¨tre(s) manquant(s) : avertissement
       $warn_config=1;
 
-	// partie du schéma de la base spécifique au module apogee
+	// partie du schÃ©ma de la base spÃ©cifique au module apogee
 	include "../include/db.php";
    include "../include/vars.php";
 
@@ -107,8 +107,8 @@ CeCILL-B, et que vous en avez accepté les termes.
    if(function_exists("add_modules"))
       add_modules();
 
-	// Requête principale : sélection des candidats admis
-	// Attention : les décisions doivent avoir été publiées pour pouvoir être extraites
+	// RequÃªte principale : sÃ©lection des candidats admis
+	// Attention : les dÃ©cisions doivent avoir Ã©tÃ© publiÃ©es pour pouvoir Ãªtre extraites
 	/*
 	$result=db_query($dbr, "SELECT $_DBC_candidat_id, $_DBC_candidat_civilite, $_DBC_candidat_nom, $_DBC_candidat_prenom, $_DBC_candidat_email, 
                                   $_DBC_candidat_numero_ine, $_module_apogee_DBC_formations_cet, $_module_apogee_DBC_formations_vet, $_DBC_cand_id,
@@ -170,16 +170,16 @@ CeCILL-B, et que vous en avez accepté les termes.
 	{
 		$date=date("jFY", time());
 
-      if(!is_dir("extractions")) // on peut utiliser un chemin relatif car on a fait le chdir en début de script
+      if(!is_dir("extractions")) // on peut utiliser un chemin relatif car on a fait le chdir en dÃ©but de script
          mkdir("extractions", 0770);
 
-		$fichier_LP=fopen("extractions/laisser_passer_$date.opi","w") or die("Impossible de créer le fichier \"extractions/laisser_passer_$date.opi\"");
+		$fichier_LP=fopen("extractions/laisser_passer_$date.opi","w") or die("Impossible de crÃ©er le fichier \"extractions/laisser_passer_$date.opi\"");
 	
 		for($i=0; $i<$nb_result; $i++)
 		{
 			list($c_id, $cand_civ, $cand_nom, $cand_prenom, $cand_email, $c_ine, $f_cet, $f_vet, $cand_id, $corps_message, $cand_nom_naissance)=db_fetch_row($result, $i);
 
-			// Extraction uniquement si les informations minimales sont complètes
+			// Extraction uniquement si les informations minimales sont complÃ¨tes
 			if($f_cet!="" && $f_vet!="" && !check_ine_bea($c_ine))
 			{
 				$ine_bea=strtoupper($c_ine);
@@ -190,26 +190,26 @@ CeCILL-B, et que vous en avez accepté les termes.
 				$candidature_array=__get_candidature($dbr, $cand_id);
 				$candidat_array=__get_infos_candidat($dbr, $c_id);
 				
-				$cursus_array=array(); // cursus inutile : tableau vide pour appel à la fonction
+				$cursus_array=array(); // cursus inutile : tableau vide pour appel Ã  la fonction
 				$lang="FR";
 
-				// réinitialisation du code d'autorisation
+				// rÃ©initialisation du code d'autorisation
 				unset($code_lp);
 
             if(is_array($candidature_array) && is_array($candidat_array))        
             {   
 				   $corps_message=pdf_traitement_macros($dbr, $corps_message, $candidat_array, $candidature_array, $cursus_array, $lang);
 				 
-				   // dirty hack : ré-extraction directe du code pour stockage dans la base
+				   // dirty hack : rÃ©-extraction directe du code pour stockage dans la base
 				   $code_lp=trim(pdf_traitement_macros($dbr, "%code%", $candidat_array, $candidature_array, $cursus_array, $lang));
             }
             else
             {
                if(!is_array($candidature_array))
-                  print("Erreur : impossible de récupérer les informations de la candidature (__get_candidature_array(), #id $cand_id)\n");
+                  print("Erreur : impossible de rÃ©cupÃ©rer les informations de la candidature (__get_candidature_array(), #id $cand_id)\n");
                   
                if(!is_array($candidat_array))
-                  print("Erreur : impossible de récupérer les informations du candidat (__get_candidat_array(), #id $c_id)\n");
+                  print("Erreur : impossible de rÃ©cupÃ©rer les informations du candidat (__get_candidat_array(), #id $c_id)\n");
             }
 				
 				// Si le message n'est pas vide, on enregistre et on envoie
@@ -221,21 +221,21 @@ CeCILL-B, et que vous en avez accepté les termes.
                                               "prenom"   => "$cand_prenom",
                                               "email"    => "$cand_email"));
 
-               write_msg("", array("id" => "0", "nom" => "Système", "prenom" => ""), $dest_array, "Inscription administrative - ".$candidature_array["texte_formation"],
+               write_msg("", array("id" => "0", "nom" => "SystÃ¨me", "prenom" => ""), $dest_array, "Inscription administrative - ".$candidature_array["texte_formation"],
                         $corps_message, "$cand_nom $cand_prenom");
 
-               // Dernière étape : insertion dans la table si le code n'est pas vide
+               // DerniÃ¨re Ã©tape : insertion dans la table si le code n'est pas vide
                if(isset($code_lp) && $code_lp!="")
                   db_query($dbr,"INSERT INTO $_module_apogee_DB_codes_LP VALUES ('$code_lp','$cand_id','$ligne_candidat')");
             }
-            elseif($TESTMODE==1) // envoi d'un seul message à l'admin
+            elseif($TESTMODE==1) // envoi d'un seul message Ã  l'admin
             {
                $TEST_CAND.="$ligne_candidat\n";
                $TEST_VOEUX.="$ligne_voeu\n";
 
                if(!$TESTCNT)
                {
-                  $sent=write_msg_2($dbr, array("id" => "0", "nom" => "Système", "prenom" => "", "src_type" => "gestion", "composante" => "", "universite" => "$GLOBALS[__SIGNATURE_COURRIELS]"),
+                  $sent=write_msg_2($dbr, array("id" => "0", "nom" => "SystÃ¨me", "prenom" => "", "src_type" => "gestion", "composante" => "", "universite" => "$GLOBALS[__SIGNATURE_COURRIELS]"),
                                     array("0" => array("id" => 0, "dest_type" => "gestion")), "[Extractions : Test Laisser-Passer]", $corps_message);
                   $TESTCNT=1;
                }

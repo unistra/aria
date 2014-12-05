@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -70,13 +70,13 @@ CeCILL-B, et que vous en avez accepté les termes.
 
    $dbr=db_connect();
 
-   // Déverrouillage, au cas où
+   // DÃ©verrouillage, au cas oÃ¹
    if(isset($_SESSION["candidat_id"]))
       cand_unlock($dbr, $_SESSION["candidat_id"]);
 
    if(isset($_POST["Valider"]) || isset($_POST["Valider_x"]))
    {
-      // Récupération des informations du formulaire, construction de la requête et affiche du lien vers le fichier construit
+      // RÃ©cupÃ©ration des informations du formulaire, construction de la requÃªte et affiche du lien vers le fichier construit
 
       $cur_propspec_id=array_key_exists("formation", $_POST) ? $_POST["formation"] : "";
 
@@ -131,7 +131,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       else
          $condition_statut="AND $_DBC_cand_statut='$__PREC_RECEVABLE'";
 
-      // Décisions : boucle sur dec[]
+      // DÃ©cisions : boucle sur dec[]
       if(array_key_exists("dec", $_POST))
       {
          $cur_dec=array();
@@ -147,7 +147,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       else
          $condition_decision="";
 
-      // Méthode de tri
+      // MÃ©thode de tri
       switch($cur_first_tri)
       {
          case   "tri_nom"       :    $methode_tri="ORDER BY $_DBC_candidat_nom, $_DBC_candidat_nom_naissance, $_DBC_candidat_prenom, $_DBC_candidat_date_naissance ";
@@ -212,14 +212,14 @@ CeCILL-B, et que vous en avez accepté les termes.
       }
       else
       {
-         // Formation pour laquelle extraire les données
-         // Si toutes les formations sont demandées, il faut ajouter le nom de chaque formation
+         // Formation pour laquelle extraire les donnÃ©es
+         // Si toutes les formations sont demandÃ©es, il faut ajouter le nom de chaque formation
          if($cur_propspec_id!="toutes")
             $condition_formation="AND $_DBC_cand_propspec_id='$cur_propspec_id'";
          else
             $condition_formation="AND $_DBC_propspec_comp_id='$_SESSION[comp_id]'";
 
-         // Inclure les formations désactivées (utile pour les années précédentes)
+         // Inclure les formations dÃ©sactivÃ©es (utile pour les annÃ©es prÃ©cÃ©dentes)
          $condition_desactivees=$cur_desactivees ? "" : "AND $_DBC_propspec_active='1'";
 
          $result_ext=db_query($dbr, "SELECT $_DBC_candidat_id, $_DBC_candidat_civilite, $_DBC_candidat_nom, $_DBC_candidat_nom_naissance, $_DBC_candidat_prenom,
@@ -270,7 +270,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
             if($fp=fopen("$__GESTION_COMP_STOCKAGE_DIR_ABS/$_SESSION[comp_id]/extractions/$filename","a"))
             {
-               // En-tête du fichier, avec les noms de colonnes
+               // En-tÃªte du fichier, avec les noms de colonnes
                $string=($cur_affichage_formations==0) ? "\"FORMATION\";" : "";              
                $string.=($cur_first_tri=="tri_date_asc") || ($cur_first_tri=="tri_date_desc") || ($cur_sec_tri=="tri_date_asc") || ($cur_sec_tri=="tri_date_desc") ? "\"DATE\";" : "";
                $string.=$cur_civilite ? "\"CIV\";" : "";
@@ -279,14 +279,14 @@ CeCILL-B, et que vous en avez accepté les termes.
                $string.=$cur_lieu_naissance ? "\"LIEU NAISSANCE\";" : "";
                $string.=$cur_nationalite ? "\"NATIONALITE\";" : "";
 
-               // Option particulière pour l'adresse postale : champs regroupés ou distincts
+               // Option particuliÃ¨re pour l'adresse postale : champs regroupÃ©s ou distincts
                $string.=($cur_adresse && $cur_mode_adresse==0) ? "\"ADRESSE\";" : "";
                $string.=($cur_adresse && $cur_mode_adresse==1) ? "\"ADRESSE\";\"CODE POSTAL\";\"VILLE\";\"PAYS\";" : "";
 
                $string.=$cur_email ? "\"COURRIEL\";" : "";
                $string.=$cur_telephone ? "\"TELEPHONE FIXE\";" : "";
                $string.=$cur_telephone_portable ? "\"TELEPHONE PORTABLE\";" : "";
-               $string.=$cur_num_ine ? "\"N° INE\";" : "";
+               $string.=$cur_num_ine ? "\"NÂ° INE\";" : "";
 
                if(isset($cur_cursus) && $cur_cursus!=0)
                {               
@@ -296,7 +296,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                   {
                      $string.="\"CUR_ANNEE\";\"CUR_INTITULE\";\"CUR_ETAB\";\"CUR_VILLE\";\"CUR_PAYS\";\"CUR_DETAILS\";";
                      
-                     // Cursus sur plusieurs lignes et colonnes : on compte le nombre de champs vides à insérer pour les lignes supplémentaires
+                     // Cursus sur plusieurs lignes et colonnes : on compte le nombre de champs vides Ã  insÃ©rer pour les lignes supplÃ©mentaires
                      $nb_vides=0;
                      $nb_vides+=($cur_affichage_formations==0) ? 1 : 0;
                      $nb_vides+=$cur_civilite ? 3 : 2; // (civ ?)+nom+prenom
@@ -321,7 +321,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                $string.=$cur_entretien ? "\"ENTRETIEN\";" : "";
                $string.=$cur_frais ? "\"FRAIS DOSSIER\";" : "";
 
-               // Constructeur de dossiers : une colonne par question/réponse (attention au type)
+               // Constructeur de dossiers : une colonne par question/rÃ©ponse (attention au type)
                if($cur_dossier=="1")
                {
                   if($cur_propspec_id!="toutes")
@@ -414,7 +414,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                   // Cursus
                   if($cur_cursus)
                   {
-                     if($cur_cursus==1) // dernier diplôme
+                     if($cur_cursus==1) // dernier diplÃ´me
                         $limite_cursus="LIMIT 1";
                      elseif($cur_cursus==2) // Tout
                         $limite_cursus="";
@@ -428,7 +428,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                                                          $_DBC_cursus_rang, $_DBC_cursus_annee
                                                          FROM $_DB_cursus
                                                       WHERE $_DBC_cursus_candidat_id='$candidat_id'
-                                                      AND $_DBC_cursus_mention!='Ajourné'
+                                                      AND $_DBC_cursus_mention!='AjournÃ©'
                                                          ORDER BY annee DESC
                                                          $limite_cursus");
 
@@ -449,7 +449,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                            $ligne_cursus="$cursus_annee : $cursus_libelle";
                            $lieu_cursus="";
 
-                           // Informations ajoutées si elles ont été complétées
+                           // Informations ajoutÃ©es si elles ont Ã©tÃ© complÃ©tÃ©es
 
                            if($cursus_intitule!="")
                               $ligne_cursus.=" $cursus_intitule";
@@ -518,14 +518,14 @@ CeCILL-B, et que vous en avez accepté les termes.
                      db_free_result($result_cursus);
                   }
 
-                  // Décision
+                  // DÃ©cision
                   // Transmission de dossier : on ajoute la formation destination
                   if($cur_decision && $cand_decision_id==$__DOSSIER_TRANSMIS)
                      $cand_decision.=" : $cand_transmission";
                   elseif($cur_decision && ($cand_decision_id==$__DOSSIER_LISTE || $cand_decision_id==$__DOSSIER_LISTE_ENTRETIEN))
                      $cand_decision.=", rang $cand_liste_attente";
 
-                  // Motif de la décision : dépend directement de la décision en question
+                  // Motif de la dÃ©cision : dÃ©pend directement de la dÃ©cision en question
 /*                  
                   if($cur_motivation && ($cand_decision_id==$__DOSSIER_EN_ATTENTE || $cand_decision_id==$__DOSSIER_SOUS_RESERVE
                   || $cand_decision_id==$__DOSSIER_REFUS || $cand_decision_id==$__DOSSIER_REFUS_ENTRETIEN
@@ -573,7 +573,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                      }
                   }
 
-                  // Nettoyage de valeurs, au cas où
+                  // Nettoyage de valeurs, au cas oÃ¹
                   if($cur_entretien && ($cand_decision_id==$__DOSSIER_ENTRETIEN || $cand_decision_id==$__DOSSIER_ENTRETIEN_TEL) && $cand_entretien_date!=0)
                   {
                      $entretien_txt=date_fr("l jS F Y", $cand_entretien_date);
@@ -582,7 +582,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                      if($ent_heure!=0)
                      {
                         $ent_minute=date("i", $cand_entretien_date);
-                        $entretien_txt.=" à $ent_heure" . "h$ent_minute";
+                        $entretien_txt.=" Ã  $ent_heure" . "h$ent_minute";
                      }
 
                      $entretien_txt.=$cand_entretien_salle!="" ? " - $cand_entretien_salle" : "";
@@ -600,20 +600,20 @@ CeCILL-B, et que vous en avez accepté les termes.
                                        $frais_txt="En attente";
                                        break;
 
-                           case $__STATUT_FRAIS_ACQUITTES   :   // frais payés
-                                       $frais_txt="Acquittés";
+                           case $__STATUT_FRAIS_ACQUITTES   :   // frais payÃ©s
+                                       $frais_txt="AcquittÃ©s";
                                        break;
 
                            case $__STATUT_FRAIS_BOURSIER   :   // Candidat Boursier
                                        $frais_txt="Candidat boursier";
                                        break;
 
-                           case $__STATUT_FRAIS_DISPENSE : // candidat dispensé des frais
-                                       $frais_txt="Candidat dispensé";
+                           case $__STATUT_FRAIS_DISPENSE : // candidat dispensÃ© des frais
+                                       $frais_txt="Candidat dispensÃ©";
                                        break;
 
-                           case $__STATUT_FRAIS_NON_ACQUITTES   :   // non payés
-                                       $frais_txt="Non acquittés";
+                           case $__STATUT_FRAIS_NON_ACQUITTES   :   // non payÃ©s
+                                       $frais_txt="Non acquittÃ©s";
                                        break;
 
                            default : // vide
@@ -628,9 +628,9 @@ CeCILL-B, et que vous en avez accepté les termes.
                   if($candidat_nom_naissance!=$candidat_nom && $candidat_nom_naissance!="")
                   {
                      if($candidat_civ=="M")
-                        $candidat_nom.=" (né $candidat_nom_naissance)";
+                        $candidat_nom.=" (nÃ© $candidat_nom_naissance)";
                      else
-                        $candidat_nom.=" (née $candidat_nom_naissance)";
+                        $candidat_nom.=" (nÃ©e $candidat_nom_naissance)";
                   }
 
                   $string=($cur_affichage_formations==0) ? "\"$nom_formation\";" : "";
@@ -657,7 +657,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                         $string.="\"" . str_replace(";", ",", str_replace("\"", "'", $cursus)) . "\";";
                      elseif(is_array($array_cursus) && count($array_cursus))
                      {
-                        // Première ligne ...
+                        // PremiÃ¨re ligne ...
                         $string.=$array_cursus["0"];
                         unset($array_cursus["0"]);
                         
@@ -682,10 +682,10 @@ CeCILL-B, et que vous en avez accepté les termes.
                      {
                         $dossier_elem_id=$array_element["id"];                        
 
-                        // Réponse du candidat en fonction du type d'élément :
-                        // - type "standard" : $_DBC_dossiers_elems_contenu_para contient le texte de la réponse
-                        // - type "Un choix" : on peut faire une seule requête avec jointure
-                        // - type "plusieurs choix" : on doit faire plusieurs requêtes
+                        // RÃ©ponse du candidat en fonction du type d'Ã©lÃ©ment :
+                        // - type "standard" : $_DBC_dossiers_elems_contenu_para contient le texte de la rÃ©ponse
+                        // - type "Un choix" : on peut faire une seule requÃªte avec jointure
+                        // - type "plusieurs choix" : on doit faire plusieurs requÃªtes
                         
                         if($array_element["type"]==$__ELEM_TYPE_FORM || $array_element["type"]==$__ELEM_TYPE_MULTI_CHOIX)
                         {                     
@@ -763,7 +763,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                      fwrite($fp, $string_cursus, strlen($string_cursus));
                }
 
-               $link="<a href='$__GESTION_DIR/fichiers/composantes/$_SESSION[comp_id]/extractions/$filename' target='_blank' class='lien_bleu_12'><b>Fichier CSV prêt : cliquer sur ce lien pour l'ouvrir</b></a>";
+               $link="<a href='$__GESTION_DIR/fichiers/composantes/$_SESSION[comp_id]/extractions/$filename' target='_blank' class='lien_bleu_12'><b>Fichier CSV prÃªt : cliquer sur ce lien pour l'ouvrir</b></a>";
 
                fclose($fp);
             }
@@ -774,7 +774,7 @@ CeCILL-B, et que vous en avez accepté les termes.
             }
          }
          else
-            $link="<font class='Texte_important'><b>Aucun candidat ne correspond à ces critères</b></font>";
+            $link="<font class='Texte_important'><b>Aucun candidat ne correspond Ã  ces critÃ¨res</b></font>";
 
          db_free_result($result_ext);
       }
@@ -788,12 +788,12 @@ CeCILL-B, et que vous en avez accepté les termes.
 ?>
 <div class='main'>
    <?php
-      titre_page_icone("Extractions de données au format CSV (pour import dans un tableur)", "xmag_32x32_fond.png", 30, "L");
+      titre_page_icone("Extractions de donnÃ©es au format CSV (pour import dans un tableur)", "xmag_32x32_fond.png", 30, "L");
 
       if(isset($link) && $link!="")
       {
          message("$link", $__SUCCES);
-         message("Dans votre traitement de texte, indiquez le caractère ; (point virgule) comme séparateur de champs.", $__INFO);
+         message("Dans votre traitement de texte, indiquez le caractÃ¨re ; (point virgule) comme sÃ©parateur de champs.", $__INFO);
 
       }
 
@@ -846,7 +846,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                                     <option value='' label='' disabled></option>\n");
 
                         if($form_annee_nom=="")
-                           $form_annee_nom="Années particulières";
+                           $form_annee_nom="AnnÃ©es particuliÃ¨res";
 
                         print("<optgroup label='$form_annee_nom'>\n");
 
@@ -884,7 +884,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                else
                {
                   print("<font class='Texte_important'>
-                           <b>Aucune formation n'a encore été créée pour cet établissement.</b>
+                           <b>Aucune formation n'a encore Ã©tÃ© crÃ©Ã©e pour cet Ã©tablissement.</b>
                            </font>\n");
 
                   $no_next=1;
@@ -898,14 +898,14 @@ CeCILL-B, et que vous en avez accepté les termes.
                <?php
                   $selected=(isset($cur_desactivees) && $cur_desactivees==1) ? "checked" : "";
 
-                  print("<input type='checkbox' name='desactivees' value='1' $selected>&nbsp;&nbsp;Inclure les formations désactivées");
+                  print("<input type='checkbox' name='desactivees' value='1' $selected>&nbsp;&nbsp;Inclure les formations dÃ©sactivÃ©es");
                ?>
             </font>
          </td>
       </tr>
       <tr>
          <td class='td-gauche fond_menu'>
-            <font class='Texte_menu'><b>Année universitaire : </b></font>
+            <font class='Texte_menu'><b>AnnÃ©e universitaire : </b></font>
          </td>
          <td class='td-droite fond_menu' colspan='2'>
             <?php
@@ -981,50 +981,50 @@ CeCILL-B, et que vous en avez accepté les termes.
       </tr>
       <tr>
          <td class='td-gauche fond_menu'>
-            <font class='Texte_menu'><b>Premier critère de tri : </b></font>
+            <font class='Texte_menu'><b>Premier critÃ¨re de tri : </b></font>
          </td>
          <td class='td-droite fond_menu' colspan='2'>
             <select name='tri1'>
-               <option value='tri_nom' <?php if(isset($cur_first_tri) && $cur_first_tri=="tri_nom") echo "selected"; ?>>Par nom / prénom</option>
+               <option value='tri_nom' <?php if(isset($cur_first_tri) && $cur_first_tri=="tri_nom") echo "selected"; ?>>Par nom / prÃ©nom</option>
                <option value='tri_formation' <?php if(isset($cur_first_tri) && $cur_first_tri=="tri_formation") echo "selected"; ?>>Par formation</option>
-               <option value='tri_decision' <?php if(isset($cur_first_tri) && $cur_first_tri=="tri_decision") echo "selected"; ?>>Par décision</option>
-               <option value='tri_statut' <?php if(isset($cur_first_tri) && $cur_first_tri=="tri_statut") echo "selected"; ?>>Par statut de la recevabilité</option>
+               <option value='tri_decision' <?php if(isset($cur_first_tri) && $cur_first_tri=="tri_decision") echo "selected"; ?>>Par dÃ©cision</option>
+               <option value='tri_statut' <?php if(isset($cur_first_tri) && $cur_first_tri=="tri_statut") echo "selected"; ?>>Par statut de la recevabilitÃ©</option>
                <option value='tri_date_asc' <?php if(isset($cur_first_tri) && $cur_first_tri=="tri_date_asc") echo "selected"; ?>>Par date d'ajout de la candidature (croissante)</option>
-               <option value='tri_date_desc' <?php if(isset($cur_first_tri) && $cur_first_tri=="tri_date_desc") echo "selected"; ?>>Par date d'ajout de la candidature (décroissante)</option>
+               <option value='tri_date_desc' <?php if(isset($cur_first_tri) && $cur_first_tri=="tri_date_desc") echo "selected"; ?>>Par date d'ajout de la candidature (dÃ©croissante)</option>
             </select>
             <br>
             <font class='Texte_menu'>
                <i>
-                  &#8226;&nbsp;Si vous sélectionnez "Toutes les formations", le tri "Par formation" en premier critère est FORTEMENT recommandé
-                  <br>&#8226;&nbsp;Le tri par date en premier critère est exclusif (pas de second critère possible)
-                  <br>&#8226;&nbsp;Le tri par date ajoute automatiquement la colonne "date" à l'extraction
+                  &#8226;&nbsp;Si vous sÃ©lectionnez "Toutes les formations", le tri "Par formation" en premier critÃ¨re est FORTEMENT recommandÃ©
+                  <br>&#8226;&nbsp;Le tri par date en premier critÃ¨re est exclusif (pas de second critÃ¨re possible)
+                  <br>&#8226;&nbsp;Le tri par date ajoute automatiquement la colonne "date" Ã  l'extraction
                </i>
             </font>
          </td>
       </tr>
       <tr>
          <td class='td-gauche fond_menu'>
-            <font class='Texte_menu'><b>Second critère de tri : </b></font>
+            <font class='Texte_menu'><b>Second critÃ¨re de tri : </b></font>
          </td>
          <td class='td-droite fond_menu' colspan='2'>
             <select name='tri2'>
                <option value=''></option>
-               <option value='tri_nom' <?php if(isset($cur_sec_tri) && $cur_sec_tri=="tri_nom") echo "selected"; ?>>Par nom / prénom</option>
+               <option value='tri_nom' <?php if(isset($cur_sec_tri) && $cur_sec_tri=="tri_nom") echo "selected"; ?>>Par nom / prÃ©nom</option>
                <option value='tri_formation' <?php if(isset($cur_sec_tri) && $cur_sec_tri=="tri_formation") echo "selected"; ?>>Par formation</option>
-               <option value='tri_decision' <?php if(isset($cur_sec_tri) && $cur_sec_tri=="tri_decision") echo "selected"; ?>>Par décision</option>
-               <option value='tri_statut' <?php if(isset($cur_sec_tri) && $cur_sec_tri=="tri_statut") echo "selected"; ?>>Par statut de la recevabilité</option>
+               <option value='tri_decision' <?php if(isset($cur_sec_tri) && $cur_sec_tri=="tri_decision") echo "selected"; ?>>Par dÃ©cision</option>
+               <option value='tri_statut' <?php if(isset($cur_sec_tri) && $cur_sec_tri=="tri_statut") echo "selected"; ?>>Par statut de la recevabilitÃ©</option>
                <option value='tri_date_asc' <?php if(isset($cur_sec_tri) && $cur_sec_tri=="tri_date_asc") echo "selected"; ?>>Par date d'ajout de la candidature (croissante)</option>
-               <option value='tri_date_desc' <?php if(isset($cur_sec_tri) && $cur_sec_tri=="tri_date_desc") echo "selected"; ?>>Par date d'ajout de la candidature (décroissante)</option>
+               <option value='tri_date_desc' <?php if(isset($cur_sec_tri) && $cur_sec_tri=="tri_date_desc") echo "selected"; ?>>Par date d'ajout de la candidature (dÃ©croissante)</option>
             </select>
          </td>
       </tr>
       <tr>
          <td class='td-gauche fond_menu'>
-            <font class='Texte_menu'><b>Liste complémentaire : </b></font>
+            <font class='Texte_menu'><b>Liste complÃ©mentaire : </b></font>
          </td>
          <td class='td-droite fond_menu' colspan='2'>
             <font class='Texte_menu'>
-               En cas de tri par décision, souhaitez vous que les décisions "Listes complémentaires" soient triées par rang ?
+               En cas de tri par dÃ©cision, souhaitez vous que les dÃ©cisions "Listes complÃ©mentaires" soient triÃ©es par rang ?
                <br>
                <?php
                   if(isset($cur_tri_rang))
@@ -1059,12 +1059,12 @@ CeCILL-B, et que vous en avez accepté les termes.
       <table style='width:100%; margin-bottom:10px;'>
       <tr>
          <td class='td-gauche fond_menu2' colspan='4' style='padding:4px;'>
-            <font class='Texte_menu2'><b>Données à extraire</b></font>
+            <font class='Texte_menu2'><b>DonnÃ©es Ã  extraire</b></font>
          </td>
       </tr>
       <tr>
          <td class='td-gauche fond_menu' rowspan='3'>
-            <font class='Texte_menu'><b>Candidats<br>(nom et prénom toujours inclus)</b></font>
+            <font class='Texte_menu'><b>Candidats<br>(nom et prÃ©nom toujours inclus)</b></font>
          </td>
          <td class='td-milieu fond_menu'>
             <font class='Texte_menu'>
@@ -1074,7 +1074,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                   else
                      $selected="";
 
-                  print("<input type='checkbox' name='civilite' value='1' $selected>&nbsp;&nbsp;Civilité");
+                  print("<input type='checkbox' name='civilite' value='1' $selected>&nbsp;&nbsp;CivilitÃ©");
                ?>
             </font>
          </td>
@@ -1112,7 +1112,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                   else
                      $selected="";
 
-                  print("<input type='checkbox' name='nationalite' value='1' $selected>&nbsp;&nbsp;Nationalité");
+                  print("<input type='checkbox' name='nationalite' value='1' $selected>&nbsp;&nbsp;NationalitÃ©");
                ?>
             </font>
          </td>
@@ -1136,7 +1136,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                   else
                      $selected="";
 
-                  print("<input type='checkbox' name='email' value='1' $selected>&nbsp;&nbsp;Adresse électronique");
+                  print("<input type='checkbox' name='email' value='1' $selected>&nbsp;&nbsp;Adresse Ã©lectronique");
                ?>
             </font>
          </td>
@@ -1150,7 +1150,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                   else
                      $selected="";
 
-                  print("<input type='checkbox' name='telephone' value='1' $selected>&nbsp;&nbsp;Téléphone fixe");
+                  print("<input type='checkbox' name='telephone' value='1' $selected>&nbsp;&nbsp;TÃ©lÃ©phone fixe");
                ?>
             </font>
          </td>
@@ -1162,7 +1162,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                   else
                      $selected="";
 
-                  print("<input type='checkbox' name='telephone_portable' value='1' $selected>&nbsp;&nbsp;Téléphone portable");
+                  print("<input type='checkbox' name='telephone_portable' value='1' $selected>&nbsp;&nbsp;TÃ©lÃ©phone portable");
                ?>
             </font>
          </td>
@@ -1174,7 +1174,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                   else
                      $selected="";
 
-                  print("<input type='checkbox' name='num_ine' value='1' $selected>&nbsp;&nbsp;Numéro INE");
+                  print("<input type='checkbox' name='num_ine' value='1' $selected>&nbsp;&nbsp;NumÃ©ro INE");
                ?>
             </font>
          </td>
@@ -1263,7 +1263,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          <td class='td-milieu fond_menu'>
             <font class='Texte_menu'>
                <?php
-                  print("<input type='radio' name='cursus' value='1' $selected_1>&nbsp;&nbsp;Dernière année du cursus");
+                  print("<input type='radio' name='cursus' value='1' $selected_1>&nbsp;&nbsp;DerniÃ¨re annÃ©e du cursus");
                ?>
             </font>
          </td>
@@ -1316,7 +1316,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       </tr>
       <tr>
          <td class='td-gauche fond_menu'>
-            <font class='Texte_menu'><b>Inclure les réponses des candidats<br>aux éléments du Constructeur de Dossier ?</font>
+            <font class='Texte_menu'><b>Inclure les rÃ©ponses des candidats<br>aux Ã©lÃ©ments du Constructeur de Dossier ?</font>
          </td>
          <td class='td-milieu fond_menu'>
             <font class='Texte_menu'>
@@ -1360,7 +1360,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                   else
                      $selected="";
 
-                  print("<input type='checkbox' name='statut' value='1' $selected>&nbsp;&nbsp;Recevabilité");
+                  print("<input type='checkbox' name='statut' value='1' $selected>&nbsp;&nbsp;RecevabilitÃ©");
                ?>
             </font>
          </td>
@@ -1372,7 +1372,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                   else
                      $selected="";
 
-                  print("<input type='checkbox' name='decision' value='1' $selected>&nbsp;&nbsp;Décision rendue");
+                  print("<input type='checkbox' name='decision' value='1' $selected>&nbsp;&nbsp;DÃ©cision rendue");
                ?>
             </font>
          </td>
@@ -1384,7 +1384,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                   else
                      $selected="";
 
-                  print("<input type='checkbox' name='motivation' value='1' $selected>&nbsp;&nbsp;Motivation (recevabilité ou commission)");
+                  print("<input type='checkbox' name='motivation' value='1' $selected>&nbsp;&nbsp;Motivation (recevabilitÃ© ou commission)");
                ?>
             </font>
          </td>
@@ -1432,7 +1432,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       </tr>
       <tr>
          <td class='td-gauche fond_menu' rowspan='2'>
-            <font class='Texte_menu'><b>Statut de la recevabilité : </b><br><i>Si aucun critère : recevables uniquement</i></font>
+            <font class='Texte_menu'><b>Statut de la recevabilitÃ© : </b><br><i>Si aucun critÃ¨re : recevables uniquement</i></font>
          </td>
          <td class='td-milieu fond_menu'>
             <font class='Texte_menu'>
@@ -1442,7 +1442,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                   else
                      $selected="";
 
-                  print("<input type='checkbox' name='statut_prec[$__PREC_NON_TRAITEE]' value='$__PREC_NON_TRAITEE' $selected>&nbsp;&nbsp;Non traitée");
+                  print("<input type='checkbox' name='statut_prec[$__PREC_NON_TRAITEE]' value='$__PREC_NON_TRAITEE' $selected>&nbsp;&nbsp;Non traitÃ©e");
                ?>
             </font>
          </td>
@@ -1517,8 +1517,8 @@ CeCILL-B, et que vous en avez accepté les termes.
       <tr>
          <td class='td-gauche fond_menu' rowspan='<?php echo $rowspan; ?>'>
             <font class='Texte_menu'>
-               <b>Décisions à inclure : </b>
-               <br><i>Si aucun critère = toutes les décisions</i>
+               <b>DÃ©cisions Ã  inclure : </b>
+               <br><i>Si aucun critÃ¨re = toutes les dÃ©cisions</i>
             </font>
          </td>
          <?php
@@ -1526,7 +1526,7 @@ CeCILL-B, et que vous en avez accepté les termes.
             {
                list($dec_id, $dec_texte)=db_fetch_row($result, $i);
 
-               // Cas particulier pour la première ligne
+               // Cas particulier pour la premiÃ¨re ligne
                if(!($i%3) && $i>=3)
                   print("<tr>");
 
@@ -1553,7 +1553,7 @@ CeCILL-B, et que vous en avez accepté les termes.
    </div>
 
    <div class='centered_icons_box'>
-      <a href='masse.php' target='_self' class='lien2'><img src='<?php echo "$__ICON_DIR/back_32x32_fond.png"; ?>' alt='Retour au menu précédent' border='0'></a>
+      <a href='masse.php' target='_self' class='lien2'><img src='<?php echo "$__ICON_DIR/back_32x32_fond.png"; ?>' alt='Retour au menu prÃ©cÃ©dent' border='0'></a>
       <input type='image' src='<?php echo "$__ICON_DIR/button_ok_32x32_fond.png"; ?>' alt='Valider' name='Valider' value='Valider'>
       </form>
    </div>

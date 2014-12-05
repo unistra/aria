@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -141,8 +141,8 @@ CeCILL-B, et que vous en avez accepté les termes.
             else
             {
                $file_str="<?php
-// ARIA - Configuration générée par le script \"gestion/admin/config.php\"\n
-// Paramètres de connexion à la base de données PostgreSQL
+// ARIA - Configuration gÃ©nÃ©rÃ©e par le script \"gestion/admin/config.php\"\n
+// ParamÃ¨tres de connexion Ã  la base de donnÃ©es PostgreSQL
 
 // Adresse du serveur
 \$__DB_HOST = \"$db_host\";
@@ -162,16 +162,16 @@ CeCILL-B, et que vous en avez accepté les termes.
 // Mot de passe
 \$__DB_PASS = \"".quotemeta($db_pass)."\";
 
-// Répertoires de l'application
-// le reste de la configuration est construite à partir des deux paramètres suivants
+// RÃ©pertoires de l'application
+// le reste de la configuration est construite Ã  partir des deux paramÃ¨tres suivants
 
 // Racine du serveur HTTP (i.e DOCUMENT_ROOT)
 \$__ROOT_DIR = \"$rootdir\";
 
-// Répertoire contenant l'application, relativement à rootdir
+// RÃ©pertoire contenant l'application, relativement Ã  rootdir
 \$__MOD_DIR = \"$appdir\";
 
-// Répertoire contenant les fichiers includes (absolu)
+// RÃ©pertoire contenant les fichiers includes (absolu)
 \$__INCLUDE_DIR_ABS= \"\$__ROOT_DIR/\$__MOD_DIR/include\";
 
 ?>";
@@ -187,7 +187,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       }
    }
    elseif(is_file("../../configuration/aria_config.php") && is_readable("../../configuration/aria_config.php")
-        || is_file("../../configuration/config.php") && is_readable("../../configuration/config.php")) // Lecture du fichier s'il existe (sinon, on le créera plus tard)
+        || is_file("../../configuration/config.php") && is_readable("../../configuration/config.php")) // Lecture du fichier s'il existe (sinon, on le crÃ©era plus tard)
    {
       if(is_file("../../configuration/aria_config.php") && is_readable("../../configuration/aria_config.php"))
          include "../../configuration/aria_config.php";
@@ -198,7 +198,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          include "../../configuration/config.php";
       }
 
-      // Vérification des variables
+      // VÃ©rification des variables
       if(isset($__DB_HOST) && trim($__DB_HOST)!="")
          $file_db_host=$__DB_HOST;
       else
@@ -250,9 +250,9 @@ CeCILL-B, et que vous en avez accepté les termes.
 ?>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html><head><title>ARIA - Gestion des précandidatures - Configuration</title>
+<html><head><title>ARIA - Gestion des prÃ©candidatures - Configuration</title>
 
-<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'>
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
 <meta http-equiv='Pragma' content='no-cache'>
 <link rel='stylesheet' type='text/css' href='../../static/typo.css'></head>
 
@@ -262,7 +262,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 <tr>
    <td height='150' align='center'>
       <font class='TitrePage2'>
-         <strong>ARIA - Gestion des précandidatures
+         <strong>ARIA - Gestion des prÃ©candidatures
          <br>Configuration initiale</strong>
       </font>
    </td>
@@ -288,9 +288,9 @@ CeCILL-B, et que vous en avez accepté les termes.
          if(isset($succes) || isset($db_succes) || isset($config_succes))
          {
             $message="<strong>Configuration</strong> :<br>";
-            $message.=isset($config_succes) ? "- fichier de configuration \"configuration/aria_config.php\" trouvé, vérifiez les paramètres chargés.<br>- la validation du formulaire les testera et les (ré)enregistrera.<br>" : "";
-            $message.=isset($db_succes) ? "- connexion à la base de données réussie<br>" : "";
-            $message.=isset($succes) ? "- fichier de configuration \"configuration/aria_config.php\" enregistré<br>- <strong>vous devez maintenant supprimer le fichier \"". preg_replace("/\/+/", "/", "$rootdir/$appdir/gestion/admin/config.php") . "\"pour pouvoir utiliser l'interface</strong><br>- les paramètres peuvent à tout moment être modifiés dans le fichier <strong>\"configuration/aria_config.php\"</strong>" : "";
+            $message.=isset($config_succes) ? "- fichier de configuration \"configuration/aria_config.php\" trouvÃ©, vÃ©rifiez les paramÃ¨tres chargÃ©s.<br>- la validation du formulaire les testera et les (rÃ©)enregistrera.<br>" : "";
+            $message.=isset($db_succes) ? "- connexion Ã  la base de donnÃ©es rÃ©ussie<br>" : "";
+            $message.=isset($succes) ? "- fichier de configuration \"configuration/aria_config.php\" enregistrÃ©<br>- <strong>vous devez maintenant supprimer le fichier \"". preg_replace("/\/+/", "/", "$rootdir/$appdir/gestion/admin/config.php") . "\"pour pouvoir utiliser l'interface</strong><br>- les paramÃ¨tres peuvent Ã  tout moment Ãªtre modifiÃ©s dans le fichier <strong>\"configuration/aria_config.php\"</strong>" : "";
 
             if(!isset($erreur))
                print("<tr>
@@ -308,24 +308,24 @@ CeCILL-B, et que vous en avez accepté les termes.
          || isset($erreur_connexion) || isset($erreur_fichier) || isset($rootdir_error) || isset($appdir_error) || isset($rootdir_exist) || isset($appdir_exist))
          {
             $message="<strong>Erreur(s) ou avertissement(s)</strong> :<br>";
-            $message.=isset($config_not_found) ? "- fichier \"configuration/aria_config.php\" non trouvé : complétez le formulaire puis validez pour le créer.<br>" : "";
-            $message.=isset($old_loaded) ? "- le formulaire a été complété à l'aide de l'ancien fichier de configuration \"configuration/config.php\".<br>" : "";
+            $message.=isset($config_not_found) ? "- fichier \"configuration/aria_config.php\" non trouvÃ© : complÃ©tez le formulaire puis validez pour le crÃ©er.<br>" : "";
+            $message.=isset($old_loaded) ? "- le formulaire a Ã©tÃ© complÃ©tÃ© Ã  l'aide de l'ancien fichier de configuration \"configuration/config.php\".<br>" : "";
             $message.=isset($host_error) ? "- adresse du serveur PostgreSQL manquante ou incorrecte<br>" : "";
             $message.=isset($port_error) ? "- port du serveur PostgreSQL manquant ou incorrect<br>" : "";
-            $message.=isset($base_error) ? "- nom de la base de donnée manquant ou incorrect<br>" : "";
+            $message.=isset($base_error) ? "- nom de la base de donnÃ©e manquant ou incorrect<br>" : "";
             $message.=isset($user_error) ? "- identifiant de l'utilisateur manquant ou incorrect<br>" : "";
             $message.=isset($pass_error) ? "- mot de passe manquant ou incorrect<br>" : "";
-            $message.=isset($rootdir_error) ? "- répertoire racine manquant ou incorrect<br>" : "";
-            $message.=isset($rootdir_exist) ? "- le répertoire racine <strong>\"$rootdir\"</strong> n'existe pas (répertoire relatif <strong>\"$appdir\"</strong> non testé)<br>" : "";
-            $message.=isset($appdir_error) ? "- répertoire de l'application manquant ou incorrect<br>" : "";
-            $message.=isset($appdir_exist) ? "- le répertoire de l'application <strong>\"" . preg_replace("/\/+/", "/", "$rootdir/$appdir") ."\"</strong> n'existe pas<br>" : "";
+            $message.=isset($rootdir_error) ? "- rÃ©pertoire racine manquant ou incorrect<br>" : "";
+            $message.=isset($rootdir_exist) ? "- le rÃ©pertoire racine <strong>\"$rootdir\"</strong> n'existe pas (rÃ©pertoire relatif <strong>\"$appdir\"</strong> non testÃ©)<br>" : "";
+            $message.=isset($appdir_error) ? "- rÃ©pertoire de l'application manquant ou incorrect<br>" : "";
+            $message.=isset($appdir_exist) ? "- le rÃ©pertoire de l'application <strong>\"" . preg_replace("/\/+/", "/", "$rootdir/$appdir") ."\"</strong> n'existe pas<br>" : "";
 
-            $message.=isset($erreur_connexion) ? "- echec de la connexion à la base de données : veuillez vérifier les paramètres et le bon fonctionnement du serveur PostgreSQL<br>" : "";
+            $message.=isset($erreur_connexion) ? "- echec de la connexion Ã  la base de donnÃ©es : veuillez vÃ©rifier les paramÃ¨tres et le bon fonctionnement du serveur PostgreSQL<br>" : "";
 
             if(isset($erreur_connexion) && isset($error_msg) && $error_msg!="")
-               $message.="- Détails : $error_msg<br>";
+               $message.="- DÃ©tails : $error_msg<br>";
 
-            $message.=isset($erreur_fichier) ? "- impossible d'écrire le fichier de configuration /configuration/aria_config.php : veuillez vérifier les droits d'accès et d'écriture du répertoire<br>" : "";
+            $message.=isset($erreur_fichier) ? "- impossible d'Ã©crire le fichier de configuration /configuration/aria_config.php : veuillez vÃ©rifier les droits d'accÃ¨s et d'Ã©criture du rÃ©pertoire<br>" : "";
 
             print("<tr>
                      <td align='left' valign='middle'>
@@ -341,7 +341,7 @@ CeCILL-B, et que vous en avez accepté les termes.
    <table style='margin-left:auto; margin-right:auto; padding-top:20px;'>
    <tr>
       <td class='td-complet fond_menu2' colspan='2' style='padding:4px;'>
-         <font class='Texte_menu2'><strong>Accès à la base de données</strong></font>
+         <font class='Texte_menu2'><strong>AccÃ¨s Ã  la base de donnÃ©es</strong></font>
       </td>
    </tr>
    <tr>
@@ -354,7 +354,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                $cur_db_host=$db_host;
             elseif(isset($file_db_host))
                $cur_db_host=$file_db_host;
-            else // défaut
+            else // dÃ©faut
                $cur_db_host="localhost";
          ?>
          <font class='Texte_menu'><input type='text' name='db_host' value='<?php echo htmlspecialchars(stripslashes($cur_db_host), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size='60' maxlength='128'></font>
@@ -370,7 +370,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                $cur_db_port=$db_port;
             elseif(isset($file_db_port))
                $cur_db_port=$file_db_port;
-            else // défaut
+            else // dÃ©faut
                $cur_db_port="5432";
          ?>
          <font class='Texte_menu'><input type='text' name='db_port' value='<?php echo htmlspecialchars(stripslashes($cur_db_port), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size='60' maxlength='128'></font>
@@ -386,20 +386,20 @@ CeCILL-B, et que vous en avez accepté les termes.
                $cur_db_ssl=$db_ssl;
             elseif(isset($file_db_ssl))
                $cur_db_ssl=$file_db_ssl;
-            else // défaut
+            else // dÃ©faut
                $cur_db_ssl="";
          ?>
          <select name='db_ssl'>
-            <option value='disable' <?php if(strtolower($cur_db_ssl)=="disable") echo "selected='1'"; ?>>Désactiver</option>
-            <option value='allow' <?php if(strtolower($cur_db_ssl)=="allow") echo "selected='1'"; ?>>Essayer sans SSL, puis avec en cas d'échec</option>
-            <option value='prefer' <?php if(strtolower($cur_db_ssl)=="prefer") echo "selected='1'"; ?>>Essayer avec SSL, puis sans en cas d'échec</option>
+            <option value='disable' <?php if(strtolower($cur_db_ssl)=="disable") echo "selected='1'"; ?>>DÃ©sactiver</option>
+            <option value='allow' <?php if(strtolower($cur_db_ssl)=="allow") echo "selected='1'"; ?>>Essayer sans SSL, puis avec en cas d'Ã©chec</option>
+            <option value='prefer' <?php if(strtolower($cur_db_ssl)=="prefer") echo "selected='1'"; ?>>Essayer avec SSL, puis sans en cas d'Ã©chec</option>
             <option value='require' <?php if(strtolower($cur_db_ssl)=="require") echo "selected='1'"; ?>>Obligatoire</option>
          </select>
       </td>
    </tr>
    <tr>
       <td class='fond_menu2' style='padding:4px;'>
-         <font class='Texte_menu2'><strong>Nom de la base de données :</strong></font>
+         <font class='Texte_menu2'><strong>Nom de la base de donnÃ©es :</strong></font>
       </td>
       <td class='fond_menu' style='padding:4px;'>
          <?php
@@ -407,7 +407,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                $cur_db_base=$db_base;
             elseif(isset($file_db_base))
                $cur_db_base=$file_db_base;
-            else // défaut
+            else // dÃ©faut
                $cur_db_base="aria";
          ?>
          <font class='Texte_menu'><input type='text' name='db_base' value='<?php echo htmlspecialchars(stripslashes($cur_db_base), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size='60' maxlength='128'></font>
@@ -423,7 +423,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                $cur_db_user=$db_user;
             elseif(isset($file_db_user))
                $cur_db_user=$file_db_user;
-            else // défaut
+            else // dÃ©faut
                $cur_db_user="login";
          ?>
          <font class='Texte_menu'><input type='text' name='db_user' value='<?php echo htmlspecialchars(stripslashes($cur_db_user), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size='60' maxlength='128'></font>
@@ -450,14 +450,14 @@ CeCILL-B, et que vous en avez accepté les termes.
       <td class='td-complet fond_menu2' colspan='2' style='padding:4px; white-space:normal;'>
          <font class='Texte_menu2'>
             <strong>Installation de l'application</strong>
-            <br>Les répertoires suivants sont primordiaux pour la configuration de l'interface.
-            <br>Le reste de l'arborescence sera déduit de ces deux variables, il est donc <u>fortement déconseillé</u> de modifier la structure de l'application.
+            <br>Les rÃ©pertoires suivants sont primordiaux pour la configuration de l'interface.
+            <br>Le reste de l'arborescence sera dÃ©duit de ces deux variables, il est donc <u>fortement dÃ©conseillÃ©</u> de modifier la structure de l'application.
          </font>
       </td>
    </tr>
     <tr>
       <td class='fond_menu2' style='padding:4px;'>
-         <font class='Texte_menu2'><strong>Répertoire racine du serveur HTTP :</strong></font>
+         <font class='Texte_menu2'><strong>RÃ©pertoire racine du serveur HTTP :</strong></font>
       </td>
       <td class='fond_menu' style='padding:4px;'>
          <?php
@@ -465,7 +465,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                $cur_rootdir=$rootdir;
             elseif(isset($file_rootdir) && !empty($file_rootdir))
                $cur_rootdir=$file_rootdir;
-            else // défaut
+            else // dÃ©faut
             {
                $cur_rootdir=$_SERVER["DOCUMENT_ROOT"];
                $root_auto=1;
@@ -475,14 +475,14 @@ CeCILL-B, et que vous en avez accepté les termes.
             <input type='text' name='rootdir' value='<?php echo htmlspecialchars(stripslashes($cur_rootdir), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size='40' maxlength='128'>
             <?php
                if(isset($root_auto))
-                  echo "<strong>(autodétecté)</strong>";
+                  echo "<strong>(autodÃ©tectÃ©)</strong>";
             ?>
          </font>
       </td>
    </tr>
    <tr>
       <td class='fond_menu2' style='padding:4px;'>
-         <font class='Texte_menu2'><strong>Répertoire contenant l'application (relativement au répertoire racine) :</strong></font>
+         <font class='Texte_menu2'><strong>RÃ©pertoire contenant l'application (relativement au rÃ©pertoire racine) :</strong></font>
       </td>
       <td class='fond_menu' style='padding:4px;'>
          <?php
@@ -490,7 +490,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                $cur_appdir=$appdir;
             elseif(isset($file_appdir) && !empty($file_appdir))
                $cur_appdir=$file_appdir;
-            else // défaut : autodétection
+            else // dÃ©faut : autodÃ©tection
             {
                $cur_appdir=str_replace("/gestion/admin/config.php", "", $_SERVER["PHP_SELF"]);
                $app_auto=1;
@@ -500,7 +500,7 @@ CeCILL-B, et que vous en avez accepté les termes.
             <input type='text' name='appdir' value='<?php echo htmlspecialchars(stripslashes($cur_appdir), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size='40' maxlength='128'>
             <?php
                if(isset($app_auto))
-                  echo "<strong>(autodétecté)</strong>";
+                  echo "<strong>(autodÃ©tectÃ©)</strong>";
             ?>
          </font>
       </td>
@@ -511,7 +511,7 @@ CeCILL-B, et que vous en avez accepté les termes.
    </tr>
    <tr>
       <td class='td-complet fond_menu2' colspan='2' style='padding:4px;'>
-         <font class='Texte_menu2'><strong>Autres paramètres</strong></font>
+         <font class='Texte_menu2'><strong>Autres paramÃ¨tres</strong></font>
       </td>
    </tr>
 -->

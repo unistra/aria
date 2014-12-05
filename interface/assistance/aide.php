@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,37 +20,37 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
 ?>
 <?php
-   // Message affiché lorsqu'une page n'a pas été trouvée.
-   // L'authentification n'est pas nécessaire.
+   // Message affichÃ© lorsqu'une page n'a pas Ã©tÃ© trouvÃ©e.
+   // L'authentification n'est pas nÃ©cessaire.
    session_name("preinsc");
    session_start();
 
@@ -81,9 +81,9 @@ CeCILL-B, et que vous en avez accepté les termes.
    <tr>
       <td class='td-complet fond_menu2' style='padding:4px;'>
          <font class='Texte_menu2'>
-            <strong>Problèmes d'identification sur l'application :</strong>
-            <br>&#8226;&nbsp;&nbsp;Je suis déjà enregistré(e), mais je n'ai plus mes identifiants et depuis, j'ai changé d'adresse électronique (<i>email</i>).
-            <br>&#8226;&nbsp;&nbsp;Je me suis trompé(e) d'adresse électronique lors de mon enregistrement, que faire ?
+            <strong>ProblÃ¨mes d'identification sur l'application :</strong>
+            <br>&#8226;&nbsp;&nbsp;Je suis dÃ©jÃ  enregistrÃ©(e), mais je n'ai plus mes identifiants et depuis, j'ai changÃ© d'adresse Ã©lectronique (<i>email</i>).
+            <br>&#8226;&nbsp;&nbsp;Je me suis trompÃ©(e) d'adresse Ã©lectronique lors de mon enregistrement, que faire ?
          </font>
       </td>
    </tr>
@@ -91,12 +91,12 @@ CeCILL-B, et que vous en avez accepté les termes.
       <td class='td-gauche fond_menu' style='white-space:normal;'>
          <font class='Texte' style='vertical-align:top;'>
             Ces deux cas de figure sont courants : utilisez <a href='form_adresse.php' class='lien_bleu_12' style='vertical-align:top;'><strong>ce formulaire</strong></a> pour demander
-            une modification de votre adresse électronique et le renvoi de vos identifiants.
+            une modification de votre adresse Ã©lectronique et le renvoi de vos identifiants.
          </font>
          <br><br>
          <font class='Texte_important'>
-            <strong>Vous ne devez en aucun cas vous enregistrer plusieurs fois sur l'interface : si vous possédez plusieurs fiches, elles
-            risquent d'être supprimées sans préavis et vos candidatures ne seront alors pas traitées.</strong>
+            <strong>Vous ne devez en aucun cas vous enregistrer plusieurs fois sur l'interface : si vous possÃ©dez plusieurs fiches, elles
+            risquent d'Ãªtre supprimÃ©es sans prÃ©avis et vos candidatures ne seront alors pas traitÃ©es.</strong>
          </font>
       </td>
    </tr>
@@ -108,16 +108,16 @@ CeCILL-B, et que vous en avez accepté les termes.
    <tr>
       <td class='td-complet fond_menu2' style='padding:4px;'>
          <font class='Texte_menu2'>
-            <strong>Comment déposer un dossier de précandidature en ligne ?</strong>
+            <strong>Comment dÃ©poser un dossier de prÃ©candidature en ligne ?</strong>
          </font>
       </td>
    </tr>
    <tr>
       <td class='td-gauche fond_menu' style='white-space:normal;'>
          <font class='Texte' style='vertical-align:bottom;'>
-            Nous vous conseillons de lire intégralement la documentation <a href='<?php echo "$__DOC_DIR/documentation.php"; ?>' target='_blank' class='lien_bleu_12'><strong>sur cette page</strong></a>.
+            Nous vous conseillons de lire intÃ©gralement la documentation <a href='<?php echo "$__DOC_DIR/documentation.php"; ?>' target='_blank' class='lien_bleu_12'><strong>sur cette page</strong></a>.
             <br><br>
-            Le chapitre "<strong>I - Déroulement d'une précandidature en ligne</strong>" résume en particulier les différentes étapes d'un dépôt de dossier.
+            Le chapitre "<strong>I - DÃ©roulement d'une prÃ©candidature en ligne</strong>" rÃ©sume en particulier les diffÃ©rentes Ã©tapes d'un dÃ©pÃ´t de dossier.
          </font>
       </td>
    </tr>
@@ -129,24 +129,24 @@ CeCILL-B, et que vous en avez accepté les termes.
    <tr>
       <td class='td-complet fond_menu2' style='padding:4px;'>
          <font class='Texte_menu2'>
-            <strong>Dans le menu "2-Cursus", toutes mes étapes sont marquées "En attente des justificatifs", comment changer ce statut ?</strong>
+            <strong>Dans le menu "2-Cursus", toutes mes Ã©tapes sont marquÃ©es "En attente des justificatifs", comment changer ce statut ?</strong>
          </font>
       </td>
    </tr>
    <tr>
       <td class='td-gauche fond_menu' style='white-space:normal;'>
          <font class='Texte'>
-            Lorsque vous ajoutez une étape à votre cursus, l'état est toujours "En attente des justificatifs" par défaut. Il indique que la scolarité
-            attend les justificatifs ou qu'elle n'a pas encore traité ceux qu'elle a reçus (en fonction du nombre de dossiers reçus, le traitement
+            Lorsque vous ajoutez une Ã©tape Ã  votre cursus, l'Ã©tat est toujours "En attente des justificatifs" par dÃ©faut. Il indique que la scolaritÃ©
+            attend les justificatifs ou qu'elle n'a pas encore traitÃ© ceux qu'elle a reÃ§us (en fonction du nombre de dossiers reÃ§us, le traitement
             peut prendre du temps).
             <br><br>
-            Une fois les pièces reçues, la scolarité validera ou non chaque étape. S'il manque des documents, vous serez normalement averti(e) via un
+            Une fois les piÃ¨ces reÃ§ues, la scolaritÃ© validera ou non chaque Ã©tape. S'il manque des documents, vous serez normalement averti(e) via un
             message de l'application.
             <br><br>
             <strong>
-               - Si le statut du cursus ne change pas, cela peut simplement signifier que la scolarité n'a pas encore traité votre dossier
-               <br>- Si votre dossier est marqué "recevable", cela signifie en général que les justificatifs ont été traités mais que la scolarité n'a 
-               pas modifié le statut de votre cursus sur l'interface.
+               - Si le statut du cursus ne change pas, cela peut simplement signifier que la scolaritÃ© n'a pas encore traitÃ© votre dossier
+               <br>- Si votre dossier est marquÃ© "recevable", cela signifie en gÃ©nÃ©ral que les justificatifs ont Ã©tÃ© traitÃ©s mais que la scolaritÃ© n'a 
+               pas modifiÃ© le statut de votre cursus sur l'interface.
             </strong>.
          </font>
       </td>
@@ -159,36 +159,36 @@ CeCILL-B, et que vous en avez accepté les termes.
    <tr>
       <td class='td-complet fond_menu2' style='padding:4px;'>
          <font class='Texte_menu2'>
-            <strong>Je souhaite déverrouiller certaines formations pour effectuer des modifications sur ma fiche.</strong>
+            <strong>Je souhaite dÃ©verrouiller certaines formations pour effectuer des modifications sur ma fiche.</strong>
          </font>
       </td>
    </tr>
    <tr>
       <td class='td-gauche fond_menu' style='white-space:normal;'>
          <font class='Texte'>
-            Vous pouvez demander le déverrouillage d'une ou plusieurs formations via le formulaire prévu à cet effet.
+            Vous pouvez demander le dÃ©verrouillage d'une ou plusieurs formations via le formulaire prÃ©vu Ã  cet effet.
             <br><br>
-            <u><strong>Avant de le compléter, merci de vérifier chacun des points suivants :</strong></u>
+            <u><strong>Avant de le complÃ©ter, merci de vÃ©rifier chacun des points suivants :</strong></u>
             <br>
             <ol style='list-style-type:decimal; text-align:justify'>
-               <li>Si les informations à modifier sont dans le menu <strong>1 - Identité</strong>, aucun déverrouillage n'est
-                  nécessaire : vous pouvez mettre à jour ces informations <strong>à tout moment</strong>.
+               <li>Si les informations Ã  modifier sont dans le menu <strong>1 - IdentitÃ©</strong>, aucun dÃ©verrouillage n'est
+                  nÃ©cessaire : vous pouvez mettre Ã  jour ces informations <strong>Ã  tout moment</strong>.
                </li>
-               <li style='padding-top:20px;'>Pour chaque voeu à déverrouiller, vérifiez bien que les candidatures sont <strong>encore ouvertes</strong>.
-                  Si elles sont closes, vous devez contacter directement la scolarité et détailler les modifications à apporter à votre fiche.
+               <li style='padding-top:20px;'>Pour chaque voeu Ã  dÃ©verrouiller, vÃ©rifiez bien que les candidatures sont <strong>encore ouvertes</strong>.
+                  Si elles sont closes, vous devez contacter directement la scolaritÃ© et dÃ©tailler les modifications Ã  apporter Ã  votre fiche.
                </li>
-               <li style='padding-top:20px;'>Si vos voeux verrouillés sont répartis sur plusieurs composantes, alors la modification des 
-                  menus <strong>2-Cursus</strong>, <strong>3-Langues</strong>, et <strong>4-Informations complémentaires</strong> est
-                  vivement déconseillée, car ces informations sont communes à toutes les composantes de l'Université. Dans ce cas précis, il est également 
-                  préférable de contacter directement la scolarité de l'une des composantes pour qu'elle effectue elle-même les modifications.
-                  <br><br><strong><u>Attention :</u></strong> si les modifications concernent votre cursus (diplômes, notes, ...), veillez à bien prévenir
-                  <u>chaque composante</u> de ces modifications, et vérifiez bien qu'elles ont reçu les justificatifs à jour.
+               <li style='padding-top:20px;'>Si vos voeux verrouillÃ©s sont rÃ©partis sur plusieurs composantes, alors la modification des 
+                  menus <strong>2-Cursus</strong>, <strong>3-Langues</strong>, et <strong>4-Informations complÃ©mentaires</strong> est
+                  vivement dÃ©conseillÃ©e, car ces informations sont communes Ã  toutes les composantes de l'UniversitÃ©. Dans ce cas prÃ©cis, il est Ã©galement 
+                  prÃ©fÃ©rable de contacter directement la scolaritÃ© de l'une des composantes pour qu'elle effectue elle-mÃªme les modifications.
+                  <br><br><strong><u>Attention :</u></strong> si les modifications concernent votre cursus (diplÃ´mes, notes, ...), veillez Ã  bien prÃ©venir
+                  <u>chaque composante</u> de ces modifications, et vÃ©rifiez bien qu'elles ont reÃ§u les justificatifs Ã  jour.
                </li>
-               <li style='padding-top:20px;'>Vous devez être <strong>authentifié(e) sur l'interface</strong> afin d'accéder au formulaire.</li>
+               <li style='padding-top:20px;'>Vous devez Ãªtre <strong>authentifiÃ©(e) sur l'interface</strong> afin d'accÃ©der au formulaire.</li>
             </ol>
 
             <div class='centered_box' style='padding-top:20px;'>
-               <a href='form_deverrouillage.php' target='_self' class='lien_bleu_12'><strong>Accéder au formulaire</strong></a>
+               <a href='form_deverrouillage.php' target='_self' class='lien_bleu_12'><strong>AccÃ©der au formulaire</strong></a>
             </div>
 
          </font>
@@ -202,7 +202,7 @@ CeCILL-B, et que vous en avez accepté les termes.
    <tr>
       <td class='td-complet fond_menu2' style='padding:4px;'>
          <font class='Texte_menu2'>
-            <strong>Dans le menu "5-Précandidatures", je ne trouve pas la formation souhaitée dans la liste.</strong>
+            <strong>Dans le menu "5-PrÃ©candidatures", je ne trouve pas la formation souhaitÃ©e dans la liste.</strong>
          </font>
       </td>
    </tr>
@@ -212,33 +212,33 @@ CeCILL-B, et que vous en avez accepté les termes.
             <u><strong>Plusieurs cas possibles :</strong></u>
             <ul style='text-align:justify'>
                <li>
-                  <strong>Aucun dépôt de dossier n'est nécessaire pour la formation voulue.</strong>
-                  <br>C'est par exemple les cas de nombreuses <strong>1ère années de Licence (L1)</strong> (attention : certains L1 contingentés nécessitent le dépôt d'une candidature). Si vous avez obtenu votre baccalauréat (ou équivalent), seule <u>l'inscription</u> est nécessaire pour entrer en L1, pas le dépôt d'un dossier de candidature.
+                  <strong>Aucun dÃ©pÃ´t de dossier n'est nÃ©cessaire pour la formation voulue.</strong>
+                  <br>C'est par exemple les cas de nombreuses <strong>1Ã¨re annÃ©es de Licence (L1)</strong> (attention : certains L1 contingentÃ©s nÃ©cessitent le dÃ©pÃ´t d'une candidature). Si vous avez obtenu votre baccalaurÃ©at (ou Ã©quivalent), seule <u>l'inscription</u> est nÃ©cessaire pour entrer en L1, pas le dÃ©pÃ´t d'un dossier de candidature.
                   <br><br>
-                  <u>Conseil</u> : en fonction de votre situation et des diplômes en votre possession, vérifiez toujours les conditions et les modalités d'accès à la formation que vous souhaitez auprès de la scolarité.
+                  <u>Conseil</u> : en fonction de votre situation et des diplÃ´mes en votre possession, vÃ©rifiez toujours les conditions et les modalitÃ©s d'accÃ¨s Ã  la formation que vous souhaitez auprÃ¨s de la scolaritÃ©.
                </li>
 
                <li style='padding-top:20px;'><strong>Aucune session de candidatures n'est ouverte pour cette formation.</strong>
-                  <br><u>Solution</u> : si les candidatures <strong>ne sont pas encore ouvertes</strong>, vous devez attendre l'ouverture de la session de candidatures. Si elles sont déjà closes, vous pouvez contacter la
-                  scolarité pour savoir si elle accepte les candidatures tardives.
+                  <br><u>Solution</u> : si les candidatures <strong>ne sont pas encore ouvertes</strong>, vous devez attendre l'ouverture de la session de candidatures. Si elles sont dÃ©jÃ  closes, vous pouvez contacter la
+                  scolaritÃ© pour savoir si elle accepte les candidatures tardives.
                </li>
 
-               <li style='padding-top:20px;'><strong>Le nombre de dossiers que vous pouvez déposer est limité dans une composante de l'Université, et la limite est déjà atteinte sur votre fiche.</strong>
-                  <br><u>Solution</u> : Vous devez réfléchir à la priorité de vos voeux afin de respecter la limite imposée par la composante, en supprimant éventuellement certaines formations sélectionnées.
+               <li style='padding-top:20px;'><strong>Le nombre de dossiers que vous pouvez dÃ©poser est limitÃ© dans une composante de l'UniversitÃ©, et la limite est dÃ©jÃ  atteinte sur votre fiche.</strong>
+                  <br><u>Solution</u> : Vous devez rÃ©flÃ©chir Ã  la prioritÃ© de vos voeux afin de respecter la limite imposÃ©e par la composante, en supprimant Ã©ventuellement certaines formations sÃ©lectionnÃ©es.
                </li>
 
-               <li style='padding-top:20px;'><strong>La formation recherchée n'est pas proposée par la composante que vous avez sélectionnée.</strong>
-                  <br><u>Solution</u> : Utilisez le menu "Rechercher une formation" (menu supérieur de votre fiche) pour trouver la formation souhaitée. En cas de réponse positive, la composante qui la propose sera indiquée.</strong>
+               <li style='padding-top:20px;'><strong>La formation recherchÃ©e n'est pas proposÃ©e par la composante que vous avez sÃ©lectionnÃ©e.</strong>
+                  <br><u>Solution</u> : Utilisez le menu "Rechercher une formation" (menu supÃ©rieur de votre fiche) pour trouver la formation souhaitÃ©e. En cas de rÃ©ponse positive, la composante qui la propose sera indiquÃ©e.</strong>
                </li>
 
                <li style='padding-top:20px;'><strong>La formation n'est pas disponible via l'interface ARIA.</strong>
                   <br><u>Solution</u> :
-                  <br>- Si la composante est bien enregistrée dans l'application (mais pas la formation souhaitée), il se peut
-                  que la procédure de candidature soit particulière. Si aucune information n'est donnée sur le site Internet de 
-                  la composante (ou sur la page d'information qui peut apparaitre lorsque vous la sélectionnez après votre identification),
-                  <u>contactez directement la scolarité</u> pour obtenir des renseignements sur cette formation.
-                  <br>- Si la composante n'est pas dans la liste proposée, alors celle-ci n'a aucun lien avec l'application ARIA. Vous
-                  devez donc consulter son site Internet et/ou sa scolarité afin d'obtenir des détails sur la procédure de dépôt de dossier de 
+                  <br>- Si la composante est bien enregistrÃ©e dans l'application (mais pas la formation souhaitÃ©e), il se peut
+                  que la procÃ©dure de candidature soit particuliÃ¨re. Si aucune information n'est donnÃ©e sur le site Internet de 
+                  la composante (ou sur la page d'information qui peut apparaitre lorsque vous la sÃ©lectionnez aprÃ¨s votre identification),
+                  <u>contactez directement la scolaritÃ©</u> pour obtenir des renseignements sur cette formation.
+                  <br>- Si la composante n'est pas dans la liste proposÃ©e, alors celle-ci n'a aucun lien avec l'application ARIA. Vous
+                  devez donc consulter son site Internet et/ou sa scolaritÃ© afin d'obtenir des dÃ©tails sur la procÃ©dure de dÃ©pÃ´t de dossier de 
                   candidature.
                </li>
             </ul>
@@ -253,18 +253,18 @@ CeCILL-B, et que vous en avez accepté les termes.
    <tr>
       <td class='td-complet fond_menu2' style='padding:4px;'>
          <font class='Texte_menu2'>
-            <strong>J'ai reçu une lettre (ou un message) confirmant mon admission, mais je ne parviens pas à m'inscrire malgré les instructions reçues, que dois-je faire ?</strong>
+            <strong>J'ai reÃ§u une lettre (ou un message) confirmant mon admission, mais je ne parviens pas Ã  m'inscrire malgrÃ© les instructions reÃ§ues, que dois-je faire ?</strong>
          </font>
       </td>
    </tr>
    <tr>
       <td class='td-gauche fond_menu' style='white-space:normal;'>
          <font class='Texte'>
-            L'application Aria sur laquelle vous vous trouvez actuellement ne gère que le dépôt de dossiers de candidatures. L'<strong>inscription en
-            ligne</strong> est une étape différente, gérée par une autre application.
+            L'application Aria sur laquelle vous vous trouvez actuellement ne gÃ¨re que le dÃ©pÃ´t de dossiers de candidatures. L'<strong>inscription en
+            ligne</strong> est une Ã©tape diffÃ©rente, gÃ©rÃ©e par une autre application.
             <br><br>
-            Il est donc conseillé d'utiliser les adresses de contact (téléphone ou courriel) ou les formulaires d'aides de la page sur laquelle
-            vous avez tenté de vous inscrire.
+            Il est donc conseillÃ© d'utiliser les adresses de contact (tÃ©lÃ©phone ou courriel) ou les formulaires d'aides de la page sur laquelle
+            vous avez tentÃ© de vous inscrire.
          </font>
       </td>
    </tr>
@@ -278,7 +278,7 @@ CeCILL-B, et que vous en avez accepté les termes.
    <tr>
       <td class='td-complet fond_menu2' style='padding:4px;'>
          <font class='Texte_menu2'>
-            <strong>La date de verrouillage est passée mais je n'ai pas reçu la liste des justificatifs, pourquoi ?</strong>
+            <strong>La date de verrouillage est passÃ©e mais je n'ai pas reÃ§u la liste des justificatifs, pourquoi ?</strong>
          </font>
       </td>
    </tr>
@@ -288,20 +288,20 @@ CeCILL-B, et que vous en avez accepté les termes.
             <u><strong>Plusieurs cas possibles :</strong></u>
              <ul style='text-align:justify'>
                <li><strong>Il manque des renseignements obligatoires dans le menu "6-Autres renseignements".</strong>
-               <br><u>Solution</u> : après avoir sélectionné la bonne composante, vérifiez que vous n'avez oublié aucune question (si ce menu 6 n'apparait pas, 
-               aucune information supplémentaire n'est demandée). Une fois les informations manquantes complétées, l'interface retentera automatiquement de 
+               <br><u>Solution</u> : aprÃ¨s avoir sÃ©lectionnÃ© la bonne composante, vÃ©rifiez que vous n'avez oubliÃ© aucune question (si ce menu 6 n'apparait pas, 
+               aucune information supplÃ©mentaire n'est demandÃ©e). Une fois les informations manquantes complÃ©tÃ©es, l'interface retentera automatiquement de 
                verrouiller vos voeux le lendemain.</li>
 
-               <li style='padding-top:20px;'><strong>La fiche a bien été verrouillée, mais vous n'avez pas reçu l'accusé de réception indiquant l'envoi des justificatifs.</strong>.
-               <br><u>Solution</u> : vérifiez qu'aucun message non lu n'est en attente dans la messagerie de l'interface Aria.</li>
+               <li style='padding-top:20px;'><strong>La fiche a bien Ã©tÃ© verrouillÃ©e, mais vous n'avez pas reÃ§u l'accusÃ© de rÃ©ception indiquant l'envoi des justificatifs.</strong>.
+               <br><u>Solution</u> : vÃ©rifiez qu'aucun message non lu n'est en attente dans la messagerie de l'interface Aria.</li>
 
-               <li style='padding-top:20px;'><strong>Aucun justificatif n'a été configuré pour cette formation.</strong>
-               <br><u>Solution</u> : lorsque cette erreur est rencontrée, la scolarité est automatiquement prévenue et doit théoriquement résoudre
-               rapidement ce problème. Vous devez simplement attendre que l'interface retente le verrouillage de votre voeu le lendemain.</li>
+               <li style='padding-top:20px;'><strong>Aucun justificatif n'a Ã©tÃ© configurÃ© pour cette formation.</strong>
+               <br><u>Solution</u> : lorsque cette erreur est rencontrÃ©e, la scolaritÃ© est automatiquement prÃ©venue et doit thÃ©oriquement rÃ©soudre
+               rapidement ce problÃ¨me. Vous devez simplement attendre que l'interface retente le verrouillage de votre voeu le lendemain.</li>
 
-               <li style='padding-top:20px;'><strong>L'interface a rencontré une autre erreur logicielle et n'a pas réussi à générer la liste des pièces à fournir.</strong>
-               <br><u>Solution</u> : l'administrateur de l'application doit normalement recevoir une notification automatique d'erreur. Une fois le problème
-               résolu, votre voeu devrait être verrouillé dès le lendemain.</li>
+               <li style='padding-top:20px;'><strong>L'interface a rencontrÃ© une autre erreur logicielle et n'a pas rÃ©ussi Ã  gÃ©nÃ©rer la liste des piÃ¨ces Ã  fournir.</strong>
+               <br><u>Solution</u> : l'administrateur de l'application doit normalement recevoir une notification automatique d'erreur. Une fois le problÃ¨me
+               rÃ©solu, votre voeu devrait Ãªtre verrouillÃ© dÃ¨s le lendemain.</li>
             </ul>
          </font>
       </td>
@@ -314,23 +314,23 @@ CeCILL-B, et que vous en avez accepté les termes.
    <tr>
       <td class='td-complet fond_menu2' style='padding:4px;'>
          <font class='Texte_menu2'>
-            <strong>J'ai reçu la liste des justificatifs, à qui et comment dois-je envoyer tous ces documents ?</strong>
+            <strong>J'ai reÃ§u la liste des justificatifs, Ã  qui et comment dois-je envoyer tous ces documents ?</strong>
          </font>
       </td>
    </tr>
    <tr>
       <td class='td-gauche fond_menu' style='white-space:normal;'>
          <font class='Texte' style='vertical-align:bottom;'>
-            Toutes les pièces doivent être envoyées par <strong>voie postale</strong>, l'adresse de la scolarité est normalement
-            indiquée sur chaque liste de justificatifs. Vous pouvez également consulter <a href='<?php echo "$__DOC_DIR/composantes.php"; ?>' target='_blank' class='lien_bleu_12'><strong>cette page</strong></a>
-            au cas où l'adresse postale serait absente.
+            Toutes les piÃ¨ces doivent Ãªtre envoyÃ©es par <strong>voie postale</strong>, l'adresse de la scolaritÃ© est normalement
+            indiquÃ©e sur chaque liste de justificatifs. Vous pouvez Ã©galement consulter <a href='<?php echo "$__DOC_DIR/composantes.php"; ?>' target='_blank' class='lien_bleu_12'><strong>cette page</strong></a>
+            au cas oÃ¹ l'adresse postale serait absente.
             <br><br>
             <font class='Texte_important'><strong><u>Important :</u></strong></font>
              <ul style='text-align:justify'>
-               <li>N'envoyez jamais les pièces par courriel (<i>email</i>), sauf si la scolarité l'autorise explicitement. Elle doit alors vous fournir une adresse électronique spécifique. 
-               <u>Vérifiez bien que les pièces numérisées sont lisibles</u> avant de les envoyer.
-               <li style='padding-top:10px;'>Tous les documents doivent être <u>traduits en français</u> (sauf si la scolarité précise le contraire).</li>
-               <li style='padding-top:10px;'>Certaines composantes suivent des procédures spécifiques, lisez bien les consignes données dans la liste des justificatifs, elles sont <strong>prioritaires</strong> sur certaines consignes indiquées par l'interface.</li>
+               <li>N'envoyez jamais les piÃ¨ces par courriel (<i>email</i>), sauf si la scolaritÃ© l'autorise explicitement. Elle doit alors vous fournir une adresse Ã©lectronique spÃ©cifique. 
+               <u>VÃ©rifiez bien que les piÃ¨ces numÃ©risÃ©es sont lisibles</u> avant de les envoyer.
+               <li style='padding-top:10px;'>Tous les documents doivent Ãªtre <u>traduits en franÃ§ais</u> (sauf si la scolaritÃ© prÃ©cise le contraire).</li>
+               <li style='padding-top:10px;'>Certaines composantes suivent des procÃ©dures spÃ©cifiques, lisez bien les consignes donnÃ©es dans la liste des justificatifs, elles sont <strong>prioritaires</strong> sur certaines consignes indiquÃ©es par l'interface.</li>
             </ul>
          </font>
       </td>
@@ -344,20 +344,20 @@ CeCILL-B, et que vous en avez accepté les termes.
    <tr>
       <td class='td-complet fond_menu2' style='padding:4px;'>
          <font class='Texte_menu2'>
-            <strong>J'ai demandé plusieurs formations, combien de fois dois-je envoyer mes justificatifs ?</strong>
+            <strong>J'ai demandÃ© plusieurs formations, combien de fois dois-je envoyer mes justificatifs ?</strong>
          </font>
       </td>
    </tr>
    <tr>
       <td class='td-gauche fond_menu' style='white-space:normal;'>
          <font class='Texte'>
-            Tout dépend de la composante proposant les formations que vous avez choisies. La procédure normale est d'envoyer <strong>un dossier complet</strong> pour 
+            Tout dÃ©pend de la composante proposant les formations que vous avez choisies. La procÃ©dure normale est d'envoyer <strong>un dossier complet</strong> pour 
             <strong>chaque formation</strong> choisie.
             <br><br>
             <font class='Texte_important'><strong><u>Important :</u></strong></font>
             <ul style='text-align:justify'>
-               <li><strong>Lisez toujours intégralement les listes de justificatifs</strong> reçues : certaines composantes ne vous demanderont qu'un seul dossier.</li>
-               <li>L'adresse postale peut être <strong>différente</strong> entre deux formations de la même composante.</li>
+               <li><strong>Lisez toujours intÃ©gralement les listes de justificatifs</strong> reÃ§ues : certaines composantes ne vous demanderont qu'un seul dossier.</li>
+               <li>L'adresse postale peut Ãªtre <strong>diffÃ©rente</strong> entre deux formations de la mÃªme composante.</li>
             </ul>
          </font>         
       </td>
@@ -371,16 +371,16 @@ CeCILL-B, et que vous en avez accepté les termes.
    <tr>
       <td class='td-complet fond_menu2' style='padding:4px;'>
          <font class='Texte_menu2'>
-            <strong>Je n'ai pas encore les derniers relevés de notes de mon année en cours, que dois-je faire ?</strong>
+            <strong>Je n'ai pas encore les derniers relevÃ©s de notes de mon annÃ©e en cours, que dois-je faire ?</strong>
          </font>
       </td>
    </tr>
    <tr>
       <td class='td-gauche fond_menu' style='white-space:normal;'>
          <font class='Texte'>
-            Si vous ne possédez pas encore tous les documents, <strong>n'attendez pas pour envoyer ceux en votre possession</strong>, vous risqueriez d'être hors délai.
+            Si vous ne possÃ©dez pas encore tous les documents, <strong>n'attendez pas pour envoyer ceux en votre possession</strong>, vous risqueriez d'Ãªtre hors dÃ©lai.
             <br><br>
-            Vous pourrez envoyer le reste des pièces dès leur obtention (par voie postale, ou par courriel <u>si la scolarité vous l'a explicitement demandé</u>).
+            Vous pourrez envoyer le reste des piÃ¨ces dÃ¨s leur obtention (par voie postale, ou par courriel <u>si la scolaritÃ© vous l'a explicitement demandÃ©</u>).
          </font>
       </td>
    </tr>
@@ -393,26 +393,26 @@ CeCILL-B, et que vous en avez accepté les termes.
    <tr>
       <td class='td-complet fond_menu2' style='padding:4px;'>
          <font class='Texte_menu2'>
-            <strong>L'interface ne s'affiche pas correctement / je reviens toujours sur la page d'accueil même lorsque je parviens à m'identifier.</strong>
+            <strong>L'interface ne s'affiche pas correctement / je reviens toujours sur la page d'accueil mÃªme lorsque je parviens Ã  m'identifier.</strong>
          </font>
       </td>
    </tr>
    <tr>
       <td class='td-gauche fond_menu' style='white-space:normal;'>
          <font class='Texte'>
-            Un navigateur récent est nécessaire pour utiliser l'application ARIA. Voici une liste <u>non exhaustive</u> de navigateurs recommandés :
+            Un navigateur rÃ©cent est nÃ©cessaire pour utiliser l'application ARIA. Voici une liste <u>non exhaustive</u> de navigateurs recommandÃ©s :
             <br>
              <ul style='text-align:justify'>
-               <li><a href='http://www.mozilla.com/firefox/' class='lien_bleu_12' target='_blank'>Mozilla Firefox</a> (gratuit - tous systèmes d'exploitation)</li>
-               <li><a href='http://www.opera.com/' class='lien_bleu_12' target='_blank'>Opera</a> (gratuit - tous systèmes d'exploitation)</li>
+               <li><a href='http://www.mozilla.com/firefox/' class='lien_bleu_12' target='_blank'>Mozilla Firefox</a> (gratuit - tous systÃ¨mes d'exploitation)</li>
+               <li><a href='http://www.opera.com/' class='lien_bleu_12' target='_blank'>Opera</a> (gratuit - tous systÃ¨mes d'exploitation)</li>
                <li><a href='http://www.google.com/chrome' class='lien_bleu_12' target='_blank'>Google Chrome</a> (gratuit)</li>
                <li><a href='http://www.apple.com/fr/safari/' class='lien_bleu_12' target='_blank'>Apple Safari</a> (gratuit - Mac OS et Windows)</li>
                <li><a href='http://www.konqueror.org/' class='lien_bleu_12' target='_blank'>Konqueror</a> (gratuit - Linux)</li>
-               <li>Microsoft Internet Explorer (version 7 ou supérieure)</a> (disponible par défaut sous Microsoft Windows XP et supérieur)</li>
+               <li>Microsoft Internet Explorer (version 7 ou supÃ©rieure)</a> (disponible par dÃ©faut sous Microsoft Windows XP et supÃ©rieur)</li>
             </ul>
             <br>
-            Votre navigateur doit également supporter les <i>Cookies</i>, vous pouvez vous référer à la documentation du logiciel
-            pour vérifier sa configuration.
+            Votre navigateur doit Ã©galement supporter les <i>Cookies</i>, vous pouvez vous rÃ©fÃ©rer Ã  la documentation du logiciel
+            pour vÃ©rifier sa configuration.
          </font>
       </td>
    </tr>
@@ -424,7 +424,7 @@ CeCILL-B, et que vous en avez accepté les termes.
    <tr>
       <td class='td-complet fond_menu2' style='padding:4px;'>
          <font class='Texte_menu2'>
-            <strong>J'ai reçu un message contenant des fichiers au format PDF, mais je n'arrive pas à les ouvrir.</strong>
+            <strong>J'ai reÃ§u un message contenant des fichiers au format PDF, mais je n'arrive pas Ã  les ouvrir.</strong>
          </font>
       </td>
    </tr>
@@ -434,14 +434,14 @@ CeCILL-B, et que vous en avez accepté les termes.
             <u><strong>Trois cas possibles :</strong></u>
             <br>- votre navigateur ne sait pas ouvrir ces fichiers,
             <br>- aucun programme n'est disponible sur votre ordinateur pour les lire,
-            <br>- le programme est bien installé mais il n'affiche plus le contenu des fichiers.
+            <br>- le programme est bien installÃ© mais il n'affiche plus le contenu des fichiers.
             <br>
-            <br>L'installation de l'un des logiciels suivants devrait vous permettre d'ouvrir ces fichiers (exemples donnés à titre indicatif) :
+            <br>L'installation de l'un des logiciels suivants devrait vous permettre d'ouvrir ces fichiers (exemples donnÃ©s Ã  titre indicatif) :
             <ul style='text-align:justify'>
-               <li><a href='http://www.adobe.com/fr/' class='lien_bleu_12' target='_blank'>Adobe Acrobat Reader</a> (gratuit - la plupart des systèmes d'exploitation est supportée)</li>
+               <li><a href='http://www.adobe.com/fr/' class='lien_bleu_12' target='_blank'>Adobe Acrobat Reader</a> (gratuit - la plupart des systÃ¨mes d'exploitation est supportÃ©e)</li>
                <li><a href='http://www.foolabs.com/xpdf/index.html' class='lien_bleu_12' target='_blank'>Xpdf</a> (lecteur libre pour Linux)</li>
             </ul>
-            <br>Dans le troisième cas, la <strong>réinstallation</strong> ou la mise à jour du programme existant peuvent résoudre le problème (les paramètres sont souvent réinitialisés).
+            <br>Dans le troisiÃ¨me cas, la <strong>rÃ©installation</strong> ou la mise Ã  jour du programme existant peuvent rÃ©soudre le problÃ¨me (les paramÃ¨tres sont souvent rÃ©initialisÃ©s).
             <br><br>
          </font>
       </td>
@@ -454,21 +454,21 @@ CeCILL-B, et que vous en avez accepté les termes.
    <tr>
       <td class='td-complet fond_menu2' style='padding:4px;'>
          <font class='Texte_menu2'>
-            <strong>Quand et comment obtiendrai-je les résultats de mon admission ?</strong>
+            <strong>Quand et comment obtiendrai-je les rÃ©sultats de mon admission ?</strong>
          </font>
       </td>
    </tr>
    <tr>
       <td class='td-gauche fond_menu' style='white-space:normal;'>
          <font class='Texte'>
-            Pour chaque voeu, vous devez attendre que la commission pédagogique examine votre dossier (à condition qu'il ait été jugé <u>recevable</u>).
+            Pour chaque voeu, vous devez attendre que la commission pÃ©dagogique examine votre dossier (Ã  condition qu'il ait Ã©tÃ© jugÃ© <u>recevable</u>).
             <br><br>
             De plus :
             <br>
              <ul style='text-align:justify'>
-               <li>Les dates des commissions peuvent être différentes entre les composantes et entre chaque formation, tous les résultats ne seront donc pas affichés au même moment ;</li>
-               <li>Certaines composantes attendent d'avoir saisi tous les résultats avant de les publier sur l'interface (publication différée) ;</li>
-               <li>Aucun résultat ne sera donné par téléphone ou par courriel, vous devez impérativement attendre la lettre officielle, c'est le seul document faisant foi.</li>
+               <li>Les dates des commissions peuvent Ãªtre diffÃ©rentes entre les composantes et entre chaque formation, tous les rÃ©sultats ne seront donc pas affichÃ©s au mÃªme moment ;</li>
+               <li>Certaines composantes attendent d'avoir saisi tous les rÃ©sultats avant de les publier sur l'interface (publication diffÃ©rÃ©e) ;</li>
+               <li>Aucun rÃ©sultat ne sera donnÃ© par tÃ©lÃ©phone ou par courriel, vous devez impÃ©rativement attendre la lettre officielle, c'est le seul document faisant foi.</li>
             </ul>
          </font>
       </td>
@@ -481,22 +481,22 @@ CeCILL-B, et que vous en avez accepté les termes.
    <tr>
       <td class='td-complet fond_menu2' style='padding:4px;'>
          <font class='Texte_menu2'>
-            <strong>Je souhaite ajouter une formation, mais la session est déjà fermée.</strong>
+            <strong>Je souhaite ajouter une formation, mais la session est dÃ©jÃ  fermÃ©e.</strong>
          </font>
       </td>
    </tr>
    <tr>
       <td class='td-gauche fond_menu' style='white-space:normal;'>
          <font class='Texte'>
-            <u>Vérifiez tout d'abord les dates des différentes sessions pour cette formation :</u>
+            <u>VÃ©rifiez tout d'abord les dates des diffÃ©rentes sessions pour cette formation :</u>
             <ol style='list-style-type:decimal; text-align:justify'>
                <li>
-                  Si une nouvelle session de candidatures est programmée, vous devez attendre son ouverture afin de pouvoir sélectionner la formation.
+                  Si une nouvelle session de candidatures est programmÃ©e, vous devez attendre son ouverture afin de pouvoir sÃ©lectionner la formation.
                </li>
                <li style='padding-top:20px;'>
-                  Si aucune session n'est prévue, utilisez <a href='form_scolarite.php' class='lien_bleu_12' style='vertical-align:top;'><strong>ce formulaire</strong></a>
-                  pour contacter directement la scolarité.
-                  <br />Vous devez être <strong>identifié(e) sur l'interface</strong> pour pouvoir accéder à cette page.
+                  Si aucune session n'est prÃ©vue, utilisez <a href='form_scolarite.php' class='lien_bleu_12' style='vertical-align:top;'><strong>ce formulaire</strong></a>
+                  pour contacter directement la scolaritÃ©.
+                  <br />Vous devez Ãªtre <strong>identifiÃ©(e) sur l'interface</strong> pour pouvoir accÃ©der Ã  cette page.
                </li>
             </ol>
          </font>
@@ -511,7 +511,7 @@ CeCILL-B, et que vous en avez accepté les termes.
    <tr>
       <td class='td-complet fond_menu2' style='padding:4px;'>
          <font class='Texte_menu2'>
-            <strong>J'ai une question concernant les modalités d'accès à une formation, à qui dois-je m'adresser ?</strong>
+            <strong>J'ai une question concernant les modalitÃ©s d'accÃ¨s Ã  une formation, Ã  qui dois-je m'adresser ?</strong>
          </font>
       </td>
    </tr>
@@ -520,12 +520,12 @@ CeCILL-B, et que vous en avez accepté les termes.
          <font class='Texte'>
             <ol style='list-style-type:decimal; text-align:justify'>
                <li>
-                  Vérifiez tout d'abord les informations sur le site de l'Université, <a href='http://www.unistra.fr/index.php?id=2107' target='_blank' class='lien_bleu_12' style='vertical-align:top;'><strong>sur cette page</strong></a>.
+                  VÃ©rifiez tout d'abord les informations sur le site de l'UniversitÃ©, <a href='http://www.unistra.fr/index.php?id=2107' target='_blank' class='lien_bleu_12' style='vertical-align:top;'><strong>sur cette page</strong></a>.
                </li>
                <li style='padding-top:20px;'>
-                  Si vous n'avez pas trouvé l'information que vous cherchiez, utilisez <a href='form_scolarite.php' class='lien_bleu_12' style='vertical-align:top;'><strong>ce formulaire</strong></a>
-                  pour contacter directement la scolarité.
-                  <br />Vous devez être <strong>identifié(e) sur l'interface</strong> pour pouvoir accéder à cette page.
+                  Si vous n'avez pas trouvÃ© l'information que vous cherchiez, utilisez <a href='form_scolarite.php' class='lien_bleu_12' style='vertical-align:top;'><strong>ce formulaire</strong></a>
+                  pour contacter directement la scolaritÃ©.
+                  <br />Vous devez Ãªtre <strong>identifiÃ©(e) sur l'interface</strong> pour pouvoir accÃ©der Ã  cette page.
                </li>
             </ol>
          </font>
@@ -540,7 +540,7 @@ CeCILL-B, et que vous en avez accepté les termes.
    <tr>
       <td class='td-complet fond_menu2' style='padding:4px;'>
          <font class='Texte_menu2'>
-            <strong>Je suis un(e) candidat(e) étranger(e), on me demande d'envoyer des justificatifs ou des pièces qui n'existent pas dans mon pays. Que faire ?</strong>
+            <strong>Je suis un(e) candidat(e) Ã©tranger(e), on me demande d'envoyer des justificatifs ou des piÃ¨ces qui n'existent pas dans mon pays. Que faire ?</strong>
          </font>
       </td>
    </tr>
@@ -548,7 +548,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <td class='td-gauche fond_menu' style='white-space:normal;'>
          <font class='Texte' style='vertical-align:top;'>
             Nous vous conseillons d'utiliser <a href='form_scolarite.php' class='lien_bleu_12' style='vertical-align:top;'><strong>ce formulaire</strong></a>
-            pour contacter directement la scolarité. <u>Attention :</u> vous devez être identifié(e) sur l'interface pour pouvoir accéder à cette page.
+            pour contacter directement la scolaritÃ©. <u>Attention :</u> vous devez Ãªtre identifiÃ©(e) sur l'interface pour pouvoir accÃ©der Ã  cette page.
          </font>
       </td>
    </tr>
@@ -561,17 +561,17 @@ CeCILL-B, et que vous en avez accepté les termes.
    <tr>
       <td class='td-complet fond_menu2' style='padding:4px;'>
          <font class='Texte_menu2'>
-            <strong>Mon problème ne se trouve pas dans ce tableau, à qui dois-je m'adresser ?</strong>
+            <strong>Mon problÃ¨me ne se trouve pas dans ce tableau, Ã  qui dois-je m'adresser ?</strong>
          </font>
       </td>
    </tr>
    <tr>
       <td class='td-gauche fond_menu' style='white-space:normal;'>
          <font class='Texte' style='vertical-align:top;'>
-            Nous vous conseillons d'envoyer un courriel <a href='mailto:<?php echo $GLOBALS["__EMAIL_SUPPORT"]; ?>' class='lien_bleu_12' style='vertical-align:top;'><strong>à cette adresse</strong></a>
+            Nous vous conseillons d'envoyer un courriel <a href='mailto:<?php echo $GLOBALS["__EMAIL_SUPPORT"]; ?>' class='lien_bleu_12' style='vertical-align:top;'><strong>Ã  cette adresse</strong></a>
             pour une aide informatique. 
             <br /><br />
-            <u><strong>Attention :</strong></u> précisez bien vos <strong>nom</strong>, <strong>prénom</strong> et <strong>date de naissance</strong> afin que nous puissions vous identifier 
+            <u><strong>Attention :</strong></u> prÃ©cisez bien vos <strong>nom</strong>, <strong>prÃ©nom</strong> et <strong>date de naissance</strong> afin que nous puissions vous identifier 
             sur l'interface Aria.
          </font>
       </td>

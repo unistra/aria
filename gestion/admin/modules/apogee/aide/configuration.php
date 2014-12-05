@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -69,74 +69,74 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 <div class='main'>
 	<?php
-		titre_page_icone("[Aide] Module Apogée : Configuration", "help-browser_32x32_fond.png", 15, "L");
+		titre_page_icone("[Aide] Module ApogÃ©e : Configuration", "help-browser_32x32_fond.png", 15, "L");
 	?>
 
 	<div style='margin-left:auto; margin-right:auto; padding-bottom:20px; width:90%; text-align:justify;'>
 		<font class='Texte_16'><u><strong>Fonction principale</strong></u></font>
 		<p class='Texte' style='padding-bottom:15px;'>
-			<strong>Modifier les paramètres du module APOGEE</strong>
+			<strong>Modifier les paramÃ¨tres du module APOGEE</strong>
 		</p>
 	
-		<font class='Texte_16'><u><strong>Paramètres</strong></u></font>
+		<font class='Texte_16'><u><strong>ParamÃ¨tres</strong></u></font>
       <p class='Texte' style='padding-bottom:15px;'>
-         <u><strong>Première lettre du numéro d'autorisation d'inscription (avec prise de rendez-vous)</strong></u> :
-         Lorsqu'un candidat est admis à s'inscrire (en présentiel), un code d'autorisation lui est fourni. Ce code est construit à partir de diverses données :
-         <br>- une lettre correspondant à l'université
-         <br>- les deux derniers chiffres de l'année en cours
+         <u><strong>PremiÃ¨re lettre du numÃ©ro d'autorisation d'inscription (avec prise de rendez-vous)</strong></u> :
+         Lorsqu'un candidat est admis Ã  s'inscrire (en prÃ©sentiel), un code d'autorisation lui est fourni. Ce code est construit Ã  partir de diverses donnÃ©es :
+         <br>- une lettre correspondant Ã  l'universitÃ©
+         <br>- les deux derniers chiffres de l'annÃ©e en cours
          <br>- initiales du candidat
          <br>- date de naissance du candidat
-         <br>- code étape de la formation (<strong>sans</strong> la Version d'Etape)
+         <br>- code Ã©tape de la formation (<strong>sans</strong> la Version d'Etape)
          <br><br>
-         Ce menu sert à paramétrer la lettre correspondant à l'université sélectionnée, le reste du code est ensuite généré automatiquement (utilisation de
+         Ce menu sert Ã  paramÃ©trer la lettre correspondant Ã  l'universitÃ© sÃ©lectionnÃ©e, le reste du code est ensuite gÃ©nÃ©rÃ© automatiquement (utilisation de
          la <strong>macro "%CODE%"</strong>).
       </p>
       <p class='Texte' style='padding-bottom:15px;'>
-         <u><strong>Préfixe du code OPI généré pour les Primo-Entrants</strong></u> :
-         Lorsque le script d'extraction des Primo Entrants est exécuté, un numéro d'inscription OPI (différent du numéro d'autorisation) est généré pour chaque
-         admission. Ce code est un simple compteur incrémenté automatiquement et préfixé par une ou plusieurs lettres. C'est ce préfixe que vous devez entrer dans
+         <u><strong>PrÃ©fixe du code OPI gÃ©nÃ©rÃ© pour les Primo-Entrants</strong></u> :
+         Lorsque le script d'extraction des Primo Entrants est exÃ©cutÃ©, un numÃ©ro d'inscription OPI (diffÃ©rent du numÃ©ro d'autorisation) est gÃ©nÃ©rÃ© pour chaque
+         admission. Ce code est un simple compteur incrÃ©mentÃ© automatiquement et prÃ©fixÃ© par une ou plusieurs lettres. C'est ce prÃ©fixe que vous devez entrer dans
          ce champ.
          <br><br>
-         <strong>Exemple :</strong> si le préfixe est "AR", les codes générés auront pour format "AR00000001", "AR00000002", etc.
+         <strong>Exemple :</strong> si le prÃ©fixe est "AR", les codes gÃ©nÃ©rÃ©s auront pour format "AR00000001", "AR00000002", etc.
       </p>
 		<p class='Texte' style='padding-bottom:15px;'>
-			<u><strong>Message envoyé à un candidat Primo Entrant</strong></u> :
-         Lorsque le script d'extraction des Primo Entrants est exécuté, un message interne est automatiquement envoyé à chaque candidat et pour chaque formation pour
-         laquelle il a été admis. Pour être utile, ce message doit au moins contenir le <strong>Numéro OPI</strong> généré par le script (macro <strong>%OPI%</strong>
+			<u><strong>Message envoyÃ© Ã  un candidat Primo Entrant</strong></u> :
+         Lorsque le script d'extraction des Primo Entrants est exÃ©cutÃ©, un message interne est automatiquement envoyÃ© Ã  chaque candidat et pour chaque formation pour
+         laquelle il a Ã©tÃ© admis. Pour Ãªtre utile, ce message doit au moins contenir le <strong>NumÃ©ro OPI</strong> gÃ©nÃ©rÃ© par le script (macro <strong>%OPI%</strong>
          dans le message) ainsi que l'adresse du site sur lequel le candidat devra se rendre pour s'inscrire.
 		</p>
 		<p class='Texte' style='padding-bottom:15px;'>
-			<u><strong>Message envoyé à un candidat Admis sous Réserve</strong></u> :
-			Un candidat "Admis sous Réserve" n'est en théorie pas définitivement admis : il doit encore apporter des documents prouvant qu'il vérifie les dernières conditions 
-			imposées par la scolarité (la "réserve" indiquée) pour être admis.
+			<u><strong>Message envoyÃ© Ã  un candidat Admis sous RÃ©serve</strong></u> :
+			Un candidat "Admis sous RÃ©serve" n'est en thÃ©orie pas dÃ©finitivement admis : il doit encore apporter des documents prouvant qu'il vÃ©rifie les derniÃ¨res conditions 
+			imposÃ©es par la scolaritÃ© (la "rÃ©serve" indiquÃ©e) pour Ãªtre admis.
 			<br /><br />
-			Toutefois, la plupart de ces candidats vérifiant habituellement les réserves émises, on les autorise souvent à prendre un rendez-vous rapidement (à défaut de leur 
-			permettre une (ré)inscription intégrale en ligne), d'où la présence d'un message spécifique pour ces derniers. Ce message doit normalement contenir le numéro 
+			Toutefois, la plupart de ces candidats vÃ©rifiant habituellement les rÃ©serves Ã©mises, on les autorise souvent Ã  prendre un rendez-vous rapidement (Ã  dÃ©faut de leur 
+			permettre une (rÃ©)inscription intÃ©grale en ligne), d'oÃ¹ la prÃ©sence d'un message spÃ©cifique pour ces derniers. Ce message doit normalement contenir le numÃ©ro 
 			d'autorisation ("%CODE%") lui permettant de prendre ce rendez-vous.
 			<br /><br />
-			Ces candidats sont extraits via le même script que les primo-entrants, mais le voeu n'est cette fois pas enregistré (ce qui empêche l'inscription intégrale).
+			Ces candidats sont extraits via le mÃªme script que les primo-entrants, mais le voeu n'est cette fois pas enregistrÃ© (ce qui empÃªche l'inscription intÃ©grale).
       </p>
 
-      <font class='Texte_16'><u><strong>Détails</strong></u></font>
+      <font class='Texte_16'><u><strong>DÃ©tails</strong></u></font>
       <p class='Texte' style='padding-bottom:5px;'>
          <u><strong>Les macros suivantes sont utilisables dans le corps du message</strong></u> :
       </p>
       <p class='Texte' style='padding-bottom:5px;'>
-         <strong>%OPI%</strong> : Numéro d'inscription OPI généré pour permettre l'inscription des Primo-Entrants (IA-Primo)
+         <strong>%OPI%</strong> : NumÃ©ro d'inscription OPI gÃ©nÃ©rÃ© pour permettre l'inscription des Primo-Entrants (IA-Primo)
       </p>
       <p class='Texte' style='padding-bottom:5px;'>
-         <strong>%Formation%</strong> : Nom de la formation à laquelle le candidat a été admis
+         <strong>%Formation%</strong> : Nom de la formation Ã  laquelle le candidat a Ã©tÃ© admis
       </p>
       <p class='Texte' style='padding-bottom:5px;'>
-         <strong>[Signature]</strong> : Signature du message : cette macro sera remplacée par la valeur du paramètre "Signature des messages de l'application" 
-         (cf. Paramétrage système). Attention, ce paramètre est différent de la macro %signature% utilisée dans les modèles de lettres.
+         <strong>[Signature]</strong> : Signature du message : cette macro sera remplacÃ©e par la valeur du paramÃ¨tre "Signature des messages de l'application" 
+         (cf. ParamÃ©trage systÃ¨me). Attention, ce paramÃ¨tre est diffÃ©rent de la macro %signature% utilisÃ©e dans les modÃ¨les de lettres.
       </p>
       <p class='Texte' style='padding-bottom:5px;'>
          <strong>[lien=adresse html]lien cliquable[/lien]</strong> : lien HTML
          <br>Exemple : [lien=http://www.google.fr]Recherche Google[/lien]
       </p>
       <p class='Texte' style='padding-bottom:5px;'>
-         <strong>[mail=adresse électronique]lien cliquable[/mail]</strong> : lien vers l'envoi d'un courriel
+         <strong>[mail=adresse Ã©lectronique]lien cliquable[/mail]</strong> : lien vers l'envoi d'un courriel
          <br>Exemple : [mail=admin@domaine.fr]cliquez ici pour envoyer un message[/mail]
       </p>
       <p class='Texte' style='padding-bottom:5px;'>
@@ -146,13 +146,13 @@ CeCILL-B, et que vous en avez accepté les termes.
          <strong>[italique]Texte[/italique]</strong> : Texte en italique
       </p>
       <p class='Texte' style='padding-bottom:5px;'>
-         <strong>[souligner]Texte[/souligner]</strong> : Texte souligné
+         <strong>[souligner]Texte[/souligner]</strong> : Texte soulignÃ©
       </p>
       <p class='Texte' style='padding-bottom:5px;'>
-         <strong>[centrer]Texte[/centrer]</strong> : Texte centré
+         <strong>[centrer]Texte[/centrer]</strong> : Texte centrÃ©
       </p>
       <p class='Texte' style='padding-bottom:5px;'>
-         <strong>[important]Texte[/important]</strong> : Texte mis en valeur (dépend de la feuille de style)
+         <strong>[important]Texte[/important]</strong> : Texte mis en valeur (dÃ©pend de la feuille de style)
       </p>
 	</div>
 </div>

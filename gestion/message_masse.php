@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -73,7 +73,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		$contenu=trim($_POST["corps"]);
 		$sujet=$_POST["sujet"];
 
-		// informations liées au fichier envoyé
+		// informations liÃ©es au fichier envoyÃ©
 		$file_name=$_FILES["fichier"]["name"];
 		$file_size=$_FILES["fichier"]["size"];
 		$file_tmp_name=$_FILES["fichier"]["tmp_name"];
@@ -81,7 +81,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 		// $realname=$file_name=html_entity_decode(validate_filename($file_name),ENT_QUOTES, $default_htmlspecialchars_encoding);
 
-		$realname=html_entity_decode(validate_filename(mb_convert_encoding("$file_name", "iso-8859-1", mb_detect_encoding($file_name))), ENT_QUOTES, $default_htmlspecialchars_encoding);
+		$realname=html_entity_decode(validate_filename(mb_convert_encoding("$file_name", "UTF-8", mb_detect_encoding($file_name))), ENT_QUOTES, $default_htmlspecialchars_encoding);
 
 		if($file_size>2097152)
 			$trop_gros=1;
@@ -96,7 +96,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 			$x=0;
 
-			while(is_file("$destination_path")) // le fichier existe deja : on change le nom en ajoutant un numéro
+			while(is_file("$destination_path")) // le fichier existe deja : on change le nom en ajoutant un numÃ©ro
 			{
 				$test_file_name=$x. "-$file_name";
 				$destination_path="$__ROOT_DIR/$__MOD_DIR/tmp/$_SESSION[auth_id]/$test_file_name";
@@ -121,7 +121,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 					sort($_SESSION["tmp_message_fichiers"]);
 					$cnt=count($_SESSION["tmp_message_fichiers"]);
 
-					// Comparaison avec les fichiers déjà joints, pour éviter la duplication
+					// Comparaison avec les fichiers dÃ©jÃ  joints, pour Ã©viter la duplication
 					foreach($_SESSION["tmp_message_fichiers"] as $array_file)
 					{
 						if($array_file["sha1"]==sha1_file("$destination_path") && $array_file["size"]=="$file_size")
@@ -150,7 +150,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		$contenu=trim($_POST["corps"]);
 		$sujet=$_POST["sujet"];
 
-		// Suppression d'une pièce jointe
+		// Suppression d'une piÃ¨ce jointe
 		foreach($_POST["suppr"] as $file_num => $foo)
 		{
 			if(array_key_exists($file_num, $_SESSION["tmp_message_fichiers"]))
@@ -164,7 +164,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		sort($_SESSION["tmp_message_fichiers"]);
 	}
 
-	// Précaution : vérification de la liste des destinataires
+	// PrÃ©caution : vÃ©rification de la liste des destinataires
 	if(!isset($_SESSION["mail_masse"]) || (isset($_SESSION["mail_masse"]) && !count($_SESSION["mail_masse"])))
 	{
 		header("Location:edit_candidature.php");
@@ -175,8 +175,8 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 	if(isset($_POST["go"]) || isset($_POST["go_x"])) // validation du formulaire : envoi du message
 	{
-		// vérification des valeurs entrées dans le formulaire
-		// TODO : vérifications poussées
+		// vÃ©rification des valeurs entrÃ©es dans le formulaire
+		// TODO : vÃ©rifications poussÃ©es
 
 		$contenu=trim($_POST["corps"]);
 		$sujet=$_POST["sujet"];
@@ -189,7 +189,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 /*
 			if(isset($_SESSION["tmp_message_fichiers"]))
 			{
-				$new_corps="Pièce(s) jointe(s) :<br>";
+				$new_corps="PiÃ¨ce(s) jointe(s) :<br>";
 
 				foreach($_SESSION["tmp_message_fichiers"] as $array_file)
 					$new_corps.="- <a href='files/$array_file[realname]' target='_blank' class='lien_bleu_12'>$array_file[realname]</a><br>";
@@ -209,7 +209,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 			$count_sent=0;
 
-			// envoi du mail à toute la liste
+			// envoi du mail Ã  toute la liste
 			/*
 			foreach($_SESSION["mail_masse"] as $mail_candidat_id => $mail_candidat_array)
 			{
@@ -271,7 +271,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 <div class='main'>
 	<?php
-		titre_page_icone("Envoyer un message à plusieurs candidats (messagerie interne)", "mail_forward_32x32_fond.png", 2, "L");
+		titre_page_icone("Envoyer un message Ã  plusieurs candidats (messagerie interne)", "mail_forward_32x32_fond.png", 2, "L");
 
 		// POUR TESTS UNIQUEMENT
 /*
@@ -281,12 +281,12 @@ CeCILL-B, et que vous en avez accepté les termes.
 			// $converted=utf8_decode($file_name);
 			print("$converted\n<br>");
 
-			$reconverted=iconv("UTF-8","LATIN1","PiÃ¨ces Ã  joindre.doc");
+			$reconverted=iconv("UTF-8","LATIN1","PiÃƒÂ¨ces ÃƒÂ  joindre.doc");
 			print("$reconverted\n<br>");
 
-			print("A/ [$file_name] B/ [PiÃ¨ces Ã  joindre.doc]<br>\n");
+			print("A/ [$file_name] B/ [PiÃƒÂ¨ces ÃƒÂ  joindre.doc]<br>\n");
 
-			if($file_name==="PiÃ¨ces Ã  joindre.doc")
+			if($file_name==="PiÃƒÂ¨ces ÃƒÂ  joindre.doc")
 				echo "Egales";
 			else
 				echo "NON";
@@ -295,15 +295,15 @@ CeCILL-B, et que vous en avez accepté les termes.
 		print("<form enctype='multipart/form-data' action='$php_self' method='POST' name='form1'>");
 
 		message("<center>
-						<b>Attention : soyez très vigilent(e) lorsque vous envoyez un message de masse !</b>
+						<b>Attention : soyez trÃ¨s vigilent(e) lorsque vous envoyez un message de masse !</b>
 						<br>L'envoi peut prendre plusieurs minutes s'il y a beaucoup de destinataires.
 					</center>", $__WARNING);
 
 		if(isset($erreur_copie_fichier))
-			message("Erreur : impossible de copier le fichier reçu. Merci de contacter l'administrateur.", $__ERREUR);
+			message("Erreur : impossible de copier le fichier reÃ§u. Merci de contacter l'administrateur.", $__ERREUR);
 
 		if(isset($trop_gros))
-			message("Erreur : le fichier envoyé est trop gros (max : 2 Mo)", $__ERREUR);
+			message("Erreur : le fichier envoyÃ© est trop gros (max : 2 Mo)", $__ERREUR);
 
 	?>
 
@@ -334,7 +334,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 			print("<tr>
 						<td class='td-gauche fond_menu2'>
-							<font class='Texte_menu2'><b>Pièces jointes :</b></font>
+							<font class='Texte_menu2'><b>PiÃ¨ces jointes :</b></font>
 						</td>
 						<td class='td-droite fond_menu2'>
 							<table cellpadding='0' cellspacing='0' align='left' border='0'>\n");
@@ -367,7 +367,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		if(isset($champ_vide))
 			message("Formulaire incomplet: vous ne pouvez pas envoyer un message vide", $__ERREUR);
 
-		message("Lors de l'envoi, une copie sera automatiquement placée dans votre dossier \"Envoyés\" de la messagerie interne", $__INFO);
+		message("Lors de l'envoi, une copie sera automatiquement placÃ©e dans votre dossier \"EnvoyÃ©s\" de la messagerie interne", $__INFO);
 	?>
 
 	<div class='centered_icons_box'>
@@ -383,7 +383,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 					<tr>
 						<td align='left'>
 							<font class='Texte'>
-								Le message sera envoyé aux personnes suivantes :
+								Le message sera envoyÃ© aux personnes suivantes :
 							</font>
 						</td>
 					</tr>

@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,51 +20,51 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
 ?>
 <?php
 	// MODIFICATION DU SCHEMA - MODULE APOGEE
-	// Création des tables permettant d'entrer :
-	// - le code de chaque université (lettre unique pour la génération du code d'inscription administrative)
-	// - les codes et versions d'étape des formations (l'import automatique n'est pas encore faisable)
+	// CrÃ©ation des tables permettant d'entrer :
+	// - le code de chaque universitÃ© (lettre unique pour la gÃ©nÃ©ration du code d'inscription administrative)
+	// - les codes et versions d'Ã©tape des formations (l'import automatique n'est pas encore faisable)
 	// - les codes des composantes
-	// Le but de ce module est de préparer les transferts automatiques des candidats admis vers Apogée
+	// Le but de ce module est de prÃ©parer les transferts automatiques des candidats admis vers ApogÃ©e
 	// pour les Inscriptions Administratives
 
-   // Message par défaut pour les extractions des Primo-Entrants
+   // Message par dÃ©faut pour les extractions des Primo-Entrants
 $defaut_PE="";
 
-// Message par défaut pour les laisser-passer
+// Message par dÃ©faut pour les laisser-passer
 
 $defaut_LP="";
 
-// Message par défaut pour les admis sous réserve
+// Message par dÃ©faut pour les admis sous rÃ©serve
 
 $defaut_RESERVE="";
 
@@ -76,7 +76,7 @@ $defaut_RESERVE="";
 
    if(db_num_rows($res_maj))
    {
-      // Si une table "config" existe déjà, on la renomme
+      // Si une table "config" existe dÃ©jÃ , on la renomme
       if(db_num_rows(db_query($db_maj,"SELECT * FROM pg_tables WHERE tablename ='$_module_apogee_DB_config'")))
          db_query($db_maj, "ALTER TABLE $_module_apogee_DB_config RENAME TO moduleapogee_config_temp");
       
@@ -94,7 +94,7 @@ $defaut_RESERVE="";
       db_query($db_maj, "ALTER TABLE $_module_apogee_DB_config ADD COLUMN $_module_apogee_DBU_config_message_primo text default '';
                          UPDATE $_module_apogee_DB_config SET $_module_apogee_DBU_config_message_primo='$defaut_PE';");
    }
-   elseif(!db_num_rows(db_query($db_maj,"SELECT * FROM pg_tables WHERE tablename ='$_module_apogee_DB_config'"))) // Création de la table
+   elseif(!db_num_rows(db_query($db_maj,"SELECT * FROM pg_tables WHERE tablename ='$_module_apogee_DB_config'"))) // CrÃ©ation de la table
    {
       db_query($db_maj, "CREATE TABLE $_module_apogee_DB_config (
                            $_module_apogee_DBU_config_univ_id INT PRIMARY KEY REFERENCES $GLOBALS[_DB_universites]($GLOBALS[_DBU_universites_id]) ON UPDATE CASCADE ON DELETE CASCADE,
@@ -172,14 +172,14 @@ $defaut_RESERVE="";
 
    db_free_result($res_maj);
 
-   // Message par défaut pour les Laisser-Passer
+   // Message par dÃ©faut pour les Laisser-Passer
    if(!db_num_rows(db_query($db_maj, "SELECT * FROM information_schema.columns WHERE table_catalog='$GLOBALS[__DB_BASE]'
                                                                                AND table_name='$_module_apogee_DB_config'
                                                                                AND column_name='$_module_apogee_DBU_config_message_lp'")))
       db_query($db_maj, "ALTER TABLE $_module_apogee_DB_config ADD COLUMN $_module_apogee_DBU_config_message_lp text default '';
                          UPDATE $_module_apogee_DB_config SET $_module_apogee_DBU_config_message_lp='$defaut_LP';");
 
-   // Création de la table qui contiendra les laisser-passer enregistrés
+   // CrÃ©ation de la table qui contiendra les laisser-passer enregistrÃ©s
    $res_maj=db_query($db_maj,"SELECT * FROM pg_tables WHERE tablename ='$_module_apogee_DB_codes_LP'");
 
    if(!db_num_rows($res_maj))
@@ -192,7 +192,7 @@ $defaut_RESERVE="";
       db_query($db_maj, "CREATE INDEX $_module_apogee_DB_codes_LP"."_index_cand_id ON $_module_apogee_DB_codes_LP($_module_apogee_DBU_codes_LP_cand_id)");
    }
 
-   // 09/07/2010 - Suppression de la clé primaire de la table $_module_apogee_DB_codes_LP : le code d'autorisation peut ne pas être unique
+   // 09/07/2010 - Suppression de la clÃ© primaire de la table $_module_apogee_DB_codes_LP : le code d'autorisation peut ne pas Ãªtre unique
    $res_conkey=db_query($db_maj, "SELECT conkey FROM pg_constraint WHERE conname='moduleapogee_codes_laisser_passer_pkey'");
    
    if(db_num_rows($res_conkey))
@@ -200,11 +200,11 @@ $defaut_RESERVE="";
       
    db_free_result($res_conkey);
 
-   // Mise à jour de la macro signature dans les messages par défaut (%signature% => [signature]) car le traitement n'est pas effectué par la même macro
+   // Mise Ã  jour de la macro signature dans les messages par dÃ©faut (%signature% => [signature]) car le traitement n'est pas effectuÃ© par la mÃªme macro
    db_query($db_maj,"UPDATE $_module_apogee_DB_config SET $_module_apogee_DBU_config_message_lp=replace($_module_apogee_DBU_config_message_lp, '%Signature%','[Signature]')");
    db_query($db_maj,"UPDATE $_module_apogee_DB_config SET $_module_apogee_DBU_config_message_primo=replace($_module_apogee_DBU_config_message_primo, '%Signature%','[Signature]')");
    
-   // Message par défaut pour les Admis sous Réserve
+   // Message par dÃ©faut pour les Admis sous RÃ©serve
    if(!db_num_rows(db_query($db_maj, "SELECT * FROM information_schema.columns WHERE table_catalog='$GLOBALS[__DB_BASE]'
                                                                                AND table_name='$_module_apogee_DB_config'
                                                                                AND column_name='$_module_apogee_DBU_config_message_reserve'")))
@@ -212,7 +212,7 @@ $defaut_RESERVE="";
                          UPDATE $_module_apogee_DB_config SET $_module_apogee_DBU_config_message_reserve='$defaut_RESERVE';");
 
 
-   // TABLE moduleapogee_config : ajout de la possibilité d'avoir une configuration différente pour chaque composante, et non plus pour toute une université
+   // TABLE moduleapogee_config : ajout de la possibilitÃ© d'avoir une configuration diffÃ©rente pour chaque composante, et non plus pour toute une universitÃ©
    
    if(db_num_rows(db_query($db_maj, "SELECT * FROM information_schema.columns WHERE table_catalog='$GLOBALS[__DB_BASE]'
                                                                               AND table_name='$_module_apogee_DB_config'
@@ -226,7 +226,7 @@ $defaut_RESERVE="";
    
       $res_composantes=db_query($db_maj, "SELECT min($GLOBALS[_DBC_composantes_id]), $GLOBALS[_DBC_composantes_univ_id] FROM $GLOBALS[_DB_composantes] GROUP BY $GLOBALS[_DBC_composantes_univ_id]");
    
-      if(db_num_rows($res_composantes)) // Si aucun résultat : problème ...
+      if(db_num_rows($res_composantes)) // Si aucun rÃ©sultat : problÃ¨me ...
       {
          for($i=0 ; $i<db_num_rows($res_composantes); $i++)
          {
@@ -234,7 +234,7 @@ $defaut_RESERVE="";
       
             db_query($db_maj,"UPDATE $_module_apogee_DB_config SET composante_id = '$min_comp_id' WHERE composante_id='$univ_id'");
    
-            // Copie de la configuration existante pour toutes les composantes de cette université
+            // Copie de la configuration existante pour toutes les composantes de cette universitÃ©
             db_query($db_maj, "INSERT INTO $_module_apogee_DB_config (SELECT id,code,prefixe_opi,message_primo,message_laisser_passer,message_admis_sous_reserve 
                                                                       FROM $GLOBALS[_DB_composantes], $_module_apogee_DB_config 
                                                                       WHERE $GLOBALS[_DBC_composantes_id]!='$min_comp_id'
@@ -249,7 +249,7 @@ $defaut_RESERVE="";
       db_free_result($res_composantes);
    }
    
-   // Table moduleapogee_numeros_opi : ajout de la colonne temoin_reserve pour envoyer un nouveau message lorsqu'un candidat passe de "Admis sous Réserve" à "Admis"
+   // Table moduleapogee_numeros_opi : ajout de la colonne temoin_reserve pour envoyer un nouveau message lorsqu'un candidat passe de "Admis sous RÃ©serve" Ã  "Admis"
    if(!db_num_rows(db_query($db_maj, "SELECT * FROM information_schema.columns WHERE table_catalog='$GLOBALS[__DB_BASE]'
                                                                                AND table_name='$_module_apogee_DB_numeros_opi'
                                                                                AND column_name='$_module_apogee_DBU_numeros_opi_temoin_reserve'")))
@@ -258,7 +258,7 @@ $defaut_RESERVE="";
                          UPDATE $_module_apogee_DB_numeros_opi SET $_module_apogee_DBU_numeros_opi_temoin_reserve='t' WHERE $_module_apogee_DBU_numeros_opi_ligne_voeux=''");
 
    // 24/08/2011
-   // Configuration : ajout de plusieurs colonnes pour les adresses des différents sites
+   // Configuration : ajout de plusieurs colonnes pour les adresses des diffÃ©rents sites
    if(!db_num_rows(db_query($db_maj, "SELECT * FROM information_schema.columns WHERE table_catalog='$GLOBALS[__DB_BASE]' 
                                                                                AND table_name='$_module_apogee_DB_config'
                                                                                AND column_name='$_module_apogee_DBU_config_adr_primo'")))

@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -57,8 +57,8 @@ CeCILL-B, et que vous en avez accepté les termes.
 	include "$__INCLUDE_DIR_ABS/fonctions.php";
 	include "$__INCLUDE_DIR_ABS/db.php";
 
-	// includes spécifiques au module
-	include "include/db.php"; // db.php appellera également update_db.php pour la mise à jour du schéma
+	// includes spÃ©cifiques au module
+	include "include/db.php"; // db.php appellera Ã©galement update_db.php pour la mise Ã  jour du schÃ©ma
 
 	$php_self=$_SERVER['PHP_SELF'];
 	$_SESSION['CURRENT_FILE']=$php_self;
@@ -78,9 +78,9 @@ CeCILL-B, et que vous en avez accepté les termes.
 	{
 		// print_r($_POST);
 
-		// Récupération des codes et versions d'étapes
-		// Puisqu'il s'agit d'un module indépendant, la table n'est pas automatiquement complétée lorsqu'une formation est
-		// créée : il faut donc soit mettre à jour, soit créer les enregistrements
+		// RÃ©cupÃ©ration des codes et versions d'Ã©tapes
+		// Puisqu'il s'agit d'un module indÃ©pendant, la table n'est pas automatiquement complÃ©tÃ©e lorsqu'une formation est
+		// crÃ©Ã©e : il faut donc soit mettre Ã  jour, soit crÃ©er les enregistrements
 
 		$requete="DELETE FROM $_module_apogee_DB_formations
 						WHERE $_module_apogee_DBC_formations_propspec_id IN (SELECT $_DBC_propspec_id FROM $_DB_propspec
@@ -117,23 +117,23 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 <div class='main'>
 	<?php
-		titre_page_icone("Module Apogée : Codes et Versions d'étapes - Centres de gestion", "randr_32x32_fond.png", 15, "L");
+		titre_page_icone("Module ApogÃ©e : Codes et Versions d'Ã©tapes - Centres de gestion", "randr_32x32_fond.png", 15, "L");
 
 		if(isset($succes))
-			message("Codes enregistrés avec succès.", $__SUCCES);
+			message("Codes enregistrÃ©s avec succÃ¨s.", $__SUCCES);
 
 		if(isset($centres_vides) && $centres_vides>0)
 			message("<center>
-							<strong>Attention :</strong> le centre de gestion n'a pas été renseigné pour toutes les formations ($centres_vides).
+							<strong>Attention :</strong> le centre de gestion n'a pas Ã©tÃ© renseignÃ© pour toutes les formations ($centres_vides).
 							<br>Ce renseignement est <strong>obligatoire</strong> pour les transferts des candidats admis vers APOGEE.
 						</center>", $__WARNING);
 						
 
-		// Présence indispensable des centres de gestion)
+		// PrÃ©sence indispensable des centres de gestion)
 		if(!db_num_rows(db_query($dbr, "SELECT * FROM $_module_apogee_DB_centres_gestion
 													WHERE $_module_apogee_DBU_centres_gestion_comp_id='$_SESSION[comp_id]'")))
 			message("Vous devez ajouter au moins un <strong>Centre de gestion</strong> avant de pouvoir configurer
-						les codes et versions d'étape.", $__ERREUR);
+						les codes et versions d'Ã©tape.", $__ERREUR);
 		else
 		{
 	?>
@@ -141,7 +141,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		<form method='POST' action='<?php echo $php_self; ?>'>
 
 		<?php
-			// Les CASE sont nécessaires car la table module_apogee_formations ne contient pas nécessairement les
+			// Les CASE sont nÃ©cessaires car la table module_apogee_formations ne contient pas nÃ©cessairement les
 			// identifiants des formations (plugin)
 
 			$result=db_query($dbr,"SELECT $_DBC_propspec_id, $_DBC_annees_id, $_DBC_annees_annee, $_DBC_specs_nom_court,
@@ -199,7 +199,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 						$liste_centres_gestion["$centre_id"]="$centre_nom ($centre_code)";
 					}
 
-					// S'il n'y a qu'un centre (très courant dans les UFR), on le conserve en "valeur par défaut"
+					// S'il n'y a qu'un centre (trÃ¨s courant dans les UFR), on le conserve en "valeur par dÃ©faut"
 					$default_centre_gestion=($rows_centres_gestion==1) ? $centre_id : "";
 				}
 
@@ -221,9 +221,9 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 					if($annee_id!=$old_annee_id)
 					{
-						$annee=$annee=="" ? "Années particulières" : $annee;
+						$annee=$annee=="" ? "AnnÃ©es particuliÃ¨res" : $annee;
 
-						if($i) // Le premier résultat du tableau est particulier (i=0)
+						if($i) // Le premier rÃ©sultat du tableau est particulier (i=0)
 							print("<tr>
 										<td class='fond_page' height='10' colspan='3'></td>
 									</tr>\n");
@@ -235,8 +235,8 @@ CeCILL-B, et que vous en avez accepté les termes.
 								</tr>
 								<tr>
 									<td class='td-gauche fond_menu2'><font class='Texte_menu2'><strong>Mention / Formation</strong></font></td>
-									<td class='td-milieu fond_menu2'><font class='Texte_menu2'><strong>Code étape</strong></font></td>
-									<td class='td-milieu fond_menu2'><font class='Texte_menu2'><strong>Version d'étape</strong></font></td>
+									<td class='td-milieu fond_menu2'><font class='Texte_menu2'><strong>Code Ã©tape</strong></font></td>
+									<td class='td-milieu fond_menu2'><font class='Texte_menu2'><strong>Version d'Ã©tape</strong></font></td>
 									<td class='td-droite fond_menu2'><font class='Texte_menu2'><strong>Centre de gestion</strong></font></td>
 								</tr>
 								<tr>
@@ -304,7 +304,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 						</div>\n");
 			}
 			else
-				message("Vous devez d'abord créer des formations avant de pouvoir utiliser ce module.", $__WARNING);
+				message("Vous devez d'abord crÃ©er des formations avant de pouvoir utiliser ce module.", $__WARNING);
 		}
 
 		db_close($dbr);

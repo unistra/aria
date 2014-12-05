@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -78,7 +78,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
    $dbr=db_connect();
 
-   // Déverrouillage, au cas où
+   // DÃ©verrouillage, au cas oÃ¹
    if(isset($_SESSION["candidat_id"]))
       cand_unlock($dbr, $_SESSION["candidat_id"]);
 
@@ -86,7 +86,7 @@ CeCILL-B, et que vous en avez accepté les termes.
    // Validation du formulaire
    if((isset($_POST["Valider"]) || isset($_POST["Valider_x"])) && array_key_exists("config", $_POST))
    {
-      // En fonction de la section du menu, on récupère les variables adéquates
+      // En fonction de la section du menu, on rÃ©cupÃ¨re les variables adÃ©quates
 
       switch($_SESSION["current_config_menu"])
       {
@@ -98,13 +98,13 @@ CeCILL-B, et que vous en avez accepté les termes.
 
                   $update="";
 
-                  // Vérification sommaire du format de l'URL
+                  // VÃ©rification sommaire du format de l'URL
                   if($new_url_gestion=="" || !preg_match("/[[:alpha:]]+:\/\/[^<>[:space:]]+[[:alnum:]]/", $new_url_gestion))
                      $format_url_gestion=1;
                   else
                      $update.="$_DBU_systeme_url_gestion='$new_url_gestion'";
 
-                  // Vérification sommaire du format de l'URL
+                  // VÃ©rification sommaire du format de l'URL
                   if($new_url_candidat=="" || !preg_match("/[[:alpha:]]+:\/\/[^<>[:space:]]+[[:alnum:]]/", $new_url_candidat))
                      $format_url_candidat=1;
                   else
@@ -161,7 +161,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                      
                   $update.="$_DBU_systeme_ldap_actif='$new_ldap_actif'";
 
-                  // Vérification sommaire du format de l'URL
+                  // VÃ©rification sommaire du format de l'URL
                   if($new_ldap_host=="") // || !preg_match("/[[:alpha:]]+:\/\/[^<>[:space:]]+[[:alnum:]]/", $new_ldap_host))
                      $format_ldap_host=1;
                   else
@@ -170,7 +170,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                      $update.="$_DBU_systeme_ldap_host='$new_ldap_host'";
                   }
 
-                  // Vérification sommaire du format du port
+                  // VÃ©rification sommaire du format du port
                   if($new_ldap_port=="" || !ctype_digit($new_ldap_port))
                      $format_ldap_port=1;
                   else
@@ -239,7 +239,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                      $format_ldap_attr_mail=1;
                   else
                   {
-                     // ce paramètre peut être multivalué : champs séparés par des virgules
+                     // ce paramÃ¨tre peut Ãªtre multivaluÃ© : champs sÃ©parÃ©s par des virgules
                      
                      $attr_mail=preg_replace("/[\ ]+/", ",", $new_ldap_attr_mail);
                      
@@ -267,12 +267,13 @@ CeCILL-B, et que vous en avez accepté les termes.
          case 3 : $new_nom_admin=array_key_exists("__NOM_ADMIN", $_POST["config"]) ? trim($_POST["config"]["__NOM_ADMIN"]) : "";
                   $new_email_admin=array_key_exists("__EMAIL_ADMIN", $_POST["config"]) ? trim($_POST["config"]["__EMAIL_ADMIN"]) : "";
                   $new_email_support=array_key_exists("__EMAIL_SUPPORT", $_POST["config"]) ? trim($_POST["config"]["__EMAIL_SUPPORT"]) : "";
+                  $new_email_noreply=array_key_exists("__EMAIL_NOREPLY", $_POST["config"]) ? trim($_POST["config"]["__EMAIL_NOREPLY"]) : "";
                   $new_signature_admin=array_key_exists("__SIGNATURE_ADMIN", $_POST["config"]) ? trim($_POST["config"]["__SIGNATURE_ADMIN"]) : "";
                   $new_signature_courriels=array_key_exists("__SIGNATURE_COURRIELS", $_POST["config"]) ? trim($_POST["config"]["__SIGNATURE_COURRIELS"]) : "";
 
                   $update="";
 
-                  // Vérification sommaire
+                  // VÃ©rification sommaire
                   if($new_email_admin=="" || !preg_match("/[[:alnum:]]+@[^<>[:space:]]+[[:alnum:]]/", $new_email_admin))
                      $format_email_admin=1;
                   else
@@ -284,6 +285,14 @@ CeCILL-B, et que vous en avez accepté les termes.
                   {
                      $update.=$update!="" ? "," : "";
                      $update.="$_DBU_systeme_courriel_support='".preg_replace("/'/","''", $new_email_support)."'";
+                  }
+                  
+                  if($new_email_noreply=="" || !preg_match("/[[:alnum:]]+@[^<>[:space:]]+[[:alnum:]]/", $new_email_noreply))
+                     $format_email_noreply=1;
+                  else
+                  {
+                     $update.=$update!="" ? "," : "";
+                     $update.="$_DBU_systeme_courriel_support='".preg_replace("/'/","''", $new_email_noreply)."'";
                   }
 
                   if($new_nom_admin=="")
@@ -412,7 +421,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                   $new_debug_reg=array_key_exists("__DEBUG_ENREGISTREMENT", $_POST["config"]) ? trim($_POST["config"]["__DEBUG_ENREGISTREMENT"]) : "t";
                   $new_debug_lock=array_key_exists("__DEBUG_LOCK", $_POST["config"]) ? trim($_POST["config"]["__DEBUG_LOCK"]) : "f";
 
-                  // Vérification et valeurs par défaut. Les champs "sujet" peuvent rester vides.
+                  // VÃ©rification et valeurs par dÃ©faut. Les champs "sujet" peuvent rester vides.
                   if($new_debug!="t" && $new_debug!="f")
                      $new_debug="t";
 
@@ -473,18 +482,18 @@ CeCILL-B, et que vous en avez accepté les termes.
    </div>
    <div class='corps_gestion'>
       <?php
-         titre_page_icone("Paramètres de l'application", "preferences_32x32_fond.png", 15, "L");
+         titre_page_icone("ParamÃ¨tres de l'application", "preferences_32x32_fond.png", 15, "L");
 
          if(isset($succes))
-            message("Paramètres enregistrés", $__SUCCES);
+            message("ParamÃ¨tres enregistrÃ©s", $__SUCCES);
 
          $message="";
 
          if(isset($format_titre_html))
-            $message.="<br>- le champ \"Titre de la fenêtre du navigateur\" ne doit pas être vide";
+            $message.="<br>- le champ \"Titre de la fenÃªtre du navigateur\" ne doit pas Ãªtre vide";
 
          if(isset($format_titre_page))
-            $message.="<br>- le champ \"Titre des pages par défaut\" ne doit pas être vide";
+            $message.="<br>- le champ \"Titre des pages par dÃ©faut\" ne doit pas Ãªtre vide";
 
          if(isset($format_url_candidat))
             $message.="<br>- l'adresse de l'interface pour les candidats est manquante ou incorrecte (format : http://... ou https://)";
@@ -518,7 +527,7 @@ CeCILL-B, et que vous en avez accepté les termes.
             $message.="<br>- l'attribut \"nom\" LDAP est vide";
           
          if(isset($format_ldap_attr_prenom))
-            $message.="<br>- l'attribut \"prénom\" LDAP est vide";
+            $message.="<br>- l'attribut \"prÃ©nom\" LDAP est vide";
             
          if(isset($format_ldap_attr_mail))
             $message.="<br>- l'attribut \"mail\" LDAP est vide";
@@ -529,28 +538,31 @@ CeCILL-B, et que vous en avez accepté les termes.
          // 3 - Admin
 
          if(isset($format_nom_admin))
-            $message.="<br>- le nom de l'administrateur ne doit pas être vide";
+            $message.="<br>- le nom de l'administrateur ne doit pas Ãªtre vide";
 
          if(isset($format_signature_admin))
-            $message.="<br>- le champ \"Signature des messages administrateur\" ne doit pas être vide";
+            $message.="<br>- le champ \"Signature des messages administrateur\" ne doit pas Ãªtre vide";
 
          if(isset($format_signature_courriels))
-            $message.="<br>- le champ \"Signature des messages de l'application\" ne doit pas être vide";
+            $message.="<br>- le champ \"Signature des messages de l'application\" ne doit pas Ãªtre vide";
 
          if(isset($format_email_admin))
-            $message.="<br>- l'adresse électronique de l'administrateur est manquante ou incorrecte (format : adresse@domaine)";
+            $message.="<br>- l'adresse Ã©lectronique de l'administrateur est manquante ou incorrecte (format : adresse@domaine)";
 
          if(isset($format_email_support))
-            $message.="<br>- l'adresse électronique du \"Support informatique\" est manquante ou incorrecte (format : adresse@domaine)";
+            $message.="<br>- l'adresse Ã©lectronique du \"Support informatique\" est manquante ou incorrecte (format : adresse@domaine)";
+            
+         if(isset($format_email_noreply))
+            $message.="<br>- l'adresse Ã©lectronique \"no reply\" est manquante ou incorrecte (format : adresse@domaine)";
 
          if(isset($format_ville))
-            $message.="<br>- le champ \"Ville\" ne peut être vide";
+            $message.="<br>- le champ \"Ville\" ne peut Ãªtre vide";
 
          if(isset($format_info_liberte))
-            $message.="<br>- le champ \"Informatique et Libertés\" ne peut être vide";
+            $message.="<br>- le champ \"Informatique et LibertÃ©s\" ne peut Ãªtre vide";
 
          if(isset($format_mois_limite_candidatures))
-            $message.="<br>- le mois délimitant deux années universitaires est manquant ou incorrect";
+            $message.="<br>- le mois dÃ©limitant deux annÃ©es universitaires est manquant ou incorrect";
 
          if(isset($format_max_cand_masse))
             $message.="<br>- le nombre de page maximal par PDF est manquant ou incorrect (nombre attendu : entier positif)";
@@ -562,7 +574,7 @@ CeCILL-B, et que vous en avez accepté les termes.
             $message.="<br>- le nombre de jours entre deux rappels est manquant ou incorrect (nombre attendu : entier positif)";
 
          if(isset($message) && $message!="")
-            message("<strong>Attention</strong> : $message<br><br>Le ou les paramètres concernés par cet avertissement <strong>n'ont pas été enregistrés</strong>.", $__ERREUR);
+            message("<strong>Attention</strong> : $message<br><br>Le ou les paramÃ¨tres concernÃ©s par cet avertissement <strong>n'ont pas Ã©tÃ© enregistrÃ©s</strong>.", $__ERREUR);
 
          if(!isset($succes) && $message=="")
             message("N'oubliez pas de valider le formulaire pour prendre en compte les modifications !", $__INFO);
@@ -580,14 +592,14 @@ CeCILL-B, et que vous en avez accepté les termes.
                      elseif(isset($GLOBALS["__TITRE_HTML"]))
                         $titre_html=$GLOBALS["__TITRE_HTML"];
                      else
-                        $titre_html="ARIA - Précandidatures en ligne";
+                        $titre_html="ARIA - PrÃ©candidatures en ligne";
 
                      if(isset($new_titre_page))
                         $titre_page=$new_titre_page;
                      elseif(isset($GLOBALS["__TITRE_PAGE"]))
                         $titre_page=$GLOBALS["__TITRE_PAGE"];
                      else
-                        $titre_page="Université de ...";
+                        $titre_page="UniversitÃ© de ...";
 
                      if(isset($new_url_candidat))
                         $url_candidat=$new_url_candidat;
@@ -613,14 +625,14 @@ CeCILL-B, et que vous en avez accepté les termes.
 
       <tr>
          <td class='td-complet fond_menu2' colspan='2' style='padding:4px;'>
-            <font class='Texte_menu2'><strong>Paramètres HTTP</strong></font>
+            <font class='Texte_menu2'><strong>ParamÃ¨tres HTTP</strong></font>
          </td>
       </tr>
       <tr>
          <td class='td-gauche fond_menu' style='width:50%; padding:4px; white-space:normal;'>
             <font class='Texte_menu'>
-               <strong>Titre de la fenêtre du navigateur</strong>
-               <br>Texte apparaissant dans la barre de titre de la fenêtre ou de l'onglet lorsque vous vous connectez à l'interface.
+               <strong>Titre de la fenÃªtre du navigateur</strong>
+               <br>Texte apparaissant dans la barre de titre de la fenÃªtre ou de l'onglet lorsque vous vous connectez Ã  l'interface.
             </font>
          </td>
          <td class='td-droite fond_menu' style='width:50%; padding:4px;'>
@@ -632,8 +644,8 @@ CeCILL-B, et que vous en avez accepté les termes.
       <tr>
          <td class='td-gauche fond_menu' style='padding:4px; white-space:normal;'>
             <font class='Texte_menu'>
-               <strong>Titre des pages par défaut</strong>
-               <br>Texte apparaissant dans le bandeau supérieur de l'interface.
+               <strong>Titre des pages par dÃ©faut</strong>
+               <br>Texte apparaissant dans le bandeau supÃ©rieur de l'interface.
             </font>
          </td>
          <td class='td-droite fond_menu' style='padding:4px;'>
@@ -645,8 +657,8 @@ CeCILL-B, et que vous en avez accepté les termes.
       <tr>
          <td class='td-gauche fond_menu' style='padding:4px; white-space:normal;'>
             <font class='Texte_menu'>
-               <strong>Adresse complète de l'interface pour les candidats</strong>
-               <br>Adresse rappelée dans de nombreuses pages et dans certains messages envoyés aux candidats.
+               <strong>Adresse complÃ¨te de l'interface pour les candidats</strong>
+               <br>Adresse rappelÃ©e dans de nombreuses pages et dans certains messages envoyÃ©s aux candidats.
             </font>
          </td>
          <td class='td-droite fond_menu' style='padding:4px;'>
@@ -658,8 +670,8 @@ CeCILL-B, et que vous en avez accepté les termes.
       <tr>
          <td class='td-gauche fond_menu' style='padding:4px; white-space:normal;'>
             <font class='Texte_menu'>
-               <strong>Adresse complète de l'interface pour les gestionnaires</strong>
-               <br>Adresse apparaissant dans certains messages envoyés aux gestionnaires (création d'un accès, notification de messages non lus, etc).
+               <strong>Adresse complÃ¨te de l'interface pour les gestionnaires</strong>
+               <br>Adresse apparaissant dans certains messages envoyÃ©s aux gestionnaires (crÃ©ation d'un accÃ¨s, notification de messages non lus, etc).
             </font>
          </td>
          <td class='td-droite fond_menu' style='padding:4px;'>
@@ -671,8 +683,8 @@ CeCILL-B, et que vous en avez accepté les termes.
       <tr>
          <td class='td-gauche fond_menu' style='padding:4px; white-space:normal;'>
             <font class='Texte_menu'>
-               <strong>Mots clés pour l'indexation de l'interface par certains moteurs de recherche</strong>
-               <br>Ces mots clés (séparés par une virgule) doivent être en rapport avec l'interface et votre université.
+               <strong>Mots clÃ©s pour l'indexation de l'interface par certains moteurs de recherche</strong>
+               <br>Ces mots clÃ©s (sÃ©parÃ©s par une virgule) doivent Ãªtre en rapport avec l'interface et votre universitÃ©.
             </font>
          </td>
          <td class='td-droite fond_menu' style='padding:4px;'>
@@ -786,7 +798,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
       <tr>
          <td class='td-complet fond_menu2' colspan='2' style='padding:4px;'>
-            <font class='Texte_menu2'><strong>Paramètres LDAP</strong></font>
+            <font class='Texte_menu2'><strong>ParamÃ¨tres LDAP</strong></font>
          </td>
       </tr>
       <tr>
@@ -815,12 +827,12 @@ CeCILL-B, et que vous en avez accepté les termes.
                      print("<font class='Texte_important'>Echec</font>\n");
                   else
                   {
-                     print("<font class='Textevert'>Succès</font>\n");
+                     print("<font class='Textevert'>SuccÃ¨s</font>\n");
                      aria_ldap_close($conn_ldap);  
                   }
                }
                else
-                  print("<font class='Texte_menu'><i>LDAP désactivé</font>\n");
+                  print("<font class='Texte_menu'><i>LDAP dÃ©sactivÃ©</font>\n");
             ?>
          </td>
       </tr>
@@ -922,7 +934,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <tr>
          <td class='td-gauche fond_menu' style='padding:4px; white-space:normal;'>
             <font class='Texte_menu'>
-               <strong>Prénom</strong>
+               <strong>PrÃ©nom</strong>
             </font>
          </td>
          <td class='td-droite fond_menu' style='padding:4px;'>
@@ -966,7 +978,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          <td class='td-droite fond_menu' style='padding:4px;'>
             <font class='Texte_menu'>
                <input type='text' name='config[__LDAP_ATTR_MAIL]' value='<?php echo htmlspecialchars(stripslashes($ldap_attr_mail), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size='25' maxlength='128'>
-               <br /><i>Plusieurs attributs possibles, séparés par des virgules</i>
+               <br /><i>Plusieurs attributs possibles, sÃ©parÃ©s par des virgules</i>
             </font>
          </td>
       </tr>
@@ -988,6 +1000,13 @@ CeCILL-B, et que vous en avez accepté les termes.
                      $email_admin=$GLOBALS["__EMAIL_ADMIN"];
                   else
                      $email_admin="adresse@domaine";
+                     
+                  if(isset($new_email_noreply))
+                     $email_noreply=$new_email_noreply;
+                  elseif(isset($GLOBALS["__EMAIL_NOREPLY"]))
+                     $email_noreply=$GLOBALS["__EMAIL_NOREPLY"];
+                  else
+                     $email_noreply="no-reply@domaine";
                   
                   if(isset($new_email_support))
                      $email_support=$new_email_support;
@@ -1001,26 +1020,26 @@ CeCILL-B, et que vous en avez accepté les termes.
                   elseif(isset($GLOBALS["__SIGNATURE_ADMIN"]))
                      $signature_admin=$GLOBALS["__SIGNATURE_ADMIN"];
                   else
-                     $signature_admin="M/Mme/Mlle ... \nAdministrateur Système\nUniversité ...";
+                     $signature_admin="M/Mme/Mlle ... \nAdministrateur SystÃ¨me\nUniversitÃ© ...";
 
                   if(isset($new_signature_courriels))
                      $signature_courriels=$new_signature_courriels;
                   elseif(isset($GLOBALS["__SIGNATURE_COURRIELS"]))
                      $signature_courriels=$GLOBALS["__SIGNATURE_COURRIELS"];
                   else
-                     $signature_courriels="Application Aria\nUniversité ...";
+                     $signature_courriels="Application Aria\nUniversitÃ© ...";
       ?>
 
       <tr>
          <td class='td-complet fond_menu2' colspan='2' style='padding:4px;'>
-            <font class='Texte_menu2'><strong>Paramètres d'administration de l'interface</strong></font>
+            <font class='Texte_menu2'><strong>ParamÃ¨tres d'administration de l'interface</strong></font>
          </td>
       </tr>
       <tr>
          <td class='td-gauche fond_menu' style='width:50%; padding:4px; white-space:normal;'>
             <font class='Texte_menu'>
-               <strong>Civilité, nom et prénom de l'admistrateur principal de l'application</strong>
-               <br>Le nom de l'administrateur peut apparaître dans certains textes informatifs.
+               <strong>CivilitÃ©, nom et prÃ©nom de l'admistrateur principal de l'application</strong>
+               <br>Le nom de l'administrateur peut apparaÃ®tre dans certains textes informatifs.
             </font>
          </td>
          <td class='td-droite fond_menu' style='padding:4px;'>
@@ -1032,8 +1051,8 @@ CeCILL-B, et que vous en avez accepté les termes.
       <tr>
          <td class='td-gauche fond_menu' style='padding:4px; white-space:normal;'>
             <font class='Texte_menu'>
-               <strong>Adresse électronique de l'administrateur</strong>
-               <br>Adresse utilisée pour les rapports d'erreur et les messages de <i>debug</i>.
+               <strong>Adresse Ã©lectronique de l'administrateur</strong>
+               <br>Adresse utilisÃ©e pour les rapports d'erreur et les messages de <i>debug</i>.
             </font>
          </td>
          <td class='td-droite fond_menu' style='padding:4px;'>
@@ -1045,8 +1064,21 @@ CeCILL-B, et que vous en avez accepté les termes.
       <tr>
          <td class='td-gauche fond_menu' style='padding:4px; white-space:normal;'>
             <font class='Texte_menu'>
-               <strong>Adresse électronique du Support informatique</strong>
-               <br>Adresse utilisée par les candidats et les gestionnaires pour les demandes de support.
+               <strong>Adresse Ã©lectronique 'no reply'</strong>
+               <br>Adresse d'expÃ©dition pour les messages automatiques envoyÃ©s aux candidats.
+            </font>
+         </td>
+         <td class='td-droite fond_menu' style='padding:4px;'>
+            <font class='Texte_menu'>
+               <input type='text' name='config[__EMAIL_NOREPLY]' value='<?php echo htmlspecialchars(stripslashes($email_admin), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size='60' maxlength='128'>
+            </font>
+         </td>
+      </tr>
+      <tr>
+         <td class='td-gauche fond_menu' style='padding:4px; white-space:normal;'>
+            <font class='Texte_menu'>
+               <strong>Adresse Ã©lectronique du Support informatique</strong>
+               <br>Adresse utilisÃ©e par les candidats et les gestionnaires pour les demandes de support.
             </font>
          </td>
          <td class='td-droite fond_menu' style='padding:4px;'>
@@ -1059,7 +1091,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          <td class='td-gauche fond_menu' style='padding:4px; white-space:normal;'>
             <font class='Texte_menu'>
                <strong>Signature des messages "administrateur"</strong>
-               <br>Signature utilisée automatiquement dans certains messages envoyés par l'application (ex: création d'un compte utilisateur).
+               <br>Signature utilisÃ©e automatiquement dans certains messages envoyÃ©s par l'application (ex: crÃ©ation d'un compte utilisateur).
             </font>
          </td>
          <td class='td-droite fond_menu' style='padding:4px;'>
@@ -1072,7 +1104,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          <td class='td-gauche fond_menu' style='padding:4px; white-space:normal;'>
             <font class='Texte_menu'>
                <strong>Signature des messages de l'application</strong>
-               <br>Signature utilisée par les messages envoyés automatiquement aux candidats.
+               <br>Signature utilisÃ©e par les messages envoyÃ©s automatiquement aux candidats.
             </font>
          </td>
          <td class='td-droite fond_menu' style='padding:4px;'>
@@ -1097,7 +1129,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                   elseif(isset($GLOBALS["__INFORMATIQUE_ET_LIBERTES"]))
                      $informatique_liberte=$GLOBALS["__INFORMATIQUE_ET_LIBERTES"];
                   else
-                     $informatique_liberte="Les informations vous concernant font l'objet d'un traitement informatique destiné à gérer les précandidatures en ligne. L'unique destinataire des données est l'Université de <VOTRE UNIVERSITE>. Conformément à la loi 'Informatique et Libertés' du 6 janvier 1978, vous bénéficiez d'un droit d'accès et de rectification à ces informations. Si vous souhaitez exercer ce droit et obtenir communication de ces dernières, veuillez vous adresser au Support Informatique (par courriel <a href='mailto:$__EMAIL_SUPPORT?subject=Informatique et Libertés' class='lien_bleu_10'>à cette adresse</a>). Vous pouvez également, pour des motifs légitimes, vous opposer au traitement des données vous concernant.";
+                     $informatique_liberte="Les informations vous concernant font l'objet d'un traitement informatique destinÃ© Ã  gÃ©rer les prÃ©candidatures en ligne. L'unique destinataire des donnÃ©es est l'UniversitÃ© de <VOTRE UNIVERSITE>. ConformÃ©ment Ã  la loi 'Informatique et LibertÃ©s' du 6 janvier 1978, vous bÃ©nÃ©ficiez d'un droit d'accÃ¨s et de rectification Ã  ces informations. Si vous souhaitez exercer ce droit et obtenir communication de ces derniÃ¨res, veuillez vous adresser au Support Informatique (par courriel <a href='mailto:$__EMAIL_SUPPORT?subject=Informatique et LibertÃ©s' class='lien_bleu_10'>Ã  cette adresse</a>). Vous pouvez Ã©galement, pour des motifs lÃ©gitimes, vous opposer au traitement des donnÃ©es vous concernant.";
 
                   if(isset($new_mois_limite_candidatures))
                      $mois_limite_candidatures=$new_mois_limite_candidatures;
@@ -1190,8 +1222,8 @@ CeCILL-B, et que vous en avez accepté les termes.
       <tr>
          <td class='td-gauche fond_menu' style='padding:4px; width:60%; white-space:normal;'>
             <font class='Texte_menu'>
-               <strong>Ville accueillant l'Université</strong>
-               <br>Le nom de la ville apparait dans les courriers générés par l'interface (ex: "Strasbourg, le <?php echo date_fr("j F Y") ?>"
+               <strong>Ville accueillant l'UniversitÃ©</strong>
+               <br>Le nom de la ville apparait dans les courriers gÃ©nÃ©rÃ©s par l'interface (ex: "Strasbourg, le <?php echo date_fr("j F Y") ?>"
             </font>
          </td>
          <td class='td-droite fond_menu' style='padding:4px;'>
@@ -1203,8 +1235,8 @@ CeCILL-B, et que vous en avez accepté les termes.
       <tr>
          <td class='td-gauche fond_menu' style='padding:4px; white-space:normal;'>
             <font class='Texte_menu'>
-               <strong>Texte "Informatique et Libertés"</strong>
-               <br>Texte informant les candidats sur leurs droits concernant les données informatiques.
+               <strong>Texte "Informatique et LibertÃ©s"</strong>
+               <br>Texte informant les candidats sur leurs droits concernant les donnÃ©es informatiques.
             </font>
          </td>
          <td class='td-droite fond_menu' style='padding:4px;'>
@@ -1215,33 +1247,33 @@ CeCILL-B, et que vous en avez accepté les termes.
       </tr>
       <tr>
          <td class='td-complet fond_menu2' colspan='2' style='padding:4px;'>
-            <font class='Texte_menu2'><strong>Création d'une composante : paramètres par défaut</strong></font>
+            <font class='Texte_menu2'><strong>CrÃ©ation d'une composante : paramÃ¨tres par dÃ©faut</strong></font>
          </td>
       </tr>
       <tr>
          <td class='td-gauche fond_menu' style='padding:4px; white-space:normal;'>
             <font class='Texte_menu'>
-               <strong>Décisions par défaut</strong>
-               <br>Détermine si les décisions (admis, refus, ...) par défaut doivent être rattachées lors de la création d'une composante. Si elles ne sont pas rattachées,
-               elles devront être sélectionnées individuellement via le menu "Décisions Utilisées".
+               <strong>DÃ©cisions par dÃ©faut</strong>
+               <br>DÃ©termine si les dÃ©cisions (admis, refus, ...) par dÃ©faut doivent Ãªtre rattachÃ©es lors de la crÃ©ation d'une composante. Si elles ne sont pas rattachÃ©es,
+               elles devront Ãªtre sÃ©lectionnÃ©es individuellement via le menu "DÃ©cisions UtilisÃ©es".
             </font>
          </td>
          <td class='td-droite fond_menu' style='padding:4px;'>
-            <input type='radio' name='config[__DEFAUT_DECISIONS]' value='t' <?php echo $dd_yes; ?> style='vertical-align:middle; margin:0px 8px 0px 0px;'><font class='Texte_menu'>Rattacher les décisions</font>
-            <br><input type='radio' name='config[__DEFAUT_DECISIONS]' value='f' <?php echo $dd_no; ?> style='vertical-align:middle; margin:0px 8px 0px 0px;'><font class='Texte_menu'>Ne pas rattacher les décisions</font>
+            <input type='radio' name='config[__DEFAUT_DECISIONS]' value='t' <?php echo $dd_yes; ?> style='vertical-align:middle; margin:0px 8px 0px 0px;'><font class='Texte_menu'>Rattacher les dÃ©cisions</font>
+            <br><input type='radio' name='config[__DEFAUT_DECISIONS]' value='f' <?php echo $dd_no; ?> style='vertical-align:middle; margin:0px 8px 0px 0px;'><font class='Texte_menu'>Ne pas rattacher les dÃ©cisions</font>
          </td>
       </tr>
       <tr>
          <td class='td-gauche fond_menu' style='padding:4px; white-space:normal;'>
             <font class='Texte_menu'>
-               <strong>Gestion des motifs de refus prédéfinis</strong>
-               <br>Détermine si les motifs par défaut doivent être rattachés lors de la création d'une composante. Si les motifs ne sont pas
-               rattachés, ils devront être créés via le menu "Motifs de refus ou de mises en attente".
+               <strong>Gestion des motifs de refus prÃ©dÃ©finis</strong>
+               <br>DÃ©termine si les motifs par dÃ©faut doivent Ãªtre rattachÃ©s lors de la crÃ©ation d'une composante. Si les motifs ne sont pas
+               rattachÃ©s, ils devront Ãªtre crÃ©Ã©s via le menu "Motifs de refus ou de mises en attente".
             </font>
          </td>
          <td class='td-droite fond_menu' style='padding:4px;'>
-            <input type='radio' name='config[__DEFAUT_MOTIFS]' value='t' <?php echo $dm_yes; ?> style='vertical-align:middle; margin:0px 8px 0px 0px;'><font class='Texte_menu'>Rattacher les motifs prédéfinis</font>
-            <br><input type='radio' name='config[__DEFAUT_MOTIFS]' value='f' <?php echo $dm_no; ?> style='vertical-align:middle; margin:0px 8px 0px 0px;'><font class='Texte_menu'>Ne pas rattacher les motifs prédéfinis</font>
+            <input type='radio' name='config[__DEFAUT_MOTIFS]' value='t' <?php echo $dm_yes; ?> style='vertical-align:middle; margin:0px 8px 0px 0px;'><font class='Texte_menu'>Rattacher les motifs prÃ©dÃ©finis</font>
+            <br><input type='radio' name='config[__DEFAUT_MOTIFS]' value='f' <?php echo $dm_no; ?> style='vertical-align:middle; margin:0px 8px 0px 0px;'><font class='Texte_menu'>Ne pas rattacher les motifs prÃ©dÃ©finis</font>
          </td>
       </tr>
       <tr>
@@ -1253,38 +1285,38 @@ CeCILL-B, et que vous en avez accepté les termes.
          <td class='td-gauche fond_menu' style='padding:4px; white-space:normal;'>
             <font class='Texte_menu'>
                <strong>Formulaire d'assistance aux candidats</strong>
-               <br>Sur la partie candidat, le pied de page peut donner accès à un formulaire d'aide incluant divers conseils et procédures automatisées.
-               <br>Si le formulaire est désactivé, le pied de page redirigera vers l'adresse électronique de l'administrateur.
+               <br>Sur la partie candidat, le pied de page peut donner accÃ¨s Ã  un formulaire d'aide incluant divers conseils et procÃ©dures automatisÃ©es.
+               <br>Si le formulaire est dÃ©sactivÃ©, le pied de page redirigera vers l'adresse Ã©lectronique de l'administrateur.
             </font>
          </td>
          <td class='td-droite fond_menu' style='padding:4px;'>
             <input type='radio' name='config[__ASSISTANCE]' value='t' <?php echo $assistance_yes; ?> style='vertical-align:middle; margin:0px 8px 0px 0px;'><font class='Texte_menu'>Activer l'assistance</font>
-            <br><input type='radio' name='config[__ASSISTANCE]' value='f' <?php echo $assistance_no; ?> style='vertical-align:middle; margin:0px 8px 0px 0px;'><font class='Texte_menu'>Désactiver l'assistance</font>
+            <br><input type='radio' name='config[__ASSISTANCE]' value='f' <?php echo $assistance_no; ?> style='vertical-align:middle; margin:0px 8px 0px 0px;'><font class='Texte_menu'>DÃ©sactiver l'assistance</font>
          </td>
       </tr>
       <tr>
          <td class='td-gauche fond_menu' style='padding:4px; white-space:normal;'>
             <font class='Texte_menu'>
-               <strong>Mois délimitant deux années universitaires</strong>
-               <br>Une fois la limite atteinte (1er jour du mois choisi), l'interface sélectionne automatiquement l'année universitaire suivante.
-               <br>Si des sessions sont encore ouvertes pour l'année en cours, elles seront toujours disponibles jusqu'à leur fermeture
+               <strong>Mois dÃ©limitant deux annÃ©es universitaires</strong>
+               <br>Une fois la limite atteinte (1er jour du mois choisi), l'interface sÃ©lectionne automatiquement l'annÃ©e universitaire suivante.
+               <br>Si des sessions sont encore ouvertes pour l'annÃ©e en cours, elles seront toujours disponibles jusqu'Ã  leur fermeture
             </font>
          </td>
          <td class='td-droite fond_menu' style='padding:4px;'>
             <font class='Texte_menu'>
                <select name='config[__MOIS_LIMITE_CANDIDATURE]'>
                   <option value='01' <?php if($mois_limite_candidatures=="01") echo "selected"; ?>>Janvier</option>
-                  <option value='02' <?php if($mois_limite_candidatures=="02") echo "selected"; ?>>Février</option>
+                  <option value='02' <?php if($mois_limite_candidatures=="02") echo "selected"; ?>>FÃ©vrier</option>
                   <option value='03' <?php if($mois_limite_candidatures=="03") echo "selected"; ?>>Mars</option>
                   <option value='04' <?php if($mois_limite_candidatures=="04") echo "selected"; ?>>Avril</option>
                   <option value='05' <?php if($mois_limite_candidatures=="05") echo "selected"; ?>>Mai</option>
                   <option value='06' <?php if($mois_limite_candidatures=="06") echo "selected"; ?>>Juin</option>
                   <option value='07' <?php if($mois_limite_candidatures=="07") echo "selected"; ?>>Juillet</option>
-                  <option value='08' <?php if($mois_limite_candidatures=="08") echo "selected"; ?>>Août</option>
+                  <option value='08' <?php if($mois_limite_candidatures=="08") echo "selected"; ?>>AoÃ»t</option>
                   <option value='09' <?php if($mois_limite_candidatures=="09") echo "selected"; ?>>Septembre</option>
                   <option value='10' <?php if($mois_limite_candidatures=="10") echo "selected"; ?>>Octobre</option>
                   <option value='11' <?php if($mois_limite_candidatures=="11") echo "selected"; ?>>Novembre</option>
-                  <option value='12' <?php if($mois_limite_candidatures=="12") echo "selected"; ?>>Décembre</option>
+                  <option value='12' <?php if($mois_limite_candidatures=="12") echo "selected"; ?>>DÃ©cembre</option>
                </select>
             </font>
          </td>
@@ -1293,7 +1325,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          <td class='td-gauche fond_menu' style='padding:4px; white-space:normal;'>
             <font class='Texte_menu'>
                <strong>Gestion de masse : nombre de pages maximum dans les PDF</strong>
-               <br>Si le nombre de pages dépasse cette limite, le document PDF sera scindé en plusieurs parties.
+               <br>Si le nombre de pages dÃ©passe cette limite, le document PDF sera scindÃ© en plusieurs parties.
             </font>
          </td>
          <td class='td-droite fond_menu' style='padding:4px;'>
@@ -1305,9 +1337,9 @@ CeCILL-B, et que vous en avez accepté les termes.
       <tr>
          <td class='td-gauche fond_menu' style='padding:4px; white-space:normal;'>
             <font class='Texte_menu'>
-               <strong>Nombre de rappels automatiques pour une fiche incomplète</strong>
-               <br>Lorsque des "Renseignements complémentaires" (ajoutés via le constructeur de dossiers) obligatoires ne sont pas complétés par un candidat, la formation
-               n'est pas verrouillée sur sa fiche à la date prévue et un rappel lui est envoyé via la messagerie. Ce paramètre détermine le nombre de rappels maximum à
+               <strong>Nombre de rappels automatiques pour une fiche incomplÃ¨te</strong>
+               <br>Lorsque des "Renseignements complÃ©mentaires" (ajoutÃ©s via le constructeur de dossiers) obligatoires ne sont pas complÃ©tÃ©s par un candidat, la formation
+               n'est pas verrouillÃ©e sur sa fiche Ã  la date prÃ©vue et un rappel lui est envoyÃ© via la messagerie. Ce paramÃ¨tre dÃ©termine le nombre de rappels maximum Ã 
                envoyer.
             </font>
          </td>
@@ -1321,8 +1353,8 @@ CeCILL-B, et que vous en avez accepté les termes.
          <td class='td-gauche fond_menu' style='padding:4px; white-space:normal;'>
             <font class='Texte_menu'>
                <strong>Nombre de jours entre deux rappels</strong>
-               <br>Lorsqu'un rappel est envoyé, la date de verrouillage de la formation est repoussée sur la fiche du candidat. Ce paramètre détermine le nombre de jours
-               à ajouter à la date de verrouillage prévue entre chaque rappel.
+               <br>Lorsqu'un rappel est envoyÃ©, la date de verrouillage de la formation est repoussÃ©e sur la fiche du candidat. Ce paramÃ¨tre dÃ©termine le nombre de jours
+               Ã  ajouter Ã  la date de verrouillage prÃ©vue entre chaque rappel.
             </font>
          </td>
          <td class='td-droite fond_menu' style='padding:4px;'>
@@ -1459,12 +1491,12 @@ CeCILL-B, et que vous en avez accepté les termes.
 
       <tr>
          <td class='td-complet fond_menu2' colspan='2' style='padding:4px;'>
-            <font class='Texte_menu2'><strong>Courriels d'erreur envoyés à l'administrateur</strong></font>
+            <font class='Texte_menu2'><strong>Courriels d'erreur envoyÃ©s Ã  l'administrateur</strong></font>
          </td>
       </tr>
       <tr>
          <td class='td-gauche fond_menu' style='padding:4px; width:50%; white-space:normal;'>
-            <font class='Texte_menu'><strong>Préfixe des courriels d'erreurs</strong></font>
+            <font class='Texte_menu'><strong>PrÃ©fixe des courriels d'erreurs</strong></font>
          </td>
          <td class='td-droite fond_menu' style='padding:4px;'>
             <font class='Texte_menu'>
@@ -1475,14 +1507,14 @@ CeCILL-B, et que vous en avez accepté les termes.
       <tr>
          <td class='td-complet fond_menu2' colspan='2' style='padding:4px;'>
             <font class='Texte_menu2'>
-               <strong>Courriels de contrôle envoyés à l'administrateur (<i>debug</i>)</strong>
-               <br><strong>Attention :</strong> l'activation de ces paramètres peut générer de nombreux messages !
+               <strong>Courriels de contrÃ´le envoyÃ©s Ã  l'administrateur (<i>debug</i>)</strong>
+               <br><strong>Attention :</strong> l'activation de ces paramÃ¨tres peut gÃ©nÃ©rer de nombreux messages !
             </font>
          </td>
       </tr>
       <tr>
          <td class='td-gauche fond_menu' style='padding:4px; white-space:normal;'>
-            <font class='Texte_menu'><strong>Préfixe des courriels de contrôle</strong></font>
+            <font class='Texte_menu'><strong>PrÃ©fixe des courriels de contrÃ´le</strong></font>
          </td>
          <td class='td-droite fond_menu' style='padding:4px;'>
             <font class='Texte_menu'>
@@ -1493,73 +1525,73 @@ CeCILL-B, et que vous en avez accepté les termes.
       <tr>
          <td class='td-gauche fond_menu' style='padding:4px; white-space:normal;'>
             <font class='Texte_menu'>
-               <strong>Activation globale des courriels de contrôle</strong>
-               <br>Ce paramètre détermine si des courriels sont envoyés à l'administrateur (erreurs, avertissements, informations diverses, ...).
+               <strong>Activation globale des courriels de contrÃ´le</strong>
+               <br>Ce paramÃ¨tre dÃ©termine si des courriels sont envoyÃ©s Ã  l'administrateur (erreurs, avertissements, informations diverses, ...).
             </font>
          </td>
          <td class='td-droite fond_menu' style='padding:4px;'>
             <input type='radio' name='config[__DEBUG]' value='t' <?php echo $debug_yes; ?> style='vertical-align:middle; margin:0px 8px 0px 0px;'><font class='Texte_menu'>Activer</font>
-            <br><input type='radio' name='config[__DEBUG]' value='f' <?php echo $debug_no; ?> style='vertical-align:middle; margin:0px 8px 0px 0px;'><font class='Texte_menu'>Désactiver</font>
+            <br><input type='radio' name='config[__DEBUG]' value='f' <?php echo $debug_no; ?> style='vertical-align:middle; margin:0px 8px 0px 0px;'><font class='Texte_menu'>DÃ©sactiver</font>
          </td>
       </tr>
       <tr>
          <td class='td-gauche fond_menu' style='padding:4px; white-space:normal;'>
             <font class='Texte_menu'>
                <strong>Demande de renvoi des identifiants</strong>
-               <br>Si ce paramètre est activé, un courriel est envoyé à l'administrateur lorsqu'un candidat demande le rappel de ses identifiants.
+               <br>Si ce paramÃ¨tre est activÃ©, un courriel est envoyÃ© Ã  l'administrateur lorsqu'un candidat demande le rappel de ses identifiants.
             </font>
          </td>
          <td class='td-droite fond_menu' style='padding:4px;'>
             <input type='radio' name='config[__DEBUG_RAPPEL_IDENTIFIANTS]' value='t' <?php echo $debug_id_yes; ?>  style='vertical-align:middle; margin:0px 8px 0px 0px;'><font class='Texte_menu'>Activer</font>
-            <br><input type='radio' name='config[__DEBUG_RAPPEL_IDENTIFIANTS]' value='f' <?php echo $debug_id_no; ?> style='vertical-align:middle; margin:0px 8px 0px 0px;'><font class='Texte_menu'>Désactiver</font>
+            <br><input type='radio' name='config[__DEBUG_RAPPEL_IDENTIFIANTS]' value='f' <?php echo $debug_id_no; ?> style='vertical-align:middle; margin:0px 8px 0px 0px;'><font class='Texte_menu'>DÃ©sactiver</font>
          </td>
       </tr>
       <tr>
          <td class='td-gauche fond_menu' style='padding:4px; white-space:normal;'>
             <font class='Texte_menu'>
                <strong>Statut du cursus</strong>
-               <br>Si ce paramètre est activé, un courriel est envoyé à l'administrateur lorsqu'un gestionnaire modifie le statut du cursus d'un candidat.
+               <br>Si ce paramÃ¨tre est activÃ©, un courriel est envoyÃ© Ã  l'administrateur lorsqu'un gestionnaire modifie le statut du cursus d'un candidat.
             </font>
          </td>
          <td class='td-droite fond_menu' style='padding:4px;'>
             <input type='radio' name='config[__DEBUG_CURSUS]' value='t' <?php echo $debug_cursus_yes; ?> style='vertical-align:middle; margin:0px 8px 0px 0px;'><font class='Texte_menu'>Activer</font>
-            <br><input type='radio' name='config[__DEBUG_CURSUS]' value='f' <?php echo $debug_cursus_no; ?> style='vertical-align:middle; margin:0px 8px 0px 0px;'><font class='Texte_menu'>Désactiver</font>
+            <br><input type='radio' name='config[__DEBUG_CURSUS]' value='f' <?php echo $debug_cursus_no; ?> style='vertical-align:middle; margin:0px 8px 0px 0px;'><font class='Texte_menu'>DÃ©sactiver</font>
          </td>
       </tr>
       <tr>
          <td class='td-gauche fond_menu' style='padding:4px; white-space:normal;'>
             <font class='Texte_menu'>
                <strong>Statut des candidatures</strong>
-               <br>Si ce paramètre est activé, un courriel est envoyé à l'administrateur lorsqu'un gestionnaire modifie le statut d'une précandidature.
+               <br>Si ce paramÃ¨tre est activÃ©, un courriel est envoyÃ© Ã  l'administrateur lorsqu'un gestionnaire modifie le statut d'une prÃ©candidature.
             </font>
          </td>
          <td class='td-droite fond_menu' style='padding:4px;'>
             <input type='radio' name='config[__DEBUG_STATUT_PREC]' value='t' <?php echo $debug_prec_yes; ?> style='vertical-align:middle; margin:0px 8px 0px 0px;'><font class='Texte_menu'>Activer</font>
-            <br><input type='radio' name='config[__DEBUG_STATUT_PREC]' value='f' <?php echo $debug_prec_no; ?> style='vertical-align:middle; margin:0px 8px 0px 0px;'><font class='Texte_menu'>Désactiver</font>
+            <br><input type='radio' name='config[__DEBUG_STATUT_PREC]' value='f' <?php echo $debug_prec_no; ?> style='vertical-align:middle; margin:0px 8px 0px 0px;'><font class='Texte_menu'>DÃ©sactiver</font>
          </td>
       </tr>
       <tr>
          <td class='td-gauche fond_menu' style='padding:4px; white-space:normal;'>
             <font class='Texte_menu'>
                <strong>Enregistrement</strong>
-               <br>Si ce paramètre est activé, un courriel est envoyé à l'administrateur lorsqu'un candidat s'enregistre sur l'interface.
+               <br>Si ce paramÃ¨tre est activÃ©, un courriel est envoyÃ© Ã  l'administrateur lorsqu'un candidat s'enregistre sur l'interface.
             </font>
          </td>
          <td class='td-droite fond_menu' style='padding:4px;'>
             <input type='radio' name='config[__DEBUG_ENREGISTREMENT]' value='t' <?php echo $debug_reg_yes; ?> style='vertical-align:middle; margin:0px 8px 0px 0px;'><font class='Texte_menu'>Activer</font>
-            <br><input type='radio' name='config[__DEBUG_ENREGISTREMENT]' value='f' <?php echo $debug_reg_no; ?> style='vertical-align:middle; margin:0px 8px 0px 0px;'><font class='Texte_menu'>Désactiver</font>
+            <br><input type='radio' name='config[__DEBUG_ENREGISTREMENT]' value='f' <?php echo $debug_reg_no; ?> style='vertical-align:middle; margin:0px 8px 0px 0px;'><font class='Texte_menu'>DÃ©sactiver</font>
          </td>
       </tr>
       <tr>
          <td class='td-gauche fond_menu' style='padding:4px; white-space:normal;'>
             <font class='Texte_menu'>
                <strong>Verrouillage des formations</strong>
-               <br>Si ce paramètre est activé, un message interne est envoyé à l'administrateur lorsque le voeu d'un candidat est verrouillé.
+               <br>Si ce paramÃ¨tre est activÃ©, un message interne est envoyÃ© Ã  l'administrateur lorsque le voeu d'un candidat est verrouillÃ©.
             </font>
          </td>
          <td class='td-droite fond_menu' style='padding:4px;'>
             <input type='radio' name='config[__DEBUG_LOCK]' value='t' <?php echo $debug_lock_yes; ?> style='vertical-align:middle; margin:0px 8px 0px 0px;'><font class='Texte_menu'>Activer</font>
-            <br><input type='radio' name='config[__DEBUG_LOCK]' value='f' <?php echo $debug_lock_no; ?> style='vertical-align:middle; margin:0px 8px 0px 0px;'><font class='Texte_menu'>Désactiver</font>
+            <br><input type='radio' name='config[__DEBUG_LOCK]' value='f' <?php echo $debug_lock_no; ?> style='vertical-align:middle; margin:0px 8px 0px 0px;'><font class='Texte_menu'>DÃ©sactiver</font>
          </td>
       </tr>
       <?php

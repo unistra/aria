@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -64,7 +64,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 	$dbr=db_connect();
 
-	// Déverrouillage, au cas où
+	// DÃ©verrouillage, au cas oÃ¹
 	if(isset($_SESSION["candidat_id"]))
 		cand_unlock($dbr, $_SESSION["candidat_id"]);
 
@@ -76,7 +76,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	// Afficher les fiches orphelines ?
 	$orphelines=(isset($_GET["orph"]) && $_GET["orph"]==1) ? "1" : "0";
 
-	// Tri par défaut : nom
+	// Tri par dÃ©faut : nom
 	if(!isset($_SESSION["tri"]))
 		$_SESSION["tri"]=1;
 
@@ -87,7 +87,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		{
 			$_SESSION["filtre_propspec"]=$_POST["filiere"];
 
-			if(isset($_POST["defaut"]) || isset($_POST["defaut_x"])) // on conserve la valeur par défaut dans la base annuaire
+			if(isset($_POST["defaut"]) || isset($_POST["defaut_x"])) // on conserve la valeur par dÃ©faut dans la base annuaire
 			{
 				$_SESSION["spec_filtre_defaut"]=$_SESSION["filtre_propspec"];
 
@@ -96,7 +96,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		}
 	}
 
-	// Filtre par défaut, si aucun filtre n'a encore été sélectionné
+	// Filtre par dÃ©faut, si aucun filtre n'a encore Ã©tÃ© sÃ©lectionnÃ©
 	if(!isset($_SESSION["filtre_propspec"]) && isset($_SESSION['spec_filtre_defaut']))
 		$_SESSION["filtre_propspec"]=$_SESSION['spec_filtre_defaut'];
 
@@ -106,7 +106,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		$_SESSION["filtre_annee"]=$_SESSION["filtre_spec"]=-1;
 */
 
-	// Nettoyage de variables utilisées ailleurs
+	// Nettoyage de variables utilisÃ©es ailleurs
 	unset($_SESSION["cursus_a_valider"]);
 	unset($_SESSION["cursus_transfert"]);
 	unset($_SESSION["candidatures_transfert"]);
@@ -114,7 +114,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	unset($_SESSION["tab_candidatures"]);
 	// unset($_SESSION["tab_candidat"]);
 
-	$_SESSION["onglet"]=1; // onglet par défaut : identité du candidat
+	$_SESSION["onglet"]=1; // onglet par dÃ©faut : identitÃ© du candidat
 
 	// EN-TETE
 	en_tete_gestion();
@@ -125,18 +125,18 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 <div class='main' style='padding-left:4px; padding-right:4px;'>
 	<?php
-		titre_page_icone("Intégralité des fiches candidats ($__PERIODE - ".($__PERIODE+1).")", "system-file-manager_32x32_fond.png", 10, "L");
+		titre_page_icone("IntÃ©gralitÃ© des fiches candidats ($__PERIODE - ".($__PERIODE+1).")", "system-file-manager_32x32_fond.png", 10, "L");
 
-		message("Cette liste contient également les fiches non verrouillées (fiches en <b>lecture seule</b> pour la scolarité).
-					<br><b>Rappel</b> : vous pouvez consulter une fiche non verrouillée, mais vous ne pourrez pas la modifier.",$__INFO);
+		message("Cette liste contient Ã©galement les fiches non verrouillÃ©es (fiches en <b>lecture seule</b> pour la scolaritÃ©).
+					<br><b>Rappel</b> : vous pouvez consulter une fiche non verrouillÃ©e, mais vous ne pourrez pas la modifier.",$__INFO);
 
 	?>
 
 	<font class='Texte'>
 	<b>Trier les fiches : </b></font>
 	<?php
-		// Méthode de tri
-		// Attention : le tri par date n'est valide que si le filtre est activé, car ça n'a pas de sens sinon
+		// MÃ©thode de tri
+		// Attention : le tri par date n'est valide que si le filtre est activÃ©, car Ã§a n'a pas de sens sinon
 		// => on force alors le tri par nom si besoin
 
 		if($_SESSION["tri"]==0 && ($_SESSION["filtre_propspec"]==-1 || $orphelines==1))
@@ -146,7 +146,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		{
 			case 0:	print("<font class='Texte'><b>par date</b></font>&nbsp;&nbsp;<a href='$php_self?t=1' class='lien_bleu'><b>par nom</b></a>");
 						$ordre_tri="date";
-						$order_by="$_DBC_cand_id"; // l'identifiant d'une candidature est un timestamp = date à laquelle la candidature a été entrée
+						$order_by="$_DBC_cand_id"; // l'identifiant d'une candidature est un timestamp = date Ã  laquelle la candidature a Ã©tÃ© entrÃ©e
 						break;
 
 			case 1:	if($_SESSION["filtre_propspec"]!=-1)
@@ -158,14 +158,14 @@ CeCILL-B, et que vous en avez accepté les termes.
 						$order_by="$_DBU_candidat_nom, $_DBU_candidat_prenom, $_DBU_candidat_date_naissance";
 						break;
 /*
-			case 2:	print("<a href='$php_self?t=0' class='lien_bleu'><b>par date</b></a>&nbsp;&nbsp;<a href='$php_self?t=1' class='lien_bleu'><b>par nom</b></a>&nbsp;&nbsp;<font class='Texte'><b>par formation</b></font>&nbsp;&nbsp;<a href='$php_self?t=3' class='lien_bleu'><b>par moyenne du dernier diplôme</b></a>");
+			case 2:	print("<a href='$php_self?t=0' class='lien_bleu'><b>par date</b></a>&nbsp;&nbsp;<a href='$php_self?t=1' class='lien_bleu'><b>par nom</b></a>&nbsp;&nbsp;<font class='Texte'><b>par formation</b></font>&nbsp;&nbsp;<a href='$php_self?t=3' class='lien_bleu'><b>par moyenne du dernier diplÃ´me</b></a>");
 						$ordre_tri="formation";
 						$order_by="$_DBC_annees_ordre, $_DBC_propspec_id_spec, $_DBC_cand_id";
 						break;
 
-			case 3:	print("<a href='$php_self?t=0' class='lien_bleu'><b>par date</b></a>&nbsp;&nbsp;<a href='$php_self?t=1' class='lien_bleu'><b>par nom</b></a>&nbsp;&nbsp;<a href='$php_self?t=2' class='lien_bleu'><b>par formation</b></a>&nbsp;&nbsp;<font class='Texte'><b>par moyenne du dernier diplôme</b></font>");
+			case 3:	print("<a href='$php_self?t=0' class='lien_bleu'><b>par date</b></a>&nbsp;&nbsp;<a href='$php_self?t=1' class='lien_bleu'><b>par nom</b></a>&nbsp;&nbsp;<a href='$php_self?t=2' class='lien_bleu'><b>par formation</b></a>&nbsp;&nbsp;<font class='Texte'><b>par moyenne du dernier diplÃ´me</b></font>");
 						$ordre_tri="note moyenne";
-						// cas particulier : le tri ne se fait pas dans la table Candidats (mais on doit quand même mettre l'ordre ici)
+						// cas particulier : le tri ne se fait pas dans la table Candidats (mais on doit quand mÃªme mettre l'ordre ici)
 						$order_by="$_DBC_cand_id";
 						break;
 */
@@ -179,20 +179,20 @@ CeCILL-B, et que vous en avez accepté les termes.
 						break;
 		}
 
-		print("<br><font class='Texte_10'><i>Le tri par date de dépôt n'est possible que lorsqu'un filtre sur une formation est activé.</i>");
+		print("<br><font class='Texte_10'><i>Le tri par date de dÃ©pÃ´t n'est possible que lorsqu'un filtre sur une formation est activÃ©.</i>");
 
 		// Filtre
 		if($_SESSION["filtre_propspec"]!=-1)
 		{
 			// $filtre="AND $_DBC_propspec_id='$_SESSION[filtre_propspec]'";
 			$filtre="AND $_DBC_cand_propspec_id='$_SESSION[filtre_propspec]'";
-			$filtre_statut="<font class='Texte_important'><b>(filtre activé)</b></font>";
+			$filtre_statut="<font class='Texte_important'><b>(filtre activÃ©)</b></font>";
 		}
 		else
 		{
 			// $filtre="AND $_DBC_cand_propspec_id LIKE '$_SESSION[comp_id]%'";
 			$filtre="";
-			$filtre_statut="<font class='Textevert'><b>(filtre désactivé)</b></font>";
+			$filtre_statut="<font class='Textevert'><b>(filtre dÃ©sactivÃ©)</b></font>";
 		}
 	?>
 	<form action='<?php echo $php_self; ?>' method='POST' name='form1'>
@@ -218,9 +218,9 @@ CeCILL-B, et que vous en avez accepté les termes.
 											ORDER BY $_DBC_annees_ordre, $_DBC_specs_nom");
 			$rows=db_num_rows($result);
 
-			$prev_annee="--"; // variable initialisée à n'importe quoi
+			$prev_annee="--"; // variable initialisÃ©e Ã  n'importe quoi
 
-			// TODO : revoir l'utilisation de la table annee (intégration de annees.id dans proprietes_specialites_v2, par exemple) et répercuter les changements ici ?
+			// TODO : revoir l'utilisation de la table annee (intÃ©gration de annees.id dans proprietes_specialites_v2, par exemple) et rÃ©percuter les changements ici ?
 			for($i=0; $i<$rows; $i++)
 			{
 				list($propspec_id, $annee, $nom,$finalite, $manuelle)=db_fetch_row($result,$i);
@@ -231,7 +231,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 						print("</optgroup>\n");
 
 					if(empty($annee))
-						print("<optgroup label='Années particulières'>\n");
+						print("<optgroup label='AnnÃ©es particuliÃ¨res'>\n");
 					else
 						print("<optgroup label='$annee'>\n");
 
@@ -249,13 +249,13 @@ CeCILL-B, et que vous en avez accepté les termes.
 			db_free_result($result);
 		?>
 	</select>
-	&nbsp;&nbsp;<input type='submit' name='valider' value='Valider'>&nbsp;&nbsp;<input type='submit' name='defaut' value='Configurer ce filtre par défaut'>&nbsp;&nbsp;&nbsp;<?php print("$filtre_statut"); ?>
-	<br><font class='Texte_10'><i>Seules les formations pour lesquelles des candidatures ont été déposées sont proposées.</i>
+	&nbsp;&nbsp;<input type='submit' name='valider' value='Valider'>&nbsp;&nbsp;<input type='submit' name='defaut' value='Configurer ce filtre par dÃ©faut'>&nbsp;&nbsp;&nbsp;<?php print("$filtre_statut"); ?>
+	<br><font class='Texte_10'><i>Seules les formations pour lesquelles des candidatures ont Ã©tÃ© dÃ©posÃ©es sont proposÃ©es.</i>
 	</form>
 
 	<br>
 	<?php
-		// jeux de couleurs obsolètes : à nettoyer
+		// jeux de couleurs obsolÃ¨tes : Ã  nettoyer
 		$fond1="fond_menu";
 		$Texte_important_1='Texte_important_menu';
 		$Textevert1='Textevert_menu';
@@ -273,13 +273,13 @@ CeCILL-B, et que vous en avez accepté les termes.
 		if(substr($annee_orph, 0,1)=="0")
 			$annee_orph=substr($annee_orph, 1,1);
 
-		// Nombre de fiches sans précandidatures
+		// Nombre de fiches sans prÃ©candidatures
 /*		
 		$result=db_query($dbr,"SELECT count(*) FROM $_DB_candidat
 										WHERE $_DBC_candidat_id LIKE '$annee_orph%'
 										AND $_DBC_candidat_id NOT IN (SELECT distinct($_DBC_cand_candidat_id) FROM $_DB_cand)");
 
-		// même si count(*) vaut 0, la requête va renvoyer un résultat (vide)
+		// mÃªme si count(*) vaut 0, la requÃªte va renvoyer un rÃ©sultat (vide)
 		list($nb_fiches_vides)=db_fetch_row($result,0);
 		
 		
@@ -305,23 +305,23 @@ CeCILL-B, et que vous en avez accepté les termes.
 		else
 		{
 			$condition_orph="";
-			$lien="MONTRER également ces fiches orphelines";
+			$lien="MONTRER Ã©galement ces fiches orphelines";
 			$orph=1;
 		}
 
 		if($nb_fiches_vides != "" && $nb_fiches_vides!=0 && $_SESSION["filtre_propspec"]==-1)
 			print("<center>
-							<font class='Texte'>Remarque : il y a $nb_fiches_vides fiches sans aucune précandidature.</font>
+							<font class='Texte'>Remarque : il y a $nb_fiches_vides fiches sans aucune prÃ©candidature.</font>
 							<a href='$php_self?orph=$orph' class='lien_bleu_12'><b>$lien</b></a>
 							<br><br>
 						</center>");
 
 		db_free_result($result);
 */
-		// TEST : condition vide forcée pour éviter de modifier la requête
+		// TEST : condition vide forcÃ©e pour Ã©viter de modifier la requÃªte
 		$condition_orph="";
 
-		// Récupération de tous les candidats en fonction du filtre sélectionné + les fiches sans voeu si le paramètre "orph" est là
+		// RÃ©cupÃ©ration de tous les candidats en fonction du filtre sÃ©lectionnÃ© + les fiches sans voeu si le paramÃ¨tre "orph" est lÃ 
 		if($_SESSION["filtre_propspec"]==-1)
 		{
 			$result=db_query($dbr,"(SELECT $_DBC_candidat_id, $_DBC_candidat_civilite, $_DBC_candidat_nom, $_DBC_candidat_prenom,
@@ -385,7 +385,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			else
 				$td_titre_date="";
 
-			print("<font class='Texte3'><b>$filtre_txt $rows fiches (tri par nom, prénom et date de naissance) : </b></font><br><br>
+			print("<font class='Texte3'><b>$filtre_txt $rows fiches (tri par nom, prÃ©nom et date de naissance) : </b></font><br><br>
 						<table width='100%' border='0' cellspacing='0' cellpadding='4'>
 						<tr>
 							$td_titre_date
@@ -436,7 +436,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 					$s2=$nb_lock>1 ? "s" : "";
 					$x2=$nb_lock>1 ? "x" : "";
 
-					$lock_txt="<font class='$Textevert1'>$nb_lock voeu$x2 traitable$s2 par la scolarité</font>";
+					$lock_txt="<font class='$Textevert1'>$nb_lock voeu$x2 traitable$s2 par la scolaritÃ©</font>";
 				}
 
 				if($nb_unlock)
@@ -447,13 +447,13 @@ CeCILL-B, et que vous en avez accepté les termes.
 					$s2=$nb_unlock>1 ? "s" : "";
 					$x2=$nb_unlock>1 ? "x" : "";
 
-					$lock_txt.="<font class='$Texte_important_1'>$nb_unlock voeu$x2 non traitable$s2 par la scolarité</font>";
+					$lock_txt.="<font class='$Texte_important_1'>$nb_unlock voeu$x2 non traitable$s2 par la scolaritÃ©</font>";
 				}
 
 
 				if($fiche_manuelle)
 					$td_manuelle="<td class='$fond1' align='center' width='22'>
-											<img src='$__ICON_DIR/$icone_manuelle1' alt='Fiche manuelle' desc='Fiche créée manuellement' border='0'>
+											<img src='$__ICON_DIR/$icone_manuelle1' alt='Fiche manuelle' desc='Fiche crÃ©Ã©e manuellement' border='0'>
 										</td>\n";
 				else
 					$td_manuelle="<td class='$fond1'></td>\n";
@@ -468,7 +468,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 								<a href='edit_candidature.php?cid=$candidat_id' class='$link_class'><b>$nom $prenom</b></a>
 							</td>
 							<td class='$fond1' align='left' nowrap='true'>
-								<a href='edit_candidature.php?cid=$candidat_id' class='$link_class'>$naissance à $lieu_naissance ($pays_naissance)</a>
+								<a href='edit_candidature.php?cid=$candidat_id' class='$link_class'>$naissance Ã  $lieu_naissance ($pays_naissance)</a>
 							</td>
 							<td class='$fond1' align='left' nowrap='true'>
 								$lock_txt

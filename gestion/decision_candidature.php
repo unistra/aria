@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -63,14 +63,14 @@ CeCILL-B, et que vous en avez accepté les termes.
 
    verif_auth();
 
-   // Condition : la fiche doit être verrouillée
+   // Condition : la fiche doit Ãªtre verrouillÃ©e
    if(!isset($_SESSION["tab_candidat"]["lock"]) || $_SESSION["tab_candidat"]["lock"]!=1)
    {
       header("Location:edit_candidature.php");
       exit;
    }
 
-   // identifiant de l'étudiant
+   // identifiant de l'Ã©tudiant
    $candidat_id=$_SESSION["candidat_id"];
 
    // identifiant de candidature
@@ -101,11 +101,11 @@ CeCILL-B, et que vous en avez accepté les termes.
       
    db_free_result($result);   
    
-   // récupération de la candidature actuelle
+   // rÃ©cupÃ©ration de la candidature actuelle
 
    if($cand_array=__get_candidature($dbr, $cand_id))
    {
-      // Si la date de commission n'a pas été forcée (=0), on prend la date de commission parametrée dans les sessions
+      // Si la date de commission n'a pas Ã©tÃ© forcÃ©e (=0), on prend la date de commission parametrÃ©e dans les sessions
       if($cand_array["date_decision_unix"]==0 || $cand_array["date_decision_unix"]=="")
          $cand_array["date_decision_unix"]=$cand_array["session_commission_unix"];
 
@@ -121,7 +121,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       exit;
    }
    
-   // Vérification des droits d'accès au traitement de cette formation
+   // VÃ©rification des droits d'accÃ¨s au traitement de cette formation
    if(!in_array($_SESSION['niveau'], array("$__LVL_SCOL_MOINS","$__LVL_SCOL_PLUS","$__LVL_RESP","$__LVL_SUPER_RESP","$__LVL_ADMIN"))
       && ($_SESSION['niveau']=="$__LVL_SAISIE" && !verif_droits_formations($_SESSION["comp_id"], $cand_array["propspec_id"])))
    {
@@ -178,7 +178,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       else
          $entretien_salle="";
 
-      // Convocation à un entretien ? ==> saisie de la date, de l'heure et du lieu
+      // Convocation Ã  un entretien ? ==> saisie de la date, de l'heure et du lieu
       if(($decision==$__DOSSIER_ENTRETIEN || $decision==$__DOSSIER_ENTRETIEN_TEL) && $cand_array["entretiens"])
       {
          if($entretien_lieu=="" || $entretien_salle=="")
@@ -216,8 +216,8 @@ CeCILL-B, et que vous en avez accepté les termes.
             $erreur_format_entretien_date_heure=1;
       }
 
-      // Initialisation de certaines variables pour l'entretien au cas où ça n'aurait pas été fait dans le bloc précédent
-      // Todo : à traiter plus proprement
+      // Initialisation de certaines variables pour l'entretien au cas oÃ¹ Ã§a n'aurait pas Ã©tÃ© fait dans le bloc prÃ©cÃ©dent
+      // Todo : Ã  traiter plus proprement
       if($entretien_jour=="" && $entretien_mois=="" && $entretien_h=="00" && $entretien_m=="00")
          $entretien_date="0";
       elseif(ctype_digit($entretien_h) && ctype_digit($entretien_m) && ctype_digit($entretien_mois) && ctype_digit($entretien_jour) && ctype_digit($entretien_annee))
@@ -240,9 +240,9 @@ CeCILL-B, et que vous en avez accepté les termes.
          if(!is_numeric($force_annee) || $force_annee<date("Y"))
             $force_annee=date("Y");
 
-         $new_date_decision=MakeTime(0,30,0,$force_mois, $force_jour, $force_annee); // date au format unix : le jour même, le matin
+         $new_date_decision=MakeTime(0,30,0,$force_mois, $force_jour, $force_annee); // date au format unix : le jour mÃªme, le matin
 
-         // Requête à part pour mettre cette date à jour
+         // RequÃªte Ã  part pour mettre cette date Ã  jour
 
          if($new_date_decision!=$cand_array["session_commission_unix"])
          {
@@ -259,15 +259,15 @@ CeCILL-B, et que vous en avez accepté les termes.
             // print("DBG : $date_decision_txt");
          }
 
-         // Liste complémentaire ? si oui, saisie du rang et tests sommaires, sinon, on met une valeur vide
+         // Liste complÃ©mentaire ? si oui, saisie du rang et tests sommaires, sinon, on met une valeur vide
          if($decision==$__DOSSIER_LISTE || $decision==$__DOSSIER_LISTE_ENTRETIEN)
          {
             $rang_liste_attente=trim($_POST['rang_liste']);
 
             // rang vide : on prend automatiquement le max dans la base, ou 1 si pas de max
-            // on n'oublie pas les années pour les recherches sur l'identifiant d'inscription (timestamp)
+            // on n'oublie pas les annÃ©es pour les recherches sur l'identifiant d'inscription (timestamp)
 
-            // Si le rang est différent
+            // Si le rang est diffÃ©rent
             if($cand_array["rang_attente"]!=$rang_liste_attente || $rang_liste_attente=="")
             {
                if($rang_liste_attente=="")
@@ -279,7 +279,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       
                   list($max_rang)=db_fetch_row($result,0);
       
-                  if($max_rang=="") // personne dans la liste complémentaire
+                  if($max_rang=="") // personne dans la liste complÃ©mentaire
                      $rang_liste_attente=1;
                   else
                      $rang_liste_attente=$max_rang+1;
@@ -292,8 +292,8 @@ CeCILL-B, et que vous en avez accepté les termes.
                      $rang_vide=1;
                   else
                   {
-                     // Si une candidature est déjà à ce rang là, il faudra tout décaler
-                     // (jusqu'à ce qu'on tombe sur un trou : arret du décalage)
+                     // Si une candidature est dÃ©jÃ  Ã  ce rang lÃ , il faudra tout dÃ©caler
+                     // (jusqu'Ã  ce qu'on tombe sur un trou : arret du dÃ©calage)
                      if(db_num_rows(db_query($dbr, "SELECT * FROM $_DB_cand
                                                       WHERE $_DBC_cand_propspec_id='$cand_array[propspec_id]'
                                                       AND $_DBC_cand_periode='$__PERIODE'
@@ -319,7 +319,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
                               db_query($dbr,"UPDATE $_DB_cand SET $_DBU_cand_liste_attente='$next_rang' WHERE $_DBU_cand_id='$dec_cand_id'");
 
-                              // Le rang suivant n'est pas consécutif (=trou) : on sort de la boucle
+                              // Le rang suivant n'est pas consÃ©cutif (=trou) : on sort de la boucle
                               if($next_rang==($dec_rang+1))
                                  $r=$rows_rangs;
                            }
@@ -341,18 +341,18 @@ CeCILL-B, et que vous en avez accepté les termes.
                      }
                      // else // sinon, on met juste le rang
 
-                     // Il ne reste plus qu'à mettre le rang de notre candidature en cours.
+                     // Il ne reste plus qu'Ã  mettre le rang de notre candidature en cours.
                      db_query($dbr,"UPDATE $_DB_cand SET $_DBU_cand_liste_attente='$rang_liste_attente' WHERE $_DBU_cand_id='$cand_id'");
                   }
                }
 
-               write_evt($dbr, $__EVT_ID_G_PREC, "Liste complémentaire \"$cand_array[nom_complet]\" => rang $rang_liste_attente", $candidat_id, $cand_id);
+               write_evt($dbr, $__EVT_ID_G_PREC, "Liste complÃ©mentaire \"$cand_array[nom_complet]\" => rang $rang_liste_attente", $candidat_id, $cand_id);
             }
          }
-         else // valeur vide par défaut
+         else // valeur vide par dÃ©faut
             $rang_liste_attente="";
 
-         // Récupération de la décision précédente, pour tester si on doit réordonner le classement dans une liste complémentaire
+         // RÃ©cupÃ©ration de la dÃ©cision prÃ©cÃ©dente, pour tester si on doit rÃ©ordonner le classement dans une liste complÃ©mentaire
          $old_decision=$_POST['old_decision'];
 
 /*
@@ -364,7 +364,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 */
          $cand_array["recours"]=0;
 
-         // la présence du champ 'transmission de dossier' n'est pas obligatoire dans le formulaire, donc on la teste
+         // la prÃ©sence du champ 'transmission de dossier' n'est pas obligatoire dans le formulaire, donc on la teste
          if($decision==$__DOSSIER_TRANSMIS && ((isset($_POST["transfert_formation"]) && !empty($_POST["transfert_formation"]))
                                              || (isset($_POST["transmission_libre"]) && !empty($_POST["transmission_libre"]))))
          {
@@ -420,11 +420,11 @@ CeCILL-B, et que vous en avez accepté les termes.
          else
             $statut_frais=0;
 */
-         // motivation de la décision
-         // 1/ Méthode classique : boucle sur les motifs et vérification pour chaque élément
-         // 2/ Autre méthode : un seul motif
+         // motivation de la dÃ©cision
+         // 1/ MÃ©thode classique : boucle sur les motifs et vÃ©rification pour chaque Ã©lÃ©ment
+         // 2/ Autre mÃ©thode : un seul motif
 
-         // TODO : Boucle très obsolète à réécrire
+         // TODO : Boucle trÃ¨s obsolÃ¨te Ã  rÃ©Ã©crire
 
          if(!isset($_SESSION["gestion_motifs"]) || $_SESSION["gestion_motifs"]==0)
          {
@@ -444,12 +444,12 @@ CeCILL-B, et que vous en avez accepté les termes.
                {
                   if($exclusif)
                   {
-                     if(!isset($flag_exclusif)) // (ré)initialisation de la chaine de motivations
+                     if(!isset($flag_exclusif)) // (rÃ©)initialisation de la chaine de motivations
                      {
                         $motivation_decision = $_POST[$key];
                         $flag_exclusif=1;
                      }
-                     else // on complète la chaine
+                     else // on complÃ¨te la chaine
                      {
                         if($motivation_decision!="")
                            $motivation_decision .= "|";
@@ -468,7 +468,7 @@ CeCILL-B, et que vous en avez accepté les termes.
             }
             db_free_result($result);
          }
-         else // Méthode 2 (On dirait bien que ça va plus vite ;)
+         else // MÃ©thode 2 (On dirait bien que Ã§a va plus vite ;)
             $motivation_decision=$_POST["motivation"];
 
          if(!isset($flag_exclusif))
@@ -487,7 +487,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          }
 
          // On interdit les motifs vides pour certaines decisions
-         // TODO 15/02/06 : ajouter une colonne "propriétés" dans la table des décisions plutot que se baser sur les identifiants ?
+         // TODO 15/02/06 : ajouter une colonne "propriÃ©tÃ©s" dans la table des dÃ©cisions plutot que se baser sur les identifiants ?
          if(($decision==$__DOSSIER_REFUS_RECOURS || $decision==$__DOSSIER_EN_ATTENTE || $decision==$__DOSSIER_SOUS_RESERVE || $decision==$__DOSSIER_REFUS || $decision==$__DOSSIER_TRANSMIS) && empty($motivation_decision))
             $motivation_vide=1;
 
@@ -498,7 +498,7 @@ CeCILL-B, et que vous en avez accepté les termes.
             $nom_mail=ucwords(mb_strtolower($_SESSION['tab_candidat']['nom']));
             $prenom_mail=$_SESSION['tab_candidat']['prenom'];
 
-            // Motivation : on doit rééxtraire les motifs :
+            // Motivation : on doit rÃ©Ã©xtraire les motifs :
             if(!empty($motivation_decision))
             {
                $motifs_txt="";
@@ -542,10 +542,10 @@ CeCILL-B, et que vous en avez accepté les termes.
                }
 
                $message="Bonjour $civ_mail $nom_mail,\n\n
-La Commission Pédagogique a mis votre dossier en attente pour le(s) motif(s) suivant(s) : \n
+La Commission PÃ©dagogique a mis votre dossier en attente pour le(s) motif(s) suivant(s) : \n
 $motifs_txt
 
-Merci de faire le nécessaire pour que la Commission Pédagogique puisse statuer définitivement sur votre candidature.
+Merci de faire le nÃ©cessaire pour que la Commission PÃ©dagogique puisse statuer dÃ©finitivement sur votre candidature.
 
 Cordialement,\n\n
 --
@@ -565,9 +565,9 @@ $_SESSION[universite]";
          }
 
          
-         if(isset($transmission) && $transmission!="") // transmission de dossier : on force la décision
+         if(isset($transmission) && $transmission!="") // transmission de dossier : on force la dÃ©cision
             $decision=$__DOSSIER_TRANSMIS;
-         elseif($decision=="") // aucune décision choisie : dossier non traité
+         elseif($decision=="") // aucune dÃ©cision choisie : dossier non traitÃ©
             $decision=$__DOSSIER_NON_TRAITE;
 
          if($decision==$__DOSSIER_NON_TRAITE)
@@ -577,7 +577,7 @@ $_SESSION[universite]";
          {
             $date_prise_decision=time();
 
-            // on peut mettre à jour la décision de cette candidature
+            // on peut mettre Ã  jour la dÃ©cision de cette candidature
             $req="UPDATE $_DB_cand SET $_DBU_cand_date_decision='$cand_array[date_decision_unix]',
                                        $_DBU_cand_decision='$decision',
                                        $_DBU_cand_motivation_decision='$motivation_decision',
@@ -597,15 +597,15 @@ $_SESSION[universite]";
 
             list($dec_txt)=db_fetch_row(db_query($dbr, "SELECT $_DBC_decisions_texte FROM $_DB_decisions WHERE $_DBC_decisions_id='$decision'"), 0);
 
-            write_evt($dbr, $__EVT_ID_G_PREC, "Décision \"$cand_array[nom_complet]\" : $dec_txt", $candidat_id, $cand_id, stripslashes($req));
+            write_evt($dbr, $__EVT_ID_G_PREC, "DÃ©cision \"$cand_array[nom_complet]\" : $dec_txt", $candidat_id, $cand_id, stripslashes($req));
 
             // Si : 
-            // 1 - les décisions sont publiées 
-            // 2 - la notification est activée
-       		// 3 - aucune notification n'a encore été envoyée 
-            //     - OU la décision est passée d'une décision "partielle" à une décision fixe 
-            //     - OU la nouvelle décision est "admission confirmée"
-            // alors on envoie un message au candidat (le message ne contient pas la décision en elle même)
+            // 1 - les dÃ©cisions sont publiÃ©es 
+            // 2 - la notification est activÃ©e
+       		// 3 - aucune notification n'a encore Ã©tÃ© envoyÃ©e 
+            //     - OU la dÃ©cision est passÃ©e d'une dÃ©cision "partielle" Ã  une dÃ©cision fixe 
+            //     - OU la nouvelle dÃ©cision est "admission confirmÃ©e"
+            // alors on envoie un message au candidat (le message ne contient pas la dÃ©cision en elle mÃªme)
             
             if((array_key_exists("affichage_decisions", $_SESSION) && (($_SESSION["affichage_decisions"]==0 
                && db_num_rows(db_query($dbr, "SELECT * FROM $_DB_propspec WHERE $_DBC_propspec_id=(SELECT $_DBC_cand_propspec_id FROM $_DB_cand WHERE $_DBC_cand_id='$cand_id') AND $_DBC_propspec_affichage_decisions!='0'")))
@@ -614,11 +614,11 @@ $_SESSION[universite]";
                && ($_SESSION["tab_candidatures"][$cand_id]["notification_envoyee"]!=1 || $decision==$__DOSSIER_ADMISSION_CONFIRMEE || ($old_decision<=$__DOSSIER_NON_TRAITE && $decision>$__DOSSIER_NON_TRAITE)))
             {
                $message="Bonjour,\n
-La Commission Pédagogique a rendu une décision pour votre candidature à la formation suivante : \n
+La Commission PÃ©dagogique a rendu une dÃ©cision pour votre candidature Ã  la formation suivante : \n
 [gras]$cand_array[nom_complet][/gras]\n
-Pour consulter cette décision : 
-- sélectionnez si besoin l'établissement adéquat (menu \"Choisir une autre composante\")
-- dans votre fiche, rendez vous dans le menu \"Précandidatures\".
+Pour consulter cette dÃ©cision : 
+- sÃ©lectionnez si besoin l'Ã©tablissement adÃ©quat (menu \"Choisir une autre composante\")
+- dans votre fiche, rendez vous dans le menu \"PrÃ©candidatures\".
 
 Cordialement,\n\n
 --
@@ -632,21 +632,21 @@ $_SESSION[universite]";
                                              "prenom" => $_SESSION["tab_candidat"]["prenom"],
                                              "email"   => $_SESSION["tab_candidat"]["email"]));
 
-               write_msg("", array("id" => "0", "nom" => "Système", "prenom" => ""), $dest_array, "$_SESSION[composante] - Décision", $message, $_SESSION["tab_candidat"]["nom"]." ".$_SESSION["tab_candidat"]["prenom"]);
-               write_evt($dbr, $__EVT_ID_G_PREC, "Notification de décision envoyée", $candidat_id, $cand_id);
+               write_msg("", array("id" => "0", "nom" => "SystÃ¨me", "prenom" => ""), $dest_array, "$_SESSION[composante] - DÃ©cision", $message, $_SESSION["tab_candidat"]["nom"]." ".$_SESSION["tab_candidat"]["prenom"]);
+               write_evt($dbr, $__EVT_ID_G_PREC, "Notification de dÃ©cision envoyÃ©e", $candidat_id, $cand_id);
                
                db_query($dbr,"UPDATE $_DB_cand SET $_DBU_cand_notification_envoyee='1' WHERE $_DBU_cand_id='$cand_id'");
                
                $_SESSION["tab_candidatures"][$cand_id]["notification_envoyee"]=1;
             }
-            // Si le candidat était sur liste complémentaire, on décale les candidats suivants dans cette liste complémentaire
+            // Si le candidat Ã©tait sur liste complÃ©mentaire, on dÃ©cale les candidats suivants dans cette liste complÃ©mentaire
             if(($old_decision==$__DOSSIER_LISTE || $old_decision==$__DOSSIER_LISTE_ENTRETIEN) && $old_decision!=$decision)
             {
                if($cand_array["rang_attente"]=="")
                   $cand_array["rang_attente"]=0;
 
-               // Définition des limites pour la recherche des éléments à décaler
-               // TODO URGENT : naze, à réécrire avec une belle requête
+               // DÃ©finition des limites pour la recherche des Ã©lÃ©ments Ã  dÃ©caler
+               // TODO URGENT : naze, Ã  rÃ©Ã©crire avec une belle requÃªte
                $result=db_query($dbr,"SELECT $_DBC_cand_id, CAST($_DBC_cand_liste_attente AS int)
                                           FROM $_DB_cand
                                        WHERE ($_DBC_cand_decision='$__DOSSIER_LISTE'
@@ -659,7 +659,7 @@ $_SESSION[universite]";
 
                $rows=db_num_rows($result);
 
-               // décalage
+               // dÃ©calage
                for($i=0; $i<$rows;$i++)
                {
                   list($decalage_inid,$decalage_rang)=db_fetch_row($result,$i);
@@ -673,27 +673,27 @@ $_SESSION[universite]";
             }
 
 
-            // si transmission de dossier : création d'une nouvelle candidature (si transmission vers une formation de la composante)
+            // si transmission de dossier : crÃ©ation d'une nouvelle candidature (si transmission vers une formation de la composante)
             if($decision==$__DOSSIER_TRANSMIS && $old_decision!=$decision)
             {
                /*
                $candidature_id=time();
 
-               // Unicité de l'identifiant de la nouvelle candidature
+               // UnicitÃ© de l'identifiant de la nouvelle candidature
                while(db_num_rows(db_query($dbr,"SELECT $_DBC_cand_id FROM $_DB_cand WHERE $_DBC_cand_id='$candidature_id'")))
                   $candidature_id++;
                */
 /*
-               // Identifiant de l'année trans_annee (TODO : REMPLACER PAR LES IDENTIFIANTS)
+               // Identifiant de l'annÃ©e trans_annee (TODO : REMPLACER PAR LES IDENTIFIANTS)
                $result=db_query($dbr,"SELECT $_DBC_annees_id FROM $_DB_annees WHERE $_DBC_annees_annee ILIKE '$trans_annee'");
                $rows=db_num_rows($result);
                if($rows)
                   list($trans_annee_id)=db_feth_row($result,0);
                else
-                  die("Incohérence de la base de données (trans_annee_id), merci de contacter d'urgence l'administrateur de l'application");
+                  die("IncohÃ©rence de la base de donnÃ©es (trans_annee_id), merci de contacter d'urgence l'administrateur de l'application");
                db_free_result($result);
 */
-               // on détermine l'ordre max
+               // on dÃ©termine l'ordre max
                $result=db_query($dbr,"SELECT max($_DBC_cand_ordre)+1 FROM $_DB_cand, $_DB_propspec
                                        WHERE $_DBC_cand_candidat_id='$candidat_id'
                                        AND $_DBC_cand_propspec_id=$_DBC_propspec_id
@@ -714,7 +714,7 @@ $_SESSION[universite]";
                ============================================ */
 
                // Uniquement si la tramission est dans l'offre de formation de la composante
-               // et si la formation n'existe pas déjà
+               // et si la formation n'existe pas dÃ©jÃ 
                // TODO : Conserver "Dossier Transmis depuis : $annee - $spec_nom" dans le champ "Transmission" ?
                if(isset($transmission) && $transmission!="" && ctype_digit($transmission) 
                   && !db_num_rows(db_query($dbr, "SELECT * FROM $_DB_cand WHERE $_DBC_cand_candidat_id='$candidat_id'
@@ -724,10 +724,10 @@ $_SESSION[universite]";
                   $new_entretien_salle=$new_entretien_heure=$new_entretien_lieu=$new_motif_decision=$new_liste="";
                   $new_recours=$new_masse=$new_talon_reponse=$statut_frais="0";
                   $new_lock=1;
-                  $new_ordre_spec=$new_groupe_spec="-1"; // TODO : à recalculer ?
+                  $new_ordre_spec=$new_groupe_spec="-1"; // TODO : Ã  recalculer ?
                   $nb_rappels=0;
 
-                  // Date du statut de recevabilité
+                  // Date du statut de recevabilitÃ©
                   $new_date_prise_decision=$new_date_statut=time();
 
                   $spec_nom_transfert=str_replace("'","''", $cand_array["spec_nom"]);
@@ -742,7 +742,7 @@ $_SESSION[universite]";
 
                   if(db_num_rows($res_session))
                      list($new_session_id)=db_fetch_row($res_session, 0);
-                  else // Session indéterminée pour la formation cible, on prend la première ouverte pour cette formation
+                  else // Session indÃ©terminÃ©e pour la formation cible, on prend la premiÃ¨re ouverte pour cette formation
                   {
                      db_free_result($res_session);
 
@@ -813,10 +813,10 @@ $_SESSION[universite]";
       else
          $vap_txt="Non";
 
-      // on détermine la commission associée au diplôme demandé
+      // on dÃ©termine la commission associÃ©e au diplÃ´me demandÃ©
       // on compare avec la date actuelle
 
-      if($cand_array["date_decision_unix"]!=0 && $cand_array["date_decision_unix"]!="") // si on a déjà une date, on n'y touche pas
+      if($cand_array["date_decision_unix"]!=0 && $cand_array["date_decision_unix"]!="") // si on a dÃ©jÃ  une date, on n'y touche pas
       {
          $date_com=date_fr("j F Y", $cand_array["date_decision_unix"]);
          $commission_txt="<font class='Texte'>$date_com</font>";
@@ -824,7 +824,7 @@ $_SESSION[universite]";
       else // pas de date, on prend celle de la commission correspondante
       {
          if($cand_array["session_commission_unix"]==0) // normalement, impossible
-            $commission_txt= "<font class='Texte_important'><b>Non parametrée</b></font>";
+            $commission_txt= "<font class='Texte_important'><b>Non parametrÃ©e</b></font>";
          else
          {
             $date_com=date_fr("j F Y", $cand_array["session_commission_unix"]);
@@ -856,32 +856,32 @@ $_SESSION[universite]";
                </div>");
 
       if(isset($rang_vide))
-         message("Erreur : le rang sur la liste complémentaire doit être un entier positif", $__ERREUR);
+         message("Erreur : le rang sur la liste complÃ©mentaire doit Ãªtre un entier positif", $__ERREUR);
 
       if(isset($aucune_decision))
-         message("Erreur : vous devez sélectionner une décision", $__ERREUR);
+         message("Erreur : vous devez sÃ©lectionner une dÃ©cision", $__ERREUR);
 
       if(isset($motivation_vide))
-         message("Erreur : la décision sélectionnée requiert un motif non vide", $__ERREUR);
+         message("Erreur : la dÃ©cision sÃ©lectionnÃ©e requiert un motif non vide", $__ERREUR);
 
       if(isset($date_maj))
-         message("Date mise à jour avec succès", $__SUCCES);
+         message("Date mise Ã  jour avec succÃ¨s", $__SUCCES);
 
       // message("Une motivation exclusive est <b>prioritaire</b> sur toutes les autres (champ libre compris).", $__WARNING);
       if(isset($erreur_format_entretien_date_heure))
-         message("ERREUR : les informations sur la date et l'heure de l'entretien sont <b>incomplètes</b>", $__ERREUR);
+         message("ERREUR : les informations sur la date et l'heure de l'entretien sont <b>incomplÃ¨tes</b>", $__ERREUR);
    ?>
 
    <div style="max-width:80%; margin:0px auto 0px auto;">
       <table style="width:100%; margin:0px auto 20px auto;">
       <tr>
          <td colspan='2' class='td-complet fond_menu2' style='padding:2px 6px 2px 6px;'>
-            <font class='Texte_menu2'><b>&#8226;&nbsp;&nbsp;Décision</b></font>
+            <font class='Texte_menu2'><b>&#8226;&nbsp;&nbsp;DÃ©cision</b></font>
          </td>
       </tr>
       <tr>
          <td class='td-gauche fond_menu'>
-            <font class='Texte_menu'><b>Sélection de la décision : </b></font>
+            <font class='Texte_menu'><b>SÃ©lection de la dÃ©cision : </b></font>
          </td>
          <td class='td-droite fond_menu'>
             <select name='decision' size='1'>
@@ -963,7 +963,7 @@ $_SESSION[universite]";
                                     <option value='' label='' disabled></option>\n");
 
                         if($form_annee_nom=="")
-                           $form_annee_nom="Années particulières";
+                           $form_annee_nom="AnnÃ©es particuliÃ¨res";
 
                         print("<optgroup label='$form_annee_nom'>\n");
 
@@ -1012,11 +1012,11 @@ $_SESSION[universite]";
       </tr>
       <tr>
          <td class='td-gauche fond_menu'>
-            <font class='Texte_menu' style='vertical-align:middle;'><b>Ou</b> formation en toute lettres :<br>(si celle-ci n'est pas gérée par l'interface)</font>
+            <font class='Texte_menu' style='vertical-align:middle;'><b>Ou</b> formation en toute lettres :<br>(si celle-ci n'est pas gÃ©rÃ©e par l'interface)</font>
          </td>
          <td class='td-droite fond_menu'>
             <input type='text' name='transmission_libre' value='<?php if(isset($transmission_txt) && (!isset($transmission) || $transmission=='')) echo htmlspecialchars($transmission_txt, ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size='50' maxlength='256'>
-            &nbsp;&nbsp;<font class='Texte_menu'><i>(Champ prioritaire sur le précédent)</i></font>
+            &nbsp;&nbsp;<font class='Texte_menu'><i>(Champ prioritaire sur le prÃ©cÃ©dent)</i></font>
          </td>
       </tr>
       <?php
@@ -1024,12 +1024,12 @@ $_SESSION[universite]";
       ?>
       <tr>
          <td class='td-gauche fond_menu'>
-            <font class='Texte_menu'><b>Rang sur liste complémentaire</b></font>
+            <font class='Texte_menu'><b>Rang sur liste complÃ©mentaire</b></font>
          </td>
          <td class='td-droite fond_menu'>
             <input class="text" name='rang_liste' value='<?php if(isset($cand_array["rang_attente"])) echo $cand_array["rang_attente"]; ?>' size='25' maxlength='4'>
             <font class='Texte_menu'>
-               <i>&nbsp;&nbsp;Par défaut : dernière position dans la liste</i>
+               <i>&nbsp;&nbsp;Par dÃ©faut : derniÃ¨re position dans la liste</i>
             </font>
             <?php
                // TODO : afficher les positions disponibles ?
@@ -1090,8 +1090,8 @@ $_SESSION[universite]";
             <tr>
                <td colspan='4'>
                   <font class='Texte_menu'>
-                  <i>Exemple : Salle = "salle 301", lieu = "à l'UFR ... située rue ..."</i>
-                  <br>Si la salle et/ou le lieu sont vides, les valeurs par défaut seront utilisées (Outils => Modifier une composante)</i>
+                  <i>Exemple : Salle = "salle 301", lieu = "Ã  l'UFR ... situÃ©e rue ..."</i>
+                  <br>Si la salle et/ou le lieu sont vides, les valeurs par dÃ©faut seront utilisÃ©es (Outils => Modifier une composante)</i>
                   </font>
                </td>
             </tr>
@@ -1115,33 +1115,33 @@ $_SESSION[universite]";
             <?php
                   switch($cand_array["talon_reponse"])
                   {
-                     case 0   :   // talon non renvoyé (par défaut)
+                     case 0   :   // talon non renvoyÃ© (par dÃ©faut)
                                  $selected_non_renvoye="selected=1";
                                  $selected_confirme=$selected_refus="";
                                  break;
 
-                     case 1   :   // talon renvoyé, inscription confirmée
+                     case 1   :   // talon renvoyÃ©, inscription confirmÃ©e
                                  $selected_confirme="selected=1";
                                  $selected_non_renvoye=$selected_refus="";
                                  break;
 
-                     case -1   :   // talon renvoyé, inscription refusée
+                     case -1   :   // talon renvoyÃ©, inscription refusÃ©e
                                  $selected_refus="selected=1";
                                  $selected_confirme=$selected_non_renvoye="";
                                  break;
 
-                     default : // talon non renvoyé (par défaut)
+                     default : // talon non renvoyÃ© (par dÃ©faut)
                                  $selected_non_renvoye="selected=1";
                                  $selected_confirme=$selected_refus="";
                                  break;
                }
 
-                  print("<option value='0'  $selected_non_renvoye>Talon Non renvoyé</option>
-                           <option value='1'  $selected_confirme>Admission confirmée</option>
-                           <option value='-1' $selected_refus>Admission refusée</option>\n");
+                  print("<option value='0'  $selected_non_renvoye>Talon Non renvoyÃ©</option>
+                           <option value='1'  $selected_confirme>Admission confirmÃ©e</option>
+                           <option value='-1' $selected_refus>Admission refusÃ©e</option>\n");
                ?>
             </select>
-            &nbsp;&nbsp;<font class='Texte_menu'><i>(en cas de présence d'un talon réponse sur vos modèles de lettres)</i></font>
+            &nbsp;&nbsp;<font class='Texte_menu'><i>(en cas de prÃ©sence d'un talon rÃ©ponse sur vos modÃ¨les de lettres)</i></font>
          </td>
       </tr>
       <tr>
@@ -1183,14 +1183,14 @@ $_SESSION[universite]";
                   <option value='5' <?php if($force_date_mois==5) echo "selected"; ?>>Mai</option>
                   <option value='6' <?php if($force_date_mois==6) echo "selected"; ?>>Juin</option>
                   <option value='7' <?php if($force_date_mois==7) echo "selected"; ?>>Juillet</option>
-                  <option value='8' <?php if($force_date_mois==8) echo "selected"; ?>>Août</option>
+                  <option value='8' <?php if($force_date_mois==8) echo "selected"; ?>>AoÃ»t</option>
                   <option value='9' <?php if($force_date_mois==9) echo "selected"; ?>>Septembre</option>
                   <option value='10' <?php if($force_date_mois==10) echo "selected"; ?>>Octobre</option>
                   <option value='11' <?php if($force_date_mois==11) echo "selected"; ?>>Novembre</option>
-                  <option value='12' <?php if($force_date_mois==12) echo "selected"; ?>>Décembre</option>
+                  <option value='12' <?php if($force_date_mois==12) echo "selected"; ?>>DÃ©cembre</option>
                </select>
                <input type='text' name='force_annee' maxlength="4" size="6" value='<?php echo $force_date_annee; ?>'>
-               &nbsp;&nbsp;<i>(Par défaut : date de la Commission la plus proche lors de l'ajout de la candidature)</i>
+               &nbsp;&nbsp;<i>(Par dÃ©faut : date de la Commission la plus proche lors de l'ajout de la candidature)</i>
             </font>
          </td>
       </tr>
@@ -1199,7 +1199,7 @@ $_SESSION[universite]";
       <table style="width:100%; margin:0px auto 0px auto;">
       <tr>
          <td colspan='2' class='td-complet fond_menu2' style='padding:2px 6px 2px 6px;'>
-            <font class='Texte_menu2'><b>&#8226;&nbsp;&nbsp;Motivation(s) de la décision</b></font>
+            <font class='Texte_menu2'><b>&#8226;&nbsp;&nbsp;Motivation(s) de la dÃ©cision</b></font>
          </td>
       </tr>
       <?php
@@ -1208,17 +1208,17 @@ $_SESSION[universite]";
       ?>
       <tr>
          <td class='td-gauche fond_menu'>
-            <font class='Texte_menu'><b>Motifs prédéfinis</b></font>
+            <font class='Texte_menu'><b>Motifs prÃ©dÃ©finis</b></font>
          </td>
          <td class='td-droite fond_menu'>
-            <font class='Texte_menu'><b>Autre(s) motif(s) ou détail de la décision (mise en attente, etc)</b></font>
+            <font class='Texte_menu'><b>Autre(s) motif(s) ou dÃ©tail de la dÃ©cision (mise en attente, etc)</b></font>
          </td>
       </tr>
       <tr>
          <td class='td-gauche fond_menu'>
             <table width='100%' cellpadding='0' cellspacing='0' border='0'>
                <?php
-                  // décisions actuelles
+                  // dÃ©cisions actuelles
                   $array_current_motifs=explode("|", $cand_array["motivations_id"]);
                   $cnt2=count($array_current_motifs);
    
@@ -1271,7 +1271,7 @@ $_SESSION[universite]";
                      }
                   }
                   else
-                     print("<font class='Texte_important_menu'>Attention : aucun motif défini</font>\n");
+                     print("<font class='Texte_important_menu'>Attention : aucun motif dÃ©fini</font>\n");
    
                   db_free_result($result);
                ?>
@@ -1302,7 +1302,7 @@ $_SESSION[universite]";
             <select name='motivation'>
                <option value=''></option>
             <?php
-                  // décisions actuelles
+                  // dÃ©cisions actuelles
                   $array_current_motifs=explode("|", $cand_array["motivations_id"]);
                   $cnt2=count($array_current_motifs);
    
@@ -1339,7 +1339,7 @@ $_SESSION[universite]";
       </tr>
       <tr>
          <td class='td-complet fond_menu' colspan='2'>
-            <font class='Texte_menu'><b>Autre(s) motif(s) ou complément du motif sélectionné ci-dessus</b></font>
+            <font class='Texte_menu'><b>Autre(s) motif(s) ou complÃ©ment du motif sÃ©lectionnÃ© ci-dessus</b></font>
             <br>
             <textarea class='input' cols='70' rows='5' name='motivation_decision_libre'><?php
                for($l=0; $l<$cnt2 ; $l++)

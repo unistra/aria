@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -66,7 +66,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 	if(isset($_POST["go"]) || isset($_POST["go_x"])) // validation du formulaire
 		$current_periode=$_POST["periode"];
-	else // par défaut : année en cours
+	else // par dÃ©faut : annÃ©e en cours
  		$current_periode=$__PERIODE;
 
 	$periode_txt="$current_periode - " . ($current_periode+1);
@@ -79,9 +79,9 @@ CeCILL-B, et que vous en avez accepté les termes.
 ?>
 <div class='main'>
 	<?php
-		titre_page_icone("Précandidatures en chiffres", "kpercentage_32x32_fond.png", 15, "L");
+		titre_page_icone("PrÃ©candidatures en chiffres", "kpercentage_32x32_fond.png", 15, "L");
 
-		// Selection de la période : on prend les bornes min et max des identifiants d'inscriptions (timestamps)
+		// Selection de la pÃ©riode : on prend les bornes min et max des identifiants d'inscriptions (timestamps)
 
 		$dbr=db_connect();
 
@@ -99,7 +99,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 						<table cellspacing='0' cellpadding='4' border='0' align='center'>
 						<tr>
 							<td class='td-gauche fond_menu'>
-								<font class='Texte_menu'><b>Statistiques de précandidatures sur la période :</b></font>
+								<font class='Texte_menu'><b>Statistiques de prÃ©candidatures sur la pÃ©riode :</b></font>
 							</td>
 							<td class='td-milieu fond_menu' valign='middle'>
 								<select name='periode' size='1'>\n");
@@ -133,10 +133,10 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 	<center>
 		<font class='Texte_important'>
-			Toutes les précandidatures sont prises en compte dans ces listes.
+			Toutes les prÃ©candidatures sont prises en compte dans ces listes.
 		</font>
 		<br><br>
-		<a href='tabs_stats.php' target='_self' class='lien2'><img src='<?php echo "$__ICON_DIR/back_32x32.png" ; ?>' alt='Retour au menu précédent' border='0'></a>
+		<a href='tabs_stats.php' target='_self' class='lien2'><img src='<?php echo "$__ICON_DIR/back_32x32.png" ; ?>' alt='Retour au menu prÃ©cÃ©dent' border='0'></a>
 	</center>
 	<br>
 
@@ -146,7 +146,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			<font class='Texte'><b>Statistiques globales</b></font>
 		</td>
 		<td align='left' valign='top' nowrap='true'>
-			<font class='Texte'><b>Statistiques pour la période <?php echo $periode_txt; ?></b></font>
+			<font class='Texte'><b>Statistiques pour la pÃ©riode <?php echo $periode_txt; ?></b></font>
 		</td>
 	</tr>
 	<tr>
@@ -166,7 +166,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 					db_free_result($result);
 
 /*
-					// étudiants ajoutés depuis le 1er janvier de l'année courante
+					// Ã©tudiants ajoutÃ©s depuis le 1er janvier de l'annÃ©e courante
 					$result=db_query($dbr,"SELECT count(*) FROM $_DB_candidat
 													WHERE $_DBC_candidat_id>'$periode_annee_courante'
 													AND $_DBC_candidat_id IN (SELECT distinct($_DBC_cand_candidat_id)
@@ -180,7 +180,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 */
 					print("$nombre_total\n");
 /*
-								<br>&nbsp;&nbsp;- dont $nb_nouveaux ajoutées depuis le 1er janvier $annee_courante
+								<br>&nbsp;&nbsp;- dont $nb_nouveaux ajoutÃ©es depuis le 1er janvier $annee_courante
 
 */
 
@@ -190,7 +190,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 					db_free_result($result);
 /*
-					// dossiers ajoutés depuis le 1er janvier de l'année courante
+					// dossiers ajoutÃ©s depuis le 1er janvier de l'annÃ©e courante
 					$result=db_query($dbr,"SELECT count(*) FROM $_DB_cand, $_DB_specs, $_DB_propspec
 																		WHERE $_DBC_cand_id>'$periode_annee_courante'
 																		AND $_DBC_propspec_id_spec=$_DBC_specs_id
@@ -201,14 +201,14 @@ CeCILL-B, et que vous en avez accepté les termes.
 					db_free_result($result);
 */
 					print("<br>Nombre total de voeux de candidature : $nombre_total\n");
-//							<br>&nbsp;&nbsp;- dont $nb_nouveaux ajoutés depuis le 1er janvier $annee_courante");
+//							<br>&nbsp;&nbsp;- dont $nb_nouveaux ajoutÃ©s depuis le 1er janvier $annee_courante");
 				?>
 			</font>
 		</td>
 		<td align='left' valign='top' nowrap='true'>
 			<font class='Texte'>
 				<?php
-					// étudiants ajoutés pendant l'année sélectionnée
+					// Ã©tudiants ajoutÃ©s pendant l'annÃ©e sÃ©lectionnÃ©e
 					$result=db_query($dbr,"SELECT count(*) FROM $_DB_candidat
 													WHERE $_DBC_candidat_id IN (SELECT distinct($_DBC_cand_candidat_id)
 																							FROM $_DB_cand, $_DB_specs, $_DB_propspec
@@ -220,7 +220,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 					list($nb_etudiants_Y)=db_fetch_row($result,0);
 					db_free_result($result);
 
-					// dossiers ajoutés pendant l'année sélectionnée
+					// dossiers ajoutÃ©s pendant l'annÃ©e sÃ©lectionnÃ©e
 					$result=db_query($dbr,"SELECT count(*) FROM $_DB_cand, $_DB_specs, $_DB_propspec
 													WHERE $_DBC_cand_periode='$current_periode'
 													AND $_DBC_propspec_id_spec=$_DBC_specs_id
@@ -246,13 +246,13 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 			<?php
 				$statuts_array=array();
-				$statuts_array[$__PREC_ANNULEE]['texte']="Annulée";
+				$statuts_array[$__PREC_ANNULEE]['texte']="AnnulÃ©e";
 				$statuts_array[$__PREC_ANNULEE]['couleur']="#888888";
 
 				$statuts_array[$__PREC_NON_RECEVABLE]['texte']="Non recevable";
 				$statuts_array[$__PREC_NON_RECEVABLE]['couleur']="#00BB00";
 
-				$statuts_array[$__PREC_NON_TRAITEE]['texte']="Non traitée";
+				$statuts_array[$__PREC_NON_TRAITEE]['texte']="Non traitÃ©e";
 				$statuts_array[$__PREC_NON_TRAITEE]['couleur']="#CC0000";
 
 				$statuts_array[$__PREC_RECEVABLE]['texte']="Recevable";
@@ -261,7 +261,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 				$statuts_array[$__PREC_EN_ATTENTE]['texte']="En attente";
 				$statuts_array[$__PREC_EN_ATTENTE]['couleur']="#FF8800";
 
-				$statuts_array[$__PREC_PLEIN_DROIT]['texte']="Entrée de plein droit";
+				$statuts_array[$__PREC_PLEIN_DROIT]['texte']="EntrÃ©e de plein droit";
 				$statuts_array[$__PREC_PLEIN_DROIT]['couleur']="#00BB00";
 
 				// tri du tableau
@@ -270,7 +270,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 				$nb_statuts=count($statuts_array);
 				$span=$nb_statuts+1;
 
-				// boucle sur les années
+				// boucle sur les annÃ©es
 				$result=db_query($dbr,"SELECT $_DBC_propspec_annee, $_DBC_annees_annee, $_DBC_annees_ordre, count(*)
 													FROM $_DB_cand, $_DB_annees,$_DB_specs, $_DB_propspec
 												WHERE $_DBC_propspec_annee=$_DBC_annees_id
@@ -288,7 +288,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 					// REQUETE POUR LES DECISIONS : select annee,specialite,decision,count(*) from inscriptions group by annee,specialite,decision order by annee,specialite,decision;
 
-					$nom_annee=$annee=="" ? "Années particulières" : $annee;
+					$nom_annee=$annee=="" ? "AnnÃ©es particuliÃ¨res" : $annee;
 
 					print("<table width='100%' cellpadding='2' cellspacing='0' align='center' border='0'>
 							<tr>
@@ -298,10 +298,10 @@ CeCILL-B, et que vous en avez accepté les termes.
 							</tr>
 							<tr>
 								<td class='td-gauche fond_menu'>
-									<font class='Texte_menu'><b>Spécialité (traités / total)</b></font>
+									<font class='Texte_menu'><b>SpÃ©cialitÃ© (traitÃ©s / total)</b></font>
 								</td>\n");
 
-					// ligne donnant l'intitulé des décisions
+					// ligne donnant l'intitulÃ© des dÃ©cisions
 					foreach($statuts_array as $sub_statut_array)
 					{
 						$statut_intitule=$sub_statut_array["texte"];
@@ -312,8 +312,8 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 					print("</tr>");
 
-					// plutot que de sélectionner toutes les specs d'un coup avec les différentes décisions (qui nécessiterait ensuite
-					// un traitement php assez lourd), on boucle sur les différentes spécialités de cette année :
+					// plutot que de sÃ©lectionner toutes les specs d'un coup avec les diffÃ©rentes dÃ©cisions (qui nÃ©cessiterait ensuite
+					// un traitement php assez lourd), on boucle sur les diffÃ©rentes spÃ©cialitÃ©s de cette annÃ©e :
 					$result2=db_query($dbr,"SELECT $_DBC_propspec_id_spec, $_DBC_specs_nom_court, count(*)
 														FROM $_DB_cand, $_DB_specs, $_DB_propspec
 													WHERE $_DBC_propspec_id_spec=$_DBC_specs_id
@@ -332,7 +332,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 					{
 						list($spec_id, $spec_nom,$nombre_inscr)=db_fetch_row($result2,$j);
 
-						// Nombre de dossiers traités dans cette spécialité
+						// Nombre de dossiers traitÃ©s dans cette spÃ©cialitÃ©
 						$result3=db_query($dbr,"SELECT count(*) FROM $_DB_cand, $_DB_propspec
 															WHERE $_DBC_propspec_annee='$id_annee'
 														AND $_DBC_propspec_id_spec='$spec_id'
@@ -348,7 +348,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 									<td class='td-gauche $fond1'>
 										<font class='Texte'>$spec_nom ($nb_traites / $nombre_inscr)</font></td>\n");
 
-						// sélection des décisions pour ce couple année/spécialité
+						// sÃ©lection des dÃ©cisions pour ce couple annÃ©e/spÃ©cialitÃ©
 						$result3=db_query($dbr,"SELECT $_DBC_cand_statut, count(*) FROM $_DB_cand, $_DB_propspec
 															WHERE $_DBC_propspec_annee='$id_annee'
 															AND $_DBC_cand_propspec_id=$_DBC_propspec_id
@@ -359,7 +359,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 						$rows3=db_num_rows($result3);
 
-						// on met le compteur des décisions à 0
+						// on met le compteur des dÃ©cisions Ã  0
 						foreach($statuts_array as $key => $sub_statut_array)
 							$statuts_array[$key]["nombre"]="";
 
@@ -370,7 +370,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 						}
 						db_free_result($result3);
 
-						// les données sont prêtes, on affiche le tableau
+						// les donnÃ©es sont prÃªtes, on affiche le tableau
 						foreach($statuts_array as $sub_statut_array)
 						{
 							$nombre=$sub_statut_array["nombre"];

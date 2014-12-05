@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciamp
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -87,7 +87,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	if(array_key_exists("filtre_dossier", $_SESSION) && $_SESSION["filtre_dossier"]!=-1)
 	{
 		$filtre=1;
-		$filtre_statut="<font class='Texte_important'><b>(sélection activée)</b></font>";
+		$filtre_statut="<font class='Texte_important'><b>(sÃ©lection activÃ©e)</b></font>";
 	}
 	elseif(isset($_GET["pid"]) && ctype_digit($_GET["pid"])
 			 && db_num_rows(db_query($dbr, "SELECT * FROM $_DB_propspec WHERE $_DBC_propspec_id='$_GET[pid]'
@@ -95,12 +95,12 @@ CeCILL-B, et que vous en avez accepté les termes.
 	{
 		$filtre=1;
 		$_SESSION["filtre_dossier"]=$_GET["pid"];
-		$filtre_statut="<font class='Texte_important'><b>(sélection activée)</b></font>";
+		$filtre_statut="<font class='Texte_important'><b>(sÃ©lection activÃ©e)</b></font>";
 	}
 	else
 	{
 		$filtre=0;
-		$filtre_statut="<font class='Texte'><b>(sélection désactivée)</b></font>";
+		$filtre_statut="<font class='Texte'><b>(sÃ©lection dÃ©sactivÃ©e)</b></font>";
 	}
 
 	// EN-TETE
@@ -156,7 +156,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 												<option value='' label='' disabled></option>\n");
 
 								if($form_annee_nom=="")
-									$annee_nom="Années particulières";
+									$annee_nom="AnnÃ©es particuliÃ¨res";
 								else
 									$annee_nom=$form_annee_nom;
 
@@ -236,12 +236,12 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 					// variable pour les liens (move_element.php, etc)
 					if($elem_ordre!=0)
-						$j=$elem_ordre-1; // élément précédent
+						$j=$elem_ordre-1; // Ã©lÃ©ment prÃ©cÃ©dent
 
 					if($elem_ordre!=($nb_elem_corps-1))
-						$k=$elem_ordre+1; // élément suivant
+						$k=$elem_ordre+1; // Ã©lÃ©ment suivant
 
-					// nouvelle ligne dans le tableau pour l'élément en cours
+					// nouvelle ligne dans le tableau pour l'Ã©lÃ©ment en cours
 					print("<tr>
 								<td width='50' align='left' style='white-space:nowrap'>
 									<input type='radio' name='position_insertion_corps' value='$elem_ordre'>
@@ -255,7 +255,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 					$texte=empty($txt) ? $elem_intitule : "<b>$elem_intitule</b><br>$txt";
 
-					$txt_taille='10'; // à ajouter dans les paramètres ?
+					$txt_taille='10'; // Ã  ajouter dans les paramÃ¨tres ?
 					$txt_gras=0;
 					$txt_italique=0;
 
@@ -294,7 +294,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		{
 			unset($_SESSION["filtre_dossier_nom"]);
 			
-			// Détermination des éléments communs à toutes les formations existantes de cette composante
+			// DÃ©termination des Ã©lÃ©ments communs Ã  toutes les formations existantes de cette composante
 		   $result=db_query($dbr, "SELECT $_DBC_dossiers_ef_elem_id 
 												FROM $_DB_dossiers_ef, $_DB_dossiers_elems
 											WHERE $_DBC_dossiers_ef_elem_id=$_DBC_dossiers_elems_id
@@ -320,7 +320,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 			db_free_result($result);
 
-			// Formations n'ayant aucun élément rattaché
+			// Formations n'ayant aucun Ã©lÃ©ment rattachÃ©
 			$result=db_query($dbr,"SELECT $_DBC_propspec_id, $_DBC_propspec_annee,$_DBC_annees_annee, $_DBC_specs_nom_court,
 													$_DBC_propspec_finalite, $_DBC_specs_mention_id, $_DBC_mentions_nom, $_DBC_propspec_manuelle
 												FROM $_DB_propspec, $_DB_annees, $_DB_specs, $_DB_mentions
@@ -341,7 +341,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 						<tr>
 							<td align='left' colspan='2'>
 								<font class='Texte'>
-									<b><u>Formation(s) sans aucun élément rattaché : </u></b>
+									<b><u>Formation(s) sans aucun Ã©lÃ©ment rattachÃ© : </u></b>
 								</font>
 							</td>
 						</tr>\n");
@@ -370,13 +370,13 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 			print("<div class='centered_box'>
 						<font class='Texte'>
-							<strong>Les éléments <font class='Textevert' style='vertical-align:top;'>en vert</font> sont rattachés à <u>toutes les formations</u></strong>
+							<strong>Les Ã©lÃ©ments <font class='Textevert' style='vertical-align:top;'>en vert</font> sont rattachÃ©s Ã  <u>toutes les formations</u></strong>
 						</font>
 					</div>\n");
 
 			db_free_result($result);
 
-			// Sélection des éléments rattachés à chaque formation
+			// SÃ©lection des Ã©lÃ©ments rattachÃ©s Ã  chaque formation
 			$result=db_query($dbr,"SELECT $_DBC_propspec_id, $_DBC_propspec_annee,$_DBC_annees_annee, $_DBC_specs_nom_court,
 													$_DBC_propspec_finalite, $_DBC_specs_mention_id, $_DBC_mentions_nom, $_DBC_propspec_manuelle,
 													$_DBC_dossiers_elems_id, $_DBC_dossiers_elems_intitule, $_DBC_dossiers_ef_ordre
@@ -394,7 +394,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 			$rows=db_num_rows($result);
 
-			$old_propspec_id="--"; // on initialise à n'importe quoi (sauf vide)
+			$old_propspec_id="--"; // on initialise Ã  n'importe quoi (sauf vide)
 			$old_annee_id="--"; // idem
 			$old_mention="--"; // idem
 			$j=0;
@@ -419,7 +419,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 						if($annee_id!=$old_annee_id)
 						{
-							if($i) // Le premier résultat du tableau est particulier (i=0)
+							if($i) // Le premier rÃ©sultat du tableau est particulier (i=0)
 							{
 								print("</table>
 										</td>\n");
@@ -431,9 +431,9 @@ CeCILL-B, et que vous en avez accepté les termes.
 										 </table>\n");
 							}
 
-							$annee=$annee=="" ? "Années particulières" : $annee;
+							$annee=$annee=="" ? "AnnÃ©es particuliÃ¨res" : $annee;
 
-							// Nombre de mentions dans cette année (pour l'affichage)
+							// Nombre de mentions dans cette annÃ©e (pour l'affichage)
 							$res_mentions=db_query($dbr, "SELECT count(distinct($_DBC_specs_mention_id)) FROM $_DB_specs
 																WHERE $_DBC_specs_id IN
 																	(SELECT distinct($_DBC_propspec_id_spec) FROM $_DB_propspec
@@ -514,7 +514,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 									<td class='fond_menu' style='padding-left:5px; padding-right:5px; width:16px;'></td>
 									<td class='fond_menu' style='padding-left:5px; padding-right:5px; width:16px;'>\n");
 
-						// Affichage des flèches
+						// Affichage des flÃ¨ches
 
 						if($i!=($rows-1))
 						{

@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -70,7 +70,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 	$dbr=db_connect();
 
-	// retour étape précédente : nettoyage de variables
+	// retour Ã©tape prÃ©cÃ©dente : nettoyage de variables
 	if(isset($_GET["e"]) && $_GET["e"]==1)
 		unset($_SESSION["droits_comp_id"]);
 
@@ -105,18 +105,18 @@ CeCILL-B, et que vous en avez accepté les termes.
       unset($_SESSION["source"]);
    }
    
-	// Validation de l'accès aux composantes
+	// Validation de l'accÃ¨s aux composantes
 	if((isset($_POST["valider"]) || isset($_POST["valider_x"])) && isset($_SESSION["droits_user_id"]))
 	{
 		if(!isset($_POST["comp"]))
 		{
-			// Aucune composante sélectionnée : suppression des droits
+			// Aucune composante sÃ©lectionnÃ©e : suppression des droits
 			db_query($dbr,"DELETE FROM $_DB_acces_comp WHERE $_DBC_acces_comp_acces_id='$_SESSION[droits_user_id]'");
 			
 			// Suppression de tous les droits sur les formations
 			db_query($dbr, "DELETE FROM $_DB_droits_formations WHERE $_DBC_droits_formations_acces_id='$_SESSION[droits_user_id]'"); 
 		}
-		elseif(isset($_SESSION["array_comp"])) // normalement toujours vrai à ce stade
+		elseif(isset($_SESSION["array_comp"])) // normalement toujours vrai Ã  ce stade
 		{
 			foreach($_SESSION["array_comp"] as $selected_comp_id => $droits)
 			{
@@ -139,7 +139,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		exit;
 	}
 	
-	// Composante passée en paramêtre : on examine les droits de l'utilisateur sur chaque formation de cette dernière
+	// Composante passÃ©e en paramÃªtre : on examine les droits de l'utilisateur sur chaque formation de cette derniÃ¨re
 	if(isset($_SESSION["droits_user_id"]) && isset($_GET["p"]) && -1!=($params=get_params($_GET['p'])))
 	{
 		if(isset($params["comp_id"]) && ctype_digit($params["comp_id"]) && db_num_rows(db_query($dbr, "SELECT * FROM $_DB_composantes WHERE $_DBC_composantes_id='$params[comp_id]'")))
@@ -148,16 +148,16 @@ CeCILL-B, et que vous en avez accepté les termes.
 	elseif(!isset($_SESSION["droits_user_id"]))
 		unset($_SESSION["droits_comp_id"]);
 	
-	// Validation de l'accès aux formations de la composante sélectionnée
+	// Validation de l'accÃ¨s aux formations de la composante sÃ©lectionnÃ©e
 	if((isset($_POST["valider2"]) || isset($_POST["valider2_x"])) && isset($_SESSION["droits_user_id"]) && isset($_SESSION["droits_comp_id"]))
 	{
-		// Si l'utilisateur a accès à au moins une formation, il faut lui donner l'accès à la composante
-		// Ce témoin va permettre de vérifier cet accès et de l'ajouter si besoin
+		// Si l'utilisateur a accÃ¨s Ã  au moins une formation, il faut lui donner l'accÃ¨s Ã  la composante
+		// Ce tÃ©moin va permettre de vÃ©rifier cet accÃ¨s et de l'ajouter si besoin
 		$droits_comp=0;
 		
 		if(!isset($_POST["propspec"]))
 			db_query($dbr,"DELETE FROM $_DB_droits_formations WHERE $_DBC_droits_formations_acces_id='$_SESSION[droits_user_id]'");
-		elseif(isset($_SESSION["all_propspec"])) // normalement toujours vrai à ce stade
+		elseif(isset($_SESSION["all_propspec"])) // normalement toujours vrai Ã  ce stade
 		{
 			foreach($_SESSION["all_propspec"] as $selected_propspec_id => $droits)
 			{
@@ -184,7 +184,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		exit;
 	}
 	
-	// Composante passée en paramêtre : on examine les droits de l'utilisateur sur chaque formation de cette dernière
+	// Composante passÃ©e en paramÃªtre : on examine les droits de l'utilisateur sur chaque formation de cette derniÃ¨re
 	if(isset($_SESSION["droits_user_id"]) && isset($_GET["p"]) && -1!=($params=get_params($_GET['p'])))
 	{
 		if(isset($params["comp_id"]) && ctype_digit($params["comp_id"]) && db_num_rows(db_query($dbr, "SELECT * FROM $_DB_composantes WHERE $_DBC_composantes_id='$params[comp_id]'")))
@@ -208,15 +208,15 @@ CeCILL-B, et que vous en avez accepté les termes.
 		titre_page_icone("Modifier les droits d'un utilisateur", "randr_32x32_fond.png", 15, "L");
 
 		if(isset($id_existe_pas))
-			message("Erreur : l'identifiant demandé est incorrect (problème de cohérence de la base)", $__ERREUR);
+			message("Erreur : l'identifiant demandÃ© est incorrect (problÃ¨me de cohÃ©rence de la base)", $__ERREUR);
 
 		if(isset($_GET["succes"]) && $_GET["succes"]==1)
-			message("Droits d'accès modifiés avec succès.", $__SUCCES);
+			message("Droits d'accÃ¨s modifiÃ©s avec succÃ¨s.", $__SUCCES);
 
       if(!isset($recherche))
 			   $nom_recherche="";
 		
-		if(!isset($_SESSION["droits_user_id"])) // Choix de l'utilisateur à modifier
+		if(!isset($_SESSION["droits_user_id"])) // Choix de l'utilisateur Ã  modifier
 		{	
 		   unset($_SESSION["array_comp"]);
 		   
@@ -295,12 +295,12 @@ CeCILL-B, et que vous en avez accepté les termes.
          {
 			   print("<tr>
                       <td class='fond_menu2' align='right'>
-                         <font class='Texte_menu2' style='font-weight:bold;'>Résultat de la recherche : </font>
+                         <font class='Texte_menu2' style='font-weight:bold;'>RÃ©sultat de la recherche : </font>
                       </td>
                       <td class='fond_menu' colspan='2'>");
 
    			if(!$rows_recherche)
-   			   print("<font class='Texte_menu'>Aucun utilisateur ne correspond à votre recherche</font>");
+   			   print("<font class='Texte_menu'>Aucun utilisateur ne correspond Ã  votre recherche</font>");
    			else
    			{
                print("<select name='user_id_recherche' size='1'>
@@ -319,7 +319,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                         print("</optgroup>
                                  <option value='' label='' disabled></option>\n");
                      if($comp_nom=="0")
-                        print("<optgroup label='==== Administrateurs, support et accès étendus ===='>\n");
+                        print("<optgroup label='==== Administrateurs, support et accÃ¨s Ã©tendus ===='>\n");
                      else
                         print("<optgroup label='==== ".htmlspecialchars($comp_nom, ENT_QUOTES, $default_htmlspecialchars_encoding)." ===='>\n");
    
@@ -357,7 +357,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                 </tr>
                 <tr>
                    <td class='fond_menu2' align='right'>
-                      <font class='Texte_menu2' style='font-weight:bold;'>Liste complète des utilisateurs : </font>
+                      <font class='Texte_menu2' style='font-weight:bold;'>Liste complÃ¨te des utilisateurs : </font>
                    </td>
                    <td class='fond_menu' colspan='2'>
 
@@ -377,7 +377,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                   print("</optgroup>
                               <option value='' label='' disabled></option>\n");
                if($comp_nom=="0")
-                  print("<optgroup label='==== Administrateurs, support et accès étendus ===='>\n");
+                  print("<optgroup label='==== Administrateurs, support et accÃ¨s Ã©tendus ===='>\n");
                else
                   print("<optgroup label='==== ".htmlspecialchars($comp_nom, ENT_QUOTES, $default_htmlspecialchars_encoding)." ===='>\n");
 
@@ -420,9 +420,9 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 /*
 
-		if(!isset($_SESSION["droits_user_id"])) // Choix de l'utilisateur à modifier
+		if(!isset($_SESSION["droits_user_id"])) // Choix de l'utilisateur Ã  modifier
 		{
-			// au cas où...
+			// au cas oÃ¹...
 			unset($_SESSION["array_comp"]);
 
 			$result=db_query($dbr, "(SELECT $_DBC_acces_id, $_DBC_acces_niveau, $_DBC_acces_nom as anom,
@@ -527,21 +527,21 @@ CeCILL-B, et que vous en avez accepté les termes.
 		<td class='td-droite fond_menu'><font class='Texte_menu'><?php print("$univ_nom - $composante_nom"); ?></font></td>
 	</tr>
 	<tr>
-		<td class='td-gauche fond_menu2'><font class='Texte_menu2'><b>Niveau d'accès : </b></font></td>
+		<td class='td-gauche fond_menu2'><font class='Texte_menu2'><b>Niveau d'accÃ¨s : </b></font></td>
 		<td class='td-droite fond_menu'><font class='Texte_menu'><?php print("$_SESSION[droits_user_niveau]"); ?></font></td>
 	</tr>
 	<tr>
 		<td class='fond_page' colspan='2' style='padding:10px 20px 5px 20px; white-space:normal;'>
 			<?php 
-				message("- Par défaut, l'utilisateur aura accès à <strong>toutes les formations</strong> des composantes sélectionnées. Pour attribuer les droits formation par formation, cliquez sur le nom de la composante.
-							<br>- A partir du niveau <strong>\"Scolarité avec droits supplémentaires\"</strong>, les utilisateurs ont accès au traitement de toutes les formations.", $__INFO);
+				message("- Par dÃ©faut, l'utilisateur aura accÃ¨s Ã  <strong>toutes les formations</strong> des composantes sÃ©lectionnÃ©es. Pour attribuer les droits formation par formation, cliquez sur le nom de la composante.
+							<br>- A partir du niveau <strong>\"ScolaritÃ© avec droits supplÃ©mentaires\"</strong>, les utilisateurs ont accÃ¨s au traitement de toutes les formations.", $__INFO);
 								
 			?>
 		</td>
 	<tr>
 		<td class='fond_menu2' colspan='2' style='padding:4px 20px 4px 20px;'>
 			<font class='Texte_menu2'>
-				<b>&#8226;&nbsp;&nbsp;Droits d'accès</b>
+				<b>&#8226;&nbsp;&nbsp;Droits d'accÃ¨s</b>
 			</font>
 		</td>
 	</tr>
@@ -561,7 +561,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		{
 			list($univ_id, $univ_nom, $comp_id, $comp_nom)=db_fetch_row($result, $i);
 
-			// On teste si l'accès est accordé pour cette composante
+			// On teste si l'accÃ¨s est accordÃ© pour cette composante
 
 			if(db_num_rows(db_query($dbr, "SELECT * FROM $_DB_acces_comp WHERE $_DBC_acces_comp_acces_id='$_SESSION[droits_user_id]' AND $_DBC_acces_comp_composante_id='$comp_id'")))
 			{
@@ -607,7 +607,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 	<?php
 		}
-		elseif(isset($_SESSION["droits_user_id"]) && isset($_SESSION["droits_comp_id"])) // Droits de l'utilisateur pour chaque formation de la composante sélectionnée
+		elseif(isset($_SESSION["droits_user_id"]) && isset($_SESSION["droits_comp_id"])) // Droits de l'utilisateur pour chaque formation de la composante sÃ©lectionnÃ©e
 		{
 			$result=db_query($dbr,"SELECT $_DBC_composantes_id, $_DBC_composantes_nom,$_DBC_universites_nom
 										     FROM $_DB_composantes, $_DB_universites
@@ -633,21 +633,21 @@ CeCILL-B, et que vous en avez accepté les termes.
 		<td class='td-droite fond_menu'><font class='Texte_menu'><?php print("$_SESSION[droits_user_prenom] $_SESSION[droits_user_nom]"); ?></font></td>
 	</tr>
 	<tr>
-		<td class='td-gauche fond_menu2'><font class='Texte_menu2'><b>Composante sélectionnée : </b></font></td>
+		<td class='td-gauche fond_menu2'><font class='Texte_menu2'><b>Composante sÃ©lectionnÃ©e : </b></font></td>
 		<td class='td-droite fond_menu'><font class='Texte_menu'><?php print("$univ_nom - $composante_nom"); ?></font></td>
 	</tr>
 	<tr>
-		<td class='td-gauche fond_menu2'><font class='Texte_menu2'><b>Niveau d'accès : </b></font></td>
+		<td class='td-gauche fond_menu2'><font class='Texte_menu2'><b>Niveau d'accÃ¨s : </b></font></td>
 		<td class='td-droite fond_menu'><font class='Texte_menu'><?php print("$_SESSION[droits_user_niveau]"); ?></font></td>
 	</tr>
 	</table>
 	
 	<?php
-	  message("Si aucune case n'est cochée, l'utilisateur aura accès à <strong>toutes les formations</strong>", $__WARNING); 
+	  message("Si aucune case n'est cochÃ©e, l'utilisateur aura accÃ¨s Ã  <strong>toutes les formations</strong>", $__WARNING); 
    ?>
 
 	<?php
-		// Nombre max de mentions pour les années de cette composantes (pour affichage)
+		// Nombre max de mentions pour les annÃ©es de cette composantes (pour affichage)
 		$res_mentions=db_query($dbr, "SELECT count(distinct($_DBC_specs_mention_id)) FROM $_DB_specs,$_DB_propspec
                                     WHERE $_DBC_propspec_id_spec=$_DBC_specs_id
                                     AND $_DBC_propspec_comp_id ='$_SESSION[droits_comp_id]'
@@ -675,7 +675,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       print("<table align='center'>
              <tr>
                 <td class='fond_menu2' colspan='$colspan_annee' style='padding:4px 20px 4px 20px;'>
-                   <font class='Texte_menu2'><b>&#8226;&nbsp;&nbsp;Droits d'accès</b></font>
+                   <font class='Texte_menu2'><b>&#8226;&nbsp;&nbsp;Droits d'accÃ¨s</b></font>
                 </td>
              </tr>\n");
 
@@ -693,7 +693,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
       if($rows)
       {
-         $old_propspec_id="--"; // on initialise à n'importe quoi (sauf vide)
+         $old_propspec_id="--"; // on initialise Ã  n'importe quoi (sauf vide)
          $old_annee_id="--"; // idem
          $old_mention="--"; // idem
          $j=0;
@@ -706,7 +706,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          {
             list($propspec_id, $annee_id, $annee, $spec_nom, $finalite, $mention, $mention_nom)=db_fetch_row($result, $i);
 
-				// On teste si l'accès est accordé pour cette formation
+				// On teste si l'accÃ¨s est accordÃ© pour cette formation
 				$res_droits=db_query($dbr, "SELECT $_DBC_droits_formations_droits FROM $_DB_droits_formations 
 													 WHERE $_DBC_droits_formations_acces_id='$_SESSION[droits_user_id]' AND $_DBC_droits_formations_propspec_id='$propspec_id'");
 													 
@@ -725,9 +725,9 @@ CeCILL-B, et que vous en avez accepté les termes.
 
             if($annee_id!=$old_annee_id)
             {
-               $annee=$annee=="" ? "Années particulières" : $annee;
+               $annee=$annee=="" ? "AnnÃ©es particuliÃ¨res" : $annee;
 
-               if($i) // Le premier résultat du tableau est particulier (i=0)
+               if($i) // Le premier rÃ©sultat du tableau est particulier (i=0)
                {
                   print("</table>
                        </td>\n");

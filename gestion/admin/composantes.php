@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -117,7 +117,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
       $new_comp_verr_delai=trim($_POST['delai_verrouillage']);
 
-      // Traitement particulier pour les noms composés
+      // Traitement particulier pour les noms composÃ©s
       $new_comp_directeur=str_replace("- ", "-", ucwords(str_replace("-", "- ", trim($_POST['directeur']))));
 
       $new_limite_nombre=(array_key_exists("limite_nombre", $_POST) && ctype_digit($_POST["limite_nombre"]) && $_POST["limite_nombre"]>=0) ? $_POST["limite_nombre"] : 0;
@@ -138,11 +138,11 @@ CeCILL-B, et que vous en avez accepté les termes.
       $new_comp_entretien_salle=trim($_POST['entretien_salle']);
       $new_comp_entretien_lieu=trim($_POST['entretien_lieu']);
 
-      // Détermination de l'ID de la composante
+      // DÃ©termination de l'ID de la composante
       if(isset($_POST["comp_id"]))
          $comp_id=$_POST["comp_id"];
 
-      // OBSOLETE : ID standards utilisés (bigint)
+      // OBSOLETE : ID standards utilisÃ©s (bigint)
 /*
       else
       {
@@ -160,14 +160,14 @@ CeCILL-B, et que vous en avez accepté les termes.
             $comp_id=$limite_inf+1;
       }
 */
-      // vérification des champs
+      // vÃ©rification des champs
       if($new_comp_nom=="") $nom_vide=1;
       if($new_comp_adresse=="") $adresse_vide=1;
       if($new_comp_contact=="") $contact_vide=1;
       if($new_comp_directeur=="") $directeur_vide=1;
       if($new_comp_courriel_scolarite=="") $courriel_scol_vide=1;
 
-      // unicité de la composante
+      // unicitÃ© de la composante
       if(isset($comp_id) && ctype_digit($comp_id))
       {
          if(db_num_rows(db_query($dbr,"SELECT $_DBC_composantes_id FROM $_DB_composantes
@@ -199,8 +199,8 @@ CeCILL-B, et que vous en avez accepté les termes.
                                                          $_DBU_composantes_avertir_decision='$new_avertir_decision'
                               WHERE $_DBU_composantes_id='$comp_id'");
 
-            // MAJ du paramètre d'affichage des résultats, si besoin
-            // TODO : écrire des fonctions de rafraichissement automatique de ce genre de paramètres
+            // MAJ du paramÃ¨tre d'affichage des rÃ©sultats, si besoin
+            // TODO : Ã©crire des fonctions de rafraichissement automatique de ce genre de paramÃ¨tres
             if($comp_id==$_SESSION["comp_id"])
             {
                $_SESSION["affichage_decisions"]=$new_defaut_affichage_decisions;
@@ -213,8 +213,8 @@ CeCILL-B, et que vous en avez accepté les termes.
          {
             $comp_id=db_locked_query($dbr, $_DB_composantes, "INSERT INTO $_DB_composantes VALUES ('##NEW_ID##','$new_comp_nom', '$new_comp_univ_id', '$new_comp_adresse', '$new_comp_contact', '$new_comp_directeur', '$new_comp_scolarite', '','','','', '$new_comp_verr_delai', '32', '$new_comp_courriel_scolarite', '$new_limite_nombre', '$new_limite_annee', '$new_limite_annee_mention','$new_gestion_motifs', '$new_comp_entretien_salle','$new_comp_entretien_lieu','$new_comp_www', '$new_defaut_affichage_decisions','109','42','$new_avertir_decision')");
 
-            // Une fois la composante créée, on regarde si des données par défaut doivent être renseignées (motifs de refus, ...)
-            // TODO : faire ça coté application ou directement via la base ?
+            // Une fois la composante crÃ©Ã©e, on regarde si des donnÃ©es par dÃ©faut doivent Ãªtre renseignÃ©es (motifs de refus, ...)
+            // TODO : faire Ã§a cotÃ© application ou directement via la base ?
             if(isset($GLOBALS["__DEFAUT_MOTIFS"]) && $GLOBALS["__DEFAUT_MOTIFS"]=='t' && function_exists("insert_default_motifs"))
                insert_default_motifs($dbr, $comp_id);
 
@@ -224,7 +224,7 @@ CeCILL-B, et que vous en avez accepté les termes.
             write_evt($dbr, $__EVT_ID_G_ADMIN, "Nouvelle composante $comp_id", "", $comp_id);
          }
 
-         // Création du répertoire dédié à la composante s'il n'existe pas
+         // CrÃ©ation du rÃ©pertoire dÃ©diÃ© Ã  la composante s'il n'existe pas
          if(!is_dir("$__GESTION_COMP_STOCKAGE_DIR_ABS/$comp_id"))
             mkdir("$__GESTION_COMP_STOCKAGE_DIR_ABS/$comp_id", 0770);
 
@@ -272,35 +272,35 @@ CeCILL-B, et que vous en avez accepté les termes.
          titre_page_icone("Gestion des composantes", "composante_32x32_fond.png", 15, "L");
 
       if(isset($nom_vide))
-         message("Erreur : le champ 'nom' ne doit pas être vide", $__ERREUR);
+         message("Erreur : le champ 'nom' ne doit pas Ãªtre vide", $__ERREUR);
 
       if(isset($adresse_vide))
-         message("Erreur : le champ 'adresse' ne doit pas être vide", $__ERREUR);
+         message("Erreur : le champ 'adresse' ne doit pas Ãªtre vide", $__ERREUR);
 
       if(isset($contact_vide))
-         message("Erreur : le champ 'contact' ne doit pas être vide", $__ERREUR);
+         message("Erreur : le champ 'contact' ne doit pas Ãªtre vide", $__ERREUR);
 
       if(isset($nom_existe))
-         message("Erreur : cette composante existe déjà !", $__ERREUR);
+         message("Erreur : cette composante existe dÃ©jÃ  !", $__ERREUR);
 
       if(isset($courriel_scol_vide))
-         message("Erreur : le champ 'Adresse électronique de la scolarité' ne doit pas être vide", $__ERREUR);
+         message("Erreur : le champ 'Adresse Ã©lectronique de la scolaritÃ©' ne doit pas Ãªtre vide", $__ERREUR);
 
       if(isset($succes))
       {
          if($_SESSION["modification"]==1)
          {
-            message("La composante a été modifiée avec succès.", $__SUCCES);
+            message("La composante a Ã©tÃ© modifiÃ©e avec succÃ¨s.", $__SUCCES);
             $_SESSION["modification"]=0;
          }
          elseif($_SESSION["ajout_comp"]==1)
          {
-            message("La composante a été créée avec succès.", $__SUCCES);
+            message("La composante a Ã©tÃ© crÃ©Ã©e avec succÃ¨s.", $__SUCCES);
             $_SESSION["ajout_comp"]=0;
          }
          elseif($_SESSION["suppression"]==1)
          {
-            message("La composante a été supprimée avec succès.", $__SUCCES);
+            message("La composante a Ã©tÃ© supprimÃ©e avec succÃ¨s.", $__SUCCES);
             $_SESSION["suppression"]=0;
          }
       }
@@ -320,7 +320,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                                                                      WHERE $_DBC_acces_comp_acces_id='$_SESSION[auth_id]'))
                                        ORDER BY $_DBC_composantes_univ_id, $_DBC_composantes_nom ASC");
          }
-         else // Administrateurs : accès à toutes les composantes
+         else // Administrateurs : accÃ¨s Ã  toutes les composantes
          {
             $result=db_query($dbr, "SELECT $_DBC_composantes_id, $_DBC_composantes_nom, $_DBC_composantes_univ_id, $_DBC_universites_nom
                                        FROM $_DB_composantes, $_DB_universites
@@ -400,9 +400,9 @@ CeCILL-B, et que vous en avez accepté les termes.
       }
       elseif($_SESSION["suppression"]==1)
       {
-         // TODO : ajouter des mécanismes de protection pour :
+         // TODO : ajouter des mÃ©canismes de protection pour :
          // - ne pas supprimer la composante lorsqu'il s'agit de la composante courante
-         // - ne pas supprimer la dernière composante de la base (?)
+         // - ne pas supprimer la derniÃ¨re composante de la base (?)
 
          print("<input type='hidden' name='comp_id' value='$comp_id'>");
 
@@ -413,9 +413,9 @@ CeCILL-B, et que vous en avez accepté les termes.
 
          db_free_result($result);
 
-         // TODO : actuellement, l'avertissement suivant est vrai. Faut-il préférer l'orphelinat pour ces éléments ?
+         // TODO : actuellement, l'avertissement suivant est vrai. Faut-il prÃ©fÃ©rer l'orphelinat pour ces Ã©lÃ©ments ?
          message("<center>
-                     La suppression entrainera automatiquement l'effacement de tous les utilisateurs et formations rattachés à cette composante.
+                     La suppression entrainera automatiquement l'effacement de tous les utilisateurs et formations rattachÃ©s Ã  cette composante.
                      <br>ATTENTION, CECI EST LA DERNIERE CONFIRMATION !
                   </center>", $__WARNING);
 
@@ -427,11 +427,11 @@ CeCILL-B, et que vous en avez accepté les termes.
                   </form>
                </div>\n");
       }
-      elseif((isset($comp_id) && $_SESSION["modification"]==1) || $_SESSION["ajout_comp"]==1) // composante choisie, on récupère les infos actuelles
+      elseif((isset($comp_id) && $_SESSION["modification"]==1) || $_SESSION["ajout_comp"]==1) // composante choisie, on rÃ©cupÃ¨re les infos actuelles
       {
          if($_SESSION["ajout_comp"]==1)
          {
-            if(!isset($new_comp_nom)) // un seul test devrait être suffisant
+            if(!isset($new_comp_nom)) // un seul test devrait Ãªtre suffisant
             {
                $new_comp_verr_delai=$new_comp_nom=$new_comp_contact=$new_comp_adresse=$new_comp_directeur=$new_comp_scolarite="";
                $new_comp_courriel_scolarite=$new_limite_nombre=$new_limite_annee=$new_limite_annee_mention=$new_gestion_motifs="";
@@ -477,7 +477,7 @@ CeCILL-B, et que vous en avez accepté les termes.
    </tr>
    <tr>
       <td class='td-gauche fond_menu2'>
-         <font class='Texte_menu2'><b>Université :</b></font>
+         <font class='Texte_menu2'><b>UniversitÃ© :</b></font>
       </td>
       <td class='td-droite fond_menu'>
          <select name='comp_univ_id'>
@@ -520,7 +520,7 @@ CeCILL-B, et que vous en avez accepté les termes.
    </tr>
    <tr>
       <td class='td-gauche fond_menu2'>
-         <font class='Texte_menu2'><b>Directeur (avec civilité)</b></font>
+         <font class='Texte_menu2'><b>Directeur (avec civilitÃ©)</b></font>
       </td>
       <td class='td-droite fond_menu'>
          <input type='text' name='directeur' value='<?php if(isset($new_comp_directeur)) echo htmlspecialchars(stripslashes($new_comp_directeur), ENT_QUOTES, $default_htmlspecialchars_encoding); elseif(isset($current_comp_directeur)) echo htmlspecialchars(stripslashes($current_comp_directeur), ENT_QUOTES, $default_htmlspecialchars_encoding);?>' maxlength='92' size='60'>
@@ -539,7 +539,7 @@ CeCILL-B, et que vous en avez accepté les termes.
    </tr>
    <tr>
       <td class='td-gauche fond_menu2'>
-         <font class='Texte_menu2'><b>Adresse postale du Service Scolarité</b></font>
+         <font class='Texte_menu2'><b>Adresse postale du Service ScolaritÃ©</b></font>
       </td>
       <td class='td-droite fond_menu'>
          <textarea name='scolarite' rows='7' cols='60'><?php
@@ -550,7 +550,7 @@ CeCILL-B, et que vous en avez accepté les termes.
    </tr>
    <tr>
       <td class='td-gauche fond_menu2'>
-         <font class='Texte_menu2'><b>Adresse électronique de la Scolarité :</b></font>
+         <font class='Texte_menu2'><b>Adresse Ã©lectronique de la ScolaritÃ© :</b></font>
       </td>
       <td class='td-droite fond_menu'>
          <input type='text' name='courriel_scolarite' value='<?php if(isset($new_comp_courriel_scolarite)) echo htmlspecialchars(stripslashes($new_comp_courriel_scolarite), ENT_QUOTES, $default_htmlspecialchars_encoding); elseif(isset($current_comp_courriel_scolarite)) echo htmlspecialchars(stripslashes($current_comp_courriel_scolarite), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' maxlength='128' size='60'>
@@ -577,9 +577,9 @@ CeCILL-B, et que vous en avez accepté les termes.
       </td>
    </tr>
    <tr>
-      <td class='td-gauche fond_menu2'><font class='Texte_menu2'>Délai avant verrouillage automatique des fiches candidat</font></td>
+      <td class='td-gauche fond_menu2'><font class='Texte_menu2'>DÃ©lai avant verrouillage automatique des fiches candidat</font></td>
       <td class='td-droite fond_menu' colspan='2'>
-         <input type='text' name='delai_verrouillage' value='<?php if(isset($new_comp_verr_delai)) echo floor($new_comp_verr_delai/3600); elseif(isset($current_comp_verr_delai)) echo $current_comp_verr_delai; ?>' maxlength='5' size='9'>&nbsp;<font class='Texte_menu'>&nbsp;&nbsp;&nbsp;(en heures)&nbsp;&nbsp;<i>Valeur par défaut : 48 heures</i></font>
+         <input type='text' name='delai_verrouillage' value='<?php if(isset($new_comp_verr_delai)) echo floor($new_comp_verr_delai/3600); elseif(isset($current_comp_verr_delai)) echo $current_comp_verr_delai; ?>' maxlength='5' size='9'>&nbsp;<font class='Texte_menu'>&nbsp;&nbsp;&nbsp;(en heures)&nbsp;&nbsp;<i>Valeur par dÃ©faut : 48 heures</i></font>
       </td>
    </tr>
    <tr>
@@ -592,7 +592,7 @@ CeCILL-B, et que vous en avez accepté les termes.
    <tr>
       <td class='td-gauche fond_menu2'>
          <font class='Texte_menu2'>
-            <b>Limiter les candidatures à une seule année ?</b>
+            <b>Limiter les candidatures Ã  une seule annÃ©e ?</b>
          </font>
       </td>
       <td class='td-droite fond_menu' colspan='2'>
@@ -619,14 +619,14 @@ CeCILL-B, et que vous en avez accepté les termes.
                print("<input type='radio' name='limite_annee' value='1' $yes_checked>&nbsp;Oui
                         &nbsp;&nbsp;<input type='radio' name='limite_annee' value='0' $no_checked>&nbsp;Non\n");
             ?>
-            &nbsp;&nbsp;&nbsp;(exemple : limiter au L3 dès qu'un L3 a été choisi)
+            &nbsp;&nbsp;&nbsp;(exemple : limiter au L3 dÃ¨s qu'un L3 a Ã©tÃ© choisi)
          </font>
       </td>
    </tr>
    <tr>
       <td class='td-gauche fond_menu2'>
          <font class='Texte_menu2'>
-            <b>Limiter les candidatures à une année et une mention ?</b>
+            <b>Limiter les candidatures Ã  une annÃ©e et une mention ?</b>
          </font>
       </td>
       <td class='td-droite fond_menu' colspan='2'>
@@ -653,14 +653,14 @@ CeCILL-B, et que vous en avez accepté les termes.
                print("<input type='radio' name='limite_annee_mention' value='1' $yes_checked>&nbsp;Oui
                         &nbsp;&nbsp;<input type='radio' name='limite_annee_mention' value='0' $no_checked>&nbsp;Non\n");
             ?>
-            &nbsp;&nbsp;&nbsp;(pour une mention, limiter à l'année du premier choix)
+            &nbsp;&nbsp;&nbsp;(pour une mention, limiter Ã  l'annÃ©e du premier choix)
          </font>
       </td>
    </tr>
    <tr>
       <td class='td-gauche fond_menu2'>
          <font class='Texte_menu2'>
-            <b>Publication des décisions pour les candidats</b>
+            <b>Publication des dÃ©cisions pour les candidats</b>
          </font>
       </td>
       <td class='td-droite fond_menu' colspan='2'>
@@ -682,9 +682,9 @@ CeCILL-B, et que vous en avez accepté les termes.
                else
                   $checked2="checked";
 
-               print("<input type='radio' name='affichage_decisions' value='0' $checked0>&nbsp;Masquer les décisions jusqu'à la publication manuelle
-                      <br><input type='radio' name='affichage_decisions' value='1' $checked1>&nbsp;Afficher automatiquement les décisions dès la saisie
-                      <br><input type='radio' name='affichage_decisions' value='2' $checked2>&nbsp;Afficher automatiquement les décisions + Lettres accessibles aux candidats\n");
+               print("<input type='radio' name='affichage_decisions' value='0' $checked0>&nbsp;Masquer les dÃ©cisions jusqu'Ã  la publication manuelle
+                      <br><input type='radio' name='affichage_decisions' value='1' $checked1>&nbsp;Afficher automatiquement les dÃ©cisions dÃ¨s la saisie
+                      <br><input type='radio' name='affichage_decisions' value='2' $checked2>&nbsp;Afficher automatiquement les dÃ©cisions + Lettres accessibles aux candidats\n");
             ?>
          </font>
       </td>
@@ -692,7 +692,7 @@ CeCILL-B, et que vous en avez accepté les termes.
    <tr>
       <td class='td-gauche fond_menu2'>
          <font class='Texte_menu2'>
-            <b>Décision : avertir automatiquement le candidat ?</b>
+            <b>DÃ©cision : avertir automatiquement le candidat ?</b>
          </font>
       </td>
       <td class='td-droite fond_menu' colspan='2'>
@@ -719,7 +719,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                print("<input type='radio' name='avertir_decision' value='1' $yes_checked>&nbsp;Oui
                         &nbsp;&nbsp;<input type='radio' name='avertir_decision' value='0' $no_checked>&nbsp;Non\n");
             ?>
-            &nbsp(valable uniquement pour les décisions <strong>publiées</strong> de la Commission Pédagogique)
+            &nbsp(valable uniquement pour les dÃ©cisions <strong>publiÃ©es</strong> de la Commission PÃ©dagogique)
          </font>
       </td>
    </tr>
@@ -750,27 +750,27 @@ CeCILL-B, et que vous en avez accepté les termes.
                   $select_0="";
                }
 
-               print("<input type='radio' name='gestion_motifs' value='0' $select_0>&nbsp;Plusieurs motifs possibles, énumération courte
-                        <br><input type='radio' name='gestion_motifs' value='1' $select_1>&nbsp;Sélection d'un seul motif (pouvant en regrouper plusieurs dans une même phrase)\n");
+               print("<input type='radio' name='gestion_motifs' value='0' $select_0>&nbsp;Plusieurs motifs possibles, Ã©numÃ©ration courte
+                        <br><input type='radio' name='gestion_motifs' value='1' $select_1>&nbsp;SÃ©lection d'un seul motif (pouvant en regrouper plusieurs dans une mÃªme phrase)\n");
             ?>
          </font>
       </td>
    </tr>
    <tr>
       <td class='td-gauche fond_menu2'>
-         <font class='Texte_menu2'><b>Entretiens : salle par défaut :</b></font>
+         <font class='Texte_menu2'><b>Entretiens : salle par dÃ©faut :</b></font>
       </td>
       <td class='td-milieu fond_menu'>
          <input type='text' name='entretien_salle' value='<?php if(isset($new_comp_entretien_salle)) echo htmlspecialchars(stripslashes($new_comp_entretien_salle), ENT_QUOTES, $default_htmlspecialchars_encoding); elseif(isset($comp_entretien_salle)) echo htmlspecialchars(stripslashes($current_comp_entretien_salle), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' maxlength='50' size='52'>
       </td>
       <td class='td-droite fond_menu' rowspan='2'>
          <font class='Texte_menu'>
-            <i>Valeurs utiles uniquement si des<br>entretiens sont prévus</i>
+            <i>Valeurs utiles uniquement si des<br>entretiens sont prÃ©vus</i>
       </td>
    </tr>
    <tr>
       <td class='td-gauche fond_menu2'>
-         <font class='Texte_menu2'><b>Entretiens : lieu (adresse) par défaut :</b></font>
+         <font class='Texte_menu2'><b>Entretiens : lieu (adresse) par dÃ©faut :</b></font>
       </td>
       <td class='td-milieu fond_menu'>
          <input type='text' name='entretien_lieu' value='<?php if(isset($new_comp_entretien_lieu)) echo htmlspecialchars(stripslashes($new_comp_entretien_lieu), ENT_QUOTES, $default_htmlspecialchars_encoding); elseif(isset($comp_entretien_lieu)) echo htmlspecialchars(stripslashes($current_comp_entretien_lieu), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' maxlength='128' size='60'>
@@ -785,7 +785,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          else
             print("<a href='$php_self?m=0&a=0' target='_self'><img class='icone' src='$__ICON_DIR/button_cancel_32x32_fond.png' alt='Annuler' border='0'></a>");
       ?>
-      <input type='image' class='icone' src='<?php echo "$__ICON_DIR/button_ok_32x32_fond.png"; ?>' alt='Valider' title='[Confirmer la création]' name='valider' value='Valider'>
+      <input type='image' class='icone' src='<?php echo "$__ICON_DIR/button_ok_32x32_fond.png"; ?>' alt='Valider' title='[Confirmer la crÃ©ation]' name='valider' value='Valider'>
       </form>
    </div>
    <?php

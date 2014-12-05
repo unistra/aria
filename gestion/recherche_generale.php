@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -66,7 +66,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 	$dbr=db_connect();
 
-	// Déverrouillage, au cas où
+	// DÃ©verrouillage, au cas oÃ¹
 	if(isset($_SESSION["candidat_id"]))
 		cand_unlock($dbr, $_SESSION["candidat_id"]);
 
@@ -77,9 +77,9 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 		$critere_periode="AND $_DBC_cand_periode='$user_periode'";
 
-		// Autres critères
+		// Autres critÃ¨res
 
-		// Statut de la précandidature
+		// Statut de la prÃ©candidature
 		$critere_prec="";
 
 		if(isset($_POST["statut_prec_$__PREC_NON_TRAITEE"]) && $_POST["statut_prec_$__PREC_NON_TRAITEE"]==$__PREC_NON_TRAITEE)
@@ -120,7 +120,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		if($critere_prec!="")
 			$critere_prec.=") ";
 
-		// Décision de la Commission pédagogique
+		// DÃ©cision de la Commission pÃ©dagogique
 		$critere_dec="";
 
 		foreach($_POST as $key => $val)
@@ -128,7 +128,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			// if(!strncmp($key, "dec_", 4) && $val!="" && ctype_digit(abs($val)))
 			if(!strncmp($key, "dec_", 4) && $val!="")
 			{
-				// Une décision a été trouvée : le critère de Recevabilité est mis à "Recevable" automatiquement
+				// Une dÃ©cision a Ã©tÃ© trouvÃ©e : le critÃ¨re de RecevabilitÃ© est mis Ã  "Recevable" automatiquement
 				$critere_prec="AND $_DBC_cand_statut='$__PREC_RECEVABLE'";
 
 				if($critere_dec=="")
@@ -169,7 +169,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          {
             $temp_form_array=explode("_", $formation);
                          
-            if(is_array($temp_form_array) && isset($temp_form_array["1"]) && isset($temp_form_array["2"])) // le ctype_digit est normalement inutile : la chaine a été contrôlée par preg_match
+            if(is_array($temp_form_array) && isset($temp_form_array["1"]) && isset($temp_form_array["2"])) // le ctype_digit est normalement inutile : la chaine a Ã©tÃ© contrÃ´lÃ©e par preg_match
             {
                $cond_annee_id=$temp_form_array["1"];
                $cond_mention_id=$temp_form_array["2"];
@@ -179,7 +179,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          }        
 			elseif($formation!="-1" && $formation!="orph" && ctype_digit($formation))
             $condition_formation="AND $_DBC_cand_propspec_id='$formation' ";
-			else // Toutes les formations de la composante courante, pourvu que l'utilisateur y ait accès
+			else // Toutes les formations de la composante courante, pourvu que l'utilisateur y ait accÃ¨s
 			{
 				$requete_droits_formations=requete_auth_droits($_SESSION["comp_id"]);
 			
@@ -192,11 +192,11 @@ CeCILL-B, et que vous en avez accepté les termes.
             */
 			}
 	
-			// Note : on conserve la requête dans une variable de session, au cas où
+			// Note : on conserve la requÃªte dans une variable de session, au cas oÃ¹
 
 			if($_SESSION["niveau"]==$__LVL_ADMIN)
 			{
-				// Option réservée : filtre sur les dates de création des fiches
+				// Option rÃ©servÃ©e : filtre sur les dates de crÃ©ation des fiches
 				if(isset($_POST["jour_inf"]) && isset($_POST["mois_inf"]) && isset($_POST["annee_inf"])
 					&& ctype_digit($_POST["jour_inf"]) && ctype_digit($_POST["mois_inf"]) && ctype_digit($_POST["annee_inf"]))
 				{
@@ -215,17 +215,17 @@ CeCILL-B, et que vous en avez accepté les termes.
 				else
 					$critere_id_sup="";
 
-				// Sélection des fiches orphelines : les autres critères sont inutiles (sauf celui concernant les années précédentes)
+				// SÃ©lection des fiches orphelines : les autres critÃ¨res sont inutiles (sauf celui concernant les annÃ©es prÃ©cÃ©dentes)
 				if($formation=="orph")
 				{
-					// Option réservée : inclure les candidats qui ne se sont jamais connectés (candidat.connexion='0') ?
+					// Option rÃ©servÃ©e : inclure les candidats qui ne se sont jamais connectÃ©s (candidat.connexion='0') ?
 					if(isset($_POST["jamais_connectes"]) && $_POST["jamais_connectes"]==1)
 						$critere_connexion="";
 					else
 						$critere_connexion="AND $_DBC_candidat_connexion!='0'";
 
-					// critère spécial dans ce cas : on ne peut pas se fier au champ "Periode" car inexistant
-					// => recherche sur les candidats enregistrés cette année => date("y")
+					// critÃ¨re spÃ©cial dans ce cas : on ne peut pas se fier au champ "Periode" car inexistant
+					// => recherche sur les candidats enregistrÃ©s cette annÃ©e => date("y")
 					$debut_recherche_id=preg_replace("/^0*/", "", date("y")); 
 					$critere_periode="AND CAST($_DBC_candidat_id AS TEXT) LIKE '$debut_recherche_id%'";
 					
@@ -295,7 +295,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		}
 	}
 
-	// Message de masse - Récupération des adresses destination et vérification de la liste
+	// Message de masse - RÃ©cupÃ©ration des adresses destination et vÃ©rification de la liste
 	if((isset($_POST["courriels_masse"]) || isset($_POST["courriels_masse_x"])) && isset($_POST["liste"]) && $_POST["liste"]==1 && isset($_SESSION["mail_masse"]))
 	{
 		foreach($_SESSION["mail_masse"] as $mail_candidat_id => $mail_candidat_array)
@@ -309,7 +309,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			$liste_vide=1;
 			unset($_SESSION["mail_masse"]);
 
-			// Rappel des paramètres pour rester sur la page de résultat
+			// Rappel des paramÃ¨tres pour rester sur la page de rÃ©sultat
 			$checked_message=$_SESSION["checked_message"];
 			$requete=$_SESSION["requete"];
 
@@ -330,7 +330,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		}
 	}
 
-	// Nettoyage de la liste des pièces jointes, si elle existe
+	// Nettoyage de la liste des piÃ¨ces jointes, si elle existe
 	if(isset($_SESSION["tmp_message_fichiers"]))
 	{
 		foreach($_SESSION["tmp_message_fichiers"] as $array_file)
@@ -350,16 +350,16 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 <div class='main'>
 	<?php
-		titre_page_icone("Recherche générale", "xmag_32x32_fond.png", 30, "L");
+		titre_page_icone("Recherche gÃ©nÃ©rale", "xmag_32x32_fond.png", 30, "L");
 
 		if(isset($empty_nom))
-			message("Le formulaire ne doit pas être vide", $__ERREUR);
+			message("Le formulaire ne doit pas Ãªtre vide", $__ERREUR);
 
 		if(isset($_GET["masse"]) && $_GET["masse"]==1)
-			message("Le message de masse a été envoyé avec succès.", $__SUCCES);
+			message("Le message de masse a Ã©tÃ© envoyÃ© avec succÃ¨s.", $__SUCCES);
 
 		if(isset($liste_vide) && $liste_vide==1)
-			message("Envoi de message impossible : aucun candidat sélectionné", $__ERREUR);
+			message("Envoi de message impossible : aucun candidat sÃ©lectionnÃ©", $__ERREUR);
 
 		if(!isset($nb_trouves))
 		{
@@ -398,7 +398,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 					{
 						print("<select size='1' name='formation'>\n");
 
-						// admin : option spéciale : sélection des fiches orphelines
+						// admin : option spÃ©ciale : sÃ©lection des fiches orphelines
 						if($_SESSION["niveau"]==$__LVL_ADMIN)
 							print("<option value='orph'>Uniquement les fiches orphelines</option>
 										<option value='-1' disabled='1'></option>\n");
@@ -421,7 +421,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 									print("</optgroup>
 												<option value='' label='' disabled></option>\n");
 
-								$form_annee=$form_annee_nom=="" ? "Années particulières" : $form_annee_nom;
+								$form_annee=$form_annee_nom=="" ? "AnnÃ©es particuliÃ¨res" : $form_annee_nom;
 
 								print("<optgroup label='$form_annee'>\n");
 
@@ -454,12 +454,12 @@ CeCILL-B, et que vous en avez accepté les termes.
 						}
 
 						print("</select>
-								<br><font class='Texte'><i>Seules les formations auxquelles vous avez accès et pour lesquelles des dossiers existent sont proposées</i>\n");
+								<br><font class='Texte'><i>Seules les formations auxquelles vous avez accÃ¨s et pour lesquelles des dossiers existent sont proposÃ©es</i>\n");
 					}
 					else
 					{
 						print("<font class='Texte_important_menu'>
-									<b>Aucun dossier n'a encore été déposé pour cette année universitaire.</b>
+									<b>Aucun dossier n'a encore Ã©tÃ© dÃ©posÃ© pour cette annÃ©e universitaire.</b>
 									</font>\n");
 
 						$no_next=1;
@@ -469,7 +469,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		</tr>
 		<tr>
 			<td class='td-gauche fond_menu'>
-				<font class='Texte_menu'><b>Année universitaire : </b></font>
+				<font class='Texte_menu'><b>AnnÃ©e universitaire : </b></font>
 			</td>
 			<td class='td-droite fond_menu'>
 				<select name='periode' size='1'>
@@ -500,16 +500,16 @@ CeCILL-B, et que vous en avez accepté les termes.
 		<table style='width:100%; margin-bottom:10px;'>
 		<tr>
 			<td class='td-gauche fond_menu2' colspan='3' style='padding:4px;'>
-				<font class='Texte_menu2'><b>Critères supplémentaires</b></font>
+				<font class='Texte_menu2'><b>CritÃ¨res supplÃ©mentaires</b></font>
 			</td>
 		</tr>
 		<tr>
 			<td class='td-gauche fond_menu' rowspan='3'>
-				<font class='Texte_menu'><b>Statut de la recevabilité : </b><br><i>Si aucun critère : paramètre ignoré</i></font>
+				<font class='Texte_menu'><b>Statut de la recevabilitÃ© : </b><br><i>Si aucun critÃ¨re : paramÃ¨tre ignorÃ©</i></font>
 			</td>
 			<td class='td-milieu fond_menu'>
 				<font class='Texte_menu'>
-					<?php print("<input type='checkbox' name='statut_prec_$__PREC_NON_TRAITEE' value='$__PREC_NON_TRAITEE'>&nbsp;&nbsp;Non traitée"); ?>
+					<?php print("<input type='checkbox' name='statut_prec_$__PREC_NON_TRAITEE' value='$__PREC_NON_TRAITEE'>&nbsp;&nbsp;Non traitÃ©e"); ?>
 				</font>
 			</td>
 			<td class='td-milieu fond_menu'>
@@ -556,9 +556,9 @@ CeCILL-B, et que vous en avez accepté les termes.
 		<tr>
 			<td class='td-gauche fond_menu' style='padding-bottom:4px;' valign=middle; rowspan='<?php echo $rowspan; ?>'>
 				<font class='Texte_menu'>
-					<b>Décision de la Commission : </b>
-					<br><i>Si aucun critère : paramètre ignoré</i>
-					<br><i>Si critère présent : statut "Recevable" automatique</i>
+					<b>DÃ©cision de la Commission : </b>
+					<br><i>Si aucun critÃ¨re : paramÃ¨tre ignorÃ©</i>
+					<br><i>Si critÃ¨re prÃ©sent : statut "Recevable" automatique</i>
 				</font>
 			</td>
 			<?php
@@ -566,7 +566,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 				{
 					list($dec_id, $dec_texte)=db_fetch_row($result, $i);
 
-					// Cas particulier pour la première ligne
+					// Cas particulier pour la premiÃ¨re ligne
 					if(!($i%2) && $i>=2)
 						print("<tr>");
 
@@ -599,27 +599,27 @@ CeCILL-B, et que vous en avez accepté les termes.
 		</tr>
 		<tr>
 			<td class='td-gauche fond_menu'>
-				<font class='Texte_menu'><b>Sélection par défaut des candidats<br>pour l'envoi d'un message</b></font>
+				<font class='Texte_menu'><b>SÃ©lection par dÃ©faut des candidats<br>pour l'envoi d'un message</b></font>
 			</td>
 			<td class='td-droite fond_menu' colspan='2'>
 				<font class='Texte_menu'>
-					<input type='radio' name='selection' value='1' checked='1'>&nbsp;&nbsp;Sélectionner <b>tous</b> les candidats
+					<input type='radio' name='selection' value='1' checked='1'>&nbsp;&nbsp;SÃ©lectionner <b>tous</b> les candidats
 					<br>
-					<input type='radio' name='selection' value='0'>&nbsp;&nbsp;Ne sélectionner <b>aucun</b> candidat
+					<input type='radio' name='selection' value='0'>&nbsp;&nbsp;Ne sÃ©lectionner <b>aucun</b> candidat
 				</font>
 			</td>
 		</tr>
 		<?php
-			// autre critère réservé à l'admin :
-			// - inclure/exclure les candidats qui ne se sont jamais connectés
-			// - intervalle de dates de création des fiches : utile pour envoyer des rappels à un groupe ciblé de candidats
+			// autre critÃ¨re rÃ©servÃ© Ã  l'admin :
+			// - inclure/exclure les candidats qui ne se sont jamais connectÃ©s
+			// - intervalle de dates de crÃ©ation des fiches : utile pour envoyer des rappels Ã  un groupe ciblÃ© de candidats
 
 			if($_SESSION["niveau"]==$__LVL_ADMIN)
 			{
 		?>
 		<tr>
 			<td class='td-gauche fond_menu'>
-				<font class='Texte_menu'><b>Fiches orphelines : inclure les candidats<br>qui ne se sont jamais connectés ?</b></font>
+				<font class='Texte_menu'><b>Fiches orphelines : inclure les candidats<br>qui ne se sont jamais connectÃ©s ?</b></font>
 			</td>
 			<td class='td-droite fond_menu' colspan='2'>
 				<font class='Texte_menu' style='vertical-align:bottom;'>
@@ -630,14 +630,14 @@ CeCILL-B, et que vous en avez accepté les termes.
 		</tr>
 		<tr>
 			<td class='td-gauche fond_menu'>
-				<font class='Texte_menu'><b>Intervalle de dates de création des fiches</b><br><i>(facultatif - format JJ : MM : AAAA)</font>
+				<font class='Texte_menu'><b>Intervalle de dates de crÃ©ation des fiches</b><br><i>(facultatif - format JJ : MM : AAAA)</font>
 			</td>
 			<td class='td-droite fond_menu' colspan='2'>
 				<font class='Texte_menu' style='vertical-align:bottom;'>
 					<?php
-						$y=substr($__PERIODE, 2,2); // passage de la période de 4 à 2 chiffres (2008 => 08)					
+						$y=substr($__PERIODE, 2,2); // passage de la pÃ©riode de 4 Ã  2 chiffres (2008 => 08)					
 
-						if(substr($y, 0, 1) == "0") // réduction à un chiffre si le premier vaut 0
+						if(substr($y, 0, 1) == "0") // rÃ©duction Ã  un chiffre si le premier vaut 0
 							$y=substr($y, 1, 1);
 							
 					   $annee_sup=date("Y")>$__PERIODE ? date("Y") : $__PERIODE;
@@ -649,7 +649,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 						{
 							list($id_inf, $id_sup)=db_fetch_row($res_min_max, 0);
 
-							// Pour le moment, la date limite inférieure n'est pas utilisée
+							// Pour le moment, la date limite infÃ©rieure n'est pas utilisÃ©e
 							if($id_inf!="")
 							{
 								$timestamp_inf=id_to_date($id_inf);
@@ -696,7 +696,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	</div>
 
 	<div class='centered_icons_box'>
-		<a href='recherche.php' target='_self' class='lien2'><img src='<?php echo "$__ICON_DIR/back_32x32_fond.png"; ?>' alt='Retour au menu précédent' border='0'></a>
+		<a href='recherche.php' target='_self' class='lien2'><img src='<?php echo "$__ICON_DIR/back_32x32_fond.png"; ?>' alt='Retour au menu prÃ©cÃ©dent' border='0'></a>
 		<?php
 			if(!isset($no_next))
 				print("<input type='image' src='$__ICON_DIR/button_ok_32x32_fond.png'; alt='Rechercher' name='recherche' value='Rechercher'>");
@@ -710,7 +710,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 	<?php
 		}
-		else // résultat de la recherche
+		else // rÃ©sultat de la recherche
 		{
 			// Formulaire pour envoyer un message de masse
 			print("<form action='$php_self' method='POST' name='form1'>
@@ -720,11 +720,11 @@ CeCILL-B, et que vous en avez accepté les termes.
 			{
 				if($nb_trouves>1)
 					print("<div class='centered_box'>
-								<font class='Texte'><i>$nb_trouves candidat(e)s trouvé(e)s :</i></font>
+								<font class='Texte'><i>$nb_trouves candidat(e)s trouvÃ©(e)s :</i></font>
 							</div>\n");
 				else
 					print("<div class='centered_box'>
-								<font class='Texte'><i>$nb_trouves candidat(e) trouvé(e) :</i></font>
+								<font class='Texte'><i>$nb_trouves candidat(e) trouvÃ©(e) :</i></font>
 							</div>\n");
 
 				if(isset($flag_all))
@@ -739,13 +739,13 @@ CeCILL-B, et que vous en avez accepté les termes.
 						<table width='90%' cellpadding='4' cellspacing='0' border='0' align='center'>
 						<tr>\n");
 				if(in_array($_SESSION["niveau"],array("$__LVL_SAISIE","$__LVL_SCOL_MOINS","$__LVL_SCOL_PLUS","$__LVL_RESP","$__LVL_SUPER_RESP","$__LVL_ADMIN")))
-					print("<td class='td-gauche fond_menu2' colspan='2' style='text-align:center;'><font class='Texte_menu2'><b>Sélection pour l'envoi<br>d'un message de masse</b></font></td>\n");
+					print("<td class='td-gauche fond_menu2' colspan='2' style='text-align:center;'><font class='Texte_menu2'><b>SÃ©lection pour l'envoi<br>d'un message de masse</b></font></td>\n");
 				else
 					print("<td class='td-gauche fond_menu2' style='text-align:center;'>\n");
 
 				print("<td class='td-milieu fond_menu2'><font class='Texte_menu2'><b>Candidat(e)</b></font></td>
 						 <td class='td-milieu fond_menu2'><font class='Texte_menu2'><b>Naissance</b></font></td>
-						 <td class='td-milieu fond_menu2'><font class='Texte_menu2'><b>Nationalité</b></font></td>\n");
+						 <td class='td-milieu fond_menu2'><font class='Texte_menu2'><b>NationalitÃ©</b></font></td>\n");
 
 				if(in_array($_SESSION["niveau"],array("$__LVL_SAISIE","$__LVL_SCOL_MOINS","$__LVL_SCOL_PLUS","$__LVL_RESP","$__LVL_SUPER_RESP","$__LVL_ADMIN")))
 					print("<td class='td-milieu fond_menu2'><font class='Texte_menu2'><b>Courriel</b></font></td>\n");
@@ -781,18 +781,18 @@ CeCILL-B, et que vous en avez accepté les termes.
 					$current_letter=strtolower(substr($nom,0,1));
 
 					if(empty($lieu))
-						$lieu="non renseigné";
+						$lieu="non renseignÃ©";
 
 					if(empty($nationalite))
-						$nationalite="non renseignée";
+						$nationalite="non renseignÃ©e";
 
                if($nom_naissance!=$nom && $nom_naissance!="")
 					{
-					  // le nom de naissance peut-il être différent pour un homme ? (oui)
+					  // le nom de naissance peut-il Ãªtre diffÃ©rent pour un homme ? (oui)
 					  if($civilite=="M")
-					     $nom.=" (né $nom_naissance)";
+					     $nom.=" (nÃ© $nom_naissance)";
 					  else
-					     $nom.=" (née $nom_naissance)";
+					     $nom.=" (nÃ©e $nom_naissance)";
 				   }
 
 					if(isset($flag_all) && $current_letter!=$old_letter)
@@ -815,7 +815,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 					if($manuelle)
 						print("<td class='$fond2' width='22'>
-									<img src='$__ICON_DIR/$icone_manuelle2' alt='Fiche manuelle' desc='Fiche créée manuellement' border='0'>
+									<img src='$__ICON_DIR/$icone_manuelle2' alt='Fiche manuelle' desc='Fiche crÃ©Ã©e manuellement' border='0'>
 								</td>\n");
 					else
 						print("<td class='$fond2' width='22'></td>\n");
@@ -824,7 +824,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 								<a href='edit_candidature.php?rech=1&cid=$candidat_id' target='_self' class='$lien2'><b>$civilite. $nom $prenom</b></a>
 							</td>
 							<td class='td-milieu $fond2'>
-								<font class='$texte2'>$naissance à $lieu</font>
+								<font class='$texte2'>$naissance Ã  $lieu</font>
 							</td>
 							<td class='td-milieu $fond2'>
 								<font class='$texte2'>$nationalite</font>
@@ -843,7 +843,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 						print("<td class='td-milieu $fond2' valign='top'>
 									<font class='$texte2'>
 										<b>ID</b> :
-										<br><b>Accès</b> :
+										<br><b>AccÃ¨s</b> :
 										<br><b>IP / Host</b> :
 										<br><b>User Agent</b> :
 									</font>
@@ -878,7 +878,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			}
 			else
 			{
-				message("Aucun candidat ne correspond à votre recherche", $__WARNING);
+				message("Aucun candidat ne correspond Ã  votre recherche", $__WARNING);
 
 				print("<div class='centered_box'>
 							<a href='recherche.php' target='_self' class='lien2'><img border='0' src='$__ICON_DIR/back_32x32.png' alt='Nouvelle recherche' desc='Nouvelle recherche'></a>

@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -76,7 +76,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	else
 		$candidat_id=$_SESSION["authentifie"];
 	
-	// récupération des paramètres cryptés passés en GET
+	// rÃ©cupÃ©ration des paramÃ¨tres cryptÃ©s passÃ©s en GET
 	if(array_key_exists("p",$_GET) && -1!=($params=get_params($_GET['p'])))
 	{
 		// inid
@@ -89,7 +89,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			exit;
 		}
 
-		// si on change l'ordre d'une spécialité au sein d'une candidature à choix multiples ...
+		// si on change l'ordre d'une spÃ©cialitÃ© au sein d'une candidature Ã  choix multiples ...
 		if(array_key_exists("groupe",$params) && is_numeric($params["groupe"]))
 			$groupe=$params["groupe"];
 
@@ -108,10 +108,10 @@ CeCILL-B, et que vous en avez accepté les termes.
 		exit;
 	}
 	
-	// inscr_down : décalage d'une candidature vers le bas : nouvel_ordre=ancien_ordre + 1
+	// inscr_down : dÃ©calage d'une candidature vers le bas : nouvel_ordre=ancien_ordre + 1
 	$dbr=db_connect();
 	
-	// par précaution, on regarde si on n'essayerait pas (par hasard) de décaler la dernière candidature (ou la derniere spécialité) vers le bas
+	// par prÃ©caution, on regarde si on n'essayerait pas (par hasard) de dÃ©caler la derniÃ¨re candidature (ou la derniere spÃ©cialitÃ©) vers le bas
 
 	if(isset($groupe))
 		$result=db_query($dbr,"SELECT count($_DBC_cand_id) FROM $_DB_cand
@@ -128,7 +128,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	if($rows)
 	{
 		list($nb_inscriptions)=db_fetch_row($result,0);
-		if(empty($nb_inscriptions)) // décalage impossible
+		if(empty($nb_inscriptions)) // dÃ©calage impossible
 		{
 			db_free_result($result);
 			db_close($dbr);
@@ -137,7 +137,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			exit;
 		}
 	}
-	else // décalage impossible aussi
+	else // dÃ©calage impossible aussi
 	{
 		db_free_result($result);
 		db_close($dbr);
@@ -149,7 +149,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	
 	db_free_result($result);
 	
-	// on a le nombre max de candidatures, on peut vérifier et décaler (ou sortir)
+	// on a le nombre max de candidatures, on peut vÃ©rifier et dÃ©caler (ou sortir)
 	
 	$result=db_query($dbr,"SELECT $_DBC_cand_ordre, $_DBC_cand_ordre_spec, $_DBC_cand_periode FROM $_DB_cand
 									WHERE $_DBC_cand_candidat_id='$candidat_id'
@@ -160,8 +160,8 @@ CeCILL-B, et que vous en avez accepté les termes.
 	{
 		list($ordre_actuel,$ordre_spec_actuel, $periode_actuelle)=db_fetch_row($result,0);
 
-		// colonne différente selon qu'on réordonne une candidature ou une spécialité
-		if(isset($groupe)) // spécialité
+		// colonne diffÃ©rente selon qu'on rÃ©ordonne une candidature ou une spÃ©cialitÃ©
+		if(isset($groupe)) // spÃ©cialitÃ©
 		{
 			$ordre_actuel=$ordre_spec_actuel;
 			$colonne_ordre="$_DBU_cand_ordre_spec";
@@ -176,7 +176,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		if($ordre_actuel!=$nb_inscriptions) // si =, on ne  change rien (ordre max)
 		{
 			$ordre_cible=$ordre_actuel+1;
-			// l'ordre 0 est utilisé comme swap
+			// l'ordre 0 est utilisÃ© comme swap
 			db_query($dbr,"UPDATE $_DB_cand SET $colonne_ordre='0'
 									WHERE $_DBU_cand_candidat_id='$candidat_id'
 									AND $colonne_ordre='$ordre_cible'

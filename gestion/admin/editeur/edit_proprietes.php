@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -63,7 +63,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 	verif_auth("../../login.php");
 
-	// Modification des propriétés
+	// Modification des propriÃ©tÃ©s
 	if(isset($_SESSION["lettre_id"]))
 		$lettre_id=$_SESSION["lettre_id"];
 	else
@@ -72,7 +72,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		exit;
 	}
 
-	// section exécutée lorsque le formulaire est validé
+	// section exÃ©cutÃ©e lorsque le formulaire est validÃ©
 	if(isset($_POST["go"]) || isset($_POST["go_x"]))
 	{
 		$titre=trim($_POST["titre"]);
@@ -83,7 +83,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		{
 			$dbr=db_connect();
 
-			// Lettres : infos par défaut
+			// Lettres : infos par dÃ©faut
 			$new_flag_logo=!array_key_exists("flag_logo", $_POST) || $_POST["flag_logo"]=="" ? "f" : $_POST["flag_logo"];
 			$new_flag_txt_logo=!array_key_exists("flag_txt_logo", $_POST) || $_POST["flag_txt_logo"]=="" ? "f" : $_POST["flag_txt_logo"];
 			$new_flag_txt_scol=!array_key_exists("flag_txt_scol", $_POST) || $_POST["flag_txt_scol"]=="" ? "f" : $_POST["flag_txt_scol"];
@@ -110,13 +110,13 @@ CeCILL-B, et que vous en avez accepté les termes.
 			$new_logo_size=$_FILES["fichier"]["size"];
 			$new_logo_tmp_name=$_FILES["fichier"]["tmp_name"];
 
-			// récupération de certains paramètres par défaut de la composante
+			// rÃ©cupÃ©ration de certains paramÃ¨tres par dÃ©faut de la composante
 			$res_comp=db_query($dbr,"SELECT $_DBC_composantes_adr_pos_x, $_DBC_composantes_adr_pos_y, $_DBC_composantes_corps_pos_x,
 													$_DBC_composantes_corps_pos_y, $_DBC_composantes_largeur_logo
 												FROM $_DB_composantes
 											WHERE $_DBC_composantes_id='$_SESSION[comp_id]'");
 
-			if(db_num_rows($res_comp)) // toujours vrai à cet endroit (sauf si la composante a été effacée entretemps ...)
+			if(db_num_rows($res_comp)) // toujours vrai Ã  cet endroit (sauf si la composante a Ã©tÃ© effacÃ©e entretemps ...)
 				list($comp_adr_pos_x, $comp_adr_pos_y, $comp_corps_pos_x, $comp_corps_pos_y, $comp_largeur_logo)=db_fetch_row($res_comp,0);
 			else
 			{
@@ -147,7 +147,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			if(!empty($new_logo))
 				$new_logo=htmlspecialchars(validate_filename($new_logo),ENT_QUOTES, $default_htmlspecialchars_encoding);
 
-			// Création du répertoire dédié à la composante, si besoin
+			// CrÃ©ation du rÃ©pertoire dÃ©diÃ© Ã  la composante, si besoin
 			if(!is_dir("$__GESTION_COMP_STOCKAGE_DIR_ABS/$_SESSION[comp_id]"))
 				mkdir("$__GESTION_COMP_STOCKAGE_DIR_ABS/$_SESSION[comp_id]", 0770);
 
@@ -227,16 +227,16 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 <div class='main'>
 	<?php
-		titre_page_icone("Modifier les propriétés de la lettre", "preferences_32x32_fond.png", 15, "L");
+		titre_page_icone("Modifier les propriÃ©tÃ©s de la lettre", "preferences_32x32_fond.png", 15, "L");
 
 		if(isset($titre_vide))
-			message("Le titre ne peut pas être vide", $__ERREUR);
+			message("Le titre ne peut pas Ãªtre vide", $__ERREUR);
 
 		if(isset($file_wrong_size))
-			message("Erreur : la taille du logo est limitée à 200ko", $__ERREUR);
+			message("Erreur : la taille du logo est limitÃ©e Ã  200ko", $__ERREUR);
 
 		if(isset($image_type))
-			message("Erreur : le logo doit être au format JPEG", $__ERREUR);
+			message("Erreur : le logo doit Ãªtre au format JPEG", $__ERREUR);
 
 		if(isset($move_error))
 			message("Erreur lors de la copie du logo : merci de contacter rapidement l'administrateur.", $__ERREUR);
@@ -273,13 +273,13 @@ CeCILL-B, et que vous en avez accepté les termes.
 		<tr>
 			<td class='fond_menu2' colspan='4' style='padding:4px 20px 4px 20px;'>
 				<font class='Texte_menu2'>
-					<b>&#8226;&nbsp;&nbsp;Données de la lettre</b>
+					<b>&#8226;&nbsp;&nbsp;DonnÃ©es de la lettre</b>
 				</font>
 			</td>
 		</tr>
 		<tr>
 			<td class='td-gauche fond_menu2' style='padding-bottom:30px'>
-				<font class='Texte_menu2'><b>Titre de la lettre</b><br>(n'apparaît pas sur la lettre elle-même) :</font>
+				<font class='Texte_menu2'><b>Titre de la lettre</b><br>(n'apparaÃ®t pas sur la lettre elle-mÃªme) :</font>
 			</td>
 			<td class='td-droite fond_menu' colspan='3' style='padding-bottom:30px'>
 				<input type='text' name='titre' value='<?php if(isset($titre)) echo htmlspecialchars($titre, ENT_QUOTES, $default_htmlspecialchars_encoding); else echo htmlspecialchars($current_titre, ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size='40' maxlenght='96'>
@@ -288,19 +288,19 @@ CeCILL-B, et que vous en avez accepté les termes.
 		<tr>
 			<td class='fond_menu2' colspan='4' style='padding:4px 20px 4px 20px;'>
 				<font class='Texte_menu2'>
-					<b>&#8226;&nbsp;&nbsp;Champs optionnels et/ou spécifiques à cette lettre</b>
+					<b>&#8226;&nbsp;&nbsp;Champs optionnels et/ou spÃ©cifiques Ã  cette lettre</b>
 				</font>
 			</td>
 		</tr>
 		<tr>
 			<td class='fond_menu2' style='padding:4px 20px 4px 20px;'>
-				<font class='Texte_menu2'><b>Elément</b></font>
+				<font class='Texte_menu2'><b>ElÃ©ment</b></font>
 			</td>
 			<td class='fond_menu2' style='padding:4px 20px 4px 20px;'>
-				<font class='Texte_menu2'><b>Utiliser la<br>valeur par défaut ?</b></font>
+				<font class='Texte_menu2'><b>Utiliser la<br>valeur par dÃ©faut ?</b></font>
 			</td>
 			<td class='fond_menu2' style='padding:4px 20px 4px 20px;' colspan='2'>
-				<font class='Texte_menu2'><b>Valeur spécifique à cette lettre</b></font>
+				<font class='Texte_menu2'><b>Valeur spÃ©cifique Ã  cette lettre</b></font>
 			</td>
 		</tr>
 		<tr>
@@ -335,7 +335,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			</td>
 			<td class='td-droite fond_menu' colspan='2'>
 				<font class='Texte_menu'>
-					<input type='file' name='fichier'>&nbsp;&nbsp;<i>Format imposé : <b>jpeg</b>. Taille maximale : 200ko.</i>
+					<input type='file' name='fichier'>&nbsp;&nbsp;<i>Format imposÃ© : <b>jpeg</b>. Taille maximale : 200ko.</i>
 					<?php if(isset($current_logo) && !empty($current_logo)) print("<br>Fichier actuel : <b>$current_logo</b>"); ?>
 				</font>
 			</td>
@@ -351,7 +351,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		</tr>
 		<tr>
 			<td class='td-gauche fond_menu2'>
-				<font class='Texte_menu2'><b>Texte affiché<br>au dessus du logo</b></font>
+				<font class='Texte_menu2'><b>Texte affichÃ©<br>au dessus du logo</b></font>
 			</td>
 			<td class='td-milieu fond_menu'>
 				<font class='Texte_menu'>
@@ -387,7 +387,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		</tr>
 		<tr>
 			<td class='td-gauche fond_menu2'>
-				<font class='Texte_menu2'><b>Texte affiché en signature</b></font>
+				<font class='Texte_menu2'><b>Texte affichÃ© en signature</b></font>
 			</td>
 			<td class='td-milieu fond_menu'>
 				<font class='Texte_menu'>
@@ -423,7 +423,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		</tr>
 		<tr>
 			<td class='td-gauche fond_menu2'>
-				<font class='Texte_menu2'><b>Information Scolarité<br>(colonne gauche, bas)</b></font>
+				<font class='Texte_menu2'><b>Information ScolaritÃ©<br>(colonne gauche, bas)</b></font>
 			</td>
 			<td class='td-milieu fond_menu'>
 				<font class='Texte_menu'>
@@ -520,14 +520,14 @@ CeCILL-B, et que vous en avez accepté les termes.
 				</font>
 			</td>
 			<td class='td-milieu fond_menu' width='100'>
-				<img src='<?php echo "$__IMG_DIR/legende_lettre.png"; ?>' border='0' Title='Légende' desc='Légende'>
+				<img src='<?php echo "$__IMG_DIR/legende_lettre.png"; ?>' border='0' Title='LÃ©gende' desc='LÃ©gende'>
 			</td>
 			<td class='td-droite fond_menu'>
 				<font class='Texte_menu'>
 				<b>Position :</b>
 				<br>Valeur de X (en mm) : <input type='text' name='adr_pos_x' value='<?php if(isset($new_adr_pos_x)) echo htmlspecialchars(stripslashes($new_adr_pos_x), ENT_QUOTES, $default_htmlspecialchars_encoding); else echo htmlspecialchars(stripslashes($adr_pos_x), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' maxlength='3' size='4'>
 				<br>Valeur de Y (en mm) : <input type='text' name='adr_pos_y' value='<?php if(isset($new_adr_pos_y)) echo htmlspecialchars(stripslashes($new_adr_pos_y), ENT_QUOTES, $default_htmlspecialchars_encoding); else echo htmlspecialchars(stripslashes($adr_pos_y), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' maxlength='3' size='4'>
-				<br>(relativement au coin supérieur gauche de la feuille)
+				<br>(relativement au coin supÃ©rieur gauche de la feuille)
 			</td>
 		</tr>
 		<tr>
@@ -561,14 +561,14 @@ CeCILL-B, et que vous en avez accepté les termes.
 				</font>
 			</td>
 			<td class='td-milieu fond_menu' width='100'>
-				<img src='<?php echo "$__IMG_DIR/legende_corps_lettre.png"; ?>' border='0' Title='Légende' desc='Légende'>
+				<img src='<?php echo "$__IMG_DIR/legende_corps_lettre.png"; ?>' border='0' Title='LÃ©gende' desc='LÃ©gende'>
 			</td>
 			<td class='td-droite fond_menu'>
 				<font class='Texte_menu'>
 				<b>Position :</b>
 				<br>Valeur de X (en mm) : <input type='text' name='corps_pos_x' value='<?php if(isset($new_corps_pos_x)) echo htmlspecialchars(stripslashes($new_corps_pos_x), ENT_QUOTES, $default_htmlspecialchars_encoding); else echo htmlspecialchars(stripslashes($corps_pos_x), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' maxlength='3' size='4'>
 				<br>Valeur de Y (en mm) : <input type='text' name='corps_pos_y' value='<?php if(isset($new_corps_pos_y)) echo htmlspecialchars(stripslashes($new_corps_pos_y), ENT_QUOTES, $default_htmlspecialchars_encoding); else echo htmlspecialchars(stripslashes($corps_pos_y), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' maxlength='3' size='4'>
-				<br>(relativement au coin supérieur gauche de la feuille)
+				<br>(relativement au coin supÃ©rieur gauche de la feuille)
 			</td>
 		</tr>
 		<tr>
@@ -604,7 +604,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 						print("<input type='radio' name='flag_date' value='0' $aucune_date_selected>&nbsp;Aucun affichage&nbsp;&nbsp;
 									<input type='radio' name='flag_date' value='1' $date_com_selected>&nbsp;Date de la commission&nbsp;&nbsp;
-									<input type='radio' name='flag_date' value='-1' $date_jour_selected>&nbsp;Date de génération de la lettre\n");
+									<input type='radio' name='flag_date' value='-1' $date_jour_selected>&nbsp;Date de gÃ©nÃ©ration de la lettre\n");
 					?>
 				</font>
 			</td>
@@ -616,7 +616,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			<td class='td-milieu fond_menu'></td>
 			<td class='td-droite fond_menu' colspan='2'>
 				<?php
-					// Pour le moment, deux langues sont proposées : FR et EN
+					// Pour le moment, deux langues sont proposÃ©es : FR et EN
 					$selected_FR=$selected_EN="";
 
 					if($cur_lang=="FR")
@@ -626,11 +626,11 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 					print("<select name='langue' style='padding-right:10px;'>
 								<option value='EN' $selected_EN>Anglais</option>
-								<option value='FR' $selected_FR>Français</option>
+								<option value='FR' $selected_FR>FranÃ§ais</option>
 							</select>\n");
 				?>
 				<font class='Texte_menu'>
-					<i>Les "champs fixes" affectés sont les dates et les "civilités"</i>
+					<i>Les "champs fixes" affectÃ©s sont les dates et les "civilitÃ©s"</i>
 				<font>
 			<td>
 		</tr>

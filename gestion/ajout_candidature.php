@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -74,7 +74,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		exit();
 	}
 
-	// La fiche doit être verrouillée pour pouvoir ajouter une candidature manuellement
+	// La fiche doit Ãªtre verrouillÃ©e pour pouvoir ajouter une candidature manuellement
 /*
 	if($_SESSION['tab_candidat']['lock']!=1)
 	{
@@ -139,8 +139,8 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 			$dbr=db_connect();
 
-			// vérification de l'unicité de la candidature pour ce candidat et cette période
-			// Todo : ajouter l'unicité sur la session
+			// vÃ©rification de l'unicitÃ© de la candidature pour ce candidat et cette pÃ©riode
+			// Todo : ajouter l'unicitÃ© sur la session
 			if(db_num_rows(db_query($dbr,"SELECT * FROM $_DB_cand
 													WHERE	$_DBC_cand_propspec_id='$candidature'
 													AND 	$_DBC_cand_candidat_id='$candidat_id'
@@ -151,19 +151,19 @@ CeCILL-B, et que vous en avez accepté les termes.
 			}
 			else
 			{
-				// détermination de l'ordre max des candidatures, ou de la spécialité si c'est une candidature à choix multiple
-				// 1 : on détermine si on a une candidature à choix multiples
+				// dÃ©termination de l'ordre max des candidatures, ou de la spÃ©cialitÃ© si c'est une candidature Ã  choix multiple
+				// 1 : on dÃ©termine si on a une candidature Ã  choix multiples
 
 				$result=db_query($dbr,"SELECT $_DBC_groupes_spec_groupe
 												FROM $_DB_groupes_spec
 												WHERE $_DBC_groupes_spec_propspec_id='$candidature'");
 
-				if(db_num_rows($result)) // un groupe a été trouvé. La contrainte fait qu'un seul groupe peut contenir ce couple
+				if(db_num_rows($result)) // un groupe a Ã©tÃ© trouvÃ©. La contrainte fait qu'un seul groupe peut contenir ce couple
 				{
 					list($groupe_spec)=db_fetch_row($result,0);
 
-					// 2 : ordre_spec max dans la table des précandidatures, pour le groupe donné
-					// si l'ordre du groupe est déjà connu, on en profite pour le prendre en même temps (requête un peu barbare ?)
+					// 2 : ordre_spec max dans la table des prÃ©candidatures, pour le groupe donnÃ©
+					// si l'ordre du groupe est dÃ©jÃ  connu, on en profite pour le prendre en mÃªme temps (requÃªte un peu barbare ?)
 
 					$result2=db_query($dbr,"SELECT max($_DBC_cand_ordre_spec)+1, $_DBC_cand_ordre
 														FROM $_DB_cand
@@ -174,16 +174,16 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 					$rows2=db_num_rows($result2);
 
-					// list($ordre_spec)=db_fetch_row($result2,0); 	// si le max n'existe pas, la requête renvoie quand même un résultat, mais il est vide.
+					// list($ordre_spec)=db_fetch_row($result2,0); 	// si le max n'existe pas, la requÃªte renvoie quand mÃªme un rÃ©sultat, mais il est vide.
 
 					if($rows2)
-						list($ordre_spec, $ordre)=db_fetch_row($result2,0); 	// si le max n'existe pas, la requête renvoie quand même un résultat, mais il est vide.
-					elseif(!isset($ordre_spec) || empty($ordre_spec)) // 1er ajout pour ce groupe de spécialités : ordre_spec=1
+						list($ordre_spec, $ordre)=db_fetch_row($result2,0); 	// si le max n'existe pas, la requÃªte renvoie quand mÃªme un rÃ©sultat, mais il est vide.
+					elseif(!isset($ordre_spec) || empty($ordre_spec)) // 1er ajout pour ce groupe de spÃ©cialitÃ©s : ordre_spec=1
 					{
 						db_free_result($result2);
 						$ordre_spec=1;
 
-						// l'ordre global doit aussi être déterminé pour l'ajout de la candidature
+						// l'ordre global doit aussi Ãªtre dÃ©terminÃ© pour l'ajout de la candidature
 						$result2=db_query($dbr,"SELECT max($_DBC_cand_ordre)+1 FROM $_DB_cand, $_DB_propspec
 														WHERE $_DBC_cand_propspec_id=$_DBC_propspec_id
 														AND $_DBC_cand_candidat_id='$candidat_id'
@@ -198,7 +198,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 						}
 						db_free_result($result2);
 
-						// Formation manuelle ? => verrouillage immédiat
+						// Formation manuelle ? => verrouillage immÃ©diat
 
 						$result2=db_query($dbr,"SELECT $_DBC_propspec_manuelle FROM $_DB_propspec
 														WHERE $_DBC_propspec_id='$candidature'
@@ -211,11 +211,11 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 						db_free_result($result2);
 					}
-					else // ce groupe existe déjà
+					else // ce groupe existe dÃ©jÃ 
 					{
 						db_free_result($result2);
 
-						// On doit alors récupérer la date de verrouillage (alignement des dates pour les choix multiples)
+						// On doit alors rÃ©cupÃ©rer la date de verrouillage (alignement des dates pour les choix multiples)
 						$result2=db_query($dbr, "SELECT min($_DBC_cand_lockdate),$_DBC_cand_lock FROM $_DB_cand
 														 WHERE $_DBC_cand_candidat_id='$candidat_id'
 														 AND 	 $_DBC_cand_groupe_spec='$groupe_spec'
@@ -227,11 +227,11 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 					}
 				}
-				else // précandidature à choix unique
+				else // prÃ©candidature Ã  choix unique
 				{
-					$groupe_spec=$ordre_spec=-1;	// pas d'ordre pour le groupe de spécialité
+					$groupe_spec=$ordre_spec=-1;	// pas d'ordre pour le groupe de spÃ©cialitÃ©
 
-					// on détermine l'ordre de la nouvelle précandidature
+					// on dÃ©termine l'ordre de la nouvelle prÃ©candidature
 		
 					$result2=db_query($dbr,"SELECT max($_DBC_cand_ordre)+1 FROM $_DB_cand, $_DB_propspec 
 													WHERE $_DBC_cand_candidat_id='$candidat_id' 
@@ -239,14 +239,14 @@ CeCILL-B, et que vous en avez accepté les termes.
 													AND $_DBC_propspec_comp_id='$_SESSION[comp_id]' 
 													AND $_DBC_cand_periode='$__PERIODE'");
 
-					list($ordre)=db_fetch_row($result2,0); // même s'il n'y a pas encore de candidature, la requête renvoie un résultat (vide)
+					list($ordre)=db_fetch_row($result2,0); // mÃªme s'il n'y a pas encore de candidature, la requÃªte renvoie un rÃ©sultat (vide)
 
 					if(empty($ordre)) // 1ere candidature
 						$ordre=1;
 
 					db_free_result($result2);
 
-					// Formation manuelle ? => verrouillage immédiat
+					// Formation manuelle ? => verrouillage immÃ©diat
 
 					$result2=db_query($dbr,"SELECT $_DBC_propspec_manuelle FROM $_DB_propspec
 													WHERE $_DBC_propspec_id='$candidature'
@@ -263,12 +263,12 @@ CeCILL-B, et que vous en avez accepté les termes.
 					
 				db_free_result($result);
 
-				// Date de décision = date de la commission sélectionnée
+				// Date de dÃ©cision = date de la commission sÃ©lectionnÃ©e
 				$date_decision=$com_date; 
 
 				// $date_decision=0;
 
-				// pour s'y retrouver dans le INSERT (TODO : changer la syntaxe de la requête en précisant l'ordre d'insertion)
+				// pour s'y retrouver dans le INSERT (TODO : changer la syntaxe de la requÃªte en prÃ©cisant l'ordre d'insertion)
 				// $statut=$__PREC_EN_ATTENTE; <=== ???
 
 				$statut=$__PREC_NON_TRAITEE;
@@ -278,7 +278,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 				$new_entretien_salle=$new_entretien_heure=$new_entretien_lieu=$motivation_decision=$liste_attente=$transmission_dossier="";
 				$traitee_par="-2";
 
-				// Date de modification du statut de recevabilité - initialisé à 0
+				// Date de modification du statut de recevabilitÃ© - initialisÃ© Ã  0
 				$new_date_prise_decision=$new_date_statut=$new_entretien_date=0;
 
 				$decision=$recours=$masse=$talon_reponse=$statut_frais=$nb_rappels=$notification_envoyee=0;
@@ -309,12 +309,12 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 				<form action=\"$php_self\" method=\"POST\" name=\"form1\">\n");
 
-		titre_page_icone("Ajouter manuellement une candidature pour l'année $__PERIODE-".($__PERIODE+1), "add_32x32_fond.png", 15, "L");
+		titre_page_icone("Ajouter manuellement une candidature pour l'annÃ©e $__PERIODE-".($__PERIODE+1), "add_32x32_fond.png", 15, "L");
 
-		message("Dans ce mode, les formations dont la <b>date limite de depôt</b> du dossier est <b>depassée</b> apparaissent <b>toujours</b> dans la liste.", $__WARNING);
+		message("Dans ce mode, les formations dont la <b>date limite de depÃ´t</b> du dossier est <b>depassÃ©e</b> apparaissent <b>toujours</b> dans la liste.", $__WARNING);
 
 		if(isset($no_session))
-			message("Erreur : vous devez sélectionner une session de candidatures.", $__ERREUR);
+			message("Erreur : vous devez sÃ©lectionner une session de candidatures.", $__ERREUR);
 	?>
 
 	<table align='center'>
@@ -343,7 +343,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 												ORDER BY $_DBC_annees_ordre, $_DBC_specs_mention_id, $_DBC_specs_nom");
 				$rows=db_num_rows($result);
 
-				// variables initialisées à n'importe quoi
+				// variables initialisÃ©es Ã  n'importe quoi
 				$prev_annee="--";
 				$prev_mention="";
 
@@ -366,7 +366,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 							if(empty($annee))
 								print("<option value='' disabled=1></option>
-											<optgroup label='-------------- Années particulières --------------'>\n");
+											<optgroup label='-------------- AnnÃ©es particuliÃ¨res --------------'>\n");
 							else
 								print("<option value='' disabled=1></option>
 											<optgroup label='-------------- $annee -------------- '>\n");
@@ -425,7 +425,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 					if(isset($champ_vide))
 						message("Formulaire incomplet : vous devez choisir une formation valide pour la candidature.", $__ERREUR);
 					elseif(isset($candidature_existe))
-						message("Erreur : une candidature pour cette formation existe déjà !", $__ERREUR);
+						message("Erreur : une candidature pour cette formation existe dÃ©jÃ  !", $__ERREUR);
 			}
 			else
 			{
@@ -456,7 +456,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 			$rows_sessions=db_num_rows($res_sessions);
 
-			// TODO : Réécrire le bloc session et commission
+			// TODO : RÃ©Ã©crire le bloc session et commission
 
 			if($rows_sessions)
 			{
@@ -465,7 +465,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 				print("<tr>
 							<td class='td-gauche fond_menu2' rowspan='$rowspan' valign='top'>
 								<font class='Texte_menu2'>
-									<b>Sélection de la session de candidature : </b><br><i>Session grisée : candidature déjà existante</i>
+									<b>SÃ©lection de la session de candidature : </b><br><i>Session grisÃ©e : candidature dÃ©jÃ  existante</i>
 								</font>
 							</td>\n");
 
@@ -477,13 +477,13 @@ CeCILL-B, et que vous en avez accepté les termes.
 					$ouv_txt=date_fr("j F Y", $session_ouverture);
 					$ferm_txt=date_fr("j F Y", $session_fermeture);
 
-					// Par défaut, on sélectionne la session en cours
+					// Par dÃ©faut, on sÃ©lectionne la session en cours
 					if(time() >= $session_ouverture && time() <= $session_fermeture)
 					{
 						$checked="checked";
 						$session_trouvee=1;
 					}
-					elseif($i==($rows_sessions-1) && !isset($session_trouvee)) // Aucune session trouvée : on garde la dernière
+					elseif($i==($rows_sessions-1) && !isset($session_trouvee)) // Aucune session trouvÃ©e : on garde la derniÃ¨re
 					{
 						$checked="checked";
 						$date_commission_probable=$session_fermeture+(10*86400);
@@ -501,7 +501,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 								</td>
 							</tr>\n");
 
-					// Recherche de la fermeture de session la plus proche (pour déterminer une date de commission, au cas où)
+					// Recherche de la fermeture de session la plus proche (pour dÃ©terminer une date de commission, au cas oÃ¹)
 					if(time()<$session_fermeture)
 					{
 						if(!isset($date_commission_probable))
@@ -514,33 +514,33 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 				print("</tr>\n");
 
-				if(!isset($session_trouvee)) // Aucune session n'a été trouvée
+				if(!isset($session_trouvee)) // Aucune session n'a Ã©tÃ© trouvÃ©e
 					print("<tr>
 								<td class='td-gauche fond_menu2' valign='top'></td>
 								<td class='td-droite fond_menu'>
 									<font class='Texte_important_menu'>
 										Attention : aucune session n'est actuellement ouverte.
-										<br>Vous pouvez soit en forcer une, soit en créer une nouvelle via le menu \"Administration => Sessions de candidatures\".
+										<br>Vous pouvez soit en forcer une, soit en crÃ©er une nouvelle via le menu \"Administration => Sessions de candidatures\".
 									</font>
 								</td>
 								</tr>\n");
 			}
-			else // erreur : il FAUT une session pour chaque candidature, même pour les candidatures manuelles
+			else // erreur : il FAUT une session pour chaque candidature, mÃªme pour les candidatures manuelles
 				print("<tr>
 							<td class='td-gauche fond_menu2' valign='top'>
 								<font class='Texte_menu2'>
-									<b>Sélection de la session de candidature : </b><br><i>Session grisée : candidature déjà existante</i>
+									<b>SÃ©lection de la session de candidature : </b><br><i>Session grisÃ©e : candidature dÃ©jÃ  existante</i>
 								</font>
 							</td>
 							<td class='td-droite fond_menu'>
 								<font class='Texte_important_menu'>
 									<b>Erreur : aucune session disponible pour cette formation.</b>
-									<br>Vous <b>devez</b> en créer une nouvelle via le menu \"Administration => Sessions de candidatures\".
+									<br>Vous <b>devez</b> en crÃ©er une nouvelle via le menu \"Administration => Sessions de candidatures\".
 								</font>
 							</td>
 						</tr>\n");
 
-			// Idem pour la commission pédagogique
+			// Idem pour la commission pÃ©dagogique
 
 			$res_commissions=db_query($dbr, "SELECT $_DBC_commissions_id, $_DBC_commissions_date
 														FROM $_DB_commissions
@@ -556,7 +556,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 				print("<tr>
 							<td class='td-gauche fond_menu2' rowspan='$rows_commissions' valign='top'>
 								<font class='Texte_menu2'>
-									<b>Sélection de la Commission : </b>
+									<b>SÃ©lection de la Commission : </b>
 								</font>
 							</td>\n");
 
@@ -567,7 +567,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 					$num_commission=$i+1;
 					$commission_txt=date_fr("j F Y", $commission_date);
 
-					// Par défaut, on sélectionne la prochaine date
+					// Par dÃ©faut, on sÃ©lectionne la prochaine date
 					if(time() <= $commission_date && !isset($commission_trouvee))
 					{
 						$checked="checked";
@@ -588,25 +588,25 @@ CeCILL-B, et que vous en avez accepté les termes.
 						</tr>\n");
 				}
 			}
-			elseif(!$rows_commissions || !isset($commission_trouvee)) // Aucune commission n'a été trouvée
+			elseif(!$rows_commissions || !isset($commission_trouvee)) // Aucune commission n'a Ã©tÃ© trouvÃ©e
 			{
 				print("<tr>
 							<td class='td-gauche fond_menu2' valign='top'>
 								<font class='Texte_menu2'>
-									<b>Sélection de la Commission : </b>
+									<b>SÃ©lection de la Commission : </b>
 								</font>
 							</td>
 							<td class='td-droite fond_menu'>
 								<font class='Texte_important_menu'>
-									<b>Attention</b> : aucune commission à venir n'est actuellement paramétrée\n");
+									<b>Attention</b> : aucune commission Ã  venir n'est actuellement paramÃ©trÃ©e\n");
 
 				if(isset($date_commission_probable_txt))
-					print("<br>Par défaut, la date prise en compte sera le <b>$date_commission_probable_txt</b>
+					print("<br>Par dÃ©faut, la date prise en compte sera le <b>$date_commission_probable_txt</b>
 								<br><input type='hidden' name='commission' value='$date_commission_probable'>\n");
 				else
-					print("<br>Aucune date de commission n'a pu être trouvée (aucune session de candidatures).\n");
+					print("<br>Aucune date de commission n'a pu Ãªtre trouvÃ©e (aucune session de candidatures).\n");
 
-				print("<br>Vous pouvez en créer une nouvelle via le menu \"Administration => Dates de Commissions Pédagogiques\".
+				print("<br>Vous pouvez en crÃ©er une nouvelle via le menu \"Administration => Dates de Commissions PÃ©dagogiques\".
 					</font>
 				</td>
 				</tr>\n");

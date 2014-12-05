@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -85,7 +85,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 	if($nb_filtres)
 	{
-		// Chargement des formations déjà ajoutées par le candidat
+		// Chargement des formations dÃ©jÃ  ajoutÃ©es par le candidat
 		$res_formations=db_query($dbr,"SELECT $_DBC_propspec_id, $_DBC_propspec_annee, $_DBC_specs_mention_id, $_DBC_propspec_id_spec,
 														  $_DBC_propspec_finalite
 												 	FROM $_DB_propspec, $_DB_specs
@@ -110,17 +110,17 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 			$_SESSION["filtres_regexp"]=array();
 
-			// Pour chaque filtre, on construit une requête pour déterminer les "cibles" (formations non sélectionnables)
+			// Pour chaque filtre, on construit une requÃªte pour dÃ©terminer les "cibles" (formations non sÃ©lectionnables)
 			for($i=0; $i<$nb_filtres; $i++)
 			{
 				list($filtre_id, $cond_propspec_id, $cond_annee_id, $cond_mention_id, $cond_spec_id, $cond_finalite,
 					$cible_propspec_id, $cible_annee_id, $cible_mention_id, $cible_spec_id, $cible_finalite)=db_fetch_row($res_filtres, $i);
 
-				// construction de l'expression rationnelle propre à ce filtre : 5 champs séparés par ":"
-				// id_formation:id_année:id_mention:id_spécialité:id_finalité
-				// si un élément vaut "-1", tous les identifiants peuvent correspondre : "[-0-9]+"
+				// construction de l'expression rationnelle propre Ã  ce filtre : 5 champs sÃ©parÃ©s par ":"
+				// id_formation:id_annÃ©e:id_mention:id_spÃ©cialitÃ©:id_finalitÃ©
+				// si un Ã©lÃ©ment vaut "-1", tous les identifiants peuvent correspondre : "[-0-9]+"
 
-				if($cond_propspec_id!="-1") // formation entière : prioritaire : les 4 champs suivants sont ignorés
+				if($cond_propspec_id!="-1") // formation entiÃ¨re : prioritaire : les 4 champs suivants sont ignorÃ©s
 					$regexp_filtre="$cond_propspec_id:[-0-9]+:[-0-9]+:[-0-9]+:[-0-9]+";
 				else
 				{
@@ -132,7 +132,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 					$regexp_filtre.=$cond_finalite=="-1" ? "[-0-9]+" : "$cond_finalite";
 				}
 
-				// Test du filtre sur chaque formation déjà ajoutée
+				// Test du filtre sur chaque formation dÃ©jÃ  ajoutÃ©e
 				foreach($tab_formations as $une_formation)
 				{		
 					// Si un test est positif : le filtre s'applique, on sort de la boucle
@@ -140,7 +140,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 					{
 						// on stocke l'expression rationnelle de la cible du filtre
 
-						if($cible_propspec_id!="-1") // formation entière prioritaire : les 4 champs suivants sont ignorés
+						if($cible_propspec_id!="-1") // formation entiÃ¨re prioritaire : les 4 champs suivants sont ignorÃ©s
 							$_SESSION["filtres_regexp"][$filtre_id]="$cible_propspec_id:[-0-9]+:[-0-9]+:[-0-9]+:[-0-9]+";
 						else
 						{
@@ -196,7 +196,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		if(!isset($champ_vide))
 		{
 			// ==============================================================================
-			// Mot de passe requis et correspondant à ce que le candidat a entré ?
+			// Mot de passe requis et correspondant Ã  ce que le candidat a entrÃ© ?
 			$res_pass=db_query($dbr,"SELECT $_DBC_propspec_flag_pass, $_DBC_propspec_pass FROM $_DB_propspec
 												WHERE $_DBC_propspec_id='$_SESSION[propspec_id]'");
 
@@ -224,7 +224,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			
 			if($flag_pass=="f" || ($flag_pass=="t" && isset($pass_ok) && $pass_ok==1 && !isset($erreur_pass)))
 			{
-				// vérification de l'unicité de la candidature pour ce candidat
+				// vÃ©rification de l'unicitÃ© de la candidature pour ce candidat
 				// TODO 2008 : RAJOUTER LA VERIFICATION DE LA SESSION EN COURS 
 
 				$result=db_query($dbr,"SELECT * FROM $_DB_cand
@@ -238,20 +238,20 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 				if(!isset($candidature_existe))
 				{
-					// détermination de l'ordre max des candidatures, ou de la spécialité si c'est une candidature à choix multiple
+					// dÃ©termination de l'ordre max des candidatures, ou de la spÃ©cialitÃ© si c'est une candidature Ã  choix multiple
 
-					// 1 : on détermine si on a une candidature à choix multiples et si le mode automatique est actif
+					// 1 : on dÃ©termine si on a une candidature Ã  choix multiples et si le mode automatique est actif
 					
 					$result=db_query($dbr,"SELECT $_DBC_groupes_spec_groupe, $_DBC_groupes_spec_auto
    					                       FROM $_DB_groupes_spec
 	   										  WHERE $_DBC_groupes_spec_propspec_id='$_SESSION[propspec_id]'");
 
-					if(db_num_rows($result)) // un groupe comportant le couple (annee/spécialité) a été trouvé. La contrainte fait qu'un seul groupe peut contenir ce couple
+					if(db_num_rows($result)) // un groupe comportant le couple (annee/spÃ©cialitÃ©) a Ã©tÃ© trouvÃ©. La contrainte fait qu'un seul groupe peut contenir ce couple
 					{
 						list($groupe_spec, $auto, $dates_communes)=db_fetch_row($result,0);
 
-						// 2 : ordre_spec max dans la table des précandidatures, pour le groupe donné
-						// si l'ordre du groupe est déjà connu, on en profite pour le prendre en même temps
+						// 2 : ordre_spec max dans la table des prÃ©candidatures, pour le groupe donnÃ©
+						// si l'ordre du groupe est dÃ©jÃ  connu, on en profite pour le prendre en mÃªme temps
 						$result2=db_query($dbr,"(SELECT max($_DBC_cand_ordre_spec)+1 FROM $_DB_cand
 																WHERE $_DBC_cand_candidat_id='$candidat_id'
 																AND $_DBC_cand_groupe_spec='$groupe_spec'
@@ -264,14 +264,14 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 						$rows2=db_num_rows($result2);
 
-						list($ordre_spec)=db_fetch_row($result2,0); 	// si le max n'existe pas, la requête renvoie quand même un résultat, mais il est vide.
+						list($ordre_spec)=db_fetch_row($result2,0); 	// si le max n'existe pas, la requÃªte renvoie quand mÃªme un rÃ©sultat, mais il est vide.
 							
-						if(!isset($ordre_spec) || empty($ordre_spec)) // 1er ajout pour ce groupe de spécialités : ordre_spec=1
+						if(!isset($ordre_spec) || empty($ordre_spec)) // 1er ajout pour ce groupe de spÃ©cialitÃ©s : ordre_spec=1
 						{
 							db_free_result($result2);
 							$ordre_spec=1;
 
-							// l'ordre au sein de la composante doit aussi être déterminé
+							// l'ordre au sein de la composante doit aussi Ãªtre dÃ©terminÃ©
 							$result2=db_query($dbr,"SELECT max($_DBC_cand_ordre)+1 FROM $_DB_cand, $_DB_propspec
 															WHERE $_DBC_cand_propspec_id=$_DBC_propspec_id
 															AND $_DBC_cand_candidat_id='$candidat_id'
@@ -286,12 +286,12 @@ CeCILL-B, et que vous en avez accepté les termes.
 							}
 							db_free_result($result2);
 						}
-						else // ce groupe existe déjà, donc on a pu récupérer l'ordre dans la requête avec l'UNION
+						else // ce groupe existe dÃ©jÃ , donc on a pu rÃ©cupÃ©rer l'ordre dans la requÃªte avec l'UNION
 						{
 							list($ordre)=db_fetch_row($result2,1);
 							db_free_result($result2);
 
-							// On doit alors récupérer la date de verrouillage (alignement des dates pour les choix multiples)
+							// On doit alors rÃ©cupÃ©rer la date de verrouillage (alignement des dates pour les choix multiples)
 							$result2=db_query($dbr, "SELECT min($_DBC_cand_lockdate) FROM $_DB_cand
 																WHERE $_DBC_cand_candidat_id='$candidat_id'
 																AND 	 $_DBC_cand_groupe_spec='$groupe_spec'
@@ -305,7 +305,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 						}
 						
 						// Mode automatique : l'ajout d'une formation du groupe ajoute toutes les autres
-						// 1 : on liste les formations qui ne sont pas encore ajoutées (normalement aucune, sauf si la modification de l'option a été faite 
+						// 1 : on liste les formations qui ne sont pas encore ajoutÃ©es (normalement aucune, sauf si la modification de l'option a Ã©tÃ© faite 
 						// en cours de session de candidatures
 							
 						if(isset($auto) && $auto=="t")
@@ -340,18 +340,18 @@ CeCILL-B, et que vous en avez accepté les termes.
                      db_free_result($result_formations_groupe);						   
 						}
 					}
-					else // précandidature à choix unique
+					else // prÃ©candidature Ã  choix unique
 					{
-						$groupe_spec=$ordre_spec=-1;	// pas d'ordre pour le groupe de spécialité
+						$groupe_spec=$ordre_spec=-1;	// pas d'ordre pour le groupe de spÃ©cialitÃ©
 
-						// on détermine l'ordre de la nouvelle précandidature
+						// on dÃ©termine l'ordre de la nouvelle prÃ©candidature
 		
 						$result2=db_query($dbr,"SELECT max($_DBC_cand_ordre)+1 FROM $_DB_cand, $_DB_propspec
 														WHERE $_DBC_cand_propspec_id=$_DBC_propspec_id
 														AND $_DBC_cand_candidat_id='$candidat_id'
 														AND $_DBC_propspec_comp_id='$_SESSION[comp_id]'
 														AND $_DBC_cand_periode='$__PERIODE'");
-						list($ordre)=db_fetch_row($result2,0); // même s'il n'y a pas encore de candidature, la requête renvoie un résultat (vide)
+						list($ordre)=db_fetch_row($result2,0); // mÃªme s'il n'y a pas encore de candidature, la requÃªte renvoie un rÃ©sultat (vide)
 
 						if(empty($ordre)) // 1ere candidature
 							$ordre=1;
@@ -361,7 +361,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 					
 					db_free_result($result);
 
-					// Détermination de la session (id) et de la prochaine commission pour cette formation
+					// DÃ©termination de la session (id) et de la prochaine commission pour cette formation
 
 					$date_courante=time();
 
@@ -373,13 +373,13 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 	//												AND $_DBC_session_periode='$__PERIODE'");
 
-					// Normalement, on a TOUJOURS un résultat (session ouverte)
+					// Normalement, on a TOUJOURS un rÃ©sultat (session ouverte)
 					if(db_num_rows($result))
 						list($session_id, $session_fermeture, $session_periode)=db_fetch_row($result, 0);
 					else
 					{
 						// Redirection vers l'index
-						// TODO : envoyer un mail et afficher un message d'erreur adéquat
+						// TODO : envoyer un mail et afficher un message d'erreur adÃ©quat
 						db_close($dbr);
 						session_write_close();
 						header("Location:precandidatures.php");
@@ -388,22 +388,22 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 					db_free_result($result);
 
-					// Date de décision (=de commission)
+					// Date de dÃ©cision (=de commission)
 					$result=db_query($dbr, "SELECT min($_DBC_commissions_date) FROM $_DB_commissions
 													WHERE $_DBC_commissions_propspec_id='$_SESSION[propspec_id]'
 													AND $_DBC_commissions_date>'$date_courante'
 													AND $_DBC_commissions_periode='$session_periode'");
 
-					// Normalement, on a un résultat 
+					// Normalement, on a un rÃ©sultat 
 					if(db_num_rows($result))
 						list($date_decision)=db_fetch_row($result, 0);
 
 					// Pas de date : on envoie un mail et on prend la date de fermeture + 10 jours
 					if(!isset($date_decision) || $date_decision=="")
 					{
-						// TODO : A VERIFIER, plutôt mettre un champ "Indéterminé"
+						// TODO : A VERIFIER, plutÃ´t mettre un champ "IndÃ©terminÃ©"
 						// MAIL : rediriger vers les gestionnaires ?
-						// mail($__EMAIL_ADMIN, "[Précandidatures] - Date de Commission", "Aucune date trouvée pour la formation $_SESSION[propspec_id]");
+						// mail($__EMAIL_ADMIN, "[PrÃ©candidatures] - Date de Commission", "Aucune date trouvÃ©e pour la formation $_SESSION[propspec_id]");
 						$date_decision=$session_fermeture+(10*86400);
 					}
 
@@ -418,16 +418,16 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 					db_free_result($result);
 
-					// Si la valeur est mauvaise ou trop faible, on met 48 heures par défaut
+					// Si la valeur est mauvaise ou trop faible, on met 48 heures par dÃ©faut
 					if(!isset($min_lockdate))
 					{
 						if(!isset($comp_verr_delai) || (isset($comp_verr_delai) && (!ctype_digit($comp_verr_delai) || $comp_verr_delai<86400)))
 							$comp_verr_delai=172800; // = 48 * 3600 secondes
 
-						// date courante + délai de verrouillage
+						// date courante + dÃ©lai de verrouillage
 						$new_lockdate=time()+$comp_verr_delai;
 
-						// on prend le jour suivant, à 5h du matin
+						// on prend le jour suivant, Ã  5h du matin
 						$jour_suivant=date("j", $new_lockdate)+1; 
 						$mois=date("n",$new_lockdate);
 						$annee=date("Y",$new_lockdate);
@@ -437,7 +437,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 						$new_lockdate2=$min_lockdate;
 
 					// initialisation des valeurs pour s'y retrouver dans le INSERT
-					// TODO : changer la syntaxe de la requête en précisant l'ordre d'insertion
+					// TODO : changer la syntaxe de la requÃªte en prÃ©cisant l'ordre d'insertion
 					$statut=$lock=$new_entretien_date=0;
 					$new_entretien_salle=$new_entretien_heure=$new_entretien_lieu=$motivation_decision=$liste_attente=$transmission_dossier="";
 					$traitee_par="-2";
@@ -447,7 +447,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 					$candidature_id=db_locked_query($dbr, $_DB_cand, "INSERT INTO $_DB_cand VALUES('##NEW_ID##','$candidat_id','$_SESSION[propspec_id]','$ordre','$statut','$motivation_decision','$traitee_par','$ordre_spec','$groupe_spec','$date_decision','$decision','$recours','$liste_attente','$transmission_dossier','$_SESSION[vap_flag]','$masse','$talon_reponse','$statut_frais','$new_entretien_date','$new_entretien_heure','$new_entretien_lieu','$new_entretien_salle','$new_date_statut','$new_date_prise_decision', '$session_periode', '$session_id', '$lock', '$new_lockdate2','$nb_rappels','$notification_envoyee')");
 
                // ajout automatique des autres formations, s'il y en a
-               // seul l'ordre dans le groupe doit être incrémenté, les autres variables sont identiques
+               // seul l'ordre dans le groupe doit Ãªtre incrÃ©mentÃ©, les autres variables sont identiques
                if(isset($array_formations_groupe) && is_array($array_formations_groupe) && count($array_formations_groupe))
                {
                   $_SESSION["array_formations_groupe"]=$array_formations_groupe;
@@ -466,7 +466,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 															AND $_DBC_specs_id=$_DBC_propspec_id_spec
 															AND $_DBC_propspec_id='$_SESSION[propspec_id]'");
 
-					if(db_num_rows($res_formation)) // inquiétant si Faux
+					if(db_num_rows($res_formation)) // inquiÃ©tant si Faux
 					{
 						list($nom_annee, $nom_spec, $finalite)=db_fetch_row($res_formation, 0);
 
@@ -481,19 +481,19 @@ CeCILL-B, et que vous en avez accepté les termes.
 					db_free_result($res_formation);
 
 					// INFORMATIONS SUR CETTE FORMATION
-					// Soit des informations propres (propspec.info), soit des renseignements complémentaires à compléter
+					// Soit des informations propres (propspec.info), soit des renseignements complÃ©mentaires Ã  complÃ©ter
 
 					$result=db_query($dbr, "SELECT $_DBC_propspec_info FROM $_DB_propspec WHERE $_DBC_propspec_id='$_SESSION[propspec_id]'");
 					list($propspec_info)=db_fetch_row($result, 0);
 					db_free_result($result);
 
-					// Renseignements complémentaires
+					// Renseignements complÃ©mentaires
 					$count=db_num_rows(db_query($dbr, "SELECT * FROM $_DB_dossiers_ef
 																WHERE $_DBC_dossiers_ef_propspec_id='$_SESSION[propspec_id]'"));
 /*
 					if(trim($propspec_info)!="" || $count)
 					{
-						// on conserve la date de verrouillage pour prévenir le candidat, s'il y a des infos à compléter dans "Autres renseignements".
+						// on conserve la date de verrouillage pour prÃ©venir le candidat, s'il y a des infos Ã  complÃ©ter dans "Autres renseignements".
 */
 						$_SESSION["info_lockdate"]=$new_lockdate2;
 
@@ -515,7 +515,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 	$def=isset($_POST["initiale"]) && $_POST["initiale"]=="Formation Initiale" ? "1" : "0";
 	$def=isset($_POST["continue"]) && $_POST["continue"]=="Formation Continue" ? "2" : $def;
-	$def=isset($_POST["vae"]) && stripslashes($_POST["vae"])=="VAE : Validation des Acquis de l'Expérience" ? "3" : $def;
+	$def=isset($_POST["vae"]) && stripslashes($_POST["vae"])=="VAE : Validation des Acquis de l'ExpÃ©rience" ? "3" : $def;
 	$def=isset($_POST["vap"]) && $_POST["vap"]=="VAP : Validation des Acquis Professionnels" ? "4" : $def;
 
 	en_tete_candidat();
@@ -524,14 +524,14 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 <div class='main'>
 	<?php
-		titre_page_icone("Ajouter une précandidature (attention à l'année universitaire !)", "add_32x32_fond.png", 15, "L");
+		titre_page_icone("Ajouter une prÃ©candidature (attention Ã  l'annÃ©e universitaire !)", "add_32x32_fond.png", 15, "L");
 
-		// Formulaire permettant de demander le mot de passe protégeant éventuellement la formation choisie
+		// Formulaire permettant de demander le mot de passe protÃ©geant Ã©ventuellement la formation choisie
 		if(isset($formulaire_pass) && isset($flag_pass) && $flag_pass=="t")
 		{
 			message("<center>
-							Cette formation est protégée par un mot de passe.
-							<br>Si vous ne le connaissez pas, merci de <strong>vous adresser à la scolarité de la composante</strong>.
+							Cette formation est protÃ©gÃ©e par un mot de passe.
+							<br>Si vous ne le connaissez pas, merci de <strong>vous adresser Ã  la scolaritÃ© de la composante</strong>.
 						</center>", $__INFO);
 
 			if(isset($erreur_pass) && $erreur_pass==1)
@@ -541,7 +541,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 					<table cellpadding='4' align='center'>
 					<tr>
 						<td class='td-complet fond_menu2' colspan='2' nowrap='true'>
-							<font class='Texte_menu2'><b>Formation protégée : veuillez entrer le mot de passe</b></font>
+							<font class='Texte_menu2'><b>Formation protÃ©gÃ©e : veuillez entrer le mot de passe</b></font>
 						</td>
 					</tr>
 					<tr>
@@ -568,7 +568,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		{
 			if(isset($_SESSION["limite_nombre"]) && $_SESSION["limite_nombre"]>0)
 			{
-				// On calcule le nombre de candidatures déjà déposées (on ne compte pas celles qui ont été annulées)
+				// On calcule le nombre de candidatures dÃ©jÃ  dÃ©posÃ©es (on ne compte pas celles qui ont Ã©tÃ© annulÃ©es)
 				$result=db_query($dbr, "SELECT count(*) FROM $_DB_cand, $_DB_propspec
 												WHERE $_DBC_cand_candidat_id='$candidat_id'
 												AND $_DBC_propspec_id=$_DBC_cand_propspec_id
@@ -604,13 +604,13 @@ CeCILL-B, et que vous en avez accepté les termes.
 			}
 
 			if(isset($champ_vide))
-				message("Formulaire incomplet : vous devez choisir une formation valide pour votre précandidature.", $__ERREUR);
+				message("Formulaire incomplet : vous devez choisir une formation valide pour votre prÃ©candidature.", $__ERREUR);
 			elseif(isset($candidature_existe))
-				message("Erreur : votre précandidature pour cette formation existe déjà !", $__ERREUR);
+				message("Erreur : votre prÃ©candidature pour cette formation existe dÃ©jÃ  !", $__ERREUR);
 					
 			if(!isset($limite_atteinte))
 			{
-				// Ajout possible si les dates limites ne sont pas dépassées
+				// Ajout possible si les dates limites ne sont pas dÃ©passÃ©es
 				$date_courante=time();
 
 				if(!db_num_rows(db_query($dbr, "SELECT * FROM $_DB_session, $_DB_propspec
@@ -621,7 +621,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 	//														AND $_DBC_session_periode='$__PERIODE'")))
 				{
-					message("Aucune précandidature ne peut être déposée dans cette composante car toutes les dates limites sont dépassées", $__ERREUR);
+					message("Aucune prÃ©candidature ne peut Ãªtre dÃ©posÃ©e dans cette composante car toutes les dates limites sont dÃ©passÃ©es", $__ERREUR);
 
 					print("<div class='centered_box' style='padding-top:20px;'>
 								<a href='precandidatures.php' target='_self' class='lien2'><img src='$__ICON_DIR/back_32x32_fond.png' alt='Retour' border='0'></a>
@@ -632,15 +632,15 @@ CeCILL-B, et que vous en avez accepté les termes.
 					$message="Les formations pour lesquelles aucune session de candidatures n'est actuellement ouverte n'apparaissent pas dans la liste.";
 
 					if(isset($_SESSION["limite_annee"]) && $_SESSION["limite_annee"]==1)
-						$message.="<br>- CANDIDATURES LIMITEES : dans cette composante, vous ne pouvez ajouter de candidatures que pour <b>une seule année</b> (L3, M1, ...) au choix.";
+						$message.="<br>- CANDIDATURES LIMITEES : dans cette composante, vous ne pouvez ajouter de candidatures que pour <b>une seule annÃ©e</b> (L3, M1, ...) au choix.";
 
 					if(isset($_SESSION["limite_annee_mention"]) && $_SESSION["limite_annee_mention"]==1)
-						$message.="<br>- CANDIDATURES LIMITEES : dans cette composante, les candidatures sont limitées à <b>un seul Niveau</b> (L3, M1, ...) par <b>Mention</b>";
+						$message.="<br>- CANDIDATURES LIMITEES : dans cette composante, les candidatures sont limitÃ©es Ã  <b>un seul Niveau</b> (L3, M1, ...) par <b>Mention</b>";
 
 					message($message, $__WARNING);
 
-					// message("Les formations dont la <b>date limite de depôt</b> du dossier est <b>depassée</b> n'apparaissent plus dans la liste.", $__INFO);
-					// message("N'oubliez pas d'ordonner vos <b>Candidatures extérieures</b> (onglet 6) en fonction de vos candidatures à l'UFR !", $__WARNING);
+					// message("Les formations dont la <b>date limite de depÃ´t</b> du dossier est <b>depassÃ©e</b> n'apparaissent plus dans la liste.", $__INFO);
+					// message("N'oubliez pas d'ordonner vos <b>Candidatures extÃ©rieures</b> (onglet 6) en fonction de vos candidatures Ã  l'UFR !", $__WARNING);
 
 					print("<br>
 								<form action='$php_self' method='POST' name='form1'>\n");
@@ -665,7 +665,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 							// dont la date limite n'est pas encore depassee
 							$date_courante=time();
 
-							// Limites éventuelles
+							// Limites Ã©ventuelles
 							if(isset($_SESSION["limite_annee_mention"]) && $_SESSION["limite_annee_mention"]==1)
 							{
 								$result=db_query($dbr, "SELECT $_DBC_propspec_annee, $_DBC_specs_mention_id
@@ -677,12 +677,12 @@ CeCILL-B, et que vous en avez accepté les termes.
 																									AND $_DBC_cand_statut!='$__PREC_ANNULEE')
 																AND $_DBC_propspec_comp_id='$_SESSION[comp_id]'");
 
-								// Si aucun résultat : la limite n'est pas encore applicable
+								// Si aucun rÃ©sultat : la limite n'est pas encore applicable
 								if($rows=db_num_rows($result))
 								{
 									$condition_annee_mention=array();
 
-									// on examine chaque couple année/mention des candidatures déjà ajoutées
+									// on examine chaque couple annÃ©e/mention des candidatures dÃ©jÃ  ajoutÃ©es
 									for($i=0; $i<$rows; $i++)
 									{
 										list($limite_annee, $limite_mention)=db_fetch_row($result, $i);
@@ -703,7 +703,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 																										AND $_DBC_cand_statut!='$__PREC_ANNULEE')
 																AND $_DBC_propspec_comp_id='$_SESSION[comp_id]'");
 
-								// Si aucun résultat : la limite n'est pas encore applicable
+								// Si aucun rÃ©sultat : la limite n'est pas encore applicable
 								if(db_num_rows($result))
 								{
 									list($annee_limite)=db_fetch_row($result, 0);
@@ -740,11 +740,11 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 							$rows=db_num_rows($result);
 
-							// variables initialisées à n'importe quoi
+							// variables initialisÃ©es Ã  n'importe quoi
 							$prev_annee_id="--";
 							$prev_mention="";
 
-							// Pour info à destination du candidat
+							// Pour info Ã  destination du candidat
 							$liste_formations_filtrees="";
 
 							if($rows)
@@ -758,7 +758,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 									if(isset($_SESSION["filtres_regexp"]))
 									{
-										// Première étape : applications des filtres définis par la composante
+										// PremiÃ¨re Ã©tape : applications des filtres dÃ©finis par la composante
 											
 										$regexp_formation="$propspec_id:$annee_id:$mention:$spec_id:$finalite";
 
@@ -795,7 +795,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 													print("</optgroup>\n");
 
 												if($annee=="")
-													$annee="Années particulières";
+													$annee="AnnÃ©es particuliÃ¨res";
 
 												print("<option value='' disabled=1></option>
 															<optgroup label='-------------- $annee -------------- '></optgroup>
@@ -813,13 +813,13 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 											$selected=(isset($_SESSION["propspec_id"]) && $_SESSION["propspec_id"]==$propspec_id) ? "selected=1" : "";
 
-											// si la session concerne une autre année, on l'indique
+											// si la session concerne une autre annÃ©e, on l'indique
 											$txt_periode=($session_periode!=$__PERIODE) ? " ($session_periode-".($session_periode+1).")" : "";
 											
-											// Si la formation est protégée par un mot de passe, on l'indique aussi
-											$formation_protegee=$flag_pass=="t" ? " (mot de passe nécessaire)" : "";
+											// Si la formation est protÃ©gÃ©e par un mot de passe, on l'indique aussi
+											$formation_protegee=$flag_pass=="t" ? " (mot de passe nÃ©cessaire)" : "";
 
-											$nom_formation=($annee=="Années particulières") ? "$nom" : "$annee $nom";
+											$nom_formation=($annee=="AnnÃ©es particuliÃ¨res") ? "$nom" : "$annee $nom";
 
 											print("<option value='$propspec_id' label=\"$nom_formation $nom_finalite$frais_txt$formation_protegee$txt_periode\" $selected>$nom $nom_finalite$frais_txt$formation_protegee$txt_periode</option>\n");
 
@@ -849,7 +849,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 					<td class='td-gauche fond_menu2'>
 						<font class='Texte_menu2'>
 							<b>Etes-vous en situation de VAE ou VAP pour ce voeu ?</b>
-							<br><i>(Validation des Acquis de l'Expérience
+							<br><i>(Validation des Acquis de l'ExpÃ©rience
 							<br>ou Validation des Acquis Professionnels)</i>
 						</font>
 					</td>
@@ -884,7 +884,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 								<tr>
 									<td class='td-gauche fond_page' colspan='2'>
 										<font class='Texte'>
-											<i><strong>Les choix déjà effectués ne vous permettent plus de sélectionner la ou les formations suivantes :</strong>
+											<i><strong>Les choix dÃ©jÃ  effectuÃ©s ne vous permettent plus de sÃ©lectionner la ou les formations suivantes :</strong>
 											<br>
 											$liste_formations_filtrees
 											</i>
@@ -901,20 +901,20 @@ CeCILL-B, et que vous en avez accepté les termes.
 				<tr>
 					<td valign='top' align='justify'>
 						<font class='Texte'>
-							<b><u>Définitions utiles :</u></b>
+							<b><u>DÃ©finitions utiles :</u></b>
 							<br>
 							<?php
 								$form_initiale="<input type='submit' class='texte_corps' style='font-weight:bold' name='initiale' alt='Formation Initiale' value='Formation Initiale'>";
 								$form_continue="<input type='submit' class='texte_corps' style='font-weight:bold' name='continue' alt='Formation Continue' value='Formation Continue'>";
-								$form_vae="<input type='submit' class='texte_corps' style='font-weight:bold' name='vae' alt=\"VAE : Validation des Acquis de l'Expérience\" value=\"VAE : Validation des Acquis de l'Expérience\">";
+								$form_vae="<input type='submit' class='texte_corps' style='font-weight:bold' name='vae' alt=\"VAE : Validation des Acquis de l'ExpÃ©rience\" value=\"VAE : Validation des Acquis de l'ExpÃ©rience\">";
 								$form_vap="<input type='submit' class='texte_corps' style='font-weight:bold' name='vap' alt='VAP : Validation des Acquis Professionnels' value='VAP : Validation des Acquis Professionnels'>";
 
 								if(isset($def) && $def==1)
 									print("<br>- <b>Formation Initiale</b>
 											<div style='padding-left:20px'>
-												Vous êtes étudiant en <b>Formation Initiale</b> :
-												<br>&#8226;&nbsp;&nbsp;si vous n'avez pas interrompu vos études depuis plus de deux ans
-												<br>&#8226;&nbsp;&nbsp;si vous n'avez pas interrompu vos études et travaillez à temps partiel ou complet
+												Vous Ãªtes Ã©tudiant en <b>Formation Initiale</b> :
+												<br>&#8226;&nbsp;&nbsp;si vous n'avez pas interrompu vos Ã©tudes depuis plus de deux ans
+												<br>&#8226;&nbsp;&nbsp;si vous n'avez pas interrompu vos Ã©tudes et travaillez Ã  temps partiel ou complet
 											</div>
 											<br>\n");
 								else
@@ -923,22 +923,22 @@ CeCILL-B, et que vous en avez accepté les termes.
 								if(isset($def) && $def==2)
 									print("<br><br>- <b>Formation Continue</b>
 											<div style='padding-left:20px'>
-												Vous êtes étudiant en <b>Formation Continue</b> :
-												<br>&#8226;&nbsp;&nbsp;si vous avez interrompu vos études depuis plus de deux ans
-												<br>&#8226;&nbsp;&nbsp;si vous êtes salarié ou en congé individuel de formation, ou en recherche d'emploi
-												<br>&#8226;&nbsp;&nbsp;si vous candidatez sur une formation professionnalisée
+												Vous Ãªtes Ã©tudiant en <b>Formation Continue</b> :
+												<br>&#8226;&nbsp;&nbsp;si vous avez interrompu vos Ã©tudes depuis plus de deux ans
+												<br>&#8226;&nbsp;&nbsp;si vous Ãªtes salariÃ© ou en congÃ© individuel de formation, ou en recherche d'emploi
+												<br>&#8226;&nbsp;&nbsp;si vous candidatez sur une formation professionnalisÃ©e
 											</div>
 											<br>\n");
 								else
 									print("<br>- $form_continue\n");
 
 								if(isset($def) && $def==3)
-									print("<br><br>- <b>VAE : Validation des Acquis de l'Expérience</b>
+									print("<br><br>- <b>VAE : Validation des Acquis de l'ExpÃ©rience</b>
 											<div style='padding-left:20px'>
-												La validation des acquis de l'expérience (VAE) permet de faire reconnaître son expérience (professionnelle
-												ou non) afin d'obtenir un diplôme, un titre ou un certificat de qualification professionnelle. Diplômes, titres
-												et certificats sont ainsi accessibles grâce à l'expérience (et non uniquement par le biais de la formation initiale
-												ou continue), selon d'autres modalités que l'examen.
+												La validation des acquis de l'expÃ©rience (VAE) permet de faire reconnaÃ®tre son expÃ©rience (professionnelle
+												ou non) afin d'obtenir un diplÃ´me, un titre ou un certificat de qualification professionnelle. DiplÃ´mes, titres
+												et certificats sont ainsi accessibles grÃ¢ce Ã  l'expÃ©rience (et non uniquement par le biais de la formation initiale
+												ou continue), selon d'autres modalitÃ©s que l'examen.
 												<div style='padding-left:20px'>
 													<br><u>Pour plus d'informations :</u>
 													<br>- &nbsp;<a href='http://www.vae.gouv.fr' target='_blank' class='lien_bleu_12'>Consulter le Portail de la VAE</a>
@@ -951,11 +951,11 @@ CeCILL-B, et que vous en avez accepté les termes.
 								if(isset($def) && $def==4)
 									print("<br><br>- <b>VAP : Validation des Acquis Professionnels</b>
 											<div style='padding-left:20px'>
-												Elle permet un accès dérogatoire aux différents niveaux de formations de l'enseignement, par validation des études, des expériences professionnelles et/ou des acquis personnels.
-												<br><br>Peuvent donner lieu à validation :
-												<br>- &nbsp;toute formation suivie par le candidat dans un établissement ou une structure de formation publique ou privée, quels qu'en aient été les modalités, la durée et le mode de sanction;
-												<br>- &nbsp;l'expérience professionnelle acquise au cours d'une activité salarié ou non, ou d'un stage ;
-												<br>- &nbsp;les connaissances et les aptitudes acquises lors de tout système de formation.
+												Elle permet un accÃ¨s dÃ©rogatoire aux diffÃ©rents niveaux de formations de l'enseignement, par validation des Ã©tudes, des expÃ©riences professionnelles et/ou des acquis personnels.
+												<br><br>Peuvent donner lieu Ã  validation :
+												<br>- &nbsp;toute formation suivie par le candidat dans un Ã©tablissement ou une structure de formation publique ou privÃ©e, quels qu'en aient Ã©tÃ© les modalitÃ©s, la durÃ©e et le mode de sanction;
+												<br>- &nbsp;l'expÃ©rience professionnelle acquise au cours d'une activitÃ© salariÃ© ou non, ou d'un stage ;
+												<br>- &nbsp;les connaissances et les aptitudes acquises lors de tout systÃ¨me de formation.
 											</div>\n");
 								else
 									print("<br>- $form_vap\n");

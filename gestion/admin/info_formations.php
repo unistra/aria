@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -71,7 +71,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 	$dbr=db_connect();
 
-	// Argument chiffré pour un accès direct à la modification d'une formation
+	// Argument chiffrÃ© pour un accÃ¨s direct Ã  la modification d'une formation
 	if(isset($_GET["p"]) && -1!=($params=get_params($_GET['p'])))
 	{
 		if(isset($params["propspec"]) && ctype_digit($params["propspec"])
@@ -80,7 +80,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		{
 			$mod_propspec_id=$params["propspec"];
 
-			// En cas d'annulation ou de validation, on revient à l'offre de formation (plus rapide)
+			// En cas d'annulation ou de validation, on revient Ã  l'offre de formation (plus rapide)
 			$_SESSION["adresse_retour"]="offre.php";
 		}
 	}
@@ -172,16 +172,16 @@ CeCILL-B, et que vous en avez accepté les termes.
 		titre_page_icone("Informations importantes sur cette formation", "messagebox_warning_32x32_fond.png", 15, "L");
 
 		if(isset($erreur_formation))
-			message("Erreur : formation inconnue (erreur probable dans la base de données).", $__ERREUR);
+			message("Erreur : formation inconnue (erreur probable dans la base de donnÃ©es).", $__ERREUR);
 
 		if(isset($formation_vide))
-			message("Erreur : vous devez sélectionner une formation valide", $__ERREUR);
+			message("Erreur : vous devez sÃ©lectionner une formation valide", $__ERREUR);
 
 		if(isset($composante_vide))
-			message("Erreur : vous devez sélectionner une composante valide", $__ERREUR);
+			message("Erreur : vous devez sÃ©lectionner une composante valide", $__ERREUR);
 
 		if(isset($succes))
-			message("Les informations ont été mises à jour avec succès.", $__SUCCES);
+			message("Les informations ont Ã©tÃ© mises Ã  jour avec succÃ¨s.", $__SUCCES);
 
 		print("<form action='$php_self' method='POST' name='form1'>\n");
 	?>
@@ -200,7 +200,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		</td>
 	</tr>
 	<?php
-		// Modification d'une formation existante : choix de la formation à modifier
+		// Modification d'une formation existante : choix de la formation Ã  modifier
 		if(!isset($resultat))
 		{
 			print("<tr>
@@ -243,7 +243,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 										<option value='' label='' disabled></option>\n");
 
 						if($form_annee_nom=="")
-							$form_annee_nom="Années particulières";
+							$form_annee_nom="AnnÃ©es particuliÃ¨res";
 
 						print("<optgroup label='$form_annee_nom'>\n");
 
@@ -278,7 +278,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			else
 			{
 				print("<font class='Texte_important_menu'>
-							<strong>Aucune mention / spécialité n'a encore été définie pour cette entité.</strong>
+							<strong>Aucune mention / spÃ©cialitÃ© n'a encore Ã©tÃ© dÃ©finie pour cette entitÃ©.</strong>
 						 </font>\n");
 
 				$no_next=1;
@@ -308,7 +308,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		?>
 	<tr>
 		<td class='td-gauche fond_menu2'>
-			<font class='Texte_menu2'><b>Formation sélectionnée :</b></font>
+			<font class='Texte_menu2'><b>Formation sÃ©lectionnÃ©e :</b></font>
 		</td>
 		<td class='td-droite fond_menu2'>
 			<font class='Texte_menu2'><b><?php echo $nom_formation; ?></b></font>
@@ -317,15 +317,15 @@ CeCILL-B, et que vous en avez accepté les termes.
 	<tr>
 		<td class='td-gauche fond_menu2' style='white-space:normal;'>
 			<font class='Texte_menu2'>
-				<b>Information(s) à transmettre aux candidats :</b>
+				<b>Information(s) Ã  transmettre aux candidats :</b>
 		</font>
 		</td>
 		<td class='td-droite fond_menu'>
 			<font class='Texte_menu'>
 				<textarea name='information' class='textArea' cols='80' rows='10'><?php print("$current_info"); ?></textarea>
 				<br>
-				<br><i>- Ces informations seront affichées dès qu'un candidat sélectionne cette formation</i>
-				<br><i>- Préférez des informations simples et courtes afin qu'elles ne soient pas ignorées par les candidats</i>
+				<br><i>- Ces informations seront affichÃ©es dÃ¨s qu'un candidat sÃ©lectionne cette formation</i>
+				<br><i>- PrÃ©fÃ©rez des informations simples et courtes afin qu'elles ne soient pas ignorÃ©es par les candidats</i>
 			</font>
 		</td>
 	</tr>

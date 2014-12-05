@@ -2,22 +2,22 @@
 $MODULE=array(
 
 // Nom du module
-"MOD_NAME"      =>   "Module Apogée",
+"MOD_NAME"      =>   "Module ApogÃ©e",
 
-// Sous répertoire de gestion/admin/modules/
+// Sous rÃ©pertoire de gestion/admin/modules/
 "MOD_DIR"       =>   "apogee",
 
-// Page(s) utilisée(s) pour accéder au module via la page d'administration
-// MOD_CONFIG doit TOUJOURS être un tableau (array) contenant lui même un ou plusieurs arrays
-// => Rien n'empêche de rediriger vers une page de configuration plus complète du module
-// => la gestion du niveau d'accès requis doit être gérée directement dans les pages
+// Page(s) utilisÃ©e(s) pour accÃ©der au module via la page d'administration
+// MOD_CONFIG doit TOUJOURS Ãªtre un tableau (array) contenant lui mÃªme un ou plusieurs arrays
+// => Rien n'empÃªche de rediriger vers une page de configuration plus complÃ¨te du module
+// => la gestion du niveau d'accÃ¨s requis doit Ãªtre gÃ©rÃ©e directement dans les pages
 
 "MOD_CONFIG"   =>   array(
-                          array("MOD_CONFIG_TITLE" => "Configuration et messages par défaut",
+                          array("MOD_CONFIG_TITLE" => "Configuration et messages par dÃ©faut",
                                 "MOD_CONFIG_PAGE"  => "configuration.php",
                                 "MOD_NIVEAU_MIN"   => "$GLOBALS[__LVL_RESP]"),
 /*                                
-                          array("MOD_CONFIG_TITLE" => "Messages spécifiques",
+                          array("MOD_CONFIG_TITLE" => "Messages spÃ©cifiques",
                                 "MOD_CONFIG_PAGE"  => "messages_formations.php",
                                 "MOD_NIVEAU_MIN"   => "$GLOBALS[__LVL_RESP]"),      
 */
@@ -31,7 +31,7 @@ $MODULE=array(
                                 "MOD_CONFIG_PAGE"  => "centres_gestion.php",
                                 "MOD_NIVEAU_MIN"   => "$GLOBALS[__LVL_RESP]"),
 
-                          array("MOD_CONFIG_TITLE" => "Codes et versions d'étape",
+                          array("MOD_CONFIG_TITLE" => "Codes et versions d'Ã©tape",
                                 "MOD_CONFIG_PAGE"  => "codes_formations.php",
                                 "MOD_NIVEAU_MIN"   => "$GLOBALS[__LVL_SCOL_PLUS]")
                          ),

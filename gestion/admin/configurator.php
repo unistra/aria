@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,40 +20,40 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
 ?>
 <?php
 	// fichier include uniquement
-	// prérequis : 
-	//	- la session doit déjà etre démarrée par le script appelant
-	// - les autres includes doivent déjà etre effectués (vars et db.php)
-	// - verif_auth doit aussi avoir été lancé dans le script appelant
+	// prÃ©requis : 
+	//	- la session doit dÃ©jÃ  etre dÃ©marrÃ©e par le script appelant
+	// - les autres includes doivent dÃ©jÃ  etre effectuÃ©s (vars et db.php)
+	// - verif_auth doit aussi avoir Ã©tÃ© lancÃ© dans le script appelant
 
 	// CE SCRIPT EST EXPERIMENTAL ET SERT A TESTER LE GENERATEUR DE GESTION DE BASES DE DONNEES, DONT LES
 	// TABLES SONT RELATIVEMENT SIMPLES ET CONSTRUITES SUR UN MEME MODELE
@@ -69,7 +69,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 	$table_order=$table["order"];
 
-	// TODO : écrire ce test autrement
+	// TODO : Ã©crire ce test autrement
 	if(isset($niveau_min) && $niveau_min>$_SESSION['niveau'])
 	{
 		header("Location:index.php");
@@ -117,7 +117,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 									$mauvais_format=array();
 									// $cnt_champs_existent=0;
 
-									// Gestion de la clé primaire
+									// Gestion de la clÃ© primaire
 									if(isset($table_pkey_type) && $table_pkey_type=="max")
 									{
 										$ordre_valeurs.="$table_pkey";
@@ -132,7 +132,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 										$valeurs .= "'$max_id'";
 									}
 
-									// récupération des valeurs du formulaire
+									// rÃ©cupÃ©ration des valeurs du formulaire
 
 									foreach($table["colonnes"] as $colonne => $array_colonne)
 									{
@@ -160,10 +160,10 @@ CeCILL-B, et que vous en avez accepté les termes.
 											}
 										}
 
-										if(($array_colonne["not_null"] == 1) && $val=="")	// si la valeur ne doit pas être nulle
+										if(($array_colonne["not_null"] == 1) && $val=="")	// si la valeur ne doit pas Ãªtre nulle
 											$valeur_vide=1;
 
-										if(($array_colonne["unique"] == 1)) // vérification d'unicité (attention, ne gère pas les accents)
+										if(($array_colonne["unique"] == 1)) // vÃ©rification d'unicitÃ© (attention, ne gÃ¨re pas les accents)
 										{
 											if(ctype_digit($val))
 											   $result=db_query($dbr,"SELECT * FROM $table_nom WHERE $colonne='$val'");
@@ -173,7 +173,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 											$rows=db_num_rows($result);
 											if($rows)
 											{
-												// on ajoute la colonne dont la valeur existe déjà, avec la valeur en question (pour la remettre dans le formulaire)
+												// on ajoute la colonne dont la valeur existe dÃ©jÃ , avec la valeur en question (pour la remettre dans le formulaire)
 												$champs_existent[$colonne]=$val;
 											}
 											db_free_result($result);
@@ -207,7 +207,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 									$mauvais_format=array();
 									// $cnt_champs_existent=0;
 
-									// récupération des valeurs du formulaire
+									// rÃ©cupÃ©ration des valeurs du formulaire
 									foreach($table["colonnes"] as $colonne => $array_colonne)
 									{
 										if(!empty($update_query))
@@ -231,10 +231,10 @@ CeCILL-B, et que vous en avez accepté les termes.
 											}
 										}
 
-										if(($array_colonne["not_null"] == 1) && $val=="")	// si la valeur ne doit pas être vide
+										if(($array_colonne["not_null"] == 1) && $val=="")	// si la valeur ne doit pas Ãªtre vide
 											$valeur_vide=1;
 
-										if(($array_colonne["unique"] == 1) && $table_type!=1) // vérification d'unicité (attention, ne gère pas les accents)
+										if(($array_colonne["unique"] == 1) && $table_type!=1) // vÃ©rification d'unicitÃ© (attention, ne gÃ¨re pas les accents)
 										{
 											if(ctype_digit($val))
 												$line_val="$colonne='$val'";
@@ -260,7 +260,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 									if(!isset($valeur_vide) && !count($champs_existent) && !count($mauvais_format))
 									{
-										if($table_type!=1) // requête un peu particulière si type=1
+										if($table_type!=1) // requÃªte un peu particuliÃ¨re si type=1
 											db_query($dbr,"UPDATE $table_nom SET $update_query WHERE $table_pkey='$val_pkey'");
 										else
 											db_query($dbr,"UPDATE $table_nom SET $update_query");
@@ -304,7 +304,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 		if(isset($action))
 		{
-			// paramètres communs
+			// paramÃ¨tres communs
 			print("<input type='hidden' name='action' value='$action'>");
 
 			switch($action)
@@ -316,15 +316,15 @@ CeCILL-B, et que vous en avez accepté les termes.
 										{
 											$val_pkey=$_POST["element"];
 											print("<input type='hidden' name='element' value='$val_pkey'>");
-											$titre_section="Modifier un élément existant";
+											$titre_section="Modifier un Ã©lÃ©ment existant";
 
-											// énumération des champs à récupérer dans la table
+											// Ã©numÃ©ration des champs Ã  rÃ©cupÃ©rer dans la table
 											$selection="$table_pkey";
 										}
 										else
-											$titre_section="Modifier des paramètres existants";
+											$titre_section="Modifier des paramÃ¨tres existants";
 
-										// énumération des champs à récupérer dans la table (suite)
+										// Ã©numÃ©ration des champs Ã  rÃ©cupÃ©rer dans la table (suite)
 										foreach($table["colonnes"] as $colonne => $array_colonne)
 										{
 											if(!empty($selection))
@@ -333,26 +333,26 @@ CeCILL-B, et que vous en avez accepté les termes.
 											$selection .= "$colonne";
 										}
 
-										if($table_type!=1)	// la requête est différente en fonction du type de table
+										if($table_type!=1)	// la requÃªte est diffÃ©rente en fonction du type de table
 											$result=db_query($dbr,"SELECT $selection FROM $table_nom WHERE $table_pkey='$val_pkey'");
 										else
 											$result=db_query($dbr,"SELECT $selection FROM $table_nom");
 
 										$rows=db_num_rows($result);
 										if($rows)
-											// on se contente de stocker le résultat, tout sera traité dans la partie 'ajouter'
-											// on force le fait qu'il n'y ait qu'un seul résultat à la requête précédente
+											// on se contente de stocker le rÃ©sultat, tout sera traitÃ© dans la partie 'ajouter'
+											// on force le fait qu'il n'y ait qu'un seul rÃ©sultat Ã  la requÃªte prÃ©cÃ©dente
 											$result_array=db_fetch_array($result,0,PGSQL_ASSOC);
 										elseif($table_type!=1)
 											die("Erreur : la table $table_nom ne contient pas la valeur $table_pkey='$val_pkey'");
 										else
-											die("Erreur : la table ne contient aucun élément. Merci de contacter l'administrateur.");
+											die("Erreur : la table ne contient aucun Ã©lÃ©ment. Merci de contacter l'administrateur.");
 
 										db_free_result($result);
 										// PAS DE BREAK ICI
 
 				case "ajouter" :	if(!isset($titre_section))
-											$titre_section="Ajouter un nouvel élément";
+											$titre_section="Ajouter un nouvel Ã©lÃ©ment";
 
 													print("<center>
 																<font class='Texte3'><b><i>$titre_section</i></b>
@@ -368,16 +368,16 @@ CeCILL-B, et que vous en avez accepté les termes.
 													// boucle sur les champs de la table et affichage du tableau de saisie
 													foreach($table["colonnes"] as $colonne => $array_colonne)
 													{
-														// Intitulé du champ
+														// IntitulÃ© du champ
 														$nom_complet=$array_colonne["nom_complet"];
 
-														// modification : la valeur existe déjà
+														// modification : la valeur existe dÃ©jÃ 
 														if(isset($result_array))
 															$val=htmlspecialchars($result_array[$colonne],ENT_QUOTES, $default_htmlspecialchars_encoding);
 														else
 															$val="";
 
-														// si on a déjà tenté de remplir le formulaire mais qu'une erreur est apparue
+														// si on a dÃ©jÃ  tentÃ© de remplir le formulaire mais qu'une erreur est apparue
 														if(isset($champs_existent) && isset($champs_existent[$colonne]))
 															$val=$champs_existent[$colonne];
 
@@ -388,7 +388,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 														// affichage en fonction du type de champ
 														if(isset($array_colonne["reference"])) // Affichage d'un <select>
 														{
-															// vérification des paramètres obligatoires
+															// vÃ©rification des paramÃ¨tres obligatoires
 															if(isset($array_colonne["reference"]["table"]) && isset($array_colonne["reference"]["key"]) && isset($array_colonne["reference"]["description"]))
 															{
 																$ref_table=$array_colonne["reference"]["table"];
@@ -411,7 +411,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 																	{
 																		list($ref_key_val, $ref_description_val)=db_fetch_row($result,$j);
 
-																		if($ref_key_val==$val) // on sélectionne la valeur existante (modification ou erreur)
+																		if($ref_key_val==$val) // on sÃ©lectionne la valeur existante (modification ou erreur)
 																			$selected="selected=1";
 																		else
 																			$selected="";
@@ -421,13 +421,13 @@ CeCILL-B, et que vous en avez accepté les termes.
 																	print("</select>\n");
 																}
 																else
-																	message("La table référencée, '$ref_table', est vide : impossible de sélectionner une valeur.", $__INFO);
+																	message("La table rÃ©fÃ©rencÃ©e, '$ref_table', est vide : impossible de sÃ©lectionner une valeur.", $__INFO);
 
 																db_free_result($result);
 
 															}
 															else
-																die("Option '\$reference' : erreur de syntaxe : les paramètres 'table', 'key' et 'description' sont obligatoires");
+																die("Option '\$reference' : erreur de syntaxe : les paramÃ¨tres 'table', 'key' et 'description' sont obligatoires");
 														}
 														elseif(isset($array_colonne["type"])) // si on a un champ de type 'textarea' ou 'checkbox'
 														{
@@ -486,11 +486,11 @@ CeCILL-B, et que vous en avez accepté les termes.
 					case "supprimer" :	$val_pkey=$_POST["element"];
 												print("<input type='hidden' name='element' value='$val_pkey'>");
 
-												$titre_section="Supprimer un élément existant";
+												$titre_section="Supprimer un Ã©lÃ©ment existant";
 
 												$selection="$table_pkey";
 
-												// si le champ 'selection' existe, on le prend pour le menu déroulant (en plus de la clé primaire)
+												// si le champ 'selection' existe, on le prend pour le menu dÃ©roulant (en plus de la clÃ© primaire)
 												if(isset($table["selection"]))
 												{
 													$select_colonne=$table["selection"];
@@ -510,9 +510,9 @@ CeCILL-B, et que vous en avez accepté les termes.
 																<font class='Texte3'><b><i>$titre_section</i></b></font>
 																<br>\n");
 
-													message("Souhaitez vous vraiment supprimer cet élément ?", $__QUESTION);
+													message("Souhaitez vous vraiment supprimer cet Ã©lÃ©ment ?", $__QUESTION);
 
-													// construction de la chaine affichée
+													// construction de la chaine affichÃ©e
 													$description="";
 
 													foreach($result_array as $key => $val)
@@ -586,7 +586,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 					$champ=$table["colonnes"][$key]["nom_complet"];
 
-					message("Erreur : la valeur du champ '$champ' existe déjà dans la base.", $__ERREUR);
+					message("Erreur : la valeur du champ '$champ' existe dÃ©jÃ  dans la base.", $__ERREUR);
 				}
 				else // plusieurs violations
 				{
@@ -602,36 +602,36 @@ CeCILL-B, et que vous en avez accepté les termes.
 						$liste .= "'$nom_complet'";
 					}
 
-					message("Erreur : les champs suivants existent déjà dans la base : 
+					message("Erreur : les champs suivants existent dÃ©jÃ  dans la base : 
 								<br>$liste", $__ERREUR);
 				}
 			}
 
 			if(isset($cle_vide))
-				message("Erreur : l'élément à supprimer n'a pas été sélectionné correctement (clé vide)", $__ERREUR);
+				message("Erreur : l'Ã©lÃ©ment Ã  supprimer n'a pas Ã©tÃ© sÃ©lectionnÃ© correctement (clÃ© vide)", $__ERREUR);
 		}
 		else
 		{
 			// =========================================================================
-			// POINT DE DEPART : sélection des champs existants (pour la modification et la suppression)
+			// POINT DE DEPART : sÃ©lection des champs existants (pour la modification et la suppression)
 			// =========================================================================
 
 			// Type de table
-			// 0 = "ajout/modification/suppression" d'éléments
-			// 1 = 1 seul élément dans la table : modif uniquement (1 élément doit exister dans la table)
+			// 0 = "ajout/modification/suppression" d'Ã©lÃ©ments
+			// 1 = 1 seul Ã©lÃ©ment dans la table : modif uniquement (1 Ã©lÃ©ment doit exister dans la table)
 
 			switch($table_type)
 			{
 				case 0 :	print("<table cellpadding='4' cellspacing='0' border='0' align='center'>
 									<tr>
 										<td class='fond_menu2' align='right'>
-											<font class='Texte_menu2'><b>Eléments existants : </b></font>
+											<font class='Texte_menu2'><b>ElÃ©ments existants : </b></font>
 										</td>
 										<td class='fond_menu'>\n");
 
 									$selection="$table_nom.$table_pkey";
 
-									// si le champ 'selection' existe, on le prend pour le menu déroulant (en plus de la clé primaire, évidemment)
+									// si le champ 'selection' existe, on le prend pour le menu dÃ©roulant (en plus de la clÃ© primaire, Ã©videmment)
 									if(isset($table["selection"]))
 									{
 										$select_colonne=$table["selection"];
@@ -663,7 +663,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 									else
 										$table_order="$table_order";
 
-									// Séparateur pour la liste
+									// SÃ©parateur pour la liste
 									if(isset($table["separateur"]))
 									{
 										$old_sep_val="";
@@ -711,12 +711,12 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 											$cnt_result=count($result_array);
 
-											// séparateurs éventuels
+											// sÃ©parateurs Ã©ventuels
 											if(isset($sep_ref_table))
 											{
 												$sep_val=$result_array["separateur"];
 
-												// normalement, le séparateur est la dernière colonne sélectionnée
+												// normalement, le sÃ©parateur est la derniÃ¨re colonne sÃ©lectionnÃ©e
 												if($sep_val != $old_sep_val)
 												{
 													if($i!=0)
@@ -729,7 +729,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 												$old_sep_val=$result_array["separateur"];
 											}
 
-											// construction de la chaine affichée
+											// construction de la chaine affichÃ©e
 											$description="";
 
 											foreach($result_array as $colonne => $valeur)
@@ -791,7 +791,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			message("$warning", $__WARNING);
 
 		if(isset($_GET["succes"]))
-			message("Opération effectuée avec succès", $__SUCCES);
+			message("OpÃ©ration effectuÃ©e avec succÃ¨s", $__SUCCES);
 
 	?>
 </div>

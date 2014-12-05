@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,37 +20,37 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
 ?>
 <?php
 	// fiches_traitees.php
-	// Affiche toutes les fiches entièrement traitées pour la période courante
+	// Affiche toutes les fiches entiÃ¨rement traitÃ©es pour la pÃ©riode courante
 	// Question : double emploi avec stats_filieres_compeda.php ?
 	// TODO : fusionner avec "candidats.php" avec un argument en option
 
@@ -69,7 +69,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 	$dbr=db_connect();
 
-	// Déverrouillage, au cas où
+	// DÃ©verrouillage, au cas oÃ¹
 	if(isset($_SESSION["candidat_id"]))
 		cand_unlock($dbr, $_SESSION["candidat_id"]);
 
@@ -83,20 +83,20 @@ CeCILL-B, et que vous en avez accepté les termes.
 			$_SESSION["filtre_decision"]=$_POST["decision"];
 	}
 
-	// Filtre par défaut, si aucun filtre n'a encore été sélectionné
+	// Filtre par dÃ©faut, si aucun filtre n'a encore Ã©tÃ© sÃ©lectionnÃ©
 	if(!isset($_SESSION["filtre_propspec"]) && isset($_SESSION['spec_filtre_defaut']))
 		$_SESSION["filtre_propspec"]=$_SESSION['spec_filtre_defaut'];
 
 	if(!isset($_SESSION["filtre_decision"]))
 		$_SESSION["filtre_decision"]="-1";
 
-	// Nettoyage de variables utilisées ailleurs
+	// Nettoyage de variables utilisÃ©es ailleurs
 	unset($_SESSION["cursus_a_valider"]);
 	unset($_SESSION["cursus_transfert"]);
 	unset($_SESSION["candidatures_transfert"]);
 	unset($_SESSION["tab_candidatures"]);
 
-	$_SESSION["onglet"]=1; // onglet par défaut : identité du candidat
+	$_SESSION["onglet"]=1; // onglet par dÃ©faut : identitÃ© du candidat
 
 	// EN-TETE
 	en_tete_gestion();
@@ -107,11 +107,11 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 <div class='main' style='padding-left:4px; padding-right:4px;'>
 	<?php
-		titre_page_icone("Fiches traitées ($__PERIODE - ".($__PERIODE+1).")", "flag-green_32x32_fond.png", 10, "L");
+		titre_page_icone("Fiches traitÃ©es ($__PERIODE - ".($__PERIODE+1).")", "flag-green_32x32_fond.png", 10, "L");
 
 		message("<center>
-						Cette liste montre tous les candidats dont la fiche contient au moins un voeu entièrement traité.
-						<br>Certains peuvent encore avoir des voeux partiellement ou non traités.
+						Cette liste montre tous les candidats dont la fiche contient au moins un voeu entiÃ¨rement traitÃ©.
+						<br>Certains peuvent encore avoir des voeux partiellement ou non traitÃ©s.
 					</center>",$__INFO);
 
 		// Filtres
@@ -119,13 +119,13 @@ CeCILL-B, et que vous en avez accepté les termes.
 		{
 			// $filtre="AND $_DBC_propspec_id='$_SESSION[filtre_propspec]'";
 			$filtre_formation="AND $_DBC_cand_propspec_id='$_SESSION[filtre_propspec]'";
-			// $filtre_statut="<font class='Texte_important'><b>(filtre activé)</b></font>";
+			// $filtre_statut="<font class='Texte_important'><b>(filtre activÃ©)</b></font>";
 		}
 		else
 		{
 			$filtre_formation="";
 			// $filtre_formation="AND $_DBC_cand_propspec_id LIKE '$_SESSION[comp_id]%'";
-			// $filtre_statut="<font class='Textevert'><b>(filtre désactivé)</b></font>";
+			// $filtre_statut="<font class='Textevert'><b>(filtre dÃ©sactivÃ©)</b></font>";
 		}
 
 		$filtre_decision=$_SESSION["filtre_decision"]!=-1 ? "AND $_DBC_decisions_id='$_SESSION[filtre_decision]'" : "";
@@ -159,9 +159,9 @@ CeCILL-B, et que vous en avez accepté les termes.
 													ORDER BY $_DBC_annees_ordre, $_DBC_specs_nom");
 					$rows=db_num_rows($result);
 
-					$prev_annee="--"; // variable initialisée à n'importe quoi
+					$prev_annee="--"; // variable initialisÃ©e Ã  n'importe quoi
 
-					// TODO : revoir l'utilisation de la table annee (intégration de annees.id dans proprietes_specialites_v2, par exemple) et répercuter les changements ici ?
+					// TODO : revoir l'utilisation de la table annee (intÃ©gration de annees.id dans proprietes_specialites_v2, par exemple) et rÃ©percuter les changements ici ?
 					for($i=0; $i<$rows; $i++)
 					{
 						list($propspec_id, $annee, $nom,$finalite, $manuelle)=db_fetch_row($result,$i);
@@ -172,7 +172,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 								print("</optgroup>\n");
 
 							if(empty($annee))
-								print("<optgroup label='Années particulières'>\n");
+								print("<optgroup label='AnnÃ©es particuliÃ¨res'>\n");
 							else
 								print("<optgroup label='$annee'>\n");
 
@@ -198,11 +198,11 @@ CeCILL-B, et que vous en avez accepté les termes.
 	</tr>
 	<tr>
 		<td class='fond_menu2'>
-			<font class='Texte_menu2'><b>Filtrer par Décision : </b></font>
+			<font class='Texte_menu2'><b>Filtrer par DÃ©cision : </b></font>
 		</td>
 		<td class='fond_menu'>
 			<select size="1" name="decision">
-				<option value="-1">Montrer toutes les décisions</option>
+				<option value="-1">Montrer toutes les dÃ©cisions</option>
 				<option value="-1" disabled='1'></option>
 				<?php
 					$result=db_query($dbr,"SELECT $_DBC_decisions_id, $_DBC_decisions_texte
@@ -227,12 +227,12 @@ CeCILL-B, et que vous en avez accepté les termes.
 		</td>
 	</tr>
 	</table>
-	<br><font class='Texte_10'><i>Seules les formations pour lesquelles des candidatures ont été déposées sont proposées.</i>
+	<br><font class='Texte_10'><i>Seules les formations pour lesquelles des candidatures ont Ã©tÃ© dÃ©posÃ©es sont proposÃ©es.</i>
 	</form>
 
 	<br>
 	<?php
-		// Récupération de toutes les fiches traitées en fonction du filtre sélectionné
+		// RÃ©cupÃ©ration de toutes les fiches traitÃ©es en fonction du filtre sÃ©lectionnÃ©
 
 		$result=db_query($dbr,"SELECT $_DBC_candidat_id, $_DBC_candidat_civilite, $_DBC_candidat_nom, $_DBC_candidat_prenom,
 												 $_DBC_candidat_date_naissance, $_DBC_candidat_lieu_naissance, 
@@ -280,7 +280,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 				$colonne_formation=1;
 			}
 
-			print("<font class='Texte3'><b>$filtre_txt $rows fiches (tri par nom, prénom et date de naissance) : </b></font><br><br>
+			print("<font class='Texte3'><b>$filtre_txt $rows fiches (tri par nom, prÃ©nom et date de naissance) : </b></font><br><br>
 						<table width='100%' border='0' cellspacing='0' cellpadding='4' style='padding-bottom:20px;'>
 						<tr>
 							<td class='fond_menu2'></td>
@@ -297,11 +297,11 @@ CeCILL-B, et que vous en avez accepté les termes.
 						 </td>\n");
 
 			print("<td class='fond_menu2'>
-						<font class='Texte_menu2'><b>Décision</b></font>
+						<font class='Texte_menu2'><b>DÃ©cision</b></font>
 					</td>
 				</tr>\n");
 
-			// Initialisation du "candidat précédent"
+			// Initialisation du "candidat prÃ©cÃ©dent"
 			$old_candidat_id="";
 
 			// Affichage des candidats
@@ -314,7 +314,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 				$nom_formation=$annee=="" ? "$spec_nom $nom_finalite" : "$annee $spec_nom $nom_finalite";
 
-				// si le candidat est différent du précédent, on affiche l'identité, sinon on ne met que la formation
+				// si le candidat est diffÃ©rent du prÃ©cÃ©dent, on affiche l'identitÃ©, sinon on ne met que la formation
 				if($old_candidat_id!=$candidat_id)
 				{
 					$border="style='border-width:2px 0px 0px 0px; border-style:solid; border-color:white'";
@@ -323,7 +323,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 					if($fiche_manuelle)
 						$td_manuelle="<td class='fond_menu' align='center' width='22' $border>
-												<img src='$__ICON_DIR/contact-new_16x16_menu.png' alt='Fiche manuelle' desc='Fiche créée manuellement' border='0'>
+												<img src='$__ICON_DIR/contact-new_16x16_menu.png' alt='Fiche manuelle' desc='Fiche crÃ©Ã©e manuellement' border='0'>
 											</td>\n";
 					else
 						$td_manuelle="<td class='fond_menu' $border></td>\n";
@@ -334,7 +334,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 									<a href='edit_candidature.php?cid=$candidat_id' class='lien_menu_gauche'><b>$nom $prenom</b></a>
 								</td>
 								<td class='fond_menu' nowrap='true' $border>
-									<a href='edit_candidature.php?cid=$candidat_id' class='lien_menu_gauche'>$naissance à $lieu_naissance ($pays_naissance)</a>
+									<a href='edit_candidature.php?cid=$candidat_id' class='lien_menu_gauche'>$naissance Ã  $lieu_naissance ($pays_naissance)</a>
 								</td>\n");
 				}
 				else
@@ -350,7 +350,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 								<font class='Texte_menu'>$nom_formation</font>
 							</td>\n");
 
-				// Couleur pour la décision
+				// Couleur pour la dÃ©cision
 				switch($decision_id)
 				{
 					case $__DOSSIER_ADMIS_ENTRETIEN:	$color="#00BB00"; // vert

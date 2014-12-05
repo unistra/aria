@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -69,13 +69,13 @@ CeCILL-B, et que vous en avez accepté les termes.
 		exit();
 	}
 
-	// identifiant de l'étudiant
+	// identifiant de l'Ã©tudiant
 	if(isset($_SESSION["candidat_id"]))
 		$candidat_id=$_SESSION["candidat_id"];
 
 	$dbr=db_connect();
 
-	// Déverrouillage, au cas où
+	// DÃ©verrouillage, au cas oÃ¹
 	if(isset($_SESSION["candidat_id"]))
 		cand_unlock($dbr, $_SESSION["candidat_id"]);
 
@@ -132,10 +132,10 @@ CeCILL-B, et que vous en avez accepté les termes.
 			else
 				$new_date_decision="";
 
-			// Limite supérieure : on se cale sur la fin de la journée (on ajoute 82799 secondes (86400s - 3601s))
+			// Limite supÃ©rieure : on se cale sur la fin de la journÃ©e (on ajoute 82799 secondes (86400s - 3601s))
 			$jour_sup+=82799;
 
-			// Inversion, au cas où
+			// Inversion, au cas oÃ¹
 			if($jour_inf>$jour_sup)
 			{
 				$temp=$jour_inf;
@@ -143,7 +143,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 				$jour_sup=$temp;
 			}
 
-			$lien_lettres="<a href='lettres/generateur_lettres.php?jour_inf=$jour_inf&jour_sup=$jour_sup&id_form=$propspec_id$new_date_decision$param_dec&$tri' class='lien_bleu_10' target='_blank'>Lettres prêtes - cliquez ici pour les ouvrir (ouverture dans une nouvelle page)</a>";
+			$lien_lettres="<a href='lettres/generateur_lettres.php?jour_inf=$jour_inf&jour_sup=$jour_sup&id_form=$propspec_id$new_date_decision$param_dec&$tri' class='lien_bleu_10' target='_blank'>Lettres prÃªtes - cliquez ici pour les ouvrir (ouverture dans une nouvelle page)</a>";
 			$resultat=2;
 //		}
 	}
@@ -157,34 +157,34 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 <div class='main'>
 	<?php
-		titre_page_icone("Générer des lettres de décisions en masse (Commissions Pédagogiques)", "kpersonalizer_32x32_fond.png", 15, "L");
+		titre_page_icone("GÃ©nÃ©rer des lettres de dÃ©cisions en masse (Commissions PÃ©dagogiques)", "kpersonalizer_32x32_fond.png", 15, "L");
 
-		message("Dans cette section, vous pouvez également générer des lettres pour des décisions non traitées en masse
-					<br>- <b>Les formations pour lesquelles aucune décision n'a été rendue n'apparaissent pas</b>.
-					<br>- Si aucune date n'est sélectionnée, toutes les lettres seront générées.", $__INFO);
+		message("Dans cette section, vous pouvez Ã©galement gÃ©nÃ©rer des lettres pour des dÃ©cisions non traitÃ©es en masse
+					<br>- <b>Les formations pour lesquelles aucune dÃ©cision n'a Ã©tÃ© rendue n'apparaissent pas</b>.
+					<br>- Si aucune date n'est sÃ©lectionnÃ©e, toutes les lettres seront gÃ©nÃ©rÃ©es.", $__INFO);
 
 		if(isset($selection_invalide))
-			message("Erreur : veuillez sélectionner une formation valide dans le menu déroulant.", $__ERREUR);
+			message("Erreur : veuillez sÃ©lectionner une formation valide dans le menu dÃ©roulant.", $__ERREUR);
 
 		if(isset($date_invalide))
-			message("Erreur : veuillez sélectionner une date valide dans le menu déroulant.", $__ERREUR);
+			message("Erreur : veuillez sÃ©lectionner une date valide dans le menu dÃ©roulant.", $__ERREUR);
 
 		if(isset($_GET["erreur"]) && $_GET["erreur"]==1)
-			message("Erreur lors de la génération des lettres. Un message a été envoyé à l'administrateur.", $__ERREUR);
+			message("Erreur lors de la gÃ©nÃ©ration des lettres. Un message a Ã©tÃ© envoyÃ© Ã  l'administrateur.", $__ERREUR);
 
 		if(isset($success) && $nb_success>0)
 		{
 			if($nb_success==1)
-				message("$nb_success décision validée avec succès", $__SUCCES);
+				message("$nb_success dÃ©cision validÃ©e avec succÃ¨s", $__SUCCES);
 			else
-				message("$nb_success décisions validées avec succès", $__SUCCES);
+				message("$nb_success dÃ©cisions validÃ©es avec succÃ¨s", $__SUCCES);
 		}
 		elseif(isset($deja_traitee) && $deja_traitee!=0)
 		{
 			if($deja_traitee==1)
-				message("ATTENTION : une décision n'a pas été validée car elle semblait déjà traitée. $nb_success ont été validées avec succès.", $__ERREUR);
+				message("ATTENTION : une dÃ©cision n'a pas Ã©tÃ© validÃ©e car elle semblait dÃ©jÃ  traitÃ©e. $nb_success ont Ã©tÃ© validÃ©es avec succÃ¨s.", $__ERREUR);
 			else
-				message("ATTENTION : $deja_traitee décisions n'ont pas été validées car elles semblaient déjà traitées. $nb_success ont été validées avec succès.", $__ERREUR);
+				message("ATTENTION : $deja_traitee dÃ©cisions n'ont pas Ã©tÃ© validÃ©es car elles semblaient dÃ©jÃ  traitÃ©es. $nb_success ont Ã©tÃ© validÃ©es avec succÃ¨s.", $__ERREUR);
 		}
 
 		print("<form action='$php_self' method='POST' name='form1'>\n");
@@ -205,7 +205,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 												ORDER BY $_DBC_annees_ordre, $_DBC_specs_nom_court, $_DBC_propspec_finalite");
 			$rows=db_num_rows($result);
 
-			// variables initialisées à n'importe quoi
+			// variables initialisÃ©es Ã  n'importe quoi
 			$prev_annee="--";
 			$prev_mention="";
 
@@ -230,7 +230,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 						print("</optgroup>\n");
 
 					if(empty($annee))
-						print("<optgroup label='Années particulières'>\n");
+						print("<optgroup label='AnnÃ©es particuliÃ¨res'>\n");
 					else
 						print("<optgroup label='$annee'>\n");
 
@@ -247,7 +247,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 				else
 					$selected="";
 
-				print("<option value='$cur_propspec_id' label=\"$annee_spec_txt ($count décisions)\" $selected>$annee_spec_txt ($count décision(s))</option>\n");
+				print("<option value='$cur_propspec_id' label=\"$annee_spec_txt ($count dÃ©cisions)\" $selected>$annee_spec_txt ($count dÃ©cision(s))</option>\n");
 			}
 
 			print("</optgroup>
@@ -260,7 +260,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			</table>\n");
 		}
 		else
-			message("Aucune décision n'a encore été rendue dans votre composante  : il n'y a rien à imprimer.", $__WARNING);
+			message("Aucune dÃ©cision n'a encore Ã©tÃ© rendue dans votre composante  : il n'y a rien Ã  imprimer.", $__WARNING);
 	?>
 
 	<script language="javascript">
@@ -271,7 +271,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 	<?php
 		}
-		elseif(isset($resultat) && $resultat==1) // résultat de la recherche : Choix de la date
+		elseif(isset($resultat) && $resultat==1) // rÃ©sultat de la recherche : Choix de la date
 		{
 			// Nom de la formation choisie
 			$result=db_query($dbr,"SELECT $_DBC_annees_annee, $_DBC_specs_nom_court, $_DBC_propspec_finalite
@@ -290,7 +290,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 			db_free_result($result);
 
-			// Décisions disponibles
+			// DÃ©cisions disponibles
 			$result=db_query($dbr,"SELECT $_DBC_cand_decision,$_DBC_decisions_texte, count(*) FROM $_DB_cand, $_DB_decisions
 			                       WHERE $_DBC_cand_decision=$_DBC_decisions_id
 			                       AND $_DBC_cand_propspec_id='$propspec_id'
@@ -321,8 +321,8 @@ CeCILL-B, et que vous en avez accepté les termes.
 			db_free_result($result);
 
 			// Dates disponibles
-			// TODO : vérifier l'ensemble des dates possibles et ajouter des tests
-			// Une date de décision peut-elle être nulle ?
+			// TODO : vÃ©rifier l'ensemble des dates possibles et ajouter des tests
+			// Une date de dÃ©cision peut-elle Ãªtre nulle ?
 			$result=db_query($dbr,"SELECT DISTINCT(CASE WHEN $_DBC_cand_date_prise_decision='0'
 																THEN '0'
 																ELSE TO_CHAR(TIMESTAMP WITH TIME ZONE 'epoch' + $_DBC_cand_date_prise_decision * INTERVAL '1 second', 'YYYY-MM-DD')
@@ -346,7 +346,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 					if($date_base==0)
 					{
-						$date_txt="Date indéterminée";
+						$date_txt="Date indÃ©terminÃ©e";
 						$jour_debut="0";
 					}
 					else
@@ -362,7 +362,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 							$jour_inf_min=$jour_debut;
 					}
 
-					// Conservation des deux extrêmes (valeurs par défaut)
+					// Conservation des deux extrÃªmes (valeurs par dÃ©faut)
 					if($i==0)
 						$jour_inf_min=$jour_debut;
 					elseif($i==($rows-1))
@@ -388,7 +388,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 						</tr>
  					   <tr>
                      <td class='td-gauche fond_menu2'>
-                        <font class='Texte_menu2'><b>Filtrer par décision ?</b></font>
+                        <font class='Texte_menu2'><b>Filtrer par dÃ©cision ?</b></font>
                      </td>
                      <td class='td-milieu fond_menu2' colspan='2'>
 								$liste_decisions
@@ -400,8 +400,8 @@ CeCILL-B, et que vous en avez accepté les termes.
                      </td>
                      <td class='td-milieu fond_menu2' colspan='2'>
 								<select size='1' name='tri'>
-								   <option value='nom'>Par nom/prénom</option>
-									<option value='dec'>Par décision</option>
+								   <option value='nom'>Par nom/prÃ©nom</option>
+									<option value='dec'>Par dÃ©cision</option>
 								</select>
                      </td>                     
 						</tr>
@@ -410,14 +410,14 @@ CeCILL-B, et que vous en avez accepté les termes.
 								<font class='Texte_menu2'><b>Dates limites (jours inclus) : </b></font>
 							</td>
 							<td class='td-milieu fond_menu'>
-								<font class='Texte_menu'><b>Inférieure : </b></font>
+								<font class='Texte_menu'><b>InfÃ©rieure : </b></font>
 								<select name='date_inf' size='1' style='vertical-align:middle;'>
 									<option value='' disabled></option>
 									$liste_options
 								</select>
 							</td>
 							<td class='td-milieu fond_menu'>
-								<font class='Texte_menu'><b>Supérieure : </b></font>
+								<font class='Texte_menu'><b>SupÃ©rieure : </b></font>
 								<select name='date_sup' size='1' style='vertical-align:middle;'>
 									<option value='' disabled></option>
 									$liste_options
@@ -463,15 +463,15 @@ CeCILL-B, et que vous en avez accepté les termes.
 							<option value='5' <?php if($force_date_mois==5) echo "selected"; ?>>Mai</option>
 							<option value='6' <?php if($force_date_mois==6) echo "selected"; ?>>Juin</option>
 							<option value='7' <?php if($force_date_mois==7) echo "selected"; ?>>Juillet</option>
-							<option value='8' <?php if($force_date_mois==8) echo "selected"; ?>>Août</option>
+							<option value='8' <?php if($force_date_mois==8) echo "selected"; ?>>AoÃ»t</option>
 							<option value='9' <?php if($force_date_mois==9) echo "selected"; ?>>Septembre</option>
 							<option value='10' <?php if($force_date_mois==10) echo "selected"; ?>>Octobre</option>
 							<option value='11' <?php if($force_date_mois==11) echo "selected"; ?>>Novembre</option>
-							<option value='12' <?php if($force_date_mois==12) echo "selected"; ?>>Décembre</option>
+							<option value='12' <?php if($force_date_mois==12) echo "selected"; ?>>DÃ©cembre</option>
 						</select>
 						&nbsp;
 						<input type='text' name='force_annee' maxlength="4" size="6" value='<?php echo $force_date_annee; ?>' style='vertical-align:middle;'>
-						<br><i>(Cette date ne sera pas enregistrée dans la base de données)</i>
+						<br><i>(Cette date ne sera pas enregistrÃ©e dans la base de donnÃ©es)</i>
 					</font>
 				</td>
 			</tr>
@@ -499,7 +499,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 			   if(db_num_rows($res_decision))
 			     list($filtre_decision_texte)=db_fetch_row($res_decision, 0);
-				else // possible ? si oui, il serait sans doute préférable de ne pas lancer la génération des lettres ... ?
+				else // possible ? si oui, il serait sans doute prÃ©fÃ©rable de ne pas lancer la gÃ©nÃ©ration des lettres ... ?
 				  $filtre_decision_texte="Filtre incomplet";
 			}
 			else
@@ -516,7 +516,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 					</tr>
 					<tr>
 						<td class='td-gauche fond_menu2'>
-							<font class='Texte_menu2'><b>Décision(s) : </b></font>
+							<font class='Texte_menu2'><b>DÃ©cision(s) : </b></font>
 						</td>
 						<td class='td-droite fond_menu2'>
 							<font class='Texte_menu2'><b>$filtre_decision_texte</b></font>
@@ -541,10 +541,10 @@ CeCILL-B, et que vous en avez accepté les termes.
 	?>
 
 	<div class='centered_icons_box'>
-		<a href='masse.php' target='_self' class='lien2'><img src='<?php echo "$__ICON_DIR/rew_32x32_fond.png"; ?>' alt='Retour au menu précédent' border='0'></a>
+		<a href='masse.php' target='_self' class='lien2'><img src='<?php echo "$__ICON_DIR/rew_32x32_fond.png"; ?>' alt='Retour au menu prÃ©cÃ©dent' border='0'></a>
 		<?php
 			if(isset($resultat))
-				print("<a href='$php_self' target='_self' class='lien2'><img src='$__ICON_DIR/back_32x32_fond.png' alt='Retour au menu précédent' border='0'></a>");
+				print("<a href='$php_self' target='_self' class='lien2'><img src='$__ICON_DIR/back_32x32_fond.png' alt='Retour au menu prÃ©cÃ©dent' border='0'></a>");
 		?>
 		</form>
 	</div>

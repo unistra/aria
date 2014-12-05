@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -60,7 +60,7 @@ CeCILL-B, et que vous en avez accepté les termes.
    $php_self=$_SERVER['PHP_SELF'];
    // $_SESSION['CURRENT_FILE']=$php_self;
 
-   // Le candidat doit impérativement être authentifié avant de pouvoir utiliser ce formulaire
+   // Le candidat doit impÃ©rativement Ãªtre authentifiÃ© avant de pouvoir utiliser ce formulaire
    
    if(!isset($_SESSION["authentifie"]))
       $erreur_auth=1;
@@ -108,12 +108,12 @@ CeCILL-B, et que vous en avez accepté les termes.
    }
    elseif(!isset($erreur_auth) && (isset($_POST["Valider"]) || isset($_POST["Valider_x"]))) // validation du formulaire
    {
-      // vérification des valeurs entrées dans le formulaire
-      // TODO : vérifications poussées
+      // vÃ©rification des valeurs entrÃ©es dans le formulaire
+      // TODO : vÃ©rifications poussÃ©es
 
       $candidat_id=$_SESSION["authentifie"];
 
-      // Formation concernée par le message
+      // Formation concernÃ©e par le message
       if(array_key_exists("formation", $_POST))
          $propspec_id=$_POST["formation"];
       else
@@ -126,7 +126,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
       if(!isset($erreur_formation) && !isset($erreur_demande))
       {
-         // Une formation a été choisie : on regarde les personnes rattachées à cette dernière
+         // Une formation a Ã©tÃ© choisie : on regarde les personnes rattachÃ©es Ã  cette derniÃ¨re
          if($formation!=0)
          {
             // Nom de la formation
@@ -145,7 +145,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
             db_free_result($res_formation);
 
-            // Récupération des informations du destinataire (avec l'éventuel message d'absence)
+            // RÃ©cupÃ©ration des informations du destinataire (avec l'Ã©ventuel message d'absence)
             $result=db_query($dbr, "SELECT $_DBC_courriels_propspec_acces_id, $_DBC_acces_nom, $_DBC_acces_prenom, $_DBC_acces_courriel,
                                            $_DBC_acces_absence_debut, $_DBC_acces_absence_fin, $_DBC_acces_absence_msg,
                                            $_DBC_acces_absence_active
@@ -154,10 +154,10 @@ CeCILL-B, et que vous en avez accepté les termes.
                                     AND $_DBC_courriels_propspec_propspec_id='$formation'
                                     AND $_DBC_courriels_propspec_type='F'");
          }
-         // Si aucun résultat ou si aucune formation n'a été sélectionnée, on sélectionne :
-         // 1/ soit les utilisateurs attachés aux messages génériques
-         // 2/ en cas d'echec au 1/, ceux ayant un niveau d'accès supérieur à la consultation et qui désirent recevoir les messages des scol (booléen dans la table acces)
-         // TODO 11/01/08 : Créer un système de gestion d'aliases ?
+         // Si aucun rÃ©sultat ou si aucune formation n'a Ã©tÃ© sÃ©lectionnÃ©e, on sÃ©lectionne :
+         // 1/ soit les utilisateurs attachÃ©s aux messages gÃ©nÃ©riques
+         // 2/ en cas d'echec au 1/, ceux ayant un niveau d'accÃ¨s supÃ©rieur Ã  la consultation et qui dÃ©sirent recevoir les messages des scol (boolÃ©en dans la table acces)
+         // TODO 11/01/08 : CrÃ©er un systÃ¨me de gestion d'aliases ?
          
          if((isset($result) && !db_num_rows($result)) || $formation==0)
          {
@@ -197,7 +197,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          $now=time();
          $_SESSION["absences"]=array();
 
-         // Récupération du ou des destinataires
+         // RÃ©cupÃ©ration du ou des destinataires
          for($i=0; $i<$rows_destinataires; $i++)
          {
             list($msg_dest_id, $msg_dest_nom, $msg_dest_prenom, $msg_dest_email, $absence_debut, $absence_fin,
@@ -215,31 +215,31 @@ CeCILL-B, et que vous en avez accepté les termes.
          }
 
 /*
-         // Construction du corps du message en fonction des données du formulaire
-         // Le corps contient un tableau HTML : il est affiché dans la messagerie, on peut donc utiliser le format désiré
+         // Construction du corps du message en fonction des donnÃ©es du formulaire
+         // Le corps contient un tableau HTML : il est affichÃ© dans la messagerie, on peut donc utiliser le format dÃ©sirÃ©
 
          $identite=$_SESSION["prenom2"]!="" ? "$_SESSION[civilite]. $_SESSION[nom] $_SESSION[prenom] ($_SESSION[prenom2])" : "$_SESSION[civilite]. $_SESSION[nom] $_SESSION[prenom]";
 
          $corps_message="<table cellpadding='4' border='0' valign='top'>
                          <tr>
                            <td class='td-complet fond_menu2' colspan='2'>
-                              <font class='Texte_menu2'><strong>Détails de la requête : </strong></font>
+                              <font class='Texte_menu2'><strong>DÃ©tails de la requÃªte : </strong></font>
                            </td>
                           </tr>
                           <tr>
                            <td class='td-gauche'><font class='Texte'><strong>Candidat(e) :</strong></font></td>
                            <td class='td-droite'>
                               <font class='Texte'>
-                                 $identite, né(e) le ".date("d/m/Y", $_SESSION["naissance"])." à $_SESSION[lieu_naissance] ($_SESSION[pays_naissance])
+                                 $identite, nÃ©(e) le ".date("d/m/Y", $_SESSION["naissance"])." Ã  $_SESSION[lieu_naissance] ($_SESSION[pays_naissance])
                               </font>
                            </td>
                           </tr>
                           <tr>
-                           <td class='td-gauche'><font class='Texte'><strong>Nationalité :</strong></font></td>
+                           <td class='td-gauche'><font class='Texte'><strong>NationalitÃ© :</strong></font></td>
                            <td class='td-droite'><font class='Texte'>$_SESSION[nationalite]</font></td>
                           </tr>
                           <tr>
-                           <td class='td-gauche'><font class='Texte'><strong>Numéro INE :</strong></font></td>
+                           <td class='td-gauche'><font class='Texte'><strong>NumÃ©ro INE :</strong></font></td>
                            <td class='td-droite'><font class='Texte'> $_SESSION[numero_ine]</font></td>
                           </tr>
                           <tr>
@@ -252,13 +252,13 @@ CeCILL-B, et que vous en avez accepté les termes.
                           </tr>
                           </table><br>\n";
 
-         // Destinataire(s) : scolarité en fonction de la formation choisie
+         // Destinataire(s) : scolaritÃ© en fonction de la formation choisie
 
          $array_dests=array();
 
          $res_admins=db_query($dbr,"SELECT $_DBC_acces_id FROM $_DB_acces WHERE $_DBC_acces_niveau='$__LVL_ADMIN'");
 
-         // TODO : prévoir le cas où aucun admin n'est présent dans la base : envoyer à l'adresse de debug ?
+         // TODO : prÃ©voir le cas oÃ¹ aucun admin n'est prÃ©sent dans la base : envoyer Ã  l'adresse de debug ?
          if($rows_admin=db_num_rows($res_admins))
          {
             for($admin_i=0; $admin_i<$rows_admin; $admin_i++)
@@ -276,14 +276,14 @@ CeCILL-B, et que vous en avez accepté les termes.
          // Nettoyage pour affichage
          $corps_message=preg_replace("/[[:space:]]+/", " ", ereg_replace("[\r]*[\n]+","", $corps_message));
 
-         $sujet_message="ASSISTANCE : Déverrouillage - $identite";
+         $sujet_message="ASSISTANCE : DÃ©verrouillage - $identite";
 
-         write_msg_2($dbr, array("id" => "0", "nom" => "Système", "prenom" => "", "src_type" => "gestion", "composante" => "", "universite" => "$__SIGNATURE_COURRIELS"),
+         write_msg_2($dbr, array("id" => "0", "nom" => "SystÃ¨me", "prenom" => "", "src_type" => "gestion", "composante" => "", "universite" => "$__SIGNATURE_COURRIELS"),
                      $array_dests, $sujet_message,$corps_message);
 
          $succes=1;
 
-         // write_evt("", $__EVT_ID_C_ID, "MAJ Identité", $candidat_id, $candidat_id, ereg_replace("[']+","''", stripslashes($requete)));
+         // write_evt("", $__EVT_ID_C_ID, "MAJ IdentitÃ©", $candidat_id, $candidat_id, ereg_replace("[']+","''", stripslashes($requete)));
          // db_close($dbr);
 */
       }
@@ -303,20 +303,20 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 <div class='main'>
    <?php
-      titre_page_icone("Contacter la scolarité", "mail_send_32x32_fond.png", 15, "L");
+      titre_page_icone("Contacter la scolaritÃ©", "mail_send_32x32_fond.png", 15, "L");
 
       if(isset($erreur_demande))
-         message("Formulaire incomplet: vous devez compléter le champ \"Demande\"", $__ERREUR);
+         message("Formulaire incomplet: vous devez complÃ©ter le champ \"Demande\"", $__ERREUR);
 
       if(isset($erreur_formation))
-         message("Erreur : vous devez sélectionner la formation concernée par votre demande (ou \"Message général...\").", $__ERREUR);
+         message("Erreur : vous devez sÃ©lectionner la formation concernÃ©e par votre demande (ou \"Message gÃ©nÃ©ral...\").", $__ERREUR);
 
       if(isset($erreur_composante))
-         message("Erreur : vous devez sélectionner la composante concernée par votre message.", $__ERREUR);
+         message("Erreur : vous devez sÃ©lectionner la composante concernÃ©e par votre message.", $__ERREUR);
 
       if(isset($succes))
       {
-         message("Votre message a été envoyé à la scolarité.", $__SUCCES);
+         message("Votre message a Ã©tÃ© envoyÃ© Ã  la scolaritÃ©.", $__SUCCES);
 
          print("<div class='centered_icons_box'>
                   <a href='index.php' target='_self' class='lien2'><img src='$__ICON_DIR/back_32x32_fond.png' alt='Retour' border='0'></a>
@@ -324,7 +324,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       }
       elseif(isset($erreur_auth))
       {
-         message("Vous devez être authentifié(e) pour accéder à ce formulaire.", $__ERREUR);
+         message("Vous devez Ãªtre authentifiÃ©(e) pour accÃ©der Ã  ce formulaire.", $__ERREUR);
 
          print("<div class='centered_icons_box'>
                   <a href='index.php' target='_self' class='lien2'><img src='$__ICON_DIR/back_32x32_fond.png' alt='Retour' border='0'></a>
@@ -337,7 +337,7 @@ CeCILL-B, et que vous en avez accepté les termes.
    <!-- <form action="<?php print("$php_self"); ?>" method="POST"> -->
 
    <?php
-      message("Le Service de Scolarité est le mieux placé pour vous renseigner. Merci de compléter et valider le formulaire ci-dessous.", $__INFO);
+      message("Le Service de ScolaritÃ© est le mieux placÃ© pour vous renseigner. Merci de complÃ©ter et valider le formulaire ci-dessous.", $__INFO);
    ?>
 
    <table align='center'>
@@ -348,7 +348,7 @@ CeCILL-B, et que vous en avez accepté les termes.
    </tr>
    <tr>
       <td class='td-gauche fond_menu2'>
-         <font class='Texte_menu2'><strong>Identité : </strong></font>
+         <font class='Texte_menu2'><strong>IdentitÃ© : </strong></font>
       </td>
       <td class='td-droite fond_menu'>
          <font class='Texte_menu2'>
@@ -371,13 +371,13 @@ CeCILL-B, et que vous en avez accepté les termes.
       </td>
       <td class='td-droite fond_menu'>
          <font class='Texte_menu'>
-            <?php print("Le ".date("d/m/Y", $_SESSION["naissance"])." à $_SESSION[lieu_naissance] ($_SESSION[pays_naissance])"); ?>
+            <?php print("Le ".date("d/m/Y", $_SESSION["naissance"])." Ã  $_SESSION[lieu_naissance] ($_SESSION[pays_naissance])"); ?>
          </font>
       </td>
    </tr>
    <tr>
       <td class='td-gauche fond_menu2'>
-         <font class='Texte_menu2'><strong>Nationalité : </strong></font>
+         <font class='Texte_menu2'><strong>NationalitÃ© : </strong></font>
       </td>
       <td class='td-droite fond_menu'>
          <font class='Texte_menu'>
@@ -387,7 +387,7 @@ CeCILL-B, et que vous en avez accepté les termes.
    </tr>
    <tr>
       <td class='td-gauche fond_menu2'>
-         <font class='Texte_menu2'><strong>Numéro INE/BEA : </strong></font>
+         <font class='Texte_menu2'><strong>NumÃ©ro INE/BEA : </strong></font>
       </td>
       <td class='td-droite fond_menu'>
          <font class='Texte_menu'>
@@ -395,14 +395,14 @@ CeCILL-B, et que vous en avez accepté les termes.
                if(array_key_exists("numero_ine", $_SESSION) && $_SESSION["numero_ine"]!="")
                   print("$_SESSION[numero_ine]");
                else
-                  print("<i>Non renseigné</i>\n");
+                  print("<i>Non renseignÃ©</i>\n");
             ?>
          </font>
       </td>
    </tr>
    <tr>
       <td class='td-complet fond_menu2' style='padding:4px;' colspan='2'>
-         <font class='Texte_menu2'><strong>Votre requête</strong></font>
+         <font class='Texte_menu2'><strong>Votre requÃªte</strong></font>
       </td>
    </tr>
    <?php
@@ -412,7 +412,7 @@ CeCILL-B, et que vous en avez accepté les termes.
    <form action="<?php print("$php_self"); ?>" method="POST"> 
    <tr>
       <td class='td-gauche fond_menu2'>
-         <font class='Texte_important_menu2'><strong>Etape 1 :<br>Composante (scolarité) concernée par votre demande :</strong></font>
+         <font class='Texte_important_menu2'><strong>Etape 1 :<br>Composante (scolaritÃ©) concernÃ©e par votre demande :</strong></font>
       </td>
       <td class='td-droite fond_menu'>
          <select name="comp_id">
@@ -454,7 +454,7 @@ CeCILL-B, et que vous en avez accepté les termes.
    <form action="<?php echo "$__CAND_MSG_DIR/compose.php"; ?>" method="POST">
    <tr>
       <td class='td-gauche fond_menu2'>
-         <font class='Texte_menu2'><strong>Composante (scolarité) sélectionnée :</strong></font>
+         <font class='Texte_menu2'><strong>Composante (scolaritÃ©) sÃ©lectionnÃ©e :</strong></font>
       </td>
       <td class='td-droite fond_menu'>
          <?php
@@ -473,12 +473,12 @@ CeCILL-B, et que vous en avez accepté les termes.
    </tr>
       <tr>
       <td class='td-gauche fond_menu2'>
-         <font class='Texte_important_menu2'><strong>Etape 2 :<br>Formation concernée par votre demande :</strong></font>
+         <font class='Texte_important_menu2'><strong>Etape 2 :<br>Formation concernÃ©e par votre demande :</strong></font>
       </td>
       <td class='td-droite fond_menu'>
          <select name='formation'>
             <option value='' disabled=1></option>
-            <option value='0'>Message général ou formation hors liste de cet établissement</option>
+            <option value='0'>Message gÃ©nÃ©ral ou formation hors liste de cet Ã©tablissement</option>
          <?php
             $result=db_query($dbr,"SELECT $_DBC_propspec_id, $_DBC_annees_id, $_DBC_annees_annee, $_DBC_specs_nom,
                                           $_DBC_specs_mention_id, $_DBC_mentions_nom, $_DBC_propspec_finalite
@@ -492,7 +492,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                                        ORDER BY $_DBC_annees_ordre, $_DBC_specs_mention_id, $_DBC_specs_nom");
             $rows=db_num_rows($result);
 
-            // variables initialisées à n'importe quoi
+            // variables initialisÃ©es Ã  n'importe quoi
             $prev_annee_id="--";
             $prev_mention="";
 
@@ -510,7 +510,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                         print("</optgroup>\n");
 
                      if($annee=="")
-                        $annee="Années particulières";
+                        $annee="AnnÃ©es particuliÃ¨res";
 
                      print("<option value='' disabled=1></option>
                               <optgroup label='-------------- $annee -------------- '>
@@ -529,7 +529,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                   else
                      $selected="";
 
-                  if($annee=="Années particulières")
+                  if($annee=="AnnÃ©es particuliÃ¨res")
                      print("<option value='$propspec_id' label=\"$nom $nom_finalite\" $selected>$nom $nom_finalite</option>\n");
                   else
                      print("<option value='$propspec_id' label=\"$annee $nom $nom_finalite\" $selected>$annee $nom $nom_finalite</option>\n");
@@ -544,7 +544,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 <!--
    <tr>
       <td class='td-gauche fond_menu2'>
-         <font class='Texte_important_menu2'><strong>Votre demande à la scolarité :</strong></font>
+         <font class='Texte_important_menu2'><strong>Votre demande Ã  la scolaritÃ© :</strong></font>
       </td>
       <td class='td-droite fond_menu'>
          <textarea name='demande' cols="50" rows="7"><?php if(isset($demande)) echo htmlspecialchars(stripslashes($demande), ENT_QUOTES, $default_htmlspecialchars_encoding); ?></textarea>

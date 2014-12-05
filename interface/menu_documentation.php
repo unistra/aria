@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,36 +20,36 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
 ?>
 <?php
-	// Vérifications complémentaires au cas où ce fichier serait appelé directement
+	// VÃ©rifications complÃ©mentaires au cas oÃ¹ ce fichier serait appelÃ© directement
 	if(!isset($_SESSION["authentifie"]))
 	{
 		session_write_close();
@@ -71,34 +71,34 @@ CeCILL-B, et que vous en avez accepté les termes.
 ?>
 
 <div class='fond_menu margin_10'>
-	<font class='Texte_menu'><strong>1. Vous êtes enregistré(e) dans l'application : que faire maintenant ?</strong></font>
+	<font class='Texte_menu'><strong>1. Vous Ãªtes enregistrÃ©(e) dans l'application : que faire maintenant ?</strong></font>
 </div>
 <div class='margin_10'>
 	<font class='Texte'>
-		<p class='no_margin'>Sur l'Interface de Précandidatures, il n'est <u>plus nécessaire</u> de télécharger de dossier papier ou PDF : cette
-		interface EST votre dossier, elle devra contenir toutes les informations qui vous sont demandées.</p>
+		<p class='no_margin'>Sur l'Interface de PrÃ©candidatures, il n'est <u>plus nÃ©cessaire</u> de tÃ©lÃ©charger de dossier papier ou PDF : cette
+		interface EST votre dossier, elle devra contenir toutes les informations qui vous sont demandÃ©es.</p>
 
-		<p>Dans le menu gauche, vous devez <strong>COMPLETER CHAQUE SECTION</strong>, de l'Identité (numéro 1) aux précandidatures (numéro 5).</p>
+		<p>Dans le menu gauche, vous devez <strong>COMPLETER CHAQUE SECTION</strong>, de l'IdentitÃ© (numÃ©ro 1) aux prÃ©candidatures (numÃ©ro 5).</p>
 
-		<p class='Texte_important'>Attention : les menus 2, 3 et 4 sont <strong>communs à toutes les composantes</strong> (au cas où vous voudriez déposer des voeux dans
-		plusieurs établissements). Remplissez ces informations <strong>une fois pour toutes</strong>, car si l'un de vos voeux est verrouillé
+		<p class='Texte_important'>Attention : les menus 2, 3 et 4 sont <strong>communs Ã  toutes les composantes</strong> (au cas oÃ¹ vous voudriez dÃ©poser des voeux dans
+		plusieurs Ã©tablissements). Remplissez ces informations <strong>une fois pour toutes</strong>, car si l'un de vos voeux est verrouillÃ©
 		par une composante, vous ne pourrez plus les modifier !</p>
 
-		<p>Tous ces renseignements sont <b>OBLIGATOIRES</b>. Si vous ne les complétez pas, votre dossier risque de <strong>NE PAS
+		<p>Tous ces renseignements sont <b>OBLIGATOIRES</b>. Si vous ne les complÃ©tez pas, votre dossier risque de <strong>NE PAS
 		ETRE EXAMINE</strong>.</p>
 	</font>
 </div>
 
 <div class='fond_menu margin_10'>
-	<font class='Texte_menu'><strong>2. Onglet Spécial : "Autres renseignements"</strong></font>
+	<font class='Texte_menu'><strong>2. Onglet SpÃ©cial : "Autres renseignements"</strong></font>
 </div>
 <div class='margin_10'>
 	<font class='Texte'>
-		<p class='no_margin'>Pour certaines formations choisies, des <strong>renseignements supplémentaires</strong> vous sont demandés.</p>
+		<p class='no_margin'>Pour certaines formations choisies, des <strong>renseignements supplÃ©mentaires</strong> vous sont demandÃ©s.</p>
 
-		<p>Si c'est le cas, <strong>après avoir sélectionné au moins l'une de ces formations</strong>, vous verrez apparaître
-		une <strong>SECTION N°6</strong> que vous devrez <strong>également compléter</strong>. Les informations demandées
-		sont là encore <strong>OBLIGATOIRES</strong>.</p>
+		<p>Si c'est le cas, <strong>aprÃ¨s avoir sÃ©lectionnÃ© au moins l'une de ces formations</strong>, vous verrez apparaÃ®tre
+		une <strong>SECTION NÂ°6</strong> que vous devrez <strong>Ã©galement complÃ©ter</strong>. Les informations demandÃ©es
+		sont lÃ  encore <strong>OBLIGATOIRES</strong>.</p>
 	</font>
 </div>
 
@@ -108,15 +108,15 @@ CeCILL-B, et que vous en avez accepté les termes.
 <div class='margin_10'>
 	<font class='Texte'>
 		<p class='no_margin'>Une fois votre fiche remplie, vous devez <strong>attendre le verrouillage (automatique) de chaque formation
-		demandée</strong>. La date de ce verrouillage est visible dans le menu <strong>5 - Précandidatures</strong>, sur
-		chaque voeu formulé. Pendant ce temps d'attente, vous pouvez modifier librement les voeux sélectionnés dans cette
+		demandÃ©e</strong>. La date de ce verrouillage est visible dans le menu <strong>5 - PrÃ©candidatures</strong>, sur
+		chaque voeu formulÃ©. Pendant ce temps d'attente, vous pouvez modifier librement les voeux sÃ©lectionnÃ©s dans cette
 		composante.</p>
 
-		<p>Dès qu'un voeu est verrouillé, la <strong>liste des justificatifs</strong> à transmettre à la scolarité
-		<strong>PAR VOIE POSTALE UNIQUEMENT</strong> vous sera envoyée.</p>
+		<p>DÃ¨s qu'un voeu est verrouillÃ©, la <strong>liste des justificatifs</strong> Ã  transmettre Ã  la scolaritÃ©
+		<strong>PAR VOIE POSTALE UNIQUEMENT</strong> vous sera envoyÃ©e.</p>
 
 		<p class='Texte_important'>N'oubliez pas de consulter <strong>REGULIEREMENT</strong> votre <strong>messagerie
-		électronique</strong> afin de suivre l'évolution de votre fiche et les demandes qui pourraient vous être
+		Ã©lectronique</strong> afin de suivre l'Ã©volution de votre fiche et les demandes qui pourraient vous Ãªtre
 		faites.</p>
 	</font>
 </div>
@@ -126,7 +126,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 </div>
 <div class='margin_10'>
 	<font class='Texte'>
-		<p class='no_margin'>Avant de poser une question à la scolarité, merci de lire <strong>LE MODE D'EMPLOI</strong> à l'adresse suivante :</p>
+		<p class='no_margin'>Avant de poser une question Ã  la scolaritÃ©, merci de lire <strong>LE MODE D'EMPLOI</strong> Ã  l'adresse suivante :</p>
 		<div style='text-align:center; padding-top:10px;'>
 			<a class='lien_rouge_14' href='<?php echo "$__DOC_DIR/documentation.php"; ?>' target='_blank'><strong>Mode d'emploi</strong></a>
 		</div>

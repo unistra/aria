@@ -6,7 +6,7 @@
 
 	$PERIODE="2008";
 
-	$file=fopen("stats_".time().".csv", "w+") or die("Erreur de création du fichier");
+	$file=fopen("stats_".time().".csv", "w+") or die("Erreur de crÃ©ation du fichier");
 
 	$dbr=db_connect();
 
@@ -19,12 +19,12 @@
 	{
 		list($comp_id, $comp_nom)=db_fetch_row($res_composantes, $c);
 
-		// Séparateur pour préparer la future mise en page
+		// SÃ©parateur pour prÃ©parer la future mise en page
 		if($c!=0)
 			fwrite($file, str_repeat("\"\";", 14) . "\n");
 
 		fwrite($file, "\"$comp_nom\";".str_repeat("\"\";", 13) . "\n");
-		fwrite($file, "\"Intitulé\";\"Total candidatures\";\"Admis, confirmations attendues\";\"Admis\";\"Admissions confirmées\";\"Admis sous réserve\";\"Restants sur liste complémentaire\";\"Convoqués à l'entretien (sans suite)\";\"Dossiers transmis\";\"En attente\";\"Refus\";\"Désistements\";\"Décision non rendue\";\"Non recevables\";\"Dossiers non traités\";\n");
+		fwrite($file, "\"IntitulÃ©\";\"Total candidatures\";\"Admis, confirmations attendues\";\"Admis\";\"Admissions confirmÃ©es\";\"Admis sous rÃ©serve\";\"Restants sur liste complÃ©mentaire\";\"ConvoquÃ©s Ã  l'entretien (sans suite)\";\"Dossiers transmis\";\"En attente\";\"Refus\";\"DÃ©sistements\";\"DÃ©cision non rendue\";\"Non recevables\";\"Dossiers non traitÃ©s\";\n");
 
 		// Formations dans cette composante
 		$res_propspec=db_query($dbr,"SELECT $_DBC_propspec_id, $_DBC_annees_annee, $_DBC_mentions_nom, $_DBC_specs_nom,
@@ -79,7 +79,7 @@
 
 					if($array_dec["statut"]==-1) // Non recevables
 						$nb_non_recevables+=$array_dec["count"];
-					elseif($array_dec["statut"]==0) // Non traitées
+					elseif($array_dec["statut"]==0) // Non traitÃ©es
 						$nb_rec_non_traitees+=$array_dec["count"];
 					elseif($array_dec["statut"]==1) // Recevables
 					{

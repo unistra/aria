@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -60,7 +60,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	$php_self=$_SERVER['PHP_SELF'];
 	$_SESSION['CURRENT_FILE']=$php_self;
 
-	// Arrivée directe sur cette page avec le paramètre composante : on le stocke
+	// ArrivÃ©e directe sur cette page avec le paramÃ¨tre composante : on le stocke
 	if(isset($_GET["co"]) && ctype_digit($_GET["co"]) && $_GET["co"]>0)
 	{
 		$comp=str_replace(" ", "", $_GET["co"]);
@@ -70,7 +70,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		if(db_num_rows(db_query($dbr, "SELECT * FROM $_DB_composantes  WHERE $_DBC_composantes_id='$comp'")))
 			$_SESSION["comp_id"]=$comp;
 
-		// on garde le paramètre et on redirige vers l'authentification
+		// on garde le paramÃ¨tre et on redirige vers l'authentification
 
 		session_write_close();
 		header("Location:../index.php");
@@ -101,33 +101,33 @@ CeCILL-B, et que vous en avez accepté les termes.
 	{
 		case "M" :			$civ_texte="M.";
 								$etudiant="Candidat";
-								$ne_le="Né le";
+								$ne_le="NÃ© le";
 								$inscrit="inscrit";
 								break;
 
 		case	"Mlle"	: 	$civ_texte="Mlle";
 								$etudiant="Candidate";
-								$ne_le="Née le";
+								$ne_le="NÃ©e le";
 								$inscrit="inscrite";
 								break;
 
 		case	"Mme"	: 	$civ_texte="Mme";
 							$etudiant="Candidate";
-							$ne_le="Née le";
+							$ne_le="NÃ©e le";
 							$inscrit="inscrite";
 							break;
 
 		default			:	$civ_texte="M.";
 								$etudiant="Candidat";
-								$ne_le="Né le";
+								$ne_le="NÃ© le";
 								$inscrit="inscrit";
 	}
 
-	// Quelques paramètres
+	// Quelques paramÃ¨tres
 	$Y=date('Y');
 	$Z=$Y+1;
 
-	// nettoyage des variables de session utilisées ailleurs
+	// nettoyage des variables de session utilisÃ©es ailleurs
 	unset($_SESSION["cid"]);
 	unset($_SESSION["ctid"]);
 	unset($_SESSION["la_id"]);
@@ -146,7 +146,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 	unset($_SESSION["elem_type"]);
         unset($_SESSION["array_formations_groupe"]);
    
-	// Onglet par défaut : documentation (0)
+	// Onglet par dÃ©faut : documentation (0)
 	if(isset($_GET["onglet"]) && is_numeric($_GET["onglet"]) && $_GET["onglet"]>=0 && $_GET["onglet"]<10)
 		$_SESSION["onglet"]=$_GET["onglet"];
 	elseif(!isset($_SESSION["onglet"]))
@@ -162,7 +162,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 							 AND $_DBC_dossiers_elems_contenu_comp_id='$_SESSION[comp_id]'
 							 AND $_DBC_dossiers_elems_contenu_periode='$__PERIODE'");
 
-		// Récupération des éléments remplis et insertion dans la base
+		// RÃ©cupÃ©ration des Ã©lÃ©ments remplis et insertion dans la base
 
 		if(isset($_SESSION["elements_dossier"]) && count($_SESSION["elements_dossier"]))
 		{
@@ -238,7 +238,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		$lockdate_txt=date_fr("l j F Y H:i", $lockdate);
 
 		// Double index : on a parfois besoin de rechercher sur l'identifiant de la formation, et non de la candidature
-		// Aucun risque de collision : les identifiants ne sont pas construits de la même façon
+		// Aucun risque de collision : les identifiants ne sont pas construits de la mÃªme faÃ§on
 		$_SESSION["array_lock"][$candidature_id]=array("propspec_id" => $propspec_id,
 																		"cand_id" => $propspec_id,
 																		"lock" => $lock,
@@ -263,7 +263,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		$__lock=$_SESSION["lock"]=0;
 
 	// ============================================================================================================
-	// Bandeau supérieur
+	// Bandeau supÃ©rieur
 	$nb_messages=en_tete_candidat();
 
 	// Menu
@@ -278,7 +278,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		<div style='background-color:white; white-space:nowrap; border:thin solid black; text-align:center; margin-left:1em; margin-right:1em;'>
 			<font class='Texte'>
 				Suivez ce menu pour
-				<br>compléter votre fiche
+				<br>complÃ©ter votre fiche
 			</font>
 			<br>
 			<img src='<?php echo "$__ICON_DIR/go-down_32x32_blanc.png"; ?>' border='0'>
@@ -306,7 +306,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 			}
 
-			// Le dernier onglet n'apparait que s'il y a des éléments supplémentaires à compléter
+			// Le dernier onglet n'apparait que s'il y a des Ã©lÃ©ments supplÃ©mentaires Ã  complÃ©ter
 			//(CF. Constructeur de Dossiers dans la partie Gestion)
 			$result_elems=db_query($dbr, "SELECT	$_DBC_dossiers_elems_id, $_DBC_dossiers_elems_type, $_DBC_dossiers_elems_para, $_DBC_propspec_id,
 																$_DBC_dossiers_elems_vap, $_DBC_annees_annee, $_DBC_specs_nom, $_DBC_propspec_finalite,
@@ -337,13 +337,13 @@ CeCILL-B, et que vous en avez accepté les termes.
 					print("<li class='menu_gauche_select'><strong>$onglet - $nom_onglet</strong></li>\n");
 			}
 
-			// Autres onglets en fin de liste (infos utiles et justificatifs à renvoyer par mail)
+			// Autres onglets en fin de liste (infos utiles et justificatifs Ã  renvoyer par mail)
 
 			
 			// INFOS URGENTES POUR LES TRANSFERTS APOGEE 2009
 			// CE MENU EST TRANSITOIRE (suppression en 2010)
 
-			// Récupération des infos actuelles pour modifier l'affichage du menu
+			// RÃ©cupÃ©ration des infos actuelles pour modifier l'affichage du menu
 			$res_candidat=db_query($dbr, "SELECT $_DBC_candidat_deja_inscrit, $_DBC_candidat_annee_premiere_inscr,
 															$_DBC_candidat_annee_bac, $_DBC_candidat_serie_bac, $_DBC_candidat_dpt_naissance
 														FROM $_DB_candidat

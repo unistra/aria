@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,42 +20,42 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
 ?>
 <?php
-   // Vérifications complémentaires au cas où ce fichier serait appelé directement
+   // VÃ©rifications complÃ©mentaires au cas oÃ¹ ce fichier serait appelÃ© directement
    verif_auth();
 
    if(!isset($_SESSION["candidat_id"]) || !isset($_SESSION["niveau"]) || !in_array($_SESSION['niveau'], array("$__LVL_SUPPORT","$__LVL_SCOL_MOINS","$__LVL_SCOL_PLUS","$__LVL_RESP","$__LVL_SUPER_RESP","$__LVL_ADMIN")))
    {
       print("<div class='centered_box'>
-               <font class='Texte_16'><strong>Vous n'avez pas accès à cette section.</strong></font>
+               <font class='Texte_16'><strong>Vous n'avez pas accÃ¨s Ã  cette section.</strong></font>
              </div>");
    }
    else
@@ -64,18 +64,18 @@ CeCILL-B, et que vous en avez accepté les termes.
                <font class='Texte_16'><strong>$_SESSION[onglet] - Gestion Manuelle</strong></font>
              </div>");
    
-      message("Attention : ce mode contourne certaines sécurités de l'application. <br>Soyez <b>extrêmement prudent(e)</b> lorsque vous manipulez ces informations !", $__WARNING);
+      message("Attention : ce mode contourne certaines sÃ©curitÃ©s de l'application. <br>Soyez <b>extrÃªmement prudent(e)</b> lorsque vous manipulez ces informations !", $__WARNING);
    
       if(isset($envoi_ok) && $envoi_ok==1)
-         message("Courriel envoyé avec succès", $__SUCCES);
+         message("Courriel envoyÃ© avec succÃ¨s", $__SUCCES);
    
       if(isset($identifiant_ok) && $identifiant_ok==1)
-         message("Identifiant modifié avec succès.<br><strong>N'oubliez pas de signaler cette modification ".$_SESSION["tab_candidat"]["etudiant_coi"]." !", $__SUCCES);
+         message("Identifiant modifiÃ© avec succÃ¨s.<br><strong>N'oubliez pas de signaler cette modification ".$_SESSION["tab_candidat"]["etudiant_coi"]." !", $__SUCCES);
       elseif(isset($identifiant_nok) && $identifiant_nok==1)
-         message("Erreur : cet identifiant est déjà utilisé par un autre candidat", $__ERREUR);
+         message("Erreur : cet identifiant est dÃ©jÃ  utilisÃ© par un autre candidat", $__ERREUR);
    
       if(isset($email_ok) && $email_ok==1)
-         message("Adresse électronique modifiée avec succès", $__SUCCES);
+         message("Adresse Ã©lectronique modifiÃ©e avec succÃ¨s", $__SUCCES);
    
       if(isset($mode_ok) && $mode_ok==1)
          message("La fiche est maintenant en mode \"$mode_txt\"", $__SUCCES);
@@ -83,9 +83,9 @@ CeCILL-B, et que vous en avez accepté les termes.
       if(isset($send_mail))
       {
          if($send_mail==1)
-            message("Courriel envoyé avec succès", $__SUCCES);
+            message("Courriel envoyÃ© avec succÃ¨s", $__SUCCES);
          else
-            message("Erreur lors de l'envoi du courriel - un message a été envoyé à l'administrateur.", $__ERREUR);
+            message("Erreur lors de l'envoi du courriel - un message a Ã©tÃ© envoyÃ© Ã  l'administrateur.", $__ERREUR);
       }
 
 ?>
@@ -93,7 +93,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 <table style='margin:0px auto 0px auto;' border='0'>
 <tr>
    <td class='td-gauche fond_menu2'>
-      <font class='Texte_menu2'><b>Adresse électronique</b></font>
+      <font class='Texte_menu2'><b>Adresse Ã©lectronique</b></font>
    </td>
    <td class='td-milieu fond_menu'>
       <input type='text' name="email" value="<?php echo $_SESSION["tab_candidat"]["email"]; ?>" size="32" maxlength="256">
@@ -139,7 +139,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 <tr>
    <td class='td-milieu fond_menu'>
       <?php
-         // Quelque chose à envoyer ?
+         // Quelque chose Ã  envoyer ?
          if(db_num_rows(db_query($dbr, "SELECT * FROM $_DB_cand,$_DB_propspec
                                           WHERE $_DBC_cand_candidat_id='$candidat_id'
                                           AND $_DBC_cand_propspec_id=$_DBC_propspec_id
@@ -149,8 +149,8 @@ CeCILL-B, et que vous en avez accepté les termes.
                                           AND ($_DBC_cand_statut='$__PREC_NON_TRAITEE' OR $_DBC_cand_statut='$__PREC_EN_ATTENTE')")))
          {
             print("<font class='Texte_menu'>
-                     Renvoyer le récapitulatif et les listes de justificatifs
-                     <br>pour les formations verrouillées
+                     Renvoyer le rÃ©capitulatif et les listes de justificatifs
+                     <br>pour les formations verrouillÃ©es
                   </font>");
             $send=1;
          }
@@ -158,7 +158,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          {
             $send=0;
             print("<font class='Texte_important'>
-                     Aucune formation verrouillée ou recevabilitée déjà validée
+                     Aucune formation verrouillÃ©e ou recevabilitÃ©e dÃ©jÃ  validÃ©e
                   </font>");
          }
       ?>
@@ -166,7 +166,7 @@ CeCILL-B, et que vous en avez accepté les termes.
    <td colspan='2' class='td-droite fond_menu' style='text-align:center;'>
       <?php
          if($send==1)
-            print("<input type='image' src='$__ICON_DIR/mail_send_22x22_menu.png' alt='Renvoyer le récapitulatif et la liste des justificatifs' name='go_send_recap' value='Renvoyer le récapitulatif et la liste des justificatifs'>");
+            print("<input type='image' src='$__ICON_DIR/mail_send_22x22_menu.png' alt='Renvoyer le rÃ©capitulatif et la liste des justificatifs' name='go_send_recap' value='Renvoyer le rÃ©capitulatif et la liste des justificatifs'>");
          else
             print("<img src='$__ICON_DIR/stop_22x22_menu.png' alt='Stop' desc='Stop' border='0'>");
       ?>
@@ -185,8 +185,8 @@ CeCILL-B, et que vous en avez accepté les termes.
    </td>
    <td class='td-milieu fond_menu'>
       <?php
-         // Possibilité de basculer une fiche du mode manuel (créée par la scol) au mode normal
-         // Le mode normal est uniquement disponible si une adresse email est entrée
+         // PossibilitÃ© de basculer une fiche du mode manuel (crÃ©Ã©e par la scol) au mode normal
+         // Le mode normal est uniquement disponible si une adresse email est entrÃ©e
          if($_SESSION['tab_candidat']['manuelle']==1)
          {
             $manuelle_checked="checked";
@@ -203,7 +203,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          }
 
          print("<input type='radio' name='mode_manuel' value='0' $normale_checked $disabled><font class='$font_class'>&nbsp;Fiche normale&nbsp;&nbsp;</font><input type='radio' name='mode_manuel' value='1' $manuelle_checked><font class='Texte'>&nbsp;Fiche manuelle</font>
-               <br><font class='Texte_10'><i>Une fiche ne peut être \"normale\" que si une adresse électronique est entrée et validée.\n");
+               <br><font class='Texte_10'><i>Une fiche ne peut Ãªtre \"normale\" que si une adresse Ã©lectronique est entrÃ©e et validÃ©e.\n");
       ?>
    </td>
    <td colspan='2' class='td-droite fond_menu' style='text-align:center;'>
@@ -225,7 +225,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <font class='Texte_menu2'><b>Suppression de la fiche</b></font>
    </td>
    <td class='td-milieu fond_menu'>
-      <font class='Texte_important_menu'>A manipuler avec une extrême prudence !</font>
+      <font class='Texte_important_menu'>A manipuler avec une extrÃªme prudence !</font>
    </td>
    <td colspan='2' class='td-droite fond_menu' style='text-align:center;'>
       <?php

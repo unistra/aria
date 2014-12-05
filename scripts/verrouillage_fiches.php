@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -53,19 +53,19 @@ CeCILL-B, et que vous en avez accepté les termes.
    session_start();
 
    if(is_file("../configuration/aria_config.php")) include "../configuration/aria_config.php";
-   else die("Fichier \"configuration/aria_config.php\" non trouvé");
+   else die("Fichier \"configuration/aria_config.php\" non trouvÃ©");
 
    if(is_file("../include/vars.php")) include "../include/vars.php";
-   else die("Fichier \"include/vars.php\" non trouvé");
+   else die("Fichier \"include/vars.php\" non trouvÃ©");
 
    if(is_file("../include/fonctions.php")) include "../include/fonctions.php";
-   else die("Fichier \"include/fonctions.php\" non trouvé");
+   else die("Fichier \"include/fonctions.php\" non trouvÃ©");
 
    if(is_file("../include/db.php")) include "../include/db.php";
-   else die("Fichier \"include/db.php\" non trouvé");
+   else die("Fichier \"include/db.php\" non trouvÃ©");
 
    if(is_file("../include/access_functions.php")) include "../include/access_functions.php";
-   else die("Fichier \"include/access_functions.php\" non trouvé");
+   else die("Fichier \"include/access_functions.php\" non trouvÃ©");
 
    $dbr=db_connect();
 
@@ -74,7 +74,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
    if($load_config==FALSE) // config absente : erreur
       $erreur_config=1;
-   elseif($load_config==-1) // paramètre(s) manquant(s) : avertissement
+   elseif($load_config==-1) // paramÃ¨tre(s) manquant(s) : avertissement
       $warn_config=1;
 
 /*
@@ -88,7 +88,7 @@ CeCILL-B, et que vous en avez accepté les termes.
    include('Mail.php');
    include('Mail/mime.php');
 
-   // PEAR mail_mime rapporte quelques 'notice' : on élimine leur affichage
+   // PEAR mail_mime rapporte quelques 'notice' : on Ã©limine leur affichage
    error_reporting(E_ALL ^ E_NOTICE);
 */
 
@@ -100,14 +100,14 @@ CeCILL-B, et que vous en avez accepté les termes.
    $_SESSION['CURRENT_FILE']=$php_self;
 
 /*
-   Ce script est prévu pour être exécuté par le crontab de la machine hébergeant l'interface Précandidatures
+   Ce script est prÃ©vu pour Ãªtre exÃ©cutÃ© par le crontab de la machine hÃ©bergeant l'interface PrÃ©candidatures
    Principe :
-   1/ Connexion quotidienne à la base, de préférence lorsque personne n'y touche (la nuit : 23h00 ou 5h00, par exemple)
-   2/ Verrouillage des candidatures dont la date de verrouillage est dépassée, en fonction des composantes
+   1/ Connexion quotidienne Ã  la base, de prÃ©fÃ©rence lorsque personne n'y touche (la nuit : 23h00 ou 5h00, par exemple)
+   2/ Verrouillage des candidatures dont la date de verrouillage est dÃ©passÃ©e, en fonction des composantes
 */
 
-   // Mode test (pour vérifier les conditions et les messages)
-   // => Indiquer l'id d'un candidat test et exécuter le script manuellement
+   // Mode test (pour vÃ©rifier les conditions et les messages)
+   // => Indiquer l'id d'un candidat test et exÃ©cuter le script manuellement
 
    $mode_test=0;
 
@@ -120,7 +120,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
    $date=time();
 
-   // Boucle sur les Universités enregistrées dans la base de données
+   // Boucle sur les UniversitÃ©s enregistrÃ©es dans la base de donnÃ©es
    $res_univ=db_query($dbr,"SELECT $_DBC_universites_id, $_DBC_universites_nom FROM $_DB_universites
                             ORDER BY $_DBC_universites_id");
 
@@ -160,7 +160,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       {
          $old_candidat_id="";
 
-         for($i=0; $i<$rows; $i++) // boucle for() globale sur les candidats de la base, dans l'université courante
+         for($i=0; $i<$rows; $i++) // boucle for() globale sur les candidats de la base, dans l'universitÃ© courante
          {
             list($candidat_id,$cand_civ,$cand_nom,$cand_prenom, $cand_email, $cand_id, $cand_lockdate, $comp_id, $comp_nom, $adr_scol, 
                   $courriel_scol, $annee, $spec_nom, $propspec_id, $finalite, $date_fermeture, $date_reception, $frais, 
@@ -171,24 +171,24 @@ CeCILL-B, et que vous en avez accepté les termes.
 
             switch($cand_civ)
             {
-               case "M" :       $ne_le="Né le";
+               case "M" :       $ne_le="NÃ© le";
                               $civ_mail="M.";
                               break;
 
-               case   "Mlle" :   $ne_le="Née le";
+               case   "Mlle" :   $ne_le="NÃ©e le";
                               $civ_mail="Mlle";
                               break;
 
-               case   "Mme"   :    $ne_le="Née le";
+               case   "Mme"   :    $ne_le="NÃ©e le";
                               $civ_mail="Mme";
                               break;
 
-               default      :   $ne_le="Né le";
+               default      :   $ne_le="NÃ© le";
                               $civ_mail="M.";
             }
 
-            // Verrouillage de la fiche : uniquement si tous les champs obligatoires ont été complétés
-            // 1/ On sélectionne les élements obligatoires rattachés aux formations choisies par le candidat
+            // Verrouillage de la fiche : uniquement si tous les champs obligatoires ont Ã©tÃ© complÃ©tÃ©s
+            // 1/ On sÃ©lectionne les Ã©lements obligatoires rattachÃ©s aux formations choisies par le candidat
             $result_ob=db_query($dbr, "SELECT $_DBC_dossiers_elems_id, $_DBC_dossiers_elems_unique, $_DBC_dossiers_ef_propspec_id
                                           FROM $_DB_dossiers_elems, $_DB_dossiers_ef
                                        WHERE $_DBC_dossiers_elems_id=$_DBC_dossiers_ef_elem_id
@@ -203,7 +203,7 @@ CeCILL-B, et que vous en avez accepté les termes.
             {
                list($elem_ob_id, $elem_ob_unique, $fil_id)=db_fetch_row($result_ob, $j);
 
-               // on regarde si cet élément existe dans les contenus complétés par le candidat
+               // on regarde si cet Ã©lÃ©ment existe dans les contenus complÃ©tÃ©s par le candidat
 
                if($elem_ob_unique=="t") // demande unique : le candidat remplit une seule fois le champ
                {
@@ -242,7 +242,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                db_free_result($result_contenu);
 
                // si un contenu est vide : inutile de continuer : on stoppe la boucle, on envoie un message au candidat
-               // et on passe à la suite
+               // et on passe Ã  la suite
                if($contenu_vide==1)
                {
                   if($mode_test==1)
@@ -251,7 +251,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                   // 1 : on stoppe la boucle
                   $j=$rows_ob;
 
-                  // 2 : si le nombre max de rappels n'est pas atteint, on en envoie un et on décalle le verrouillage
+                  // 2 : si le nombre max de rappels n'est pas atteint, on en envoie un et on dÃ©calle le verrouillage
 
                   if(!isset($__MAX_RAPPELS) || !ctype_digit($__MAX_RAPPELS) || $__MAX_RAPPELS<=0)
                      $__MAX_RAPPELS=3;
@@ -275,19 +275,19 @@ CeCILL-B, et que vous en avez accepté les termes.
                      // 4 : on envoie le message
                      $corps_message="\nBonjour $civ_mail ". stripslashes($cand_nom) . ",
 
-Votre candidature pour la formation \"<strong>$formation</strong>\" ne peut actuellement pas être verrouillée pour la composante suivante :
+Votre candidature pour la formation \"<strong>$formation</strong>\" ne peut actuellement pas Ãªtre verrouillÃ©e pour la composante suivante :
 
 <strong>$comp_nom</strong>
 
-En effet, des renseignements obligatoires complémentaires sont demandés pour la ou les formations que vous avez sélectionnées.
+En effet, des renseignements obligatoires complÃ©mentaires sont demandÃ©s pour la ou les formations que vous avez sÃ©lectionnÃ©es.
 
-<strong>Vous recevez ce message car vous n'avez pas complété ces renseignements.</strong>
+<strong>Vous recevez ce message car vous n'avez pas complÃ©tÃ© ces renseignements.</strong>
 
-Pour compléter les informations manquantes, sélectionnez la composante indiquée, puis, sur votre fiche, cliquez sur l'onglet numéro 6 (\"6 - Autres Renseignements\") dans le menu gauche et complétez les renseignements demandés.
+Pour complÃ©ter les informations manquantes, sÃ©lectionnez la composante indiquÃ©e, puis, sur votre fiche, cliquez sur l'onglet numÃ©ro 6 (\"6 - Autres Renseignements\") dans le menu gauche et complÃ©tez les renseignements demandÃ©s.
 
-Si vous ne complétez pas ces informations, votre dossier ne pourra pas être examiné par la Scolarité.
+Si vous ne complÃ©tez pas ces informations, votre dossier ne pourra pas Ãªtre examinÃ© par la ScolaritÃ©.
 
-<b>IMPORTANT : date limite pour compléter votre fiche : $date_fermeture_txt. Passée cette date, votre candidature ne pourra plus être examinée.</b>
+<b>IMPORTANT : date limite pour complÃ©ter votre fiche : $date_fermeture_txt. PassÃ©e cette date, votre candidature ne pourra plus Ãªtre examinÃ©e.</b>
 
 Cordialement,
 
@@ -305,7 +305,7 @@ $univ_nom";
 
                      if($decision_id==$__DOSSIER_NON_TRAITE)
                      {
-                        write_msg("", array("id" => "0", "nom" => "Système", "prenom" => ""), $dest_array,
+                        write_msg("", array("id" => "0", "nom" => "SystÃ¨me", "prenom" => ""), $dest_array,
                                  "Informations manquantes - rappel ".($nb_rappels+1), $corps_message, "$cand_nom $cand_prenom");
                      
                         write_evt($dbr, $__EVT_ID_S_LOCK, "Echec du verrouillage : renseignements incomplets (rappel ".($nb_rappels+1).")", $candidat_id, $cand_id);
@@ -316,7 +316,7 @@ $univ_nom";
 
             db_free_result($result_ob);
 
-            // Verification effectuée, on décide si on peut verrouiller ou pas
+            // Verification effectuÃ©e, on dÃ©cide si on peut verrouiller ou pas
 
             if($contenu_vide==0)
             {
@@ -324,8 +324,8 @@ $univ_nom";
                //          JUSTIFICATIFS A ENVOYER : 1 message par voeu
                // ================================================================
 
-               // Cette requête est uniquement faite pour vérifier la présence de justificatifs pour cette formation
-               // TODO 8/1/2008 : SIMPLIFIER en intégrant dans la requête globale ? (avec un CASE)
+               // Cette requÃªte est uniquement faite pour vÃ©rifier la prÃ©sence de justificatifs pour cette formation
+               // TODO 8/1/2008 : SIMPLIFIER en intÃ©grant dans la requÃªte globale ? (avec un CASE)
                $result3=db_query($dbr, "SELECT $_DBC_justifs_id, $_DBC_justifs_titre, $_DBC_justifs_texte, $_DBC_justifs_jf_nationalite
                                           FROM $_DB_justifs, $_DB_justifs_jf
                                           WHERE $_DBC_justifs_jf_propspec_id='$propspec_id'
@@ -335,11 +335,11 @@ $univ_nom";
                $rows3=db_num_rows($result3);
                db_free_result($result3);
 
-               if(!$rows3) // Aucun élément : on prévient l'administrateur et on ne verrouille pas la fiche
+               if(!$rows3) // Aucun Ã©lÃ©ment : on prÃ©vient l'administrateur et on ne verrouille pas la fiche
                   $justificatifs_vides[$propspec_id]="$comp_id - $formation\n";
                else
                {
-                  // message spécifique à la composante ?
+                  // message spÃ©cifique Ã  la composante ?
                   
                   $res_message=db_query($dbr, "SELECT $_DBC_messages_contenu FROM $_DB_messages
                                                WHERE $_DBC_messages_type='$__MSG_TYPE_VERROUILLAGE'
@@ -355,7 +355,7 @@ $univ_nom";
 
                   if(!isset($mode_test) || (isset($mode_test) && $mode_test!=1))
                   {
-                     // Autres fichiers liés aux justificatifs
+                     // Autres fichiers liÃ©s aux justificatifs
                      $result4=db_query($dbr, "SELECT distinct($_DBC_justifs_fichiers_nom)
                                                 FROM $_DB_justifs_fichiers, $_DB_justifs_ff
                                                 WHERE $_DBC_justifs_fichiers_id=$_DBC_justifs_ff_fichier_id
@@ -374,28 +374,28 @@ $univ_nom";
 
                            // On n'utilise pas de variables de chemins dans les messages, car si les chemins changent,
                            // les liens ne seront plus valides
-                           // Solution : utilisation de la macro ###texte### le "texte" sera automatiquement remplacé par
+                           // Solution : utilisation de la macro ###texte### le "texte" sera automatiquement remplacÃ© par
                            // $GLOBALS[texte] lors de l'ouverture du message
                            if(is_file("$GLOBALS[__PUBLIC_DIR_ABS]/$comp_id/justificatifs/$fichier_nom"))
                               $liste_fichiers.="<br>- <a href='###__PUBLIC_DIR###/$comp_id/justificatifs/$fichier_nom' target='_blank' class='lien_bleu_12'><b>$fichier_nom</b></a>";
                            else
                            {
-                              $hdrs_err = array("From" => "$__EMAIL_ADMIN",
-                                                "Subject" => "Précandidatures : erreur de fichier");
+                              $hdrs_err = array("From" => "$__EMAIL_NOREPLY",
+                                                "Subject" => "PrÃ©candidatures : erreur de fichier");
 
-                              mail($courriel_scol,"[ERREUR Précandidatures] - Fichier non trouvé", "Bonjour,\n\nCeci est un message automatique de l'Application de Gestion des Candidatures en ligne.\n\nLors de l'envoi des Justificatifs, le fichier suivant n'a pu être trouvé sur le serveur : \n\nFichier : $__PUBLIC_DIR_ABS/$comp_id/justificatifs/$fichier_nom\n\n(Il est possible que ce fichier ait été supprimé par erreur, le candidat ne l'a alors pas reçu)\n\nUne copie de ce courriel a été envoyé à l'administrateur.\n\nCordialement,\n\nL'Application ARIA :)");
+                              mail($courriel_scol,"[ERREUR PrÃ©candidatures] - Fichier non trouvÃ©", "Bonjour,\n\nCeci est un message automatique de l'Application de Gestion des Candidatures en ligne.\n\nLors de l'envoi des Justificatifs, le fichier suivant n'a pu Ãªtre trouvÃ© sur le serveur : \n\nFichier : $__PUBLIC_DIR_ABS/$comp_id/justificatifs/$fichier_nom\n\n(Il est possible que ce fichier ait Ã©tÃ© supprimÃ© par erreur, le candidat ne l'a alors pas reÃ§u)\n\nUne copie de ce courriel a Ã©tÃ© envoyÃ© Ã  l'administrateur.\n\nCordialement,\n\nL'Application ARIA :)");
 
-                              // Copie à l'admin
-                              mail($__EMAIL_ADMIN,"[DBG - ERREUR Précandidatures] - Fichier non trouvé", "Lors de l'envoi des Justificatifs, le fichier suivant n'a pu être trouvé sur le serveur : \n\nFichier : $__PUBLIC_DIR_ABS/$comp_id/justificatifs/$fichier_nom\n\nCandidat : $civ_mail $cand_nom $cand_prenom\n\nUne copie de ce courriel a été envoyé à la scolarité concernée.\n\nCordialement,\n\nL'Application ARIA :)");
+                              // Copie Ã  l'admin
+                              mail($__EMAIL_ADMIN,"[DBG - ERREUR PrÃ©candidatures] - Fichier non trouvÃ©", "Lors de l'envoi des Justificatifs, le fichier suivant n'a pu Ãªtre trouvÃ© sur le serveur : \n\nFichier : $__PUBLIC_DIR_ABS/$comp_id/justificatifs/$fichier_nom\n\nCandidat : $civ_mail $cand_nom $cand_prenom\n\nUne copie de ce courriel a Ã©tÃ© envoyÃ© Ã  la scolaritÃ© concernÃ©e.\n\nCordialement,\n\nL'Application ARIA :)");
                            }
                         }
 
                         if($liste_fichiers!="")
                         {
                            $les_fichiers_suivants=$rows4==1 ? "le fichier suivant" : "les fichiers suivants";
-                           $les_pieces_jointes_suivantes=$rows4==1 ? "la pièce jointe suivante" : "les pièces jointes suivantes";
+                           $les_pieces_jointes_suivantes=$rows4==1 ? "la piÃ¨ce jointe suivante" : "les piÃ¨ces jointes suivantes";
 
-                           $corps_fichiers="4/ Vous devez également télécharger $les_fichiers_suivants et suivre les instructions : " . $liste_fichiers;
+                           $corps_fichiers="4/ Vous devez Ã©galement tÃ©lÃ©charger $les_fichiers_suivants et suivre les instructions : " . $liste_fichiers;
                         }
                         else
                            $corps_fichiers="";
@@ -405,7 +405,7 @@ $univ_nom";
 
                      unset($liste_specs);
 
-                     // candidature à choix multiples ?
+                     // candidature Ã  choix multiples ?
                      if($groupe_spec!=-1)
                      {
                         $liste_specs=array("$cand_id" => array("annee" => "$annee",
@@ -413,7 +413,7 @@ $univ_nom";
                                                                "finalite" => "$finalite",
                                                                "formation" => "$formation"));
 
-                        // on regarde le nombre de candidatures concernées (elles sont triées dans la requete globale)
+                        // on regarde le nombre de candidatures concernÃ©es (elles sont triÃ©es dans la requete globale)
                         // attention, algo un peu limite ...
                         for($search=($i+1); $search<$rows; $search++)
                         {
@@ -450,7 +450,7 @@ $univ_nom";
                      // On a tout : verrouillage de la formation et envoi du message
                      if(isset($liste_specs) && count($liste_specs)>1)
                      {
-                        $sujet="[$comp_nom] - IMPORTANT - Suite de la procédure - candidature à choix multiples";
+                        $sujet="[$comp_nom] - IMPORTANT - Suite de la procÃ©dure - candidature Ã  choix multiples";
 
                         $nom_formation_corps="ce groupe de formations";
 
@@ -460,13 +460,13 @@ $univ_nom";
 
                            db_query($dbr,"UPDATE $_DB_cand SET $_DBU_cand_lock='1' WHERE $_DBU_cand_id='$next_cand_id'");
 
-                           // on avance la boucle d'autant de candidatures que de choix multiples du même groupe
+                           // on avance la boucle d'autant de candidatures que de choix multiples du mÃªme groupe
                            $i++;
                         }
                      }
                      else
                      {
-                        $sujet="IMPORTANT - Suite de la procédure - $formation";
+                        $sujet="IMPORTANT - Suite de la procÃ©dure - $formation";
 
                         db_query($dbr,"UPDATE $_DB_cand SET $_DBU_cand_lock='1' WHERE $_DBU_cand_id='$cand_id'");
 
@@ -477,38 +477,38 @@ $univ_nom";
 
                      $limite_reception_txt=date_fr("j F Y", $date_reception);
 
-                     $prefixe=$corps_message; // conservation de l'entête pour le message spécifique à la composante
+                     $prefixe=$corps_message; // conservation de l'entÃªte pour le message spÃ©cifique Ã  la composante
 
 $corps_message.="\n\nBonjour $civ_mail ". ucwords(mb_strtolower(stripslashes($cand_nom))) .",
 
-Le délai imparti pour modifier cette formation est échu. Après réception de l'ensemble des pièces requises (liste dans ce message), vos demandes pourront être traitées par la ou les scolarités.
+Le dÃ©lai imparti pour modifier cette formation est Ã©chu. AprÃ¨s rÃ©ception de l'ensemble des piÃ¨ces requises (liste dans ce message), vos demandes pourront Ãªtre traitÃ©es par la ou les scolaritÃ©s.
 
-La procédure à suivre est maintenant la suivante :
+La procÃ©dure Ã  suivre est maintenant la suivante :
 
 1/ Cliquez sur chacun des liens suivants :
-<a href='###__CAND_DIR###/gen_recapitulatif.php?comp_id=$comp_id' target='_blank' class='lien_bleu_12'><b>- récapitulatif des informations que vous avez saisies</b> (format PDF)</a>
-<a href='###__CAND_DIR###/gen_justificatifs.php?cand_id=$cand_id' target='_blank' class='lien_bleu_12'><b>- liste des justificatifs à nous faire parvenir par voie postale pour $nom_formation_corps</b> (format PDF)</a>
+<a href='###__CAND_DIR###/gen_recapitulatif.php?comp_id=$comp_id' target='_blank' class='lien_bleu_12'><b>- rÃ©capitulatif des informations que vous avez saisies</b> (format PDF)</a>
+<a href='###__CAND_DIR###/gen_justificatifs.php?cand_id=$cand_id' target='_blank' class='lien_bleu_12'><b>- liste des justificatifs Ã  nous faire parvenir par voie postale pour $nom_formation_corps</b> (format PDF)</a>
 
 2/ Enregistrez puis imprimez ces documents PDF. Conservez-les car ils pourront vous reservir plus tard.
 
-3/ Envoyez ces documents ainsi que les pièces demandées dans le document \"Justificatifs\" par courrier à l'adresse postale indiquée dans ce message (<b>sauf</b> si une adresse spécifique est précisée dans la liste des justificatifs).
+3/ Envoyez ces documents ainsi que les piÃ¨ces demandÃ©es dans le document \"Justificatifs\" par courrier Ã  l'adresse postale indiquÃ©e dans ce message (<b>sauf</b> si une adresse spÃ©cifique est prÃ©cisÃ©e dans la liste des justificatifs).
 
 $corps_fichiers
 
 <font class='Texte_important'><b>IMPORTANT</b> :
 
-Sauf consignes contraires de la scolarité <b>(vérifiez bien le document \"Liste des justificatifs\" ci-dessus)</b> :
+Sauf consignes contraires de la scolaritÃ© <b>(vÃ©rifiez bien le document \"Liste des justificatifs\" ci-dessus)</b> :
 
-- vous devez envoyer vos justificatifs à la scolarité le plus rapidement possible (n'attendez pas la date limite du $limite_reception_txt). Les dossiers hors délais seront examinés lors de la session suivante. Si aucune autre session n'est prévue, votre dossier risque de ne pas être traité.
-- pour les candidatures à choix multiples (spécialités regroupées dans le menu 5-Précandidatures), vous devez envoyer <b>autant d'exemplaires</b> de vos justificatifs <b>que de formations sélectionnées</b> dans cette composante. Si vous n'envoyez pas vos justificatifs en plusieurs exemplaires, toutes vos candidatures <b>ne pourront pas être traitées</b>.</font>
-
-
-Vous pouvez dès à présent suivre l'évolution de votre fiche en ligne (sur cette interface) et vous recevrez prochainement d'autres messages concernant le traitement de votre dossier.
-
-Aucune information supplémentaire sur l'état de votre candidature ne sera donnée par téléphone.
+- vous devez envoyer vos justificatifs Ã  la scolaritÃ© le plus rapidement possible (n'attendez pas la date limite du $limite_reception_txt). Les dossiers hors dÃ©lais seront examinÃ©s lors de la session suivante. Si aucune autre session n'est prÃ©vue, votre dossier risque de ne pas Ãªtre traitÃ©.
+- pour les candidatures Ã  choix multiples (spÃ©cialitÃ©s regroupÃ©es dans le menu 5-PrÃ©candidatures), vous devez envoyer <b>autant d'exemplaires</b> de vos justificatifs <b>que de formations sÃ©lectionnÃ©es</b> dans cette composante. Si vous n'envoyez pas vos justificatifs en plusieurs exemplaires, toutes vos candidatures <b>ne pourront pas Ãªtre traitÃ©es</b>.</font>
 
 
-<b>Rappel</b> : le dépôt d'une précandidature en ligne ne constitue en aucun cas une admission dans la ou les formations demandées.
+Vous pouvez dÃ¨s Ã  prÃ©sent suivre l'Ã©volution de votre fiche en ligne (sur cette interface) et vous recevrez prochainement d'autres messages concernant le traitement de votre dossier.
+
+Aucune information supplÃ©mentaire sur l'Ã©tat de votre candidature ne sera donnÃ©e par tÃ©lÃ©phone.
+
+
+<b>Rappel</b> : le dÃ©pÃ´t d'une prÃ©candidature en ligne ne constitue en aucun cas une admission dans la ou les formations demandÃ©es.
 
 
 Cordialement,
@@ -522,9 +522,9 @@ $univ_nom";
 
                      $corps_message2=parse_macros($corps_message_composante);
 
-                     // Macros spécifiques aux justificatifs (à intégrer dans une autre fonction ?)
-                     $new_corps=preg_replace("/%justificatifs%/i", "<a href='###__CAND_DIR###/gen_justificatifs.php?cand_id=$cand_id' target='_blank' class='lien_bleu_12'><b>- liste des justificatifs à nous faire parvenir par voie postale pour $nom_formation_corps</b> (format PDF)</a>", $corps_message2);
-                     $new_corps=preg_replace("/%recapitulatif%/i", "<a href='###__CAND_DIR###/gen_recapitulatif.php?comp_id=$comp_id' target='_blank' class='lien_bleu_12'><b>- récapitulatif des informations que vous avez saisies</b> (format PDF)</a>", $new_corps);
+                     // Macros spÃ©cifiques aux justificatifs (Ã  intÃ©grer dans une autre fonction ?)
+                     $new_corps=preg_replace("/%justificatifs%/i", "<a href='###__CAND_DIR###/gen_justificatifs.php?cand_id=$cand_id' target='_blank' class='lien_bleu_12'><b>- liste des justificatifs Ã  nous faire parvenir par voie postale pour $nom_formation_corps</b> (format PDF)</a>", $corps_message2);
+                     $new_corps=preg_replace("/%recapitulatif%/i", "<a href='###__CAND_DIR###/gen_recapitulatif.php?comp_id=$comp_id' target='_blank' class='lien_bleu_12'><b>- rÃ©capitulatif des informations que vous avez saisies</b> (format PDF)</a>", $new_corps);
                      $new_corps=preg_replace("/%date_limite%/i", $limite_reception_txt, $new_corps);
                      $new_corps=preg_replace("/%adresse_scolarite%/i", $adr_scol, $new_corps);
                      $new_corps=preg_replace("/%composante%/i", $comp_nom, $new_corps);
@@ -533,7 +533,7 @@ $univ_nom";
                      $new_corps=preg_replace("/%nom%/i", ucwords(mb_strtolower(stripslashes($cand_nom))), $new_corps);
                      
                      if($liste_fichiers!="")
-                        $prefixe.="Ce message contient $les_pieces_jointes_suivantes : $liste_fichiers\n\nCliquez sur les liens pour les télécharger, puis suivez les instructions.\n";
+                        $prefixe.="Ce message contient $les_pieces_jointes_suivantes : $liste_fichiers\n\nCliquez sur les liens pour les tÃ©lÃ©charger, puis suivez les instructions.\n";
                      
                      $message_complet="$prefixe"."$new_corps";
                      
@@ -545,27 +545,27 @@ $univ_nom";
 
                      if($decision_id==$__DOSSIER_NON_TRAITE)
                      {
-                        write_msg("", array("id" => "0", "nom" => "Système", "prenom" => "", "composante" => "$comp_nom", "universite" => "$univ_nom"),
+                        write_msg("", array("id" => "0", "nom" => "SystÃ¨me", "prenom" => "", "composante" => "$comp_nom", "universite" => "$univ_nom"),
                                  $dest_array, $sujet, $corps_message, "$cand_nom $cand_prenom");
 
                         write_evt("", $__EVT_ID_S_LOCK, "Verrouillage automatique", $candidat_id, $comp_id);
                      }
 
-                     // Si le debug est activé, on envoie le message en interne au compte administrateur
+                     // Si le debug est activÃ©, on envoie le message en interne au compte administrateur
                      if($GLOBALS["__DEBUG"]=="t" && $GLOBALS["__DEBUG_LOCK"]=="t" && !isset($mode_test))
                      {
                         $corps_message="ID : $candidat_id\nCourriel : $cand_email\n\n" . $corps_message;
 
                         $dest_array=array("0" => array("id"       => "0",
-                                                        "civ"         => "",
-                                                       "nom"       => "Système",
-                                                       "prenom"    => "",
-                                                       "email"      => $GLOBALS["__EMAIL_ADMIN"]));
+                                                       "civ"      => "",
+                                                       "nom"      => "SystÃ¨me",
+                                                       "prenom"   => "",
+                                                       "email"    => $GLOBALS["__EMAIL_ADMIN"]));
 
-                        // Envoi du message à l'utilisateur "Système" (id=0)
-                        write_msg("", array("id" => "0", "nom" => "Système", "prenom" => ""), $dest_array,
+                        // Envoi du message Ã  l'utilisateur "SystÃ¨me" (id=0)
+                        write_msg("", array("id" => "0", "nom" => "SystÃ¨me", "prenom" => ""), $dest_array,
                                  "$GLOBALS[__DEBUG_SUJET] - $comp_nom - Verrouillage - $civ_mail $cand_prenom $cand_nom - $formation", $corps_message,
-                                 "Système");
+                                 "SystÃ¨me");
                      }
                   }
                   else
@@ -579,7 +579,7 @@ $univ_nom";
          }  // fin de la boucle for() globale sur les candidats
       }
 
-      // S'il y a des justificatifs vides : mail direct à l'admin (les fiches concernées n'ont normalement pas été verrouillées)
+      // S'il y a des justificatifs vides : mail direct Ã  l'admin (les fiches concernÃ©es n'ont normalement pas Ã©tÃ© verrouillÃ©es)
       if(count($justificatifs_vides))
       {
          $justifs_txt="";
@@ -587,8 +587,8 @@ $univ_nom";
          foreach($justificatifs_vides as $propspec_id => $comp_formation)
             $justifs_txt.="$comp_formation ($propspec_id)\n";
 
-         $headers="From: $__EMAIL_ADMIN" . "\r\n" . "Reply-To: $__EMAIL_ADMIN";
-         mail($__EMAIL_ADMIN, "[$univ_nom - Verrouillages : justificatifs vides]", "Fiches NON verrouillées pour les formations suivantes : \n\n" . $justifs_txt, $headers);
+         $headers="From: $__EMAIL_NOREPLY" . "\r\n" . "Reply-To: $__EMAIL_NOREPLY";
+         mail($__EMAIL_ADMIN, "[$univ_nom - Verrouillages : justificatifs vides]", "Fiches NON verrouillÃ©es pour les formations suivantes : \n\n" . $justifs_txt, $headers);
       }
 
       db_free_result($result);

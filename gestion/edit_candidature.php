@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -61,7 +61,7 @@ CeCILL-B, et que vous en avez accepté les termes.
    $php_self=$_SERVER['PHP_SELF'];
    $_SESSION['CURRENT_FILE']=$php_self;
 
-   // paramètre spécial : consultation directe d'un candidat (identifiant "fiche") à partir d'un mail "message"
+   // paramÃ¨tre spÃ©cial : consultation directe d'un candidat (identifiant "fiche") Ã  partir d'un mail "message"
    if(isset($_GET["fiche"]) && ctype_digit($_GET["fiche"]) && isset($_GET["dco"]) && ctype_digit($_GET["dco"]))
    {
       $_GET["fiche"]=str_replace(" ", "", $_GET["fiche"]);
@@ -69,7 +69,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
       $candidat_id=$_SESSION["candidat_id"]=$_SESSION["fiche_id"]=$_GET["fiche"];
 
-      // Si l'utilisateur était déjà connecté, on bascule la composante (éventuellement)
+      // Si l'utilisateur Ã©tait dÃ©jÃ  connectÃ©, on bascule la composante (Ã©ventuellement)
       if(isset($_SESSION["comp_id"]) && isset($_SESSION["auth_id"]) && $_GET["dco"] != $_SESSION["comp_id"])
       {
          $dbr=db_connect();
@@ -104,32 +104,32 @@ CeCILL-B, et que vous en avez accepté les termes.
             header("Location:$php_self?cid=$candidat_id");
             exit;
          }
-         else // pas accès
+         else // pas accÃ¨s
          {
             db_close($dbr);
             header("Location:index.php");
             exit;
          }
       }
-      else // Pas encore authentifié : on conserve la composante pour l'accès direct et on redirige vers la page d'authentification
+      else // Pas encore authentifiÃ© : on conserve la composante pour l'accÃ¨s direct et on redirige vers la page d'authentification
          $_SESSION["dco"]=$_GET["dco"];
    }
 
    verif_auth();
 
-   // paramètre : identifiant du candidat
+   // paramÃ¨tre : identifiant du candidat
    if(isset($_GET["cid"]) && ctype_digit($_GET["cid"]))
    {
       $_SESSION["candidat_id"]=$candidat_id=$_GET["cid"];
 
-      // Au cas où on viendrait de la page Recherche, on regarde si on peut basculer vers la composante dans laquelle le candidat a déposé un voeu
+      // Au cas oÃ¹ on viendrait de la page Recherche, on regarde si on peut basculer vers la composante dans laquelle le candidat a dÃ©posÃ© un voeu
       if(isset($_GET["rech"]) && $_GET["rech"]==1)
       {
          $dbr=db_connect();
 
          if(isset($_SESSION["niveau"]) && in_array($_SESSION["niveau"], array("$__LVL_ADMIN", "$__LVL_SUPPORT")))
          {
-            // Administrateur et support : on ignore les droits d'accès sur les composantes
+            // Administrateur et support : on ignore les droits d'accÃ¨s sur les composantes
             $result=db_query($dbr, "SELECT distinct($_DBC_composantes_id) as composante_id,$_DBC_composantes_nom, $_DBC_universites_nom,
                                           $_DBC_universites_img_dir, $_DBC_universites_id as univ_id,
                                           $_DBC_universites_css, $_DBC_composantes_gestion_motifs,
@@ -157,7 +157,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                                        AND $_DBC_acces_comp_acces_id='$_SESSION[auth_id]'
                                     ORDER BY $_DBC_cand_id");
 
-         // Si on a un résultat, c'est que l'utilisateur a accès à la composante dans laquelle le candidat a demandé une candidature
+         // Si on a un rÃ©sultat, c'est que l'utilisateur a accÃ¨s Ã  la composante dans laquelle le candidat a demandÃ© une candidature
          if($rows=db_num_rows($result))
          {
             $all=db_fetch_all($result);
@@ -166,14 +166,14 @@ CeCILL-B, et que vous en avez accepté les termes.
 
             foreach($all as $i => $array_result)
             {
-               if($array_result["composante_id"] == $_SESSION["comp_id"]) // composante courante trouvée : on s'arrete
+               if($array_result["composante_id"] == $_SESSION["comp_id"]) // composante courante trouvÃ©e : on s'arrete
                {
                   $found=1;
                   $_SESSION["comp_id"]=$new_comp_id=$array_result["composante_id"];
                }
             }
 
-            if(!isset($found)) // composante courante non trouvée, on change en prenant la première
+            if(!isset($found)) // composante courante non trouvÃ©e, on change en prenant la premiÃ¨re
                list($new_comp_id,
                      $_SESSION["composante"],
                      $_SESSION["universite"],
@@ -210,7 +210,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       exit;
    }
 
-   // Onglet par défaut : identité (1)
+   // Onglet par dÃ©faut : identitÃ© (1)
    if(isset($_GET["onglet"]) && is_numeric($_GET["onglet"]) && $_GET["onglet"]>0 && $_GET["onglet"]<=10)
       $_SESSION["onglet"]=$_GET["onglet"];
    elseif(!isset($_SESSION["onglet"]))
@@ -221,17 +221,17 @@ CeCILL-B, et que vous en avez accepté les termes.
 
    $dbr=db_connect();
 
-   // Changement éventuel de composante
+   // Changement Ã©ventuel de composante
    if(isset($_GET["co"]) && ctype_digit($_GET["co"]))
    {
       $new_comp_id=$_GET["co"];
 
-      // Vérification de l'accès
+      // VÃ©rification de l'accÃ¨s
       if(in_array($_SESSION["niveau"], array("$__LVL_ADMIN", "$__LVL_SUPPORT")) || db_num_rows(db_query($dbr, "SELECT $_DBC_acces_comp_composante_id FROM $_DB_acces_comp
                                                                               WHERE $_DBC_acces_comp_acces_id='$_SESSION[auth_id]'
                                                                            AND $_DBC_acces_comp_composante_id='$new_comp_id'")))
       {
-         // Récupération des paramètres propres à cette composante, si elle existe
+         // RÃ©cupÃ©ration des paramÃ¨tres propres Ã  cette composante, si elle existe
          $result=db_query($dbr, "SELECT $_DBC_composantes_nom, $_DBC_universites_nom, $_DBC_universites_img_dir, $_DBC_universites_id, 
                                         $_DBC_universites_css, $_DBC_composantes_gestion_motifs, $_DBC_composantes_scolarite,
                                         $_DBC_composantes_affichage_decisions
@@ -264,10 +264,10 @@ CeCILL-B, et que vous en avez accepté les termes.
       }
    }
 
-   // Libération de la fiche
+   // LibÃ©ration de la fiche
    cand_unlock($dbr, $candidat_id);
 
-   // récupération des infos du candidat
+   // rÃ©cupÃ©ration des infos du candidat
    $result=db_query($dbr,"SELECT $_DBC_candidat_civilite, $_DBC_candidat_nom, $_DBC_candidat_nom_naissance, $_DBC_candidat_prenom, $_DBC_candidat_prenom2,
                                  $_DBC_candidat_date_naissance, $_DBC_candidat_lieu_naissance, $_DBC_candidat_dpt_naissance, 
                                  $_DBC_candidat_nationalite,
@@ -332,7 +332,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       if($connexion!=0)
          $_SESSION['tab_candidat']['derniere_connexion']=date_fr("j F Y - H:i", $connexion);
       else
-         $_SESSION['tab_candidat']['derniere_connexion']="Jamais connecté";
+         $_SESSION['tab_candidat']['derniere_connexion']="Jamais connectÃ©";
 
       switch($_SESSION['tab_candidat']['civilite'])
       {
@@ -340,34 +340,34 @@ CeCILL-B, et que vous en avez accepté les termes.
                            $_SESSION['tab_candidat']['etudiant']="Candidat";
                            $_SESSION['tab_candidat']['etudiant_particule']="le Candidat";
                            $_SESSION['tab_candidat']['etudiant_coi']="au Candidat";
-                           $_SESSION['tab_candidat']['ne_le']="Né le";
+                           $_SESSION['tab_candidat']['ne_le']="NÃ© le";
                            break;
 
          case   "Mlle" :   $_SESSION['tab_candidat']['civ_texte']="Mlle";
                            $_SESSION['tab_candidat']['etudiant']="Candidate";
                            $_SESSION['tab_candidat']['etudiant_particule']="la Candidate";
-                           $_SESSION['tab_candidat']['etudiant_coi']="à la Candidate";
-                           $_SESSION['tab_candidat']['ne_le']="Née le";
+                           $_SESSION['tab_candidat']['etudiant_coi']="Ã  la Candidate";
+                           $_SESSION['tab_candidat']['ne_le']="NÃ©e le";
                            break;
 
          case   "Mme"   :  $_SESSION['tab_candidat']['civ_texte']="Mme";
                            $_SESSION['tab_candidat']['etudiant']="Candidate";
                            $_SESSION['tab_candidat']['etudiant_particule']="la Candidate";
-                           $_SESSION['tab_candidat']['etudiant_coi']="à la Candidate";
-                           $_SESSION['tab_candidat']['ne_le']="Née le";
+                           $_SESSION['tab_candidat']['etudiant_coi']="Ã  la Candidate";
+                           $_SESSION['tab_candidat']['ne_le']="NÃ©e le";
                            break;
 
          default      :    $_SESSION['tab_candidat']['civ_texte']="M.";
                            $_SESSION['tab_candidat']['etudiant']="Candidat";
                            $_SESSION['tab_candidat']['etudiant_particule']="le Candidat";
                            $_SESSION['tab_candidat']['etudiant_coi']="au Candidat";
-                           $_SESSION['tab_candidat']['ne_le']="Né le";
+                           $_SESSION['tab_candidat']['ne_le']="NÃ© le";
       }
 
       db_free_result($result);
 
       // Autres informations
-      // Département de naissance
+      // DÃ©partement de naissance
       if($_SESSION['tab_candidat']['dpt_naissance']!="")
       {
          $res_departements=db_query($dbr, "SELECT $_DBC_departements_fr_nom FROM $_DB_departements_fr
@@ -383,7 +383,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       else
          $_SESSION['tab_candidat']["nom_departement"]="";
 
-      // Série du bac
+      // SÃ©rie du bac
       if($_SESSION['tab_candidat']['serie_bac']!="")
       {
          $res_series_bac=db_query($dbr, "SELECT $_DBC_diplomes_bac_intitule FROM $_DB_diplomes_bac
@@ -415,11 +415,11 @@ CeCILL-B, et que vous en avez accepté les termes.
       exit();
    }
 
-   // Modification du statut des candidatures ou retour à la page précédente
+   // Modification du statut des candidatures ou retour Ã  la page prÃ©cÃ©dente
 
    if(in_array($_SESSION["niveau"], array("$__LVL_SUPPORT", "$__LVL_SAISIE","$__LVL_SCOL_MOINS","$__LVL_SCOL_PLUS","$__LVL_RESP","$__LVL_SUPER_RESP","$__LVL_ADMIN")))
    {
-      // Restauration d'une candidature annulée
+      // Restauration d'une candidature annulÃ©e
       if($_SESSION["niveau"]!=$__LVL_SUPPORT && isset($_GET["p"]) && -1!=($params=get_params($_GET['p'])))
       {
          if(isset($params["cand_id"]) && ctype_digit($params["cand_id"]) && isset($params["r"]) && $params["r"]==1)
@@ -433,8 +433,8 @@ CeCILL-B, et que vous en avez accepté les termes.
             {
                list($cur_decision)=db_fetch_row($res_decision, 0);
 
-               // En fonction de la décision de commission, on ne restaure pas le même statut
-               // => si une décision a déjà été prise, on met la précandidature recevable
+               // En fonction de la dÃ©cision de commission, on ne restaure pas le mÃªme statut
+               // => si une dÃ©cision a dÃ©jÃ  Ã©tÃ© prise, on met la prÃ©candidature recevable
                $new_statut=$cur_decision==$__DOSSIER_NON_TRAITE ? $__PREC_NON_TRAITEE : $__PREC_RECEVABLE;
 
                db_query($dbr,"UPDATE $_DB_cand SET $_DBU_cand_statut='$new_statut'
@@ -449,7 +449,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
       if($_SESSION["niveau"]!=$__LVL_SUPPORT && (isset($_POST["go_cursus"]) || isset($_POST["go_cursus_x"])))
       {
-         // en fonction de l'onglet actif et du tableau présent en $_SESSION, ce ne sont pas les mêmes infos qui sont validées
+         // en fonction de l'onglet actif et du tableau prÃ©sent en $_SESSION, ce ne sont pas les mÃªmes infos qui sont validÃ©es
 
          // ============================================
          //    TRAITEMENT DES JUSTIFICATIFS DU CURSUS
@@ -457,7 +457,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
          if(isset($_SESSION['tab_cursus']))
          {
-             $contenu_mail="Composante : $_SESSION[composante]\n\nConcernant votre cursus, les pièces justificatives que vous nous avez transmises ont été réceptionnées.\n\nStatut de votre cursus :\n\n";
+             $contenu_mail="Composante : $_SESSION[composante]\n\nConcernant votre cursus, les piÃ¨ces justificatives que vous nous avez transmises ont Ã©tÃ© rÃ©ceptionnÃ©es.\n\nStatut de votre cursus :\n\n";
             $modifs=0;
             $pieces_manquantes=0;
 
@@ -473,29 +473,29 @@ CeCILL-B, et que vous en avez accepté les termes.
                $nouveau_statut=$_POST["$key_justifie"];
                $nouvelle_precision=$_POST["$key_precision"];
 
-               if($nouveau_statut==$__CURSUS_VALIDE) // plus besoin du champ "précision" pour un cursus validé
+               if($nouveau_statut==$__CURSUS_VALIDE) // plus besoin du champ "prÃ©cision" pour un cursus validÃ©
                {
                   $nouvelle_precision="";
-                  $contenu_mail.="- $texte : Justificatifs reçus\n\n";
+                  $contenu_mail.="- $texte : Justificatifs reÃ§us\n\n";
                }
-               elseif($nouveau_statut==$__CURSUS_NON_NECESSAIRE) // idem pour un justificatif non nécessaire
+               elseif($nouveau_statut==$__CURSUS_NON_NECESSAIRE) // idem pour un justificatif non nÃ©cessaire
                {
                   $nouvelle_precision="";
-                  $contenu_mail.="- $texte : Justificatifs non nécessaires pour cette étape\n\n";
+                  $contenu_mail.="- $texte : Justificatifs non nÃ©cessaires pour cette Ã©tape\n\n";
                }
-               elseif($nouveau_statut==$__CURSUS_NON_JUSTIFIE) // aucun justificatif jamais reçu
+               elseif($nouveau_statut==$__CURSUS_NON_JUSTIFIE) // aucun justificatif jamais reÃ§u
                {
                   $nouvelle_precision="";
-                  $contenu_mail.="- $texte : Information non confirmée car aucun justificatif n'a été reçu\n\n";
+                  $contenu_mail.="- $texte : Information non confirmÃ©e car aucun justificatif n'a Ã©tÃ© reÃ§u\n\n";
                }
                elseif($nouveau_statut==$__CURSUS_EN_ATTENTE)
                {
                   $nouvelle_precision="";
-                  $contenu_mail.="- $texte : Pièces non reçues ou en cours de traitement\n\n";
+                  $contenu_mail.="- $texte : PiÃ¨ces non reÃ§ues ou en cours de traitement\n\n";
                }
-               elseif($nouveau_statut==$__CURSUS_DES_OBTENTION) // Pour les cursus en cours : précision facultative
+               elseif($nouveau_statut==$__CURSUS_DES_OBTENTION) // Pour les cursus en cours : prÃ©cision facultative
                {
-                  $contenu_mail.="- $texte : Pièce(s) à fournir dès l'obtention du diplôme";
+                  $contenu_mail.="- $texte : PiÃ¨ce(s) Ã  fournir dÃ¨s l'obtention du diplÃ´me";
                   $contenu_mail.=($nouvelle_precision!="") ? " : $nouvelle_precision\n\n" : "\n\n";
                }
                else
@@ -510,10 +510,10 @@ CeCILL-B, et que vous en avez accepté les termes.
                   else
                      $texte_precision=stripslashes("($nouvelle_precision)");
 
-                  $contenu_mail.="- $texte : Pièces manquantes $texte_precision\n\n";
+                  $contenu_mail.="- $texte : PiÃ¨ces manquantes $texte_precision\n\n";
                }
 
-               if($nouveau_statut!=$statut_actuel || $nouvelle_precision!=$precision_actuelle) // changement détecté
+               if($nouveau_statut!=$statut_actuel || $nouvelle_precision!=$precision_actuelle) // changement dÃ©tectÃ©
                {
                   $modifs++;
 
@@ -536,9 +536,9 @@ CeCILL-B, et que vous en avez accepté les termes.
             if($modifs)
             {
                if($pieces_manquantes)
-                  $contenu_mail.="\nEn l'état, vos précandidatures ne sont pas recevables. Merci d'envoyer la ou les pièces manquantes le plus rapidement possible.\n\nNous rappelons qu'un dossier incomplet ne sera PAS TRAITE.";
+                  $contenu_mail.="\nEn l'Ã©tat, vos prÃ©candidatures ne sont pas recevables. Merci d'envoyer la ou les piÃ¨ces manquantes le plus rapidement possible.\n\nNous rappelons qu'un dossier incomplet ne sera PAS TRAITE.";
 
-               $contenu_mail.="\n\n<b>Nous rappelons que ce statut est uniquement valable pour la composante mentionnée. Si vous avez déposé un dossier dans une autre composante, ce statut pourra être différent en fonction des pièces que vous avez envoyées.</b>";
+               $contenu_mail.="\n\n<b>Nous rappelons que ce statut est uniquement valable pour la composante mentionnÃ©e. Si vous avez dÃ©posÃ© un dossier dans une autre composante, ce statut pourra Ãªtre diffÃ©rent en fonction des piÃ¨ces que vous avez envoyÃ©es.</b>";
 
                $civ_mail=$_SESSION['tab_candidat']['civ_texte'];
                $cand_prenom=$_SESSION['tab_candidat']['prenom'];
@@ -563,7 +563,7 @@ $_SESSION[universite]";
 
                if($GLOBALS["__DEBUG"]=="t" && $GLOBALS["__DEBUG_CURSUS"]=="t" && $GLOBALS["__EMAIL_ADMIN"]!="")
                {
-                  $headers = "MIME-Version: 1.0\r\nFrom: $GLOBALS[__EMAIL_ADMIN]\r\nReply-To: $_SESSION[auth_email]\r\nContent-Type: text/plain; charset=ISO-8859-15\r\nContent-transfer-encoding: 8bit\r\n\r\n";
+                  $headers = "MIME-Version: 1.0\r\nFrom: $GLOBALS[__EMAIL_NOREPLY]\r\nReply-To: $GLOBALS[__EMAIL_NOREPLY]\r\nContent-Type: text/plain; charset=UTF-8\r\nContent-transfer-encoding: 8bit\r\n\r\n";
                   $prenom_mail=$_SESSION['tab_candidat']['prenom'];
                   mail($GLOBALS["__EMAIL_ADMIN"], "$GLOBALS[__DEBUG_SUJET] - $_SESSION[composante] - CURSUS - $civ_mail $prenom_mail $nom_mail", "\nBonjour $civ_mail $nom_mail, \n\n\n$contenu_mail\n\n\nCordialement,\n\n\n--\n$_SESSION[adr_scol]\n\n$_SESSION[composante]\n$_SESSION[universite]", $headers);
                }
@@ -584,7 +584,7 @@ $_SESSION[universite]";
             {
                if(verif_droits_formations($_SESSION["comp_id"], $cand_array["propspec_id"]))
                {
-               // On détermine le nom complet de la candidature pour l'insertion dans l'historique (pour que le texte soit lisible)
+               // On dÃ©termine le nom complet de la candidature pour l'insertion dans l'historique (pour que le texte soit lisible)
                $res_prec=db_query($dbr,"SELECT $_DBC_annees_annee, $_DBC_specs_nom_court FROM $_DB_propspec, $_DB_annees, $_DB_specs, $_DB_cand
                                           WHERE $_DBC_propspec_annee=$_DBC_annees_id
                                           AND $_DBC_propspec_id_spec=$_DBC_specs_id 
@@ -608,7 +608,7 @@ $_SESSION[universite]";
 
                $filiere=$cand_array["filiere"];
 
-               // On teste si le nouveau statut est différent de l'ancien, ou si la motivation est différente
+               // On teste si le nouveau statut est diffÃ©rent de l'ancien, ou si la motivation est diffÃ©rente
                if((isset($_POST["statut"]) && array_key_exists($cand_id, $_POST["statut"]) && $_POST["statut"]["$cand_id"]!=$statut)
                   || ($_POST["statut"]["$cand_id"]==$statut && stripslashes(trim($_POST["motivation"]["$cand_id"]))!=stripslashes($cur_motivation)))
                {
@@ -621,55 +621,55 @@ $_SESSION[universite]";
                   $new_motivation[$cand_id]=trim($_POST["motivation"]["$cand_id"]);
 
                   // Texte en fonction des frais de dossiers
-                  // TODO : configurer l'ordre des chèques dans la base ?
+                  // TODO : configurer l'ordre des chÃ¨ques dans la base ?
 
                   switch($new_statut)
                   {
-                     case $__PREC_NON_TRAITEE :    // Retour au statut 'non traitée' : pas de mail
+                     case $__PREC_NON_TRAITEE :    // Retour au statut 'non traitÃ©e' : pas de mail
                                  $motiv=stripslashes($new_motivation[$cand_id]);
-                                 $statut_txt="Non traitée";
+                                 $statut_txt="Non traitÃ©e";
                                  break;
 
-                     case $__PREC_RECEVABLE   :   // précandidature acceptée, on efface la motivation
+                     case $__PREC_RECEVABLE   :   // prÃ©candidature acceptÃ©e, on efface la motivation
                                  $new_motivation[$cand_id]="";
                                  $statut_txt="Recevable";
                                  break;
 
-                     case $__PREC_PLEIN_DROIT   :   // entrée de plein droit : notification seulement
+                     case $__PREC_PLEIN_DROIT   :   // entrÃ©e de plein droit : notification seulement
                                  $new_motivation[$cand_id]="";
                                  $statut_txt="Plein droit";
-                                 $decision="Le dépôt d'un dossier en ligne n'est pas nécessaire pour votre précandidature en \"$filiere\" car vous entrez de plein droit dans cette filière (sous réserve de l'obtention de l'année en cours).\n\nPour vous inscrire dans cette filière, vous pourrez vous connecter sur le site de l'Université à partir du 19 juillet.";
+                                 $decision="Le dÃ©pÃ´t d'un dossier en ligne n'est pas nÃ©cessaire pour votre prÃ©candidature en \"$filiere\" car vous entrez de plein droit dans cette filiÃ¨re (sous rÃ©serve de l'obtention de l'annÃ©e en cours).\n\nPour vous inscrire dans cette filiÃ¨re, vous pourrez vous connecter sur le site de l'UniversitÃ© Ã  partir du 19 juillet.";
                                  break;
 
-                     case $__PREC_EN_ATTENTE   :   // précandidature en attente (en général parce qu'il manque une pièce au dossier)
+                     case $__PREC_EN_ATTENTE   :   // prÃ©candidature en attente (en gÃ©nÃ©ral parce qu'il manque une piÃ¨ce au dossier)
                                  $motiv=stripslashes($new_motivation[$cand_id]);
                                  $statut_txt="Mettre en attente";
-                                 $decision="Votre précandidature en \"$filiere\" a été mise en attente pour le motif suivant : $motiv.\n\nMerci de compléter votre dossier dans les plus brefs délais. Tout dossier incomplet ne sera pas traité.";
+                                 $decision="Votre prÃ©candidature en \"$filiere\" a Ã©tÃ© mise en attente pour le motif suivant : $motiv.\n\nMerci de complÃ©ter votre dossier dans les plus brefs dÃ©lais. Tout dossier incomplet ne sera pas traitÃ©.";
                                  break;
 
-                     case $__PREC_NON_RECEVABLE   :   // précandidature non recevable : motif prédéfini si non rempli
+                     case $__PREC_NON_RECEVABLE   :   // prÃ©candidature non recevable : motif prÃ©dÃ©fini si non rempli
                                  if(trim($new_motivation[$cand_id])!="")
                                  {                              
                                     $motiv=stripslashes($new_motivation[$cand_id]);
-                                    $decision="Nous avons le regret de vous informer que votre précandidature en \"$filiere\" a été jugée non recevable pour le motif suivant : $motiv.";
+                                    $decision="Nous avons le regret de vous informer que votre prÃ©candidature en \"$filiere\" a Ã©tÃ© jugÃ©e non recevable pour le motif suivant : $motiv.";
                                  }
                                  else
-                                    $decision="Nous avons le regret de vous informer que les conditions de recevabilité ne sont pas satisfaites pour votre précandidature en \"$filiere\".";
+                                    $decision="Nous avons le regret de vous informer que les conditions de recevabilitÃ© ne sont pas satisfaites pour votre prÃ©candidature en \"$filiere\".";
 
                                  $statut_txt="Non recevable";
                                  break;
 
                      case $__PREC_ANNULEE   :               
-                                 $statut_txt="Annulée";
+                                 $statut_txt="AnnulÃ©e";
                                  break;
                   }
 
-                  // Vérification : une mise en attente doit être motivée
+                  // VÃ©rification : une mise en attente doit Ãªtre motivÃ©e
                   if($new_statut==$__PREC_EN_ATTENTE && empty($new_motivation[$cand_id]))
                      $motivation_vide=1;
                   else
                   {
-                     // mise à jour
+                     // mise Ã  jour
                      $id_annuaire=$_SESSION["auth_id"];
 
                      $new_date_statut=time();
@@ -684,7 +684,7 @@ $_SESSION[universite]";
 
                      write_evt("", $__EVT_ID_G_PREC, "Statut precandidature $prec_txt : $statut_txt", $candidat_id, $cand_id, $req);
 
-                     // envoi du mail si nécessaire
+                     // envoi du mail si nÃ©cessaire
                      if($new_statut==$__PREC_EN_ATTENTE || $new_statut==$__PREC_NON_RECEVABLE || $new_statut==$__PREC_PLEIN_DROIT)
                      {
                         $civ_mail=$_SESSION['tab_candidat']['civ_texte'];
@@ -712,7 +712,7 @@ $_SESSION[universite]";
 
                         if($GLOBALS["__DEBUG"]=="t" && $GLOBALS["__DEBUG_STATUT_PREC"]=="t" && $GLOBALS["__EMAIL_ADMIN"]!="")
                         {
-                           $headers = "MIME-Version: 1.0\r\nFrom: $GLOBALS[__EMAIL_ADMIN]\r\nReply-To: $_SESSION[auth_email]\r\nContent-Type: text/plain; charset=ISO-8859-15\r\nContent-transfer-encoding: 8bit\r\n\r\n";
+                           $headers = "MIME-Version: 1.0\r\nFrom: $GLOBALS[__EMAIL_NOREPLY]\r\nReply-To: $_GLOBALS[__EMAIL_NOREPLY]\r\nContent-Type: text/plain; charset=UTF-8\r\nContent-transfer-encoding: 8bit\r\n\r\n";
                            mail($GLOBALS["__EMAIL_ADMIN"],"$GLOBALS[__DEBUG_SUJET] - $_SESSION[composante] - STATUT PREC - $civ_mail $prenom_mail $nom_mail", "\nBonjour $civ_mail $nom_mail, \n\n\n$decision\n\n\nCordialement,\n\n\n--\n$_SESSION[adr_scol]\n\n$_SESSION[composante]\n$_SESSION[universite]", $headers);
                         }
                      }
@@ -781,11 +781,11 @@ $_SESSION[universite]";
       }
       elseif(isset($_POST["go_send_id"]) || isset($_POST["go_send_id_x"]))   // Renvoi des identifiants, par mail
       {
-         // Regénération d'un code personnel
+         // RegÃ©nÃ©ration d'un code personnel
          srand((double)microtime()*1000000);
          $code_conf=mb_strtoupper(md5(rand(0,9999)));
          $new_code=substr($code_conf, 17, 8);
-         // on supprime le chiffre 1, les lettres I, L, O et le zéro : portent à confusion - on les remplace par d'autres caractères
+         // on supprime le chiffre 1, les lettres I, L, O et le zÃ©ro : portent Ã  confusion - on les remplace par d'autres caractÃ¨res
          $new_code=str_replace("0","A", $new_code);
          $new_code=str_replace("O","H", $new_code);
          $new_code=str_replace("1","P", $new_code);
@@ -796,35 +796,35 @@ $_SESSION[universite]";
 
          $rows=db_num_rows($result);
 
-         // TODO : traiter le cas où $rows=0
+         // TODO : traiter le cas oÃ¹ $rows=0
 
          if($rows==1)
          {
             list($cand_identifiant)=db_fetch_row($result,0);
 
-            // Mise à jour du code
+            // Mise Ã  jour du code
             db_query($dbr, "UPDATE $_DB_candidat SET $_DBU_candidat_code_acces='$new_code' WHERE $_DBC_candidat_id='$candidat_id'");
 
-            $headers = "MIME-Version: 1.0\r\nFrom: $__EMAIL_ADMIN\r\nReply-To: $_SESSION[auth_email]\r\nContent-Type: text/plain; charset=ISO-8859-15\r\nContent-transfer-encoding: 8bit\r\n\r\n";
-            $additional= "-r$_SESSION[auth_email]";
+            $headers = "MIME-Version: 1.0\r\nFrom: $__EMAIL_NOREPLY\r\nReply-To: $__EMAIL_NOREPLY\r\nContent-Type: text/plain; charset=UTF-8\r\nContent-transfer-encoding: 8bit\r\n\r\n";
+            $additional= "-r$__EMAIL_NOREPLY";
 
-            $corps_message="============================================================\nCeci est un message automatique, merci de ne pas y répondre.\n============================================================\n
+            $corps_message="============================================================\nCeci est un message automatique, merci de ne pas y rÃ©pondre.\n============================================================\n
 Bonjour " . $_SESSION['tab_candidat']['civ_texte'] . " " . $_SESSION['tab_candidat']['nom'] . ",\n\n
-Les informations vous permettant d'accéder à l'interface de précandidatures sont les suivantes:
+Les informations vous permettant d'accÃ©der Ã  l'interface de prÃ©candidatures sont les suivantes:
 - Adresse : $__URL_CANDIDAT
 - Identifiant : ". stripslashes($cand_identifiant) . "
 - Code Personnel : $new_code\n
-Ne perdez surtout pas votre identifiant car vous devrez le joindre aux éventuels justificatifs de diplômes à envoyer à la scolarité.\n\n
+Ne perdez surtout pas votre identifiant car vous devrez le joindre aux Ã©ventuels justificatifs de diplÃ´mes Ã  envoyer Ã  la scolaritÃ©.\n\n
 Cordialement,\n\n
 --
-Interface de précandidatures ARIA
+Interface de prÃ©candidatures ARIA
 $_SESSION[universite]";
 
-            $ret=mail($_SESSION['tab_candidat']['email'],"[$_SESSION[universite] - Précandidatures en ligne Aria] - Vos identifiants", $corps_message, $headers, $additional);
+            $ret=mail($_SESSION['tab_candidat']['email'],"[$_SESSION[universite] - PrÃ©candidatures en ligne Aria] - Vos identifiants", $corps_message, $headers, $additional);
 
             if($ret!=true)
             {
-               mail($__EMAIL_ADMIN,"[$_SESSION[composante] - ERREUR Précandidatures] - Erreur d'envoi de courriel", "Erreur lors du renvoi manuel des identifiants\n\nFiche : " . $_SESSION['tab_candidat']['nom'] . " " . $_SESSION['tab_candidat']['prenom'] . "\nID :  $candidat_id\nEmail : " . $_SESSION['tab_candidat']['email']);
+               mail($__EMAIL_ADMIN,"[$_SESSION[composante] - ERREUR PrÃ©candidatures] - Erreur d'envoi de courriel", "Erreur lors du renvoi manuel des identifiants\n\nFiche : " . $_SESSION['tab_candidat']['nom'] . " " . $_SESSION['tab_candidat']['prenom'] . "\nID :  $candidat_id\nEmail : " . $_SESSION['tab_candidat']['email']);
                $send_mail=-1;
             }
             else
@@ -856,12 +856,12 @@ $_SESSION[universite]";
          header("Location:index.php");
          exit();
       }
-      elseif($_SESSION["niveau"]!=$__LVL_SUPPORT && isset($_SESSION["tab_candidatures"])) // changement de la date de verrouillage ou verrouillage/déverrouillage manuel
+      elseif($_SESSION["niveau"]!=$__LVL_SUPPORT && isset($_SESSION["tab_candidatures"])) // changement de la date de verrouillage ou verrouillage/dÃ©verrouillage manuel
       {
-         // on doit parcourir toute la liste à chaque validation (pour voir ce qui a été validé.
-         // Pas terrible (à optimiser), mais comme la liste est normalement assez courte, on ne perd pas trop en perfs.
+         // on doit parcourir toute la liste Ã  chaque validation (pour voir ce qui a Ã©tÃ© validÃ©.
+         // Pas terrible (Ã  optimiser), mais comme la liste est normalement assez courte, on ne perd pas trop en perfs.
 
-         // TODO : réécrire cette boucle proprement, surtout les champs des formulaires (utilisation des [])
+         // TODO : rÃ©Ã©crire cette boucle proprement, surtout les champs des formulaires (utilisation des [])
 
          foreach($_SESSION["tab_candidatures"] as $cand_id => $cand_array)
          {
@@ -873,9 +873,9 @@ $_SESSION[universite]";
             $key_mois="mois_verr_".$cand_id;
             $key_annee="annee_verr_".$cand_id;
 
-            if(isset($_POST[$key_unlock])) // déverrouillage forcé
+            if(isset($_POST[$key_unlock])) // dÃ©verrouillage forcÃ©
             {
-               // Si la candidature fait partie d'un groupe, on doit déverrouiller tout le groupe
+               // Si la candidature fait partie d'un groupe, on doit dÃ©verrouiller tout le groupe
                if($cand_array["groupe_spec"]!=-1)
                {
                   db_query($dbr, "UPDATE $_DB_cand SET $_DBU_cand_lock='0'
@@ -884,17 +884,17 @@ $_SESSION[universite]";
                                   AND $_DBC_cand_propspec_id IN (SELECT $_DBC_propspec_id FROM $_DB_propspec
                                                                  WHERE $_DBC_propspec_comp_id='$_SESSION[comp_id]')");
 
-                  write_evt($dbr, $__EVT_ID_G_UNLOCK, "Déverrouillage manuel (cand. choix multiples)", $candidat_id, $cand_array["groupe_spec"], "");
+                  write_evt($dbr, $__EVT_ID_G_UNLOCK, "DÃ©verrouillage manuel (cand. choix multiples)", $candidat_id, $cand_array["groupe_spec"], "");
                }
                else
                {
                   db_query($dbr, "UPDATE $_DB_cand SET $_DBU_cand_lock='0'
                                     WHERE $_DBC_cand_id='$cand_id'");
 
-                  write_evt($dbr, $__EVT_ID_G_UNLOCK, "Déverrouillage manuel", $candidat_id, $cand_id, "");
+                  write_evt($dbr, $__EVT_ID_G_UNLOCK, "DÃ©verrouillage manuel", $candidat_id, $cand_id, "");
                }
             }
-            elseif(isset($_POST[$key_lock])) // déverrouillage forcé
+            elseif(isset($_POST[$key_lock])) // dÃ©verrouillage forcÃ©
             {
                if($cand_array["groupe_spec"]!=-1)
                {
@@ -917,7 +917,7 @@ $_SESSION[universite]";
             elseif(isset($_POST[$key_newlockdate]) && isset($_POST[$key_jour]) && ctype_digit($_POST[$key_jour]) && isset($_POST[$key_mois])
                   && ctype_digit($_POST[$key_mois]) && isset($_POST[$key_annee]) && ctype_digit($_POST[$key_annee]))
             {
-               if(strlen($_POST["annee_verr_$cand_id"])==4) // format de l'année
+               if(strlen($_POST["annee_verr_$cand_id"])==4) // format de l'annÃ©e
                {
                   $mois=$_POST[$key_mois];
                   $jour=$_POST[$key_jour];
@@ -933,7 +933,7 @@ $_SESSION[universite]";
 
                      $succes_date=1;
 
-                     write_evt($dbr, $__EVT_ID_G_LOCKDATE, "Date de verrouillage modifiée : $jour/$mois/$annee", $candidat_id, $cand_id, "");
+                     write_evt($dbr, $__EVT_ID_G_LOCKDATE, "Date de verrouillage modifiÃ©e : $jour/$mois/$annee", $candidat_id, $cand_id, "");
                   }
                   else
                   {
@@ -942,7 +942,7 @@ $_SESSION[universite]";
 
                      $succes_date=1;
 
-                     write_evt($dbr, $__EVT_ID_G_LOCKDATE, "Date de verrouillage modifiée : $jour/$mois/$annee", $candidat_id, $cand_id, "");
+                     write_evt($dbr, $__EVT_ID_G_LOCKDATE, "Date de verrouillage modifiÃ©e : $jour/$mois/$annee", $candidat_id, $cand_id, "");
                   }
                }
             }
@@ -972,9 +972,9 @@ $_SESSION[universite]";
    }
 
    // Verrouillage et quelques infos sur les formations du candidat
-   // Ces infos sont utilisées dans plusieurs menus, c'est pourquoi on met cette requête
+   // Ces infos sont utilisÃ©es dans plusieurs menus, c'est pourquoi on met cette requÃªte
    // dans edit_candidature.php et non dans menu_precandidatures.php
-   //TODO : à vérifier pour optimiser les requêtes et les boucles
+   //TODO : Ã  vÃ©rifier pour optimiser les requÃªtes et les boucles
    $result2=db_query($dbr, "SELECT $_DBC_propspec_id, $_DBC_cand_lock, $_DBC_cand_lockdate, $_DBC_cand_id
                                  FROM $_DB_cand, $_DB_propspec
                               WHERE $_DBC_cand_propspec_id=$_DBC_propspec_id
@@ -998,7 +998,7 @@ $_SESSION[universite]";
                                                                      "lockdate" => $lockdate,
                                                                      "lockdate_txt" => $lockdate_txt);
 
-      // Au moins une formation est verrouillée : fiche modifiable
+      // Au moins une formation est verrouillÃ©e : fiche modifiable
       if($lock)
          $_SESSION["tab_candidat"]["lock"]=1;
    }
@@ -1009,12 +1009,12 @@ $_SESSION[universite]";
    db_free_result($result2);
    
 
-   // Quelques paramètres
+   // Quelques paramÃ¨tres
    $Y=date('Y');
    $Z=$Y+1;
 
-   // Nettoyage général
-   // TODO : à généraliser et améliorer
+   // Nettoyage gÃ©nÃ©ral
+   // TODO : Ã  gÃ©nÃ©raliser et amÃ©liorer
    unset($_SESSION["tab_cursus"]);
    unset($_SESSION["tab_candidatures"]);
    unset($_SESSION["cu_id"]);
@@ -1049,7 +1049,7 @@ $_SESSION[universite]";
 <div class='main'>
    <form action='<?php echo $php_self; ?>' method='POST'>
       <?php
-         // Encadré contenant les infos essentielles du candidat
+         // EncadrÃ© contenant les infos essentielles du candidat
          $to=crypt_params("to=$candidat_id");
 
          print("<div class='infos_candidat'>
@@ -1062,7 +1062,7 @@ $_SESSION[universite]";
             if($_SESSION["tab_candidat"]["manuelle"]==0 || ($_SESSION["tab_candidat"]["manuelle"]==1 && FALSE!=strstr($_SESSION["tab_candidat"]["email"], "@")))
                print("<a href='messagerie/compose.php?p=$to' class='lien_navigation_10'><img class='icone' src='$__ICON_DIR/mail_send_16x16_blanc.png' border='0'></a>\n");
             else
-               print("<font class='Texte_important_10'>Aucune adresse électronique</font>\n");
+               print("<font class='Texte_important_10'>Aucune adresse Ã©lectronique</font>\n");
          }
 
          if($_SESSION["niveau"]==$__LVL_CONSULT)
@@ -1097,8 +1097,8 @@ $_SESSION[universite]";
       </font>
       </span>
       <?php
-         // Navigation entre les fiches, par ordre alphabétique (candidat suivant / précédent)
-         // déterminés en fonction du filtre appliqué par l'utilisateur
+         // Navigation entre les fiches, par ordre alphabÃ©tique (candidat suivant / prÃ©cÃ©dent)
+         // dÃ©terminÃ©s en fonction du filtre appliquÃ© par l'utilisateur
 
          if(isset($_SESSION["filtre_propspec"]) && $_SESSION["filtre_propspec"]!="-1")
          {
@@ -1106,11 +1106,11 @@ $_SESSION[universite]";
                                                          WHERE $_DBC_cand_propspec_id='$_SESSION[filtre_propspec]'
                                                          AND $_DBC_cand_periode='$__PERIODE')";
 
-            $filtre_formation_statut="<font class='Texte_important_10'><strong>(filtre activé)</strong></font>";
+            $filtre_formation_statut="<font class='Texte_important_10'><strong>(filtre activÃ©)</strong></font>";
          }
          else
          {
-            // Pas de filtre sur une formation particulière = toutes les formations de la composante
+            // Pas de filtre sur une formation particuliÃ¨re = toutes les formations de la composante
             $filtre_formation="AND $_DBC_candidat_id IN (SELECT distinct($_DBC_cand_candidat_id)
                                                             FROM $_DB_cand, $_DB_propspec
                                                          WHERE $_DBC_cand_propspec_id=$_DBC_propspec_id
@@ -1153,7 +1153,7 @@ $_SESSION[universite]";
          switch($rows_candidats)
          {
             // On a 3 valeurs possibles
-            // 0 : le candidat est seul dans la base ou dans sa catégorie (fonction du filtre)
+            // 0 : le candidat est seul dans la base ou dans sa catÃ©gorie (fonction du filtre)
             // 1 : il s'agit du premier ou du dernier candidat de la liste
             //     : dans ce cas, il faut tester s'il s'agit du premier (< candidat actuel) ou du dernier (> candidat actuel)
             // 2 : tous les autres cas (candidat parmi les autres de la liste)
@@ -1170,7 +1170,7 @@ $_SESSION[universite]";
                         {
                            $nav_naissance_txt=date_fr("j F Y",$nav_candidat_naissance);
                            $prev_candidat="<a class='lien_navigation_10' href='$php_self?cid=$nav_candidat_id'>$nav_candidat_nom $nav_candidat_prenom ($nav_naissance_txt)</a>";
-                           $prev_icone="<a class='lien_navigation_10' href='$php_self?cid=$nav_candidat_id'><img style='vertical-align:middle;' src='$__ICON_DIR/back_16x16_blanc.png' desc='Candidat précédent' title='[Candidat précédent]' border='0'></a>";
+                           $prev_icone="<a class='lien_navigation_10' href='$php_self?cid=$nav_candidat_id'><img style='vertical-align:middle;' src='$__ICON_DIR/back_16x16_blanc.png' desc='Candidat prÃ©cÃ©dent' title='[Candidat prÃ©cÃ©dent]' border='0'></a>";
                            $no_next=1;
                         }
                         else
@@ -1185,7 +1185,7 @@ $_SESSION[universite]";
             default   :   list($nav_candidat_id, $nav_candidat_nom, $nav_candidat_prenom, $nav_candidat_naissance)=db_fetch_row($result_candidats,0);
                         $nav_naissance_txt=date_fr("j F Y",$nav_candidat_naissance);
                         $prev_candidat="<a class='lien_navigation_10' href='$php_self?cid=$nav_candidat_id'>$nav_candidat_nom $nav_candidat_prenom ($nav_naissance_txt)</a>";
-                        $prev_icone="<a class='lien_navigation_10' href='$php_self?cid=$nav_candidat_id'><img style='vertical-align:middle;' src='$__ICON_DIR/back_16x16_blanc.png' desc='Candidat précédent' title='[Candidat précédent]' border='0'></a>";
+                        $prev_icone="<a class='lien_navigation_10' href='$php_self?cid=$nav_candidat_id'><img style='vertical-align:middle;' src='$__ICON_DIR/back_16x16_blanc.png' desc='Candidat prÃ©cÃ©dent' title='[Candidat prÃ©cÃ©dent]' border='0'></a>";
 
                         list($nav_candidat_id, $nav_candidat_nom, $nav_candidat_prenom, $nav_candidat_naissance)=db_fetch_row($result_candidats,1);
                         $nav_naissance_txt=date_fr("j F Y",$nav_candidat_naissance);
@@ -1228,7 +1228,7 @@ $_SESSION[universite]";
             // Menu de la colonne gauche
             $cnt_menu=count($menu_gestion);
 
-            // TODO : réorganiser la définition des menus dans un tableau, avec les paramètres de niveaux adéquats
+            // TODO : rÃ©organiser la dÃ©finition des menus dans un tableau, avec les paramÃ¨tres de niveaux adÃ©quats
             for($i=0; $i<$cnt_menu; $i++)
             {
                $onglet=$i+1;
@@ -1260,7 +1260,7 @@ $_SESSION[universite]";
    </div>
    <div class='corps_gestion'>
       <?php
-         // Inclusion du fichier en fonction du menu sélectionné
+         // Inclusion du fichier en fonction du menu sÃ©lectionnÃ©
 
          switch($_SESSION["onglet"])
          {

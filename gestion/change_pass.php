@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -67,12 +67,12 @@ CeCILL-B, et que vous en avez accepté les termes.
 		$new_pass=trim($_POST["pass"]);
 		$new_pass_conf=trim($_POST["conf_pass"]);
 
-		// vérification des champs
+		// vÃ©rification des champs
 		if($pass=="" || $new_pass=="" || $new_pass_conf=="")
 			$champs_vides=1;
 		else
 		{
-			// récupération des valeurs courantes et vérification du login
+			// rÃ©cupÃ©ration des valeurs courantes et vÃ©rification du login
 			$dbr=db_connect();
 			$result=db_query($dbr,"SELECT $_DBC_acces_id, $_DBC_acces_pass FROM $_DB_acces WHERE $_DBC_acces_login like '$login'");
 			$rows=db_num_rows($result);
@@ -85,7 +85,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			else
 			{
 				list($current_id,$current_pass)=db_fetch_row($result,0);
-				// vérification de la validité du pass actuel
+				// vÃ©rification de la validitÃ© du pass actuel
 				if(md5($pass)!=$current_pass)
 				{
 					$old_pass_error=1;
@@ -94,14 +94,14 @@ CeCILL-B, et que vous en avez accepté les termes.
 				}
 				else
 				{
-					// vérification des nouveaux pass
+					// vÃ©rification des nouveaux pass
 					if($new_pass!=$new_pass_conf)
 						$pass_dont_match=1;
 					else
 					{
 						$md5_pass=md5($new_pass);
 
-						// on peut mettre à jour
+						// on peut mettre Ã  jour
 						db_query($dbr,"UPDATE $_DB_acces SET $_DBU_acces_pass='$md5_pass' WHERE $_DBU_acces_id='$current_id'");
 						db_close($dbr);
 						$succes=1;
@@ -120,7 +120,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 		titre_page_icone("Changer son mot de passe", "password2_32x32_fond.png", 15, "C");
 
 		if(isset($champs_vides))
-			message("Erreur : Tous les champs doivent être remplis.", $__ERREUR);
+			message("Erreur : Tous les champs doivent Ãªtre remplis.", $__ERREUR);
 
 		if(isset($login_existe_pas))
 			message("Erreur : identifiant incorrect.", $__ERREUR);
@@ -129,10 +129,10 @@ CeCILL-B, et que vous en avez accepté les termes.
 			message("Erreur : mot de passe actuel incorrect.", $__ERREUR);
 
 		if(isset($pass_dont_match))
-			message("Erreur : les nouveaux mots de passe sont différents.", $__ERREUR);
+			message("Erreur : les nouveaux mots de passe sont diffÃ©rents.", $__ERREUR);
 
 		if(isset($succes) && $succes==1)
-			message("Mot de passe modifié avec succès.", $__SUCCES);
+			message("Mot de passe modifiÃ© avec succÃ¨s.", $__SUCCES);
 
 		print("<form action='$php_self' method='POST' name='form1'>
 					<input type='hidden' name='act' value='1'>\n");

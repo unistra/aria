@@ -4,13 +4,13 @@
 APPLICATION ARIA - UNIVERSITE DE STRASBOURG
 
 LICENCE : CECILL-B
-Copyright Université de Strasbourg
+Copyright UniversitÃ© de Strasbourg
 Contributeur : Christophe Boccheciampe - Janvier 2006
 Adresse : cb@dpt-info.u-strasbg.fr
 
-L'application utilise des éléments écrits par des tiers, placés sous les licences suivantes :
+L'application utilise des Ã©lÃ©ments Ã©crits par des tiers, placÃ©s sous les licences suivantes :
 
-Icônes :
+IcÃ´nes :
 - CrystalSVG (http://www.everaldo.com), sous licence LGPL (http://www.gnu.org/licenses/lgpl.html).
 - Oxygen (http://oxygen-icons.org) sous licence LGPL-V3
 - KDE (http://www.kde.org) sous licence LGPL-V2
@@ -20,30 +20,30 @@ Librairie FPDF : http://fpdf.org (licence permissive sans restriction d'usage)
 =======================================================================================================
 [CECILL-B]
 
-Ce logiciel est un programme informatique permettant à des candidats de déposer un ou plusieurs
-dossiers de candidatures dans une université, et aux gestionnaires de cette dernière de traiter ces
+Ce logiciel est un programme informatique permettant Ã  des candidats de dÃ©poser un ou plusieurs
+dossiers de candidatures dans une universitÃ©, et aux gestionnaires de cette derniÃ¨re de traiter ces
 demandes.
 
-Ce logiciel est régi par la licence CeCILL-B soumise au droit français et respectant les principes de
+Ce logiciel est rÃ©gi par la licence CeCILL-B soumise au droit franÃ§ais et respectant les principes de
 diffusion des logiciels libres. Vous pouvez utiliser, modifier et/ou redistribuer ce programme sous les
-conditions de la licence CeCILL-B telle que diffusée par le CEA, le CNRS et l'INRIA sur le site
+conditions de la licence CeCILL-B telle que diffusÃ©e par le CEA, le CNRS et l'INRIA sur le site
 "http://www.cecill.info".
 
-En contrepartie de l'accessibilité au code source et des droits de copie, de modification et de
-redistribution accordés par cette licence, il n'est offert aux utilisateurs qu'une garantie limitée.
-Pour les mêmes raisons, seule une responsabilité restreinte pèse sur l'auteur du programme, le titulaire
-des droits patrimoniaux et les concédants successifs.
+En contrepartie de l'accessibilitÃ© au code source et des droits de copie, de modification et de
+redistribution accordÃ©s par cette licence, il n'est offert aux utilisateurs qu'une garantie limitÃ©e.
+Pour les mÃªmes raisons, seule une responsabilitÃ© restreinte pÃ¨se sur l'auteur du programme, le titulaire
+des droits patrimoniaux et les concÃ©dants successifs.
 
-A cet égard l'attention de l'utilisateur est attirée sur les risques associés au chargement, à
-l'utilisation, à la modification et/ou au développement et à la reproduction du logiciel par l'utilisateur
-étant donné sa spécificité de logiciel libre, qui peut le rendre complexe à manipuler et qui le réserve
-donc à des développeurs et des professionnels avertis possédant  des  connaissances informatiques
-approfondies. Les utilisateurs sont donc invités à charger et tester l'adéquation du logiciel à leurs
-besoins dans des conditions permettant d'assurer la sécurité de leurs systèmes et ou de leurs données et,
-plus généralement, à l'utiliser et l'exploiter dans les mêmes conditions de sécurité.
+A cet Ã©gard l'attention de l'utilisateur est attirÃ©e sur les risques associÃ©s au chargement, Ã 
+l'utilisation, Ã  la modification et/ou au dÃ©veloppement et Ã  la reproduction du logiciel par l'utilisateur
+Ã©tant donnÃ© sa spÃ©cificitÃ© de logiciel libre, qui peut le rendre complexe Ã  manipuler et qui le rÃ©serve
+donc Ã  des dÃ©veloppeurs et des professionnels avertis possÃ©dant  des  connaissances informatiques
+approfondies. Les utilisateurs sont donc invitÃ©s Ã  charger et tester l'adÃ©quation du logiciel Ã  leurs
+besoins dans des conditions permettant d'assurer la sÃ©curitÃ© de leurs systÃ¨mes et ou de leurs donnÃ©es et,
+plus gÃ©nÃ©ralement, Ã  l'utiliser et l'exploiter dans les mÃªmes conditions de sÃ©curitÃ©.
 
-Le fait que vous puissiez accéder à cet en-tête signifie que vous avez pris connaissance de la licence
-CeCILL-B, et que vous en avez accepté les termes.
+Le fait que vous puissiez accÃ©der Ã  cet en-tÃªte signifie que vous avez pris connaissance de la licence
+CeCILL-B, et que vous en avez acceptÃ© les termes.
 
 =======================================================================================================
 */
@@ -72,7 +72,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 ?>
 <div class='main'>
 	<?php
-		titre_page_icone("Traitement de décisions et génération de documents en masse", "kpersonalizer_32x32_fond.png", 15, "L");
+		titre_page_icone("Traitement de dÃ©cisions et gÃ©nÃ©ration de documents en masse", "kpersonalizer_32x32_fond.png", 15, "L");
 	?>
 
 	<table align='center'>
@@ -86,35 +86,35 @@ CeCILL-B, et que vous en avez accepté les termes.
 			<?php
 				$txt=(isset($_SESSION["composante_entretiens"]) && $_SESSION["composante_entretiens"]==1) ? " (et les dates d'entretiens)" : "";
 
-				print("<a href='masse_traitement.php' target='_self' class='lien_menu_gauche'>- Saisir des décisions en masse$txt<br>- Consulter vos saisies antérieures<br>- Générer les lettres correspondant à vos saisies en masse</a>\n");
+				print("<a href='masse_traitement.php' target='_self' class='lien_menu_gauche'>- Saisir des dÃ©cisions en masse$txt<br>- Consulter vos saisies antÃ©rieures<br>- GÃ©nÃ©rer les lettres correspondant Ã  vos saisies en masse</a>\n");
 			?>
 		</td>
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu' style='padding-bottom:15px;'>
-			<a href='masse_recap.php' target='_self' class='lien_menu_gauche'>- Générer les Récapitulatifs de fiches en fonction d'une formation (ou d'une année entière) et d'un intervalle de temps</a>
+			<a href='masse_recap.php' target='_self' class='lien_menu_gauche'>- GÃ©nÃ©rer les RÃ©capitulatifs de fiches en fonction d'une formation (ou d'une annÃ©e entiÃ¨re) et d'un intervalle de temps</a>
 		</td>
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu' style='padding-bottom:15px;'>
-			<a href='masse_formulaire.php' target='_self' class='lien_menu_gauche'>- Générer les Formulaires de Commissions en fonction d'une formation et d'un intervalle de temps</a>
+			<a href='masse_formulaire.php' target='_self' class='lien_menu_gauche'>- GÃ©nÃ©rer les Formulaires de Commissions en fonction d'une formation et d'un intervalle de temps</a>
 		</td>
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu' style='padding-bottom:15px;'>
-			<a href='masse_listes_entretiens.php' target='_self' class='lien_menu_gauche'>- Générer les listes de candidats convoqués aux entretiens, en fonction d'une formation, d'une date et d'une salle</a>
-			<br><a href='masse_listes_entretiens_tel.php' target='_self' class='lien_menu_gauche'>- Générer les listes de candidats convoqués aux entretiens téléphoniques</a>
+			<a href='masse_listes_entretiens.php' target='_self' class='lien_menu_gauche'>- GÃ©nÃ©rer les listes de candidats convoquÃ©s aux entretiens, en fonction d'une formation, d'une date et d'une salle</a>
+			<br><a href='masse_listes_entretiens_tel.php' target='_self' class='lien_menu_gauche'>- GÃ©nÃ©rer les listes de candidats convoquÃ©s aux entretiens tÃ©lÃ©phoniques</a>
 		</td>
 	</tr>
 	
 	<tr>
 		<td class='td-gauche fond_menu' style='padding-bottom:15px;'>
-			<a href='masse_pdf.php' target='_self' class='lien_menu_gauche'>- Générer les lettres officielles en fonction d'une formation et de la date de saisie de la décision<br>&nbsp;&nbsp;(fonction indépendante de la saisie en masse)</a>
+			<a href='masse_pdf.php' target='_self' class='lien_menu_gauche'>- GÃ©nÃ©rer les lettres officielles en fonction d'une formation et de la date de saisie de la dÃ©cision<br>&nbsp;&nbsp;(fonction indÃ©pendante de la saisie en masse)</a>
 		</td>
 	</tr>
 	<tr>
 		<td class='td-gauche fond_menu' style='padding-bottom:15px;'>
-			<a href='extractions_csv.php' target='_self' class='lien_menu_gauche'>- Exporter des données brutes au format CSV (pour import dans un tableur)</a>
+			<a href='extractions_csv.php' target='_self' class='lien_menu_gauche'>- Exporter des donnÃ©es brutes au format CSV (pour import dans un tableur)</a>
 		</td>
 	</tr>
 	</table>
