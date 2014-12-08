@@ -268,12 +268,12 @@ CeCILL-B, et que vous en avez accepté les termes.
           print("<option value='Autre' $selected>Autre (préciser dans le champ \"Mention - Intitulé\"</option>
                <option value=''></option>\n");
 
-          $value2=preg_replace("/_/","",htmlspecialchars(stripslashes($cur_diplome), ENT_QUOTES, $default_htmlspecialchars_encoding));
+          $value2=preg_replace("/_/","",htmlspecialchars(stripslashes($cur_diplome), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]));
 
           for($i=0; $i<$rows; $i++)
           {
             list($diplome_intitule, $diplome_niveau)=db_fetch_row($result,$i);
-            $value=htmlspecialchars($diplome_intitule, ENT_QUOTES, $default_htmlspecialchars_encoding);
+            $value=htmlspecialchars($diplome_intitule, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
 
             if($diplome_niveau!=$current_niveau)
             {
@@ -312,7 +312,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <font class='Texte_important_menu2'><b>Mention / Intitulé</b></font>
     </td>
     <td class='td-droite fond_menu'>
-      <input type='text' name='intitule_libre' value='<?php if(isset($cur_intitule) && !isset($intitule_liste)) echo htmlspecialchars(str_replace("_","",stripslashes($cur_intitule)),ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="80" maxlength="256">
+      <input type='text' name='intitule_libre' value='<?php if(isset($cur_intitule) && !isset($intitule_liste)) echo htmlspecialchars(str_replace("_","",stripslashes($cur_intitule)),ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="80" maxlength="256">
     </td>
   </tr>
   <tr>
@@ -320,7 +320,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <font class='Texte_menu2'>Spécialité / Parcours (si applicable)</font>
     </td>
     <td class='td-droite fond_menu'>
-      <input type='text' name='specialite' value='<?php if(isset($specialite)) echo htmlspecialchars(stripslashes(str_replace("_","",$specialite)), ENT_QUOTES, $default_htmlspecialchars_encoding);  else echo htmlspecialchars(preg_replace("/_/","",$cur_specialite),ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' maxlength='50' size='30'>
+      <input type='text' name='specialite' value='<?php if(isset($specialite)) echo htmlspecialchars(stripslashes(str_replace("_","",$specialite)), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);  else echo htmlspecialchars(preg_replace("/_/","",$cur_specialite),ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' maxlength='50' size='30'>
     </td>
   </tr>
   <tr>
@@ -341,7 +341,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <font class='Texte_important_menu2'><b>Etablissement</b></font>
     </td>
     <td class='td-droite fond_menu'>
-      <input type='text' name='ecole' value='<?php if(isset($ecole)) $cur_ecole=$ecole; echo htmlspecialchars(str_replace("_","",stripslashes($cur_ecole)),ENT_QUOTES, $default_htmlspecialchars_encoding);?>' maxlength='128' size='30'>
+      <input type='text' name='ecole' value='<?php if(isset($ecole)) $cur_ecole=$ecole; echo htmlspecialchars(str_replace("_","",stripslashes($cur_ecole)),ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);?>' maxlength='128' size='30'>
     </td>
   </tr>
   <tr>
@@ -349,7 +349,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <font class='Texte_important_menu2'><b>Ville</b></font>
     </td>
     <td class='td-droite fond_menu'>
-      <input type='text' name='ville' value='<?php if(isset($ville)) $cur_ville=$ville; echo htmlspecialchars(str_replace("_","",stripslashes($cur_ville)),ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' maxlength='128' size='30'>
+      <input type='text' name='ville' value='<?php if(isset($ville)) $cur_ville=$ville; echo htmlspecialchars(str_replace("_","",stripslashes($cur_ville)),ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' maxlength='128' size='30'>
     </td>
   </tr>
   <tr>
@@ -389,12 +389,12 @@ CeCILL-B, et que vous en avez accepté les termes.
           if(isset($mention))
             $cur_mention=$mention;
 
-          $value2=htmlspecialchars($cur_mention,ENT_QUOTES, $default_htmlspecialchars_encoding);
+          $value2=htmlspecialchars($cur_mention,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
 
           for($i=0; $i<$rows; $i++)
           {
             list($mention)=db_fetch_row($result,$i);
-            $value=htmlspecialchars($mention,ENT_QUOTES, $default_htmlspecialchars_encoding);
+            $value=htmlspecialchars($mention,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
 
             if(isset($value2) && !strcmp($value,$value2))
               $selected="selected=1";

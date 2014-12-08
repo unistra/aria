@@ -755,22 +755,7 @@ function __get_cursus($dbr,$candidat_id)
     for($i=0; $i<$rows; $i++)
     {   
       list($cursus_id, $dip, $int, $annee, $ecole, $ville, $pays, $statut)=db_fetch_row($result,$i);
-    
-      // Traitement
-/*
-      $dip=str_replace("_","",htmlspecialchars($dip,ENT_QUOTES, $default_htmlspecialchars_encoding));
-      $int=str_replace("_","",htmlspecialchars($int,ENT_QUOTES, $default_htmlspecialchars_encoding));
-      $ecole=str_replace("_","",htmlspecialchars($ecole,ENT_QUOTES, $default_htmlspecialchars_encoding));
-      $ville=str_replace("_","",htmlspecialchars($ville,ENT_QUOTES, $default_htmlspecialchars_encoding));
-      $pays=str_replace("_","",htmlspecialchars($pays,ENT_QUOTES, $default_htmlspecialchars_encoding));
-*/
-/*
-      $dip=str_replace("_","", $dip);
-      $int=str_replace("_","", $int);
-      $ecole=str_replace("_","", $ecole);
-      $ville=str_replace("_","", $ville);
-      $pays=str_replace("_","", $pays);
-*/
+
       $cursus_array[$i]["cursus"]="- $dip $int";
 
       if($statut==$GLOBALS["__CURSUS_DES_OBTENTION"])

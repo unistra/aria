@@ -49,184 +49,184 @@ CeCILL-B, et que vous en avez accepté les termes.
 */
 ?>
 <?php
-	session_name("preinsc_gestion");
-	session_start();
+  session_name("preinsc_gestion");
+  session_start();
 
-	include "../configuration/aria_config.php";
-	include "$__INCLUDE_DIR_ABS/vars.php";
-	include "$__INCLUDE_DIR_ABS/fonctions.php";
-	include "$__INCLUDE_DIR_ABS/db.php";
+  include "../configuration/aria_config.php";
+  include "$__INCLUDE_DIR_ABS/vars.php";
+  include "$__INCLUDE_DIR_ABS/fonctions.php";
+  include "$__INCLUDE_DIR_ABS/db.php";
 
-	$php_self=$_SERVER['PHP_SELF'];
-	$_SESSION['CURRENT_FILE']=$php_self;
+  $php_self=$_SERVER['PHP_SELF'];
+  $_SESSION['CURRENT_FILE']=$php_self;
 
-	verif_auth("$__GESTION_DIR/login.php");
-	
-	if(!in_array($_SESSION['niveau'], array("$__LVL_SUPER_RESP","$__LVL_ADMIN")) && (!isset($_SESSION["multi_composantes"]) || (isset($_SESSION["multi_composantes"]) && $_SESSION["multi_composantes"]!=1)))
-	{
-		$dbr=db_connect();
-		write_evt("", $__EVT_ID_COMP, "Composante : accès refusé");
-		db_close($dbr);
+  verif_auth("$__GESTION_DIR/login.php");
+  
+  if(!in_array($_SESSION['niveau'], array("$__LVL_SUPER_RESP","$__LVL_ADMIN")) && (!isset($_SESSION["multi_composantes"]) || (isset($_SESSION["multi_composantes"]) && $_SESSION["multi_composantes"]!=1)))
+  {
+    $dbr=db_connect();
+    write_evt("", $__EVT_ID_COMP, "Composante : accès refusé");
+    db_close($dbr);
 
-		header("Location:$__MOD_DIR/gestion/noaccess.php");
-		exit();
-	}
+    header("Location:$__MOD_DIR/gestion/noaccess.php");
+    exit();
+  }
 
-	$dbr=db_connect();
+  $dbr=db_connect();
 
-	// Accès direct à une composante depuis une autre page : paramètre chiffré "co=comp_id"
+  // Accès direct à une composante depuis une autre page : paramètre chiffré "co=comp_id"
 
-	if(isset($_GET["p"]) && -1!=($params=get_params($_GET['p'])))
-	{
-		if(isset($params["co"]) && ctype_digit($params["co"]))
-			$selected_comp_id=$params["co"];
+  if(isset($_GET["p"]) && -1!=($params=get_params($_GET['p'])))
+  {
+    if(isset($params["co"]) && ctype_digit($params["co"]))
+      $selected_comp_id=$params["co"];
 
-		// Vérification des droits d'accès
-		// TODO : créer une fonction pour cette vérification
-		if(db_num_rows(db_query($dbr, "SELECT $_DBC_acces_id FROM $_DB_acces
-													WHERE ($_DBC_acces_composante_id='$selected_comp_id'
-															AND $_DBC_acces_id='$_SESSION[auth_id]')
-													OR $_DBC_acces_id IN (SELECT $_DBC_acces_comp_acces_id FROM $_DB_acces_comp
-																				WHERE $_DBC_acces_comp_composante_id='$selected_comp_id'
-																				AND $_DBC_acces_comp_acces_id='$_SESSION[auth_id]')")))
-			$new_comp_id=$selected_comp_id;
-	}
-	elseif(isset($_POST["go"]) || isset($_POST["go_x"]))
-		$new_comp_id=$_POST["comp_id"];
+    // Vérification des droits d'accès
+    // TODO : créer une fonction pour cette vérification
+    if(db_num_rows(db_query($dbr, "SELECT $_DBC_acces_id FROM $_DB_acces
+                          WHERE ($_DBC_acces_composante_id='$selected_comp_id'
+                              AND $_DBC_acces_id='$_SESSION[auth_id]')
+                          OR $_DBC_acces_id IN (SELECT $_DBC_acces_comp_acces_id FROM $_DB_acces_comp
+                                        WHERE $_DBC_acces_comp_composante_id='$selected_comp_id'
+                                        AND $_DBC_acces_comp_acces_id='$_SESSION[auth_id]')")))
+      $new_comp_id=$selected_comp_id;
+  }
+  elseif(isset($_POST["go"]) || isset($_POST["go_x"]))
+    $new_comp_id=$_POST["comp_id"];
 
-	if(isset($new_comp_id) && ctype_digit($new_comp_id))
-	{
-		// Récupération des paramètres propres à cette composante
-		$result=db_query($dbr, "SELECT $_DBC_composantes_nom, $_DBC_universites_nom, $_DBC_universites_img_dir,
-												 $_DBC_universites_id, $_DBC_universites_css,
-												 $_DBC_composantes_gestion_motifs, $_DBC_composantes_scolarite, $_DBC_composantes_affichage_decisions, 
-												 $_DBC_composantes_avertir_decision
-											FROM $_DB_composantes, $_DB_universites
-										WHERE $_DBC_composantes_univ_id=$_DBC_universites_id
-										AND $_DBC_composantes_id='$new_comp_id'");
+  if(isset($new_comp_id) && ctype_digit($new_comp_id))
+  {
+    // Récupération des paramètres propres à cette composante
+    $result=db_query($dbr, "SELECT $_DBC_composantes_nom, $_DBC_universites_nom, $_DBC_universites_img_dir,
+                         $_DBC_universites_id, $_DBC_universites_css,
+                         $_DBC_composantes_gestion_motifs, $_DBC_composantes_scolarite, $_DBC_composantes_affichage_decisions, 
+                         $_DBC_composantes_avertir_decision
+                      FROM $_DB_composantes, $_DB_universites
+                    WHERE $_DBC_composantes_univ_id=$_DBC_universites_id
+                    AND $_DBC_composantes_id='$new_comp_id'");
 
-		if(db_num_rows($result)) // normalement toujours vrai, l'id provenant d'un "select" ou d'un paramètre chiffré
-		{
-			$_SESSION['comp_id']=$new_comp_id;
+    if(db_num_rows($result)) // normalement toujours vrai, l'id provenant d'un "select" ou d'un paramètre chiffré
+    {
+      $_SESSION['comp_id']=$new_comp_id;
 
-			list($_SESSION["composante"],
-					$_SESSION["universite"],
-					$_SESSION["img_dir"],
-					$_SESSION["univ_id"],
-					$_SESSION["css"],
-					$_SESSION["gestion_motifs"],
-					$_SESSION["adr_scol"],
-					$_SESSION["affichage_decisions"],
-					$_SESSION["avertir_decision"])=db_fetch_row($result, 0);
+      list($_SESSION["composante"],
+          $_SESSION["universite"],
+          $_SESSION["img_dir"],
+          $_SESSION["univ_id"],
+          $_SESSION["css"],
+          $_SESSION["gestion_motifs"],
+          $_SESSION["adr_scol"],
+          $_SESSION["affichage_decisions"],
+          $_SESSION["avertir_decision"])=db_fetch_row($result, 0);
 
-			db_free_result($result);
+      db_free_result($result);
 
-			write_evt($dbr, $__EVT_ID_COMP, "Changement de composante : $_SESSION[composante]", "", $_SESSION["comp_id"]);
+      write_evt($dbr, $__EVT_ID_COMP, "Changement de composante : $_SESSION[composante]", "", $_SESSION["comp_id"]);
 
-			// Les candidats de cette composante sont-ils soumis à des entretiens ? (utile pour le menu et la gestion du calendrier)
-			if(db_num_rows(db_query($dbr, "SELECT * FROM $_DB_propspec WHERE $_DBC_propspec_comp_id='$_SESSION[comp_id]'
-																							AND $_DBC_propspec_entretiens='1'")))
-				$_SESSION["composante_entretiens"]=1;
-			else
-				$_SESSION["composante_entretiens"]=0;
+      // Les candidats de cette composante sont-ils soumis à des entretiens ? (utile pour le menu et la gestion du calendrier)
+      if(db_num_rows(db_query($dbr, "SELECT * FROM $_DB_propspec WHERE $_DBC_propspec_comp_id='$_SESSION[comp_id]'
+                                              AND $_DBC_propspec_entretiens='1'")))
+        $_SESSION["composante_entretiens"]=1;
+      else
+        $_SESSION["composante_entretiens"]=0;
 
-			db_close($dbr);
+      db_close($dbr);
 
-			$_SESSION['spec_filtre_defaut']="-1";
-			$_SESSION["filtre_propspec"]="-1";
-			$_SESSION["filtre_justif"]="-1";
+      $_SESSION['spec_filtre_defaut']="-1";
+      $_SESSION["filtre_propspec"]="-1";
+      $_SESSION["filtre_justif"]="-1";
 
-			header("Location:index.php");
-			exit();
-		}
-		else
-			write_evt($dbr, $__EVT_ID_COMP, "Echec du changement de composante (id demandé : $new_comp_id)", "", "");
-	}
-	
-	// EN-TETE
-	en_tete_gestion();
+      header("Location:index.php");
+      exit();
+    }
+    else
+      write_evt($dbr, $__EVT_ID_COMP, "Echec du changement de composante (id demandé : $new_comp_id)", "", "");
+  }
+  
+  // EN-TETE
+  en_tete_gestion();
 
-	// MENU SUPERIEUR
-	menu_sup_gestion();
+  // MENU SUPERIEUR
+  menu_sup_gestion();
 ?>
 <div class='main'>
-	<?php
-		titre_page_icone("Sélection de la composante de travail", "composante_32x32_fond.png", 30, "L");
+  <?php
+    titre_page_icone("Sélection de la composante de travail", "composante_32x32_fond.png", 30, "L");
 
-		// Si le niveau n'est pas "admin", on impose l'université
-		if($_SESSION['niveau']==$__LVL_SUPER_RESP)
-		{
-			$condition_univ="AND $_DBC_universites_id='$_SESSION[univ_id]'";
-			$condition_multi="";
-		}
-		elseif($_SESSION['niveau']==$__LVL_ADMIN)
-			$condition_univ=$condition_multi="";
-		else
-		{
-			$condition_univ="";
+    // Si le niveau n'est pas "admin", on impose l'université
+    if($_SESSION['niveau']==$__LVL_SUPER_RESP)
+    {
+      $condition_univ="AND $_DBC_universites_id='$_SESSION[univ_id]'";
+      $condition_multi="";
+    }
+    elseif($_SESSION['niveau']==$__LVL_ADMIN)
+      $condition_univ=$condition_multi="";
+    else
+    {
+      $condition_univ="";
 
-			if(isset($_SESSION["multi_composantes"]) && $_SESSION["multi_composantes"]==1)
-				$condition_multi="AND $_DBC_composantes_id IN (SELECT distinct($_DBC_acces_comp_composante_id) FROM $_DB_acces_comp
-																				WHERE $_DBC_acces_comp_acces_id='$_SESSION[auth_id]')";
-			else
-				$condition_multi="";
-		}
+      if(isset($_SESSION["multi_composantes"]) && $_SESSION["multi_composantes"]==1)
+        $condition_multi="AND $_DBC_composantes_id IN (SELECT distinct($_DBC_acces_comp_composante_id) FROM $_DB_acces_comp
+                                        WHERE $_DBC_acces_comp_acces_id='$_SESSION[auth_id]')";
+      else
+        $condition_multi="";
+    }
 
-		$result=db_query($dbr, "SELECT $_DBC_composantes_id, $_DBC_composantes_nom, $_DBC_composantes_univ_id, $_DBC_universites_nom
-											FROM $_DB_composantes, $_DB_universites
-										WHERE $_DBC_composantes_univ_id=$_DBC_universites_id
-										$condition_univ
-										$condition_multi
-											ORDER BY $_DBC_composantes_univ_id, $_DBC_composantes_nom ASC");
+    $result=db_query($dbr, "SELECT $_DBC_composantes_id, $_DBC_composantes_nom, $_DBC_composantes_univ_id, $_DBC_universites_nom
+                      FROM $_DB_composantes, $_DB_universites
+                    WHERE $_DBC_composantes_univ_id=$_DBC_universites_id
+                    $condition_univ
+                    $condition_multi
+                      ORDER BY $_DBC_composantes_univ_id, $_DBC_composantes_nom ASC");
 
-		$rows=db_num_rows($result);
+    $rows=db_num_rows($result);
 
-		print("<form action='$php_self' method='POST' name='form1'>
-					<div class='centered_box'>
-						<font class='Texte'>Composante : </font>
-						<select name='comp_id' size='1'>\n");
+    print("<form action='$php_self' method='POST' name='form1'>
+          <div class='centered_box'>
+            <font class='Texte'>Composante : </font>
+            <select name='comp_id' size='1'>\n");
 
-		$old_univ="";
+    $old_univ="";
 
-		for($i=0; $i<$rows; $i++)
-		{
-			list($comp_id, $comp_nom, $comp_univ_id, $univ_nom)=db_fetch_row($result,$i);
+    for($i=0; $i<$rows; $i++)
+    {
+      list($comp_id, $comp_nom, $comp_univ_id, $univ_nom)=db_fetch_row($result,$i);
 
-			if($comp_univ_id!=$old_univ)
-			{
-				if($i!=0)
-					print("</optgroup>
-							 <option value='' label='' disabled></option>\n");
+      if($comp_univ_id!=$old_univ)
+      {
+        if($i!=0)
+          print("</optgroup>
+               <option value='' label='' disabled></option>\n");
 
-				print("<optgroup label='".htmlspecialchars(stripslashes($univ_nom), ENT_QUOTES, $default_htmlspecialchars_encoding)."'>\n");
-			}
+        print("<optgroup label='".htmlspecialchars(stripslashes($univ_nom), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"])."'>\n");
+      }
 
-			$value=htmlspecialchars($comp_nom, ENT_QUOTES, $default_htmlspecialchars_encoding);
+      $value=htmlspecialchars($comp_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
 
-			print("<option value='$comp_id' label=\"$value\">$value</option>\n");
+      print("<option value='$comp_id' label=\"$value\">$value</option>\n");
 
-			$old_univ=$comp_univ_id;
-		}
+      $old_univ=$comp_univ_id;
+    }
 
-		db_free_result($result);
+    db_free_result($result);
 
-		print("</optgroup>
-				</select>\n
-			</div>
+    print("</optgroup>
+        </select>\n
+      </div>
 
-			<div class='centered_icons_box'>
-				<a href='index.php' target='_self'><img src='$__ICON_DIR/button_cancel_32x32_fond.png' alt='Retour' border='0'></a>
-				<input type='image' src='$__ICON_DIR/forward_32x32_fond.png' alt='Suivant' name='go' value='Valider'>
-				</form>
-			</div>");
+      <div class='centered_icons_box'>
+        <a href='index.php' target='_self'><img src='$__ICON_DIR/button_cancel_32x32_fond.png' alt='Retour' border='0'></a>
+        <input type='image' src='$__ICON_DIR/forward_32x32_fond.png' alt='Suivant' name='go' value='Valider'>
+        </form>
+      </div>");
 
-		db_close($dbr);
-	?>
+    db_close($dbr);
+  ?>
 </div>
 <?php
-	pied_de_page();
+  pied_de_page();
 ?>
 <script language="javascript">
-	document.form1.comp_id.focus()
+  document.form1.comp_id.focus()
 </script>
 </body></html>

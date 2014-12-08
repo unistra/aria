@@ -439,7 +439,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                   print("<!-- </optgroup> -->
                         <option value='' label='' disabled></option>\n");
 
-                $val=htmlspecialchars($form_mention_nom, ENT_QUOTES, $default_htmlspecialchars_encoding);
+                $val=htmlspecialchars($form_mention_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
 
                 print("<!-- <optgroup label='- $val'> -->\n");
                 

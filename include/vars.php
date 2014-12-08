@@ -52,7 +52,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 // Encodage par défaut pour la fonction htmlspecialchars
 
-$default_htmlspecialchars_encoding="UTF-8";
+$GLOBALS["default_htmlspecialchars_encoding"]="UTF-8";
 
 // Conversion de l'ancienne configuration, si nécessaire
 

@@ -49,175 +49,175 @@ CeCILL-B, et que vous en avez accepté les termes.
 */
 ?>
 <?php
-	session_name("preinsc");
-	session_start();
+  session_name("preinsc");
+  session_start();
 
-	include "../configuration/aria_config.php";
-	include "$__INCLUDE_DIR_ABS/vars.php";
-	include "$__INCLUDE_DIR_ABS/fonctions.php";
-	include "$__INCLUDE_DIR_ABS/db.php";
+  include "../configuration/aria_config.php";
+  include "$__INCLUDE_DIR_ABS/vars.php";
+  include "$__INCLUDE_DIR_ABS/fonctions.php";
+  include "$__INCLUDE_DIR_ABS/db.php";
 
-	$php_self=$_SERVER['PHP_SELF'];
-	$_SESSION['CURRENT_FILE']=$php_self;
+  $php_self=$_SERVER['PHP_SELF'];
+  $_SESSION['CURRENT_FILE']=$php_self;
 
-	if(!isset($_SESSION["lock"]) || $_SESSION["lock"]==1)
-	{
-		session_write_close();
-		header("Location:precandidatures.php");
-		exit();
-	}
+  if(!isset($_SESSION["lock"]) || $_SESSION["lock"]==1)
+  {
+    session_write_close();
+    header("Location:precandidatures.php");
+    exit();
+  }
 
-	if(!isset($_SESSION["authentifie"]))
-	{
-		session_write_close();
-		header("Location:../index.php");
-		exit();
-	}
+  if(!isset($_SESSION["authentifie"]))
+  {
+    session_write_close();
+    header("Location:../index.php");
+    exit();
+  }
 
-	// Ajout ou modification ?
+  // Ajout ou modification ?
 
-	if(isset($_GET["p"]) && -1!=($params=get_params($_GET['p']))) // modification
-	{
-		if(isset($params["iid"]) && is_numeric($params["iid"]))
-			$_SESSION["iid"]=$iid=$params["iid"];
-	}
-	elseif(isset($_SESSION["iid"]))
-		$iid=$_SESSION["iid"];
+  if(isset($_GET["p"]) && -1!=($params=get_params($_GET['p']))) // modification
+  {
+    if(isset($params["iid"]) && is_numeric($params["iid"]))
+      $_SESSION["iid"]=$iid=$params["iid"];
+  }
+  elseif(isset($_SESSION["iid"]))
+    $iid=$_SESSION["iid"];
 
-	if(isset($iid))
-	{
-		$dbr=db_connect();
-		$result=db_query($dbr,"SELECT $_DBC_infos_comp_texte, $_DBC_infos_comp_annee, $_DBC_infos_comp_duree
-											FROM $_DB_infos_comp
-										WHERE $_DBC_infos_comp_id='$iid'");
-		if(!db_num_rows($result))
-		{
-			db_free_result($result);
-			db_close($dbr);
-			
-			session_write_close();
-			header("Location:precandidatures.php");
-			exit();
-		}
-		else
-		{
-			list($cur_texte,$cur_annee,$cur_duree)=db_fetch_row($result,0); // normalement un seul résultat
-			db_free_result($result);
-			db_close($dbr);
-		}
-	}
+  if(isset($iid))
+  {
+    $dbr=db_connect();
+    $result=db_query($dbr,"SELECT $_DBC_infos_comp_texte, $_DBC_infos_comp_annee, $_DBC_infos_comp_duree
+                      FROM $_DB_infos_comp
+                    WHERE $_DBC_infos_comp_id='$iid'");
+    if(!db_num_rows($result))
+    {
+      db_free_result($result);
+      db_close($dbr);
+      
+      session_write_close();
+      header("Location:precandidatures.php");
+      exit();
+    }
+    else
+    {
+      list($cur_texte,$cur_annee,$cur_duree)=db_fetch_row($result,0); // normalement un seul résultat
+      db_free_result($result);
+      db_close($dbr);
+    }
+  }
 
-	if(isset($_POST["go"]) || isset($_POST["go_x"])) // validation du formulaire
-	{
-		$candidat_id=$_SESSION["authentifie"];
+  if(isset($_POST["go"]) || isset($_POST["go_x"])) // validation du formulaire
+  {
+    $candidat_id=$_SESSION["authentifie"];
 
-		$annee=trim($_POST["annee"]);
+    $annee=trim($_POST["annee"]);
 
-		if($annee!=0 && (!is_numeric($annee) || strlen($annee)!=4))
-			$annee_format=1;
+    if($annee!=0 && (!is_numeric($annee) || strlen($annee)!=4))
+      $annee_format=1;
 
-		$information=trim($_POST["information"]);
-		$information=clean_word_str($information);
-		$information=preg_replace("/[']+/", "''", stripslashes($information));
-		
-		
-		$duree=trim($_POST["duree"]);
+    $information=trim($_POST["information"]);
+    $information=clean_word_str($information);
+    $information=preg_replace("/[']+/", "''", stripslashes($information));
+    
+    
+    $duree=trim($_POST["duree"]);
 
-		if(empty($annee) || empty($information) || empty($duree))
-			$champ_vide=1;
+    if(empty($annee) || empty($information) || empty($duree))
+      $champ_vide=1;
 
-		if(!isset($champ_vide) && !isset($annee_format))
-		{
-			$dbr=db_connect();
+    if(!isset($champ_vide) && !isset($annee_format))
+    {
+      $dbr=db_connect();
 
-			if(!isset($iid))
-			{
-			/*
-				$info_id=time();
-			
-				// vérification de l'unicité du cursus
-				while(db_num_rows(db_query($dbr,"SELECT $_DBC_infos_comp_id FROM $_DB_infos_comp WHERE $_DBC_infos_comp_id='$info_id'")))
-					$info_id++;
-			*/
-			//	db_query($dbr,"INSERT INTO $_DB_infos_comp VALUES('$info_id','$candidat_id','$information','$annee','$duree')");
+      if(!isset($iid))
+      {
+      /*
+        $info_id=time();
+      
+        // vérification de l'unicité du cursus
+        while(db_num_rows(db_query($dbr,"SELECT $_DBC_infos_comp_id FROM $_DB_infos_comp WHERE $_DBC_infos_comp_id='$info_id'")))
+          $info_id++;
+      */
+      //  db_query($dbr,"INSERT INTO $_DB_infos_comp VALUES('$info_id','$candidat_id','$information','$annee','$duree')");
 
-				$info_id=db_locked_query($dbr, $_DB_infos_comp, "INSERT INTO $_DB_infos_comp VALUES('##NEW_ID##','$candidat_id','$information','$annee','$duree')");
-			}
-			else // mise à jour
-				db_query($dbr,"UPDATE $_DB_infos_comp SET 	$_DBU_infos_comp_texte='$information',
-																													$_DBU_infos_comp_annee='$annee',
-																													$_DBU_infos_comp_duree='$duree'
-												WHERE $_DBU_infos_comp_id='$iid'
-												AND $_DBU_infos_comp_candidat_id='$candidat_id'");
+        $info_id=db_locked_query($dbr, $_DB_infos_comp, "INSERT INTO $_DB_infos_comp VALUES('##NEW_ID##','$candidat_id','$information','$annee','$duree')");
+      }
+      else // mise à jour
+        db_query($dbr,"UPDATE $_DB_infos_comp SET   $_DBU_infos_comp_texte='$information',
+                                                          $_DBU_infos_comp_annee='$annee',
+                                                          $_DBU_infos_comp_duree='$duree'
+                        WHERE $_DBU_infos_comp_id='$iid'
+                        AND $_DBU_infos_comp_candidat_id='$candidat_id'");
 
-			db_close($dbr);
+      db_close($dbr);
 
-			session_write_close();
-			header("Location:precandidatures.php");
-			exit();
-		}
-	}
-	
-	en_tete_candidat();
-	menu_sup_candidat($__MENU_FICHE);
+      session_write_close();
+      header("Location:precandidatures.php");
+      exit();
+    }
+  }
+  
+  en_tete_candidat();
+  menu_sup_candidat($__MENU_FICHE);
 
 ?>
 
 <div class='main'>
-	<?php
-		titre_page_icone("Informations complémentaires (stages, emplois, formations, ...)", "abiword_32x32_fond.png", 30, "L");
+  <?php
+    titre_page_icone("Informations complémentaires (stages, emplois, formations, ...)", "abiword_32x32_fond.png", 30, "L");
 
-		message("Dans le cas d'une expérience <u>professionnelle</u>, n'oubliez pas de préciser le <b>nom de l'entreprise</b> ainsi que la nature du <b>poste occupé</b>.</b>", $__WARNING);
+    message("Dans le cas d'une expérience <u>professionnelle</u>, n'oubliez pas de préciser le <b>nom de l'entreprise</b> ainsi que la nature du <b>poste occupé</b>.</b>", $__WARNING);
 
-		if(isset($champ_vide))
-			message("Formulaire incomplet : tous les champs sont <strong>obligatoires</strong>", $__ERREUR);
-		elseif(isset($annee_format))
-			message("Erreur : le champ 'année' doit être une valeur numérique à 4 chiffres", $__ERREUR);
-		else
-			message("Tous les champs sont <u>obligatoires</u>", $__WARNING);
-		
-		print("<form action='$php_self' method='POST' name='form1'>\n");
-	?>
+    if(isset($champ_vide))
+      message("Formulaire incomplet : tous les champs sont <strong>obligatoires</strong>", $__ERREUR);
+    elseif(isset($annee_format))
+      message("Erreur : le champ 'année' doit être une valeur numérique à 4 chiffres", $__ERREUR);
+    else
+      message("Tous les champs sont <u>obligatoires</u>", $__WARNING);
+    
+    print("<form action='$php_self' method='POST' name='form1'>\n");
+  ?>
 
-	<table style="margin-left:auto; margin-right:auto;">
-	<tr>
-		<td class='td-gauche fond_menu2'>
-			<font class='Texte_menu2'><b>Année (YYYY)</b></font>
-		</td>
-		<td class='td-droite fond_menu' style="text-align:left;">
-			<input type='text' name='annee' value='<?php if(isset($annee)) echo htmlspecialchars(stripslashes($annee), ENT_QUOTES, $default_htmlspecialchars_encoding); elseif(isset($cur_annee)) echo htmlspecialchars(stripslashes($cur_annee), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' maxlength='4' size='15'>
-		</td>
-	</tr>
-	<tr>
-		<td class='td-gauche fond_menu2' style="text-align:right;">
-			<font class='Texte_menu2'><b>Information</b></font>
-		</td>
-		<td class='td-droite fond_menu' style="text-align:left;">
-			<textarea name='information' rows='3' cols='50' class='input'><?php if(isset($information)) echo htmlspecialchars(stripslashes($information), ENT_QUOTES, $default_htmlspecialchars_encoding); elseif(isset($cur_texte)) echo htmlspecialchars(stripslashes($cur_texte), ENT_QUOTES, $default_htmlspecialchars_encoding);?></textarea>
-		</td>
-	</tr>
-	<tr>
-		<td class='td-gauche fond_menu2' style="text-align:right;">
-			<font class='Texte_menu2'><b>Durée</b></font>
-		</td>
-		<td class='td-droite fond_menu' style="text-align:left;">
-			<input type='text' name='duree' value='<?php if(isset($duree)) echo htmlspecialchars(stripslashes($duree), ENT_QUOTES, $default_htmlspecialchars_encoding); elseif(isset($cur_duree)) echo htmlspecialchars(stripslashes($cur_duree), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' maxlength='20' size='30'>&nbsp;&nbsp;<font class='Texte'><i>exemple : 1 mois, 2 ans, ...</i></font>
-		</td>
-	</tr>
-	</table>	
-	
-	<div class='centered_icons_box'>
-		<a href='precandidatures.php' target='_self' class='lien2'><img src='<?php echo "$__ICON_DIR/button_cancel_32x32_fond.png"; ?>' alt='Retour' border='0'></a>
-		<input type="image" src="<?php echo "$__ICON_DIR/button_ok_32x32_fond.png"; ?>" alt="Valider" name="go" value="Valider">
-		</form>
-	</div>
+  <table style="margin-left:auto; margin-right:auto;">
+  <tr>
+    <td class='td-gauche fond_menu2'>
+      <font class='Texte_menu2'><b>Année (YYYY)</b></font>
+    </td>
+    <td class='td-droite fond_menu' style="text-align:left;">
+      <input type='text' name='annee' value='<?php if(isset($annee)) echo htmlspecialchars(stripslashes($annee), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); elseif(isset($cur_annee)) echo htmlspecialchars(stripslashes($cur_annee), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' maxlength='4' size='15'>
+    </td>
+  </tr>
+  <tr>
+    <td class='td-gauche fond_menu2' style="text-align:right;">
+      <font class='Texte_menu2'><b>Information</b></font>
+    </td>
+    <td class='td-droite fond_menu' style="text-align:left;">
+      <textarea name='information' rows='3' cols='50' class='input'><?php if(isset($information)) echo htmlspecialchars(stripslashes($information), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); elseif(isset($cur_texte)) echo htmlspecialchars(stripslashes($cur_texte), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);?></textarea>
+    </td>
+  </tr>
+  <tr>
+    <td class='td-gauche fond_menu2' style="text-align:right;">
+      <font class='Texte_menu2'><b>Durée</b></font>
+    </td>
+    <td class='td-droite fond_menu' style="text-align:left;">
+      <input type='text' name='duree' value='<?php if(isset($duree)) echo htmlspecialchars(stripslashes($duree), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); elseif(isset($cur_duree)) echo htmlspecialchars(stripslashes($cur_duree), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' maxlength='20' size='30'>&nbsp;&nbsp;<font class='Texte'><i>exemple : 1 mois, 2 ans, ...</i></font>
+    </td>
+  </tr>
+  </table>  
+  
+  <div class='centered_icons_box'>
+    <a href='precandidatures.php' target='_self' class='lien2'><img src='<?php echo "$__ICON_DIR/button_cancel_32x32_fond.png"; ?>' alt='Retour' border='0'></a>
+    <input type="image" src="<?php echo "$__ICON_DIR/button_ok_32x32_fond.png"; ?>" alt="Valider" name="go" value="Valider">
+    </form>
+  </div>
 
 </div>
 <?php
-	pied_de_page_candidat();
+  pied_de_page_candidat();
 ?>
 
 <script language="javascript">
-	document.form1.annee.focus()
+  document.form1.annee.focus()
 </script>
 </body></html>

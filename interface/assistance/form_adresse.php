@@ -453,7 +453,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          <font class='Texte_important_menu2'><strong>Nom : </strong></font>
       </td>
       <td class='td-droite fond_menu'>
-         <input type='text' name='nom' value='<?php if(isset($nom)) echo htmlspecialchars(stripslashes($nom), ENT_QUOTES, $default_htmlspecialchars_encoding); elseif(isset($_SESSION["nom"])) echo htmlspecialchars(stripslashes($_SESSION["nom"]), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="25" maxlength="30">
+         <input type='text' name='nom' value='<?php if(isset($nom)) echo htmlspecialchars(stripslashes($nom), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); elseif(isset($_SESSION["nom"])) echo htmlspecialchars(stripslashes($_SESSION["nom"]), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="25" maxlength="30">
       </td>
    </tr>
    <tr>
@@ -461,7 +461,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          <font class='Texte_important_menu2'><strong>Prénom : </strong></font>
       </td>
       <td class='td-droite fond_menu'>
-         <input type='text' name='prenom' value='<?php if(isset($prenom)) echo htmlspecialchars(stripslashes($prenom), ENT_QUOTES, $default_htmlspecialchars_encoding); elseif(isset($_SESSION["prenom"])) echo htmlspecialchars(stripslashes($_SESSION["prenom"]), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="25" maxlength="30">
+         <input type='text' name='prenom' value='<?php if(isset($prenom)) echo htmlspecialchars(stripslashes($prenom), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); elseif(isset($_SESSION["prenom"])) echo htmlspecialchars(stripslashes($_SESSION["prenom"]), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="25" maxlength="30">
       </td>
    </tr>
    <tr>
@@ -469,7 +469,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          <font class='Texte_menu2'>Deuxième prénom : </font>
       </td>
       <td class='td-droite fond_menu'>
-         <input type='text' name='prenom2' value='<?php if(isset($prenom2)) echo htmlspecialchars(stripslashes($prenom2), ENT_QUOTES, $default_htmlspecialchars_encoding); elseif(isset($_SESSION["prenom2"])) echo htmlspecialchars(stripslashes($_SESSION["prenom2"]), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="25" maxlength="30">
+         <input type='text' name='prenom2' value='<?php if(isset($prenom2)) echo htmlspecialchars(stripslashes($prenom2), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); elseif(isset($_SESSION["prenom2"])) echo htmlspecialchars(stripslashes($_SESSION["prenom2"]), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="25" maxlength="30">
       </td>
    </tr>
    <tr>
@@ -477,9 +477,9 @@ CeCILL-B, et que vous en avez accepté les termes.
          <font class='Texte_important_menu2'><strong>Date de naissance (jour/mois/annee) : </strong></font>
       </td>
       <td class='td-droite fond_menu'>
-         <input type='text' name='jour' value='<?php if(isset($jour)) echo htmlspecialchars($jour,ENT_QUOTES, $default_htmlspecialchars_encoding); else echo htmlspecialchars($cur_jour,ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="2" maxlength="2">/
-         <input type='text' name='mois' value='<?php if(isset($mois)) echo htmlspecialchars($mois,ENT_QUOTES, $default_htmlspecialchars_encoding); else echo htmlspecialchars($cur_mois,ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="2" maxlength="2">/
-         <input type='text' name='annee' value='<?php if(isset($annee)) echo htmlspecialchars($annee,ENT_QUOTES, $default_htmlspecialchars_encoding); else echo htmlspecialchars($cur_annee,ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="4" maxlength="4">
+         <input type='text' name='jour' value='<?php if(isset($jour)) echo htmlspecialchars($jour,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); else echo htmlspecialchars($cur_jour,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="2" maxlength="2">/
+         <input type='text' name='mois' value='<?php if(isset($mois)) echo htmlspecialchars($mois,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); else echo htmlspecialchars($cur_mois,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="2" maxlength="2">/
+         <input type='text' name='annee' value='<?php if(isset($annee)) echo htmlspecialchars($annee,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); else echo htmlspecialchars($cur_annee,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="4" maxlength="4">
       </td>
    </tr>
    <tr>
@@ -487,7 +487,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          <font class='Texte_important_menu2'><strong>Ville de naissance : </strong></font>
       </td>
       <td class='td-droite fond_menu'>
-         <input type='text' name='lieu_naissance' value='<?php if(isset($lieu_naissance)) echo htmlspecialchars(stripslashes($lieu_naissance), ENT_QUOTES, $default_htmlspecialchars_encoding); elseif(isset($_SESSION["lieu_naissance"])) echo htmlspecialchars(stripslashes($_SESSION["lieu_naissance"]), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="25" maxlength="60">
+         <input type='text' name='lieu_naissance' value='<?php if(isset($lieu_naissance)) echo htmlspecialchars(stripslashes($lieu_naissance), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); elseif(isset($_SESSION["lieu_naissance"])) echo htmlspecialchars(stripslashes($_SESSION["lieu_naissance"]), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="25" maxlength="60">
       </td>
    </tr>
    <tr>
@@ -537,7 +537,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          <font class='Texte_menu2'>Numéro INE <strong>ou</strong> BEA : </font>
       </td>
       <td class='td-droite fond_menu'>
-         <input type='text' name='num_ine' value='<?php if(isset($num_ine)) echo htmlspecialchars(stripslashes($num_ine), ENT_QUOTES, $default_htmlspecialchars_encoding); elseif(isset($_SESSION["numero_ine"])) echo htmlspecialchars($_SESSION["numero_ine"],ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="25" maxlength="11"> <font class='Texte_menu'><i>(si vous en possédez un)</i></font>
+         <input type='text' name='num_ine' value='<?php if(isset($num_ine)) echo htmlspecialchars(stripslashes($num_ine), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); elseif(isset($_SESSION["numero_ine"])) echo htmlspecialchars($_SESSION["numero_ine"],ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="25" maxlength="11"> <font class='Texte_menu'><i>(si vous en possédez un)</i></font>
       </td>
    </tr>
    <tr>
@@ -545,7 +545,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          <font class='Texte_menu2'>Ancienne adresse électronique : </font>
       </td>
       <td class='td-droite fond_menu2'>
-         <input type='text' name='old_email' value='<?php if(isset($old_email)) echo htmlspecialchars(stripslashes($old_email), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="40" maxlength="255">
+         <input type='text' name='old_email' value='<?php if(isset($old_email)) echo htmlspecialchars(stripslashes($old_email), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="40" maxlength="255">
          <font class='Texte_menu'><i>(Vivement conseillé)</i></font>
       </td>
    </tr>
@@ -554,7 +554,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          <font class='Texte_important_menu2'><strong>Nouvelle adresse électronique (<i>email</i>) : </strong></font>
       </td>
       <td class='td-droite fond_menu2'>
-         <input type='text' name='email' value='<?php if(isset($email)) echo htmlspecialchars(stripslashes($email), ENT_QUOTES, $default_htmlspecialchars_encoding); elseif(isset($_SESSION["email"])) echo htmlspecialchars($_SESSION["email"],ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="40" maxlength="255">
+         <input type='text' name='email' value='<?php if(isset($email)) echo htmlspecialchars(stripslashes($email), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); elseif(isset($_SESSION["email"])) echo htmlspecialchars($_SESSION["email"],ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="40" maxlength="255">
          &nbsp;&nbsp;<font class='Texte_menu'><strong><u>Une seule adresse</u> dans ce champ.</strong></font>
       </td>
    </tr>
@@ -563,12 +563,12 @@ CeCILL-B, et que vous en avez accepté les termes.
          <font class='Texte_important_menu2'><strong>Confirmation de la nouvelle adresse électronique : </strong></font>
       </td>
       <td class='td-droite fond_menu2'>
-         <input type='text' name='emailconf' value='<?php if(isset($emailconf)) echo htmlspecialchars(stripslashes($emailconf), ENT_QUOTES, $default_htmlspecialchars_encoding); elseif(isset($_SESSION["email"])) echo htmlspecialchars($_SESSION["email"],ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="40" maxlength="255">
+         <input type='text' name='emailconf' value='<?php if(isset($emailconf)) echo htmlspecialchars(stripslashes($emailconf), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); elseif(isset($_SESSION["email"])) echo htmlspecialchars($_SESSION["email"],ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="40" maxlength="255">
          <br>
          <font class='Texte_important_menu'>
             <strong>Attention : </strong>
             <br>- vérifiez bien que les courriels ne sont pas redirigés dans votre dossier <strong>"Spams"</strong> ou <strong>"Courriers Indésirables"</strong>,
-            <br>- configurez les <strong>filtres</strong> de votre messagerie pour autoriser l'expéditeur <strong>"<?php echo $__EMAIL_ADMIN; ?>"</strong> à vous envoyer des courriels.
+            <br>- configurez les <strong>filtres</strong> de votre messagerie pour autoriser l'expéditeur <strong>"<?php echo $GLOBALS["__EMAIL_NOREPLY"]; ?>"</strong> à vous envoyer des courriels.
          </font>
       </td>
    </tr>
@@ -577,7 +577,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          <font class='Texte_menu2'>Commentaires éventuels :</font>
       </td>
       <td class='td-droite fond_menu2'>
-         <textarea name='autres' cols="40" rows="5"><?php if(isset($autres_infos)) echo htmlspecialchars(stripslashes($autres_infos), ENT_QUOTES, $default_htmlspecialchars_encoding); ?></textarea>
+         <textarea name='autres' cols="40" rows="5"><?php if(isset($autres_infos)) echo htmlspecialchars(stripslashes($autres_infos), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?></textarea>
       </td>
    </tr>
    </table>

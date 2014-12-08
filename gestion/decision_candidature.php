@@ -602,7 +602,7 @@ $_SESSION[universite]";
             // Si : 
             // 1 - les décisions sont publiées 
             // 2 - la notification est activée
-       		// 3 - aucune notification n'a encore été envoyée 
+          // 3 - aucune notification n'a encore été envoyée 
             //     - OU la décision est passée d'une décision "partielle" à une décision fixe 
             //     - OU la nouvelle décision est "admission confirmée"
             // alors on envoie un message au candidat (le message ne contient pas la décision en elle même)
@@ -901,7 +901,7 @@ $_SESSION[universite]";
                      {
                         list($decision_id,$decision_txt)=db_fetch_row($result2,$j);
 
-                        $value=htmlspecialchars($decision_txt, ENT_QUOTES, $default_htmlspecialchars_encoding);
+                        $value=htmlspecialchars($decision_txt, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
 
                         if($decision_id==$cand_array["decision"])
                            $selected="selected=1";
@@ -981,7 +981,7 @@ $_SESSION[universite]";
                            print("</optgroup>
                                     <option value='' label='' disabled></option>\n");
 
-                        $val=htmlspecialchars($form_mention_nom, ENT_QUOTES, $default_htmlspecialchars_encoding);
+                        $val=htmlspecialchars($form_mention_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
 
                         print("<optgroup label='- $val'>\n");
 
@@ -1015,7 +1015,7 @@ $_SESSION[universite]";
             <font class='Texte_menu' style='vertical-align:middle;'><b>Ou</b> formation en toute lettres :<br>(si celle-ci n'est pas gérée par l'interface)</font>
          </td>
          <td class='td-droite fond_menu'>
-            <input type='text' name='transmission_libre' value='<?php if(isset($transmission_txt) && (!isset($transmission) || $transmission=='')) echo htmlspecialchars($transmission_txt, ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size='50' maxlength='256'>
+            <input type='text' name='transmission_libre' value='<?php if(isset($transmission_txt) && (!isset($transmission) || $transmission=='')) echo htmlspecialchars($transmission_txt, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size='50' maxlength='256'>
             &nbsp;&nbsp;<font class='Texte_menu'><i>(Champ prioritaire sur le précédent)</i></font>
          </td>
       </tr>
@@ -1066,25 +1066,25 @@ $_SESSION[universite]";
                <td><font class='Texte_menu'><b>Date :</b></font></td>
                <td>
                   <font class='Texte_menu'>
-                     JJ : <input type="text" name='entretien_jour' value='<?php if(isset($entretien_jour)) echo htmlspecialchars($entretien_jour, ENT_QUOTES, $default_htmlspecialchars_encoding); else echo htmlspecialchars($cand_array_entretien_jour, ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size='3' maxlength='2'>&nbsp;
-                     MM : <input type="text" name='entretien_mois' value='<?php if(isset($entretien_mois)) echo htmlspecialchars($entretien_mois, ENT_QUOTES, $default_htmlspecialchars_encoding); else echo htmlspecialchars($cand_array_entretien_mois, ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size='3' maxlength='2'>&nbsp;
-                     AAAA : <input type="text" name='entretien_annee' value='<?php if(isset($entretien_annee)) echo htmlspecialchars($entretien_annee, ENT_QUOTES, $default_htmlspecialchars_encoding); else echo htmlspecialchars($cand_array_entretien_annee, ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size='5' maxlength='4'>&nbsp;&nbsp;
+                     JJ : <input type="text" name='entretien_jour' value='<?php if(isset($entretien_jour)) echo htmlspecialchars($entretien_jour, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); else echo htmlspecialchars($cand_array_entretien_jour, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size='3' maxlength='2'>&nbsp;
+                     MM : <input type="text" name='entretien_mois' value='<?php if(isset($entretien_mois)) echo htmlspecialchars($entretien_mois, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); else echo htmlspecialchars($cand_array_entretien_mois, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size='3' maxlength='2'>&nbsp;
+                     AAAA : <input type="text" name='entretien_annee' value='<?php if(isset($entretien_annee)) echo htmlspecialchars($entretien_annee, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); else echo htmlspecialchars($cand_array_entretien_annee, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size='5' maxlength='4'>&nbsp;&nbsp;
                   </font>
                </td>
                <td><font class='Texte_menu'><b>Heure :</b></font></td>
                <td>
                   <font class='Texte_menu'>
-                     h : <input type="text" name='entretien_heure' value='<?php if(isset($entretien_h)) echo htmlspecialchars($entretien_h, ENT_QUOTES, $default_htmlspecialchars_encoding); else echo htmlspecialchars($cand_array_entretien_heure, ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size='3' maxlength='2'> min : <input type="text" name='entretien_minute' value='<?php if(isset($entretien_m)) echo htmlspecialchars($entretien_m, ENT_QUOTES, $default_htmlspecialchars_encoding); else echo htmlspecialchars($cand_array_entretien_minute, ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size='3' maxlength='2'>
+                     h : <input type="text" name='entretien_heure' value='<?php if(isset($entretien_h)) echo htmlspecialchars($entretien_h, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); else echo htmlspecialchars($cand_array_entretien_heure, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size='3' maxlength='2'> min : <input type="text" name='entretien_minute' value='<?php if(isset($entretien_m)) echo htmlspecialchars($entretien_m, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); else echo htmlspecialchars($cand_array_entretien_minute, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size='3' maxlength='2'>
                   </font>
                </td>
             </tr>
             <tr>
                <td><font class='Texte_menu'><b>Salle :</b></font></td>
                <td>
-                  <input type="text" name='entretien_salle' value='<?php if(isset($entretien_salle)) echo htmlspecialchars(stripslashes($entretien_salle), ENT_QUOTES, $default_htmlspecialchars_encoding); else echo htmlspecialchars($cand_array["entretien_salle"], ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size='25' maxlength='50'>
+                  <input type="text" name='entretien_salle' value='<?php if(isset($entretien_salle)) echo htmlspecialchars(stripslashes($entretien_salle), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); else echo htmlspecialchars($cand_array["entretien_salle"], ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size='25' maxlength='50'>
                <td><font class='Texte_menu'><b>Lieu :</b></font></td>
                <td>
-                  <input type="text" name='entretien_lieu' value='<?php if(isset($entretien_lieu)) echo htmlspecialchars(stripslashes($entretien_lieu), ENT_QUOTES, $default_htmlspecialchars_encoding); else echo htmlspecialchars($cand_array["entretien_lieu"], ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size='40' maxlength='128'>
+                  <input type="text" name='entretien_lieu' value='<?php if(isset($entretien_lieu)) echo htmlspecialchars(stripslashes($entretien_lieu), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); else echo htmlspecialchars($cand_array["entretien_lieu"], ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size='40' maxlength='128'>
                </td>
             </tr>
             <tr>
@@ -1233,7 +1233,7 @@ $_SESSION[universite]";
                      for($i=0; $i<$rows; $i++)
                      {
                         list($motif_id,$motif,$motif_exclusif)=db_fetch_row($result,$i);
-                        $value=htmlspecialchars($motif, ENT_QUOTES, $default_htmlspecialchars_encoding);
+                        $value=htmlspecialchars($motif, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
    
                         for($k=0; $k<$cnt2; $k++)
                         {
@@ -1284,7 +1284,7 @@ $_SESSION[universite]";
                   if(!strncmp($array_current_motifs[$l], '@',1))
                   {
                      $value=$array_current_motifs[$l];
-                     echo htmlspecialchars(substr(stripslashes($value),1), ENT_QUOTES, $default_htmlspecialchars_encoding);
+                     echo htmlspecialchars(substr(stripslashes($value),1), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
                   }
                }
             ?></textarea>
@@ -1318,7 +1318,7 @@ $_SESSION[universite]";
                   for($i=0; $i<$rows; $i++)
                   {
                      list($motif_id,$motif,$motif_exclusif)=db_fetch_row($result,$i);
-                     $value=htmlspecialchars($motif, ENT_QUOTES, $default_htmlspecialchars_encoding);
+                     $value=htmlspecialchars($motif, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
    
                      if($motif_id==$current_motif)
                         $selected="selected=1";
@@ -1347,7 +1347,7 @@ $_SESSION[universite]";
                   if(!strncmp($array_current_motifs[$l], '@',1))
                   {
                      $value=$array_current_motifs[$l];
-                     echo htmlspecialchars(substr(stripslashes($value), 1), ENT_QUOTES, $default_htmlspecialchars_encoding);
+                     echo htmlspecialchars(substr(stripslashes($value), 1), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
                   }
                }
             ?></textarea>

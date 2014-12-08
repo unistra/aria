@@ -49,144 +49,144 @@ CeCILL-B, et que vous en avez accepté les termes.
 */
 ?>
 <?php
-	session_name("preinsc_gestion");
-	session_start();
+  session_name("preinsc_gestion");
+  session_start();
 
    include "../../../../configuration/aria_config.php";
-	include "$__INCLUDE_DIR_ABS/vars.php";
-	include "$__INCLUDE_DIR_ABS/fonctions.php";
-	include "$__INCLUDE_DIR_ABS/db.php";
+  include "$__INCLUDE_DIR_ABS/vars.php";
+  include "$__INCLUDE_DIR_ABS/fonctions.php";
+  include "$__INCLUDE_DIR_ABS/db.php";
 
-	// includes spécifiques au module
-	include "include/db.php"; // db.php appellera également update_db.php pour la mise à jour du schéma 
+  // includes spécifiques au module
+  include "include/db.php"; // db.php appellera également update_db.php pour la mise à jour du schéma 
    include "include/vars.php";
 
-	$php_self=$_SERVER['PHP_SELF'];
-	$_SESSION['CURRENT_FILE']=$php_self;
+  $php_self=$_SERVER['PHP_SELF'];
+  $_SESSION['CURRENT_FILE']=$php_self;
 
-	verif_auth("$__GESTION_DIR/login.php");
+  verif_auth("$__GESTION_DIR/login.php");
 
-	$dbr=db_connect();
+  $dbr=db_connect();
 
-	// Suppression d'un élément
-	if(isset($_POST["suivant"]) || isset($_POST["suivant_x"]))
-	{
-		$_SESSION["suppr_msg_id"]=$_POST["msg_id"];
-		$resultat=1;
-	}
+  // Suppression d'un élément
+  if(isset($_POST["suivant"]) || isset($_POST["suivant_x"]))
+  {
+    $_SESSION["suppr_msg_id"]=$_POST["msg_id"];
+    $resultat=1;
+  }
 
-	if(isset($_POST["valider"]) || isset($_POST["valider_x"]))
-	{
-		db_query($dbr,"DELETE FROM $_module_apogee_DB_messages WHERE $_module_apogee_DBC_messages_msg_id='$_SESSION[suppr_msg_id]'");
+  if(isset($_POST["valider"]) || isset($_POST["valider_x"]))
+  {
+    db_query($dbr,"DELETE FROM $_module_apogee_DB_messages WHERE $_module_apogee_DBC_messages_msg_id='$_SESSION[suppr_msg_id]'");
 
-		header("Location:$php_self?succes=1");
-		exit;
-	}
+    header("Location:$php_self?succes=1");
+    exit;
+  }
 
-	// EN-TETE
-	en_tete_gestion();
+  // EN-TETE
+  en_tete_gestion();
 
-	// MENU SUPERIEUR
-	menu_sup_simple();
+  // MENU SUPERIEUR
+  menu_sup_simple();
 ?>
 
 <div class='main'>
-	<?php
-		titre_page_icone("Supprimer un message de la base de données", "trashcan_full_32x32_slick_fond.png", 15, "L");
+  <?php
+    titre_page_icone("Supprimer un message de la base de données", "trashcan_full_32x32_slick_fond.png", 15, "L");
 
-		print("<form method='post' action='$php_self'>\n");
+    print("<form method='post' action='$php_self'>\n");
 
-		if(isset($_GET["succes"]))
-			message("Message supprimé avec succès de la base de données", $__SUCCES);
+    if(isset($_GET["succes"]))
+      message("Message supprimé avec succès de la base de données", $__SUCCES);
 
-		if(!isset($resultat))
-		{
-			message("<center>Sécurité : seuls les messages NON RATTACHES peuvent être supprimés.
-						<br>Les autres n'apparaissent pas dans la liste.</center>", $__INFO);
-	?>
+    if(!isset($resultat))
+    {
+      message("<center>Sécurité : seuls les messages NON RATTACHES peuvent être supprimés.
+            <br>Les autres n'apparaissent pas dans la liste.</center>", $__INFO);
+  ?>
 
-	<table align='center'>
-	<tr>
-		<td class='td-gauche fond_menu2'>
-			<font class='Texte_menu2'><b>Message à supprimer de la base de données :</b></font>
-		</td>
-		<td class='td-droite fond_menu'>
-			<?php
-				$result=db_query($dbr,"SELECT $_module_apogee_DBC_messages_msg_id, $_module_apogee_DBC_messages_nom, $_module_apogee_DBC_messages_type
-													FROM $_module_apogee_DB_messages
-												WHERE $_module_apogee_DBC_messages_msg_id NOT IN (SELECT distinct($_module_apogee_DBC_messages_formations_msg) FROM $_module_apogee_DB_messages_formations)
-												AND $_module_apogee_DBC_messages_comp_id='$_SESSION[comp_id]'
-													ORDER BY $_module_apogee_DBC_messages_type, $_module_apogee_DBC_messages_nom");
-				$rows=db_num_rows($result);
+  <table align='center'>
+  <tr>
+    <td class='td-gauche fond_menu2'>
+      <font class='Texte_menu2'><b>Message à supprimer de la base de données :</b></font>
+    </td>
+    <td class='td-droite fond_menu'>
+      <?php
+        $result=db_query($dbr,"SELECT $_module_apogee_DBC_messages_msg_id, $_module_apogee_DBC_messages_nom, $_module_apogee_DBC_messages_type
+                          FROM $_module_apogee_DB_messages
+                        WHERE $_module_apogee_DBC_messages_msg_id NOT IN (SELECT distinct($_module_apogee_DBC_messages_formations_msg) FROM $_module_apogee_DB_messages_formations)
+                        AND $_module_apogee_DBC_messages_comp_id='$_SESSION[comp_id]'
+                          ORDER BY $_module_apogee_DBC_messages_type, $_module_apogee_DBC_messages_nom");
+        $rows=db_num_rows($result);
 
-				if($rows)
-				{
-					print("<select name='msg_id'>\n");
+        if($rows)
+        {
+          print("<select name='msg_id'>\n");
 
                $old_type="";
 
-					for($i=0; $i<$rows; $i++)
-					{
-						list($msg_id, $msg_nom, $msg_type)=db_fetch_row($result, $i);
+          for($i=0; $i<$rows; $i++)
+          {
+            list($msg_id, $msg_nom, $msg_type)=db_fetch_row($result, $i);
 
                   if($old_type!=$msg_type)
                   {
                      if($i)
                         print("</optgroup>\n");
                         
-                     print("<optgroup label='".htmlspecialchars(stripslashes($_MOD_APOGEE_MSG_TYPES["$msg_type"], ENT_QUOTES, $default_htmlspecialchars_encoding))."'>\n");
+                     print("<optgroup label='".htmlspecialchars(stripslashes($_MOD_APOGEE_MSG_TYPES["$msg_type"], ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]))."'>\n");
                      
                      $old_type=$msg_type;
                   }
 
-						$val=htmlspecialchars($msg_nom, ENT_QUOTES, $default_htmlspecialchars_encoding);
+            $val=htmlspecialchars($msg_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
 
-						print("<option value='$msg_id'>$val</option>\n");
-					}
+            print("<option value='$msg_id'>$val</option>\n");
+          }
 
-					print("</optgroup>
-					    </select>\n");
-				}
-				else
-				{
-					$no_element=1;
-					print("<font class='Texte_menu'>Aucun message ne peut être supprimé<br></font>\n");
-				}
+          print("</optgroup>
+              </select>\n");
+        }
+        else
+        {
+          $no_element=1;
+          print("<font class='Texte_menu'>Aucun message ne peut être supprimé<br></font>\n");
+        }
 
-				db_free_result($result);
-			?>
-		</td>
-	</tr>
-	</table>
+        db_free_result($result);
+      ?>
+    </td>
+  </tr>
+  </table>
 
-	<div class='centered_icons_box'>
-		<a href='index.php' target='_self' class='lien2'><img src='<?php echo "$__ICON_DIR/button_cancel_32x32_fond.png" ?>' alt='Retour' border='0'></a>
-		<?php
-			if(!isset($no_element))
-				print("<input type='image' src='$__ICON_DIR/forward_32x32_fond.png' alt='Suivant' name='suivant' value='Suivant'>\n");
-		?>
-		</form>
-	</div>
+  <div class='centered_icons_box'>
+    <a href='index.php' target='_self' class='lien2'><img src='<?php echo "$__ICON_DIR/button_cancel_32x32_fond.png" ?>' alt='Retour' border='0'></a>
+    <?php
+      if(!isset($no_element))
+        print("<input type='image' src='$__ICON_DIR/forward_32x32_fond.png' alt='Suivant' name='suivant' value='Suivant'>\n");
+    ?>
+    </form>
+  </div>
 
-	<?php
-		}
-		else
-		{
-			message("Attention : la suppression de ce message est <strong>définitive</strong>.", $__WARNING);
+  <?php
+    }
+    else
+    {
+      message("Attention : la suppression de ce message est <strong>définitive</strong>.", $__WARNING);
 
-			message("Souhaitez-vous vraiment supprimer ce message ?", $__QUESTION);
+      message("Souhaitez-vous vraiment supprimer ce message ?", $__QUESTION);
 
-			print("<div class='centered_icons_box'>
-						<a href='messages_formations.php' target='_self' class='lien2'><img src='$__ICON_DIR/button_cancel_32x32_fond.png' alt='Retour' border='0'></a>
-						<input type='image' src='$__ICON_DIR/trashcan_full_32x32_slick_fond.png' alt='Confirmer' name='valider' value='Confirmer'>
-						</form>
-					 </div>");
-		}
+      print("<div class='centered_icons_box'>
+            <a href='messages_formations.php' target='_self' class='lien2'><img src='$__ICON_DIR/button_cancel_32x32_fond.png' alt='Retour' border='0'></a>
+            <input type='image' src='$__ICON_DIR/trashcan_full_32x32_slick_fond.png' alt='Confirmer' name='valider' value='Confirmer'>
+            </form>
+           </div>");
+    }
 
-		db_close($dbr);
-	?>
+    db_close($dbr);
+  ?>
 </div>
 <?php
-	pied_de_page();
+  pied_de_page();
 ?>
 </body></html>

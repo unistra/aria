@@ -49,167 +49,167 @@ CeCILL-B, et que vous en avez accepté les termes.
 */
 ?>
 <?php
-	session_name("preinsc");
-	session_start();
+  session_name("preinsc");
+  session_start();
 
-	include "../configuration/aria_config.php";
-	include "$__INCLUDE_DIR_ABS/vars.php";
-	include "$__INCLUDE_DIR_ABS/fonctions.php";
-	include "$__INCLUDE_DIR_ABS/db.php";
+  include "../configuration/aria_config.php";
+  include "$__INCLUDE_DIR_ABS/vars.php";
+  include "$__INCLUDE_DIR_ABS/fonctions.php";
+  include "$__INCLUDE_DIR_ABS/db.php";
 
-	$php_self=$_SERVER['PHP_SELF'];
-	$_SESSION['CURRENT_FILE']=$php_self;
+  $php_self=$_SERVER['PHP_SELF'];
+  $_SESSION['CURRENT_FILE']=$php_self;
 
-	if(!isset($_SESSION["lock"]) || $_SESSION["lock"]==1)
-	{
-		session_write_close();
-		header("Location:precandidatures.php");
-		exit();
-	}
+  if(!isset($_SESSION["lock"]) || $_SESSION["lock"]==1)
+  {
+    session_write_close();
+    header("Location:precandidatures.php");
+    exit();
+  }
 
-	if(!isset($_SESSION["authentifie"]))
-	{
-		session_write_close();
-		header("Location:../index.php");
-		exit();
-	}
+  if(!isset($_SESSION["authentifie"]))
+  {
+    session_write_close();
+    header("Location:../index.php");
+    exit();
+  }
 
-	$dbr=db_connect();
+  $dbr=db_connect();
 
-	$candidat_id=$_SESSION["authentifie"];
+  $candidat_id=$_SESSION["authentifie"];
 
-	if(isset($_GET["p"]) && -1!=($params=get_params($_GET['p']))) // modification d'un élément existant : l'identifiant est en paramètre
-	{
-		if(isset($params["la_id"]) && is_numeric($params["la_id"]))
-			$_SESSION["la_id"]=$params["la_id"];
+  if(isset($_GET["p"]) && -1!=($params=get_params($_GET['p']))) // modification d'un élément existant : l'identifiant est en paramètre
+  {
+    if(isset($params["la_id"]) && is_numeric($params["la_id"]))
+      $_SESSION["la_id"]=$params["la_id"];
 
-		$_SESSION["la_txt"]=isset($params["la_nom"]) ? "en " . stripslashes($params["la_nom"]) : "";
+    $_SESSION["la_txt"]=isset($params["la_nom"]) ? "en " . stripslashes($params["la_nom"]) : "";
 
-		if(isset($params["suppr"]) && is_numeric($params["suppr"]))
-		{
-			$la_dip_id=$params["suppr"];
+    if(isset($params["suppr"]) && is_numeric($params["suppr"]))
+    {
+      $la_dip_id=$params["suppr"];
 
-			if(db_num_rows(db_query($dbr,"SELECT * FROM $_DB_langues_dip WHERE $_DBC_langues_dip_id='$la_dip_id' AND $_DBC_langues_dip_langue_id='$_SESSION[la_id]'")))
-				db_query($dbr,"DELETE FROM $_DB_langues_dip WHERE $_DBC_langues_dip_id='$la_dip_id' AND $_DBC_langues_dip_langue_id='$_SESSION[la_id]'");
+      if(db_num_rows(db_query($dbr,"SELECT * FROM $_DB_langues_dip WHERE $_DBC_langues_dip_id='$la_dip_id' AND $_DBC_langues_dip_langue_id='$_SESSION[la_id]'")))
+        db_query($dbr,"DELETE FROM $_DB_langues_dip WHERE $_DBC_langues_dip_id='$la_dip_id' AND $_DBC_langues_dip_langue_id='$_SESSION[la_id]'");
 
-			session_write_close();
-			header("Location:precandidatures.php");
-			exit();
-		}
-	}
+      session_write_close();
+      header("Location:precandidatures.php");
+      exit();
+    }
+  }
 
-	if(!isset($_SESSION["la_id"]))
-	{
-		session_write_close();
-		header("Location:precandidatures.php");
-		exit();
-	}
+  if(!isset($_SESSION["la_id"]))
+  {
+    session_write_close();
+    header("Location:precandidatures.php");
+    exit();
+  }
 
-	if(isset($_POST["go"]) || isset($_POST["go_x"])) // validation du formulaire
-	{
-		// Diplôme
-		$diplome=trim($_POST["diplome"]);
-		$annee_obtention=trim($_POST["annee_obtention"]);
-		$resultat=trim($_POST["resultat"]);
+  if(isset($_POST["go"]) || isset($_POST["go_x"])) // validation du formulaire
+  {
+    // Diplôme
+    $diplome=trim($_POST["diplome"]);
+    $annee_obtention=trim($_POST["annee_obtention"]);
+    $resultat=trim($_POST["resultat"]);
 
-		// vérification du format de l'année (sauf si le champ est vide)
-		if(empty($annee_obtention))
-			$annee_obtention=0;
-		elseif(!ctype_digit($annee_obtention) || $annee_obtention>date("Y"))
-			$annee_format=1;
+    // vérification du format de l'année (sauf si le champ est vide)
+    if(empty($annee_obtention))
+      $annee_obtention=0;
+    elseif(!ctype_digit($annee_obtention) || $annee_obtention>date("Y"))
+      $annee_format=1;
 
-		if(empty($diplome))
-			$champ_vide=1;
+    if(empty($diplome))
+      $champ_vide=1;
 
-		if(!isset($champ_vide) && !isset($annee_format))
-		{
-			// vérification d'unicité
-			if(db_num_rows(db_query($dbr,"SELECT * FROM $_DB_langues_dip
-														WHERE $_DBC_langues_dip_langue_id='$_SESSION[la_id]'
-														AND $_DBC_langues_dip_nom ILIKE '$diplome'
-														AND $_DBC_langues_dip_annee='$annee_obtention'")))
-				$langue_dip_existe=1;
-			else
-			{
-				// Vérification que la langue associée existe bien
-				// TODO : vérification à généraliser pour tous les autres éléments
-				if(!db_num_rows(db_query($dbr, "SELECT * FROM $_DB_langues WHERE $_DBC_langues_id='$_SESSION[la_id]'
-																						  	  AND $_DBC_langues_candidat_id='$candidat_id'")))
-				{
-					db_close($dbr);
-					
-					session_write_close();
-					header("Location:precandidatures.php?err_langue=1");
-					exit();
-				}
-					
-				$new_id=db_locked_query($dbr, $_DB_langues_dip, "INSERT INTO $_DB_langues_dip VALUES('##NEW_ID##','$_SESSION[la_id]','$diplome','$annee_obtention','$resultat')");
-				db_close($dbr);
+    if(!isset($champ_vide) && !isset($annee_format))
+    {
+      // vérification d'unicité
+      if(db_num_rows(db_query($dbr,"SELECT * FROM $_DB_langues_dip
+                            WHERE $_DBC_langues_dip_langue_id='$_SESSION[la_id]'
+                            AND $_DBC_langues_dip_nom ILIKE '$diplome'
+                            AND $_DBC_langues_dip_annee='$annee_obtention'")))
+        $langue_dip_existe=1;
+      else
+      {
+        // Vérification que la langue associée existe bien
+        // TODO : vérification à généraliser pour tous les autres éléments
+        if(!db_num_rows(db_query($dbr, "SELECT * FROM $_DB_langues WHERE $_DBC_langues_id='$_SESSION[la_id]'
+                                                  AND $_DBC_langues_candidat_id='$candidat_id'")))
+        {
+          db_close($dbr);
+          
+          session_write_close();
+          header("Location:precandidatures.php?err_langue=1");
+          exit();
+        }
+          
+        $new_id=db_locked_query($dbr, $_DB_langues_dip, "INSERT INTO $_DB_langues_dip VALUES('##NEW_ID##','$_SESSION[la_id]','$diplome','$annee_obtention','$resultat')");
+        db_close($dbr);
 
-				session_write_close();
-				header("Location:precandidatures.php");
-				exit();
-			}
-		}
-	}
-	
-	en_tete_candidat();
-	menu_sup_candidat($__MENU_FICHE);
+        session_write_close();
+        header("Location:precandidatures.php");
+        exit();
+      }
+    }
+  }
+  
+  en_tete_candidat();
+  menu_sup_candidat($__MENU_FICHE);
 ?>
 
 <div class='main'>
-	<?php
-		titre_page_icone("Langues : diplômes obtenus $_SESSION[la_txt]", "edu_languages_32x32_fond.png", 15, "L");
+  <?php
+    titre_page_icone("Langues : diplômes obtenus $_SESSION[la_txt]", "edu_languages_32x32_fond.png", 15, "L");
 
-		if(isset($champ_vide))
-			message("Formulaire incomplet : tous les champs sont <u>obligatoires</u>", $__ERREUR);
-		elseif(isset($annee_format))
-			message("Le format de l'année d'obtention est incorrect.", $__ERREUR);
-		elseif(isset($langue_dip_existe))
-			message("Ce diplôme existe déjà pour cette langue.", $__ERREUR);
-		else
-			message("Tous les champs sont obligatoires", $__WARNING);
+    if(isset($champ_vide))
+      message("Formulaire incomplet : tous les champs sont <u>obligatoires</u>", $__ERREUR);
+    elseif(isset($annee_format))
+      message("Le format de l'année d'obtention est incorrect.", $__ERREUR);
+    elseif(isset($langue_dip_existe))
+      message("Ce diplôme existe déjà pour cette langue.", $__ERREUR);
+    else
+      message("Tous les champs sont obligatoires", $__WARNING);
 
-		print("<form action='$php_self' method='POST' name='form1'>\n");
-	?>
-	
-	<table style="margin-left:auto; margin-right:auto;">
-	<tr>
-		<td class='td-gauche fond_menu2' align='left' nowrap='true'>
-			<font class='Texte_menu2'><b>Nom du diplôme de langue :</b></font>
-		</td>
-		<td class='td-droite fond_menu' align='left' nowrap='true'>
-			<input type='text' name='diplome' value='<?php if(isset($diplome)) echo htmlspecialchars(stripslashes($diplome),ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="25" maxlength="128">
-		</td>
-	</tr>
-	<tr>
-		<td class='td-gauche fond_menu2' align='left' nowrap='true'>
-			<font class='Texte_menu2'><b>Année d'obtention (YYYY):</b></font>
-		</td>
-		<td class='td-droite fond_menu' align='left' nowrap='true'>
-			<input type='text' name='annee_obtention' value='<?php if(isset($annee_obtention)) echo htmlspecialchars(stripslashes($annee_obtention),ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="25" maxlength="4">
-		</td>
-	</tr>
-	<tr>
-		<td class='td-gauche fond_menu2' align='left' nowrap='true'>
-			<font class='Texte_menu2'><b>Résultat / Note / Mention :</b></font>
-		</td>
-		<td class='td-droite fond_menu' align='left' nowrap='true'>
-			<input type='text' name='resultat' value='<?php if(isset($resultat)) echo htmlspecialchars(stripslashes($resultat),ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size="25" maxlength="128">
-		</td>
-	</tr>
-	</table>	
-	
-	<div class='centered_icons_box'>
-		<a href='precandidatures.php' target='_self' class='lien2'><img src='<?php echo "$__ICON_DIR/button_cancel_32x32_fond.png"; ?>' alt='Retour' border='0'></a>
-		<input type="image" src="<?php echo "$__ICON_DIR/button_ok_32x32_fond.png"; ?>" alt="Valider" name="go" value="Valider">
-		</form>
-	</div>
-	
+    print("<form action='$php_self' method='POST' name='form1'>\n");
+  ?>
+  
+  <table style="margin-left:auto; margin-right:auto;">
+  <tr>
+    <td class='td-gauche fond_menu2' align='left' nowrap='true'>
+      <font class='Texte_menu2'><b>Nom du diplôme de langue :</b></font>
+    </td>
+    <td class='td-droite fond_menu' align='left' nowrap='true'>
+      <input type='text' name='diplome' value='<?php if(isset($diplome)) echo htmlspecialchars(stripslashes($diplome),ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="25" maxlength="128">
+    </td>
+  </tr>
+  <tr>
+    <td class='td-gauche fond_menu2' align='left' nowrap='true'>
+      <font class='Texte_menu2'><b>Année d'obtention (YYYY):</b></font>
+    </td>
+    <td class='td-droite fond_menu' align='left' nowrap='true'>
+      <input type='text' name='annee_obtention' value='<?php if(isset($annee_obtention)) echo htmlspecialchars(stripslashes($annee_obtention),ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="25" maxlength="4">
+    </td>
+  </tr>
+  <tr>
+    <td class='td-gauche fond_menu2' align='left' nowrap='true'>
+      <font class='Texte_menu2'><b>Résultat / Note / Mention :</b></font>
+    </td>
+    <td class='td-droite fond_menu' align='left' nowrap='true'>
+      <input type='text' name='resultat' value='<?php if(isset($resultat)) echo htmlspecialchars(stripslashes($resultat),ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="25" maxlength="128">
+    </td>
+  </tr>
+  </table>  
+  
+  <div class='centered_icons_box'>
+    <a href='precandidatures.php' target='_self' class='lien2'><img src='<?php echo "$__ICON_DIR/button_cancel_32x32_fond.png"; ?>' alt='Retour' border='0'></a>
+    <input type="image" src="<?php echo "$__ICON_DIR/button_ok_32x32_fond.png"; ?>" alt="Valider" name="go" value="Valider">
+    </form>
+  </div>
+  
 </div>
 <?php
-	db_close($dbr);
-	pied_de_page_candidat();
+  db_close($dbr);
+  pied_de_page_candidat();
 ?>
 
 <script language="javascript">

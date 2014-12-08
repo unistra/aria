@@ -49,123 +49,118 @@ CeCILL-B, et que vous en avez accepté les termes.
 */
 ?>
 <?php
-	// Vérifications complémentaires au cas où ce fichier serait appelé directement
-	verif_auth();
+  // Vérifications complémentaires au cas où ce fichier serait appelé directement
+  verif_auth();
 
-	if(!isset($_SESSION["candidat_id"]))
-	{
-		header("Location:index.php");
-		exit;
-	}
+  if(!isset($_SESSION["candidat_id"]))
+  {
+    header("Location:index.php");
+    exit;
+  }
 
-	print("<div class='centered_box'>
-				<font class='Texte_16'><strong>$_SESSION[onglet] - Documents PDF relatifs aux candidatures</strong></font>
-			 </div>");
+  print("<div class='centered_box'>
+        <font class='Texte_16'><strong>$_SESSION[onglet] - Documents PDF relatifs aux candidatures</strong></font>
+       </div>");
 
-	if($_SESSION["tab_candidat"]["lock"]==1)
-	{
-		message("Ces documents PDF sont générés lorsque vous cliquez sur les liens proposés.<br>Leur génération peut prendre quelques secondes.", $__INFO);
+  if($_SESSION["tab_candidat"]["lock"]==1)
+  {
+    message("Ces documents PDF sont générés lorsque vous cliquez sur les liens proposés.<br>Leur génération peut prendre quelques secondes.", $__INFO);
 
-		print("<table cellpadding='4' cellspacing='0' align='center' border='0'>
-					<tr>
-						<td align='left' nowrap='true' width='40' valign='top' style='padding-bottom:20px;'>
-							<a href='recapitulatif.php' class='lien_bleu_10' target='_blank'><img src='$__ICON_DIR/pdf_32x32_fond.png' alt='PDF' desc='PDF' border='0'></a>
-						</td>
-						<td align='left' nowrap='true' valign='middle' style='padding-bottom:20px;'>
-							<a href='recapitulatif.php' class='lien_bleu_10' target='_blank'>Récapitulatif des informations entrées par le candidat</a>
-						</td>
-					</tr>
-					<tr>
-						<td align='left' nowrap='true' width='40' valign='top' style='padding-bottom:20px;'>
-							<img src='$__ICON_DIR/pdf_32x32_fond.png' alt='PDF' desc='PDF' border='0'>
-						</td>
-						<td align='left' nowrap='true' valign='middle' style='padding-bottom:20px;'>
-							<font class='Texte'>
-								<strong>Générer les Formulaires de Commission Pédagogique :</strong>\n");
+    print("<table cellpadding='4' cellspacing='0' align='center' border='0'>
+          <tr>
+            <td align='left' nowrap='true' width='40' valign='top' style='padding-bottom:20px;'>
+              <a href='recapitulatif.php' class='lien_bleu_10' target='_blank'><img src='$__ICON_DIR/pdf_32x32_fond.png' alt='PDF' desc='PDF' border='0'></a>
+            </td>
+            <td align='left' nowrap='true' valign='middle' style='padding-bottom:20px;'>
+              <a href='recapitulatif.php' class='lien_bleu_10' target='_blank'>Récapitulatif des informations entrées par le candidat</a>
+            </td>
+          </tr>
+          <tr>
+            <td align='left' nowrap='true' width='40' valign='top' style='padding-bottom:20px;'>
+              <img src='$__ICON_DIR/pdf_32x32_fond.png' alt='PDF' desc='PDF' border='0'>
+            </td>
+            <td align='left' nowrap='true' valign='middle' style='padding-bottom:20px;'>
+              <font class='Texte'>
+                <strong>Générer les Formulaires de Commission Pédagogique :</strong>\n");
 
-		$result=db_query($dbr,"SELECT $_DBC_cand_id, $_DBC_propspec_id, $_DBC_annees_annee, $_DBC_specs_nom, $_DBC_propspec_finalite,
-												$_DBC_cand_statut
-											FROM $_DB_propspec, $_DB_annees, $_DB_specs, $_DB_cand
-										WHERE $_DBC_propspec_annee=$_DBC_annees_id
-										AND $_DBC_propspec_id_spec=$_DBC_specs_id
-										AND $_DBC_cand_propspec_id=$_DBC_propspec_id
-										AND $_DBC_cand_candidat_id='$candidat_id'
-										AND $_DBC_propspec_comp_id='$_SESSION[comp_id]'
-										AND $_DBC_cand_periode='$__PERIODE'
-										AND $_DBC_cand_statut NOT IN ($__PREC_ANNULEE, $__PREC_PLEIN_DROIT)
-											ORDER BY $_DBC_cand_ordre, $_DBC_cand_ordre_spec");
+    $result=db_query($dbr,"SELECT $_DBC_cand_id, $_DBC_propspec_id, $_DBC_annees_annee, $_DBC_specs_nom, $_DBC_propspec_finalite,
+                        $_DBC_cand_statut
+                      FROM $_DB_propspec, $_DB_annees, $_DB_specs, $_DB_cand
+                    WHERE $_DBC_propspec_annee=$_DBC_annees_id
+                    AND $_DBC_propspec_id_spec=$_DBC_specs_id
+                    AND $_DBC_cand_propspec_id=$_DBC_propspec_id
+                    AND $_DBC_cand_candidat_id='$candidat_id'
+                    AND $_DBC_propspec_comp_id='$_SESSION[comp_id]'
+                    AND $_DBC_cand_periode='$__PERIODE'
+                    AND $_DBC_cand_statut NOT IN ($__PREC_ANNULEE, $__PREC_PLEIN_DROIT)
+                      ORDER BY $_DBC_cand_ordre, $_DBC_cand_ordre_spec");
 
-		$rows=db_num_rows($result);
+    $rows=db_num_rows($result);
 
-		$liste_options_justifs=$liste_options_page_garde="";
-		$liste_options_commission="";
-		$count_recevables=0;
+    $liste_options_justifs=$liste_options_page_garde="";
+    $liste_options_commission="";
+    $count_recevables=0;
 
-		for($i=0; $i<$rows; $i++)
-		{
-			list($cand_id,$propspec_id, $annee, $spec, $finalite, $statut)=db_fetch_row($result, $i);
+    for($i=0; $i<$rows; $i++)
+    {
+      list($cand_id,$propspec_id, $annee, $spec, $finalite, $statut)=db_fetch_row($result, $i);
 
-			$formation=$annee=="" ? "$spec $tab_finalite[$finalite]" : "$annee - $spec $tab_finalite[$finalite]";
+      $formation=$annee=="" ? "$spec $tab_finalite[$finalite]" : "$annee - $spec $tab_finalite[$finalite]";
 
-			$liste_options_justifs.="<br>- <a href='justificatifs.php?cand_id=$cand_id' class='lien_bleu_10' target='_blank'>Voeu ".($i+1)." : $formation</a>\n";
-			$liste_options_page_garde.="<br>- <a href='page_garde_dossier.php?cand_id=$cand_id' class='lien_bleu_10' target='_blank'>Voeu ".($i+1)." : $formation</a>\n";
+      $liste_options_justifs.="<br>- <a href='justificatifs.php?cand_id=$cand_id' class='lien_bleu_10' target='_blank'>Voeu ".($i+1)." : $formation</a>\n";
+      $liste_options_page_garde.="<br>- <a href='page_garde_dossier.php?cand_id=$cand_id' class='lien_bleu_10' target='_blank'>Voeu ".($i+1)." : $formation</a>\n";
 
-			if($statut==$__PREC_RECEVABLE)
-			{
-				$count_recevables++;
-				$liste_options_commission.="<br>- <a href='$__GESTION_DIR/lettres/formulaire_commission.php?cand_id=$cand_id' class='lien_bleu_10' target='_blank'>Voeu ".($i+1)." : $formation</a>\n";
-			}
-		}
+      if($statut==$__PREC_RECEVABLE)
+      {
+        $count_recevables++;
+        $liste_options_commission.="<br>- <a href='$__GESTION_DIR/lettres/formulaire_commission.php?cand_id=$cand_id' class='lien_bleu_10' target='_blank'>Voeu ".($i+1)." : $formation</a>\n";
+      }
+    }
 
-		db_free_result($result);
+    db_free_result($result);
 
-		if($count_recevables)
-			print("$liste_options_commission\n");
-		else
-			print("<br>Aucun dossier recevable pour le moment.");
+    if($count_recevables)
+      print("$liste_options_commission\n");
+    else
+      print("<br>Aucun dossier recevable pour le moment.");
 
-		if($count_recevables>1)
-			print("<br>- <a href='$__GESTION_DIR/lettres/formulaire_commission.php?cand_id=all' class='lien_bleu_10' target='_blank'><b>Pour toutes les formations ci-dessus (un seul document contenant tous les formulaires)</b></a>\n");
+    if($count_recevables>1)
+      print("<br>- <a href='$__GESTION_DIR/lettres/formulaire_commission.php?cand_id=all' class='lien_bleu_10' target='_blank'><b>Pour toutes les formations ci-dessus (un seul document contenant tous les formulaires)</b></a>\n");
 
-		print("	</td>
-				</tr>
-				<tr>
-					<td align='left' nowrap='true' width='40' valign='top' style='padding-bottom:20px;'>
-						<img src='$__ICON_DIR/pdf_32x32_fond.png' alt='PDF' desc='PDF' border='0'>
-					</td>
-					<td align='left' nowrap='true' valign='middle' style='padding-bottom:20px;'>
-						<font class='Texte'>
-							<strong>Générer les Listes de Justificatifs :</strong>
-							$liste_options_justifs\n");
+    print(" </td>
+        </tr>
+        <tr>
+          <td align='left' nowrap='true' width='40' valign='top' style='padding-bottom:20px;'>
+            <img src='$__ICON_DIR/pdf_32x32_fond.png' alt='PDF' desc='PDF' border='0'>
+          </td>
+          <td align='left' nowrap='true' valign='middle' style='padding-bottom:20px;'>
+            <font class='Texte'>
+              <strong>Générer les Listes de Justificatifs :</strong>
+              $liste_options_justifs\n");
 
-		if($rows>1)
-			print("<br>- <a href='justificatifs.php?cand_id=all' class='lien_bleu_10' target='_blank'><b>Pour toutes les formations ci-dessus</b></a>\n");
+    if($rows>1)
+      print("<br>- <a href='justificatifs.php?cand_id=all' class='lien_bleu_10' target='_blank'><b>Pour toutes les formations ci-dessus</b></a>\n");
 
-		print("		</font>
-					</td>
-				</tr>
-				<tr>
-					<td align='left' nowrap='true' width='40' valign='top' style='padding-bottom:20px;'>
-						<img src='$__ICON_DIR/pdf_32x32_fond.png' alt='PDF' desc='PDF' border='0'>
-					</td>
-					<td align='left' nowrap='true' valign='middle' style='padding-bottom:20px;'>
-						<font class='Texte'>
-							<strong>Générer les pages de garde (liste des justificatifs manquants) :</strong>
-								$liste_options_page_garde\n");
+    print("   </font>
+          </td>
+        </tr>
+        <tr>
+          <td align='left' nowrap='true' width='40' valign='top' style='padding-bottom:20px;'>
+            <img src='$__ICON_DIR/pdf_32x32_fond.png' alt='PDF' desc='PDF' border='0'>
+          </td>
+          <td align='left' nowrap='true' valign='middle' style='padding-bottom:20px;'>
+            <font class='Texte'>
+              <strong>Générer les pages de garde (liste des justificatifs manquants) :</strong>
+                $liste_options_page_garde\n");
 /*
-		if($rows>1)
-			print("<br>- <a href='page_garde_dossier.php?cand_id=all' class='lien_bleu_10' target='_blank'><b>Pour toutes les formations ci-dessus</b></a>\n");
+    if($rows>1)
+      print("<br>- <a href='page_garde_dossier.php?cand_id=all' class='lien_bleu_10' target='_blank'><b>Pour toutes les formations ci-dessus</b></a>\n");
 */
-		print("	</font>
-				</tr>
-				</table>
-				<br><br>\n");
-
-		message("<center>
-						Attention : cette fonctionnalité peut poser problème si vous utilisez Internet Explorer.
-						<br>Le navigateur <a href='http://www.mozilla-europe.org/fr/products/firefox/' target='_blank' class='lien_bleu'>Mozilla Firefox</a> est en revanche totalement compatible.
-					</center>", $__WARNING);
-	}
-	else
-		message("Ces documents ne sont pas disponibles car la fiche du candidat n'est pas encore verrouillée.", $__ERREUR);
+    print(" </font>
+        </tr>
+        </table>
+        <br><br>\n");
+  }
+  else
+    message("Ces documents ne sont pas disponibles car la fiche du candidat n'est pas encore verrouillée.", $__ERREUR);
 ?>

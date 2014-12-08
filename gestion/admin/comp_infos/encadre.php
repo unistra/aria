@@ -49,214 +49,214 @@ CeCILL-B, et que vous en avez accepté les termes.
 */
 ?>
 <?php
-	session_name("preinsc_gestion");
-	session_start();
-	
-	include "../../../configuration/aria_config.php";
-	include "$__INCLUDE_DIR_ABS/vars.php";
-	include "$__INCLUDE_DIR_ABS/fonctions.php";
-	include "$__INCLUDE_DIR_ABS/db.php";
-	include "include/editeur_fonctions.php";
+  session_name("preinsc_gestion");
+  session_start();
+  
+  include "../../../configuration/aria_config.php";
+  include "$__INCLUDE_DIR_ABS/vars.php";
+  include "$__INCLUDE_DIR_ABS/fonctions.php";
+  include "$__INCLUDE_DIR_ABS/db.php";
+  include "include/editeur_fonctions.php";
 
-	$php_self=$_SERVER['PHP_SELF'];
-	$_SESSION['CURRENT_FILE']=$php_self;
+  $php_self=$_SERVER['PHP_SELF'];
+  $_SESSION['CURRENT_FILE']=$php_self;
 
-	verif_auth("$__GESTION_DIR/login.php");
+  verif_auth("$__GESTION_DIR/login.php");
 
-	$dbr=db_connect();
+  $dbr=db_connect();
 
-	// Ajouter / modifier un encadré
+  // Ajouter / modifier un encadré
 
-	if(isset($_SESSION["info_doc_id"]))
-		$info_doc_id=$_SESSION["info_doc_id"];
-	else
-	{
-		header("Location:index.php");
-		exit;
-	}
+  if(isset($_SESSION["info_doc_id"]))
+    $info_doc_id=$_SESSION["info_doc_id"];
+  else
+  {
+    header("Location:index.php");
+    exit;
+  }
 
-	if(isset($_GET["a"]) && isset($_GET["o"])) // Nouvel élément
-	{
-		$_SESSION["ordre"]=$ordre=$_GET["o"];
-		$_SESSION["ordre_max"]=$_SESSION["cbo"];
-		$_SESSION["ajout"]=1;
+  if(isset($_GET["a"]) && isset($_GET["o"])) // Nouvel élément
+  {
+    $_SESSION["ordre"]=$ordre=$_GET["o"];
+    $_SESSION["ordre_max"]=$_SESSION["cbo"];
+    $_SESSION["ajout"]=1;
 
-		$action="Ajouter";
-	}
-	elseif(isset($_GET["o"])) // Modification
-	{
-		$_SESSION["ordre"]=$ordre=$_GET["o"];
+    $action="Ajouter";
+  }
+  elseif(isset($_GET["o"])) // Modification
+  {
+    $_SESSION["ordre"]=$ordre=$_GET["o"];
 
-		$action="Modifier";
+    $action="Modifier";
 
-		// Récupération des infos actuelles
-		$result=db_query($dbr,"SELECT $_DBC_comp_infos_encadre_texte, $_DBC_comp_infos_encadre_txt_align FROM $_DB_comp_infos_encadre
-															WHERE $_DBC_comp_infos_encadre_info_id='$info_doc_id'
-															AND $_DBC_comp_infos_encadre_ordre='$ordre'");
-		$rows=db_num_rows($result);
-		if($rows)
-		{
-			list($texte,$alignement)=db_fetch_row($result,0);
-			db_free_result($result);
-		}
-		else
-		{
-			db_close($dbr);
-			header("Location:index.php");
-			exit();
-		}
-	}
+    // Récupération des infos actuelles
+    $result=db_query($dbr,"SELECT $_DBC_comp_infos_encadre_texte, $_DBC_comp_infos_encadre_txt_align FROM $_DB_comp_infos_encadre
+                              WHERE $_DBC_comp_infos_encadre_info_id='$info_doc_id'
+                              AND $_DBC_comp_infos_encadre_ordre='$ordre'");
+    $rows=db_num_rows($result);
+    if($rows)
+    {
+      list($texte,$alignement)=db_fetch_row($result,0);
+      db_free_result($result);
+    }
+    else
+    {
+      db_close($dbr);
+      header("Location:index.php");
+      exit();
+    }
+  }
 
-	if(isset($_SESSION["ajout"]) && $_SESSION["ajout"]==1)
-		$action="Ajouter";
-	else
-		$action="Modifier";
+  if(isset($_SESSION["ajout"]) && $_SESSION["ajout"]==1)
+    $action="Ajouter";
+  else
+    $action="Modifier";
 
-	// section exécutée lorsque le formulaire est validé
-	if(isset($_POST["valider"]) || isset($_POST["valider_x"]))
-	{
-		$texte=trim($_POST['new_encadre']);
-		$alignement=$_POST['alignement'];
+  // section exécutée lorsque le formulaire est validé
+  if(isset($_POST["valider"]) || isset($_POST["valider_x"]))
+  {
+    $texte=trim($_POST['new_encadre']);
+    $alignement=$_POST['alignement'];
 
-//		if(str_is_clean($texte))
-//		{
-			// le nouveau texte est ok, on le modifie dans la table "encadre"
-			// et on modifie la date de dernière modif de l'article
+//    if(str_is_clean($texte))
+//    {
+      // le nouveau texte est ok, on le modifie dans la table "encadre"
+      // et on modifie la date de dernière modif de l'article
 
-			if(!isset($_SESSION["ajout"]))
-				db_query($dbr,"UPDATE $_DB_comp_infos_encadre SET 	$_DBU_comp_infos_encadre_texte='$texte',
-																																		$_DBU_comp_infos_encadre_txt_align='$alignement'
-												WHERE $_DBU_comp_infos_encadre_info_id='$info_doc_id'
-												AND $_DBU_comp_infos_encadre_ordre='$_SESSION[ordre]'");
-			else
-			{
-				if($_SESSION["ordre"]!=$_SESSION["ordre_max"]) // On n'insère pas l'élément en dernier : décallage
-				{
-					// 1 - Reconstruction des éléments (comme pour la suppression)
-					$a=get_all_elements($dbr, $info_doc_id);
-					$nb_elements=count($a);
+      if(!isset($_SESSION["ajout"]))
+        db_query($dbr,"UPDATE $_DB_comp_infos_encadre SET   $_DBU_comp_infos_encadre_texte='$texte',
+                                                                    $_DBU_comp_infos_encadre_txt_align='$alignement'
+                        WHERE $_DBU_comp_infos_encadre_info_id='$info_doc_id'
+                        AND $_DBU_comp_infos_encadre_ordre='$_SESSION[ordre]'");
+      else
+      {
+        if($_SESSION["ordre"]!=$_SESSION["ordre_max"]) // On n'insère pas l'élément en dernier : décallage
+        {
+          // 1 - Reconstruction des éléments (comme pour la suppression)
+          $a=get_all_elements($dbr, $info_doc_id);
+          $nb_elements=count($a);
 
-					for($i=$nb_elements; $i>$_SESSION["ordre"]; $i--)
-					{
-						$current_ordre=$i-1;
-						$new_ordre=$i;
-						$current_type=$a["$current_ordre"]["type"]; // le type sert juste à savoir dans quelle table on doit modifier l'élément courant
-						$current_id=$a["$current_ordre"]["id"];
+          for($i=$nb_elements; $i>$_SESSION["ordre"]; $i--)
+          {
+            $current_ordre=$i-1;
+            $new_ordre=$i;
+            $current_type=$a["$current_ordre"]["type"]; // le type sert juste à savoir dans quelle table on doit modifier l'élément courant
+            $current_id=$a["$current_ordre"]["id"];
 
-						$current_table_name=get_table_name($current_type);
-						$col_ordre=$current_table_name["ordre"];
-						$col_id=$current_table_name["id"];
-						$table=$current_table_name["table"];
+            $current_table_name=get_table_name($current_type);
+            $col_ordre=$current_table_name["ordre"];
+            $col_id=$current_table_name["id"];
+            $table=$current_table_name["table"];
 
 
-						db_query($dbr,"UPDATE $table SET $col_ordre='$new_ordre'
-															WHERE $col_id='$current_id'
-															AND $col_ordre='$current_ordre'");
-					}
-				}
+            db_query($dbr,"UPDATE $table SET $col_ordre='$new_ordre'
+                              WHERE $col_id='$current_id'
+                              AND $col_ordre='$current_ordre'");
+          }
+        }
 
-				// Insertion du nouvel élément
-				db_query($dbr,"INSERT INTO $_DB_comp_infos_encadre VALUES ('$info_doc_id', '$texte', $alignement, '$_SESSION[ordre]')");
-			}
+        // Insertion du nouvel élément
+        db_query($dbr,"INSERT INTO $_DB_comp_infos_encadre VALUES ('$info_doc_id', '$texte', $alignement, '$_SESSION[ordre]')");
+      }
 
-			db_close($dbr);
+      db_close($dbr);
 
-			header("Location:index.php");
-			exit;
-//		}
-//		else
-//			$encadre_pas_clean=1;
-	}
+      header("Location:index.php");
+      exit;
+//    }
+//    else
+//      $encadre_pas_clean=1;
+  }
 
-	// EN-TETE
-	en_tete_gestion();
+  // EN-TETE
+  en_tete_gestion();
 
-	// MENU SUPERIEUR
-	menu_sup_simple();
+  // MENU SUPERIEUR
+  menu_sup_simple();
 ?>
 <div class='main'>
-	<?php
-		titre_page_icone("$action un encadré", "edit_32x32_fond.png", 30, "L");
+  <?php
+    titre_page_icone("$action un encadré", "edit_32x32_fond.png", 30, "L");
 
-		if(isset($encadre_pas_clean))
-			message("<center>Erreur : le texte contient des caractères non autorisés.
-						<br>Les caractères autorisés sont : a-z A-Z 0-9 - ' ! ? _ : . / @ ( ) les caractères accentués, la virgule et l'espace.</center>", $__ERREUR);
+    if(isset($encadre_pas_clean))
+      message("<center>Erreur : le texte contient des caractères non autorisés.
+            <br>Les caractères autorisés sont : a-z A-Z 0-9 - ' ! ? _ : . / @ ( ) les caractères accentués, la virgule et l'espace.</center>", $__ERREUR);
 
-		if(isset($alignement))
-		{
-			switch($alignement)
-			{
-				case 0: 	$c0="checked";
-							$c1=$c2=$c3="";
-							break;
+    if(isset($alignement))
+    {
+      switch($alignement)
+      {
+        case 0:   $c0="checked";
+              $c1=$c2=$c3="";
+              break;
 
-				case 1: 	$c1="checked";
-							$c0=$c2=$c3="";
-							break;
+        case 1:   $c1="checked";
+              $c0=$c2=$c3="";
+              break;
 
-				case 2: 	$c2="checked";
-							$c0=$c1=$c3="";
-							break;
+        case 2:   $c2="checked";
+              $c0=$c1=$c3="";
+              break;
 
-				case 3: 	$c3="checked";
-							$c0=$c1=$c2="";
-							break;
+        case 3:   $c3="checked";
+              $c0=$c1=$c2="";
+              break;
 
-				default: $c0="checked";
-							$c1=$c2=$c3="";
-							break;
-			}
-		}
-		else
-		{
-			$c0="checked";
-			$c1=$c2=$c3="";
-		}
+        default: $c0="checked";
+              $c1=$c2=$c3="";
+              break;
+      }
+    }
+    else
+    {
+      $c0="checked";
+      $c1=$c2=$c3="";
+    }
 
-		print("<form method='post' action='$php_self'>\n");
-	?>
+    print("<form method='post' action='$php_self'>\n");
+  ?>
 
-	<table align='center'>
-	<tr>
-		<td class='fond_menu2' colspan='2' style='padding:4px 20px 4px 20px;'>
-			<font class='Texte_menu2'>
-				<b>&#8226;&nbsp;&nbsp;Données de l'encadré</b>
-			</font>
-		</td>
-	</tr>
-	<tr>
-		<td class='td-gauche fond_menu2'>
-			<font class='Texte_menu2'><b>Nouveau texte :</b></font>
-		</td>
-		<td class='td-droite fond_menu'>
-			<font class='Texte_menu'><i>Les adresses http(s):// seront automatiquement transformées en liens HTML</i></font>
-			<br><textarea  name='new_encadre' rows='10' cols='60' class='input'><?php if(isset($texte)) echo htmlspecialchars($texte, ENT_QUOTES, $default_htmlspecialchars_encoding); ?></textarea>
-		</td>
-	</tr>
-	<tr>
-		<td class='td-gauche fond_menu2'>
-			<font class='Texte_menu2'><b>Alignement du texte :</b></font>
-		</td>
-		<td class='td-droite fond_menu'>
-			<font class='Texte_menu'>
-				A gauche <input type='radio' name='alignement' value='0' <?php echo $c0; ?>>
-				&nbsp;&nbsp;Centré <input type='radio' name='alignement' value='1' <?php echo $c1; ?>>
-				&nbsp;&nbsp;A droite <input type='radio' name='alignement' value='2' <?php echo $c2; ?>>
-				&nbsp;&nbsp;Justifié <input type='radio' name='alignement' value='3' <?php echo $c3; ?>>
-			</font>
-		</td>
-	</tr>
-	</table>
+  <table align='center'>
+  <tr>
+    <td class='fond_menu2' colspan='2' style='padding:4px 20px 4px 20px;'>
+      <font class='Texte_menu2'>
+        <b>&#8226;&nbsp;&nbsp;Données de l'encadré</b>
+      </font>
+    </td>
+  </tr>
+  <tr>
+    <td class='td-gauche fond_menu2'>
+      <font class='Texte_menu2'><b>Nouveau texte :</b></font>
+    </td>
+    <td class='td-droite fond_menu'>
+      <font class='Texte_menu'><i>Les adresses http(s):// seront automatiquement transformées en liens HTML</i></font>
+      <br><textarea  name='new_encadre' rows='10' cols='60' class='input'><?php if(isset($texte)) echo htmlspecialchars($texte, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?></textarea>
+    </td>
+  </tr>
+  <tr>
+    <td class='td-gauche fond_menu2'>
+      <font class='Texte_menu2'><b>Alignement du texte :</b></font>
+    </td>
+    <td class='td-droite fond_menu'>
+      <font class='Texte_menu'>
+        A gauche <input type='radio' name='alignement' value='0' <?php echo $c0; ?>>
+        &nbsp;&nbsp;Centré <input type='radio' name='alignement' value='1' <?php echo $c1; ?>>
+        &nbsp;&nbsp;A droite <input type='radio' name='alignement' value='2' <?php echo $c2; ?>>
+        &nbsp;&nbsp;Justifié <input type='radio' name='alignement' value='3' <?php echo $c3; ?>>
+      </font>
+    </td>
+  </tr>
+  </table>
 
-	<div class='centered_icons_box'>
-		<a href='index.php' target='_self' class='lien2'><img src='<?php echo "$__ICON_DIR/button_cancel_32x32_fond.png"; ?>' alt='Retour' border='0'></a>
-		<input type='image' src='<?php echo "$__ICON_DIR/button_ok_32x32_fond.png"; ?>' alt='Valider' name='valider' value='Valider'>
-		</form>
-	</div>
+  <div class='centered_icons_box'>
+    <a href='index.php' target='_self' class='lien2'><img src='<?php echo "$__ICON_DIR/button_cancel_32x32_fond.png"; ?>' alt='Retour' border='0'></a>
+    <input type='image' src='<?php echo "$__ICON_DIR/button_ok_32x32_fond.png"; ?>' alt='Valider' name='valider' value='Valider'>
+    </form>
+  </div>
 
 </div>
 <?php
-	pied_de_page();
-	db_close($dbr);
+  pied_de_page();
+  db_close($dbr);
 ?>
 </body></html>

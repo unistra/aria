@@ -343,7 +343,7 @@ CeCILL-B, et que vous en avez accepté les termes.
             <font class='Texte_menu2'><b>Nom du groupe</b></font>
          </td>
          <td class='td-droite fond_menu'>
-            <input type='text' name='nom' value='<?php echo htmlspecialchars(stripslashes($nom_groupe), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>'>
+            <input type='text' name='nom' value='<?php echo htmlspecialchars(stripslashes($nom_groupe), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>'>
          </td>
       </tr>
       <tr>
@@ -513,7 +513,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                <font class='Texte_menu2'><b>Nom du groupe</b></font>
             </td>
             <td class='td-droite fond_menu'>
-               <input type='text' name='nom' value='<?php echo htmlspecialchars(stripslashes($nom_groupe), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>'>
+               <input type='text' name='nom' value='<?php echo htmlspecialchars(stripslashes($nom_groupe), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>'>
             </td>
          </tr>
          <tr>

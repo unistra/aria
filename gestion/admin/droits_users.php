@@ -49,55 +49,55 @@ CeCILL-B, et que vous en avez accepté les termes.
 */
 ?>
 <?php
-	session_name("preinsc_gestion");
-	session_start();
+  session_name("preinsc_gestion");
+  session_start();
 
-	include "../../configuration/aria_config.php";
-	include "$__INCLUDE_DIR_ABS/vars.php";
-	include "$__INCLUDE_DIR_ABS/fonctions.php";
-	include "$__INCLUDE_DIR_ABS/db.php";
+  include "../../configuration/aria_config.php";
+  include "$__INCLUDE_DIR_ABS/vars.php";
+  include "$__INCLUDE_DIR_ABS/fonctions.php";
+  include "$__INCLUDE_DIR_ABS/db.php";
 
-	$php_self=$_SERVER['PHP_SELF'];
-	$_SESSION['CURRENT_FILE']=$php_self;
+  $php_self=$_SERVER['PHP_SELF'];
+  $_SESSION['CURRENT_FILE']=$php_self;
 
-	verif_auth("$__GESTION_DIR/login.php");
+  verif_auth("$__GESTION_DIR/login.php");
 
-	if($_SESSION['niveau']!=$__LVL_ADMIN)
-	{
-		header("Location:$__GESTION_DIR/noaccess.php");
-		exit();
-	}
+  if($_SESSION['niveau']!=$__LVL_ADMIN)
+  {
+    header("Location:$__GESTION_DIR/noaccess.php");
+    exit();
+  }
 
-	$dbr=db_connect();
+  $dbr=db_connect();
 
-	// retour étape précédente : nettoyage de variables
-	if(isset($_GET["e"]) && $_GET["e"]==1)
-		unset($_SESSION["droits_comp_id"]);
+  // retour étape précédente : nettoyage de variables
+  if(isset($_GET["e"]) && $_GET["e"]==1)
+    unset($_SESSION["droits_comp_id"]);
 
-	if(isset($_GET["e"]) && $_GET["e"]==2)
-	{
-		unset($_SESSION["droits_comp_id"]);
-		unset($_SESSION["droits_user_id"]);
-	}
-	
-	if(isset($_POST["modifier"]) || isset($_POST["modifier_x"]))
-	{
-		$_SESSION["droits_user_id"]=$user_id=$_POST["user_id"];
-		$resultat=1;
-	}
+  if(isset($_GET["e"]) && $_GET["e"]==2)
+  {
+    unset($_SESSION["droits_comp_id"]);
+    unset($_SESSION["droits_user_id"]);
+  }
+  
+  if(isset($_POST["modifier"]) || isset($_POST["modifier_x"]))
+  {
+    $_SESSION["droits_user_id"]=$user_id=$_POST["user_id"];
+    $resultat=1;
+  }
    elseif(isset($_POST["modifier_recherche"]) || isset($_POST["modifier_recherche_x"]))
-	{
-		$_SESSION["droits_user_id"]=$user_id=$_POST["user_id_recherche"];
-		$resultat=1;
-	}
+  {
+    $_SESSION["droits_user_id"]=$user_id=$_POST["user_id_recherche"];
+    $resultat=1;
+  }
    elseif((isset($_POST["recherche"]) || isset($_POST["recherche_x"])) && trim($_POST["recherche_nom"])!="")
-	{
-	   $recherche=1;
-		$nom_recherche=trim($_POST["recherche_nom"]);
-	}
-	elseif(isset($_POST["clear_form"]) || isset($_POST["clear_form_x"]))
-	{
-	}
+  {
+     $recherche=1;
+    $nom_recherche=trim($_POST["recherche_nom"]);
+  }
+  elseif(isset($_POST["clear_form"]) || isset($_POST["clear_form_x"]))
+  {
+  }
    else
    {
       unset($_SESSION["resultat_recherche_ldap"]);
@@ -105,121 +105,121 @@ CeCILL-B, et que vous en avez accepté les termes.
       unset($_SESSION["source"]);
    }
    
-	// Validation de l'accès aux composantes
-	if((isset($_POST["valider"]) || isset($_POST["valider_x"])) && isset($_SESSION["droits_user_id"]))
-	{
-		if(!isset($_POST["comp"]))
-		{
-			// Aucune composante sélectionnée : suppression des droits
-			db_query($dbr,"DELETE FROM $_DB_acces_comp WHERE $_DBC_acces_comp_acces_id='$_SESSION[droits_user_id]'");
-			
-			// Suppression de tous les droits sur les formations
-			db_query($dbr, "DELETE FROM $_DB_droits_formations WHERE $_DBC_droits_formations_acces_id='$_SESSION[droits_user_id]'"); 
-		}
-		elseif(isset($_SESSION["array_comp"])) // normalement toujours vrai à ce stade
-		{
-			foreach($_SESSION["array_comp"] as $selected_comp_id => $droits)
-			{
-				if(in_array($selected_comp_id, $_POST["comp"]) && !$droits)
-					db_query($dbr, "INSERT INTO $_DB_acces_comp VALUES ('$_SESSION[droits_user_id]', '$selected_comp_id')");
-				elseif(!in_array($selected_comp_id, $_POST["comp"]) && $droits)
-				{
-					db_query($dbr, "DELETE FROM $_DB_acces_comp WHERE $_DBC_acces_comp_acces_id='$_SESSION[droits_user_id]' 
-																			  AND $_DBC_acces_comp_composante_id='$selected_comp_id'");
-																			  
-					// Suppression des droits sur les formations de cette composante
-					db_query($dbr, "DELETE FROM $_DB_droits_formations WHERE $_DBC_droits_formations_acces_id='$_SESSION[droits_user_id]' 
-																			  			AND $_DBC_droits_formations_propspec_id IN (SELECT $_DBC_propspec_id FROM $_DB_propspec WHERE $_DBC_propspec_comp_id='$selected_comp_id')");
-				}
-			}
-		}
+  // Validation de l'accès aux composantes
+  if((isset($_POST["valider"]) || isset($_POST["valider_x"])) && isset($_SESSION["droits_user_id"]))
+  {
+    if(!isset($_POST["comp"]))
+    {
+      // Aucune composante sélectionnée : suppression des droits
+      db_query($dbr,"DELETE FROM $_DB_acces_comp WHERE $_DBC_acces_comp_acces_id='$_SESSION[droits_user_id]'");
+      
+      // Suppression de tous les droits sur les formations
+      db_query($dbr, "DELETE FROM $_DB_droits_formations WHERE $_DBC_droits_formations_acces_id='$_SESSION[droits_user_id]'"); 
+    }
+    elseif(isset($_SESSION["array_comp"])) // normalement toujours vrai à ce stade
+    {
+      foreach($_SESSION["array_comp"] as $selected_comp_id => $droits)
+      {
+        if(in_array($selected_comp_id, $_POST["comp"]) && !$droits)
+          db_query($dbr, "INSERT INTO $_DB_acces_comp VALUES ('$_SESSION[droits_user_id]', '$selected_comp_id')");
+        elseif(!in_array($selected_comp_id, $_POST["comp"]) && $droits)
+        {
+          db_query($dbr, "DELETE FROM $_DB_acces_comp WHERE $_DBC_acces_comp_acces_id='$_SESSION[droits_user_id]' 
+                                        AND $_DBC_acces_comp_composante_id='$selected_comp_id'");
+                                        
+          // Suppression des droits sur les formations de cette composante
+          db_query($dbr, "DELETE FROM $_DB_droits_formations WHERE $_DBC_droits_formations_acces_id='$_SESSION[droits_user_id]' 
+                                              AND $_DBC_droits_formations_propspec_id IN (SELECT $_DBC_propspec_id FROM $_DB_propspec WHERE $_DBC_propspec_comp_id='$selected_comp_id')");
+        }
+      }
+    }
 
-		db_close($dbr);
-		header("Location:$php_self?e=2&succes=1");
-		exit;
-	}
-	
-	// Composante passée en paramêtre : on examine les droits de l'utilisateur sur chaque formation de cette dernière
-	if(isset($_SESSION["droits_user_id"]) && isset($_GET["p"]) && -1!=($params=get_params($_GET['p'])))
-	{
-		if(isset($params["comp_id"]) && ctype_digit($params["comp_id"]) && db_num_rows(db_query($dbr, "SELECT * FROM $_DB_composantes WHERE $_DBC_composantes_id='$params[comp_id]'")))
-			$_SESSION["droits_comp_id"]=$params["comp_id"];
-	}
-	elseif(!isset($_SESSION["droits_user_id"]))
-		unset($_SESSION["droits_comp_id"]);
-	
-	// Validation de l'accès aux formations de la composante sélectionnée
-	if((isset($_POST["valider2"]) || isset($_POST["valider2_x"])) && isset($_SESSION["droits_user_id"]) && isset($_SESSION["droits_comp_id"]))
-	{
-		// Si l'utilisateur a accès à au moins une formation, il faut lui donner l'accès à la composante
-		// Ce témoin va permettre de vérifier cet accès et de l'ajouter si besoin
-		$droits_comp=0;
-		
-		if(!isset($_POST["propspec"]))
-			db_query($dbr,"DELETE FROM $_DB_droits_formations WHERE $_DBC_droits_formations_acces_id='$_SESSION[droits_user_id]'");
-		elseif(isset($_SESSION["all_propspec"])) // normalement toujours vrai à ce stade
-		{
-			foreach($_SESSION["all_propspec"] as $selected_propspec_id => $droits)
-			{
-				if(in_array($selected_propspec_id, $_POST["propspec"]) && !$droits)
-				{
-					db_query($dbr, "INSERT INTO $_DB_droits_formations VALUES ('$_SESSION[droits_user_id]', '$selected_propspec_id','1')");
-					$droits_comp=1;
-				}
-				elseif(!in_array($selected_comp_id, $_POST["propspec"]) && $droits)
-					db_query($dbr, "DELETE FROM $_DB_droits_formations WHERE $_DBC_droits_formations_acces_id='$_SESSION[droits_user_id]' 
-																			  AND $_DBC_droits_formations_propspec_id='$selected_propspec_id'");
-			}
-			
-			if(1==$droits_comp)
-			{
-				if(!db_num_rows(db_query($dbr, "SELECT * FROM $_DB_acces_comp WHERE $_DBC_acces_comp_acces_id='$_SESSION[droits_user_id]' 
-																								  AND $_DBC_acces_comp_composante_id='$_SESSION[droits_comp_id]'")))
-					db_query($dbr, "INSERT INTO $_DB_acces_comp VALUES ('$_SESSION[droits_user_id]', '$_SESSION[droits_comp_id]')");
-			}
-		}
-				
-		db_close($dbr);
-		header("Location:$php_self?e=1&succes=1");
-		exit;
-	}
-	
-	// Composante passée en paramêtre : on examine les droits de l'utilisateur sur chaque formation de cette dernière
-	if(isset($_SESSION["droits_user_id"]) && isset($_GET["p"]) && -1!=($params=get_params($_GET['p'])))
-	{
-		if(isset($params["comp_id"]) && ctype_digit($params["comp_id"]) && db_num_rows(db_query($dbr, "SELECT * FROM $_DB_composantes WHERE $_DBC_composantes_id='$params[comp_id]'")))
-			$_SESSION["droits_comp_id"]=$params["comp_id"];
-	}
-	elseif(!isset($_SESSION["droits_user_id"]))
-		unset($_SESSION["droits_comp_id"]);
-	
-	
-	
+    db_close($dbr);
+    header("Location:$php_self?e=2&succes=1");
+    exit;
+  }
+  
+  // Composante passée en paramêtre : on examine les droits de l'utilisateur sur chaque formation de cette dernière
+  if(isset($_SESSION["droits_user_id"]) && isset($_GET["p"]) && -1!=($params=get_params($_GET['p'])))
+  {
+    if(isset($params["comp_id"]) && ctype_digit($params["comp_id"]) && db_num_rows(db_query($dbr, "SELECT * FROM $_DB_composantes WHERE $_DBC_composantes_id='$params[comp_id]'")))
+      $_SESSION["droits_comp_id"]=$params["comp_id"];
+  }
+  elseif(!isset($_SESSION["droits_user_id"]))
+    unset($_SESSION["droits_comp_id"]);
+  
+  // Validation de l'accès aux formations de la composante sélectionnée
+  if((isset($_POST["valider2"]) || isset($_POST["valider2_x"])) && isset($_SESSION["droits_user_id"]) && isset($_SESSION["droits_comp_id"]))
+  {
+    // Si l'utilisateur a accès à au moins une formation, il faut lui donner l'accès à la composante
+    // Ce témoin va permettre de vérifier cet accès et de l'ajouter si besoin
+    $droits_comp=0;
+    
+    if(!isset($_POST["propspec"]))
+      db_query($dbr,"DELETE FROM $_DB_droits_formations WHERE $_DBC_droits_formations_acces_id='$_SESSION[droits_user_id]'");
+    elseif(isset($_SESSION["all_propspec"])) // normalement toujours vrai à ce stade
+    {
+      foreach($_SESSION["all_propspec"] as $selected_propspec_id => $droits)
+      {
+        if(in_array($selected_propspec_id, $_POST["propspec"]) && !$droits)
+        {
+          db_query($dbr, "INSERT INTO $_DB_droits_formations VALUES ('$_SESSION[droits_user_id]', '$selected_propspec_id','1')");
+          $droits_comp=1;
+        }
+        elseif(!in_array($selected_comp_id, $_POST["propspec"]) && $droits)
+          db_query($dbr, "DELETE FROM $_DB_droits_formations WHERE $_DBC_droits_formations_acces_id='$_SESSION[droits_user_id]' 
+                                        AND $_DBC_droits_formations_propspec_id='$selected_propspec_id'");
+      }
+      
+      if(1==$droits_comp)
+      {
+        if(!db_num_rows(db_query($dbr, "SELECT * FROM $_DB_acces_comp WHERE $_DBC_acces_comp_acces_id='$_SESSION[droits_user_id]' 
+                                                  AND $_DBC_acces_comp_composante_id='$_SESSION[droits_comp_id]'")))
+          db_query($dbr, "INSERT INTO $_DB_acces_comp VALUES ('$_SESSION[droits_user_id]', '$_SESSION[droits_comp_id]')");
+      }
+    }
+        
+    db_close($dbr);
+    header("Location:$php_self?e=1&succes=1");
+    exit;
+  }
+  
+  // Composante passée en paramêtre : on examine les droits de l'utilisateur sur chaque formation de cette dernière
+  if(isset($_SESSION["droits_user_id"]) && isset($_GET["p"]) && -1!=($params=get_params($_GET['p'])))
+  {
+    if(isset($params["comp_id"]) && ctype_digit($params["comp_id"]) && db_num_rows(db_query($dbr, "SELECT * FROM $_DB_composantes WHERE $_DBC_composantes_id='$params[comp_id]'")))
+      $_SESSION["droits_comp_id"]=$params["comp_id"];
+  }
+  elseif(!isset($_SESSION["droits_user_id"]))
+    unset($_SESSION["droits_comp_id"]);
+  
+  
+  
    
-	// EN-TETE
-	en_tete_gestion();
+  // EN-TETE
+  en_tete_gestion();
 
-	// MENU SUPERIEUR
-	menu_sup_gestion();
+  // MENU SUPERIEUR
+  menu_sup_gestion();
 ?>
 
 <div class='main'>
-	<?php
-		titre_page_icone("Modifier les droits d'un utilisateur", "randr_32x32_fond.png", 15, "L");
+  <?php
+    titre_page_icone("Modifier les droits d'un utilisateur", "randr_32x32_fond.png", 15, "L");
 
-		if(isset($id_existe_pas))
-			message("Erreur : l'identifiant demandé est incorrect (problème de cohérence de la base)", $__ERREUR);
+    if(isset($id_existe_pas))
+      message("Erreur : l'identifiant demandé est incorrect (problème de cohérence de la base)", $__ERREUR);
 
-		if(isset($_GET["succes"]) && $_GET["succes"]==1)
-			message("Droits d'accès modifiés avec succès.", $__SUCCES);
+    if(isset($_GET["succes"]) && $_GET["succes"]==1)
+      message("Droits d'accès modifiés avec succès.", $__SUCCES);
 
       if(!isset($recherche))
-			   $nom_recherche="";
-		
-		if(!isset($_SESSION["droits_user_id"])) // Choix de l'utilisateur à modifier
-		{	
-		   unset($_SESSION["array_comp"]);
-		   
+         $nom_recherche="";
+    
+    if(!isset($_SESSION["droits_user_id"])) // Choix de l'utilisateur à modifier
+    { 
+       unset($_SESSION["array_comp"]);
+       
          print("<form action='$php_self' method='POST' name='form1'>
          
                 <table cellpadding='4' align='center'>
@@ -228,22 +228,22 @@ CeCILL-B, et que vous en avez accepté les termes.
                      <font class='Texte_menu2' style='font-weight:bold;'>Recherche par nom / identifiant : </font>
                   </td>
                   <td class='fond_menu'>
-						   <input type='text' name='recherche_nom' value=\"".stripslashes($nom_recherche)."\" maxlength='30' size='30'>
-						</td>
+               <input type='text' name='recherche_nom' value=\"".stripslashes($nom_recherche)."\" maxlength='30' size='30'>
+            </td>
                   <td class='fond_menu' style='text-align:center;'>");
-						
-			if(isset($nom_recherche) && trim($nom_recherche!=""))
-			   print("<input type='image' src='$__ICON_DIR/cancel_16x16_menu.png' alt='Effacer le formulaire' name='clear_form' value='Effacer le formulaire'>");
-						
-		   print("     <input type='image' src='$__ICON_DIR/forward_16x16_menu.png' alt='Rechercher' name='recherche' value='Rechercher'>
-						</td>
-				   </tr>");
+            
+      if(isset($nom_recherche) && trim($nom_recherche!=""))
+         print("<input type='image' src='$__ICON_DIR/cancel_16x16_menu.png' alt='Effacer le formulaire' name='clear_form' value='Effacer le formulaire'>");
+            
+       print("     <input type='image' src='$__ICON_DIR/forward_16x16_menu.png' alt='Rechercher' name='recherche' value='Rechercher'>
+            </td>
+           </tr>");
 
-			$critere_recherche=isset($nom_recherche) && trim($nom_recherche!="") ? "AND ($_DBC_acces_nom ILIKE '$nom_recherche"."%"."' OR $_DBC_acces_login ILIKE '$nom_recherche"."%"."')" : "";
-			
-			if(isset($nom_recherche) && trim($nom_recherche!=""))
-			{		
-   		   $result_recherche=db_query($dbr, "(SELECT $_DBC_acces_id, $_DBC_acces_niveau as aniveau, $_DBC_acces_nom as anom,
+      $critere_recherche=isset($nom_recherche) && trim($nom_recherche!="") ? "AND ($_DBC_acces_nom ILIKE '$nom_recherche"."%"."' OR $_DBC_acces_login ILIKE '$nom_recherche"."%"."')" : "";
+      
+      if(isset($nom_recherche) && trim($nom_recherche!=""))
+      {   
+         $result_recherche=db_query($dbr, "(SELECT $_DBC_acces_id, $_DBC_acces_niveau as aniveau, $_DBC_acces_nom as anom,
                                                       $_DBC_acces_prenom as aprenom, $_DBC_acces_login, '0' as cnom
                                                   FROM $_DB_acces
                                                WHERE $_DBC_acces_niveau IN ('$GLOBALS[__LVL_ADMIN]','$GLOBALS[__LVL_SUPPORT]','$GLOBALS[__LVL_SUPER_RESP]')
@@ -290,19 +290,19 @@ CeCILL-B, et que vous en avez accepté les termes.
                               ORDER BY cnom, aniveau DESC, anom, aprenom");
          
          $rows=db_num_rows($result);
-			
-			if(isset($recherche))
+      
+      if(isset($recherche))
          {
-			   print("<tr>
+         print("<tr>
                       <td class='fond_menu2' align='right'>
                          <font class='Texte_menu2' style='font-weight:bold;'>Résultat de la recherche : </font>
                       </td>
                       <td class='fond_menu' colspan='2'>");
 
-   			if(!$rows_recherche)
-   			   print("<font class='Texte_menu'>Aucun utilisateur ne correspond à votre recherche</font>");
-   			else
-   			{
+        if(!$rows_recherche)
+           print("<font class='Texte_menu'>Aucun utilisateur ne correspond à votre recherche</font>");
+        else
+        {
                print("<select name='user_id_recherche' size='1'>
                         <option value=''></option>\n");
    
@@ -321,7 +321,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                      if($comp_nom=="0")
                         print("<optgroup label='==== Administrateurs, support et accès étendus ===='>\n");
                      else
-                        print("<optgroup label='==== ".htmlspecialchars($comp_nom, ENT_QUOTES, $default_htmlspecialchars_encoding)." ===='>\n");
+                        print("<optgroup label='==== ".htmlspecialchars($comp_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"])." ===='>\n");
    
                      $old_comp=$comp_nom;
                      $old_niveau="";
@@ -333,23 +333,23 @@ CeCILL-B, et que vous en avez accepté les termes.
                        print("</optgroup>
                               <option value='' label='' disabled></option>\n");
                
-                    print("<optgroup label='".htmlspecialchars(stripslashes($GLOBALS["tab_niveau"]["$login_niveau"]), ENT_QUOTES, $default_htmlspecialchars_encoding)."'></optgroup>\n");
+                    print("<optgroup label='".htmlspecialchars(stripslashes($GLOBALS["tab_niveau"]["$login_niveau"]), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"])."'></optgroup>\n");
                
                     $old_niveau=$login_niveau;
                   }
    
-                  print("<option value='$user_id'>" . htmlspecialchars("$login_nom $login_prenom", ENT_QUOTES, $default_htmlspecialchars_encoding) . "</option>\n");
+                  print("<option value='$user_id'>" . htmlspecialchars("$login_nom $login_prenom", ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]) . "</option>\n");
                }
    
                print("</optgroup>
                      </select>
                      
                      <input type='image' class='icone' src='$__ICON_DIR/edit_16x16_menu.png' alt='Modifier' name='modifier_recherche' value='Modifier' title='[Modifier un utilisateur]'>");
-   		   }
-		   
-		      print("</td>
-		          </tr>\n");
-		   
+         }
+       
+          print("</td>
+              </tr>\n");
+       
          }
          
          print("<tr>
@@ -379,7 +379,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                if($comp_nom=="0")
                   print("<optgroup label='==== Administrateurs, support et accès étendus ===='>\n");
                else
-                  print("<optgroup label='==== ".htmlspecialchars($comp_nom, ENT_QUOTES, $default_htmlspecialchars_encoding)." ===='>\n");
+                  print("<optgroup label='==== ".htmlspecialchars($comp_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"])." ===='>\n");
 
                $old_comp=$comp_nom;
                $old_niveau="";
@@ -391,12 +391,12 @@ CeCILL-B, et que vous en avez accepté les termes.
                   print("</optgroup>
                          <option value='' label='' disabled></option>\n");
             
-               print("<optgroup label='".htmlspecialchars(stripslashes($GLOBALS["tab_niveau"]["$login_niveau"]), ENT_QUOTES, $default_htmlspecialchars_encoding)."'></optgroup>\n");
+               print("<optgroup label='".htmlspecialchars(stripslashes($GLOBALS["tab_niveau"]["$login_niveau"]), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"])."'></optgroup>\n");
             
                $old_niveau=$login_niveau;
             }
 
-            print("<option value='$user_id'>" . htmlspecialchars("$login_nom $login_prenom", ENT_QUOTES, $default_htmlspecialchars_encoding) . "</option>\n");
+            print("<option value='$user_id'>" . htmlspecialchars("$login_nom $login_prenom", ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]) . "</option>\n");
          }
 
          print("</optgroup>
@@ -420,235 +420,235 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 /*
 
-		if(!isset($_SESSION["droits_user_id"])) // Choix de l'utilisateur à modifier
-		{
-			// au cas où...
-			unset($_SESSION["array_comp"]);
+    if(!isset($_SESSION["droits_user_id"])) // Choix de l'utilisateur à modifier
+    {
+      // au cas où...
+      unset($_SESSION["array_comp"]);
 
-			$result=db_query($dbr, "(SELECT $_DBC_acces_id, $_DBC_acces_niveau, $_DBC_acces_nom as anom,
-													  $_DBC_acces_prenom as aprenom, $_DBC_acces_login, $_DBC_composantes_nom as cnom
-												FROM $_DB_acces, $_DB_composantes
-											WHERE $_DBC_acces_composante_id=$_DBC_composantes_id)
-										UNION
-											(SELECT $_DBC_acces_id, $_DBC_acces_niveau, $_DBC_acces_nom as anom,
-													  $_DBC_acces_prenom as aprenom, $_DBC_acces_login, $_DBC_composantes_nom as cnom
-												FROM $_DB_acces, $_DB_acces_comp, $_DB_composantes
-											WHERE $_DBC_acces_comp_composante_id=$_DBC_composantes_id
-											AND $_DBC_acces_comp_acces_id=$_DBC_acces_id)
-										ORDER BY cnom, anom, aprenom");
+      $result=db_query($dbr, "(SELECT $_DBC_acces_id, $_DBC_acces_niveau, $_DBC_acces_nom as anom,
+                            $_DBC_acces_prenom as aprenom, $_DBC_acces_login, $_DBC_composantes_nom as cnom
+                        FROM $_DB_acces, $_DB_composantes
+                      WHERE $_DBC_acces_composante_id=$_DBC_composantes_id)
+                    UNION
+                      (SELECT $_DBC_acces_id, $_DBC_acces_niveau, $_DBC_acces_nom as anom,
+                            $_DBC_acces_prenom as aprenom, $_DBC_acces_login, $_DBC_composantes_nom as cnom
+                        FROM $_DB_acces, $_DB_acces_comp, $_DB_composantes
+                      WHERE $_DBC_acces_comp_composante_id=$_DBC_composantes_id
+                      AND $_DBC_acces_comp_acces_id=$_DBC_acces_id)
+                    ORDER BY cnom, anom, aprenom");
 
-			$rows=db_num_rows($result);
+      $rows=db_num_rows($result);
 
-			print("<form action='$php_self' method='POST' name='form1'>
+      print("<form action='$php_self' method='POST' name='form1'>
 
-					 <table cellpadding='4' cellspacing='0' border='0' align='center'>
-					 <tr>
-						<td class='fond_menu2' align='right'>
-							<font class='Texte_menu2' style='font-weight:bold;'>Utilisateur : </font>
-						</td>
-						<td class='fond_menu'>
-							<select name='user_id' size='1'>
-								<option value=''></option>\n");
+           <table cellpadding='4' cellspacing='0' border='0' align='center'>
+           <tr>
+            <td class='fond_menu2' align='right'>
+              <font class='Texte_menu2' style='font-weight:bold;'>Utilisateur : </font>
+            </td>
+            <td class='fond_menu'>
+              <select name='user_id' size='1'>
+                <option value=''></option>\n");
 
-			$old_comp="--";
+      $old_comp="--";
 
-			for($i=0; $i<$rows; $i++)
-			{
-				list($login_id, $login_niveau, $login_nom,$login_prenom,$login,$comp_nom)=db_fetch_row($result,$i);
+      for($i=0; $i<$rows; $i++)
+      {
+        list($login_id, $login_niveau, $login_nom,$login_prenom,$login,$comp_nom)=db_fetch_row($result,$i);
 
-				if($comp_nom!=$old_comp)
-				{
-					if($i!=0)
-						print("</optgroup>
-									<option value='' label='' disabled></option>\n");
+        if($comp_nom!=$old_comp)
+        {
+          if($i!=0)
+            print("</optgroup>
+                  <option value='' label='' disabled></option>\n");
 
-					print("<optgroup label='" . htmlspecialchars($comp_nom, ENT_QUOTES, $default_htmlspecialchars_encoding) . "'>\n");
+          print("<optgroup label='" . htmlspecialchars($comp_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]) . "'>\n");
 
-					$old_comp=$comp_nom;
-				}
+          $old_comp=$comp_nom;
+        }
 
-				// Affichage du niveau (entre crochets) - A conserver ?
-				// $menu_niveau=$tab_niveau_menu[$login_niveau];
+        // Affichage du niveau (entre crochets) - A conserver ?
+        // $menu_niveau=$tab_niveau_menu[$login_niveau];
 
-				print("<option value='$login_id'>" . htmlspecialchars("$login_nom $login_prenom", ENT_QUOTES, $default_htmlspecialchars_encoding) . "</option>\n");
-			}
+        print("<option value='$login_id'>" . htmlspecialchars("$login_nom $login_prenom", ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]) . "</option>\n");
+      }
 
-			print("		</optgroup>
-						</select>
-						</td>
-					</tr>
-					</table>
+      print("   </optgroup>
+            </select>
+            </td>
+          </tr>
+          </table>
 
-					<div class='centered_icons_box'>
-						<a href='index.php' target='_self' class='lien_bleu_12'><img src='$__ICON_DIR/button_cancel_32x32_fond.png' alt='Retour' border='0'></a>
-						<input type='image' src='$__ICON_DIR/forward_32x32_fond.png' alt='Modifier' name='modifier' value='Modifier'>
-						</form>
-					</div>
+          <div class='centered_icons_box'>
+            <a href='index.php' target='_self' class='lien_bleu_12'><img src='$__ICON_DIR/button_cancel_32x32_fond.png' alt='Retour' border='0'></a>
+            <input type='image' src='$__ICON_DIR/forward_32x32_fond.png' alt='Modifier' name='modifier' value='Modifier'>
+            </form>
+          </div>
 
-					<script language='javascript'>
-						document.form1.user_id.focus()
-					</script>\n");
-*/					
-		}
-		elseif(isset($_SESSION["droits_user_id"]) && !isset($_SESSION["droits_comp_id"]))
-		{
-			$result=db_query($dbr,"SELECT $_DBC_acces_nom, $_DBC_acces_prenom, $_DBC_acces_niveau, $_DBC_acces_composante_id, $_DBC_composantes_nom,
-													$_DBC_universites_nom
-										     FROM $_DB_acces, $_DB_composantes, $_DB_universites
-										  WHERE $_DBC_acces_id='$_SESSION[droits_user_id]'
-										  AND $_DBC_acces_composante_id=$_DBC_composantes_id
-										  AND $_DBC_composantes_univ_id=$_DBC_universites_id");
+          <script language='javascript'>
+            document.form1.user_id.focus()
+          </script>\n");
+*/          
+    }
+    elseif(isset($_SESSION["droits_user_id"]) && !isset($_SESSION["droits_comp_id"]))
+    {
+      $result=db_query($dbr,"SELECT $_DBC_acces_nom, $_DBC_acces_prenom, $_DBC_acces_niveau, $_DBC_acces_composante_id, $_DBC_composantes_nom,
+                          $_DBC_universites_nom
+                         FROM $_DB_acces, $_DB_composantes, $_DB_universites
+                      WHERE $_DBC_acces_id='$_SESSION[droits_user_id]'
+                      AND $_DBC_acces_composante_id=$_DBC_composantes_id
+                      AND $_DBC_composantes_univ_id=$_DBC_universites_id");
 
-			list($current_nom,$current_prenom, $current_niveau,$composante_id, $composante_nom, $univ_nom)=db_fetch_row($result,0);
-			
-			$_SESSION["droits_user_nom"]=$current_nom;
-			$_SESSION["droits_user_prenom"]=$current_prenom;
-			$_SESSION["droits_user_niveau"]=$tab_niveau["$current_niveau"];
-			
-			db_free_result($result);
+      list($current_nom,$current_prenom, $current_niveau,$composante_id, $composante_nom, $univ_nom)=db_fetch_row($result,0);
+      
+      $_SESSION["droits_user_nom"]=$current_nom;
+      $_SESSION["droits_user_prenom"]=$current_prenom;
+      $_SESSION["droits_user_niveau"]=$tab_niveau["$current_niveau"];
+      
+      db_free_result($result);
 
-			print("<form action='$php_self' method='POST' name='form1'>
-						<input type='hidden' name='user_id' value='$user_id'>\n");
-	?>
-	<table align='center'>
-	<tr>
-		<td class='fond_menu2' colspan='2' style='padding:4px 20px 4px 20px;'>
-			<font class='Texte_menu2'>
-				<b>&#8226;&nbsp;&nbsp;Informations</b>
-			</font>
-		</td>
-	</tr>
-	<tr>
-		<td class='td-gauche fond_menu2'><font class='Texte_menu2'><b>Utilisateur : </b></font></td>
-		<td class='td-droite fond_menu'><font class='Texte_menu'><?php print("$current_prenom $current_nom"); ?></font></td>
-	</tr>
-	<tr>
-		<td class='td-gauche fond_menu2'><font class='Texte_menu2'><b>Composante principale : </b></font></td>
-		<td class='td-droite fond_menu'><font class='Texte_menu'><?php print("$univ_nom - $composante_nom"); ?></font></td>
-	</tr>
-	<tr>
-		<td class='td-gauche fond_menu2'><font class='Texte_menu2'><b>Niveau d'accès : </b></font></td>
-		<td class='td-droite fond_menu'><font class='Texte_menu'><?php print("$_SESSION[droits_user_niveau]"); ?></font></td>
-	</tr>
-	<tr>
-		<td class='fond_page' colspan='2' style='padding:10px 20px 5px 20px; white-space:normal;'>
-			<?php 
-				message("- Par défaut, l'utilisateur aura accès à <strong>toutes les formations</strong> des composantes sélectionnées. Pour attribuer les droits formation par formation, cliquez sur le nom de la composante.
-							<br>- A partir du niveau <strong>\"Scolarité avec droits supplémentaires\"</strong>, les utilisateurs ont accès au traitement de toutes les formations.", $__INFO);
-								
-			?>
-		</td>
-	<tr>
-		<td class='fond_menu2' colspan='2' style='padding:4px 20px 4px 20px;'>
-			<font class='Texte_menu2'>
-				<b>&#8226;&nbsp;&nbsp;Droits d'accès</b>
-			</font>
-		</td>
-	</tr>
-	<?php
-		$result=db_query($dbr,"SELECT $_DBC_composantes_univ_id, $_DBC_universites_nom, $_DBC_composantes_id, $_DBC_composantes_nom
-											FROM $_DB_composantes, $_DB_universites
-										WHERE $_DBC_composantes_univ_id=$_DBC_universites_id
-										ORDER BY $_DBC_composantes_univ_id, $_DBC_composantes_nom");
+      print("<form action='$php_self' method='POST' name='form1'>
+            <input type='hidden' name='user_id' value='$user_id'>\n");
+  ?>
+  <table align='center'>
+  <tr>
+    <td class='fond_menu2' colspan='2' style='padding:4px 20px 4px 20px;'>
+      <font class='Texte_menu2'>
+        <b>&#8226;&nbsp;&nbsp;Informations</b>
+      </font>
+    </td>
+  </tr>
+  <tr>
+    <td class='td-gauche fond_menu2'><font class='Texte_menu2'><b>Utilisateur : </b></font></td>
+    <td class='td-droite fond_menu'><font class='Texte_menu'><?php print("$current_prenom $current_nom"); ?></font></td>
+  </tr>
+  <tr>
+    <td class='td-gauche fond_menu2'><font class='Texte_menu2'><b>Composante principale : </b></font></td>
+    <td class='td-droite fond_menu'><font class='Texte_menu'><?php print("$univ_nom - $composante_nom"); ?></font></td>
+  </tr>
+  <tr>
+    <td class='td-gauche fond_menu2'><font class='Texte_menu2'><b>Niveau d'accès : </b></font></td>
+    <td class='td-droite fond_menu'><font class='Texte_menu'><?php print("$_SESSION[droits_user_niveau]"); ?></font></td>
+  </tr>
+  <tr>
+    <td class='fond_page' colspan='2' style='padding:10px 20px 5px 20px; white-space:normal;'>
+      <?php 
+        message("- Par défaut, l'utilisateur aura accès à <strong>toutes les formations</strong> des composantes sélectionnées. Pour attribuer les droits formation par formation, cliquez sur le nom de la composante.
+              <br>- A partir du niveau <strong>\"Scolarité avec droits supplémentaires\"</strong>, les utilisateurs ont accès au traitement de toutes les formations.", $__INFO);
+                
+      ?>
+    </td>
+  <tr>
+    <td class='fond_menu2' colspan='2' style='padding:4px 20px 4px 20px;'>
+      <font class='Texte_menu2'>
+        <b>&#8226;&nbsp;&nbsp;Droits d'accès</b>
+      </font>
+    </td>
+  </tr>
+  <?php
+    $result=db_query($dbr,"SELECT $_DBC_composantes_univ_id, $_DBC_universites_nom, $_DBC_composantes_id, $_DBC_composantes_nom
+                      FROM $_DB_composantes, $_DB_universites
+                    WHERE $_DBC_composantes_univ_id=$_DBC_universites_id
+                    ORDER BY $_DBC_composantes_univ_id, $_DBC_composantes_nom");
 
-		$rows=db_num_rows($result);
+    $rows=db_num_rows($result);
 
-		$old_univ="";
+    $old_univ="";
 
-		$_SESSION["array_comp"]=array();
+    $_SESSION["array_comp"]=array();
 
-		for($i=0; $i<$rows; $i++)
-		{
-			list($univ_id, $univ_nom, $comp_id, $comp_nom)=db_fetch_row($result, $i);
+    for($i=0; $i<$rows; $i++)
+    {
+      list($univ_id, $univ_nom, $comp_id, $comp_nom)=db_fetch_row($result, $i);
 
-			// On teste si l'accès est accordé pour cette composante
+      // On teste si l'accès est accordé pour cette composante
 
-			if(db_num_rows(db_query($dbr, "SELECT * FROM $_DB_acces_comp WHERE $_DBC_acces_comp_acces_id='$_SESSION[droits_user_id]' AND $_DBC_acces_comp_composante_id='$comp_id'")))
-			{
-				$checked="checked='1'";
-				$_SESSION["array_comp"][$comp_id]=1;
-			}
-			else
-			{
-				$_SESSION["array_comp"][$comp_id]=0;
-				$checked="";
-			}
+      if(db_num_rows(db_query($dbr, "SELECT * FROM $_DB_acces_comp WHERE $_DBC_acces_comp_acces_id='$_SESSION[droits_user_id]' AND $_DBC_acces_comp_composante_id='$comp_id'")))
+      {
+        $checked="checked='1'";
+        $_SESSION["array_comp"][$comp_id]=1;
+      }
+      else
+      {
+        $_SESSION["array_comp"][$comp_id]=0;
+        $checked="";
+      }
 
-			if($univ_id!=$old_univ)
-			{
-				print("<tr>
-							<td class='fond_menu2' colspan='2' style='padding:4px 20px 4px 20px;'>
-								<font class='Texte_menu2'><b>&#8226; $univ_nom</b></font>
-							</td>
-						</tr>\n");
+      if($univ_id!=$old_univ)
+      {
+        print("<tr>
+              <td class='fond_menu2' colspan='2' style='padding:4px 20px 4px 20px;'>
+                <font class='Texte_menu2'><b>&#8226; $univ_nom</b></font>
+              </td>
+            </tr>\n");
 
-				$old_univ=$univ_id;
-			}
+        $old_univ=$univ_id;
+      }
 
-			$crypt_params=crypt_params("comp_id=$comp_id");
+      $crypt_params=crypt_params("comp_id=$comp_id");
 
-			print("<tr>
-						<td class='fond_menu' colspan='2' style='padding:4px 20px 4px 20px;'>
-							<input type='checkbox' name='comp[]' value='$comp_id' style='vertical-align:middle;' $checked>&nbsp;&nbsp;<a href='$php_self?p=$crypt_params' class='lien_bleu_12'>$comp_nom</a>
-						</td>
-					</tr>\n");
-		}
+      print("<tr>
+            <td class='fond_menu' colspan='2' style='padding:4px 20px 4px 20px;'>
+              <input type='checkbox' name='comp[]' value='$comp_id' style='vertical-align:middle;' $checked>&nbsp;&nbsp;<a href='$php_self?p=$crypt_params' class='lien_bleu_12'>$comp_nom</a>
+            </td>
+          </tr>\n");
+    }
 
-		db_free_result($result);
-	?>
-	</table>
+    db_free_result($result);
+  ?>
+  </table>
 
-	<div class='centered_icons_box'>
-		<a href='<?php echo "$php_self?e=2"; ?>' target='_self' class='lien_bleu_12'><img src='<?php echo "$__ICON_DIR/back_32x32_fond.png"; ?>' alt='Annuler' border='0'></a>
-		<!-- <a href='index.php' target='_self' class='lien_bleu_12'><img src='<?php echo "$__ICON_DIR/button_cancel_32x32_fond.png"; ?>' alt='Annuler' border='0'></a> -->
-		<input type="image" src="<?php echo "$__ICON_DIR/button_ok_32x32_fond.png"; ?>" alt="Valider" name="valider" value="Valider">
-		</form>
-	</div>
+  <div class='centered_icons_box'>
+    <a href='<?php echo "$php_self?e=2"; ?>' target='_self' class='lien_bleu_12'><img src='<?php echo "$__ICON_DIR/back_32x32_fond.png"; ?>' alt='Annuler' border='0'></a>
+    <!-- <a href='index.php' target='_self' class='lien_bleu_12'><img src='<?php echo "$__ICON_DIR/button_cancel_32x32_fond.png"; ?>' alt='Annuler' border='0'></a> -->
+    <input type="image" src="<?php echo "$__ICON_DIR/button_ok_32x32_fond.png"; ?>" alt="Valider" name="valider" value="Valider">
+    </form>
+  </div>
 
-	<?php
-		}
-		elseif(isset($_SESSION["droits_user_id"]) && isset($_SESSION["droits_comp_id"])) // Droits de l'utilisateur pour chaque formation de la composante sélectionnée
-		{
-			$result=db_query($dbr,"SELECT $_DBC_composantes_id, $_DBC_composantes_nom,$_DBC_universites_nom
-										     FROM $_DB_composantes, $_DB_universites
-										  WHERE $_DBC_composantes_univ_id=$_DBC_universites_id
-										  AND $_DBC_composantes_id='$_SESSION[droits_comp_id]'");
+  <?php
+    }
+    elseif(isset($_SESSION["droits_user_id"]) && isset($_SESSION["droits_comp_id"])) // Droits de l'utilisateur pour chaque formation de la composante sélectionnée
+    {
+      $result=db_query($dbr,"SELECT $_DBC_composantes_id, $_DBC_composantes_nom,$_DBC_universites_nom
+                         FROM $_DB_composantes, $_DB_universites
+                      WHERE $_DBC_composantes_univ_id=$_DBC_universites_id
+                      AND $_DBC_composantes_id='$_SESSION[droits_comp_id]'");
 
-			list($composante_id, $composante_nom, $univ_nom)=db_fetch_row($result,0);
-			db_free_result($result);
+      list($composante_id, $composante_nom, $univ_nom)=db_fetch_row($result,0);
+      db_free_result($result);
 
-			print("<form action='$php_self' method='POST' name='form1'>
-						<input type='hidden' name='user_id' value='$user_id'>\n");
-	?>
-	<table align='center' style='margin-bottom:20px;'>
-	<tr>
-		<td class='fond_menu2' colspan='2' style='padding:4px 20px 4px 20px;'>
-			<font class='Texte_menu2'>
-				<b>&#8226;&nbsp;&nbsp;Informations</b>
-			</font>
-		</td>
-	</tr>
-	<tr>
-		<td class='td-gauche fond_menu2'><font class='Texte_menu2'><b>Utilisateur : </b></font></td>
-		<td class='td-droite fond_menu'><font class='Texte_menu'><?php print("$_SESSION[droits_user_prenom] $_SESSION[droits_user_nom]"); ?></font></td>
-	</tr>
-	<tr>
-		<td class='td-gauche fond_menu2'><font class='Texte_menu2'><b>Composante sélectionnée : </b></font></td>
-		<td class='td-droite fond_menu'><font class='Texte_menu'><?php print("$univ_nom - $composante_nom"); ?></font></td>
-	</tr>
-	<tr>
-		<td class='td-gauche fond_menu2'><font class='Texte_menu2'><b>Niveau d'accès : </b></font></td>
-		<td class='td-droite fond_menu'><font class='Texte_menu'><?php print("$_SESSION[droits_user_niveau]"); ?></font></td>
-	</tr>
-	</table>
-	
-	<?php
-	  message("Si aucune case n'est cochée, l'utilisateur aura accès à <strong>toutes les formations</strong>", $__WARNING); 
+      print("<form action='$php_self' method='POST' name='form1'>
+            <input type='hidden' name='user_id' value='$user_id'>\n");
+  ?>
+  <table align='center' style='margin-bottom:20px;'>
+  <tr>
+    <td class='fond_menu2' colspan='2' style='padding:4px 20px 4px 20px;'>
+      <font class='Texte_menu2'>
+        <b>&#8226;&nbsp;&nbsp;Informations</b>
+      </font>
+    </td>
+  </tr>
+  <tr>
+    <td class='td-gauche fond_menu2'><font class='Texte_menu2'><b>Utilisateur : </b></font></td>
+    <td class='td-droite fond_menu'><font class='Texte_menu'><?php print("$_SESSION[droits_user_prenom] $_SESSION[droits_user_nom]"); ?></font></td>
+  </tr>
+  <tr>
+    <td class='td-gauche fond_menu2'><font class='Texte_menu2'><b>Composante sélectionnée : </b></font></td>
+    <td class='td-droite fond_menu'><font class='Texte_menu'><?php print("$univ_nom - $composante_nom"); ?></font></td>
+  </tr>
+  <tr>
+    <td class='td-gauche fond_menu2'><font class='Texte_menu2'><b>Niveau d'accès : </b></font></td>
+    <td class='td-droite fond_menu'><font class='Texte_menu'><?php print("$_SESSION[droits_user_niveau]"); ?></font></td>
+  </tr>
+  </table>
+  
+  <?php
+    message("Si aucune case n'est cochée, l'utilisateur aura accès à <strong>toutes les formations</strong>", $__WARNING); 
    ?>
 
-	<?php
-		// Nombre max de mentions pour les années de cette composantes (pour affichage)
-		$res_mentions=db_query($dbr, "SELECT count(distinct($_DBC_specs_mention_id)) FROM $_DB_specs,$_DB_propspec
+  <?php
+    // Nombre max de mentions pour les années de cette composantes (pour affichage)
+    $res_mentions=db_query($dbr, "SELECT count(distinct($_DBC_specs_mention_id)) FROM $_DB_specs,$_DB_propspec
                                     WHERE $_DBC_propspec_id_spec=$_DBC_specs_id
                                     AND $_DBC_propspec_comp_id ='$_SESSION[droits_comp_id]'
                                     AND $_DBC_propspec_active='1'
@@ -699,27 +699,27 @@ CeCILL-B, et que vous en avez accepté les termes.
          $j=0;
 
          // print("<table align='center'>\n");
-			
-			$_SESSION["all_propspec"]=array();
-			
+      
+      $_SESSION["all_propspec"]=array();
+      
          for($i=0; $i<$rows; $i++)
          {
             list($propspec_id, $annee_id, $annee, $spec_nom, $finalite, $mention, $mention_nom)=db_fetch_row($result, $i);
 
-				// On teste si l'accès est accordé pour cette formation
-				$res_droits=db_query($dbr, "SELECT $_DBC_droits_formations_droits FROM $_DB_droits_formations 
-													 WHERE $_DBC_droits_formations_acces_id='$_SESSION[droits_user_id]' AND $_DBC_droits_formations_propspec_id='$propspec_id'");
-													 
-				if(db_num_rows($res_droits))
-				{
-					$checked="checked='1'";
-					list($_SESSION["all_propspec"][$propspec_id])=db_fetch_row($res_droits,0);
-				}
-				else
-				{
-					$_SESSION["all_propspec"][$propspec_id]=0;
-					$checked="";
-				}
+        // On teste si l'accès est accordé pour cette formation
+        $res_droits=db_query($dbr, "SELECT $_DBC_droits_formations_droits FROM $_DB_droits_formations 
+                           WHERE $_DBC_droits_formations_acces_id='$_SESSION[droits_user_id]' AND $_DBC_droits_formations_propspec_id='$propspec_id'");
+                           
+        if(db_num_rows($res_droits))
+        {
+          $checked="checked='1'";
+          list($_SESSION["all_propspec"][$propspec_id])=db_fetch_row($res_droits,0);
+        }
+        else
+        {
+          $_SESSION["all_propspec"][$propspec_id]=0;
+          $checked="";
+        }
 
             $nom_finalite=$tab_finalite[$finalite];
 
@@ -764,7 +764,7 @@ CeCILL-B, et que vous en avez accepté les termes.
             {
                if($i)
                   print("</table>
-						    </td>\n");
+                </td>\n");
 
                if($j)
                   print("</tr>
@@ -796,7 +796,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          db_free_result($result);
 
          print("</table>
-				 </td>\n");
+         </td>\n");
 
          if(!$j)
             print("<td width='$colwidth' valign='top'></td>\n");
@@ -811,23 +811,23 @@ CeCILL-B, et que vous en avez accepté les termes.
                    </form>
                 </div>\n");
       }
-	?>
-	</table>
+  ?>
+  </table>
 <!--
-	<div class='centered_icons_box'>
-		<a href='index.php' target='_self' class='lien_bleu_12'><img src='<?php echo "$__ICON_DIR/button_cancel_32x32_fond.png"; ?>' alt='Annuler' border='0'></a>
-		<input type="image" src="<?php echo "$__ICON_DIR/forward_32x32_fond.png"; ?>" alt="Valider" name="valider" value="Valider">
-		</form>
-	</div>
+  <div class='centered_icons_box'>
+    <a href='index.php' target='_self' class='lien_bleu_12'><img src='<?php echo "$__ICON_DIR/button_cancel_32x32_fond.png"; ?>' alt='Annuler' border='0'></a>
+    <input type="image" src="<?php echo "$__ICON_DIR/forward_32x32_fond.png"; ?>" alt="Valider" name="valider" value="Valider">
+    </form>
+  </div>
 -->
-	<?php
-		}
-		
-		db_close($dbr);
-	?>
+  <?php
+    }
+    
+    db_close($dbr);
+  ?>
 </div>
 <?php
-	pied_de_page();
+  pied_de_page();
 ?>
 </body></html>
 

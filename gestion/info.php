@@ -49,182 +49,182 @@ CeCILL-B, et que vous en avez accepté les termes.
 */
 ?>
 <?php
-	session_name("preinsc_gestion");
-	session_start();
+  session_name("preinsc_gestion");
+  session_start();
 
-	include "../configuration/aria_config.php";
-	include "$__INCLUDE_DIR_ABS/vars.php";
-	include "$__INCLUDE_DIR_ABS/fonctions.php";
-	include "$__INCLUDE_DIR_ABS/db.php";
-	
+  include "../configuration/aria_config.php";
+  include "$__INCLUDE_DIR_ABS/vars.php";
+  include "$__INCLUDE_DIR_ABS/fonctions.php";
+  include "$__INCLUDE_DIR_ABS/db.php";
+  
 
-	$php_self=$_SERVER['PHP_SELF'];
-	$_SESSION['CURRENT_FILE']=$php_self;
+  $php_self=$_SERVER['PHP_SELF'];
+  $_SESSION['CURRENT_FILE']=$php_self;
 
-	verif_auth();
+  verif_auth();
 
-	if(!in_array($_SESSION['niveau'], array("$__LVL_SCOL_MOINS","$__LVL_SCOL_PLUS","$__LVL_RESP","$__LVL_SUPER_RESP","$__LVL_ADMIN")))
-	{
-		header("Location:$__MOD_DIR/gestion/noaccess.php");
-		exit();
-	}
+  if(!in_array($_SESSION['niveau'], array("$__LVL_SCOL_MOINS","$__LVL_SCOL_PLUS","$__LVL_RESP","$__LVL_SUPER_RESP","$__LVL_ADMIN")))
+  {
+    header("Location:$__MOD_DIR/gestion/noaccess.php");
+    exit();
+  }
 
-	// identifiant de l'étudiant
-	$candidat_id=$_SESSION["candidat_id"];
+  // identifiant de l'étudiant
+  $candidat_id=$_SESSION["candidat_id"];
 
-	$dbr=db_connect();
+  $dbr=db_connect();
 
-	// Seconde condition : on doit avoir le verrouillage exclusif
-	$res=cand_lock($dbr, $candidat_id);
+  // Seconde condition : on doit avoir le verrouillage exclusif
+  $res=cand_lock($dbr, $candidat_id);
 
-	if($res>0)
-	{
-		db_close($dbr);
-		header("Location:fiche_verrouillee.php");
-		exit;
-	}
-	elseif($res==-1)
-	{
-		db_close($dbr);
-		header("Location:edit_candidature.php");
-		exit;
-	}
+  if($res>0)
+  {
+    db_close($dbr);
+    header("Location:fiche_verrouillee.php");
+    exit;
+  }
+  elseif($res==-1)
+  {
+    db_close($dbr);
+    header("Location:edit_candidature.php");
+    exit;
+  }
 
-	// Ajout ou modification ?
+  // Ajout ou modification ?
 
-	if(isset($_GET["iid"]) && is_numeric($_GET["iid"])) // modification d'un élément existant : l'identifiant est en paramètre
-		$_SESSION["iid"]=$iid=$_GET["iid"];
-	elseif(isset($_SESSION["iid"]))
-		$iid=$_SESSION["iid"];
+  if(isset($_GET["iid"]) && is_numeric($_GET["iid"])) // modification d'un élément existant : l'identifiant est en paramètre
+    $_SESSION["iid"]=$iid=$_GET["iid"];
+  elseif(isset($_SESSION["iid"]))
+    $iid=$_SESSION["iid"];
 
-	if(isset($iid))
-	{
-		$result=db_query($dbr,"SELECT $_DBC_infos_comp_texte, $_DBC_infos_comp_annee, $_DBC_infos_comp_duree
-																FROM $_DB_infos_comp
-															WHERE $_DBC_infos_comp_id='$iid'");
-		if(!db_num_rows($result))
-		{
-			db_free_result($result);
-			db_close($dbr);
-			header("Location:edit_candidature.php");
-			exit();
-		}
-		else
-		{
-			list($cur_texte,$cur_annee,$cur_duree)=db_fetch_row($result,0); // normalement un seul résultat
-			db_free_result($result);
-		}
-	}
+  if(isset($iid))
+  {
+    $result=db_query($dbr,"SELECT $_DBC_infos_comp_texte, $_DBC_infos_comp_annee, $_DBC_infos_comp_duree
+                                FROM $_DB_infos_comp
+                              WHERE $_DBC_infos_comp_id='$iid'");
+    if(!db_num_rows($result))
+    {
+      db_free_result($result);
+      db_close($dbr);
+      header("Location:edit_candidature.php");
+      exit();
+    }
+    else
+    {
+      list($cur_texte,$cur_annee,$cur_duree)=db_fetch_row($result,0); // normalement un seul résultat
+      db_free_result($result);
+    }
+  }
 
-	if(isset($_POST["go"]) || isset($_POST["go_x"])) // validation du formulaire
-	{
-		$annee=trim($_POST["annee"]);
+  if(isset($_POST["go"]) || isset($_POST["go_x"])) // validation du formulaire
+  {
+    $annee=trim($_POST["annee"]);
 
-		if($annee!=0 && (!is_numeric($annee) || strlen($annee)!=4))
-			$annee_format=1;
+    if($annee!=0 && (!is_numeric($annee) || strlen($annee)!=4))
+      $annee_format=1;
 
-		$information=trim($_POST["information"]);
-		$information=clean_word_str($information);
-		$information=preg_replace("/[']+/", "''", stripslashes($information));
-		
-		$duree=trim($_POST["duree"]);
+    $information=trim($_POST["information"]);
+    $information=clean_word_str($information);
+    $information=preg_replace("/[']+/", "''", stripslashes($information));
+    
+    $duree=trim($_POST["duree"]);
 
-		if(empty($annee) || empty($information) || empty($duree))
-			$champ_vide=1;
+    if(empty($annee) || empty($information) || empty($duree))
+      $champ_vide=1;
 
-		if(!isset($champ_vide) && !isset($annee_format))
-		{
-			if(!isset($iid))
-			{
-				$info_id=db_locked_query($dbr, $_DB_infos_comp, "INSERT INTO $_DB_infos_comp VALUES('##NEW_ID##','$candidat_id','$information','$annee','$duree')");
+    if(!isset($champ_vide) && !isset($annee_format))
+    {
+      if(!isset($iid))
+      {
+        $info_id=db_locked_query($dbr, $_DB_infos_comp, "INSERT INTO $_DB_infos_comp VALUES('##NEW_ID##','$candidat_id','$information','$annee','$duree')");
 
-				write_evt($dbr, $__EVT_ID_G_INFO, "Ajout information $info_id", $candidat_id, $info_id, "INSERT INTO $_DB_infos_comp VALUES('$info_id','$candidat_id','$information','$annee','$duree')");
-			}
-			else // mise à jour
-			{
-				$req="UPDATE $_DB_infos_comp SET 	$_DBU_infos_comp_texte='$information',
-																$_DBU_infos_comp_annee='$annee',
-																$_DBU_infos_comp_duree='$duree'
-						WHERE $_DBU_infos_comp_id='$iid'
-						AND $_DBU_infos_comp_candidat_id='$candidat_id'";
+        write_evt($dbr, $__EVT_ID_G_INFO, "Ajout information $info_id", $candidat_id, $info_id, "INSERT INTO $_DB_infos_comp VALUES('$info_id','$candidat_id','$information','$annee','$duree')");
+      }
+      else // mise à jour
+      {
+        $req="UPDATE $_DB_infos_comp SET  $_DBU_infos_comp_texte='$information',
+                                $_DBU_infos_comp_annee='$annee',
+                                $_DBU_infos_comp_duree='$duree'
+            WHERE $_DBU_infos_comp_id='$iid'
+            AND $_DBU_infos_comp_candidat_id='$candidat_id'";
 
-				db_query($dbr, $req);
+        db_query($dbr, $req);
 
-				write_evt($dbr, $__EVT_ID_G_INFO, "Modification information $iid", $candidat_id, $iid, $req);
-			}
-			db_close($dbr);
-			header("Location:edit_candidature.php");
-			exit();
-		}
-	}
+        write_evt($dbr, $__EVT_ID_G_INFO, "Modification information $iid", $candidat_id, $iid, $req);
+      }
+      db_close($dbr);
+      header("Location:edit_candidature.php");
+      exit();
+    }
+  }
 
-	// EN-TETE
-	en_tete_gestion();
+  // EN-TETE
+  en_tete_gestion();
 
-	// MENU SUPERIEUR
-	menu_sup_gestion();
+  // MENU SUPERIEUR
+  menu_sup_gestion();
 ?>
 
 <div class='main'>
-	<?php
-		print("<div class='infos_candidat Texte'>
-					<strong>" . $_SESSION["tab_candidat"]["etudiant"] ." : " . $_SESSION["tab_candidat"]["civ_texte"] . " " . $_SESSION["tab_candidat"]["nom"] . " " . $_SESSION["tab_candidat"]["prenom"] .", " . $_SESSION["tab_candidat"]["ne_le"] . " " . $_SESSION["tab_candidat"]["txt_naissance"] ."</strong>
-				 </div>
+  <?php
+    print("<div class='infos_candidat Texte'>
+          <strong>" . $_SESSION["tab_candidat"]["etudiant"] ." : " . $_SESSION["tab_candidat"]["civ_texte"] . " " . $_SESSION["tab_candidat"]["nom"] . " " . $_SESSION["tab_candidat"]["prenom"] .", " . $_SESSION["tab_candidat"]["ne_le"] . " " . $_SESSION["tab_candidat"]["txt_naissance"] ."</strong>
+         </div>
 
-				<form action='$php_self' method='POST' name='form1'>");
+        <form action='$php_self' method='POST' name='form1'>");
 
-		titre_page_icone("Informations complémentaires (stages, emplois, formations, ...)", "abiword_32x32_fond.png", 2, "L");
+    titre_page_icone("Informations complémentaires (stages, emplois, formations, ...)", "abiword_32x32_fond.png", 2, "L");
 
-		message("Dans le cas d'une expérience <u>professionnelle</u>, n'oubliez pas de préciser le nom de l'entreprise ainsi que la nature du poste occupé.", $__WARNING);
+    message("Dans le cas d'une expérience <u>professionnelle</u>, n'oubliez pas de préciser le nom de l'entreprise ainsi que la nature du poste occupé.", $__WARNING);
 
-		if(isset($champ_vide))
-			message("Formulaire incomplet : les champs en gras sont <u>obligatoires</u>", $__ERREUR);
-		elseif(isset($annee_format))
-			message("Erreur : le champ 'année' doit être une valeur numérique à 4 chiffres", $__ERREUR);
-		else
-			message("Les champs en gras sont <u>obligatoires</u>", $__WARNING);
-	?>
+    if(isset($champ_vide))
+      message("Formulaire incomplet : les champs en gras sont <u>obligatoires</u>", $__ERREUR);
+    elseif(isset($annee_format))
+      message("Erreur : le champ 'année' doit être une valeur numérique à 4 chiffres", $__ERREUR);
+    else
+      message("Les champs en gras sont <u>obligatoires</u>", $__WARNING);
+  ?>
 
-	<table align='center'>
-	<tr>
-		<td class='td-gauche fond_menu2'>
-			<font class='Texte_menu2'><b>Année (YYYY)</b></font>
-		</td>
-		<td class='td-droite fond_menu'>
-			<input type='text' name='annee' value='<?php if(isset($annee)) echo htmlspecialchars(stripslashes($annee), ENT_QUOTES, $default_htmlspecialchars_encoding); elseif(isset($cur_annee)) echo htmlspecialchars(stripslashes($cur_annee), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' maxlength='4' size='15'>
-		</td>
-	</tr>
-	<tr>
-		<td class='td-gauche fond_menu2'>
-			<font class='Texte_menu2'><b>Information</b></font>
-		</td>
-		<td class='td-droite fond_menu'>
-			<textarea name='information' rows='6' cols='70' class='input'><?php if(isset($information)) echo htmlspecialchars(stripslashes($information), ENT_QUOTES, $default_htmlspecialchars_encoding); elseif(isset($cur_texte)) echo htmlspecialchars(stripslashes($cur_texte), ENT_QUOTES, $default_htmlspecialchars_encoding);?></textarea>
-		</td>
-	</tr>
-	<tr>
-		<td class='td-gauche fond_menu2'>
-			<font class='Texte_menu2'><b>Durée</b></font>
-		</td>
-		<td class='td-droite fond_menu'>
-			<input type='text' name='duree' value='<?php if(isset($duree)) echo htmlspecialchars(stripslashes($duree), ENT_QUOTES, $default_htmlspecialchars_encoding); elseif(isset($cur_duree)) echo htmlspecialchars(stripslashes($cur_duree), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' maxlength='20' size='30'>&nbsp;&nbsp;<font class='Texte_menu'><i>exemple : 1 mois, 2 ans, ...</i></font>
-		</td>
-	</tr>
-	</table>
+  <table align='center'>
+  <tr>
+    <td class='td-gauche fond_menu2'>
+      <font class='Texte_menu2'><b>Année (YYYY)</b></font>
+    </td>
+    <td class='td-droite fond_menu'>
+      <input type='text' name='annee' value='<?php if(isset($annee)) echo htmlspecialchars(stripslashes($annee), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); elseif(isset($cur_annee)) echo htmlspecialchars(stripslashes($cur_annee), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' maxlength='4' size='15'>
+    </td>
+  </tr>
+  <tr>
+    <td class='td-gauche fond_menu2'>
+      <font class='Texte_menu2'><b>Information</b></font>
+    </td>
+    <td class='td-droite fond_menu'>
+      <textarea name='information' rows='6' cols='70' class='input'><?php if(isset($information)) echo htmlspecialchars(stripslashes($information), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); elseif(isset($cur_texte)) echo htmlspecialchars(stripslashes($cur_texte), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);?></textarea>
+    </td>
+  </tr>
+  <tr>
+    <td class='td-gauche fond_menu2'>
+      <font class='Texte_menu2'><b>Durée</b></font>
+    </td>
+    <td class='td-droite fond_menu'>
+      <input type='text' name='duree' value='<?php if(isset($duree)) echo htmlspecialchars(stripslashes($duree), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); elseif(isset($cur_duree)) echo htmlspecialchars(stripslashes($cur_duree), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' maxlength='20' size='30'>&nbsp;&nbsp;<font class='Texte_menu'><i>exemple : 1 mois, 2 ans, ...</i></font>
+    </td>
+  </tr>
+  </table>
 
-	<div class='centered_icons_box'>
-		<a href='edit_candidature.php' target='_self' class='lien2'><img src='<?php echo "$__ICON_DIR/button_cancel_32x32_fond.png"; ?>' alt='Retour' border='0'></a>
-		<input type="image" src="<?php echo "$__ICON_DIR/button_ok_32x32_fond.png"; ?>" alt="Valider" name="go" value="Valider">
-		</form>
-	</div>
+  <div class='centered_icons_box'>
+    <a href='edit_candidature.php' target='_self' class='lien2'><img src='<?php echo "$__ICON_DIR/button_cancel_32x32_fond.png"; ?>' alt='Retour' border='0'></a>
+    <input type="image" src="<?php echo "$__ICON_DIR/button_ok_32x32_fond.png"; ?>" alt="Valider" name="go" value="Valider">
+    </form>
+  </div>
 
 </div>
 <?php
-	db_close($dbr);
-	pied_de_page();
+  db_close($dbr);
+  pied_de_page();
 ?>
 
 <script language="javascript">
-	document.form1.annee.focus()
+  document.form1.annee.focus()
 </script>
 </body></html>

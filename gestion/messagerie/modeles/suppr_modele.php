@@ -49,131 +49,131 @@ CeCILL-B, et que vous en avez accepté les termes.
 */
 ?>
 <?php
-	session_name("preinsc_gestion");
-	session_start();
+  session_name("preinsc_gestion");
+  session_start();
 
-	include "../../../configuration/aria_config.php";
-	include "$__INCLUDE_DIR_ABS/vars.php";
-	include "$__INCLUDE_DIR_ABS/fonctions.php";
-	include "$__INCLUDE_DIR_ABS/db.php";
+  include "../../../configuration/aria_config.php";
+  include "$__INCLUDE_DIR_ABS/vars.php";
+  include "$__INCLUDE_DIR_ABS/fonctions.php";
+  include "$__INCLUDE_DIR_ABS/db.php";
 
-	$php_self=$_SERVER['PHP_SELF'];
-	$_SESSION['CURRENT_FILE']=$php_self;
+  $php_self=$_SERVER['PHP_SELF'];
+  $_SESSION['CURRENT_FILE']=$php_self;
 
-	verif_auth("$__GESTION_DIR/login.php");
+  verif_auth("$__GESTION_DIR/login.php");
 
-	$dbr=db_connect();
+  $dbr=db_connect();
 
-	// Suppression d'un élément
-	// Arguments :
-	// o : ordre de l'objet (dans le tableau) à supprimer (il faudra décaler tous les objets suivants).
-	// récupération des variables cryptées
-	
-	if(isset($_POST["go_suivant"]) || isset($_POST["go_suivant_x"]))
-	{
-		$_SESSION["suppr_modele_id"]=$_POST["modele_id"];
-		$resultat=1;
-	}
+  // Suppression d'un élément
+  // Arguments :
+  // o : ordre de l'objet (dans le tableau) à supprimer (il faudra décaler tous les objets suivants).
+  // récupération des variables cryptées
+  
+  if(isset($_POST["go_suivant"]) || isset($_POST["go_suivant_x"]))
+  {
+    $_SESSION["suppr_modele_id"]=$_POST["modele_id"];
+    $resultat=1;
+  }
 
-	if(isset($_POST["go_valider"]) || isset($_POST["go_valider_x"]))
-	{
-		db_query($dbr,"DELETE FROM $_DB_msg_modeles WHERE $_DBC_msg_modeles_id='$_SESSION[suppr_modele_id]'");
+  if(isset($_POST["go_valider"]) || isset($_POST["go_valider_x"]))
+  {
+    db_query($dbr,"DELETE FROM $_DB_msg_modeles WHERE $_DBC_msg_modeles_id='$_SESSION[suppr_modele_id]'");
 
-		unset($_SESSION["suppr_modele_id"]);
+    unset($_SESSION["suppr_modele_id"]);
 
-		header("Location:$php_self?succes=1");
-		exit;
-	}
+    header("Location:$php_self?succes=1");
+    exit;
+  }
 
-	// EN-TETE
-	en_tete_gestion();
+  // EN-TETE
+  en_tete_gestion();
 
-	// MENU SUPERIEUR
-	menu_sup_simple();
+  // MENU SUPERIEUR
+  menu_sup_simple();
 ?>
 
 <div class='main'>
-	<?php
-		titre_page_icone("Supprimer un modèle de courriel", "trashcan_full_32x32_slick_fond.png", 15, "L");
+  <?php
+    titre_page_icone("Supprimer un modèle de courriel", "trashcan_full_32x32_slick_fond.png", 15, "L");
 
-		print("<form method='post' action='$php_self'>\n");
+    print("<form method='post' action='$php_self'>\n");
 
-		if(isset($_GET["succes"]))
-				message("Modèle supprimé avec succès.", $__SUCCES);
+    if(isset($_GET["succes"]))
+        message("Modèle supprimé avec succès.", $__SUCCES);
 
-		if(!isset($resultat))
-		{
-	?>
+    if(!isset($resultat))
+    {
+  ?>
 
-	<table align='center'>
-	<tr>
-		<td class='td-gauche fond_menu2'>
-			<font class='Texte_menu2'><b>Modèle à supprimer :</b></font>
-		</td>
-		<td class='td-droite fond_menu'>
-			<?php
-				$result=db_query($dbr,"SELECT $_DBC_msg_modeles_id, $_DBC_msg_modeles_intitule
-													FROM $_DB_msg_modeles
-												WHERE $_DBC_msg_modeles_acces_id='$_SESSION[auth_id]'
-												ORDER BY $_DBC_msg_modeles_intitule");
-				$rows=db_num_rows($result);
+  <table align='center'>
+  <tr>
+    <td class='td-gauche fond_menu2'>
+      <font class='Texte_menu2'><b>Modèle à supprimer :</b></font>
+    </td>
+    <td class='td-droite fond_menu'>
+      <?php
+        $result=db_query($dbr,"SELECT $_DBC_msg_modeles_id, $_DBC_msg_modeles_intitule
+                          FROM $_DB_msg_modeles
+                        WHERE $_DBC_msg_modeles_acces_id='$_SESSION[auth_id]'
+                        ORDER BY $_DBC_msg_modeles_intitule");
+        $rows=db_num_rows($result);
 
-				if($rows)
-				{
-					print("<select name='modele_id'>\n");
+        if($rows)
+        {
+          print("<select name='modele_id'>\n");
 
-					for($i=0; $i<$rows; $i++)
-					{
-						list($modele_id, $modele_intitule)=db_fetch_row($result, $i);
+          for($i=0; $i<$rows; $i++)
+          {
+            list($modele_id, $modele_intitule)=db_fetch_row($result, $i);
 
-						$val=htmlspecialchars($modele_intitule, ENT_QUOTES, $default_htmlspecialchars_encoding);
+            $val=htmlspecialchars($modele_intitule, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
 
-						print("<option value='$modele_id'>$modele_intitule</option>\n");
-					}
+            print("<option value='$modele_id'>$modele_intitule</option>\n");
+          }
 
-					print("</select>\n");
-				}
-				else
-				{
-					$no_element=1;
-					print("<font class='Texte_menu'>Aucun modèle à supprimer<br></font>\n");
-				}
+          print("</select>\n");
+        }
+        else
+        {
+          $no_element=1;
+          print("<font class='Texte_menu'>Aucun modèle à supprimer<br></font>\n");
+        }
 
-				db_free_result($result);
-			?>
-		</td>
-	</tr>
-	</table>
+        db_free_result($result);
+      ?>
+    </td>
+  </tr>
+  </table>
 
-	<div class='centered_icons_box'>
-		<a href='../index.php' target='_self' class='lien2'><img src='<?php echo "$__ICON_DIR/button_cancel_32x32_fond.png" ?>' alt='Retour' border='0'></a>
-		<?php
-			if(!isset($no_element))
-				print("<input type='image' src='$__ICON_DIR/forward_32x32_fond.png' alt='Suivant' name='go_suivant' value='Suivant'>\n");
-		?>
-		</form>
-	</div>
+  <div class='centered_icons_box'>
+    <a href='../index.php' target='_self' class='lien2'><img src='<?php echo "$__ICON_DIR/button_cancel_32x32_fond.png" ?>' alt='Retour' border='0'></a>
+    <?php
+      if(!isset($no_element))
+        print("<input type='image' src='$__ICON_DIR/forward_32x32_fond.png' alt='Suivant' name='go_suivant' value='Suivant'>\n");
+    ?>
+    </form>
+  </div>
 
-	<?php
-		}
-		else
-		{
-			message("Attention : la suppression de cet élément est <b>définitive</b> !", $__WARNING);
+  <?php
+    }
+    else
+    {
+      message("Attention : la suppression de cet élément est <b>définitive</b> !", $__WARNING);
 
-			message("Souhaitez-vous vraiment supprimer ce modèle ?", $__QUESTION);
+      message("Souhaitez-vous vraiment supprimer ce modèle ?", $__QUESTION);
 
-			print("<div class='centered_icons_box'>
-						<a href='../index.php' target='_self' class='lien2'><img src='$__ICON_DIR/button_cancel_32x32_fond.png' alt='Retour' border='0'></a>
-						<input type='image' src='$__ICON_DIR/trashcan_full_32x32_slick_fond.png' alt='Confirmer' name='go_valider' value='Confirmer'>
-						</form>
-					 </div>");
-		}
+      print("<div class='centered_icons_box'>
+            <a href='../index.php' target='_self' class='lien2'><img src='$__ICON_DIR/button_cancel_32x32_fond.png' alt='Retour' border='0'></a>
+            <input type='image' src='$__ICON_DIR/trashcan_full_32x32_slick_fond.png' alt='Confirmer' name='go_valider' value='Confirmer'>
+            </form>
+           </div>");
+    }
 
-		db_close($dbr);
-	?>
-	
+    db_close($dbr);
+  ?>
+  
 </div>
 <?php
-	pied_de_page();
+  pied_de_page();
 ?>
 </body></html>

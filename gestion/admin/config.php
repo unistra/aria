@@ -357,7 +357,7 @@ CeCILL-B, et que vous en avez accepté les termes.
             else // défaut
                $cur_db_host="localhost";
          ?>
-         <font class='Texte_menu'><input type='text' name='db_host' value='<?php echo htmlspecialchars(stripslashes($cur_db_host), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size='60' maxlength='128'></font>
+         <font class='Texte_menu'><input type='text' name='db_host' value='<?php echo htmlspecialchars(stripslashes($cur_db_host), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size='60' maxlength='128'></font>
       </td>
    </tr>
    <tr>
@@ -373,7 +373,7 @@ CeCILL-B, et que vous en avez accepté les termes.
             else // défaut
                $cur_db_port="5432";
          ?>
-         <font class='Texte_menu'><input type='text' name='db_port' value='<?php echo htmlspecialchars(stripslashes($cur_db_port), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size='60' maxlength='128'></font>
+         <font class='Texte_menu'><input type='text' name='db_port' value='<?php echo htmlspecialchars(stripslashes($cur_db_port), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size='60' maxlength='128'></font>
       </td>
    </tr>
    <tr>
@@ -410,7 +410,7 @@ CeCILL-B, et que vous en avez accepté les termes.
             else // défaut
                $cur_db_base="aria";
          ?>
-         <font class='Texte_menu'><input type='text' name='db_base' value='<?php echo htmlspecialchars(stripslashes($cur_db_base), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size='60' maxlength='128'></font>
+         <font class='Texte_menu'><input type='text' name='db_base' value='<?php echo htmlspecialchars(stripslashes($cur_db_base), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size='60' maxlength='128'></font>
       </td>
    </tr>
    <tr>
@@ -426,7 +426,7 @@ CeCILL-B, et que vous en avez accepté les termes.
             else // défaut
                $cur_db_user="login";
          ?>
-         <font class='Texte_menu'><input type='text' name='db_user' value='<?php echo htmlspecialchars(stripslashes($cur_db_user), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size='60' maxlength='128'></font>
+         <font class='Texte_menu'><input type='text' name='db_user' value='<?php echo htmlspecialchars(stripslashes($cur_db_user), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size='60' maxlength='128'></font>
       </td>
    </tr>
    <tr>
@@ -472,7 +472,7 @@ CeCILL-B, et que vous en avez accepté les termes.
             }
          ?>
          <font class='Texte_menu'>
-            <input type='text' name='rootdir' value='<?php echo htmlspecialchars(stripslashes($cur_rootdir), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size='40' maxlength='128'>
+            <input type='text' name='rootdir' value='<?php echo htmlspecialchars(stripslashes($cur_rootdir), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size='40' maxlength='128'>
             <?php
                if(isset($root_auto))
                   echo "<strong>(autodétecté)</strong>";
@@ -497,7 +497,7 @@ CeCILL-B, et que vous en avez accepté les termes.
             }
          ?>
          <font class='Texte_menu'>
-            <input type='text' name='appdir' value='<?php echo htmlspecialchars(stripslashes($cur_appdir), ENT_QUOTES, $default_htmlspecialchars_encoding); ?>' size='40' maxlength='128'>
+            <input type='text' name='appdir' value='<?php echo htmlspecialchars(stripslashes($cur_appdir), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size='40' maxlength='128'>
             <?php
                if(isset($app_auto))
                   echo "<strong>(autodétecté)</strong>";

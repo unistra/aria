@@ -165,10 +165,10 @@ CeCILL-B, et que vous en avez accepté les termes.
          case   "tri_statut" :      $methode_tri="ORDER BY $_DBC_cand_statut ";
                                  break;
                                  
-         case	"tri_date_asc" : $methode_tri="ORDER BY $_DBC_cand_id ";
+         case "tri_date_asc" : $methode_tri="ORDER BY $_DBC_cand_id ";
                                  break;
                                  
-         case	"tri_date_desc" : $methode_tri="ORDER BY $_DBC_cand_id DESC";
+         case "tri_date_desc" : $methode_tri="ORDER BY $_DBC_cand_id DESC";
                                  break;                                 
 
          default               :   $methode_tri="ORDER BY $_DBC_candidat_nom, $_DBC_candidat_nom_naissance, $_DBC_candidat_prenom, $_DBC_candidat_date_naissance ";
@@ -193,10 +193,10 @@ CeCILL-B, et que vous en avez accepté les termes.
             case   "tri_statut" :      $methode_tri.=", $_DBC_cand_statut ";
                                     break;
 
-         case	"tri_date_asc" : $methode_tri.=", $_DBC_cand_id ";
+         case "tri_date_asc" : $methode_tri.=", $_DBC_cand_id ";
                                  break;
                                  
-         case	"tri_date_desc" : $methode_tri.=", $_DBC_cand_id DESC";
+         case "tri_date_desc" : $methode_tri.=", $_DBC_cand_id DESC";
                                  break;                                 
             
                                     
@@ -241,7 +241,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                                             $_DBC_cand_vap_flag, $_DBC_cand_statut_frais, $_DBC_cand_transmission_dossier,
                                             $_DBC_propspec_frais, $_DBC_cand_statut, $_DBC_candidat_telephone, $_DBC_candidat_telephone_portable, 
                                             $_DBC_annees_annee, $_DBC_mentions_nom, $_DBC_specs_nom_court, $_DBC_propspec_finalite, $_DBC_propspec_id, 
-					                             $_DBC_cand_ordre, $_DBC_cand_id
+                                       $_DBC_cand_ordre, $_DBC_cand_id
                                         FROM $_DB_candidat, $_DB_cand, $_DB_decisions, $_DB_propspec, $_DB_specs, $_DB_mentions, 
                                             $_DB_annees
                                      WHERE $_DBC_candidat_id=$_DBC_cand_candidat_id
@@ -314,7 +314,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                   }
                }
                
-	            $string.=$cur_ordre_voeu ? "\"ORDRE VOEU\";" : "";
+              $string.=$cur_ordre_voeu ? "\"ORDRE VOEU\";" : "";
                $string.=$cur_statut ? "\"RECEVABILITE\";" : "";
                $string.=$cur_decision ? "\"DECISION\";" : "";
                $string.=$cur_motivation ? "\"MOTIF\";" : "";
@@ -669,7 +669,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                         $string.=str_repeat("\"\";", 6);
                   }                       
 
-		  $string.=$cur_ordre_voeu ? "\"$cand_ordre\";" : "";
+      $string.=$cur_ordre_voeu ? "\"$cand_ordre\";" : "";
                   $string.=$cur_statut ? "\"" . str_replace(";", ",", str_replace("\"", "'", $tab_recevabilite[$cand_statut])) . "\";" : "";
                   $string.=$cur_decision ? "\"" . str_replace(";", ",", str_replace("\"", "'", $cand_decision)) . "\";" : "";
                   $string.=$cur_motivation ? "\"" . str_replace(";", ",", str_replace("\"", "'", $motivation)) . "\";" : "";
@@ -864,7 +864,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                            print("</optgroup>
                                     <option value='' label='' disabled></option>\n");
 
-                        $val=htmlspecialchars($form_mention_nom, ENT_QUOTES, $default_htmlspecialchars_encoding);
+                        $val=htmlspecialchars($form_mention_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
 
                         print("<optgroup label='- $val'>\n");
 
@@ -1414,7 +1414,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                ?>
             </font>
          </td>
-	 <td class='td-droite fond_menu'>
+   <td class='td-droite fond_menu'>
             <font class='Texte_menu'>
                <?php
                   if(isset($cur_ordre_voeu) && $cur_ordre_voeu==1)

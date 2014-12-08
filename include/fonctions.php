@@ -1437,11 +1437,11 @@ function en_tete_index()
    }
    
    print("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">
-            <html><head><title>". htmlspecialchars($GLOBALS["__TITRE_HTML"], ENT_QUOTES, $default_htmlspecialchars_encoding) ."</title>
+            <html><head><title>". htmlspecialchars($GLOBALS["__TITRE_HTML"], ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]) ."</title>
 
             <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">
             <meta http-equiv=\"Pragma\" content=\"no-cache\">
-            <meta name=\"keywords\" content=\"". htmlspecialchars($GLOBALS["__META"], ENT_QUOTES, $default_htmlspecialchars_encoding) ."\">
+            <meta name=\"keywords\" content=\"". htmlspecialchars($GLOBALS["__META"], ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]) ."\">
             <link rel=\"stylesheet\" type=\"text/css\" href=\"$GLOBALS[__STATIC_DIR]/$_SESSION[css]\"></head>
 
             <body class=\"main\" leftmargin=\"0\" topmargin=\"0\" marginwidth=\"0\" marginheight=\"0\" vlink=\"black\" alink=\"black\" link=\"black\">
@@ -1455,7 +1455,7 @@ function en_tete_index()
 
    print("</td>
           <td height=\"$hauteur_logo\" align=\"center\">
-            <font class=\"TitrePage2\"><b>". htmlspecialchars($GLOBALS["__TITRE_PAGE"], ENT_QUOTES, $default_htmlspecialchars_encoding) ."</b></font>
+            <font class=\"TitrePage2\"><b>". htmlspecialchars($GLOBALS["__TITRE_PAGE"], ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]) ."</b></font>
          </td>
          <td width=\"$largeur_logo\" height=\"$hauteur_logo\"></td>
       </tr>
@@ -1611,7 +1611,7 @@ function en_tete_candidat()
    }
 
    print("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">
-         <html><head><title>". htmlspecialchars($GLOBALS["__TITRE_HTML"], ENT_QUOTES, $default_htmlspecialchars_encoding) ."</title>
+         <html><head><title>". htmlspecialchars($GLOBALS["__TITRE_HTML"], ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]) ."</title>
 
          <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">
          <meta http-equiv=\"Pragma\" content=\"no-cache\">
@@ -1633,7 +1633,7 @@ function en_tete_candidat()
    if(isset($_SESSION["composante"]))
       print("<b>$_SESSION[composante]</b><br>\n");
    else
-      print("<b>". htmlspecialchars($GLOBALS["__TITRE_PAGE"], ENT_QUOTES, $default_htmlspecialchars_encoding) ."</b><br>\n");
+      print("<b>". htmlspecialchars($GLOBALS["__TITRE_PAGE"], ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]) ."</b><br>\n");
 
    print("         <b>Précandidatures en ligne</b>
                </font>
@@ -1689,7 +1689,7 @@ function en_tete_candidat_simple()
    }
    
    print("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">
-            <html><head><title>". htmlspecialchars($GLOBALS["__TITRE_HTML"], ENT_QUOTES, $default_htmlspecialchars_encoding) ."</title>
+            <html><head><title>". htmlspecialchars($GLOBALS["__TITRE_HTML"], ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]) ."</title>
 
             <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">
             <meta http-equiv=\"Pragma\" content=\"no-cache\">
@@ -1706,7 +1706,7 @@ function en_tete_candidat_simple()
 
    print("</td>
           <td height=\"$hauteur_logo\" align=\"center\">
-            <font class='TitrePage2'><b>". htmlspecialchars($GLOBALS["__TITRE_PAGE"], ENT_QUOTES, $default_htmlspecialchars_encoding) ."<br>Précandidatures en ligne</b></font>
+            <font class='TitrePage2'><b>". htmlspecialchars($GLOBALS["__TITRE_PAGE"], ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]) ."<br>Précandidatures en ligne</b></font>
          </td>
          <td width=\"$largeur_logo\" height=\"$hauteur_logo\"></td>
       </tr>
