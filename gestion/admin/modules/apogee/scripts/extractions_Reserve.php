@@ -116,7 +116,7 @@ CeCILL-B, et que vous en avez accepté les termes.
    
    $res_pays_nat=db_query($dbr, "SELECT $_DBC_pays_nat_ii_iso, $_DBC_pays_nat_ii_insee, $_DBC_pays_nat_ii_pays, $_DBC_pays_nat_ii_nat
                                  FROM $_DB_pays_nat_ii
-                                 ORDER BY to_ascii($_DBC_pays_nat_ii_pays)");
+                                 ORDER BY unaccent($_DBC_pays_nat_ii_pays)");
                                  
    $rows_pays_nat=db_num_rows($res_pays_nat);
    
@@ -176,7 +176,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                            $condition_normale
                            ORDER BY $_DBC_candidat_id, $_DBC_cand_date_prise_decision");
 
-									// AND $_DBC_candidat_deja_inscrit='0
+                  // AND $_DBC_candidat_deja_inscrit='0
 
    $nb_result=db_num_rows($result);
 
@@ -381,16 +381,16 @@ CeCILL-B, et que vous en avez accepté les termes.
 
             // Code d'autorisation
             $candidature_array=__get_candidature($dbr, $cand_id);
-				$candidat_array=__get_infos_candidat($dbr, $c_id);
+        $candidat_array=__get_infos_candidat($dbr, $c_id);
             $cursus_array=array(); // cursus inutile : tableau vide pour appel à la fonction
-				$lang="FR";
+        $lang="FR";
 
-				if(is_array($candidature_array) && is_array($candidat_array))        
+        if(is_array($candidature_array) && is_array($candidat_array))        
             {   
-				   $corps_message=pdf_traitement_macros($dbr, $corps_message, $candidat_array, $candidature_array, $cursus_array, $lang);
-				 
-				   // dirty hack : ré-extraction directe du code pour stockage dans la base
-				   $code_lp=trim(pdf_traitement_macros($dbr, "%code%", $candidat_array, $candidature_array, $cursus_array, $lang));
+           $corps_message=pdf_traitement_macros($dbr, $corps_message, $candidat_array, $candidature_array, $cursus_array, $lang);
+         
+           // dirty hack : ré-extraction directe du code pour stockage dans la base
+           $code_lp=trim(pdf_traitement_macros($dbr, "%code%", $candidat_array, $candidature_array, $cursus_array, $lang));
             }
             else
             {
@@ -414,7 +414,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
                // Dernière étape : insertion dans la table.
                // db_query($dbr,"INSERT INTO $_module_apogee_DB_numeros_opi VALUES ('$opi','$cand_id','$ligne_candidat','$ligne_voeu')");
-					db_query($dbr,"INSERT INTO $_module_apogee_DB_numeros_opi VALUES ('$opi','$cand_id','$ligne_candidat','')");
+          db_query($dbr,"INSERT INTO $_module_apogee_DB_numeros_opi VALUES ('$opi','$cand_id','$ligne_candidat','')");
             }
             elseif($TESTMODE==1) // envoi d'un seul message à l'admin
             {
@@ -440,7 +440,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       {
          $res_extraction=db_query($dbr, "SELECT $_module_apogee_DBC_numeros_opi_ligne_candidat
                                              FROM $_module_apogee_DB_numeros_opi
-					  WHERE $_module_apogee_DBC_numeros_opi_ligne_voeux=''
+            WHERE $_module_apogee_DBC_numeros_opi_ligne_voeux=''
                                           ORDER BY $_module_apogee_DBC_numeros_opi_num");
 
          $rows_extr=db_num_rows($res_extraction);
@@ -453,7 +453,7 @@ CeCILL-B, et que vous en avez accepté les termes.
             for($i=0; $i<$rows_extr; $i++)
             {
 //             list($ligne_cand, $ligne_voeu)=db_fetch_row($res_extraction, $i);
-					list($ligne_cand)=db_fetch_row($res_extraction, $i);
+          list($ligne_cand)=db_fetch_row($res_extraction, $i);
 
                fwrite($fichier_candidats, preg_replace("/[']+/","'",$ligne_cand)."\n");
 //               fwrite($fichier_voeux, preg_replace("/[']+/","'", $ligne_voeu)."\n");

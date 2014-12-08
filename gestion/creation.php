@@ -378,7 +378,7 @@ $__SIGNATURE_COURRIELS";
   
   $res_pays_nat=db_query($dbr, "SELECT $_DBC_pays_nat_ii_iso, $_DBC_pays_nat_ii_insee, $_DBC_pays_nat_ii_pays, $_DBC_pays_nat_ii_nat
                       FROM $_DB_pays_nat_ii
-                      ORDER BY to_ascii($_DBC_pays_nat_ii_pays)");
+                      ORDER BY unaccent($_DBC_pays_nat_ii_pays)");
                       
   $rows_pays_nat=db_num_rows($res_pays_nat);
   

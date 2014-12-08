@@ -115,7 +115,7 @@ CeCILL-B, et que vous en avez accepté les termes.
    
    $res_pays_nat=db_query($dbr, "SELECT $_DBC_pays_nat_ii_iso, $_DBC_pays_nat_ii_insee, $_DBC_pays_nat_ii_pays, $_DBC_pays_nat_ii_nat
                                  FROM $_DB_pays_nat_ii
-                                 ORDER BY to_ascii($_DBC_pays_nat_ii_pays)");
+                                 ORDER BY unaccent($_DBC_pays_nat_ii_pays)");
                                  
    $rows_pays_nat=db_num_rows($res_pays_nat);
    
@@ -504,16 +504,16 @@ CeCILL-B, et que vous en avez accepté les termes.
 
             // Code d'autorisation
             $candidature_array=__get_candidature($dbr, $cand_id);
-				$candidat_array=__get_infos_candidat($dbr, $c_id);
+        $candidat_array=__get_infos_candidat($dbr, $c_id);
             $cursus_array=array(); // cursus inutile : tableau vide pour appel à la fonction
-				$lang="FR";
+        $lang="FR";
 
-				if(is_array($candidature_array) && is_array($candidat_array))        
+        if(is_array($candidature_array) && is_array($candidat_array))        
             {   
-				   $corps_message=pdf_traitement_macros($dbr, $corps_message, $candidat_array, $candidature_array, $cursus_array, $lang);
-				 
-				   // dirty hack : ré-extraction directe du code pour stockage dans la base
-				   $code_lp=trim(pdf_traitement_macros($dbr, "%code%", $candidat_array, $candidature_array, $cursus_array, $lang));
+           $corps_message=pdf_traitement_macros($dbr, $corps_message, $candidat_array, $candidature_array, $cursus_array, $lang);
+         
+           // dirty hack : ré-extraction directe du code pour stockage dans la base
+           $code_lp=trim(pdf_traitement_macros($dbr, "%code%", $candidat_array, $candidature_array, $cursus_array, $lang));
             }
             else // TODO : ajouter des alertes par mail en cas d'erreur
             {
