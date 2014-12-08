@@ -221,19 +221,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                 <br><br><br>\n");
         else
         {
-          $nb_reel_fichiers=$nb_fichiers-2; // on supprime les répertoires . et ..
-
-          if($nb_reel_fichiers>1)
-            $txt="$nb_reel_fichiers fichiers : ";
-          else
-            $txt="Un fichier : ";
-
           print("<table style='padding-bottom:20px;'>
-                <tr>
-                  <td class='fond_menu2' colspan='4' style='padding:4px 10px 4px 10px;'>
-                    <font class='Texte_menu2'><b>$txt</b>
-                  </td>
-                </tr>
                 <tr>
                   <td class='fond_menu2' nowrap='true' valign='top' style='padding:4px 4px 4px 10px;'>
                     <font class='Texte_menu2'><b>Dernière modification</b></font>
@@ -242,7 +230,10 @@ CeCILL-B, et que vous en avez accepté les termes.
                     <font class='Texte_menu2'><b>Nom</b></font>
                   </td>
                   <td class='fond_menu2' align='center' nowrap='true' valign='top' style='padding:4px;'>
-                    <font class='Texte_menu2'><b>Taille (en octets)</b></font>
+                    <font class='Texte_menu2'><b>Associer</b></font>
+                  </td>
+                  <td class='fond_menu2' align='center' nowrap='true' valign='top' style='padding:4px;'>
+                    <font class='Texte_menu2'><b>Taille</b></font>
                   </td>
                   <td class='fond_menu2' align='center' nowrap='true' valign='top' style='padding:4px 10px 4px 4px;'>
                     <font class='Texte_menu2'><b>Sélection</b></font>
@@ -255,6 +246,7 @@ CeCILL-B, et que vous en avez accepté les termes.
             // $fichier=$_SESSION["repertoire"] . "/" . $_SESSION["contenu_repertoire"][$i];
 
             $fichier="$__PUBLIC_DIR_ABS/$_SESSION[comp_id]/justificatifs/" . $_SESSION["contenu_repertoire"][$i];
+            $fichier2="$__PUBLIC_DIR/$_SESSION[comp_id]/justificatifs/" . $_SESSION["contenu_repertoire"][$i];
             $nom_fichier=$_SESSION["contenu_repertoire"][$i];
 
             // On cherche le fichier dans la base
@@ -268,7 +260,13 @@ CeCILL-B, et que vous en avez accepté les termes.
 
               $infos_fichier=stat($fichier);
 
-              $taille=$infos_fichier["size"];
+              if($infos_fichier["size"] < 1024)
+                $taille = $infos_fichier["size"]." octets";
+              elseif(1024 <= $infos_fichier["size"] &&  $infos_fichier["size"] < (1024*1024))
+                $taille = round(($infos_fichier["size"]/1024), 2)." ko";
+              else
+                $taille = round(($infos_fichier["size"]/(1024*1024)), 2)." Mo";
+
               $creation=date_fr("j F Y, H:i", $infos_fichier["mtime"]);
 
               print("<tr>
@@ -276,7 +274,10 @@ CeCILL-B, et que vous en avez accepté les termes.
                       <font class='Texte_menu'>$creation</font>
                     </td>
                     <td class='fond_menu' align='center' nowrap='true' valign='top' style='padding:4px;'>
-                      <font class='Texte_menu'><b><a href='fichiers_formations.php?f=$fichier_id' class='lien2'>$nom_fichier</a></b></font>
+                      <font class='Texte_menu'><b><a href='$fichier2' target='_blank' class='lien2'>$nom_fichier</a></b></font>
+                    </td>
+                    <td class='fond_menu' align='center' nowrap='true' valign='top' style='padding:4px;'>
+                      <font class='Texte_menu'><a href='fichiers_formations.php?f=$fichier_id' class='lien2'><img src='$__ICON_DIR/edit_16x16_menu.png' alt='Editer' border='0'></a></font>
                     </td>
                     <td class='fond_menu' align='center' nowrap='true' valign='top' style='padding:4px;'>
                       <font class='Texte_menu'>$taille</font>
@@ -298,7 +299,9 @@ CeCILL-B, et que vous en avez accepté les termes.
               </table>
               
               <font class='Texte3'>
-                Pour modifier les liens entre un fichier et une formation, cliquez sur le nom du fichier voulu.
+                Pour visualiser un fichier (dans une nouvelle page), cliquer sur son nom.
+                <br>
+                Pour associer un fichier aux formations, cliquez sur l'icône dans la colonne 'Associer'.
               </font>\n");
         }
       ?>
@@ -307,6 +310,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <font class='Titre' face="Arial" size="4" style="font-weight: bold;">
         Envoyer un nouveau fichier
       </font>
+      <br><br>
       
       <table>
       <tr>
