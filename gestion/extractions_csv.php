@@ -108,6 +108,8 @@ CeCILL-B, et que vous en avez accepté les termes.
       $cur_aff_cursus=array_key_exists("aff_cursus", $_POST) ? $_POST["aff_cursus"] : 0;
       
       $cur_dossier=array_key_exists("dossier", $_POST) ? $_POST["dossier"] : 0;
+      $cur_langues=array_key_exists("langues", $_POST) ? $_POST["langues"] : 0;
+      $cur_infoscomp=array_key_exists("infoscomp", $_POST) ? $_POST["infoscomp"] : 0;
       $cur_decision=array_key_exists("decision", $_POST) ? $_POST["decision"] : 0;
       $cur_statut=array_key_exists("statut", $_POST) ? $_POST["statut"] : 0;
       $cur_motivation=array_key_exists("motivation", $_POST) ? $_POST["motivation"] : 0;
@@ -150,28 +152,28 @@ CeCILL-B, et que vous en avez accepté les termes.
       // Méthode de tri
       switch($cur_first_tri)
       {
-         case   "tri_nom"       :    $methode_tri="ORDER BY $_DBC_candidat_nom, $_DBC_candidat_nom_naissance, $_DBC_candidat_prenom, $_DBC_candidat_date_naissance ";
+         case   "tri_nom"      : $methode_tri="ORDER BY $_DBC_candidat_nom, $_DBC_candidat_nom_naissance, $_DBC_candidat_prenom, $_DBC_candidat_date_naissance ";
                                  break;
 
-         case   "tri_formation":    $methode_tri="ORDER BY $_DBC_annees_ordre, $_DBC_specs_mention_id, $_DBC_specs_nom, $_DBC_propspec_finalite ";
+         case   "tri_formation": $methode_tri="ORDER BY $_DBC_annees_ordre, $_DBC_specs_mention_id, $_DBC_specs_nom, $_DBC_propspec_finalite ";
                                  break;
 
-         case   "tri_decision" :   $methode_tri="ORDER BY $_DBC_cand_decision ";
+         case   "tri_decision" : $methode_tri="ORDER BY $_DBC_cand_decision ";
                                  if($cur_tri_rang)
                                     $methode_tri.=", $_DBC_cand_liste_attente";
 
                                  break;
 
-         case   "tri_statut" :      $methode_tri="ORDER BY $_DBC_cand_statut ";
+         case   "tri_statut"   : $methode_tri="ORDER BY $_DBC_cand_statut ";
                                  break;
                                  
-         case "tri_date_asc" : $methode_tri="ORDER BY $_DBC_cand_id ";
+         case "tri_date_asc"   : $methode_tri="ORDER BY $_DBC_cand_id ";
                                  break;
                                  
-         case "tri_date_desc" : $methode_tri="ORDER BY $_DBC_cand_id DESC";
+         case "tri_date_desc"  : $methode_tri="ORDER BY $_DBC_cand_id DESC";
                                  break;                                 
 
-         default               :   $methode_tri="ORDER BY $_DBC_candidat_nom, $_DBC_candidat_nom_naissance, $_DBC_candidat_prenom, $_DBC_candidat_date_naissance ";
+         default               : $methode_tri="ORDER BY $_DBC_candidat_nom, $_DBC_candidat_nom_naissance, $_DBC_candidat_prenom, $_DBC_candidat_date_naissance ";
                                  break;
       }
 
@@ -179,28 +181,28 @@ CeCILL-B, et que vous en avez accepté les termes.
       {
          switch($cur_sec_tri)
          {
-            case   "tri_nom"       :    $methode_tri.=", $_DBC_candidat_nom, $_DBC_candidat_nom_naissance, $_DBC_candidat_prenom, $_DBC_candidat_date_naissance ";
+            case   "tri_nom"      : $methode_tri.=", $_DBC_candidat_nom, $_DBC_candidat_nom_naissance, $_DBC_candidat_prenom, $_DBC_candidat_date_naissance ";
                                     break;
 
-            case   "tri_formation":    $methode_tri.=", $_DBC_annees_ordre, $_DBC_specs_mention_id, $_DBC_specs_nom, $_DBC_propspec_finalite";
+            case   "tri_formation": $methode_tri.=", $_DBC_annees_ordre, $_DBC_specs_mention_id, $_DBC_specs_nom, $_DBC_propspec_finalite";
                                     break;
 
-            case   "tri_decision" :   $methode_tri.=", $_DBC_cand_decision ";
+            case   "tri_decision" : $methode_tri.=", $_DBC_cand_decision ";
                                     if($cur_tri_rang)
                                        $methode_tri.=", $_DBC_cand_liste_attente";
                                     break;
 
-            case   "tri_statut" :      $methode_tri.=", $_DBC_cand_statut ";
+            case   "tri_statut"   : $methode_tri.=", $_DBC_cand_statut ";
                                     break;
 
-         case "tri_date_asc" : $methode_tri.=", $_DBC_cand_id ";
-                                 break;
+            case "tri_date_asc"   : $methode_tri.=", $_DBC_cand_id ";
+                                    break;
                                  
-         case "tri_date_desc" : $methode_tri.=", $_DBC_cand_id DESC";
-                                 break;                                 
+            case "tri_date_desc"  : $methode_tri.=", $_DBC_cand_id DESC";
+                                    break;                                 
             
                                     
-            default               :   $methode_tri.=", $_DBC_cand_decision ";
+            default               : $methode_tri.=", $_DBC_cand_decision ";
                                     break;
          }
       }
@@ -313,8 +315,10 @@ CeCILL-B, et que vous en avez accepté les termes.
                      $champs_vides=str_repeat("\"\";", $nb_vides);                     
                   }
                }
+               $string.=$cur_langues ? "\"LANGUES\";" : "";
+               $string.=$cur_infoscomp ? "\"INFOS COMPLEMENTAIRES\";" : "";
                
-              $string.=$cur_ordre_voeu ? "\"ORDRE VOEU\";" : "";
+               $string.=$cur_ordre_voeu ? "\"ORDRE VOEU\";" : "";
                $string.=$cur_statut ? "\"RECEVABILITE\";" : "";
                $string.=$cur_decision ? "\"DECISION\";" : "";
                $string.=$cur_motivation ? "\"MOTIF\";" : "";
@@ -376,22 +380,6 @@ CeCILL-B, et que vous en avez accepté les termes.
                        $frais_dossiers, $cand_statut, $candidat_telephone, $candidat_telephone_portable, $annee, $mention, $spec_nom, $finalite,
                        $propspec_id, $cand_ordre, $cand_id)=db_fetch_row($result_ext, $i);
 
-                  // Titres
-/*                  
-                  if($cur_propspec_id=="toutes" && $propspec_id!=$prev_propspec_id)
-                  {
-                     $nom_formation=$annee=="" ? "[$mention] $spec_nom" : "$annee [$mention] $spec_nom";
-                     $nom_formation.=$tab_finalite[$finalite]=="" ? "" : " $tab_finalite[$finalite]";
-
-                     if($cur_affichage_formations==1)
-                     {
-                        $str="\n\"$nom_formation\";\n;\n";
-                        fwrite($fp, $str, strlen($str));
-                     }
-
-                     $prev_propspec_id=$propspec_id;
-                  }
-*/
                   $candidat_adresse=$candidat_adresse_1;
                   $candidat_adresse.=$candidat_adresse_2!="" ? "\n".$candidat_adresse_2 : "";
                   $candidat_adresse.=$candidat_adresse_3!="" ? "\n".$candidat_adresse_3 : "";
@@ -517,6 +505,56 @@ CeCILL-B, et que vous en avez accepté les termes.
 
                      db_free_result($result_cursus);
                   }
+                  
+                  if($cur_langues) {
+                     $result_langues=db_query($dbr, "SELECT $_DBC_langues_langue, $_DBC_langues_niveau, $_DBC_langues_annees
+                                                     FROM $_DB_langues
+                                                     WHERE $_DBC_langues_candidat_id='$candidat_id'
+                                                     ORDER BY $_DBC_langues_langue ASC");
+                                                    
+                     $rows_langues=db_num_rows($result_langues);
+
+                     if($result_langues) {
+                        $langues="";
+                        
+                        for($j=0; $j<$rows_langues; $j++) {
+                           list($langue, $langue_niveau, $langue_annees)=db_fetch_row($result_langues, $j);
+                           
+                           $niveaux = explode("|", $langue_niveau);
+                           $lu = $niveaux[0] ? "lu, " : "";
+                           $ecrit = $niveaux[1] ? "écrit, " : "";
+                           $parle = $niveaux[2] ? "parlé, " : "";
+                           $maternelle = $niveaux[3] ? "langue maternelle, " : "";
+                           
+                           if($langues!="")
+                              $langues.="\n\n";
+                              
+                           $langues.="Langue : $langue\nNiveau : $lu$ecrit$parle$maternelle\nDurée : $langue_annees";
+                        }
+                     }
+                  }
+                  
+                  if($cur_infoscomp) {
+                     $result_infoscomp=db_query($dbr, "SELECT $_DBC_infos_comp_texte, $_DBC_infos_comp_annee, $_DBC_infos_comp_duree
+                                                       FROM $_DB_infos_comp
+                                                       WHERE $_DBC_infos_comp_candidat_id='$candidat_id'
+                                                       ORDER BY $_DBC_infos_comp_annee DESC");
+                                                    
+                     $rows_infoscomp=db_num_rows($result_infoscomp);
+
+                     if($result_infoscomp) {
+                        $infoscomp="";
+                        
+                        for($j=0; $j<$rows_infoscomp; $j++) {
+                           list($info_texte, $info_annee, $info_duree)=db_fetch_row($result_infoscomp, $j);
+
+                           if($infoscomp!="")
+                              $infoscomp.="\n\n";
+                              
+                           $infoscomp.="Année : $info_annee\n$info_texte\nDurée : $info_duree";
+                        }
+                     }
+                  }
 
                   // Décision
                   // Transmission de dossier : on ajoute la formation destination
@@ -526,11 +564,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                      $cand_decision.=", rang $cand_liste_attente";
 
                   // Motif de la décision : dépend directement de la décision en question
-/*                  
-                  if($cur_motivation && ($cand_decision_id==$__DOSSIER_EN_ATTENTE || $cand_decision_id==$__DOSSIER_SOUS_RESERVE
-                  || $cand_decision_id==$__DOSSIER_REFUS || $cand_decision_id==$__DOSSIER_REFUS_ENTRETIEN
-                  || $cand_decision_id==$__DOSSIER_REFUS_RECOURS || $cand_decision_id==$__DOSSIER_TRANSMIS))
-*/
+
                   if($cur_motivation)                  
                   {
                      if($cand_motivation!="")
@@ -668,8 +702,9 @@ CeCILL-B, et que vous en avez accepté les termes.
                      else // pas de cursus
                         $string.=str_repeat("\"\";", 6);
                   }                       
-
-      $string.=$cur_ordre_voeu ? "\"$cand_ordre\";" : "";
+                  $string.=$cur_langues ? "\"" . str_replace(";", ",", str_replace("\"", "'", $langues)) ."\";" : "";
+                  $string.=$cur_infoscomp ? "\"" . str_replace(";", ",", str_replace("\"", "'", $infoscomp)) ."\";" : "";
+                  $string.=$cur_ordre_voeu ? "\"$cand_ordre\";" : "";
                   $string.=$cur_statut ? "\"" . str_replace(";", ",", str_replace("\"", "'", $tab_recevabilite[$cand_statut])) . "\";" : "";
                   $string.=$cur_decision ? "\"" . str_replace(";", ",", str_replace("\"", "'", $cand_decision)) . "\";" : "";
                   $string.=$cur_motivation ? "\"" . str_replace(";", ",", str_replace("\"", "'", $motivation)) . "\";" : "";
@@ -1340,6 +1375,74 @@ CeCILL-B, et que vous en avez accepté les termes.
             <font class='Texte_menu'>
                <?php
                   print("<input type='radio' style='margin-right:8px;' name='dossier' value='0' $no_checked>Non");
+               ?>
+            </font>
+         </td>
+         <td class='td-droite fond_menu'></td>
+      </tr>
+      <tr>
+         <td class='td-gauche fond_page' colspan='4'></td>
+      </tr>
+      <tr>
+         <td class='td-gauche fond_menu'>
+            <font class='Texte_menu'><b>Langues</font>
+         </td>
+         <td class='td-milieu fond_menu'>
+            <font class='Texte_menu'>
+               <?php
+                  if(isset($cur_langues) && $cur_langues=="1")
+                  {
+                     $yes_checked="checked";
+                     $no_checked="";
+                  }                  
+                  else
+                  {
+                     $yes_checked="";
+                     $no_checked="checked";
+                  }
+
+                  print("<input type='radio' style='margin-right:8px;' name='langues' value='1' $yes_checked>Oui");
+               ?>
+            </font>
+         </td>
+         <td class='td-milieu fond_menu'>
+            <font class='Texte_menu'>
+               <?php
+                  print("<input type='radio' style='margin-right:8px;' name='langues' value='0' $no_checked>Non");
+               ?>
+            </font>
+         </td>
+         <td class='td-droite fond_menu'></td>
+      </tr>
+      <tr>
+         <td class='td-gauche fond_page' colspan='4'></td>
+      </tr>
+      <tr>
+         <td class='td-gauche fond_menu'>
+            <font class='Texte_menu'><b>Informations Complémentaires (stages, etc)</font>
+         </td>
+         <td class='td-milieu fond_menu'>
+            <font class='Texte_menu'>
+               <?php
+                  if(isset($cur_infoscomp) && $cur_infoscomp=="1")
+                  {
+                     $yes_checked="checked";
+                     $no_checked="";
+                  }                  
+                  else
+                  {
+                     $yes_checked="";
+                     $no_checked="checked";
+                  }
+
+                  print("<input type='radio' style='margin-right:8px;' name='infoscomp' value='1' $yes_checked>Oui");
+               ?>
+            </font>
+         </td>
+         <td class='td-milieu fond_menu'>
+            <font class='Texte_menu'>
+               <?php
+                  print("<input type='radio' style='margin-right:8px;' name='infoscomp' value='0' $no_checked>Non");
                ?>
             </font>
          </td>
