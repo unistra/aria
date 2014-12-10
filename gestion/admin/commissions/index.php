@@ -49,281 +49,281 @@ CeCILL-B, et que vous en avez accepté les termes.
 */
 ?>
 <?php
-	session_name("preinsc_gestion");
-	session_start();
+  session_name("preinsc_gestion");
+  session_start();
 
-	include "../../../configuration/aria_config.php";
-	include "$__INCLUDE_DIR_ABS/vars.php";
-	include "$__INCLUDE_DIR_ABS/fonctions.php";
-	include "$__INCLUDE_DIR_ABS/db.php";
+  include "../../../configuration/aria_config.php";
+  include "$__INCLUDE_DIR_ABS/vars.php";
+  include "$__INCLUDE_DIR_ABS/fonctions.php";
+  include "$__INCLUDE_DIR_ABS/db.php";
 
 
-	$php_self=$_SERVER['PHP_SELF'];
-	$_SESSION['CURRENT_FILE']=$php_self;
+  $php_self=$_SERVER['PHP_SELF'];
+  $_SESSION['CURRENT_FILE']=$php_self;
 
-	verif_auth("$__GESTION_DIR/login.php");
+  verif_auth("$__GESTION_DIR/login.php");
 
-	if(!in_array($_SESSION['niveau'], array("$__LVL_SCOL_PLUS","$__LVL_RESP","$__LVL_SUPER_RESP","$__LVL_ADMIN")))
-	{
-		header("Location:$__GESTION_DIR/noaccess.php");
-		exit();
-	}
+  if(!in_array($_SESSION['niveau'], array("$__LVL_SCOL_PLUS","$__LVL_RESP","$__LVL_SUPER_RESP","$__LVL_ADMIN")))
+  {
+    header("Location:$__GESTION_DIR/noaccess.php");
+    exit();
+  }
 
-	$dbr=db_connect();
+  $dbr=db_connect();
 
-	// Période définie par l'utilisateur
-	if(isset($_GET["np"]) && $_GET["np"]==1 && isset($_SESSION["user_periode"]))
-		$_SESSION["user_periode"]++;
-	elseif(isset($_GET["pp"]) && $_GET["pp"]==1 && isset($_SESSION["user_periode"]))
-		$_SESSION["user_periode"]--;
-	elseif(!isset($_SESSION["user_periode"]))	// Par défaut, on considère la période actuelle
-		$_SESSION["user_periode"]=$__PERIODE;
+  // Période définie par l'utilisateur
+  if(isset($_GET["np"]) && $_GET["np"]==1 && isset($_SESSION["user_periode"]))
+    $_SESSION["user_periode"]++;
+  elseif(isset($_GET["pp"]) && $_GET["pp"]==1 && isset($_SESSION["user_periode"]))
+    $_SESSION["user_periode"]--;
+  elseif(!isset($_SESSION["user_periode"])) // Par défaut, on considère la période actuelle
+    $_SESSION["user_periode"]=$__PERIODE;
 
-	// Nombre de commissions, pour l'affichage
+  // Nombre de commissions, pour l'affichage
 
-	$result=db_query($dbr, "SELECT count(*) FROM $_DB_commissions, $_DB_propspec
-										WHERE $_DBC_propspec_id=$_DBC_commissions_propspec_id
-										AND $_DBC_propspec_comp_id='$_SESSION[comp_id]'
-										AND $_DBC_commissions_periode='$_SESSION[user_periode]'
-										AND $_DBC_propspec_active='1'
-										GROUP BY $_DBC_commissions_propspec_id
-									ORDER BY count DESC
-									LIMIT 1");
+  $result=db_query($dbr, "SELECT count(*) FROM $_DB_commissions, $_DB_propspec
+                    WHERE $_DBC_propspec_id=$_DBC_commissions_propspec_id
+                    AND $_DBC_propspec_comp_id='$_SESSION[comp_id]'
+                    AND $_DBC_commissions_periode='$_SESSION[user_periode]'
+                    AND $_DBC_propspec_active='1'
+                    GROUP BY $_DBC_commissions_propspec_id
+                  ORDER BY count DESC
+                  LIMIT 1");
 
-	if(db_num_rows($result))
-		list($max_commissions)=db_fetch_row($result, 0);
-	else
-		$max_commissions=0;
+  if(db_num_rows($result))
+    list($max_commissions)=db_fetch_row($result, 0);
+  else
+    $max_commissions=0;
 
-	$colspan_annee=$max_commissions+1;
+  $colspan_annee=$max_commissions+1;
 
-	db_free_result($result);								
+  db_free_result($result);                
 
-	$result=db_query($dbr, "SELECT $_DBC_propspec_id, $_DBC_annees_annee, $_DBC_specs_nom_court, $_DBC_propspec_finalite,
-											 $_DBC_mentions_nom, $_DBC_commissions_id, $_DBC_commissions_date, $_DBC_commissions_periode
-										FROM $_DB_propspec, $_DB_annees, $_DB_specs, $_DB_commissions, $_DB_mentions
-									WHERE $_DBC_propspec_annee=$_DBC_annees_id
-									AND $_DBC_propspec_id_spec=$_DBC_specs_id
-									AND $_DBC_propspec_id=$_DBC_commissions_propspec_id
-									AND $_DBC_specs_mention_id=$_DBC_mentions_id
-									AND $_DBC_propspec_comp_id='$_SESSION[comp_id]'
-									AND $_DBC_commissions_periode='$_SESSION[user_periode]'
-									AND $_DBC_propspec_active='1'
-										ORDER BY $_DBC_annees_ordre, $_DBC_specs_mention_id, $_DBC_specs_nom_court, $_DBC_propspec_finalite,
-													$_DBC_propspec_id, $_DBC_commissions_date");
+  $result=db_query($dbr, "SELECT $_DBC_propspec_id, $_DBC_annees_annee, $_DBC_specs_nom_court, $_DBC_propspec_finalite,
+                       $_DBC_mentions_nom, $_DBC_commissions_id, $_DBC_commissions_date, $_DBC_commissions_periode
+                    FROM $_DB_propspec, $_DB_annees, $_DB_specs, $_DB_commissions, $_DB_mentions
+                  WHERE $_DBC_propspec_annee=$_DBC_annees_id
+                  AND $_DBC_propspec_id_spec=$_DBC_specs_id
+                  AND $_DBC_propspec_id=$_DBC_commissions_propspec_id
+                  AND $_DBC_specs_mention_id=$_DBC_mentions_id
+                  AND $_DBC_propspec_comp_id='$_SESSION[comp_id]'
+                  AND $_DBC_commissions_periode='$_SESSION[user_periode]'
+                  AND $_DBC_propspec_active='1'
+                    ORDER BY $_DBC_annees_ordre, $_DBC_specs_mention_id, $_DBC_specs_nom_court, $_DBC_propspec_finalite,
+                          $_DBC_propspec_id, $_DBC_commissions_date");
 
-	$rows=db_num_rows($result);
+  $rows=db_num_rows($result);
 
-	if(!$rows)
-		$aucune_specialite=1;
+  if(!$rows)
+    $aucune_specialite=1;
 
-	// Nettoyage
-	unset($_SESSION["new_date_periode"]);
-	unset($_SESSION["suppr_date_periode"]);
+  // Nettoyage
+  unset($_SESSION["new_date_periode"]);
+  unset($_SESSION["suppr_date_periode"]);
 
-	// EN-TETE
-	en_tete_gestion();
+  // EN-TETE
+  en_tete_gestion();
 
-	// MENU SUPERIEUR
-	menu_sup_gestion();
+  // MENU SUPERIEUR
+  menu_sup_gestion();
 ?>
 
 <div class='main'>
-	<div class='menu_haut_2'>
-		<a href='commission.php' target='_self'><img class='icone_menu_haut_2' border='0' src='<?php echo "$__ICON_DIR/add_16x16_menu2.png"; ?>' alt='+'></a>
-		<a href='commission.php' target='_self' class='lien_menu_haut_2'>Ajouter une date</a>
-		<a href='suppr_commission.php' target='_self'><img class='icone_menu_haut_2' border='0' src='<?php echo "$__ICON_DIR/trashcan_full_16x16_slick_menu2.png"; ?>' alt='+'></a>
-		<a href='suppr_commission.php' target='_self' class='lien_menu_haut_2'>Supprimer une date</a>
-	<?php
-		// Navigation entre les périodes
-		// Sessions existantes dans les périodes précédentes / suivantes ?
+  <div class='menu_haut_2'>
+    <a href='commission.php' target='_self'><img class='icone_menu_haut_2' border='0' src='<?php echo "$__ICON_DIR/add_16x16_menu2.png"; ?>' alt='+'></a>
+    <a href='commission.php' target='_self' class='lien_menu_haut_2'>Ajouter une date</a>
+    <a href='suppr_commission.php' target='_self'><img class='icone_menu_haut_2' border='0' src='<?php echo "$__ICON_DIR/trashcan_full_16x16_slick_menu2.png"; ?>' alt='+'></a>
+    <a href='suppr_commission.php' target='_self' class='lien_menu_haut_2'>Supprimer une date</a>
+  <?php
+    // Navigation entre les périodes
+    // Sessions existantes dans les périodes précédentes / suivantes ?
 
-		$res_periodes=db_query($dbr, "SELECT count(*) FROM $_DB_commissions, $_DB_propspec
-												WHERE $_DBC_propspec_id=$_DBC_commissions_propspec_id
-												AND $_DBC_propspec_comp_id='$_SESSION[comp_id]'
-												AND $_DBC_commissions_periode='".($_SESSION["user_periode"]-1)."'
-												AND $_DBC_propspec_active='1'
-												GROUP BY $_DBC_commissions_propspec_id
-												ORDER BY count DESC
-												LIMIT 1");
-		if(db_num_rows($res_periodes))
-			list($nb_dates_periode_precedente)=db_fetch_row($res_periodes, 0);
-		else
-			$nb_dates_periode_precedente=0;
+    $res_periodes=db_query($dbr, "SELECT count(*) FROM $_DB_commissions, $_DB_propspec
+                        WHERE $_DBC_propspec_id=$_DBC_commissions_propspec_id
+                        AND $_DBC_propspec_comp_id='$_SESSION[comp_id]'
+                        AND $_DBC_commissions_periode='".($_SESSION["user_periode"]-1)."'
+                        AND $_DBC_propspec_active='1'
+                        GROUP BY $_DBC_commissions_propspec_id
+                        ORDER BY count DESC
+                        LIMIT 1");
+    if(db_num_rows($res_periodes))
+      list($nb_dates_periode_precedente)=db_fetch_row($res_periodes, 0);
+    else
+      $nb_dates_periode_precedente=0;
 
-		$res_periodes=db_query($dbr, "SELECT count(*) FROM $_DB_commissions, $_DB_propspec
-										WHERE $_DBC_propspec_id=$_DBC_commissions_propspec_id
-										AND $_DBC_propspec_comp_id='$_SESSION[comp_id]'
-										AND $_DBC_commissions_periode='".($_SESSION["user_periode"]+1)."'
-										AND $_DBC_propspec_active='1'
-										GROUP BY $_DBC_commissions_propspec_id
-										ORDER BY count DESC
-										LIMIT 1");
-		if(db_num_rows($res_periodes))
-			list($nb_dates_periode_suivante)=db_fetch_row($res_periodes, 0);
-		else
-			$nb_dates_periode_suivante=0;
+    $res_periodes=db_query($dbr, "SELECT count(*) FROM $_DB_commissions, $_DB_propspec
+                    WHERE $_DBC_propspec_id=$_DBC_commissions_propspec_id
+                    AND $_DBC_propspec_comp_id='$_SESSION[comp_id]'
+                    AND $_DBC_commissions_periode='".($_SESSION["user_periode"]+1)."'
+                    AND $_DBC_propspec_active='1'
+                    GROUP BY $_DBC_commissions_propspec_id
+                    ORDER BY count DESC
+                    LIMIT 1");
+    if(db_num_rows($res_periodes))
+      list($nb_dates_periode_suivante)=db_fetch_row($res_periodes, 0);
+    else
+      $nb_dates_periode_suivante=0;
 
-		db_free_result($res_periodes);
+    db_free_result($res_periodes);
 
-		if($nb_dates_periode_precedente || $nb_dates_periode_suivante)
-		{
-			print("<span style='margin-top:2px; position:absolute; right:4px;'>\n");
+    if($nb_dates_periode_precedente || $nb_dates_periode_suivante)
+    {
+      print("<span style='margin-top:2px; position:absolute; right:4px;'>\n");
 
-			if($nb_dates_periode_precedente)
-			{
-				print("<span>
-							<a href='$php_self?pp=1' target='_self' class='lien_navigation_10'><img style='vertical-align:middle;' border='0' src='$__ICON_DIR/back_16x16_menu2.png'></a>
-							<a href='$php_self?pp=1' target='_self' class='lien_navigation_10'><strong>Année ". ($_SESSION["user_periode"]-1) ."-$_SESSION[user_periode]</strong></a>
-						</span>\n");
-			}
+      if($nb_dates_periode_precedente)
+      {
+        print("<span>
+              <a href='$php_self?pp=1' target='_self' class='lien_navigation_10'><img style='vertical-align:middle;' border='0' src='$__ICON_DIR/back_16x16_menu2.png'></a>
+              <a href='$php_self?pp=1' target='_self' class='lien_navigation_10'><strong>Année ". ($_SESSION["user_periode"]-1) ."-$_SESSION[user_periode]</strong></a>
+            </span>\n");
+      }
 
-			if($nb_dates_periode_suivante)
-			{
-				print("<span>
-							<a href='$php_self?np=1' target='_self' class='lien_navigation_10'><strong>Année ".($_SESSION["user_periode"]+1)."-".($_SESSION["user_periode"]+2)."</strong></a>
-							<a href='$php_self?np=1' target='_self' class='lien_navigation_10'><img style='vertical-align:middle;' border='0' src='$__ICON_DIR/forward_16x16_menu2.png'></a>
-						</span>\n");
-			}
+      if($nb_dates_periode_suivante)
+      {
+        print("<span>
+              <a href='$php_self?np=1' target='_self' class='lien_navigation_10'><strong>Année ".($_SESSION["user_periode"]+1)."-".($_SESSION["user_periode"]+2)."</strong></a>
+              <a href='$php_self?np=1' target='_self' class='lien_navigation_10'><img style='vertical-align:middle;' border='0' src='$__ICON_DIR/forward_16x16_menu2.png'></a>
+            </span>\n");
+      }
 
-			print("</span>\n");
-		}
-	?>
-	</div>
+      print("</span>\n");
+    }
+  ?>
+  </div>
 
-	<?php
-		titre_page_icone("Gestion des dates de Commissions Pédagogiques pour l'année $_SESSION[user_periode]-".($_SESSION["user_periode"]+1), "clock_32x32_fond.png", 10, "L");
-	?>
+  <?php
+    titre_page_icone("Gestion des dates de Commissions Pédagogiques pour l'année $_SESSION[user_periode]-".($_SESSION["user_periode"]+1), "clock_32x32_fond.png", 10, "L");
+  ?>
 
-	<?php
-		if(isset($_GET["succes"]) && $_GET["succes"]==1)
-			message("Informations mises à jour avec succès.", $__SUCCES);
+  <?php
+    if(isset($_GET["succes"]) && $_GET["succes"]==1)
+      message("Informations mises à jour avec succès.", $__SUCCES);
 
-		if(isset($aucune_specialite) && $aucune_specialite==1)
-			message("<center>Il n'y a actuellement aucune date de Commission Pédagogique.
-						<br>Cliquez sur \"Ajouter une date\" pour en créer une.</center>", $__INFO);
-	?>
+    if(isset($aucune_specialite) && $aucune_specialite==1)
+      message("<center>Il n'y a actuellement aucune date de Commission Pédagogique.
+            <br>Cliquez sur \"Ajouter une date\" pour en créer une.</center>", $__INFO);
+  ?>
 
-	<table cellpadding='0' cellspacing='0' border='0' align='center' style='padding-bottom:20px;'>
-	<tr>
-		<td>
-			<?php
-				$old_annee="===="; // on initialise à n'importe quoi (sauf année existante et valeur vide)
-				$old_propspec_id="";
-				$old_mention="--";
+  <table cellpadding='0' cellspacing='0' border='0' align='center' style='padding-bottom:20px;'>
+  <tr>
+    <td>
+      <?php
+        $old_annee="===="; // on initialise à n'importe quoi (sauf année existante et valeur vide)
+        $old_propspec_id="";
+        $old_mention="--";
 
-				$current_commission=1; // par défaut
+        $current_commission=1; // par défaut
 
-				$_SESSION["all_commissions"]=array();
+        $_SESSION["all_commissions"]=array();
 
-				for($i=0; $i<$rows; $i++)
-				{
-					list($propspec_id, $annee, $spec_nom, $finalite, $mention, $commission_id, $com_date, $com_periode)=db_fetch_row($result, $i);
+        for($i=0; $i<$rows; $i++)
+        {
+          list($propspec_id, $annee, $spec_nom, $finalite, $mention, $commission_id, $com_date, $com_periode)=db_fetch_row($result, $i);
 
-					$nom_finalite=$tab_finalite[$finalite];
+          $nom_finalite=$tab_finalite[$finalite];
 
-					if($com_date!=0)
-						$date_com_txt=date("Y")==date("Y", $com_date) ? date_fr("j F", $com_date) : date_fr("j M Y", $com_date);
-					else
-						$date_com_txt="";
+          if($com_date!=0)
+            $date_com_txt=date("Y")==date("Y", $com_date) ? date_fr("j F", $com_date) : date_fr("j M Y", $com_date);
+          else
+            $date_com_txt="";
 
-					$annee=$annee=="" ? "Années particulières" : $annee;
+          $annee=$annee=="" ? "Années particulières" : $annee;
 
-					if($propspec_id!=$old_propspec_id && $old_propspec_id!="" && $current_commission<($max_commissions+1))
-					{
-						$diff_colspan=$max_commissions-$current_commission+1;
-						print("<td class='td-milieu fond_menu' colspan='$diff_colspan' style='text-align:center; width:10%;'></td>\n");
-					}
+          if($propspec_id!=$old_propspec_id && $old_propspec_id!="" && $current_commission<($max_commissions+1))
+          {
+            $diff_colspan=$max_commissions-$current_commission+1;
+            print("<td class='td-milieu fond_menu' colspan='$diff_colspan' style='text-align:center; width:10%;'></td>\n");
+          }
 
-					if($annee!=$old_annee)
-					{
-						if($i!=0)
-							print("</tr>
-									 </table>\n");
+          if($annee!=$old_annee)
+          {
+            if($i!=0)
+              print("</tr>
+                   </table>\n");
 
-						print("<table align='center' style='width:100%; padding-bottom:20px;'>
-								 <tr>
-									<td class='fond_menu2' align='center' colspan='$colspan_annee' style='padding:4px 20px 4px 20px;'>
-										<font class='Texte_menu2'><b>$annee</b></font>
-									</td>
-								 </tr>
-								 <tr>
-									<td class='fond_menu2' style='padding:4px 20px 4px 20px;'>
-										<font class='Texte_menu2'><b>&#8226;&nbsp;&nbsp;$mention</b></font>
-									</td>\n");
+            print("<table align='center' style='width:100%; padding-bottom:20px;'>
+                 <tr>
+                  <td class='fond_menu2' align='center' colspan='$colspan_annee' style='padding:4px 20px 4px 20px;'>
+                    <font class='Texte_menu2'><b>$annee</b></font>
+                  </td>
+                 </tr>
+                 <tr>
+                  <td class='fond_menu2' style='padding:4px 20px 4px 20px;'>
+                    <font class='Texte_menu2'><b>&#8226;&nbsp;&nbsp;$mention</b></font>
+                  </td>\n");
 
-						for($s=1; $s<=$max_commissions; $s++)
-							print("<td class='fond_menu2' align='center' style='padding:4px 20px 4px 20px; white-space:nowrap;'>
-										<a href='edit_commission.php?n=$s' class='lien_rouge12'><b>Commission n°$s</b></font>
-									</td>\n");
+            for($s=1; $s<=$max_commissions; $s++)
+              print("<td class='fond_menu2' align='center' style='padding:4px 20px 4px 20px; white-space:nowrap;'>
+                    <a href='edit_commission.php?n=$s' class='lien_rouge12'><b>Commission n°$s</b></font>
+                  </td>\n");
 
-						$old_annee=$annee;
-						$current_commission=1;
-						$first_spec=1;
-						$old_mention="--";
-					}
-					else
-						$first_spec=0;
+            $old_annee=$annee;
+            $current_commission=1;
+            $first_spec=1;
+            $old_mention="--";
+          }
+          else
+            $first_spec=0;
 
-					if($mention!=$old_mention)
-					{
-						$span=$max_commissions+1;
+          if($mention!=$old_mention)
+          {
+            $span=$max_commissions+1;
 
-						if(!$first_spec)
-							print("<tr>
-										<td class='fond_menu2' colspan='$span' style='padding:4px 20px 4px 20px;'>
-											<font class='Texte_menu2'><b>&#8226;&nbsp;&nbsp;$mention</b></font>
-										</td>
-									</tr>\n");
+            if(!$first_spec)
+              print("<tr>
+                    <td class='fond_menu2' colspan='$span' style='padding:4px 20px 4px 20px;'>
+                      <font class='Texte_menu2'><b>&#8226;&nbsp;&nbsp;$mention</b></font>
+                    </td>
+                  </tr>\n");
 
-						$old_mention=$mention;
-					}
+            $old_mention=$mention;
+          }
 
-					if($propspec_id!=$old_propspec_id)
-					{
-						print("</tr>
-								 <tr>
-									<td class='td-gauche fond_menu'>
-										<font class='Texte_menu'>$spec_nom $nom_finalite</font>
-									</td>\n");
+          if($propspec_id!=$old_propspec_id)
+          {
+            print("</tr>
+                 <tr>
+                  <td class='td-gauche fond_menu'>
+                    <font class='Texte_menu'>$spec_nom $nom_finalite</font>
+                  </td>\n");
 
-						$current_commission=1;
-						$_SESSION["all_commissions"][$propspec_id]=array();
-					}
+            $current_commission=1;
+            $_SESSION["all_commissions"][$propspec_id]=array();
+          }
 
-					print("<td class='td-milieu fond_menu' style='text-align:center; width:10%;'>
-								<font class='Texte_menu'>$date_com_txt</font>
-							 </td>\n");
+          print("<td class='td-milieu fond_menu' style='text-align:center; width:10%;'>
+                <font class='Texte_menu'>$date_com_txt</font>
+               </td>\n");
 
-					// Enregistrement dans une variable de session : évite les requêtes lourdes dans la BDD
-					// et permet de retrouver facilement les intervalles pour modification
-					$_SESSION["all_commissions"][$propspec_id][$current_commission]=array("com_id" => "$commission_id",
-																												 "com" => "$com_date",
-																												 "peiode" => "$com_periode");
+          // Enregistrement dans une variable de session : évite les requêtes lourdes dans la BDD
+          // et permet de retrouver facilement les intervalles pour modification
+          $_SESSION["all_commissions"][$propspec_id][$current_commission]=array("com_id" => "$commission_id",
+                                                         "com" => "$com_date",
+                                                         "periode" => "$com_periode");
 
-					$current_commission++;
-					$old_propspec_id=$propspec_id;
-				}
+          $current_commission++;
+          $old_propspec_id=$propspec_id;
+        }
 
-				// fermeture propre de la fin du tableau
-				if($current_commission<($max_commissions+1))
-				{
-					$diff_colspan=$max_commissions-$current_commission+1;
-					print("<td class='td-milieu fond_menu' colspan='$diff_colspan' style='text-align:center; width:10%;'></td>\n");
-				}
+        // fermeture propre de la fin du tableau
+        if($current_commission<($max_commissions+1))
+        {
+          $diff_colspan=$max_commissions-$current_commission+1;
+          print("<td class='td-milieu fond_menu' colspan='$diff_colspan' style='text-align:center; width:10%;'></td>\n");
+        }
 
-				print("</tr>
-						 </table>\n");
+        print("</tr>
+             </table>\n");
 
-				db_free_result($result);
-				db_close($dbr);
-			?>
-		</td>
-	</tr>
-	</table>
+        db_free_result($result);
+        db_close($dbr);
+      ?>
+    </td>
+  </tr>
+  </table>
 </div>
 <?php
-	pied_de_page();
+  pied_de_page();
 ?>
 </form>
 
