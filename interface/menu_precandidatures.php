@@ -93,7 +93,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
          // On ne peut ajouter une précandidature que si le cursus a été rempli
          if(!db_num_rows(db_query($dbr,"SELECT * FROM $_DB_cursus WHERE $_DBC_cursus_candidat_id='$candidat_id'")))
-            message("Vous devez compléter votre <strong>cursus</strong> (onglet 2 dans le menu gauche) avant d'ajouter une précandidature.", $__WARNING);
+            message("Vous devez compléter votre <strong>cursus</strong> (onglet 2 dans le menu latéral) avant d'ajouter une précandidature.", $__ERREUR);
          else
          {
             $date_courante=time();
@@ -125,7 +125,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       $date_courante=time();
 
       if(!db_num_rows(db_query($dbr,"SELECT * FROM $_DB_cursus WHERE $_DBC_cursus_candidat_id='$candidat_id'")))
-         message("Vous devez compléter votre <strong>cursus</strong> (onglet 2) avant d'ajouter une précandidature.", $__WARNING);
+         message("Vous devez compléter votre <strong>cursus</strong> (onglet 2 dans le menu latéral) avant d'ajouter une précandidature.", $__ERREUR);
 
       elseif(db_num_rows(db_query($dbr, "SELECT * FROM $_DB_propspec, $_DB_session
                                           WHERE $_DBC_propspec_comp_id='$_SESSION[comp_id]'

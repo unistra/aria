@@ -152,6 +152,8 @@ CeCILL-B, et que vous en avez accepté les termes.
    $colspan_annee="colspan='2'";
    $td_class="td-milieu";
 
+   $options_gestion=0;
+   $options_saisie=0;
    // ================================
    //    Boucle sur les candidatures
    // ================================
@@ -164,34 +166,21 @@ CeCILL-B, et que vous en avez accepté les termes.
             $ent_lieu, $ent_salle, $notification_envoyee)=db_fetch_row($result,$i);
 
       // Options de gestion en fonction des droits d'accès de l'utilisateur et de la formations
-      if(in_array($_SESSION["niveau"],array("$__LVL_SCOL_PLUS","$__LVL_RESP","$__LVL_SUPER_RESP","$__LVL_ADMIN")))
-      {
+      if(in_array($_SESSION["niveau"],array("$__LVL_SCOL_PLUS","$__LVL_RESP","$__LVL_SUPER_RESP","$__LVL_ADMIN"))) {
          // Options de gestion : ajout, suppression, modification de l'ordre et traitement
 
          // les niveaux "$__LVL_SCOL_PLUS","$__LVL_RESP","$__LVL_SUPER_RESP","$__LVL_ADMIN" ont toujours tous les droits sur la composante         
          $options_gestion=1;
          $options_saisie=1;
       }
-      elseif($_SESSION["niveau"]=="$__LVL_SCOL_MOINS" && verif_droits_formations($_SESSION["comp_id"], $propspec_id))
-      {
-         // Scol "moins" : si l'accès est paramétré : gestion complète
+      elseif($_SESSION["niveau"]=="$__LVL_SCOL_MOINS" && verif_droits_formations($_SESSION["comp_id"], $propspec_id)) {
+         // Scolarité avec accès limité : si l'accès est paramétré : gestion complète
          $options_gestion=1;
          $options_saisie=1;
       }
-      elseif($_SESSION["niveau"]=="$__LVL_SAISIE" && verif_droits_formations($_SESSION["comp_id"], $propspec_id))
-      {   
+      elseif($_SESSION["niveau"]=="$__LVL_SAISIE" && verif_droits_formations($_SESSION["comp_id"], $propspec_id)) {   
          // Options de saisie : traitement uniquement
-         $options_gestion=0;
          $options_saisie=1;
-      }
-      else // Droits d'accès insuffisants (consultation uniquement)
-      {
-         // Colonnes
-         // Si la fiche est verrouillée et que les droits sont corrects :
-         // 1 : Nom de la formation (spécialité) et (en dessous) Statut de la précandidature
-         // 2 : Frais de dossiers
-         $options_gestion=0;
-         $options_saisie=0;
       }
 
       // Paramètres d'affichage différents en fonction du verrouillage de la candidature et des droits d'accès

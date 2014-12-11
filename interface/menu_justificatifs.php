@@ -49,88 +49,88 @@ CeCILL-B, et que vous en avez accepté les termes.
 */
 ?>
 <?php
-	// Vérifications complémentaires au cas où ce fichier serait appelé directement
-	if(!isset($_SESSION["authentifie"]))
-	{
-		session_write_close();
-		header("Location:../index.php");
-		exit();
-	}
-	else
-		$candidat_id=$_SESSION['authentifie'];
+  // Vérifications complémentaires au cas où ce fichier serait appelé directement
+  if(!isset($_SESSION["authentifie"]))
+  {
+    session_write_close();
+    header("Location:../index.php");
+    exit();
+  }
+  else
+    $candidat_id=$_SESSION['authentifie'];
 
-	if(!isset($_SESSION["comp_id"]) || (isset($_SESSION["comp_id"]) && $_SESSION["comp_id"]==""))
-	{
-		session_write_close();
-		header("Location:composantes.php");
-		exit();
-	}
+  if(!isset($_SESSION["comp_id"]) || (isset($_SESSION["comp_id"]) && $_SESSION["comp_id"]==""))
+  {
+    session_write_close();
+    header("Location:composantes.php");
+    exit();
+  }
 
-	print("<div class='centered_box'>
-				<font class='Texte_16'><strong>Récapitulatifs et Justificatifs</strong></font>
-			</div>");
+  print("<div class='centered_box'>
+        <font class='Texte_16'><strong>Récapitulatifs et Justificatifs</strong></font>
+      </div>");
 
-	$result=db_query($dbr,"SELECT $_DBC_cand_id, $_DBC_propspec_id, $_DBC_annees_annee, $_DBC_specs_nom, $_DBC_propspec_finalite,
-											$_DBC_cand_statut
-											FROM $_DB_propspec, $_DB_annees, $_DB_specs, $_DB_cand
-										WHERE $_DBC_propspec_annee=$_DBC_annees_id
-										AND $_DBC_propspec_id_spec=$_DBC_specs_id
-										AND $_DBC_cand_propspec_id=$_DBC_propspec_id
-										AND $_DBC_propspec_comp_id='$_SESSION[comp_id]'
-										AND $_DBC_cand_periode='$__PERIODE'
-										AND $_DBC_cand_candidat_id='$candidat_id'
-										AND $_DBC_cand_lock='1'");
+  $result=db_query($dbr,"SELECT $_DBC_cand_id, $_DBC_propspec_id, $_DBC_annees_annee, $_DBC_specs_nom, $_DBC_propspec_finalite,
+                      $_DBC_cand_statut
+                      FROM $_DB_propspec, $_DB_annees, $_DB_specs, $_DB_cand
+                    WHERE $_DBC_propspec_annee=$_DBC_annees_id
+                    AND $_DBC_propspec_id_spec=$_DBC_specs_id
+                    AND $_DBC_cand_propspec_id=$_DBC_propspec_id
+                    AND $_DBC_propspec_comp_id='$_SESSION[comp_id]'
+                    AND $_DBC_cand_periode='$__PERIODE'
+                    AND $_DBC_cand_candidat_id='$candidat_id'
+                    AND $_DBC_cand_lock='1'");
 
-	$rows=db_num_rows($result);
-	
-	if($rows)
-	{
-		message("Les documents <strong>PDF</strong> suivants sont générés lorsque vous cliquez sur les liens proposés. Cette opération peut prendre quelques secondes.
-					<br>Le programme <a href='http://www.adobe.com/fr/' class='lien_bleu' target='_blank' style='vertical-align:top;'><strong>Adobe Acrobat Reader</strong></a> 
-					peut être utilisé pour ouvrir les fichiers PDF", $__INFO);
+  $rows=db_num_rows($result);
+  
+  if($rows)
+  {
+    message("Les documents <strong>PDF</strong> suivants sont générés lorsque vous cliquez sur les liens proposés. Cette opération peut prendre quelques secondes.
+          <br>Le programme <a href='http://www.adobe.com/fr/' class='lien_bleu' target='_blank' style='vertical-align:top;'><strong>Adobe Acrobat Reader</strong></a> 
+          peut être utilisé pour ouvrir les fichiers PDF", $__INFO);
 
-		print("<table cellpadding='4' cellspacing='0' align='center' border='0'>
-				 <tr>
-					<td align='left' nowrap='true' width='40' valign='top' style='padding-bottom:20px;'>
-						<a href='gen_recapitulatif.php' class='lien_bleu_10' target='_blank'><img src='$__ICON_DIR/pdf_32x32_fond.png' alt='PDF' desc='PDF' border='0'></a>
-					</td>
-					<td align='left' nowrap='true' valign='middle' style='padding-bottom:20px;'>
-						<a href='gen_recapitulatif.php' class='lien_bleu_10' target='_blank'>Récapitulatif des informations que vous avez saisies</a>
-					</td>
-				</tr>
-				<tr>
-					<td align='left' nowrap='true' width='40' valign='top' style='padding-bottom:20px;'>
-						<img src='$__ICON_DIR/pdf_32x32_fond.png' alt='PDF' desc='PDF' border='0'>
-					</td>
-					<td align='left' nowrap='true' valign='middle' style='padding-bottom:20px;'>
-						<font class='Texte'>
-							<strong>Justificatifs à nous fournir pour vos voeux dans l'établissement \"$_SESSION[composante]\"</strong>\n");
+    print("<table cellpadding='4' cellspacing='0' align='center' border='0'>
+         <tr>
+          <td align='left' nowrap='true' width='40' valign='top' style='padding-bottom:20px;'>
+            <a href='gen_recapitulatif.php' class='lien_bleu_10' target='_blank'><img src='$__ICON_DIR/pdf_32x32_fond.png' alt='PDF' desc='PDF' border='0'></a>
+          </td>
+          <td align='left' nowrap='true' valign='middle' style='padding-bottom:20px;'>
+            <a href='gen_recapitulatif.php' class='lien_bleu_10' target='_blank'>Récapitulatif des informations que vous avez saisies</a>
+          </td>
+        </tr>
+        <tr>
+          <td align='left' nowrap='true' width='40' valign='top' style='padding-bottom:20px;'>
+            <img src='$__ICON_DIR/pdf_32x32_fond.png' alt='PDF' desc='PDF' border='0'>
+          </td>
+          <td align='left' nowrap='true' valign='middle' style='padding-bottom:20px;'>
+            <font class='Texte'>
+              <strong>Justificatifs à nous fournir pour vos voeux dans l'établissement \"$_SESSION[composante]\"</strong>\n");
 
-		for($i=0; $i<$rows; $i++)
-		{
-			list($cand_id, $propspec_id, $annee, $spec, $finalite, $statut)=db_fetch_row($result, $i);
+    for($i=0; $i<$rows; $i++)
+    {
+      list($cand_id, $propspec_id, $annee, $spec, $finalite, $statut)=db_fetch_row($result, $i);
 
-			if($annee=="")
-				print("<br>- <a href='gen_justificatifs.php?cand_id=$cand_id' class='lien_bleu_10' target='_blank'>$spec $tab_finalite[$finalite]</a>\n");
-			else
-				print("<br>- <a href='gen_justificatifs.php?cand_id=$cand_id' class='lien_bleu_10' target='_blank'>$annee - $spec $tab_finalite[$finalite]</a>\n");
-		}
-		
-		print("</font>
-			   </td>
-		    </tr>
-		    </table>
-		    <br>\n");
-		    
-		message("<center>
+      if($annee=="")
+        print("<br>- <a href='gen_justificatifs.php?cand_id=$cand_id' class='lien_bleu_10' target='_blank'>$spec $tab_finalite[$finalite]</a>\n");
+      else
+        print("<br>- <a href='gen_justificatifs.php?cand_id=$cand_id' class='lien_bleu_10' target='_blank'>$annee - $spec $tab_finalite[$finalite]</a>\n");
+    }
+    
+    print("</font>
+         </td>
+        </tr>
+        </table>
+        <br>\n");
+        
+    message("<center>
                   Attention : cette fonctionnalité peut poser problème avec certaines version du navigateur Internet Explorer.
                   <br>Le navigateur <a href='http://www.mozilla-europe.org/fr/products/firefox/' target='_blank' class='lien_bleu' style='vertical-align:top;'>Mozilla Firefox</a> (gratuit) est en revanche totalement compatible.
-				   </center>", $__WARNING);
-	}
-	else
-		message("Ces documents ne sont pas disponibles car :
-		         <br>- soit vous n'avez sélectionné aucune formation dans cette composante (menu <strong>5 - Précandidatures</strong>),
-		         <br>- soit aucun de vos voeux n'est encore verrouillé (date également visible dans le menu 5).", $__ERREUR);
+           </center>", $__WARNING);
+  }
+  else
+    message("Ces documents ne sont pas encore disponibles :
+             <br><br>- soit aucun de vos voeux n'est encore verrouillé (date visible sur vos voeux dans le menu 5).
+             <br><br>- soit vous n'avez sélectionné aucune formation dans cette composante (menu <strong>5 - Précandidatures</strong>),", $__WARNING);
 
-	db_free_result($result);
+  db_free_result($result);
 ?>

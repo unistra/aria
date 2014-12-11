@@ -73,49 +73,31 @@ CeCILL-B, et que vous en avez accepté les termes.
 
   // Condition particulière : si une composante a verrouillé la fiche, le candidat ne peut plus le modifier (sauf en envoyant des pièces par courrier)
 
-  if(isset($_SESSION["lock"]) && $_SESSION["lock"]==1)
-  {
+  if(isset($_SESSION["lock"]) && $_SESSION["lock"]==1) {
     session_write_close();
     header("Location:precandidatures.php");
     exit();
   }
 
-  if(isset($_GET["p"]) && -1!=($params=get_params($_GET['p'])))
-  {
-    if(isset($params["cid"]) && ctype_digit($params["cid"]))
+  if(isset($_GET["p"]) && -1!=($params=get_params($_GET['p']))) {
+    if(isset($params["cid"]) && ctype_digit($params["cid"])) {
       $_SESSION["cid"]=$cid=$params["cid"];
+      $_SESSION["force_annee_courante"]=0;
+    }
   }
-  elseif(isset($_SESSION["cid"]))
+  elseif(isset($_SESSION["cid"])) {
     $cid=$_SESSION["cid"];
+    $_SESSION["force_annee_courante"]=0;
+  }
   else // pas de paramètre : ajout d'une étape au cursus
     $cid=0;
+
 
   if(isset($_POST["go"]) || isset($_POST["go_x"])) // validation du formulaire
   {
     $diplome=$_POST["filiere"];
-/*
-    if(empty($diplome)) // filière venant du champ libre ?
-    {
-      $diplome=html_entity_decode(ucfirst(trim($_POST["filiere_libre"])));
-      if(!empty($diplome))
-        $diplome_libre="_" . $diplome;  // ajout du marqueur "champ libre" (pour la validation de la scol lors du transfert vers la compeda)
-    }
-*/
 
-    // même traitement avec l'intitulé
-/*
-    $intitule=html_entity_decode($_POST["intitule"]);
-    if(empty($intitule)) // pays venant du champ libre ?
-    {
-*/
-      $intitule=html_entity_decode(ucfirst(trim($_POST["intitule_libre"])));
-/*
-      if(!empty($intitule))
-        $intitule_libre="_" . $intitule;
-
-    }
-*/
-    // presque pareil avec la spécialité, la ville et l'école
+    $intitule=html_entity_decode(ucfirst(trim($_POST["intitule_libre"])));
     $specialite=html_entity_decode(ucfirst(strtolower(trim($_POST["specialite"]))));
     $ville=html_entity_decode(ucfirst(trim($_POST["ville"])));
     $ecole=html_entity_decode(trim($_POST["ecole"]));
@@ -123,8 +105,8 @@ CeCILL-B, et que vous en avez accepté les termes.
     // format strict
     $annee_obtention=trim($_POST["annee"]);
 
-      if($annee_obtention=="")
-         $annee_obtention=date("Y");
+    if($annee_obtention=="")
+      $annee_obtention=date("Y");
     elseif(strlen($annee_obtention)!=4 || !ctype_digit($annee_obtention) || (ctype_digit($annee_obtention) && $annee_obtention>(date("Y")+1)))
       $annee_format=1;
 
@@ -214,7 +196,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       db_query($dbr,"UPDATE $_DB_candidat SET $_DBU_candidat_cursus_en_cours='$__PERIODE' WHERE $_DBU_candidat_id='$candidat_id'");
     }
   }
-  else
+  elseif($cid==0)
   {
     // avant de continuer, on regarde si le candidat a complété l'année en cours
     // Si ce n'est pas le cas : on redirige vers un formulaire à part
@@ -367,9 +349,8 @@ CeCILL-B, et que vous en avez accepté les termes.
     {
       if(!isset($_SESSION["force_annee_courante"]) || $_SESSION["force_annee_courante"]==0 || $reponse_force==0)
         message("<center>
-                    <strong><u>Important</u></strong> 
-                    <br><br>Le cursus doit être renseigné à partir du <strong>Baccalauréat</strong> (ou équivalent) inclus.
-                 <br>Si vous n'avez pas le baccalauréat, sélectionnez <strong>\"Autre\"</strong> dans le champ \"Diplôme\" et indiquez le dernier diplôme obtenu dans le champ \"Intitulé\".
+                    Le cursus doit être renseigné <strong>à partir du Baccalauréat (ou équivalent) inclus</strong>.
+                 <br></bt><br>Si vous n'avez pas le baccalauréat, sélectionnez <strong>\"Autre\"</strong> dans le champ \"Diplôme\" et indiquez le dernier diplôme obtenu dans le champ \"Intitulé\".
                </center>", $__WARNING);
       else
       {

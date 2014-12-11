@@ -49,83 +49,83 @@ CeCILL-B, et que vous en avez accepté les termes.
 */
 ?>
 <?php
-	// Vérifications complémentaires au cas où ce fichier serait appelé directement
-	if(!isset($_SESSION["authentifie"]))
-	{
-		session_write_close();
-		header("Location:../index.php");
-		exit();
-	}
+  // Vérifications complémentaires au cas où ce fichier serait appelé directement
+  if(!isset($_SESSION["authentifie"]))
+  {
+    session_write_close();
+    header("Location:../index.php");
+    exit();
+  }
 
-	if(!isset($_SESSION["comp_id"]) || (isset($_SESSION["comp_id"]) && $_SESSION["comp_id"]==""))
-	{
-		session_write_close();
-		header("Location:composantes.php");
-		exit();
-	}
+  if(!isset($_SESSION["comp_id"]) || (isset($_SESSION["comp_id"]) && $_SESSION["comp_id"]==""))
+  {
+    session_write_close();
+    header("Location:composantes.php");
+    exit();
+  }
 
-	print("<div class='centered_box'>
-				<font class='Texte_16' style='weight:bold'>
-					<p><strong>A propos de la Composante...</p>
-					<p>$_SESSION[composante]</o>
-				</font>
-			</div>");
+  print("<div class='centered_box'>
+        <font class='Texte_16' style='weight:bold'>
+          <p><strong>A propos de la Composante...</p>
+          <p>$_SESSION[composante]</o>
+        </font>
+      </div>");
 
-	$result=db_query($dbr, "SELECT $_DBC_composantes_id, $_DBC_composantes_nom, $_DBC_composantes_univ_id, $_DBC_universites_nom,
-											$_DBC_composantes_scolarite, $_DBC_composantes_www
-										FROM $_DB_composantes, $_DB_universites
-									WHERE $_DBC_composantes_univ_id=$_DBC_universites_id
-									AND $_DBC_composantes_id='$_SESSION[comp_id]'");
+  $result=db_query($dbr, "SELECT $_DBC_composantes_id, $_DBC_composantes_nom, $_DBC_composantes_univ_id, $_DBC_universites_nom,
+                      $_DBC_composantes_scolarite, $_DBC_composantes_www
+                    FROM $_DB_composantes, $_DB_universites
+                  WHERE $_DBC_composantes_univ_id=$_DBC_universites_id
+                  AND $_DBC_composantes_id='$_SESSION[comp_id]'");
 
-	$rows=db_num_rows($result);
+  $rows=db_num_rows($result);
 
-	if($rows)
-	{
-		list($comp_id, $comp_nom, $comp_univ_id, $univ_nom, $scolarite, $comp_www)=db_fetch_row($result,0);
+  if($rows)
+  {
+    list($comp_id, $comp_nom, $comp_univ_id, $univ_nom, $scolarite, $comp_www)=db_fetch_row($result,0);
 
-		print("<table cellspacing='0' cellpadding='4' border='0' align='center'>\n");
+    print("<table cellspacing='0' cellpadding='4' border='0' align='center'>\n");
 
-		if(!empty($scolarite))
-		{
-			$scolarite=nl2br($scolarite);
+    if(!empty($scolarite))
+    {
+      $scolarite=nl2br($scolarite);
 
-			print("<tr>
-						<td align='justify'>
-							<font class='Texte'>
-								<strong>Sauf indication contraire dans la liste des justificatifs, vous devez envoyer les pièces demandées PAR COURRIER à l'adresse suivante :</strong>
-								<br><br>
-								$scolarite
-								<br><br>
-							</font>
-						</td>
-					</tr>\n");
-		}
+      print("<tr>
+            <td align='justify'>
+              <font class='Texte'>
+                <strong>Sauf indication contraire dans la liste des justificatifs, vous devez envoyer les pièces demandées PAR COURRIER à l'adresse suivante :</strong>
+                <br><br>
+                $scolarite
+                <br><br>
+              </font>
+            </td>
+          </tr>\n");
+    }
 
-		if(!empty($comp_www) && (!strncmp("http://", $comp_www, 7) || !strncmp("https://", $comp_www, 8)))
-		{
-			print("<tr>
-						<td align='justify'>
-							<font class='Texte'>
-								<strong>Adresse du site Internet de la composante :</strong>
-								<br><br>
-								<a href='$comp_www' target='_blank' class='lien_bleu_12'><strong>$comp_www</strong></a>
-								<br><br>
-							</font>
-						</td>
-					</tr>\n");
-		}
+    if(!empty($comp_www) && (!strncmp("http://", $comp_www, 7) || !strncmp("https://", $comp_www, 8)))
+    {
+      print("<tr>
+            <td align='justify'>
+              <font class='Texte'>
+                <strong>Site de la composante :</strong>
+                <br><br>
+                <a href='$comp_www' target='_blank' class='lien_bleu_12'><strong>$comp_www</strong></a>
+                <br><br>
+              </font>
+            </td>
+          </tr>\n");
+    }
 
-		print("<tr>
-					<td align='justify'>
-						<font class='Texte'>
-							<strong>Envoyer un message : </strong>
-							<br><br>
-							<a href='$__CAND_MSG_DIR/compose.php' class='lien2'>- Cliquer ici pour contacter la Scolarité</a>
-						</font>
-					</td>
-				</tr>
-				</table>\n");
-	}
+    print("<tr>
+          <td align='justify'>
+            <font class='Texte'>
+              <strong>Envoyer un message : </strong>
+              <br><br>
+              <a href='$__CAND_MSG_DIR/compose.php' class='lien2'>- Contacter directement la Scolarité</a>
+            </font>
+          </td>
+        </tr>
+        </table>\n");
+  }
 
-	db_free_result($result);
+  db_free_result($result);
 ?>

@@ -156,7 +156,7 @@ CeCILL-B, et que vous en avez accepté les termes.
    <a href='session.php' target='_self' class='lien_menu_haut_2'>Ajouter une session</a>
    <?php
       }
-      if($aucune_specialite!=1)
+      if(isset($aucune_specialite) && $aucune_specialite!=1)
       {
    ?>
    <a href='suppr_session.php' target='_self'><img class='icone_menu_haut_2' border='0' src='<?php echo "$__ICON_DIR/trashcan_full_16x16_slick_menu2.png"; ?>' alt='+'></a>
@@ -441,28 +441,28 @@ CeCILL-B, et que vous en avez accepté les termes.
                                                                                                 "periode=" => "$s_periode");
                                                                                                 
                            $res_groupes=db_query($dbr, "SELECT $_DBC_groupes_spec_propspec_id FROM $_DB_groupes_spec, $_DB_propspec 
-                           									  WHERE $_DBC_groupes_spec_propspec_id=$_DBC_propspec_id
-                           									  AND $_DBC_propspec_active='1' 
-                           									  AND $_DBC_groupes_spec_groupe='$groupe_id'
-                           									  AND $_DBC_groupes_spec_propspec_id!='$propspec_id'");
-                           									  
-							   	$nb_specs=db_num_rows($res_groupes);
-							   	
-							   	if($nb_specs)
-							   	{
-							   	   for($s=0; $s<$nb_specs; $s++)
-							   	   {
-							   	      list($grp_propspec_id)=db_fetch_row($res_groupes, $s);
-							   	      
-							   	      $_SESSION["all_sessions"][$grp_propspec_id][$current_session]=array("s_id" => "$session_id",
-			                                                                                            "ouv" => "$s_ouverture",
-			                                                                                            "ferm" => "$s_fermeture",
-			                                                                                            "rec" => "$s_reception",
-			                                                                                            "periode=" => "$s_periode");
-		                        }
-		                     }
-		                     
-		                     db_free_result($res_groupes);
+                                              WHERE $_DBC_groupes_spec_propspec_id=$_DBC_propspec_id
+                                              AND $_DBC_propspec_active='1' 
+                                              AND $_DBC_groupes_spec_groupe='$groupe_id'
+                                              AND $_DBC_groupes_spec_propspec_id!='$propspec_id'");
+                                              
+                  $nb_specs=db_num_rows($res_groupes);
+                  
+                  if($nb_specs)
+                  {
+                     for($s=0; $s<$nb_specs; $s++)
+                     {
+                        list($grp_propspec_id)=db_fetch_row($res_groupes, $s);
+                        
+                        $_SESSION["all_sessions"][$grp_propspec_id][$current_session]=array("s_id" => "$session_id",
+                                                                                                  "ouv" => "$s_ouverture",
+                                                                                                  "ferm" => "$s_fermeture",
+                                                                                                  "rec" => "$s_reception",
+                                                                                                  "periode=" => "$s_periode");
+                            }
+                         }
+                         
+                         db_free_result($res_groupes);
                         }
                      }
    
