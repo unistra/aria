@@ -90,8 +90,10 @@ CeCILL-B, et que vous en avez accepté les termes.
    <tr>
       <td class='td-gauche fond_menu' style='white-space:normal;'>
          <font class='Texte' style='vertical-align:top;'>
-            Ces deux cas de figure sont courants : utilisez <a href='form_adresse.php' class='lien_bleu_12' style='vertical-align:top;'><strong>ce formulaire</strong></a> pour demander
-            une modification de votre adresse électronique et le renvoi de vos identifiants.
+            Vous pouvez utiliser <a href='form_adresse.php' class='lien_bleu_12' style='vertical-align:top;'><strong>ce formulaire</strong></a> pour demander
+            une modification de votre adresse électronique.
+            <br><br>
+            De nouveaux identifiants vous seront renvoyés.
          </font>
          <br><br>
          <font class='Texte_important'>
@@ -100,6 +102,39 @@ CeCILL-B, et que vous en avez accepté les termes.
          </font>
       </td>
    </tr>
+   </table>
+
+   <div class='centered_box' style='padding-top:20px;'>
+      <a href='index_utilisation.php' target='_self' class='lien2'><img border='0' src='<?php echo "$__ICON_DIR/back_32x32.png"; ?>' title='[Retour]' alt='Retour' desc='Retour'></a>
+   </div>
+   <?php
+      }
+      elseif(isset($_GET["s"]) && $_GET["s"]=="reception") {
+        $domain = explode("@", $GLOBALS["__EMAIL_NOREPLY"]);
+        $domain = count($domain) == 2 ? $domain[1] : $domain[0];
+   ?>
+   <tr>
+      <td class='td-complet fond_menu2' style='padding:4px;'>
+         <font class='Texte_menu2'>
+            <strong>Vous n'avez pas reçu vos identifiants après enregistrement</strong>
+         </font>
+      </td>
+   </tr>
+   <tr>
+      <td class='td-gauche fond_menu' style='white-space:normal;'>
+         <font class='Texte' style='vertical-align:top;'>
+            &#8226;&nbsp;&nbsp;Vérifiez bien que votre messagerie autorise les emails venant du domaine "<b><?php echo $domain; ?></b>"
+            <br>&#8226;&nbsp;&nbsp;Vérifiez également votre dossier "<b>Spams</b>" ou "<b>Indésirables</b>"
+            <br>&#8226;&nbsp;&nbsp;Si vous venez de vous enregistrer, merci de patienter quelques heures, il arrive parfois que des messages soient transmis après un certain délai.
+            <br>&#8226;&nbsp;&nbsp;Si vous ne les avez toujours pas reçu passé ce délai, vous pouvez faire une demande de changement d'adresse <b><a href='form_adresse.php' class='lien_bleu_12' style='vertical-align:top;'>sur ce formulaire</a></b>
+         </font>
+      </td>
+   </tr>
+   </table>
+
+   <div class='centered_box' style='padding-top:20px;'>
+      <a href='index_acces_interface.php' target='_self' class='lien2'><img border='0' src='<?php echo "$__ICON_DIR/back_32x32.png"; ?>' title='[Retour]' alt='Retour' desc='Retour'></a>
+   </div>
    <?php
       }
       elseif(isset($_GET["s"]) && $_GET["s"]=="doc")
@@ -115,12 +150,18 @@ CeCILL-B, et que vous en avez accepté les termes.
    <tr>
       <td class='td-gauche fond_menu' style='white-space:normal;'>
          <font class='Texte' style='vertical-align:bottom;'>
-            Nous vous conseillons de lire intégralement la documentation <a href='<?php echo "$__DOC_DIR/documentation.php"; ?>' target='_blank' class='lien_bleu_12'><strong>sur cette page</strong></a>.
+            Nous vous conseillons de lire intégralement la documentation <a href='<?php echo "$__DOC_DIR/documentation.php"; ?>' target='_blank' class='lien_bleu_12' style='vertical-align:top;'><strong>sur cette page</strong></a>.
             <br><br>
             Le chapitre "<strong>I - Déroulement d'une précandidature en ligne</strong>" résume en particulier les différentes étapes d'un dépôt de dossier.
          </font>
       </td>
    </tr>
+   </table>
+
+   <div class='centered_box' style='padding-top:20px;'>
+      <a href='index_utilisation.php' target='_self' class='lien2'><img border='0' src='<?php echo "$__ICON_DIR/back_32x32.png"; ?>' title='[Retour]' alt='Retour' desc='Retour'></a>
+   </div>
+   
    <?php
       }
       elseif(isset($_GET["s"]) && $_GET["s"]=="cursus")
@@ -151,6 +192,12 @@ CeCILL-B, et que vous en avez accepté les termes.
          </font>
       </td>
    </tr>
+   </table>
+
+   <div class='centered_box' style='padding-top:20px;'>
+      <a href='index_justificatif.php' target='_self' class='lien2'><img border='0' src='<?php echo "$__ICON_DIR/back_32x32.png"; ?>' title='[Retour]' alt='Retour' desc='Retour'></a>
+   </div>
+   
    <?php
       }
       elseif(isset($_GET["s"]) && $_GET["s"]=="deverrouillage")
@@ -194,6 +241,12 @@ CeCILL-B, et que vous en avez accepté les termes.
          </font>
       </td>
    </tr>
+   </table>
+
+   <div class='centered_box' style='padding-top:20px;'>
+      <a href='index_utilisation.php' target='_self' class='lien2'><img border='0' src='<?php echo "$__ICON_DIR/back_32x32.png"; ?>' title='[Retour]' alt='Retour' desc='Retour'></a>
+   </div>
+   
    <?php
       }
       elseif(isset($_GET["s"]) && $_GET["s"]=="formations")
@@ -226,6 +279,11 @@ CeCILL-B, et que vous en avez accepté les termes.
                <li style='padding-top:20px;'><strong>Le nombre de dossiers que vous pouvez déposer est limité dans une composante de l'Université, et la limite est déjà atteinte sur votre fiche.</strong>
                   <br><u>Solution</u> : Vous devez réfléchir à la priorité de vos voeux afin de respecter la limite imposée par la composante, en supprimant éventuellement certaines formations sélectionnées.
                </li>
+               
+               <li style='padding-top:20px;'>
+                  <strong>Vous avez déjà déposé un dossier pour cette formation cette année</strong>
+                  <br>Si la décision a déjà été rendue par la Commission Pédagogique, vous ne pouvez pas déposer un second dossier, même s'il existe une seconde session de candidatures.
+               </li>
 
                <li style='padding-top:20px;'><strong>La formation recherchée n'est pas proposée par la composante que vous avez sélectionnée.</strong>
                   <br><u>Solution</u> : Utilisez le menu "Rechercher une formation" (menu supérieur de votre fiche) pour trouver la formation souhaitée. En cas de réponse positive, la composante qui la propose sera indiquée.</strong>
@@ -245,6 +303,40 @@ CeCILL-B, et que vous en avez accepté les termes.
          </font>
       </td>
    </tr>
+   </table>
+
+   <div class='centered_box' style='padding-top:20px;'>
+      <a href='index_utilisation.php' target='_self' class='lien2'><img border='0' src='<?php echo "$__ICON_DIR/back_32x32.png"; ?>' title='[Retour]' alt='Retour' desc='Retour'></a>
+   </div>
+   
+   <?php
+      }
+      elseif(isset($_GET["s"]) && $_GET["s"]=="annulee")
+      {
+   ?>
+   <tr>
+      <td class='td-complet fond_menu2' style='padding:4px;'>
+         <font class='Texte_menu2'>
+            <strong>J'ai par erreur 'annulé' une candidature verrouillée, et je ne peux plus ajouter la formation. Comment rétablir ma candidature ?</strong>
+         </font>
+      </td>
+   </tr>
+   <tr>
+      <td class='td-gauche fond_menu' style='white-space:normal;'>
+         <font class='Texte'>
+            Nous vous conseillons d'utiliser <a href='form_scolarite.php' class='lien_bleu_12' style='vertical-align:top;'><strong>ce formulaire</strong></a>
+            pour contacter directement la scolarité et demander le rétablissement de votre candidature.
+            <br><br>
+            <u>Attention :</u> vous devez déjà être identifié(e) sur l'interface pour pouvoir accéder à cette page.
+         </font>
+      </td>
+   </tr>
+   </table>
+
+   <div class='centered_box' style='padding-top:20px;'>
+      <a href='index_utilisation.php' target='_self' class='lien2'><img border='0' src='<?php echo "$__ICON_DIR/back_32x32.png"; ?>' title='[Retour]' alt='Retour' desc='Retour'></a>
+   </div>
+   
    <?php
       }
       elseif(isset($_GET["s"]) && $_GET["s"]=="inscr")
@@ -268,6 +360,12 @@ CeCILL-B, et que vous en avez accepté les termes.
          </font>
       </td>
    </tr>
+   </table>
+
+   <div class='centered_box' style='padding-top:20px;'>
+      <a href='index_resultat.php' target='_self' class='lien2'><img border='0' src='<?php echo "$__ICON_DIR/back_32x32.png"; ?>' title='[Retour]' alt='Retour' desc='Retour'></a>
+   </div>
+   
    <?php
       }
       elseif(isset($_GET["s"]) && $_GET["s"]=="justificatifs")
@@ -288,7 +386,8 @@ CeCILL-B, et que vous en avez accepté les termes.
             <u><strong>Plusieurs cas possibles :</strong></u>
              <ul style='text-align:justify'>
                <li><strong>Il manque des renseignements obligatoires dans le menu "6-Autres renseignements".</strong>
-               <br><u>Solution</u> : après avoir sélectionné la bonne composante, vérifiez que vous n'avez oublié aucune question (si ce menu 6 n'apparait pas, 
+               <br><u>Solution</u> : l'interface vous a normalement envoyé un ou plusieurs messages de rappels.
+               <br>Après avoir sélectionné la bonne composante, vérifiez que vous n'avez oublié aucune question (si ce menu 6 n'apparait pas, 
                aucune information supplémentaire n'est demandée). Une fois les informations manquantes complétées, l'interface retentera automatiquement de 
                verrouiller vos voeux le lendemain.</li>
 
@@ -306,6 +405,12 @@ CeCILL-B, et que vous en avez accepté les termes.
          </font>
       </td>
    </tr>
+   </table>
+
+   <div class='centered_box' style='padding-top:20px;'>
+      <a href='index_justificatifs.php' target='_self' class='lien2'><img border='0' src='<?php echo "$__ICON_DIR/back_32x32.png"; ?>' title='[Retour]' alt='Retour' desc='Retour'></a>
+   </div>
+   
    <?php
          }
          elseif(isset($_GET["a"]) && $_GET["a"]=="1")
@@ -335,6 +440,11 @@ CeCILL-B, et que vous en avez accepté les termes.
          </font>
       </td>
    </tr>
+   </table>
+
+   <div class='centered_box' style='padding-top:20px;'>
+      <a href='index_justificatifs.php' target='_self' class='lien2'><img border='0' src='<?php echo "$__ICON_DIR/back_32x32.png"; ?>' title='[Retour]' alt='Retour' desc='Retour'></a>
+   </div>
 
    <?php
          }
@@ -362,6 +472,11 @@ CeCILL-B, et que vous en avez accepté les termes.
          </font>         
       </td>
    </tr>
+   </table>
+
+   <div class='centered_box' style='padding-top:20px;'>
+      <a href='index_justificatifs.php' target='_self' class='lien2'><img border='0' src='<?php echo "$__ICON_DIR/back_32x32.png"; ?>' title='[Retour]' alt='Retour' desc='Retour'></a>
+   </div>
 
    <?php
          }
@@ -384,6 +499,11 @@ CeCILL-B, et que vous en avez accepté les termes.
          </font>
       </td>
    </tr>
+   </table>
+
+   <div class='centered_box' style='padding-top:20px;'>
+      <a href='index_justificatifs.php' target='_self' class='lien2'><img border='0' src='<?php echo "$__ICON_DIR/back_32x32.png"; ?>' title='[Retour]' alt='Retour' desc='Retour'></a>
+   </div>
    <?php
          }
       }
@@ -416,6 +536,12 @@ CeCILL-B, et que vous en avez accepté les termes.
          </font>
       </td>
    </tr>
+   </table>
+
+   <div class='centered_box' style='padding-top:20px;'>
+      <a href='index_acces_interface.php' target='_self' class='lien2'><img border='0' src='<?php echo "$__ICON_DIR/back_32x32.png"; ?>' title='[Retour]' alt='Retour' desc='Retour'></a>
+   </div>
+   
    <?php
       }
       elseif(isset($_GET["s"]) && $_GET["s"]=="pdf")
@@ -446,6 +572,11 @@ CeCILL-B, et que vous en avez accepté les termes.
          </font>
       </td>
    </tr>
+   </table>
+
+   <div class='centered_box' style='padding-top:20px;'>
+      <a href='index_justificatifs.php' target='_self' class='lien2'><img border='0' src='<?php echo "$__ICON_DIR/back_32x32.png"; ?>' title='[Retour]' alt='Retour' desc='Retour'></a>
+   </div>
    <?php
       }
       elseif(isset($_GET["s"]) && $_GET["s"]=="resultats")
@@ -473,6 +604,12 @@ CeCILL-B, et que vous en avez accepté les termes.
          </font>
       </td>
    </tr>
+   </table>
+
+   <div class='centered_box' style='padding-top:20px;'>
+      <a href='index_resultat.php' target='_self' class='lien2'><img border='0' src='<?php echo "$__ICON_DIR/back_32x32.png"; ?>' title='[Retour]' alt='Retour' desc='Retour'></a>
+   </div>
+   
    <?php
       }
       elseif(isset($_GET["s"]) && $_GET["s"]=="scolarite")
@@ -488,7 +625,7 @@ CeCILL-B, et que vous en avez accepté les termes.
    <tr>
       <td class='td-gauche fond_menu' style='white-space:normal;'>
          <font class='Texte'>
-            <u>Vérifiez tout d'abord les dates des différentes sessions pour cette formation :</u>
+            <u>Vérifiez tout d'abord les <a href='<?php echo "$__DOC_DIR/limites.php"; ?>' target='_blank' class='lien_bleu_12' style='vertical-align:top;'><strong>dates des différentes sessions</strong></a> pour cette formation :</u>
             <ol style='list-style-type:decimal; text-align:justify'>
                <li>
                   Si une nouvelle session de candidatures est programmée, vous devez attendre son ouverture afin de pouvoir sélectionner la formation.
@@ -502,6 +639,42 @@ CeCILL-B, et que vous en avez accepté les termes.
          </font>
       </td>
    </tr>
+   </table>
+
+   <div class='centered_box' style='padding-top:20px;'>
+      <a href='index_utilisation.php' target='_self' class='lien2'><img border='0' src='<?php echo "$__ICON_DIR/back_32x32.png"; ?>' title='[Retour]' alt='Retour' desc='Retour'></a>
+   </div>
+
+   <?php
+      }
+      elseif(isset($_GET["s"]) && $_GET["s"]=="messagerie")
+      {
+   ?>
+   <tr>
+      <td class='td-complet fond_menu2' style='padding:4px;'>
+         <font class='Texte_menu2'>
+            <strong>J'ai un message en attente, comment accéder à ma messagerie Aria ?</strong>
+         </font>
+      </td>
+   </tr>
+   <tr>
+      <td class='td-gauche fond_menu' style='white-space:normal;'>
+         <font class='Texte'>
+            <u>Pour accéder à la messagerie :</u>
+            <ol style='list-style-type:decimal; text-align:justify'>
+               <li>Connectez-vous à l'interface à l'aide de votre identifiant et mot de passe,</li>
+               <li style='padding-top:20px;'>Sélectionner une composante dans laquelle vous avez déposé un dossier,</li>
+               <li style='padding-top:20px;'>Passez la page d'information (s'il y en a une) afin d'accéder à votre fiche,</li>
+               <li style='padding-top:20px;'>L'interface doit vous proposer de lire le message non lu. Si ce n'est pas le cas, cliquez sur le lien "Messagerie" dans le menu supérieur de votre fiche.</li>
+            </ol>
+         </font>
+      </td>
+   </tr>
+   </table>
+
+   <div class='centered_box' style='padding-top:20px;'>
+      <a href='index_utilisation.php' target='_self' class='lien2'><img border='0' src='<?php echo "$__ICON_DIR/back_32x32.png"; ?>' title='[Retour]' alt='Retour' desc='Retour'></a>
+   </div>
 
    <?php
       }
@@ -520,7 +693,10 @@ CeCILL-B, et que vous en avez accepté les termes.
          <font class='Texte'>
             <ol style='list-style-type:decimal; text-align:justify'>
                <li>
-                  Vérifiez tout d'abord les informations sur le site de l'Université, <a href='http://www.unistra.fr/index.php?id=2107' target='_blank' class='lien_bleu_12' style='vertical-align:top;'><strong>sur cette page</strong></a>.
+                  Vérifiez tout d'abord les informations sur le site de l'Université, <a href='http://www.unistra.fr/index.php?id=14881' target='_blank' class='lien_bleu_12' style='vertical-align:top;'><strong>sur cette page</strong></a>.
+               </li>
+               <li style='padding-top:20px;'>
+                  Vous pouvez également consulter le site de la composante, en fonction de la formation souhaitée (<a href='<?php echo "$__DOC_DIR/composantes.php"; ?>' target='_blank' class='lien_bleu_12' style='vertical-align:top;'><strong>liste des composantes</strong></a>).
                </li>
                <li style='padding-top:20px;'>
                   Si vous n'avez pas trouvé l'information que vous cherchiez, utilisez <a href='form_scolarite.php' class='lien_bleu_12' style='vertical-align:top;'><strong>ce formulaire</strong></a>
@@ -531,6 +707,11 @@ CeCILL-B, et que vous en avez accepté les termes.
          </font>
       </td>
    </tr>
+   </table>
+
+   <div class='centered_box' style='padding-top:20px;'>
+      <a href='index_utilisation.php' target='_self' class='lien2'><img border='0' src='<?php echo "$__ICON_DIR/back_32x32.png"; ?>' title='[Retour]' alt='Retour' desc='Retour'></a>
+   </div>
 
    <?php
       }
@@ -552,6 +733,11 @@ CeCILL-B, et que vous en avez accepté les termes.
          </font>
       </td>
    </tr>
+   </table>
+
+   <div class='centered_box' style='padding-top:20px;'>
+      <a href='index_justificatifs.php' target='_self' class='lien2'><img border='0' src='<?php echo "$__ICON_DIR/back_32x32.png"; ?>' title='[Retour]' alt='Retour' desc='Retour'></a>
+   </div>
 
    <?php
       }
@@ -576,15 +762,16 @@ CeCILL-B, et que vous en avez accepté les termes.
          </font>
       </td>
    </tr>
+   </table>
+
+   <div class='centered_box' style='padding-top:20px;'>
+      <a href='index_autre.php' target='_self' class='lien2'><img border='0' src='<?php echo "$__ICON_DIR/back_32x32.png"; ?>' title='[Retour]' alt='Retour' desc='Retour'></a>
+   </div>
 
    <?php
       }
    ?>
-   </table>
-
-   <div class='centered_box' style='padding-top:20px;'>
-      <a href='index.php' target='_self' class='lien2'><img border='0' src='<?php echo "$__ICON_DIR/back_32x32.png"; ?>' title='[Retour]' alt='Retour' desc='Retour'></a>
-   </div>
+   
 </div>
 <?php
    pied_de_page_simple();

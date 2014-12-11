@@ -49,117 +49,116 @@ CeCILL-B, et que vous en avez accepté les termes.
 */
 ?>
 <?php
-	session_name("preinsc");
-	session_start();
+  session_name("preinsc");
+  session_start();
 
-	include "../configuration/aria_config.php";
-	include "$__INCLUDE_DIR_ABS/vars.php";
-	include "$__INCLUDE_DIR_ABS/db.php";
-	include "$__INCLUDE_DIR_ABS/fonctions.php";
+  include "../configuration/aria_config.php";
+  include "$__INCLUDE_DIR_ABS/vars.php";
+  include "$__INCLUDE_DIR_ABS/db.php";
+  include "$__INCLUDE_DIR_ABS/fonctions.php";
 
-	$php_self=$_SERVER['PHP_SELF'];
-	$_SESSION['CURRENT_FILE']=$php_self;
+  $php_self=$_SERVER['PHP_SELF'];
+  $_SESSION['CURRENT_FILE']=$php_self;
 
-	en_tete_candidat_simple();
-	menu_sup_simple();
+  en_tete_candidat_simple();
+  menu_sup_simple();
 ?>
 
 <div class='main'>
-	<div class='centered_box'>
-		<font class='Texte3'>
-			<b>Dépôt de dossiers de précandidature
-			<br><br>II - Composantes accessibles pour un dépôt de précandidature en ligne</b>
-			<br>
-			<br><a href='documentation.php' class='lien2a'><img src='<?php echo "$__ICON_DIR/back_32x32_fond.png"; ?>' alt='Retour' border='0'></a>
-		</font>
-	</div>
+  <div class='centered_box'>
+    <font class='Texte3'>
+      <b>Dépôt de dossiers de précandidature
+      <br><br>II - Composantes accessibles pour un dépôt de précandidature en ligne</b>
+      <br>
+      <br><a href='documentation.php' class='lien2a'><img src='<?php echo "$__ICON_DIR/back_32x32_fond.png"; ?>' alt='Retour' border='0'></a>
+    </font>
+  </div>
 
-	<div style='width:80%; text-align:justify; margin:0px auto 0px auto; padding-bottom:30px;'>
-		<?php
-			$dbr=db_connect();
+  <div style='width:80%; text-align:justify; margin:0px auto 0px auto; padding-bottom:30px;'>
+    <?php
+      $dbr=db_connect();
 
-			$result=db_query($dbr, "SELECT $_DBC_composantes_id, $_DBC_composantes_nom, $_DBC_composantes_univ_id, $_DBC_universites_nom,
-														$_DBC_composantes_courriel_scol, $_DBC_composantes_scolarite
-												FROM $_DB_composantes, $_DB_universites
-											WHERE $_DBC_composantes_univ_id=$_DBC_universites_id
-											AND $_DBC_composantes_id IN (SELECT distinct($_DBC_propspec_comp_id) FROM $_DB_propspec
-																					WHERE $_DBC_propspec_active='1')
-												ORDER BY $_DBC_composantes_univ_id, $_DBC_composantes_nom ASC");
+      $result=db_query($dbr, "SELECT $_DBC_composantes_id, $_DBC_composantes_nom, $_DBC_composantes_univ_id, $_DBC_universites_nom,
+                            $_DBC_composantes_courriel_scol, $_DBC_composantes_scolarite, $_DBC_composantes_www
+                        FROM $_DB_composantes, $_DB_universites
+                      WHERE $_DBC_composantes_univ_id=$_DBC_universites_id
+                      AND $_DBC_composantes_id IN (SELECT distinct($_DBC_propspec_comp_id) FROM $_DB_propspec
+                                          WHERE $_DBC_propspec_active='1')
+                        ORDER BY $_DBC_composantes_univ_id, $_DBC_composantes_nom ASC");
 
-			$rows=db_num_rows($result);
+      $rows=db_num_rows($result);
 
-			$old_univ="";
-			$count=0;
+      $old_univ="";
+      $count=0;
 
-			for($i=0; $i<$rows; $i++)
-			{
-				list($comp_id, $comp_nom, $comp_univ_id, $univ_nom, $courriel_scol, $scolarite)=db_fetch_row($result,$i);
+      for($i=0; $i<$rows; $i++)
+      {
+        list($comp_id, $comp_nom, $comp_univ_id, $univ_nom, $courriel_scol, $scolarite, $www)=db_fetch_row($result,$i);
 
-				$scolarite=nl2br($scolarite);
+        $scolarite=nl2br($scolarite);
 
-				if($comp_univ_id!=$old_univ)
-				{
-					if($i)
-					{
-						if($count==1)
-							print("<td bgcolor='#DDEEFF'></td>\n");
+        if($comp_univ_id!=$old_univ)
+        {
+          if($i)
+          {
+            if($count==1)
+              print("<td bgcolor='#DDEEFF'></td>\n");
 
-						print("</tr>
-								</table>\n");
-					}
+            print("</tr>
+                </table>\n");
+          }
 
-					print("<table cellspacing='0' cellpadding='4' align='center' width='85%'>
-								<tr>
-									<td colspan='2' align='left' bgcolor='#CCDDEE'>
-										<font class='Texte3'><b>$univ_nom</b></font>
-									</td>
-								</tr>\n");
+          print("<table cellspacing='0' cellpadding='4' align='center' width='85%'>
+                <tr>
+                  <td colspan='2' align='left' bgcolor='#CCDDEE'>
+                    <font class='Texte3'><b>$univ_nom</b></font>
+                  </td>
+                </tr>\n");
 
-					$old_univ=$comp_univ_id;
-					$count=0;
-				}
+          $old_univ=$comp_univ_id;
+          $count=0;
+        }
 
-				if($count==0)
-					print("<tr>\n");
+        if($count==0)
+          print("<tr>\n");
 
-				print("<td align='left' bgcolor='#DDEEFF' valign='top'>
-							<font class='Texte'>
-								<b>&#8226;&nbsp;&nbsp;$comp_nom</b>\n");
+        print("<td align='left' bgcolor='#DDEEFF' valign='top'>
+              <font class='Texte'>
+                <b>&#8226;&nbsp;&nbsp;$comp_nom</b>\n");
 
-				if(!empty($scolarite))
-					print("<br>$scolarite
-								<br>\n");
-	/*
-				if(!empty($courriel_scol))
-					print("<a href='mailto:$courriel_scol' class='lien_bleu_12'>- Contacter cette scolarité par courriel</a>
-									<br>\n");
-	*/
-				print("<br>
-						</font>
-					</td>\n");
+        if(!empty($scolarite))
+          print("<br>$scolarite");
+                
+        if(!empty($www))
+          print("<br>Site : <a href='$www' target='_blank' class='lien_bleu'>$www</a>
+                <br>\n");
 
-				if($count==1)
-				{
-					print("</tr>\n");
-					$count=0;
-				}
-				else
-					$count=1;
-			}
+        print("<br>
+            </font>
+          </td>\n");
 
-			if($count==1)
-				print("<td bgcolor='#DDEEFF'></td>\n");
+        if($count==1)
+        {
+          print("</tr>\n");
+          $count=0;
+        }
+        else
+          $count=1;
+      }
 
-			print("</tr>
-						</table>\n");
+      if($count==1)
+        print("<td bgcolor='#DDEEFF'></td>\n");
 
-			db_free_result($result);
-			db_close($dbr);
-		?>
-	</div>
+      print("</tr>
+            </table>\n");
+
+      db_free_result($result);
+      db_close($dbr);
+    ?>
+  </div>
 </div>
 <?php
-	pied_de_page_candidat();
+  pied_de_page_candidat();
 ?>
 
 </body>

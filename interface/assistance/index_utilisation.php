@@ -59,11 +59,6 @@ CeCILL-B, et que vous en avez accepté les termes.
    include "$__INCLUDE_DIR_ABS/fonctions.php";
    include "$__INCLUDE_DIR_ABS/db.php";
 
-   if(isset($_SESSION["CURRENT_FILE"]))
-      $_SESSION["from_page"]=$_SESSION["CURRENT_FILE"];
-   else
-      $_SESSION["from_page"]="../index.php";
-
    unset($_SESSION["form_composante_id"]);
 
    // EN-TETE
@@ -74,69 +69,54 @@ CeCILL-B, et que vous en avez accepté les termes.
 ?>
 <div class='main'>
    <?php
-       titre_page_icone("[Assistance aux candidats] - Accueil", "help-browser_32x32_fond.png", 15, "L");
-
-      message("Cet assistant vous permet de vous orienter en fonction de vos questions et de faciliter certaines demandes.", $__INFO);
+       titre_page_icone("[Assistance aux candidats] - Utilisation de l'interface", "help-browser_32x32_fond.png", 15, "L");
    ?>
 
    <table align='center' style='padding-bottom:20px;'>
    <tr>
       <td class='td-complet fond_menu2' style='padding:4px;'>
-         <font class='Texte_menu2'><strong>Avant de commencer, quelques liens utiles</strong></font>
+         <font class='Texte_menu2'><strong>Questions relatives à l'utilisation de l'interface Aria</strong></font>
       </td>
    </tr>
    <tr>
       <td class='td-gauche fond_menu'>
-         <a href='<?php echo "$__DOC_DIR/documentation.php"; ?>' target='_blank' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;Documentation de l'interface (procédure, composantes, messagerie...)</a>
+         <a href='aide.php?s=doc' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;Comment déposer un dossier de précandidature en ligne ?</a>
       </td>
    </tr>
    <tr>
       <td class='td-gauche fond_menu'>
-         <a href='<?php echo "$__DOC_DIR/limites.php"; ?>' target='_blank' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;Dates des sessions de candidatures</a>
+         <a href='aide.php?s=messagerie' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;J'ai un message en attente, comment accéder à ma messagerie Aria ?</a>
       </td>
    </tr>
    <tr>
       <td class='td-gauche fond_menu'>
-         <a href='<?php echo "$__DOC_DIR/faq.php"; ?>' target='_blank' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;Les questions fréquentes</a>
-      </td>
-   </tr>
-   <tr>
-      <td class='td-gauche fond_page' height='15px'></td>
-   </tr>
-   <tr>
-      <td class='td-complet fond_menu2' style='padding:4px;'>
-         <font class='Texte_menu2'><strong>Votre question concerne ...</strong></font>
+         <a href='aide.php?s=contact_scol' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;J'ai une question concernant les modalités d'accès à une formation, à qui dois-je m'adresser ?</a>
       </td>
    </tr>
    <tr>
       <td class='td-gauche fond_menu'>
-         <a href='index_acces_interface.php' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;L'accès à l'interface Aria (identifiant / mot de passe, changement d'adresse email, ...)</a>
+         <a href='aide.php?s=formations' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;Dans le menu "5-Précandidatures", je ne trouve pas la formation souhaitée dans la liste.</a>
       </td>
    </tr>
    <tr>
       <td class='td-gauche fond_menu'>
-         <a href='index_utilisation.php' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;L'utilisation de l'interface (trouver une formation, déposer un dossier, modifier des informations ...)</a>
+         <a href='aide.php?s=scolarite' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;Je souhaite ajouter une formation, mais la session est déjà fermée.</a>
       </td>
    </tr>
    <tr>
       <td class='td-gauche fond_menu'>
-         <a href='index_justificatifs.php' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;Les documents (justificatifs et autres) à envoyer à la scolarité</a>
+         <a href='aide.php?s=annulee' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;J'ai par erreur 'annulé' une candidature verrouillée, et je ne peux plus ajouter la formation. Comment rétablir ma candidature ?</a>
       </td>
    </tr>
    <tr>
       <td class='td-gauche fond_menu'>
-         <a href='index_resultat.php' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;Le résultat de ma candidature.</a>
-      </td>
-   </tr>
-   <tr>
-      <td class='td-gauche fond_menu'>
-         <a href='index_autre.php' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;Autre</a>
+         <a href='aide.php?s=deverrouillage' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;Je souhaite déverrouiller certaines formations pour effectuer des modifications sur ma fiche.</a>
       </td>
    </tr>
    </table>
    
    <div class='centered_box' style='padding-bottom:20px;'>
-      <a href='<?php echo $_SESSION["from_page"]; ?>' target='_self' class='lien2'><img border='0' src='<?php echo "$__ICON_DIR/back_32x32.png"; ?>' title='[Retour]' alt='Retour' desc='Retour'></a>
+      <a href='index.php' target='_self' class='lien2'><img border='0' src='<?php echo "$__ICON_DIR/back_32x32.png"; ?>' title='[Retour]' alt='Retour' desc='Retour'></a>
    </div>
 </div>
 <?php

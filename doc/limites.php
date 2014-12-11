@@ -88,7 +88,7 @@ CeCILL-B, et que vous en avez accepté les termes.
   <?php
     titre_page_icone("Dates des différentes sessions de candidatures", "clock_32x32_fond.png", 15, "L");
 
-    message("Vous ne pouvez choisir une formation que lorsqu'une session est ouverte.", $__INFO);
+    message("Vous ne pouvez déposer un dossier pour une formation que lorsqu'une session est ouverte pour celle-ci", $__INFO);
 
     $dbr=db_connect();
 
@@ -106,7 +106,7 @@ CeCILL-B, et que vous en avez accepté les termes.
           <table align='center'>
           <tr>
             <td class='td-gauche fond_menu2'>
-              <font class='Texte_menu2'><b>Sélection de la composante : </b></font>
+              <font class='Texte_menu2'><b>Sélectionnez une composante pour voir les formations et les sessions : </b></font>
             </td>
           </tr>
           <tr>

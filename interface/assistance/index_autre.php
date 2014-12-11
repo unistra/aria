@@ -59,11 +59,6 @@ CeCILL-B, et que vous en avez accepté les termes.
    include "$__INCLUDE_DIR_ABS/fonctions.php";
    include "$__INCLUDE_DIR_ABS/db.php";
 
-   if(isset($_SESSION["CURRENT_FILE"]))
-      $_SESSION["from_page"]=$_SESSION["CURRENT_FILE"];
-   else
-      $_SESSION["from_page"]="../index.php";
-
    unset($_SESSION["form_composante_id"]);
 
    // EN-TETE
@@ -74,69 +69,24 @@ CeCILL-B, et que vous en avez accepté les termes.
 ?>
 <div class='main'>
    <?php
-       titre_page_icone("[Assistance aux candidats] - Accueil", "help-browser_32x32_fond.png", 15, "L");
-
-      message("Cet assistant vous permet de vous orienter en fonction de vos questions et de faciliter certaines demandes.", $__INFO);
+       titre_page_icone("[Assistance aux candidats] - Autres questions", "help-browser_32x32_fond.png", 15, "L");
    ?>
 
    <table align='center' style='padding-bottom:20px;'>
    <tr>
       <td class='td-complet fond_menu2' style='padding:4px;'>
-         <font class='Texte_menu2'><strong>Avant de commencer, quelques liens utiles</strong></font>
+         <font class='Texte_menu2'><strong>Autres questions :</strong></font>
       </td>
    </tr>
    <tr>
       <td class='td-gauche fond_menu'>
-         <a href='<?php echo "$__DOC_DIR/documentation.php"; ?>' target='_blank' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;Documentation de l'interface (procédure, composantes, messagerie...)</a>
-      </td>
-   </tr>
-   <tr>
-      <td class='td-gauche fond_menu'>
-         <a href='<?php echo "$__DOC_DIR/limites.php"; ?>' target='_blank' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;Dates des sessions de candidatures</a>
-      </td>
-   </tr>
-   <tr>
-      <td class='td-gauche fond_menu'>
-         <a href='<?php echo "$__DOC_DIR/faq.php"; ?>' target='_blank' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;Les questions fréquentes</a>
-      </td>
-   </tr>
-   <tr>
-      <td class='td-gauche fond_page' height='15px'></td>
-   </tr>
-   <tr>
-      <td class='td-complet fond_menu2' style='padding:4px;'>
-         <font class='Texte_menu2'><strong>Votre question concerne ...</strong></font>
-      </td>
-   </tr>
-   <tr>
-      <td class='td-gauche fond_menu'>
-         <a href='index_acces_interface.php' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;L'accès à l'interface Aria (identifiant / mot de passe, changement d'adresse email, ...)</a>
-      </td>
-   </tr>
-   <tr>
-      <td class='td-gauche fond_menu'>
-         <a href='index_utilisation.php' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;L'utilisation de l'interface (trouver une formation, déposer un dossier, modifier des informations ...)</a>
-      </td>
-   </tr>
-   <tr>
-      <td class='td-gauche fond_menu'>
-         <a href='index_justificatifs.php' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;Les documents (justificatifs et autres) à envoyer à la scolarité</a>
-      </td>
-   </tr>
-   <tr>
-      <td class='td-gauche fond_menu'>
-         <a href='index_resultat.php' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;Le résultat de ma candidature.</a>
-      </td>
-   </tr>
-   <tr>
-      <td class='td-gauche fond_menu'>
-         <a href='index_autre.php' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;Autre</a>
+         <a href='aide.php?s=contact_admin' target='_self' class='lien_bleu_12'>&#8226;&nbsp;&nbsp;Mon problème ne se trouve pas dans ce tableau, à qui dois-je m'adresser ?</a>
       </td>
    </tr>
    </table>
    
    <div class='centered_box' style='padding-bottom:20px;'>
-      <a href='<?php echo $_SESSION["from_page"]; ?>' target='_self' class='lien2'><img border='0' src='<?php echo "$__ICON_DIR/back_32x32.png"; ?>' title='[Retour]' alt='Retour' desc='Retour'></a>
+      <a href='index.php' target='_self' class='lien2'><img border='0' src='<?php echo "$__ICON_DIR/back_32x32.png"; ?>' title='[Retour]' alt='Retour' desc='Retour'></a>
    </div>
 </div>
 <?php
