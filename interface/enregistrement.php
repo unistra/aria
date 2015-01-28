@@ -477,43 +477,23 @@ $__SIGNATURE_COURRIELS";
    <?php
       titre_page_icone("Enregistrement d'un nouveau candidat", "add_32x32_fond.png", 15, "L");
 
-      if(isset($id_existe))
+      if(isset($id_existe) || isset($mail_existe))
       {
-         if(array_key_exists("config", $_SESSION) && array_key_exists("__ASSISTANCE", $_SESSION["config"]) && $_SESSION["config"]["__ASSISTANCE"]=="t")
-         {
-            message("<strong>Erreur</strong> : une fiche à ce nom existe déjà dans la base Aria.</b>
-                     <br><br><b>1/</b> Si vous avez oublié votre identifiant/code personnel, <a href='recuperation_identifiants.php' class='lien2a'>cliquez ici</a>.
-                     <br><br><b>2/</b> Si vous n'avez jamais rempli ce formulaire (ou si vous avez changé d'adresse électronique) merci de compléter
-                     <br /> le formulaire simplifié <a href='$GLOBALS[__CAND_DIR]/assistance/form_adresse.php' class='lien2a'>à cette adresse</a> pour une demande de changement d'adresse électronique.", $__ERREUR);
+         if(isset($id_existe)) {
+            $message_erreur = "une fiche à ce nom existe déjà dans la base Aria.";
          }
-         else
-         {
-            message("<strong>Erreur</strong> : une fiche à ce nom existe déjà dans la base Aria.</b>
-                     <br><br><b>1/</b> Si vous avez oublié votre identifiant/code personnel, <a href='recuperation_identifiants.php' class='lien2a'>cliquez ici</a>.
-                     <br><br><b>2/</b> Si vous n'avez jamais rempli ce formulaire (ou si vous avez changé d'adresse électronique), 
-                     <br />merci <a href='mailto:$__EMAIL_SUPPORT' class='lien2a'>d'envoyer un courriel à cette adresse</a>
-                     <strong>avec toutes les données du formulaire</strong>.", $__ERREUR);
+         else {
+            $message_erreur = "cette adresse électronique est déjà utilisée par une autre fiche dans la base Aria.";
          }
+         
+         message("<strong>Erreur</strong> : $message_erreur</b>
+                   <ol>
+                      <li>Pour récupérer votre identifiant/code personnel, utilisez <a href='recuperation_identifiants.php' class='lien2a'>ce formulaire</a>.</li>
+                      <li style='padding-top:20px;'>Si vous avez changé d'adresse électronique, utilisez  
+                          <a href='$GLOBALS[__CAND_DIR]/assistance/form_adresse.php' class='lien2a'>celui-ci</a> pour une demande de changement d'adresse électronique.</li>
+                   </ol>", $__ERREUR);
       }
-      elseif(isset($mail_existe))
-      {
-         if(array_key_exists("config", $_SESSION) && array_key_exists("__ASSISTANCE", $_SESSION["config"]) && $_SESSION["config"]["__ASSISTANCE"]=="t")
-         {
-            message("<strong>Erreur</strong> : cette adresse électronique est déjà utilisée par une autre fiche dans la base Aria.</b>
-                     <br><br><b>1/</b> Si vous avez oublié votre identifiant/code personnel, <a href='recuperation_identifiants.php' class='lien2a'>cliquez ici</a>.
-                     <br><br><b>2/</b> En cas de non réception des identifiants à l'adresse indiquée, vous pouvez compléter le formulaire <a href='$GLOBALS[__CAND_DIR]/assistance/form_adresse.php' class='lien2a'>à cette adresse</a> 
-                     <br>pour une demande de changement d'adresse électronique.", $__ERREUR);
-         }
-         else
-         {
-            message("<strong>Erreur</strong> : une fiche à ce nom existe déjà dans la base Aria.</b>
-                     <br><br><b>1/</b> Si vous avez oublié votre identifiant/code personnel, <a href='recuperation_identifiants.php' class='lien2a'>cliquez ici</a>.
-                     <br><br><b>2/</b> Si vous avez changé d'adresse électronique, merci <a href='mailto:$__EMAIL_SUPPORT' class='lien2a'>d'envoyer un courriel à cette adresse</a> 
-                     <br /><strong>avec toutes les données du formulaire</strong>.", $__ERREUR);
-         }
-      }
-      else
-      {
+      else {
          $message_erreur="";
 
          if(isset($champ_vide))

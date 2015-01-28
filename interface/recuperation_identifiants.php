@@ -169,27 +169,39 @@ $__SIGNATURE_COURRIELS";
   
   <?php
     $prev_periode=$__PERIODE-1 . "-$__PERIODE";
+    
+    $message = "";
 
     if(isset($champ_vide))
-      message("Formulaire incomplet: les champs en gras sont <u>obligatoires</u>", $__ERREUR);
+      $message = "<li>tous les champs sont <strong>obligatoires</strong></li>";
 
-    if(isset($bad_date))
-      message("Erreur : le format de votre date de naissance est incorrect (JJ / MM / AAAA)", $__ERREUR);
+    if(isset($bad_date)) {
+      $style = $message!="" ? "style='padding-top:15px;'" : "";
+      $message .= "\n<li $style>le format de votre date de naissance est incorrect (JJ / MM / AAAA)</li>";
+    }
+    
+    if($message!="")
+      message("<ul>$message</ul>", $__ERREUR);
 
     if(isset($not_found))
       message("<b>Erreur : ces données ne se trouvent pas dans notre base.</b>
-            <br><br><b>1/</b> Vérifiez que les données que vous avez entrées sont rigoureusement identiques à celles entrées lors de votre enregistrement
-            <br><br><b>2/</b> Si vous n'avez pas effectué la procédure d'enregistrement, merci de vous rendre <a href='enregistrement.php' class='lien2a'>à cette adresse</a>.
-            <br><br><b>3/</b> Si vous vous êtes trompé d'adresse e-mail lors de l'enregistrement, merci <a href='mailto:$__EMAIL_SUPPORT?subject=Enregistrement : adresse électronique erronée' class='lien2a'>d'envoyer un courriel à cette adresse</a>.
-            <br><br><b>4/</b> Si tout le reste a échoué, merci <a href='mailto:$__EMAIL_SUPPORT?subject=Identifiants : dernier recours' class='lien2a'>d'envoyer un courriel à cette adresse</a>.
-            avec toutes les données du formulaire.", $__ERREUR);
+            <br>
+            <ul>
+              <li>Vérifiez que les données que vous avez entrées sont <strong>rigoureusement identiques</strong> à celles entrées lors de votre enregistrement</li>
+              <li style='padding-top:15px;'>Si vous n'avez pas effectué la procédure d'enregistrement, merci de compléter <a href='enregistrement.php' class='lien2a'>ce formulaire</a>.</li>
+              <li style='padding-top:15px;'>Si vous avez changé d'adresse email, ou en cas d'erreur de saisie, merci  de compléter <a href='$GLOBALS[__CAND_DIR]/assistance/form_adresse.php' class='lien2a'>celui-ci</a>.</li>
+              <li style='padding-top:15px;'>Si tout le reste a échoué, merci <a href='mailto:$__EMAIL_SUPPORT?subject=Identifiants Aria' class='lien2a'>d'envoyer un courriel à cette adresse</a>.
+            avec toutes les données du formulaire.</li>", $__ERREUR);
 
     if(!isset($not_found) && !isset($bad_date) && !isset($champ_vide))
-      message("Veuillez compléter le formulaire suivant.
-            <br>- Les données à entrer sont </font><font class='Texte_important_14'><b>celles que vous avez entrées lors de votre premier enregistrement</b></font>
+      message("Merci de compléter le formulaire suivant.
             <font class='Textebleu'>
-            <br>- Si vous étiez déjà enregistré en $prev_periode et que vous avez changé d'adresse électronique, retournez à l'écran précédent et utilisez le lien \"Signaler un problème technique\" en précisant votre identité complète.
-            <br>- Vous recevrez une nouvelle fois, par courriel, les codes d'accès qui vous permettront d'accéder aux précandidatures en ligne", $__INFO);
+            <ul>
+              <li style='padding-top:15px;'>Les données à entrer sont </font><font class='Texte_important_14'><b>celles que vous avez entrées lors de votre premier enregistrement</b></font></li>
+              <li style='padding-top:15px;'>Si vous étiez déjà enregistré en $prev_periode et que vous avez changé d'adresse électronique, retournez à l'écran précédent et utilisez le lien \"Signaler un problème technique\" en précisant votre identité complète.</li>
+              <li style='padding-top:15px;'>Vous recevrez une nouvelle fois, par courriel, les codes d'accès qui vous permettront d'accéder aux précandidatures en ligne</li>
+            </ul>
+            </font>", $__INFO);
   ?>
 
   <table style="margin-left:auto; margin-right:auto;">
