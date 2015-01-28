@@ -49,169 +49,181 @@ CeCILL-B, et que vous en avez accepté les termes.
 */
 ?>
 <?php
-	session_name("preinsc_gestion");
-	session_start();
+  session_name("preinsc_gestion");
+  session_start();
 
-	include "../../../configuration/aria_config.php";
-	include "$__INCLUDE_DIR_ABS/vars.php";
-	include "$__INCLUDE_DIR_ABS/fonctions.php";
-	include "$__INCLUDE_DIR_ABS/db.php";
+  include "../../../configuration/aria_config.php";
+  include "$__INCLUDE_DIR_ABS/vars.php";
+  include "$__INCLUDE_DIR_ABS/fonctions.php";
+  include "$__INCLUDE_DIR_ABS/db.php";
 
-	$php_self=$_SERVER['PHP_SELF'];
-	$_SESSION['CURRENT_FILE']=$php_self;
+  $php_self=$_SERVER['PHP_SELF'];
+  $_SESSION['CURRENT_FILE']=$php_self;
 
-	verif_auth("$__GESTION_DIR/login.php");
+  verif_auth("$__GESTION_DIR/login.php");
 
-	if(!in_array($_SESSION["niveau"], array("$__LVL_SCOL_PLUS","$__LVL_RESP","$__LVL_SUPER_RESP","$__LVL_ADMIN")))
-	{
-		header("Location:$__GESTION_DIR/noaccess.php");
-		exit();
-	}
+  if(!in_array($_SESSION["niveau"], array("$__LVL_SCOL_PLUS","$__LVL_RESP","$__LVL_SUPER_RESP","$__LVL_ADMIN")))
+  {
+    header("Location:$__GESTION_DIR/noaccess.php");
+    exit();
+  }
 
-	unset($_SESSION["lettre_id"]);
-	unset($_SESSION["cbo"]);
+  unset($_SESSION["lettre_id"]);
+  unset($_SESSION["cbo"]);
 
-	// EN-TETE
-	en_tete_gestion();
+  // EN-TETE
+  en_tete_gestion();
 
-	// MENU SUPERIEUR
-	menu_sup_gestion();
+  // MENU SUPERIEUR
+  menu_sup_gestion();
 ?>
 
 <div class='main'>
-	<div class='menu_haut_2'>
-		<a href='tableau.php' target='_self'><img class='icone_menu_haut_2' border='0' src='<?php echo "$__ICON_DIR/kdeprint_report_16x16_menu2.png"; ?>'></a>
-		<a href='tableau.php' target='_self' class='lien_menu_haut_2'>Tableau récapitulatif</a>
-		<?php
-			if(in_array($_SESSION["niveau"], array("$__LVL_SCOL_PLUS","$__LVL_RESP","$__LVL_SUPER_RESP","$__LVL_ADMIN")))
-			{
-		?>
+  <div class='menu_haut_2'>
+    <a href='tableau.php' target='_self'><img class='icone_menu_haut_2' border='0' src='<?php echo "$__ICON_DIR/kdeprint_report_16x16_menu2.png"; ?>'></a>
+    <a href='tableau.php' target='_self' class='lien_menu_haut_2'>Tableau récapitulatif</a>
+    <?php
+      if(in_array($_SESSION["niveau"], array("$__LVL_SCOL_PLUS","$__LVL_RESP","$__LVL_SUPER_RESP","$__LVL_ADMIN")))
+      {
+    ?>
 
-			<a href='parametres.php' target='_self'><img class='icone_menu_haut_2' border='0' src='<?php echo "$__ICON_DIR/preferences_16x16_menu2.png"; ?>' alt='parametres'></a>
-			<a href='parametres.php' target='_self' class='lien_menu_haut_2'>Paramètres par défaut</a>
-		<?php
-			}
-		?>
-			<a href='editeur.php?lettre_id=-1'  target='_self'><img class='icone_menu_haut_2' border='0' src='<?php echo "$__ICON_DIR/add_16x16_menu2.png"; ?>' alt='+'></a>
-			<a href='editeur.php?lettre_id=-1'  target='_self' class='lien_menu_haut_2'>Créer une nouvelle lettre</a>
-		<?php
-			if(in_array($_SESSION["niveau"], array("$__LVL_SCOL_PLUS","$__LVL_RESP","$__LVL_SUPER_RESP","$__LVL_ADMIN")))
-			{
-		?>
-			<a href='copie_lettre.php'  target='_self'><img class='icone_menu_haut_2' border='0' src='<?php echo "$__ICON_DIR/editcopy_16x16_menu2.png"; ?>' alt='+'></a>
-			<a href='copie_lettre.php'  target='_self' class='lien_menu_haut_2'>Dupliquer une lettre</a>
-		<?php
-			}
-		?>
-	</div>
+      <a href='parametres.php' target='_self'><img class='icone_menu_haut_2' border='0' src='<?php echo "$__ICON_DIR/preferences_16x16_menu2.png"; ?>' alt='parametres'></a>
+      <a href='parametres.php' target='_self' class='lien_menu_haut_2'>Paramètres par défaut</a>
+    <?php
+      }
+    ?>
+      <a href='editeur.php?lettre_id=-1'  target='_self'><img class='icone_menu_haut_2' border='0' src='<?php echo "$__ICON_DIR/add_16x16_menu2.png"; ?>' alt='+'></a>
+      <a href='editeur.php?lettre_id=-1'  target='_self' class='lien_menu_haut_2'>Créer une nouvelle lettre</a>
+    <?php
+      if(in_array($_SESSION["niveau"], array("$__LVL_SCOL_PLUS","$__LVL_RESP","$__LVL_SUPER_RESP","$__LVL_ADMIN")))
+      {
+    ?>
+      <a href='copie_lettre.php'  target='_self'><img class='icone_menu_haut_2' border='0' src='<?php echo "$__ICON_DIR/editcopy_16x16_menu2.png"; ?>' alt='+'></a>
+      <a href='copie_lettre.php'  target='_self' class='lien_menu_haut_2'>Dupliquer une lettre</a>
+    <?php
+      }
+    ?>
+  </div>
 
-	<?php
-		titre_page_icone("Modèles de lettres", "abiword_32x32_fond.png", 15, "L");
+  <?php
+    titre_page_icone("Modèles de lettres", "abiword_32x32_fond.png", 15, "L");
 
-		if(isset($_GET["succes"]) && $_GET["succes"]==1)
-			message("Informations mises à jour avec succès", $__SUCCES);
-	?>
+    if(isset($_GET["succes"]) && $_GET["succes"]==1)
+      message("Informations mises à jour avec succès", $__SUCCES);
+  ?>
 
-	<?php
-		$dbr=db_connect();
+  <?php
+    $dbr=db_connect();
 
-		// Lettres non associées
+    // Lettres non associées
 
-		$result=db_query($dbr,"SELECT $_DBC_lettres_id, $_DBC_lettres_titre FROM $_DB_lettres
-										WHERE $_DBC_lettres_comp_id=$_SESSION[comp_id]
-										AND $_DBC_lettres_id NOT IN (SELECT distinct($_DBC_lettres_dec_lettre_id) FROM $_DB_lettres_dec)
-									  ORDER BY $_DBC_lettres_titre ASC");
-		$rows=db_num_rows($result);
+    $result=db_query($dbr,"SELECT $_DBC_lettres_id, $_DBC_lettres_titre FROM $_DB_lettres
+                    WHERE $_DBC_lettres_comp_id=$_SESSION[comp_id]
+                    AND $_DBC_lettres_id NOT IN (SELECT distinct($_DBC_lettres_dec_lettre_id) FROM $_DB_lettres_dec)
+                    ORDER BY $_DBC_lettres_titre ASC");
+    $rows=db_num_rows($result);
 
-		if($rows)
-		{
-			print("<table cellpadding='2' align='center' width='98%' style='margin-bottom:30px;'>
-						<tr>
-							<td class='fond_menu2'>
-								<font class='Texte_menu2'><b>Lettres non associées à une décision</b></font>
-							</td>
-						</tr>\n");
+    if($rows)
+    {
+      print("<table cellpadding='2' align='center' width='98%' style='margin-bottom:30px;'>
+            <tr>
+              <td class='fond_menu2'>
+                <font class='Texte_menu2'><b>Lettres non associées à une décision</b></font>
+              </td>
+            </tr>\n");
 
-			for($i=0; $i<$rows; $i++)
-			{
-				list($lettre_id, $lettre_titre)=db_fetch_row($result,$i);
-				$date_creation=date_fr("j M Y", id_to_date($lettre_id));
+      for($i=0; $i<$rows; $i++)
+      {
+        list($lettre_id, $lettre_titre)=db_fetch_row($result,$i);
+        $date_creation=date_fr("j M Y", id_to_date($lettre_id));
 
-				print("<tr>
-							<td class='fond_page'>
-								<a href='editeur.php?lettre_id=$lettre_id' target='_self' class='lien_bleu_10'>$lettre_titre ($date_creation)</a>
-							</td>
-						</tr>\n");
-			}
+        print("<tr>
+              <td class='fond_page'>
+                <a href='editeur.php?lettre_id=$lettre_id' target='_self' class='lien_bleu_10'>$lettre_titre ($date_creation)</a>
+              </td>
+            </tr>\n");
+      }
 
-			print("</table>\n");
-		}
+      print("</table>\n");
+    }
 
-		print("<table cellpadding='2' align='center' width='98%' style='margin-bottom:30px;'>
-					<tr>
-						<td class='fond_menu2'>
-							<font class='Texte_menu2'><b>Lettres associées, triées par décision</b></font>
-						</td>
-					</tr>\n");
+    print("<table cellpadding='2' align='center' width='98%' style='margin-bottom:30px;'>
+          <tr>
+            <td class='fond_menu2' colspan='3'>
+              <font class='Texte_menu2'><b>Lettres associées, triées par décision</b></font>
+            </td>
+          </tr>\n");
 
-		// lettres associées à une décision
+    // lettres associées à une décision
 
-		$result=db_query($dbr,"SELECT $_DBC_lettres_id, $_DBC_lettres_titre, $_DBC_decisions_texte
-											FROM $_DB_lettres, $_DB_decisions, $_DB_lettres_dec
-											WHERE $_DBC_lettres_comp_id=$_SESSION[comp_id]
-											AND $_DBC_lettres_id=$_DBC_lettres_dec_lettre_id
-											AND $_DBC_decisions_id=$_DBC_lettres_dec_dec_id
-										ORDER BY $_DBC_decisions_texte ASC");
-		$rows=db_num_rows($result);
+    $result=db_query($dbr,"SELECT $_DBC_lettres_id, $_DBC_lettres_titre, $_DBC_decisions_texte, count($_DBC_lettres_propspec_propspec_id)
+                      FROM $_DB_lettres LEFT JOIN $_DB_lettres_propspec on ($_DBC_lettres_id=$_DBC_lettres_propspec_lettre_id) 
+                           INNER JOIN $_DB_propspec ON ($_DBC_lettres_propspec_propspec_id=$_DBC_propspec_id), 
+                           $_DB_decisions, $_DB_lettres_dec
+                      WHERE $_DBC_lettres_comp_id=$_SESSION[comp_id]
+                      AND $_DBC_lettres_id=$_DBC_lettres_dec_lettre_id
+                      AND $_DBC_decisions_id=$_DBC_lettres_dec_dec_id
+                      AND $_DBC_propspec_active='1'
+                      GROUP BY $_DBC_lettres_id, $_DBC_lettres_titre, $_DBC_decisions_texte
+                      ORDER BY $_DBC_decisions_texte ASC");
+    $rows=db_num_rows($result);
 
-		if(!$rows)
-			print("<tr>
-						<td class='fond_page'>
-							<font class='Texte'><i>Aucune</i></font>
-						</td>
-					</tr>
-					</table>\n");
-		else
-		{
-			$old_decision="";
+    if(!$rows)
+      print("<tr>
+            <td class='fond_page' colspan='3'>
+              <font class='Texte'><i>Aucune</i></font>
+            </td>
+          </tr>
+          </table>\n");
+    else
+    {
+      $old_decision="";
 
-			for($i=0; $i<$rows; $i++)
-			{
-				list($lettre_id, $lettre_titre, $decision)=db_fetch_row($result,$i);
-				$date_creation=date_fr("j F Y", id_to_date($lettre_id));
+      for($i=0; $i<$rows; $i++)
+      {
+        list($lettre_id, $lettre_titre, $decision, $nb_lettres_formations)=db_fetch_row($result,$i);
+        $date_creation=date_fr("j F Y", id_to_date($lettre_id));
 
-				if($old_decision!=$decision)
-				{
-					$old_decision=$decision;
+        if($old_decision!=$decision)
+        {
+          $old_decision=$decision;
 
-					if($i!=0)
-						print("<tr>
-									<td class='fond_page' height='20'></td>
-								</tr>\n");
+          if($i!=0)
+            print("<tr>
+                  <td class='fond_page' height='20'></td>
+                </tr>\n");
 
-					print("<tr>
-								<td class='fond_menu'>
-									<font class='Texte_menu'><b>$decision</b></font>
-								</td>
-							</tr>\n");
-				}
+          print("<tr>
+                <td class='fond_menu'>
+                  <font class='Texte_menu'><b>$decision</b></font>
+                </td>
+                <td class='fond_menu'>
+                  <font class='Texte_menu'><b>Date de création</b></font>
+                </td>
+                <td class='fond_menu'>
+                  <font class='Texte_menu'><b>Nombre de formations liées</b></font>
+                </td>
+              </tr>\n");
+        }
 
-				print("<tr>
-							<td class='fond_page' align='left'>
-								<a href='editeur.php?lettre_id=$lettre_id' target='_self' class='lien_bleu_10'>$lettre_titre ($date_creation)</a>
-							</td>
-						</tr>\n");
-			}
+        print("<tr>
+              <td class='fond_page' align='left'>
+                <a href='editeur.php?lettre_id=$lettre_id' target='_self' class='lien_bleu_10'>$lettre_titre</a>
+              </td>
+              <td class='fond_page' align='left'><font class='Texte_10'>$date_creation</font></td>
+              <td class='fond_page' align='left'><font class='Texte_10'>$nb_lettres_formations formation(s)</font></td>
+            </tr>\n");
+      }
 
-			print("</table>\n");
-		}
+      print("</table>\n");
+    }
 
-		db_free_result($result);
-		db_close($dbr);
-	?>
+    db_free_result($result);
+    db_close($dbr);
+  ?>
 </div>
 <?php
-	pied_de_page();
+  pied_de_page();
 ?>
 
 </body></html>
