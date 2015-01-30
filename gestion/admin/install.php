@@ -96,6 +96,15 @@ CeCILL-B, et que vous en avez accepté les termes.
 		return $res;
 	}
 ?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+   <head>
+      <title>UFR de Mathématique et d'Informatique - Gestion des précandidatures</title>
+      <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
+      <meta http-equiv='Pragma' content='no-cache'>
+   </head>
+
+   <body class='main' leftmargin='0' topmargin='0' marginwidth='0' marginheight='0' vlink='black' alink='black' link='black'>
 
 <style type="text/css">
 .fond_menu2
