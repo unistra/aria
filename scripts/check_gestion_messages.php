@@ -114,7 +114,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
    if($rows)
    {
-      $headers="From: $__EMAIL_NOREPLY" . "\r\n" . "Reply-To: $__EMAIL_NOREPLY";
+      $headers = "MIME-Version: 1.0\r\nFrom: $__EMAIL_NOREPLY\r\nReply-To: $__EMAIL_NOREPLY\r\nContent-Type: text/plain; charset=UTF-8\r\nContent-transfer-encoding: 8bit\r\n\r\n";
       
       for($i=0; $i<$rows; $i++)
       {

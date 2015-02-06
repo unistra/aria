@@ -321,7 +321,7 @@ CeCILL-B, et que vous en avez accepté les termes.
             db_query($dbr,"INSERT INTO $_DB_acces_comp VALUES('$user_id', '$new_composante');");
 
             // mail
-            $headers = "From: $GLOBALS[__EMAIL_NOREPLY]" . "\r\n" ."Reply-To: $GLOBALS[__EMAIL_NOREPLY]";
+            $headers = "MIME-Version: 1.0\r\nFrom: $GLOBALS[__EMAIL_NOREPLY]\r\nReply-To: $GLOBALS[__EMAIL_NOREPLY]\r\nContent-Type: text/plain; charset=UTF-8\r\nContent-transfer-encoding: 8bit\r\n\r\n";
             
             if($new_source==$GLOBALS["__COMPTE_LDAP"])
                $corps_message="\nBonjour, \n\n\nUn compte vous a été créé sur l'interface de Gestion des Candidatures en ligne.\n\nLes identifiants vous permettant d'y accéder sont identiques à ceux de l'ENT. \n\n- Adresse de l'application : $__URL_GESTION\n\n\nCordialement,\n\n\n--\n$__SIGNATURE_ADMIN";
@@ -353,7 +353,7 @@ CeCILL-B, et que vous en avez accepté les termes.
             }
 
             // mail
-            $headers = "From: $GLOBALS[__EMAIL_NOREPLY]" . "\r\n" ."Reply-To: $GLOBALS[__EMAIL_NOREPLY]";
+            $headers = "MIME-Version: 1.0\r\nFrom: $GLOBALS[__EMAIL_NOREPLY]\r\nReply-To: $GLOBALS[__EMAIL_NOREPLY]\r\nContent-Type: text/plain; charset=UTF-8\r\nContent-transfer-encoding: 8bit\r\n\r\n";
             $corps_message="\nBonjour, \n\n\nLes informations pour vous connecter à l'interface ARIA de Gestion des Candidatures en ligne sont les suivantes : \n\n- Adresse : $__URL_GESTION\n\n-Identifiant : ". stripslashes($new_login) . "\n- Code Personnel : $new_pass\n\n\nCordialement,\n\n\n--\n$__SIGNATURE_ADMIN";
             $ret=mail($new_mail,"[Aria - Gestion des Candidatures] - Vos identifiants", $corps_message, $headers);
 

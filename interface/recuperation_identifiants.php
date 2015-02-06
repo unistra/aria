@@ -125,8 +125,9 @@ CeCILL-B, et que vous en avez accepté les termes.
         db_query($dbr,"UPDATE $_DB_candidat SET $_DBU_candidat_code_acces='$new_code' WHERE $_DBU_candidat_id='$cand_id'");
 
         // envoi du mail de confirmation
-        $headers = "From: $__EMAIL_NOREPLY" . "\r\n" . "Reply-To: $__EMAIL_NOREPLY";
-
+        # $headers = "From: $__EMAIL_NOREPLY" . "\r\n" . "Reply-To: $__EMAIL_NOREPLY";
+        $headers = "MIME-Version: 1.0\r\nFrom: $__EMAIL_NOREPLY\r\nReply-To: $__EMAIL_NOREPLY\r\nContent-Type: text/plain; charset=UTF-8\r\nContent-transfer-encoding: 8bit\r\n\r\n";
+        
         $corps_message="============================================================\nCeci est un message automatique, merci de ne pas y répondre.\n============================================================\n\n
 Bonjour $cand_civilite ". stripslashes($nom) . ",\n\n
 Les nouvelles informations vous permettant d'accéder à l'interface de précandidatures sont les suivantes:

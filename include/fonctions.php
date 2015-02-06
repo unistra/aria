@@ -2182,7 +2182,7 @@ function write_msg()
             else
                $univ_nom="";
 
-            $headers = "From: $GLOBALS[__EMAIL_NOREPLY]" . "\r\n" . "Reply-To: $GLOBALS[__EMAIL_NOREPLY]";
+            $headers = "MIME-Version: 1.0\r\nFrom: $GLOBALS[__EMAIL_NOREPLY]\r\nReply-To: $GLOBALS[__EMAIL_NOREPLY]\r\nContent-Type: text/plain; charset=UTF-8\r\nContent-transfer-encoding: 8bit\r\n\r\n";
 
             // TODO URGENT déc. 2008 : intégrer le contenu de ce message dans la BDD
             $corps_message="============================================================\nCeci est un message automatique, merci de ne pas y répondre.\n============================================================\n\nBonjour $destinataire_array[civ] $destinataire_array[nom], \n\nVous avez reçu un message sur l'interface de Candidatures $GLOBALS[__COURRIEL_ETABLISSEMENT_SOURCE].\n\nSujet : $sujet\n\nPour lire ce message, connectez vous à l'adresse suivante : \n\n$GLOBALS[__URL_CANDIDAT]\n\nUtilisez votre identifiant et votre mot de passe pour vous authentifier, puis cliquez sur le menu \"Messagerie\".\n\nBien cordialement,\n\n\n$comp_nom\n$GLOBALS[__SIGNATURE_COURRIELS]";
@@ -2239,7 +2239,7 @@ function write_msg()
 
             if(FALSE==file_put_contents($fichier_destination, $array_message))
             {
-               $headers = "From: $GLOBALS[__EMAIL_NOREPLY]" . "\r\n" . "Reply-To: $GLOBALS[__EMAIL_NOREPLY]";
+               $headers = "MIME-Version: 1.0\r\nFrom: $GLOBALS[__EMAIL_NOREPLY]\r\nReply-To: $GLOBALS[__EMAIL_NOREPLY]\r\nContent-Type: text/plain; charset=UTF-8\r\nContent-transfer-encoding: 8bit\r\n\r\n";
 
                mail($GLOBALS["__EMAIL_ADMIN"], "[Précandidatures] - Erreur de copie d'un message dans le dossier Envoyés", "Utilisateur : $array_from[prenom] $array_from[nom]\n\nMessage : " . $array_message, $headers);
                die("Erreur lors de la copie du message dans le dossier \"Envoyés\". Un message a été envoyé à l'administrateur.");
@@ -2482,7 +2482,7 @@ function write_msg_2()
                else
                   $univ_nom="";
 
-               $headers = "From: $GLOBALS[__EMAIL_NOREPLY]" . "\r\n" . "Reply-To: $GLOBALS[__EMAIL_NOREPLY]";
+               $headers = "MIME-Version: 1.0\r\nFrom: $GLOBALS[__EMAIL_NOREPLY]\r\nReply-To: $GLOBALS[__EMAIL_NOREPLY]\r\nContent-Type: text/plain; charset=UTF-8\r\nContent-transfer-encoding: 8bit\r\n\r\n";
 
                // TODO URGENT déc. 2008 : intégrer le contenu de ce message dans la BDD
                $corps_message="============================================================\nCeci est un message automatique, merci de ne pas y répondre.\n============================================================\n\nBonjour $destinataire_array[civ] $destinataire_array[nom], \n\nVous avez reçu un message sur l'interface de Candidatures $GLOBALS[__COURRIEL_ETABLISSEMENT_SOURCE].\n\nSujet : $sujet\n\nPour lire ce message, connectez vous à l'adresse suivante : \n\n$GLOBALS[__URL_CANDIDAT]\n\nUtilisez votre identifiant et votre mot de passe pour vous authentifier, puis cliquez sur le menu \"Messagerie\".\n\nBien cordialement,\n\n\n$comp_nom\n$GLOBALS[__SIGNATURE_COURRIELS]";
@@ -2539,7 +2539,7 @@ function write_msg_2()
                
                if(FALSE==file_put_contents($fichier_destination, $array_message))
                {
-                  $headers = "From: $GLOBALS[__EMAIL_NOREPLY]" . "\r\n" . "Reply-To: $GLOBALS[__EMAIL_NOREPLY]";
+                  $headers = "MIME-Version: 1.0\r\nFrom: $GLOBALS[__EMAIL_NOREPLY]\r\nReply-To: $GLOBALS[__EMAIL_NOREPLY]\r\nContent-Type: text/plain; charset=UTF-8\r\nContent-transfer-encoding: 8bit\r\n\r\n";
 
                   mail($GLOBALS["__EMAIL_ADMIN"], "[Précandidatures] - Erreur de copie d'un message dans le dossier Envoyés", "Utilisateur : $array_from[prenom] $array_from[nom]\n\nMessage : " . $array_message, $headers);
                   die("Erreur lors de la copie du message dans le dossier \"Envoyés\". Un message a été envoyé à l'administrateur.");
@@ -3076,7 +3076,7 @@ $univ_nom";
       foreach($justificatifs_vides as $propspec_id => $comp_formation)
          $justifs_txt.="$comp_formation ($propspec_id)\n";
 
-      $headers = "From: $GLOBALS[__EMAIL_NOREPLY]" . "\r\n" . "Reply-To: $GLOBALS[__EMAIL_NOREPLY]";
+      $headers = "MIME-Version: 1.0\r\nFrom: $GLOBALS[__EMAIL_NOREPLY]\r\nReply-To: $GLOBALS[__EMAIL_NOREPLY]\r\nContent-Type: text/plain; charset=UTF-8\r\nContent-transfer-encoding: 8bit\r\n\r\n";
       mail($GLOBALS['__EMAIL_ADMIN'], "[$univ_nom - Verrouillages : justificatifs vides]", "Fiches NON verrouillées pour les formations suivantes : \n\n" . $justifs_txt, $headers);
 
       return 1;

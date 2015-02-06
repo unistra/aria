@@ -587,7 +587,7 @@ $univ_nom";
          foreach($justificatifs_vides as $propspec_id => $comp_formation)
             $justifs_txt.="$comp_formation ($propspec_id)\n";
 
-         $headers="From: $__EMAIL_NOREPLY" . "\r\n" . "Reply-To: $__EMAIL_NOREPLY";
+         $headers = "MIME-Version: 1.0\r\nFrom: $__EMAIL_NOREPLY\r\nReply-To: $__EMAIL_NOREPLY\r\nContent-Type: text/plain; charset=UTF-8\r\nContent-transfer-encoding: 8bit\r\n\r\n";
          mail($__EMAIL_ADMIN, "[$univ_nom - Verrouillages : justificatifs vides]", "Fiches NON verrouillées pour les formations suivantes : \n\n" . $justifs_txt, $headers);
       }
 

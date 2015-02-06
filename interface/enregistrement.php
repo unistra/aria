@@ -292,14 +292,6 @@ Cordialement,\n\n
 $__SIGNATURE_COURRIELS";
 
          $ret=mail($email,"[Précandidatures] - Enregistrement", $corps_message, $headers);
-/*
-         $mime->setTXTBody($corps_message);
-         $body = $mime->get();
-         $hdrs = $mime->headers($hdrs);
-
-         $mail =& Mail::factory('mail');
-         $ret=$mail->send($email, $hdrs, $body);
-*/
 
          if($ret==TRUE)
          {
