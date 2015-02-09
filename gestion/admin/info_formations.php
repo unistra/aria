@@ -142,7 +142,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
     $new_info=$_POST["information"];
 
-    db_query($dbr,"UPDATE $_DB_propspec SET $_DBU_propspec_info='$new_info' WHERE $_DBU_propspec_id='$propspec_id'");
+    db_query($dbr,"UPDATE $_DB_propspec SET $_DBU_propspec_info='".str_replace("'","''", $new_info)."' WHERE $_DBU_propspec_id='$propspec_id'");
 
     if(isset($_SESSION["adresse_retour"]) && !empty($_SESSION["adresse_retour"]))
     {
