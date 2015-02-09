@@ -132,7 +132,17 @@ CeCILL-B, et que vous en avez accepté les termes.
       
       if($cid==0)
       {
-        $cursus_id=db_locked_query($dbr, $_DB_cursus, "INSERT INTO $_DB_cursus VALUES('##NEW_ID##','$candidat_id','$diplome','$intitule','$specialite','$annee_obtention','$ecole','$ville','$pays','$note_moyenne','$mention','$rang')");
+        $cursus_id=db_locked_query($dbr, $_DB_cursus, "INSERT INTO $_DB_cursus VALUES('##NEW_ID##','$candidat_id',
+            '".str_replace("'", "''", $diplome)."',
+            '".str_replace("'", "''", $intitule)."',
+            '".str_replace("'", "''", $specialite)."',
+            '".str_replace("'", "''", $annee_obtention)."',
+            '".str_replace("'", "''", $ecole)."',
+            '".str_replace("'", "''", $ville)."',
+            '".str_replace("'", "''", $pays)."',
+            '".str_replace("'", "''", $note_moyenne)."',
+            '".str_replace("'", "''", $mention)."',
+            '".str_replace("'", "''", $rang)."')");
 
         // Si l'année d'obtention est celle en cours (ou +1), on modifie le champ adéquat dans la fiche du candidat
         if($annee_obtention==$__PERIODE || $annee_obtention==($__PERIODE+1))
@@ -148,16 +158,16 @@ CeCILL-B, et que vous en avez accepté les termes.
       }
       else
       {
-        db_query($dbr,"UPDATE $_DB_cursus SET $_DBU_cursus_diplome='$diplome',
-                                  $_DBU_cursus_intitule='$intitule',
-                                  $_DBU_cursus_spec='$specialite',
-                                  $_DBU_cursus_annee='$annee_obtention',
-                                  $_DBU_cursus_ecole='$ecole',
-                                  $_DBU_cursus_ville='$ville',
-                                  $_DBU_cursus_pays='$pays',
-                                  $_DBU_cursus_moyenne='$note_moyenne',
-                                  $_DBU_cursus_mention='$mention',
-                                  $_DBU_cursus_rang='$rang'
+        db_query($dbr,"UPDATE $_DB_cursus SET $_DBU_cursus_diplome='".str_replace("'", "''", $diplome)."',
+                                  $_DBU_cursus_intitule='".str_replace("'", "''", $intitule)."',
+                                  $_DBU_cursus_spec='".str_replace("'", "''", $specialite)."',
+                                  $_DBU_cursus_annee='".str_replace("'", "''", $annee_obtention)."',
+                                  $_DBU_cursus_ecole='".str_replace("'", "''", $ecole)."',
+                                  $_DBU_cursus_ville='".str_replace("'", "''", $ville)."',
+                                  $_DBU_cursus_pays='".str_replace("'", "''", $pays)."',
+                                  $_DBU_cursus_moyenne='".str_replace("'", "''", $note_moyenne)."',
+                                  $_DBU_cursus_mention='".str_replace("'", "''", $mention)."',
+                                  $_DBU_cursus_rang='".str_replace("'", "''", $rang)."'
                   WHERE $_DBU_cursus_id='$cid'
                   AND $_DBU_cursus_candidat_id='$candidat_id'");
 
