@@ -441,7 +441,7 @@ function write_evt()
       if(isset($_SESSION["auth_host"]))
          $auth_host=$_SESSION["auth_host"];
       elseif(isset($_SERVER['REMOTE_ADDR']))
-         $auth_host=&gethostbyaddr($_SERVER['REMOTE_ADDR']);
+         $auth_host=gethostbyaddr($_SERVER['REMOTE_ADDR']);
       else
          $auth_host="";
 

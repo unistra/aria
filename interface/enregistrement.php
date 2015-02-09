@@ -300,12 +300,12 @@ $__SIGNATURE_COURRIELS";
                mail($GLOBALS["__EMAIL_ADMIN"], "$GLOBALS[__DEBUG_SUJET] - Enregistrement : $civilite " . preg_replace("/[']+/", "'", $nom) . " " . preg_replace("/[']+/", "'", $prenom), "Courriel : $email\n\n" . $corps_message, $headers);
 
             $last_ip=$_SERVER["REMOTE_ADDR"];
-            $last_host=&gethostbyaddr($_SERVER['REMOTE_ADDR']);
+            $last_host=gethostbyaddr($_SERVER['REMOTE_ADDR']);
             $last_user_agent=$_SERVER["HTTP_USER_AGENT"];
             $fiche_manuelle=$candidat_lock=$candidat_lockdate=$derniere_connexion=$cursus_en_cours=0;
             $derniere_erreur="";
 
-            if($browser=&get_browser(null, true))
+            if($browser=get_browser(null, true))
             {
                if(isset($browser["parent"]) && isset($browser["platform"]) && isset($browser["browser"]) && isset($browser["version"]) && isset($browser["css"]))
                   $last_user_agent="$browser[parent] - $browser[platform] - $browser[browser] $browser[version] / CSS : $browser[css]";

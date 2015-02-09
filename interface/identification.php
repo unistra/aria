@@ -66,14 +66,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
   $php_self=$_SERVER['PHP_SELF'];
   $_SESSION['CURRENT_FILE']=$php_self;
-/*
-  if(!isset($_SESSION["date_ouverture_globale"]) || !isset($_SESSION["date_fermeture_globale"]))
-  {
-    session_write_close();
-    header("Location:../index.php");
-    exit();
-  }
-*/
+
   $dbr=db_connect();
 
   $load_config=__get_config($dbr);
@@ -173,13 +166,13 @@ CeCILL-B, et que vous en avez accepté les termes.
       $date_cnx=time();
 
       $last_ip=$_SERVER["REMOTE_ADDR"];
-      $last_host=&gethostbyaddr($_SERVER['REMOTE_ADDR']);
+      $last_host=gethostbyaddr($_SERVER['REMOTE_ADDR']);
       $last_user_agent=$_SERVER["HTTP_USER_AGENT"];
 
          // Niveau supplémentaire dans l'arborescence des messages
          $_SESSION["MSG_SOUS_REP"]=sous_rep_msg($_SESSION["authentifie"]);
 
-      if($browser=&get_browser(null, true))
+      if($browser=get_browser(null, true))
       {
         if(isset($browser["parent"]) && isset($browser["platform"]) && isset($browser["browser"]) && isset($browser["version"]) && isset($browser["css"]))
           $last_user_agent="$browser[parent] - $browser[platform] - $browser[browser] $browser[version] / CSS : $browser[css]";
@@ -192,15 +185,10 @@ CeCILL-B, et que vous en avez accepté les termes.
                 WHERE $_DBU_candidat_id='$candidat_id'");
 
       // création du vecteur d'encryption (utilisé pour crypter les paramètres)
-/*
-      $td=mcrypt_module_open("tripledes", "", "cbc", "");
-      $_SESSION["iv"]=generate_pass();
-      mcrypt_module_close($td);
-*/
 
-         $td=mcrypt_module_open("tripledes", "", "cbc", "");
-         $_SESSION["iv"]=mcrypt_create_iv(mcrypt_enc_get_iv_size($td), MCRYPT_RAND);
-         mcrypt_module_close($td);
+      $td=mcrypt_module_open("tripledes", "", "cbc", "");
+      $_SESSION["iv"]=mcrypt_create_iv(mcrypt_enc_get_iv_size($td), MCRYPT_RAND);
+      mcrypt_module_close($td);
 
       // Historique : log de la connexion dans la BDD
       write_evt($dbr, $__EVT_ID_LOGIN, "Connexion réussie", $candidat_id, $candidat_id);
@@ -368,32 +356,6 @@ CeCILL-B, et que vous en avez accepté les termes.
   </form>
 
   <?php
-/*
-    // TODO : Maintenance : à scripter autrement
-
-    $heures=date("H", time());
-    $minutes=date("i", time());
-
-    if($minutes)
-      $heures_restantes=12-$heures-1;
-    else
-      $heures_restantes=12-$heures;
-
-    $minutes_restantes=60-$minutes;
-
-    if($heures_restantes)
-      $temps_restant="$heures_restantes heures $minutes_restantes minutes";
-    else
-      $temps_restant="$minutes_restantes minutes";
-
-    print("<center>
-          <font class='Texte_important'>
-            <b>Maintenance programmée aujourd'hui de 12h à 13h30 (temps restant : $temps_restant)</b>
-            <br>Ce service sera indisponible pendant la durée de la maintenance mais vos données ne seront pas perdues.
-            <br>Merci pour votre compréhension</b>
-          </font>
-        </center>\n");
-*/
     db_close($dbr);
   ?>
 </div>
