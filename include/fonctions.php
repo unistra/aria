@@ -2986,7 +2986,7 @@ function send_recap_justifs()
 
             $prefixe=$corps_message; // conservation de l'entête pour le message spécifique à la composante
 
-            $corps_message.="\n\nBonjour $civ_mail ". ucwords(mb_strtolower(stripslashes($cand_nom))) .",
+            $corps_message.="\n\nBonjour $civ_mail ". ucwords(mb_strtolower(stripslashes($cand_nom), "UTF-8")) .",
 
 Le délai imparti pour modifier cette formation est échu. Après réception de l'ensemble des pièces requises (liste dans ce message), vos demandes pourront être traitées par la ou les scolarités.
 
@@ -3037,7 +3037,7 @@ $univ_nom";
             $new_corps=preg_replace("/%composante%/i", $comp_nom, $new_corps);
             $new_corps=preg_replace("/%universite%/i", $univ_nom, $new_corps);
             $new_corps=preg_replace("/%civ%/i", $civ_mail, $new_corps);
-            $new_corps=preg_replace("/%nom%/i", ucwords(mb_strtolower(stripslashes($cand_nom))), $new_corps);
+            $new_corps=preg_replace("/%nom%/i", ucwords(mb_strtolower(stripslashes($cand_nom), "UTF-8")), $new_corps);
                      
             if($liste_fichiers!="")
                $prefixe.="Ce message contient $les_pieces_jointes_suivantes : $liste_fichiers\n\nCliquez sur les liens pour les télécharger, puis suivez les instructions.\n";

@@ -542,7 +542,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
                $civ_mail=$_SESSION['tab_candidat']['civ_texte'];
                $cand_prenom=$_SESSION['tab_candidat']['prenom'];
-               $nom_mail=ucwords(mb_strtolower($_SESSION['tab_candidat']['nom']));
+               $nom_mail=ucwords(mb_strtolower($_SESSION['tab_candidat']['nom'], "UTF-8"));
 
                $message="Bonjour $civ_mail $nom_mail,\n
 $contenu_mail\n\n
@@ -688,7 +688,7 @@ $_SESSION[universite]";
                      if($new_statut==$__PREC_EN_ATTENTE || $new_statut==$__PREC_NON_RECEVABLE || $new_statut==$__PREC_PLEIN_DROIT)
                      {
                         $civ_mail=$_SESSION['tab_candidat']['civ_texte'];
-                        $nom_mail=ucwords(mb_strtolower($_SESSION['tab_candidat']['nom']));
+                        $nom_mail=ucwords(mb_strtolower($_SESSION['tab_candidat']['nom'], "UTF-8"));
                         $prenom_mail=$_SESSION['tab_candidat']['prenom'];
 
                         $message="Bonjour $civ_mail $nom_mail,\n\n
@@ -783,7 +783,7 @@ $_SESSION[universite]";
       {
          // Regénération d'un code personnel
          srand((double)microtime()*1000000);
-         $code_conf=mb_strtoupper(md5(rand(0,9999)));
+         $code_conf=mb_strtoupper(md5(rand(0,9999)), "UTF-8");
          $new_code=substr($code_conf, 17, 8);
          // on supprime le chiffre 1, les lettres I, L, O et le zéro : portent à confusion - on les remplace par d'autres caractères
          $new_code=str_replace("0","A", $new_code);

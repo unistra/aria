@@ -60,66 +60,66 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 function traitement_macros($txt, $cand_array, $cursus_array)
 {
-	// Civilité
-	$txt=preg_replace("/%Civilit.%/u", ucfirst(strtolower($cand_array["civ_texte"])), $txt);
-	$txt=preg_replace("/%civilit.%/u", strtolower($cand_array["civ_texte"]), $txt);
-	$txt=preg_replace("/%CIVILIT.%/u", strtoupper($cand_array["civ_texte"]), $txt);
+  // Civilité
+  $txt=preg_replace("/%Civilit.%/u", ucfirst(strtolower($cand_array["civ_texte"])), $txt);
+  $txt=preg_replace("/%civilit.%/u", strtolower($cand_array["civ_texte"]), $txt);
+  $txt=preg_replace("/%CIVILIT.%/u", strtoupper($cand_array["civ_texte"]), $txt);
 
-	// Nom
-	$txt=preg_replace("/%Nom%/", ucfirst(mb_strtolower($cand_array["nom"])), $txt);
-	$txt=preg_replace("/%nom%/", mb_strtolower($cand_array["nom"]), $txt);
-	$txt=preg_replace("/%NOM%/", mb_strtoupper($cand_array["nom"]), $txt);
+  // Nom
+  $txt=preg_replace("/%Nom%/", ucfirst(mb_strtolower($cand_array["nom"]), "UTF-8"), $txt);
+  $txt=preg_replace("/%nom%/", mb_strtolower($cand_array["nom"], "UTF-8"), $txt);
+  $txt=preg_replace("/%NOM%/", mb_strtoupper($cand_array["nom"], "UTF-8"), $txt);
 
-	// Prénom
-	$txt=preg_replace("/%Pr.nom%/u", ucfirst(mb_strtolower($cand_array["prenom"])), $txt);
-	$txt=preg_replace("/%pr.nom%/u", mb_strtolower($cand_array["prenom"]), $txt);
-	$txt=preg_replace("/%PR.NOM%/u", mb_strtoupper($cand_array["prenom"]), $txt);
+  // Prénom
+  $txt=preg_replace("/%Pr.nom%/u", ucfirst(mb_strtolower($cand_array["prenom"]), "UTF-8"), $txt);
+  $txt=preg_replace("/%pr.nom%/u", mb_strtolower($cand_array["prenom"], "UTF-8"), $txt);
+  $txt=preg_replace("/%PR.NOM%/u", mb_strtoupper($cand_array["prenom"], "UTF-8"), $txt);
 
-	// Date de naissance
-	$txt=str_ireplace("%naissance%", $cand_array["naissance"], $txt);
+  // Date de naissance
+  $txt=str_ireplace("%naissance%", $cand_array["naissance"], $txt);
 
-	// Ville de naissance
-	$txt=str_ireplace("%ville_naissance%", $cand_array["lieu_naissance"], $txt);
+  // Ville de naissance
+  $txt=str_ireplace("%ville_naissance%", $cand_array["lieu_naissance"], $txt);
 
-	// Pays de naissance
-	$txt=str_ireplace("%pays_naissance%", $cand_array["pays_naissance"], $txt);
+  // Pays de naissance
+  $txt=str_ireplace("%pays_naissance%", $cand_array["pays_naissance"], $txt);
 
-	// Année universitaire
-	$Y=date("Y");
-	$Z=$Y+1;
-	$annee_txt="$Y-$Z";
-	$txt=preg_replace("/%ann.e_universitaire%/u", $annee_txt, $txt);
+  // Année universitaire
+  $Y=date("Y");
+  $Z=$Y+1;
+  $annee_txt="$Y-$Z";
+  $txt=preg_replace("/%ann.e_universitaire%/u", $annee_txt, $txt);
 
-	// Cursus
-	$count_cursus=count($cursus_array);
+  // Cursus
+  $count_cursus=count($cursus_array);
 
-	if($count_cursus)
-	{
-		// on ne prend que les 2 derniers diplomes obtenus
-		// TODO : à vérifier
-		$texte_cursus="";
+  if($count_cursus)
+  {
+    // on ne prend que les 2 derniers diplomes obtenus
+    // TODO : à vérifier
+    $texte_cursus="";
 
-		if($count_cursus>2)
-			$i=$count_cursus-2;
-		else
-			$i=0;
+    if($count_cursus>2)
+      $i=$count_cursus-2;
+    else
+      $i=0;
 
-		for(; $i<$count_cursus; $i++)
-		{
-			if(isset($cursus_array[$i]["lieu"]))
-				$texte_cursus .=$cursus_array[$i]["cursus"] . " " . $cursus_array[$i]["lieu"] . " (". $cursus_array[$i]["date"] . ")\n";
-			else
-				$texte_cursus .=$cursus_array[$i]["cursus"] . " (". $cursus_array[$i]["date"] . ")\n";
-		}
+    for(; $i<$count_cursus; $i++)
+    {
+      if(isset($cursus_array[$i]["lieu"]))
+        $texte_cursus .=$cursus_array[$i]["cursus"] . " " . $cursus_array[$i]["lieu"] . " (". $cursus_array[$i]["date"] . ")\n";
+      else
+        $texte_cursus .=$cursus_array[$i]["cursus"] . " (". $cursus_array[$i]["date"] . ")\n";
+    }
 
-		$txt=str_ireplace("%cursus%", $texte_cursus, $txt);
-	}
-	else
-		$txt=str_ireplace("%cursus%", "- Néant", $txt);
+    $txt=str_ireplace("%cursus%", $texte_cursus, $txt);
+  }
+  else
+    $txt=str_ireplace("%cursus%", "- Néant", $txt);
 
-	// Grammaire : %masculin/féminin%
+  // Grammaire : %masculin/féminin%
 
-	if(preg_match_all("/%[a-zA-Zàáâãäåçèéêëìíîïñðòóôõöùúûüýÿ]+\/[a-zA-Zàáâãäåçèéêëìíîïñðòóôõöùúûüýÿ]+%/", $txt, $resultats))
+  if(preg_match_all("/%[a-zA-Zàáâãäåçèéêëìíîïñðòóôõöùúûüýÿ]+\/[a-zA-Zàáâãäåçèéêëìíîïñðòóôõöùúûüýÿ]+%/", $txt, $resultats))
    {
       foreach($resultats[0] as $valeur)
       {
@@ -135,11 +135,11 @@ function traitement_macros($txt, $cand_array, $cursus_array)
       }
    }
 
-	// Date
+  // Date
 
-	$txt=str_ireplace("%date%", date_fr("j F Y", time()), $txt);
+  $txt=str_ireplace("%date%", date_fr("j F Y", time()), $txt);
 
-	return $txt;
+  return $txt;
 }
 
 ?>

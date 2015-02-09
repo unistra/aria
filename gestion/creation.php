@@ -81,30 +81,30 @@ CeCILL-B, et que vous en avez accepté les termes.
     $civilite=$_POST["civilite"];
 
     // $nom=mb_strtoupper(trim($_POST["nom"]));
-    $nom=str_replace("'","''", str_replace("\\","", (mb_strtoupper(trim($_POST["nom"])))));
-    $nom_naissance=str_replace("'","''", str_replace("\\","", (mb_strtoupper(trim($_POST["nom_naissance"])))));
+    $nom=str_replace("'","''", str_replace("\\","", (mb_strtoupper(trim($_POST["nom"]), "UTF-8"))));
+    $nom_naissance=str_replace("'","''", str_replace("\\","", (mb_strtoupper(trim($_POST["nom_naissance"]), "UTF-8"))));
     
     if($nom_naissance=="")
        $nom_naissance=$nom;
     
     // $prenom=ucwords(strtolower(trim($_POST["prenom"])));
     // $deuxieme_prenom=ucwords(strtolower(trim($_POST["prenom2"])));
-    $prenom=str_replace("'","''", str_replace("\\","", (ucwords(mb_strtolower(trim($_POST["prenom"]))))));
+    $prenom=str_replace("'","''", str_replace("\\","", (ucwords(mb_strtolower(trim($_POST["prenom"]), "UTF-8")))));
     // $deuxieme_prenom=ucwords(strtolower(trim($_POST["prenom2"])));
-    $deuxieme_prenom=str_replace("'","''", str_replace("\\","", (ucwords(mb_strtolower(trim($_POST["prenom2"]))))));
+    $deuxieme_prenom=str_replace("'","''", str_replace("\\","", (ucwords(mb_strtolower(trim($_POST["prenom2"]), "UTF-8")))));
 
     $jour=trim($_POST["jour"]);
     $mois=trim($_POST["mois"]);
     $annee=trim($_POST["annee"]);
 
-    $adresse_1=str_replace("'","''", str_replace("\\","", (mb_strtolower(trim($_POST["adresse_1"])))));
-    $adresse_2=str_replace("'","''", str_replace("\\","", (mb_strtolower(trim($_POST["adresse_2"])))));
-    $adresse_3=str_replace("'","''", str_replace("\\","", (mb_strtolower(trim($_POST["adresse_3"])))));
+    $adresse_1=str_replace("'","''", str_replace("\\","", (mb_strtolower(trim($_POST["adresse_1"]), "UTF-8"))));
+    $adresse_2=str_replace("'","''", str_replace("\\","", (mb_strtolower(trim($_POST["adresse_2"]), "UTF-8"))));
+    $adresse_3=str_replace("'","''", str_replace("\\","", (mb_strtolower(trim($_POST["adresse_3"]), "UTF-8"))));
     $adr_cp=str_replace("'","''", str_replace("\\","", ($_POST["adr_cp"])));
     $adr_ville=str_replace("'","''", str_replace("\\","", ($_POST["adr_ville"])));
     $adr_pays_code=$_POST["adr_pays"];      
 
-    $lieu_naissance=str_replace("'","''", str_replace("\\","", (ucwords(strtolower(trim($_POST["lieu_naissance"]))))));
+    $lieu_naissance=str_replace("'","''", str_replace("\\","", (ucwords(mb_strtolower(trim($_POST["lieu_naissance"]), "UTF-8")))));
     $dpt_naissance=$_POST["dpt_naissance"];
     $pays_naissance_code=$_POST["pays_naissance"];
 
@@ -190,7 +190,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       // On peut créer l'identifiant et le code, l'insérer dans la base et envoyer le mail
 
       // Création de l'identifiant
-      $new_identifiant=str_replace(" ","",mb_strtolower($nom)); // base de l'identifiant
+      $new_identifiant=str_replace(" ","",mb_strtolower($nom, "UTF-8")); // base de l'identifiant
       $new_identifiant=str_replace("-","",$new_identifiant);
 
       // initialisation de la boucle
@@ -206,19 +206,19 @@ CeCILL-B, et que vous en avez accepté les termes.
       {
         if($nb_lettres_prenom<=$len_prenom) // si on peut encore utiliser le prénom
         {
-          $new_identifiant= substr($prenom2,0,$nb_lettres_prenom) . "." . mb_strtolower($nom);
+          $new_identifiant= substr($prenom2,0,$nb_lettres_prenom) . "." . mb_strtolower($nom, "UTF-8");
           $nb_lettres_prenom++;
         }
         else
         {
           $iteration++;
-          $new_identifiant=$prenom2 . "." . mb_strtolower($nom) . $iteration;
+          $new_identifiant=$prenom2 . "." . mb_strtolower($nom, "UTF-8") . $iteration;
         }
       }
 
       // génération du Code Personnel
       srand((double)microtime()*1000000);
-      $code_conf=mb_strtoupper(md5(rand(0,9999)));
+      $code_conf=mb_strtoupper(md5(rand(0,9999)), "UTF-8");
       $new_code=substr($code_conf, 17, 8);
 
       $fiche_manuelle=1;

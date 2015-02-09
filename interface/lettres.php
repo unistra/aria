@@ -241,9 +241,9 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
                                              AND $_DBC_lettres_id=$_DBC_lettres_dec_lettre_id
                                              AND $_DBC_lettres_choix_multiples='1'
                                              AND $_DBC_lettres_id IN (SELECT $_DBC_lettres_groupes_lettre_id FROM $_DB_lettres_groupes 
-																							 WHERE $_DBC_lettres_groupes_groupe_id IN (SELECT distinct($_DBC_groupes_spec_groupe) 
-																							 														 FROM $_DB_groupes_spec 
-																																					 WHERE $_DBC_groupes_spec_propspec_id='$candidature_array[propspec_id]'))
+                                               WHERE $_DBC_lettres_groupes_groupe_id IN (SELECT distinct($_DBC_groupes_spec_groupe) 
+                                                                           FROM $_DB_groupes_spec 
+                                                                           WHERE $_DBC_groupes_spec_propspec_id='$candidature_array[propspec_id]'))
                                              $critere_multiples");
 
                $rows=db_num_rows($result);
@@ -582,8 +582,8 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
          // Nettoyage du nom du candidat
          // TODO : Généraliser et créer une fonction
 
-         $candidat_nom=$new_str=preg_replace("/[ '\"&#\/\\\]/", "_", clean_str(mb_strtolower($candidat_array["nom"])));
-         $candidat_prenom=preg_replace("/[ '\"&#\/\\\]/", "_", clean_str(mb_strtolower($candidat_array["prenom"])));
+         $candidat_nom=$new_str=preg_replace("/[ '\"&#\/\\\]/", "_", clean_str(mb_strtolower($candidat_array["nom"]), "UTF-8"));
+         $candidat_prenom=preg_replace("/[ '\"&#\/\\\]/", "_", clean_str(mb_strtolower($candidat_array["prenom"]), "UTF-8"));
 
          $nom_fichier=clean_str("Decision_" . $candidat_nom . "_" . $candidat_prenom . "_$cand_id.pdf");
       }

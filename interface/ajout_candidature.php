@@ -473,8 +473,6 @@ CeCILL-B, et que vous en avez accepté les termes.
             $formation=$nom_annee=="" ? "$nom_spec" : "$nom_annee $nom_spec";
             $formation=$tab_finalite[$finalite]=="" ? $formation : "$formation $tab_finalite[$finalite]";
 
-            // $formation=stripslashes(str_replace("'","''", mb_strtoupper($formation)));
-
             write_evt("", $__EVT_ID_C_PREC, "Ajout candidature : $formation", $candidat_id, $candidature_id);
           }
 

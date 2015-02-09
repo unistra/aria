@@ -495,7 +495,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          if($decision==$__DOSSIER_EN_ATTENTE && (!isset($motivation_vide) || $motivation_vide!=1) && $_SESSION['tab_candidat']['manuelle']!="1")
          {
             $civ_mail=$_SESSION['tab_candidat']['civ_texte'];
-            $nom_mail=ucwords(mb_strtolower($_SESSION['tab_candidat']['nom']));
+            $nom_mail=ucwords(mb_strtolower($_SESSION['tab_candidat']['nom'], "UTF-8"));
             $prenom_mail=$_SESSION['tab_candidat']['prenom'];
 
             // Motivation : on doit rééxtraire les motifs :

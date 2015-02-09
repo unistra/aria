@@ -123,7 +123,7 @@ CeCILL-B, et que vous en avez accepté les termes.
   if(isset($_POST["go"]) || isset($_POST["go_x"])) // validation du formulaire
   {
     $langue=str_replace("'","''", stripslashes(trim($_POST["langue"])));
-    $langue_libre=str_replace("'","''", stripslashes(ucwords(mb_strtolower(trim($_POST["langue_libre"])))));
+    $langue_libre=str_replace("'","''", stripslashes(ucwords(mb_strtolower(trim($_POST["langue_libre"]), "UTF-8"))));
 
     if(empty($langue) && !empty($langue_libre)) // on vérifie que ce qui a été saisi dans le champ libre n'est pas dans la liste
     {

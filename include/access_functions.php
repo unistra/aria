@@ -316,11 +316,11 @@ function __get_infos_candidat($dbr, $id)
       $candidat_array["adr_pays"]=$adr_pays;
       
     // Ville en majuscules, pays avec juste la première lettre
-    $adr_ville=mb_strtoupper($adr_ville);
+    $adr_ville=mb_strtoupper($adr_ville, "UTF-8");
     // format inchangé pour le pays (majuscules)
     // $adr_pays=ucwords(mb_strtolower($adr_pays));
 
-    $candidat_array["adresse"]=$candidat_array["adr"]."\n".$adr_cp." ".ucwords(mb_strtolower($adr_ville));
+    $candidat_array["adresse"]=$candidat_array["adr"]."\n".$adr_cp." ".ucwords(mb_strtolower($adr_ville, "UTF-8"));
 
     if(strcasecmp($adr_pays, "france")) // candidat étranger : on précise le pays
       $candidat_array["adresse"].="\n".$adr_pays;

@@ -82,8 +82,8 @@ CeCILL-B, et que vous en avez accepté les termes.
   {
     $comp_id=isset($_POST["comp_id"]) ? $_POST["comp_id"] : "";
 
-    $univ_lettre_code_apogee=mb_strtoupper(trim($_POST['lettre_code_apogee']));
-    $prefixe_opi=mb_strtoupper(trim($_POST["prefixe_opi"]));
+    $univ_lettre_code_apogee=mb_strtoupper(trim($_POST['lettre_code_apogee']), "UTF-8");
+    $prefixe_opi=mb_strtoupper(trim($_POST["prefixe_opi"]), "UTF-8");
 
       $message_primo=trim($_POST['message_primo']);
       $message_lp=trim($_POST['message_lp']);

@@ -106,14 +106,14 @@ CeCILL-B, et que vous en avez accepté les termes.
 
     $civilite=$_POST["civilite"];
 
-    $nom=stripslashes(str_replace("'","''", mb_strtoupper(trim($_POST["nom"]))));
-    $nom_naissance=stripslashes(str_replace("'","''", mb_strtoupper(trim($_POST["nom_naissance"]))));
+    $nom=stripslashes(str_replace("'","''", mb_strtoupper(trim($_POST["nom"]), "UTF-8")));
+    $nom_naissance=stripslashes(str_replace("'","''", mb_strtoupper(trim($_POST["nom_naissance"]), "UTF-8")));
     
     if($nom_naissance=="")
        $nom_naissance=$nom; 
     
-    $prenom=stripslashes(str_replace("'","''", ucwords(strtolower(trim($_POST["prenom"])))));
-    $prenom2=stripslashes(str_replace("'","''", ucwords(strtolower(trim($_POST["prenom2"])))));
+    $prenom=stripslashes(str_replace("'","''", ucwords(mb_strtolower(trim($_POST["prenom"]), "UTF-8"))));
+    $prenom2=stripslashes(str_replace("'","''", ucwords(mb_strtolower(trim($_POST["prenom2"]), "UTF-8"))));
 
     $jour=trim($_POST["jour"]);
     $mois=trim($_POST["mois"]);
@@ -126,7 +126,7 @@ CeCILL-B, et que vous en avez accepté les termes.
     $adr_ville=stripslashes(str_replace("'","''", $_POST["adr_ville"]));
     $adr_pays_code=$_POST["adr_pays"];
 
-    $lieu_naissance=stripslashes(str_replace("'","''", ucwords(strtolower(trim($_POST["lieu_naissance"])))));
+    $lieu_naissance=stripslashes(str_replace("'","''", ucwords(mb_strtolower(trim($_POST["lieu_naissance"]), "UTF-8"))));
     $dpt_naissance=$_POST["dpt_naissance"];
     $pays_naissance_code=$_POST["pays_naissance"];
 

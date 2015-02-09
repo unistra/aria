@@ -65,13 +65,13 @@ CeCILL-B, et que vous en avez accepté les termes.
     // vérification des valeurs entrées dans le formulaire
     // TODO : vérifications poussées ?
 
-    $nom=mb_strtoupper(trim($_POST["nom"]));
+    $nom=mb_strtoupper(trim($_POST["nom"]), "UTF-8");
 
     $jour=trim($_POST["jour"]);
     $mois=trim($_POST["mois"]);
     $annee=trim($_POST["annee"]);
 
-    $email=mb_strtolower(trim($_POST["email"]));
+    $email=mb_strtolower(trim($_POST["email"]), "UTF-8");
 
     $champs_obligatoires=array($nom,$jour,$mois,$annee,$email);
     $cnt_obl=count($champs_obligatoires);
@@ -115,7 +115,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
         // génération du Code Personnel
         srand((double)microtime()*1000000);
-        $code_conf=mb_strtoupper(md5(rand(0,9999)));
+        $code_conf=mb_strtoupper(md5(rand(0,9999)), "UTF-8");
         $new_code=substr($code_conf, 17, 8);
         // on supprime le chiffre 1, le zéro et la lettre O : portent à confusion - on les remplace par d'autres caractères
         $new_code=str_replace("0","A", $new_code);

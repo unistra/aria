@@ -215,7 +215,7 @@ CeCILL-B, et que vous en avez accepté les termes.
             {
                $warn_pass_vide=1;
                srand((double)microtime()*1000000);
-               $code_conf=mb_strtoupper(md5(rand(0,9999)));
+               $code_conf=mb_strtoupper(md5(rand(0,9999)), "UTF-8");
                $new_pass=substr($code_conf, 17, 8);
                // on supprime le chiffre 1, le zéro et la lettre O : portent à confusion - on les remplace par d'autres caractères
                $new_pass=str_replace("0","A", $new_pass);
@@ -342,7 +342,7 @@ CeCILL-B, et que vous en avez accepté les termes.
             if(!isset($md5_pass) && $new_pass=="" && $new_pass_conf=="")
             {
                srand((double)microtime()*1000000);
-               $code_conf=mb_strtoupper(md5(rand(0,9999)));
+               $code_conf=mb_strtoupper(md5(rand(0,9999)), "UTF-8");
                $new_pass=substr($code_conf, 17, 8);
                // on supprime le chiffre 1, le zéro et la lettre O : portent à confusion - on les remplace par d'autres caractères
                $new_pass=str_replace("0","A", $new_pass);

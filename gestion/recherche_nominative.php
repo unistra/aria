@@ -82,7 +82,7 @@ CeCILL-B, et que vous en avez accepté les termes.
     else
       $_SESSION["checked_message"]=$checked_message="checked='1'";
 
-    $nom=mb_strtolower(trim($_POST["nom"]));
+    $nom=mb_strtolower(trim($_POST["nom"]), "UTF-8");
     $rechmail=$_POST["email"];
 
     // Nettoyage de la chaine de caractères pour la requête à la base de données
@@ -90,7 +90,7 @@ CeCILL-B, et que vous en avez accepté les termes.
     $nom=clean_str_requete($nom);
 
     // les noms sont stockés en majuscule dans la base, on doit faire la conversion ici, sinon les majuscules accentuées ne sont pas trouvées avec ILIKE
-    $nom=mb_strtoupper($nom);
+    $nom=mb_strtoupper($nom, "UTF-8");
 
     if((empty($rechmail) || $rechmail=="") && (empty($nom) || $nom==""))
       $champs_vides=1;

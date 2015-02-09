@@ -131,7 +131,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       $centre_id=$_POST["centre_id"];
 
     $new_nom=ucfirst(trim($_POST["nom"]));
-    $new_code=mb_strtoupper(trim($_POST["code"]));
+    $new_code=mb_strtoupper(trim($_POST["code"]), "UTF-8");
 
     if($new_nom=="" || $new_code=="")
       $champs_vides=1;

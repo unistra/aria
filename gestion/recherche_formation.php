@@ -69,9 +69,8 @@ CeCILL-B, et que vous en avez accepté les termes.
 
   if(isset($_POST["recherche"]) || isset($_POST["recherche_x"]))
   {
-    $formation=mb_strtolower(trim($_POST["formation"]));
-
-    $mention=mb_strtolower(trim($_POST["mention"]));
+    $formation=mb_strtolower(trim($_POST["formation"]), "UTF-8");
+    $mention=mb_strtolower(trim($_POST["mention"]), "UTF-8");
 
     if($formation=="" && $mention=="")
       $champs_vides=1;
@@ -86,11 +85,11 @@ CeCILL-B, et que vous en avez accepté les termes.
       else
       {
         if($formation=="")
-          $critere_recherche="AND lower(unaccent($_DBC_mentions_nom)) SIMILAR TO unaccent('%$mention%') ";
+          $critere_recherche="AND lower(unaccent($_DBC_mentions_nom)) ILIKE unaccent('%$mention%') ";
         elseif($mention=="")
-          $critere_recherche="AND lower(unaccent($_DBC_specs_nom)) SIMILAR TO unaccent('%$formation%') ";
+          $critere_recherche="AND lower(unaccent($_DBC_specs_nom)) ILIKE unaccent('%$formation%') ";
         else
-          $critere_recherche="AND (lower(unaccent($_DBC_mentions_nom)) SIMILAR TO unaccent('%$mention%') AND lower(unaccent($_DBC_specs_nom)) SIMILAR TO unaccent('%$formation%')) ";
+          $critere_recherche="AND (lower(unaccent($_DBC_mentions_nom)) ILIKE unaccent('%$mention%') AND lower(unaccent($_DBC_specs_nom)) ILIKE unaccent('%$formation%')) ";
 
         $result=db_query($dbr,"SELECT $_DBC_propspec_id, $_DBC_annees_annee, $_DBC_mentions_nom, $_DBC_specs_nom,
                             $_DBC_propspec_finalite, $_DBC_universites_nom, $_DBC_composantes_id, $_DBC_composantes_nom

@@ -115,34 +115,6 @@ CeCILL-B, et que vous en avez accepté les termes.
       $succes=1;      
    }
       
-/*
-   elseif(isset($_POST["valider"]) || isset($_POST["valider_x"]))
-   {
-      $univ_id=isset($_POST["univ_id"]) ? $_POST["univ_id"] : "";
-
-      $univ_lettre_code_apogee=mb_strtoupper(trim($_POST['lettre_code_apogee']));
-      $prefixe_opi=mb_strtoupper(trim($_POST["prefixe_opi"]));
-
-      $message_primo=trim($_POST['message_primo']);
-
-      if(db_num_rows(db_query($dbr,"SELECT * FROM $_module_apogee_DB_config WHERE $_module_apogee_DBC_config_univ_id='$univ_id'")))
-         db_query($dbr,"UPDATE $_module_apogee_DB_config SET $_module_apogee_DBU_config_code='$univ_lettre_code_apogee',
-                                                                $_module_apogee_DBU_config_prefixe_opi='$prefixe_opi',
-                                                                $_module_apogee_DBU_config_message_primo='$message_primo'
-                           WHERE $_module_apogee_DBU_config_univ_id='$univ_id'");
-      else
-         db_query($dbr,"INSERT INTO $_module_apogee_DB_config VALUES ('$univ_id','$univ_lettre_code_apogee','$prefixe_opi','$message_primo')");
-
-      write_evt($dbr, $__EVT_ID_G_ADMIN, "MOD_APOGEE : modification de la configuration - Université id#$univ_id", "", $univ_id);
-
-      // Si l'université modifiée est celle courante, on met à jour les variables de session de l'utilisateur
-      $_SESSION["comp_lettre_apogee"]=$univ_lettre_code_apogee;
-      db_close($dbr);
-
-      header("Location:$php_self?succes=1");
-      exit;
-   }
-*/
    // EN-TETE
    en_tete_gestion();
 
@@ -163,7 +135,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       if(!isset($current_msg_contenu))
       {
          // Choix des messages à modifier
-   ?>		
+   ?>   
    
    <table align='center'>
    <tr>
@@ -189,7 +161,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                                        
             $nb_messages=db_num_rows($res_messages);
   
-   	      if($nb_messages)
+          if($nb_messages)
             {
                print("<select name='message_id'>\n");
  

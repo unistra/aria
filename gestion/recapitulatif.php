@@ -316,7 +316,7 @@ CeCILL-B, et que vous en avez accepté les termes.
               if($mention=="Ajourné" || $mention=="Sans objet")
                 $mention_txt=" - $mention";
               else
-                $mention_txt=" - Mention " . mb_strtolower($mention);
+                $mention_txt=" - Mention " . mb_strtolower($mention, "UTF-8");
             }
             else
               $mention_txt="";

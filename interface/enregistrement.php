@@ -104,22 +104,22 @@ CeCILL-B, et que vous en avez accepté les termes.
 
       $civilite=$_POST["civilite"];
 
-      $nom=stripslashes(str_replace("'","''", mb_strtoupper(trim($_POST["nom"]))));
-      $nom_naissance=stripslashes(str_replace("'","''", mb_strtoupper(trim($_POST["nom_naissance"]))));
+      $nom=stripslashes(str_replace("'","''", mb_strtoupper(trim($_POST["nom"]), "UTF-8")));
+      $nom_naissance=stripslashes(str_replace("'","''", mb_strtoupper(trim($_POST["nom_naissance"]), "UTF-8")));
       
       if($nom_naissance=="")
          $nom_naissance=$nom;
       
-      $prenom=stripslashes(str_replace("'","''", ucwords(mb_strtolower(trim($_POST["prenom"])))));
-      $deuxieme_prenom=stripslashes(str_replace("'","''", ucwords(mb_strtolower(trim($_POST["prenom2"])))));
+      $prenom=stripslashes(str_replace("'","''", ucwords(mb_strtolower(trim($_POST["prenom"]), "UTF-8"))));
+      $deuxieme_prenom=stripslashes(str_replace("'","''", ucwords(mb_strtolower(trim($_POST["prenom2"]), "UTF-8"))));
 
       $jour=trim($_POST["jour"]);
       $mois=trim($_POST["mois"]);
       $annee=trim($_POST["annee"]);
 
-      $adresse_1=mb_strtolower(trim($_POST["adresse_1"]));
-      $adresse_2=mb_strtolower(trim($_POST["adresse_2"]));
-      $adresse_3=mb_strtolower(trim($_POST["adresse_3"]));
+      $adresse_1=mb_strtolower(trim($_POST["adresse_1"]), "UTF-8");
+      $adresse_2=mb_strtolower(trim($_POST["adresse_2"]), "UTF-8");
+      $adresse_3=mb_strtolower(trim($_POST["adresse_3"]), "UTF-8");
       $adr_cp=$_POST["adr_cp"];
       $adr_ville=$_POST["adr_ville"];
       $adr_pays=$_POST["adr_pays"];
@@ -128,8 +128,8 @@ CeCILL-B, et que vous en avez accepté les termes.
       $dpt_naissance=trim($_POST["dpt_naissance"]);
       $pays_naissance=$_POST["pays_naissance"];
 
-      $email=mb_strtolower(trim($_POST["email"]));
-      $emailconf=mb_strtolower(trim($_POST["emailconf"]));
+      $email=mb_strtolower(trim($_POST["email"]), "UTF-8");
+      $emailconf=mb_strtolower(trim($_POST["emailconf"]), "UTF-8");
 
       if(strcmp($email, $emailconf)) // si les 2 adresses sont différentes ...
          $email_inegaux=1;
@@ -234,11 +234,11 @@ CeCILL-B, et que vous en avez accepté les termes.
          // On peut créer l'identifiant et le code, l'insérer dans la base et envoyer le mail
 
          // Création de l'identifiant
-         $new_identifiant=str_replace(" ","",mb_strtolower($nom)); // base de l'identifiant
+         $new_identifiant=str_replace(" ","",mb_strtolower($nom, "UTF-8")); // base de l'identifiant
          $new_identifiant=str_replace("-","",$new_identifiant);
          $base_identifiant=$new_identifiant=preg_replace("/[']+/","",$new_identifiant);
          
-         $base_prenom=$prenom2=str_replace(" ","", str_replace("-","", preg_replace("/[']+/","", mb_strtolower($prenom))));
+         $base_prenom=$prenom2=str_replace(" ","", str_replace("-","", preg_replace("/[']+/","", mb_strtolower($prenom, "UTF-8"))));
 
          // initialisation de la boucle
          $nb_lettres_prenom=1;
@@ -261,7 +261,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
          // génération du Code Personnel
          srand((double)microtime()*1000000);
-         $code_conf=mb_strtoupper(md5(rand(0,9999)));
+         $code_conf=mb_strtoupper(md5(rand(0,9999)), "UTF-8");
          $new_code=substr($code_conf, 17, 8);
          // on supprime le chiffre 1, les lettres I, L, O et le zéro : portent à confusion - on les remplace par d'autres caractères
          $new_code=str_replace("0","A", $new_code);

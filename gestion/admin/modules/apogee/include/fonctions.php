@@ -65,163 +65,163 @@ CeCILL-B, et que vous en avez accepté les termes.
 // au moment de son exécution
 
 $_SESSION["__MACROS_USERS"]["moduleapogee_macro_code_ia"]='
-	include "$GLOBALS[__PLUGINS_DIR_ABS]/apogee/include/db.php";
+  include "$GLOBALS[__PLUGINS_DIR_ABS]/apogee/include/db.php";
 
-	if(stristr($txt, "%code%") || stristr($txt, "%code_choix_multiples%"))
-	{
-		// Code apogée de l\'université
+  if(stristr($txt, "%code%") || stristr($txt, "%code_choix_multiples%"))
+  {
+    // Code apogée de l\'université
 
-		$res_code_univ=db_query($dbr, "SELECT $_module_apogee_DBC_config_code FROM  $_module_apogee_DB_config
-												WHERE $_module_apogee_DBC_config_comp_id=\'$candidature_array[comp_id]\'");
+    $res_code_univ=db_query($dbr, "SELECT $_module_apogee_DBC_config_code FROM  $_module_apogee_DB_config
+                        WHERE $_module_apogee_DBC_config_comp_id=\'$candidature_array[comp_id]\'");
 
-		$rows=db_num_rows($res_code_univ);
+    $rows=db_num_rows($res_code_univ);
 
-		if($rows)	// Normalement, un seul résultat (un code par université)
-			list($code_univ)=db_fetch_row($res_code_univ, 0);
-		else
-			$code_univ="";
+    if($rows) // Normalement, un seul résultat (un code par université)
+      list($code_univ)=db_fetch_row($res_code_univ, 0);
+    else
+      $code_univ="";
 
-		db_free_result($res_code_univ);
-	}
+    db_free_result($res_code_univ);
+  }
 
-	if(stristr($txt, "%code%"))
-	{
-		// Code apogée de la formation
-		$res_code_apogee=db_query($dbr, "SELECT $_module_apogee_DBC_formations_cet FROM  $_module_apogee_DB_formations
-													WHERE $_module_apogee_DBC_formations_propspec_id=\'$candidature_array[propspec_id]\'");
+  if(stristr($txt, "%code%"))
+  {
+    // Code apogée de la formation
+    $res_code_apogee=db_query($dbr, "SELECT $_module_apogee_DBC_formations_cet FROM  $_module_apogee_DB_formations
+                          WHERE $_module_apogee_DBC_formations_propspec_id=\'$candidature_array[propspec_id]\'");
 
-		$rows=db_num_rows($res_code_apogee);
+    $rows=db_num_rows($res_code_apogee);
 
-		if($rows)	// Normalement, un seul résultat (un code par formation)
-			list($code_etape)=db_fetch_row($res_code_apogee, 0);
-		else
-			$code_etape="";
+    if($rows) // Normalement, un seul résultat (un code par formation)
+      list($code_etape)=db_fetch_row($res_code_apogee, 0);
+    else
+      $code_etape="";
 
-		db_free_result($res_code_apogee);
+    db_free_result($res_code_apogee);
 
-		// Question : doit-on quand même générer le code d\'inscription si le code_etape ou le code université ne sont pas renseignés ?
+    // Question : doit-on quand même générer le code d\'inscription si le code_etape ou le code université ne sont pas renseignés ?
 
-		$code_annee=substr($candidature_array["periode"],-2); // deux derniers chiffres de l\'année
-		$code_nom=mb_strtoupper(substr(str_replace("\'","", str_replace(" ","",$cand_array["nom"])),0,2));
-		$code_prenom=mb_strtoupper(substr(str_replace("\'","", str_replace(" ","",$cand_array["prenom"])),0,1));
-		$code_annee_naiss=date_fr("y", $cand_array["naissance_unix"]);
-		$code_mois_naiss=date_fr("m", $cand_array["naissance_unix"]);
-		$code_jour_naiss=date_fr("d", $cand_array["naissance_unix"]);
+    $code_annee=substr($candidature_array["periode"],-2); // deux derniers chiffres de l\'année
+    $code_nom=mb_strtoupper(substr(str_replace("\'","", str_replace(" ","",$cand_array["nom"])),0,2), "UTF-8");
+    $code_prenom=mb_strtoupper(substr(str_replace("\'","", str_replace(" ","",$cand_array["prenom"])),0,1), "UTF-8");
+    $code_annee_naiss=date_fr("y", $cand_array["naissance_unix"]);
+    $code_mois_naiss=date_fr("m", $cand_array["naissance_unix"]);
+    $code_jour_naiss=date_fr("d", $cand_array["naissance_unix"]);
 
-		$code="$code_univ$code_annee$code_nom$code_prenom$code_annee_naiss$code_mois_naiss$code_jour_naiss$code_etape";
+    $code="$code_univ$code_annee$code_nom$code_prenom$code_annee_naiss$code_mois_naiss$code_jour_naiss$code_etape";
 
-		$txt=str_ireplace("%code%", $code, $txt);
-	}
+    $txt=str_ireplace("%code%", $code, $txt);
+  }
 
-	if(stristr($txt, "%code_choix_multiples%"))
-	{
-		$candidatures_multiples_array=__get_candidatures_multiples($dbr, $candidature_array["id"]);
+  if(stristr($txt, "%code_choix_multiples%"))
+  {
+    $candidatures_multiples_array=__get_candidatures_multiples($dbr, $candidature_array["id"]);
 
-		$ordre_dernier_choix=count($candidatures_multiples_array)-1;
+    $ordre_dernier_choix=count($candidatures_multiples_array)-1;
 
-		foreach($candidatures_multiples_array as $ordre_cand => $cand_m_array)
-		{
-			if($cand_m_array["decision"]==$GLOBALS["__DOSSIER_ADMIS"] || $cand_m_array["decision"]==$GLOBALS["__DOSSIER_ADMISSION_CONFIRMEE"] || $cand_m_array["decision"]==$GLOBALS["__DOSSIER_SOUS_RESERVE"])
-			{
-				// Code apogée de la formation
-				$res_code_apogee=db_query($dbr, "SELECT $_module_apogee_DBC_formations_cet FROM  $_module_apogee_DB_formations
-																		WHERE $_module_apogee_DBC_formations_propspec_id=\'$cand_m_array[propspec_id]\'");
+    foreach($candidatures_multiples_array as $ordre_cand => $cand_m_array)
+    {
+      if($cand_m_array["decision"]==$GLOBALS["__DOSSIER_ADMIS"] || $cand_m_array["decision"]==$GLOBALS["__DOSSIER_ADMISSION_CONFIRMEE"] || $cand_m_array["decision"]==$GLOBALS["__DOSSIER_SOUS_RESERVE"])
+      {
+        // Code apogée de la formation
+        $res_code_apogee=db_query($dbr, "SELECT $_module_apogee_DBC_formations_cet FROM  $_module_apogee_DB_formations
+                                    WHERE $_module_apogee_DBC_formations_propspec_id=\'$cand_m_array[propspec_id]\'");
 
-				$rows=db_num_rows($res_code_apogee);
+        $rows=db_num_rows($res_code_apogee);
 
-				if($rows)	// Normalement, un seul résultat (un code par formation)
-					list($code_etape)=db_fetch_row($res_code_apogee, 0);
-				else
-					$code_etape="";
+        if($rows) // Normalement, un seul résultat (un code par formation)
+          list($code_etape)=db_fetch_row($res_code_apogee, 0);
+        else
+          $code_etape="";
 
-				db_free_result($res_code_apogee);
+        db_free_result($res_code_apogee);
 
-				// Question : doit-on quand même générer le code d\'inscription si le code_etape ou le code université ne sont pas renseignés ?
+        // Question : doit-on quand même générer le code d\'inscription si le code_etape ou le code université ne sont pas renseignés ?
 
-				$code_annee=substr($candidature_array["periode"],-2); // deux derniers chiffres de l\'année
-				$code_nom=mb_strtoupper(substr(str_replace("\'","", str_replace(" ","",$cand_array["nom"])),0,2));
-				$code_prenom=mb_strtoupper(substr(str_replace("\'","", str_replace(" ","",$cand_array["prenom"])),0,1));
-				$code_annee_naiss=date_fr("y", $cand_array["naissance_unix"]);
-				$code_mois_naiss=date_fr("m", $cand_array["naissance_unix"]);
-				$code_jour_naiss=date_fr("d", $cand_array["naissance_unix"]);
-				$code="$code_univ$code_annee$code_nom$code_prenom$code_annee_naiss$code_mois_naiss$code_jour_naiss$code_etape";
+        $code_annee=substr($candidature_array["periode"],-2); // deux derniers chiffres de l\'année
+        $code_nom=mb_strtoupper(substr(str_replace("\'","", str_replace(" ","",$cand_array["nom"])),0,2), "UTF-8");
+        $code_prenom=mb_strtoupper(substr(str_replace("\'","", str_replace(" ","",$cand_array["prenom"])),0,1), "UTF-8");
+        $code_annee_naiss=date_fr("y", $cand_array["naissance_unix"]);
+        $code_mois_naiss=date_fr("m", $cand_array["naissance_unix"]);
+        $code_jour_naiss=date_fr("d", $cand_array["naissance_unix"]);
+        $code="$code_univ$code_annee$code_nom$code_prenom$code_annee_naiss$code_mois_naiss$code_jour_naiss$code_etape";
 
-				$txt=preg_replace("/%code_choix_multiples%/i", $code, $txt);
+        $txt=preg_replace("/%code_choix_multiples%/i", $code, $txt);
 
-				break;
-			}
-		}
-	}
-	
-	if(stristr($txt, "%ADR_PRIMO%"))
-	{
-		// Adresse du site pour l\'inscription des primo entrants
-		$res_adr_primo=db_query($dbr, "SELECT $_module_apogee_DBC_config_adr_primo FROM  $_module_apogee_DB_config
+        break;
+      }
+    }
+  }
+  
+  if(stristr($txt, "%ADR_PRIMO%"))
+  {
+    // Adresse du site pour l\'inscription des primo entrants
+    $res_adr_primo=db_query($dbr, "SELECT $_module_apogee_DBC_config_adr_primo FROM  $_module_apogee_DB_config
                                      WHERE $_module_apogee_DBC_config_comp_id=\'$candidature_array[comp_id]\'");
 
-		$rows=db_num_rows($res_adr_primo);
+    $rows=db_num_rows($res_adr_primo);
 
-		if($rows)
-			list($adr_primo)=db_fetch_row($res_adr_primo, 0);
-		else
-			$adr_primo="[Configuration incomplète ; aucune adresse n\'a été validée]";
+    if($rows)
+      list($adr_primo)=db_fetch_row($res_adr_primo, 0);
+    else
+      $adr_primo="[Configuration incomplète ; aucune adresse n\'a été validée]";
 
-		db_free_result($res_adr_primo);
+    db_free_result($res_adr_primo);
 
-		$txt=str_ireplace("%ADR_PRIMO%", $adr_primo, $txt);
-	}
-	
-	if(stristr($txt, "%ADR_REINS%"))
-	{
-		// Adresse du site pour les réinscriptions
-		$res_adr_reins=db_query($dbr, "SELECT $_module_apogee_DBC_config_adr_reins FROM  $_module_apogee_DB_config
+    $txt=str_ireplace("%ADR_PRIMO%", $adr_primo, $txt);
+  }
+  
+  if(stristr($txt, "%ADR_REINS%"))
+  {
+    // Adresse du site pour les réinscriptions
+    $res_adr_reins=db_query($dbr, "SELECT $_module_apogee_DBC_config_adr_reins FROM  $_module_apogee_DB_config
                                      WHERE $_module_apogee_DBC_config_comp_id=\'$candidature_array[comp_id]\'");
 
-		$rows=db_num_rows($res_adr_reins);
+    $rows=db_num_rows($res_adr_reins);
 
-		if($rows)
-			list($adr_reins)=db_fetch_row($res_adr_reins, 0);
-		else
-			$adr_reins="[Configuration incomplète ; aucune adresse n\'a été validée]";
+    if($rows)
+      list($adr_reins)=db_fetch_row($res_adr_reins, 0);
+    else
+      $adr_reins="[Configuration incomplète ; aucune adresse n\'a été validée]";
 
-		db_free_result($res_adr_reins);
+    db_free_result($res_adr_reins);
 
-		$txt=str_ireplace("%ADR_REINS%", $adr_reins, $txt);
-	}
-	
-	if(stristr($txt, "%ADR_RDV%"))
-	{
-		// Adresse du site pour les inscriptions avec prise de rendez-vous
-		$res_adr_rdv=db_query($dbr, "SELECT $_module_apogee_DBC_config_adr_rdv FROM  $_module_apogee_DB_config
+    $txt=str_ireplace("%ADR_REINS%", $adr_reins, $txt);
+  }
+  
+  if(stristr($txt, "%ADR_RDV%"))
+  {
+    // Adresse du site pour les inscriptions avec prise de rendez-vous
+    $res_adr_rdv=db_query($dbr, "SELECT $_module_apogee_DBC_config_adr_rdv FROM  $_module_apogee_DB_config
                                      WHERE $_module_apogee_DBC_config_comp_id=\'$candidature_array[comp_id]\'");
 
-		$rows=db_num_rows($res_adr_rdv);
+    $rows=db_num_rows($res_adr_rdv);
 
-		if($rows)
-			list($adr_rdv)=db_fetch_row($res_adr_rdv, 0);
-		else
-			$adr_rdv="[Configuration incomplète ; aucune adresse n\'a été validée]";
+    if($rows)
+      list($adr_rdv)=db_fetch_row($res_adr_rdv, 0);
+    else
+      $adr_rdv="[Configuration incomplète ; aucune adresse n\'a été validée]";
 
-		db_free_result($res_adr_rdv);
+    db_free_result($res_adr_rdv);
 
-		$txt=str_ireplace("%ADR_RDV%", $adr_rdv, $txt);
-	}
-	
-	if(stristr($txt, "%ADR_COND%"))
-	{
-		// Adresse du site pour les conditions d\'utilisation et autres consignes
-		$res_adr_conditions=db_query($dbr, "SELECT $_module_apogee_DBC_config_adr_conditions FROM  $_module_apogee_DB_config
+    $txt=str_ireplace("%ADR_RDV%", $adr_rdv, $txt);
+  }
+  
+  if(stristr($txt, "%ADR_COND%"))
+  {
+    // Adresse du site pour les conditions d\'utilisation et autres consignes
+    $res_adr_conditions=db_query($dbr, "SELECT $_module_apogee_DBC_config_adr_conditions FROM  $_module_apogee_DB_config
                                           WHERE $_module_apogee_DBC_config_comp_id=\'$candidature_array[comp_id]\'");
 
-		$rows=db_num_rows($res_adr_conditions);
+    $rows=db_num_rows($res_adr_conditions);
 
-		if($rows)
-			list($adr_conditions)=db_fetch_row($res_adr_conditions, 0);
-		else
-			$adr_conditions="[Configuration incomplète ; aucune adresse n\'a été validée]";
+    if($rows)
+      list($adr_conditions)=db_fetch_row($res_adr_conditions, 0);
+    else
+      $adr_conditions="[Configuration incomplète ; aucune adresse n\'a été validée]";
 
-		db_free_result($res_adr_conditions);
+    db_free_result($res_adr_conditions);
 
-		$txt=str_ireplace("%ADR_COND%", $adr_conditions, $txt);
-	}';
+    $txt=str_ireplace("%ADR_COND%", $adr_conditions, $txt);
+  }';
 

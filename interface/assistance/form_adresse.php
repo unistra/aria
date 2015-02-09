@@ -69,21 +69,21 @@ CeCILL-B, et que vous en avez accepté les termes.
 
       $civilite=$_POST["civilite"];
 
-      $nom=mb_strtoupper(trim($_POST["nom"]));
-      $prenom=ucwords(strtolower((trim($_POST["prenom"]))));
-      $prenom2=ucwords(strtolower((trim($_POST["prenom2"]))));
+      $nom=mb_strtoupper(trim($_POST["nom"]), "UTF-8");
+      $prenom=ucwords(mb_strtolower(trim($_POST["prenom"]), "UTF-8"));
+      $prenom2=ucwords(mb_strtolower(trim($_POST["prenom2"]), "UTF-8"));
 
       $jour=trim($_POST["jour"]);
       $mois=trim($_POST["mois"]);
       $annee=trim($_POST["annee"]);
 
-      $lieu_naissance=ucwords(strtolower(trim($_POST["lieu_naissance"])));
+      $lieu_naissance=ucwords(mb_strtolower(trim($_POST["lieu_naissance"]), "UTF-8"));
       $pays_naissance_code=$_POST["pays_naissance"];
 
-      $old_email=mb_strtolower(trim($_POST["old_email"]));
+      $old_email=mb_strtolower(trim($_POST["old_email"]), "UTF-8");
 
-      $email=mb_strtolower(trim($_POST["email"]));
-      $emailconf=mb_strtolower(trim($_POST["emailconf"]));
+      $email=mb_strtolower(trim($_POST["email"]), "UTF-8");
+      $emailconf=mb_strtolower(trim($_POST["emailconf"]), "UTF-8");
 
       if(strcmp($email, $emailconf)) // si les 2 adresses sont différentes ...
          $email_inegaux=1;

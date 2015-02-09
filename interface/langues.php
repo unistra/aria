@@ -104,7 +104,7 @@ CeCILL-B, et que vous en avez accepté les termes.
   if(isset($_POST["valider"]) || isset($_POST["valider_x"])) // validation du formulaire
   {
     $langue=$_POST["langue"];
-    $langue_libre=ucwords(mb_strtolower(trim($_POST["langue_libre"])));
+    $langue_libre=ucwords(mb_strtolower(trim($_POST["langue_libre"]), "UTF-8"));
   
     if(empty($langue) && !empty($langue_libre)) // on vérifie que ce qui a été saisi dans le champ libre n'est pas dans la liste
     {

@@ -853,8 +853,8 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
          // Nettoyage du nom du candidat
          // TODO : Généraliser et créer une fonction
 
-         $candidat_nom=$new_str=preg_replace("/[ '\"&#\/\\\]/", "_", clean_str(mb_strtolower($candidat_array["nom"])));
-         $candidat_prenom=preg_replace("/[ '\"&#\/\\\]/", "_", clean_str(mb_strtolower($candidat_array["prenom"])));
+         $candidat_nom=$new_str=preg_replace("/[ '\"&#\/\\\]/", "_", clean_str(mb_strtolower($candidat_array["nom"], "UTF-8")));
+         $candidat_prenom=preg_replace("/[ '\"&#\/\\\]/", "_", clean_str(mb_strtolower($candidat_array["prenom"], "UTF-8")));
 
          $nom_fichier=clean_str("Formulaire_commission_" . $candidat_nom . "_" . $candidat_prenom . "_$cand_id.pdf");
       }

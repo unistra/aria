@@ -1226,6 +1226,7 @@ function db_connect()
          die("Erreur de connexion à la base de données. Aucun courriel n'a pu être envoyé à l'administrateur car aucune adresse électronique n'a été configurée.");
    }
    // die("Erreur de connexion à la base de données : " . pg_errormessage());
+   pg_set_client_encoding($dbr, "UTF-8");
    return $dbr;
 }
 
@@ -1276,7 +1277,8 @@ function db_query($dbr,$query)
 
       if(array_key_exists("__EMAIL_ADMIN", $GLOBALS) && trim($GLOBALS["__EMAIL_ADMIN"])!="")
       {
-         mail($GLOBALS["__EMAIL_ADMIN"],$GLOBALS["__ERREUR_SUJET"], "Fichier : $err_file\npg_query : erreur de requête à la base de données ($error_msg)\nRequête fautive : $query");
+         $headers = "MIME-Version: 1.0\r\nFrom: $GLOBALS[__EMAIL_ADMIN]\r\nContent-Type: text/plain; charset=UTF-8\r\nContent-transfer-encoding: 8bit\r\n\r\n";
+         mail($GLOBALS["__EMAIL_ADMIN"],$GLOBALS["__ERREUR_SUJET"], "Fichier : $err_file\npg_query : erreur de requête à la base de données ($error_msg)\nRequête fautive : $query", $headers);
          die("Erreur de requête à la base de données. Un courriel a été envoyé à l'administrateur.");
       }
       else
