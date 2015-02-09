@@ -195,7 +195,7 @@ CeCILL-B, et que vous en avez accepté les termes.
    </table>
 
    <div class='centered_box' style='padding-top:20px;'>
-      <a href='index_justificatif.php' target='_self' class='lien2'><img border='0' src='<?php echo "$__ICON_DIR/back_32x32.png"; ?>' title='[Retour]' alt='Retour' desc='Retour'></a>
+      <a href='index_justificatifs.php' target='_self' class='lien2'><img border='0' src='<?php echo "$__ICON_DIR/back_32x32.png"; ?>' title='[Retour]' alt='Retour' desc='Retour'></a>
    </div>
    
    <?php
