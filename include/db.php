@@ -1219,7 +1219,8 @@ function db_connect()
       
       if(array_key_exists("__EMAIL_ADMIN", $GLOBALS) && trim($GLOBALS["__EMAIL_ADMIN"])!="")
       {
-         mail($GLOBALS["__EMAIL_ADMIN"],$GLOBALS["__ERREUR_SUJET"], "Fichier : $err_file\nErreur de connexion à la base de données ($error_msg)");
+         $headers = "MIME-Version: 1.0\r\nFrom: $GLOBALS[__EMAIL_ADMIN]\r\nContent-Type: text/plain; charset=UTF-8\r\nContent-transfer-encoding: 8bit\r\n\r\n";
+         mail($GLOBALS["__EMAIL_ADMIN"],$GLOBALS["__ERREUR_SUJET"], "Fichier : $err_file\nErreur de connexion à la base de données ($error_msg)", $headers);
          die("Erreur de connexion à la base de données. Un courriel a été envoyé à l'administrateur.");
       }
       else
@@ -1295,6 +1296,8 @@ function db_query($dbr,$query)
 
 function db_locked_query($dbr, $table, $query)
 {
+   $headers = "MIME-Version: 1.0\r\nFrom: $GLOBALS[__EMAIL_ADMIN]\r\nContent-Type: text/plain; charset=UTF-8\r\nContent-transfer-encoding: 8bit\r\n\r\n";
+   
    // Génération d'un nouvel identifiant
    if(stripos($query, "##NEW_ID##"))
    {
@@ -1313,7 +1316,7 @@ function db_locked_query($dbr, $table, $query)
       
       if(array_key_exists("__EMAIL_ADMIN", $GLOBALS) && trim($GLOBALS["__EMAIL_ADMIN"])!="")
       {
-         mail($GLOBALS["__EMAIL_ADMIN"],$GLOBALS["__ERREUR_SUJET"], "Fichier : $err_file\ndb_locked_query : Erreur BEGIN (table $table)\nRequête fautive : $query");
+         mail($GLOBALS["__EMAIL_ADMIN"],$GLOBALS["__ERREUR_SUJET"], "Fichier : $err_file\ndb_locked_query : Erreur BEGIN (table $table)\nRequête fautive : $query", $headers);
          die("Base de données : Transaction impossible. Un courriel a été envoyé à l'administrateur.");
       }
       else
@@ -1332,7 +1335,7 @@ function db_locked_query($dbr, $table, $query)
       
       if(array_key_exists("__EMAIL_ADMIN", $GLOBALS) && trim($GLOBALS["__EMAIL_ADMIN"])!="")
       {
-         mail($GLOBALS["__EMAIL_ADMIN"],$GLOBALS["__ERREUR_SUJET"], "Fichier : $err_file\ndb_locked_query : Erreur LOCK (table $table)\nRequête fautive : $query");
+         mail($GLOBALS["__EMAIL_ADMIN"],$GLOBALS["__ERREUR_SUJET"], "Fichier : $err_file\ndb_locked_query : Erreur LOCK (table $table)\nRequête fautive : $query", $headers);
          die("Base de données : Transaction impossible. Un courriel a été envoyé à l'administrateur.");
       }
       else
@@ -1352,7 +1355,7 @@ function db_locked_query($dbr, $table, $query)
       
       if(array_key_exists("__EMAIL_ADMIN", $GLOBALS) && trim($GLOBALS["__EMAIL_ADMIN"])!="")
       {
-         mail($GLOBALS["__EMAIL_ADMIN"],$GLOBALS["__ERREUR_SUJET"], "Fichier : $err_file\npg_query : erreur de requête à la base de données ($error_msg)\nRequête fautive : $query");
+         mail($GLOBALS["__EMAIL_ADMIN"],$GLOBALS["__ERREUR_SUJET"], "Fichier : $err_file\npg_query : erreur de requête à la base de données ($error_msg)\nRequête fautive : $query", $headers);
          die("Erreur de requête à la base de données. Un courriel a été envoyé à l'administrateur.");
       }
       else
@@ -1372,7 +1375,7 @@ function db_locked_query($dbr, $table, $query)
       
       if(array_key_exists("__EMAIL_ADMIN", $GLOBALS) && trim($GLOBALS["__EMAIL_ADMIN"])!="")
       {
-         mail($GLOBALS["__EMAIL_ADMIN"],$GLOBALS["__ERREUR_SUJET"], "Fichier : $err_file\ndb_locked_query : Erreur COMMIT (table $table)\nRequête fautive : $query");
+         mail($GLOBALS["__EMAIL_ADMIN"],$GLOBALS["__ERREUR_SUJET"], "Fichier : $err_file\ndb_locked_query : Erreur COMMIT (table $table)\nRequête fautive : $query", $headers);
          die("Base de données : Transaction impossible. Un courriel a été envoyé à l'administrateur.");
       }
       else
