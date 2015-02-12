@@ -145,7 +145,7 @@ CeCILL-B, et que vous en avez accepté les termes.
         $new_corps_pos_y=$comp_corps_pos_y;
 
       if(!empty($new_logo))
-        $new_logo=htmlspecialchars(validate_filename($new_logo),ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+        $new_logo=htmlspecialchars(validate_filename($new_logo),ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
 
       // Création du répertoire dédié à la composante, si besoin
       if(!is_dir("$__GESTION_COMP_STOCKAGE_DIR_ABS/$_SESSION[comp_id]"))
@@ -282,7 +282,7 @@ CeCILL-B, et que vous en avez accepté les termes.
         <font class='Texte_menu2'><b>Titre de la lettre</b><br>(n'apparaît pas sur la lettre elle-même) :</font>
       </td>
       <td class='td-droite fond_menu' colspan='3' style='padding-bottom:30px'>
-        <input type='text' name='titre' value='<?php if(isset($titre)) echo htmlspecialchars($titre, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); else echo htmlspecialchars($current_titre, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size='40' maxlenght='96'>
+        <input type='text' name='titre' value='<?php if(isset($titre)) echo htmlspecialchars($titre, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); else echo htmlspecialchars($current_titre, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size='40' maxlenght='96'>
       </td>
     </tr>
     <tr>
@@ -346,7 +346,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       </td>
       <td class='td-milieu fond_menu'></td>
       <td class='td-droite fond_menu' colspan='2'>
-        <input type='text' name='largeur_logo' value='<?php if(isset($current_largeur_logo)) echo htmlspecialchars(stripslashes($current_largeur_logo), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); else print("32"); ?>' maxlength='3' size='4'>
+        <input type='text' name='largeur_logo' value='<?php if(isset($current_largeur_logo)) echo htmlspecialchars(stripslashes($current_largeur_logo), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); else print("32"); ?>' maxlength='3' size='4'>
       </td>
     </tr>
     <tr>
@@ -381,7 +381,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       </td>
       <td class='td-droite fond_menu' colspan='2'>
         <textarea name='texte_logo' rows='5' cols='60'><?php
-          if(isset($current_txt_logo)) echo htmlspecialchars(stripslashes($current_txt_logo), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+          if(isset($current_txt_logo)) echo htmlspecialchars(stripslashes($current_txt_logo), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
         ?></textarea>
       </td>
     </tr>
@@ -417,7 +417,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       </td>
       <td class='td-droite fond_menu' colspan='2'>
         <textarea name='texte_signature' rows='5' cols='60'><?php
-          if(isset($current_txt_sign)) echo htmlspecialchars(stripslashes($current_txt_sign), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+          if(isset($current_txt_sign)) echo htmlspecialchars(stripslashes($current_txt_sign), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
         ?></textarea>
       </td>
     </tr>
@@ -453,7 +453,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       </td>
       <td class='td-droite fond_menu' colspan='2'>
         <textarea name='texte_scol' rows='7' cols='60'><?php
-          if(isset($current_txt_scol)) echo htmlspecialchars(stripslashes($current_txt_scol), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+          if(isset($current_txt_scol)) echo htmlspecialchars(stripslashes($current_txt_scol), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
         ?></textarea>
       </td>
     </tr>
@@ -525,8 +525,8 @@ CeCILL-B, et que vous en avez accepté les termes.
       <td class='td-droite fond_menu'>
         <font class='Texte_menu'>
         <b>Position :</b>
-        <br>Valeur de X (en mm) : <input type='text' name='adr_pos_x' value='<?php if(isset($new_adr_pos_x)) echo htmlspecialchars(stripslashes($new_adr_pos_x), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); else echo htmlspecialchars(stripslashes($adr_pos_x), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' maxlength='3' size='4'>
-        <br>Valeur de Y (en mm) : <input type='text' name='adr_pos_y' value='<?php if(isset($new_adr_pos_y)) echo htmlspecialchars(stripslashes($new_adr_pos_y), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); else echo htmlspecialchars(stripslashes($adr_pos_y), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' maxlength='3' size='4'>
+        <br>Valeur de X (en mm) : <input type='text' name='adr_pos_x' value='<?php if(isset($new_adr_pos_x)) echo htmlspecialchars(stripslashes($new_adr_pos_x), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); else echo htmlspecialchars(stripslashes($adr_pos_x), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' maxlength='3' size='4'>
+        <br>Valeur de Y (en mm) : <input type='text' name='adr_pos_y' value='<?php if(isset($new_adr_pos_y)) echo htmlspecialchars(stripslashes($new_adr_pos_y), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); else echo htmlspecialchars(stripslashes($adr_pos_y), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' maxlength='3' size='4'>
         <br>(relativement au coin supérieur gauche de la feuille)
       </td>
     </tr>
@@ -566,8 +566,8 @@ CeCILL-B, et que vous en avez accepté les termes.
       <td class='td-droite fond_menu'>
         <font class='Texte_menu'>
         <b>Position :</b>
-        <br>Valeur de X (en mm) : <input type='text' name='corps_pos_x' value='<?php if(isset($new_corps_pos_x)) echo htmlspecialchars(stripslashes($new_corps_pos_x), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); else echo htmlspecialchars(stripslashes($corps_pos_x), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' maxlength='3' size='4'>
-        <br>Valeur de Y (en mm) : <input type='text' name='corps_pos_y' value='<?php if(isset($new_corps_pos_y)) echo htmlspecialchars(stripslashes($new_corps_pos_y), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); else echo htmlspecialchars(stripslashes($corps_pos_y), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' maxlength='3' size='4'>
+        <br>Valeur de X (en mm) : <input type='text' name='corps_pos_x' value='<?php if(isset($new_corps_pos_x)) echo htmlspecialchars(stripslashes($new_corps_pos_x), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); else echo htmlspecialchars(stripslashes($corps_pos_x), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' maxlength='3' size='4'>
+        <br>Valeur de Y (en mm) : <input type='text' name='corps_pos_y' value='<?php if(isset($new_corps_pos_y)) echo htmlspecialchars(stripslashes($new_corps_pos_y), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); else echo htmlspecialchars(stripslashes($corps_pos_y), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' maxlength='3' size='4'>
         <br>(relativement au coin supérieur gauche de la feuille)
       </td>
     </tr>

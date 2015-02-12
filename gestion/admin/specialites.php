@@ -158,7 +158,7 @@ CeCILL-B, et que vous en avez accepté les termes.
         if($current_nom!=$new_nom || $current_mention!=$new_mention)
         {
           if(db_num_rows(db_query($dbr, "SELECT * FROM $_DB_specs
-                                WHERE $_DBC_specs_nom ILIKE '$new_nom'
+                                WHERE $_DBC_specs_nom ILIKE '".preg_replace("/[']+/", "''", stripslashes($new_nom))."'
                                AND $_DBC_specs_mention_id='$new_mention'
                                AND $_DBC_specs_id!='$spec_id'")))
             $specialite_existe=1;
@@ -168,7 +168,7 @@ CeCILL-B, et que vous en avez accepté les termes.
     // En cas d'ajout : vérification d'unicité nom/mention
     // Attention : deux spécialités peuvent avoir le même nom dans deux mentions différentes
     elseif(db_num_rows(db_query($dbr,"SELECT * FROM $_DB_specs
-                            WHERE $_DBC_specs_nom ILIKE '$new_nom'
+                            WHERE $_DBC_specs_nom ILIKE '".preg_replace("/[']+/", "''", stripslashes($new_nom))."'
                            AND $_DBC_specs_mention_id='$new_mention'")))
         $specialite_existe=1;
 
@@ -176,17 +176,23 @@ CeCILL-B, et que vous en avez accepté les termes.
     {
       if((!isset($_SESSION["ajout_spec"]) || $_SESSION["ajout_spec"]==0) && isset($spec_id))
       {
-        db_query($dbr,"UPDATE $_DB_specs SET  $_DBU_specs_nom='$new_nom',
-                                  $_DBU_specs_nom_court='$new_nom_court',
-                                  $_DBU_specs_comp_id='$_SESSION[comp_id]',
-                                  $_DBU_specs_mention_id='$new_mention'
-                  WHERE $_DBU_specs_id='$spec_id'");
+        db_query($dbr,"UPDATE $_DB_specs SET  
+            $_DBU_specs_nom='".preg_replace("/[']+/", "''", stripslashes($new_nom))."',
+            $_DBU_specs_nom_court='".preg_replace("/[']+/", "''", stripslashes($new_nom_court))."',
+            $_DBU_specs_comp_id='$_SESSION[comp_id]',
+            $_DBU_specs_mention_id='$new_mention'
+        WHERE $_DBU_specs_id='$spec_id'");
 
         write_evt($dbr, $__EVT_ID_G_ADMIN, "MAJ Spécialité $spec_id", "", $spec_id);
       }
       else
       {
-        $new_spec_id=db_locked_query($dbr, $_DB_specs, "INSERT INTO $_DB_specs VALUES('##NEW_ID##', '$new_nom', '$new_nom_court', '$_SESSION[comp_id]', '$new_mention')");
+        $new_spec_id=db_locked_query($dbr, $_DB_specs, "INSERT INTO $_DB_specs VALUES(
+            '##NEW_ID##', 
+            '".preg_replace("/[']+/", "''", stripslashes($new_nom))."', 
+            '".preg_replace("/[']+/", "''", stripslashes($new_nom_court))."',
+            '$_SESSION[comp_id]', 
+            '$new_mention')");
 
         write_evt($dbr, $__EVT_ID_G_ADMIN, "AJOUT Spécialité $new_spec_id ($new_nom)", "", $new_spec_id);
       }
@@ -284,7 +290,7 @@ CeCILL-B, et que vous en avez accepté les termes.
               print("</optgroup>
                    <option value='' label='' disabled></option>\n");
 
-            $val=htmlspecialchars($mention_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+            $val=htmlspecialchars($mention_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
 
             print("<optgroup label='$val'>\n");
 
@@ -413,11 +419,11 @@ CeCILL-B, et que vous en avez accepté les termes.
   </tr>
   <tr>
     <td class='td-gauche fond_menu2'><font class='Texte_menu2'><b>Nom de la spécialité : </b></font></td>
-    <td class='td-droite fond_menu'><input type='text' name='nom' value='<?php if(isset($new_nom)) echo htmlspecialchars($new_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' maxlength='192' size='80'></td>
+    <td class='td-droite fond_menu'><input type='text' name='nom' value='<?php if(isset($new_nom)) echo htmlspecialchars($new_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' maxlength='192' size='80'></td>
   </tr>
   <tr>
     <td class='td-gauche fond_menu2'><font class='Texte_menu2'><b>Nom court : </b></font></td>
-    <td class='td-droite fond_menu'><input type='text' name='nom_court' value='<?php if(isset($new_nom_court)) echo htmlspecialchars($new_nom_court, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' maxlength='92' size='80'></td>
+    <td class='td-droite fond_menu'><input type='text' name='nom_court' value='<?php if(isset($new_nom_court)) echo htmlspecialchars($new_nom_court, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' maxlength='92' size='80'></td>
   </tr>
   <tr>
     <td class='td-gauche fond_menu2'><font class='Texte_menu2'><b>Mention</b></font></td>

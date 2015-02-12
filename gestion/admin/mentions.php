@@ -156,8 +156,8 @@ CeCILL-B, et que vous en avez accepté les termes.
         if($current_comp_id!=$new_composante)
         {
           if(db_num_rows(db_query($dbr,"SELECT $_DBC_mentions_id FROM $_DB_mentions
-                                WHERE $_DBC_mentions_nom ILIKE '$new_nom'
-                              AND $_DBC_mentions_nom_court ILIKE '$new_nom_court'
+                                WHERE $_DBC_mentions_nom ILIKE '".preg_replace("/[']+/", "''", stripslashes($new_nom))."'
+                              AND $_DBC_mentions_nom_court ILIKE '".preg_replace("/[']+/", "''", stripslashes($new_nom_court))."'
                               AND $_DBC_mentions_comp_id='$new_composante'")))
             $nom_existe=1;
         }
@@ -165,8 +165,8 @@ CeCILL-B, et que vous en avez accepté les termes.
         elseif($current_nom!=$new_nom || $current_nom_court!=$new_nom_court)
         {
           if(db_num_rows(db_query($dbr,"SELECT $_DBC_mentions_id FROM $_DB_mentions
-                                WHERE $_DBC_mentions_nom ILIKE '$new_nom'
-                              AND $_DBC_mentions_nom_court ILIKE '$new_nom_court'
+                                WHERE $_DBC_mentions_nom ILIKE '".preg_replace("/[']+/", "''", stripslashes($new_nom))."'
+                              AND $_DBC_mentions_nom_court ILIKE '".preg_replace("/[']+/", "''", stripslashes($new_nom_court))."'
                               AND $_DBC_mentions_comp_id='$current_comp_id'
                               AND $_DBC_mentions_id!='$mention_id'")))
             $nom_existe=1;
@@ -175,20 +175,25 @@ CeCILL-B, et que vous en avez accepté les termes.
     }
     // En cas d'ajout : vérification d'unicité
     elseif(db_num_rows(db_query($dbr,"SELECT $_DBC_mentions_id FROM $_DB_mentions
-                             WHERE ($_DBC_mentions_nom ILIKE '$new_nom'
-                                  OR $_DBC_mentions_nom_court ILIKE '$new_nom_court')
+                             WHERE ($_DBC_mentions_nom ILIKE '".preg_replace("/[']+/", "''", stripslashes($new_nom))."'
+                                  OR $_DBC_mentions_nom_court ILIKE '".preg_replace("/[']+/", "''", stripslashes($new_nom_court))."')
                            AND $_DBC_mentions_comp_id='$new_composante'")))
         $nom_existe=1;
 
     if(!isset($champs_vides) && !isset($nom_existe))
     {
       if($_SESSION["ajout_mention"]==0 && isset($mention_id))
-        db_query($dbr,"UPDATE $_DB_mentions SET $_DBU_mentions_nom='$new_nom',
-                                    $_DBU_mentions_nom_court='$new_nom_court',
-                                    $_DBU_mentions_comp_id='$new_composante'
-                    WHERE $_DBU_mentions_id='$mention_id'");
+        db_query($dbr,"UPDATE $_DB_mentions SET 
+            $_DBU_mentions_nom='".preg_replace("/[']+/", "''", stripslashes($new_nom))."',
+            $_DBU_mentions_nom_court='".preg_replace("/[']+/", "''", stripslashes($new_nom_court))."',
+            $_DBU_mentions_comp_id='$new_composante'
+          WHERE $_DBU_mentions_id='$mention_id'");
       else
-        $new_mention_id=db_locked_query($dbr, $_DB_mentions, "INSERT INTO $_DB_mentions VALUES('##NEW_ID##', '$new_nom', '$new_nom_court', '$new_composante')");
+        $new_mention_id=db_locked_query($dbr, $_DB_mentions, "INSERT INTO $_DB_mentions VALUES(
+            '##NEW_ID##', 
+            '".preg_replace("/[']+/", "''", stripslashes($new_nom))."', 
+            '".preg_replace("/[']+/", "''", stripslashes($new_nom_court))."', 
+            '$new_composante')");
 
       db_close($dbr);
       header("Location:$php_self?succes=1");
@@ -282,14 +287,14 @@ CeCILL-B, et que vous en avez accepté les termes.
                 print("</optgroup>
                       <option value='' label='' disabled></option>\n");
 
-              $val=htmlspecialchars($comp_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+              $val=htmlspecialchars($comp_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
 
               print("<optgroup label='$val'>\n");
 
               $old_comp=$comp_id;
             }
 
-          $val=htmlspecialchars($mention_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+          $val=htmlspecialchars($mention_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
 
           print("<option value='$mention_id' label=\"$val\">$val</option>\n");
         }
@@ -378,11 +383,11 @@ CeCILL-B, et que vous en avez accepté les termes.
   </tr>
   <tr>
     <td class='td-gauche fond_menu2'><font class='Texte_menu2'><b>Nom de la mention : </b></font></td>
-    <td class='td-droite fond_menu'><input type='text' name='nom' value='<?php if(isset($new_nom)) echo htmlspecialchars($new_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size='40'></td>
+    <td class='td-droite fond_menu'><input type='text' name='nom' value='<?php if(isset($new_nom)) echo htmlspecialchars($new_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size='40'></td>
   </tr>
   <tr>
     <td class='td-gauche fond_menu2'><font class='Texte_menu2'><b>Nom court : </b></font></td>
-    <td class='td-droite fond_menu'><input type='text' name='nom_court' value='<?php if(isset($new_nom_court)) echo htmlspecialchars($new_nom_court, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size='40'></td>
+    <td class='td-droite fond_menu'><input type='text' name='nom_court' value='<?php if(isset($new_nom_court)) echo htmlspecialchars($new_nom_court, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size='40'></td>
   </tr>
 
   <?php

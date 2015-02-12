@@ -517,8 +517,9 @@ CeCILL-B, et que vous en avez accepté les termes.
                {
                   $modifs++;
 
-                  $req="UPDATE $_DB_cursus_justif SET $_DBU_cursus_justif_statut='$nouveau_statut',
-                                                      $_DBU_cursus_justif_precision='$nouvelle_precision'
+                  $req="UPDATE $_DB_cursus_justif SET 
+                        $_DBU_cursus_justif_statut='".preg_replace("/[']+/", "''", stripslashes($nouveau_statut))."',
+                        $_DBU_cursus_justif_precision='".preg_replace("/[']+/", "''", stripslashes($nouvelle_precision))."'
                         WHERE $_DBU_cursus_justif_cursus_id='$cu_id'
                         AND $_DBU_cursus_justif_comp_id='$_SESSION[comp_id]'
                         AND $_DBU_cursus_justif_periode='$__PERIODE'";
@@ -674,10 +675,11 @@ $_SESSION[universite]";
 
                      $new_date_statut=time();
 
-                     $req="UPDATE $_DB_cand SET $_DBU_cand_statut='$new_statut',
-                                                $_DBU_cand_traitee_par='$id_annuaire',
-                                                $_DBU_cand_motivation_decision='$new_motivation[$cand_id]',
-                                                $_DBU_cand_date_statut='$new_date_statut'
+                     $req="UPDATE $_DB_cand SET 
+                              $_DBU_cand_statut='$new_statut',
+                              $_DBU_cand_traitee_par='$id_annuaire',
+                              $_DBU_cand_motivation_decision='".preg_replace("/[']+/", "''", stripslashes($new_motivation[$cand_id]))."',
+                              $_DBU_cand_date_statut='$new_date_statut'
                            WHERE $_DBU_cand_id='$cand_id'";
 
                      db_query($dbr, $req);
@@ -742,7 +744,9 @@ $_SESSION[universite]";
       elseif(isset($_POST["go_email"]) || isset($_POST["go_email_x"])) // Modification de l'adresse email
       {
          $new_email=trim(strtolower($_POST["email"]));
-         db_query($dbr,"UPDATE $_DB_candidat SET $_DBU_candidat_email='$new_email' WHERE $_DBU_candidat_id='$candidat_id'");
+         db_query($dbr,"UPDATE $_DB_candidat SET 
+            $_DBU_candidat_email='".preg_replace("/[']+/", "''", stripslashes($new_email))."' 
+            WHERE $_DBU_candidat_id='$candidat_id'");
 
          $_SESSION['tab_candidat']['email']=$new_email;
          $email_ok="1";
@@ -889,7 +893,7 @@ $_SESSION[universite]";
                else
                {
                   db_query($dbr, "UPDATE $_DB_cand SET $_DBU_cand_lock='0'
-                                    WHERE $_DBC_cand_id='$cand_id'");
+                                  WHERE $_DBC_cand_id='$cand_id'");
 
                   write_evt($dbr, $__EVT_ID_G_UNLOCK, "Déverrouillage manuel", $candidat_id, $cand_id, "");
                }
@@ -909,7 +913,7 @@ $_SESSION[universite]";
                else
                {
                   db_query($dbr, "UPDATE $_DB_cand SET $_DBU_cand_lock='1'
-                                    WHERE $_DBC_cand_id='$cand_id'");
+                                  WHERE $_DBC_cand_id='$cand_id'");
 
                   write_evt($dbr, $__EVT_ID_G_LOCK, "Verrouillage manuel", $candidat_id, $cand_id, "");
                }
@@ -928,8 +932,8 @@ $_SESSION[universite]";
                   if($cand_array["groupe_spec"]!=-1)
                   {
                      db_query($dbr, "UPDATE $_DB_cand SET $_DBU_cand_lockdate='$new_date'
-                                       WHERE $_DBC_cand_id='$cand_id'
-                                       AND $_DBC_cand_groupe_spec='$cand_array[groupe_spec]'");
+                                     WHERE $_DBC_cand_id='$cand_id'
+                                     AND $_DBC_cand_groupe_spec='$cand_array[groupe_spec]'");
 
                      $succes_date=1;
 
@@ -938,7 +942,7 @@ $_SESSION[universite]";
                   else
                   {
                      db_query($dbr, "UPDATE $_DB_cand SET $_DBU_cand_lockdate='$new_date'
-                                       WHERE $_DBC_cand_id='$cand_id'");
+                                     WHERE $_DBC_cand_id='$cand_id'");
 
                      $succes_date=1;
 

@@ -316,7 +316,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                   if($i)
                      $liste_transfert.="<option value=''></option>\n</optgroup>";
 
-                  $liste_transfert.="<optgroup label='".htmlspecialchars(stripslashes($composante_nom), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"])."'>\n";
+                  $liste_transfert.="<optgroup label='".htmlspecialchars(stripslashes($composante_nom), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE)."'>\n";
 
                   $old_composante=$composante_id;
 
@@ -328,7 +328,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                   if($i)
                      $liste_transfert.="</optgroup>\n<option value='' disabled></option>\n";
 
-                  $niveau_txt=htmlspecialchars($tab_niveau[$acces_niveau], ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+                  $niveau_txt=htmlspecialchars($tab_niveau[$acces_niveau], ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
 
                   $liste_transfert.="<optgroup label='- $niveau_txt'>\n";
 

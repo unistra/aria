@@ -160,8 +160,8 @@ CeCILL-B, et que vous en avez accepté les termes.
         {
           if(db_num_rows(db_query($dbr,"SELECT $_module_apogee_DBC_centres_gestion_id
                                 FROM $_module_apogee_DB_centres_gestion
-                              WHERE ($_module_apogee_DBC_centres_gestion_nom ILIKE '$new_nom'
-                                   OR $_module_apogee_DBC_centres_gestion_code ILIKE '$new_code')
+                              WHERE ($_module_apogee_DBC_centres_gestion_nom ILIKE '".preg_replace("/[']+/", "''", stripslashes($new_nom))."'
+                                   OR $_module_apogee_DBC_centres_gestion_code ILIKE '".preg_replace("/[']+/", "''", stripslashes($new_code))."')
                               AND $_module_apogee_DBC_centres_gestion_comp_id='$_SESSION[comp_id]'
                               AND $_module_apogee_DBC_centres_gestion_id!='$centre_id'")))
             $nom_existe=1;
@@ -172,19 +172,24 @@ CeCILL-B, et que vous en avez accepté les termes.
     // Pas de contraintes intercomposantes : deux composantes peuvent avoir le même centre de gestion
     elseif(db_num_rows(db_query($dbr,"SELECT $_module_apogee_DBC_centres_gestion_id
                             FROM $_module_apogee_DB_centres_gestion
-                          WHERE ($_module_apogee_DBC_centres_gestion_nom ILIKE '$new_nom'
-                               OR $_module_apogee_DBC_centres_gestion_code ILIKE '$new_code')
+                          WHERE ($_module_apogee_DBC_centres_gestion_nom ILIKE '".preg_replace("/[']+/", "''", stripslashes($new_nom))."'
+                               OR $_module_apogee_DBC_centres_gestion_code ILIKE '".preg_replace("/[']+/", "''", stripslashes($new_code))."')
                           AND $_module_apogee_DBC_centres_gestion_comp_id='$_SESSION[comp_id]'")))
         $nom_existe=1;
 
     if(!isset($champs_vides) && !isset($nom_existe))
     {
       if($_SESSION["ajout_centre"]==0 && isset($centre_id))
-        db_query($dbr,"UPDATE $_module_apogee_DB_centres_gestion SET $_module_apogee_DBU_centres_gestion_nom='$new_nom',
-                                                 $_module_apogee_DBU_centres_gestion_code='$new_code'
-                  WHERE $_module_apogee_DBU_centres_gestion_id='$centre_id'");
+        db_query($dbr,"UPDATE $_module_apogee_DB_centres_gestion SET 
+            $_module_apogee_DBU_centres_gestion_nom='".preg_replace("/[']+/", "''", stripslashes($new_nom))."',
+            $_module_apogee_DBU_centres_gestion_code='$new_code'
+          WHERE $_module_apogee_DBU_centres_gestion_id='$centre_id'");
       else
-        $new_centre_id=db_locked_query($dbr, $_module_apogee_DB_centres_gestion, "INSERT INTO $_module_apogee_DB_centres_gestion VALUES('##NEW_ID##', '$_SESSION[comp_id]', '$new_code', '$new_nom')");
+        $new_centre_id=db_locked_query($dbr, $_module_apogee_DB_centres_gestion, "INSERT INTO $_module_apogee_DB_centres_gestion VALUES(
+            '##NEW_ID##', 
+            '$_SESSION[comp_id]', 
+            '$new_code', 
+            '".preg_replace("/[']+/", "''", stripslashes($new_nom))."')");
 
       db_close($dbr);
       header("Location:$php_self?succes=1");
@@ -270,7 +275,7 @@ CeCILL-B, et que vous en avez accepté les termes.
         {
           list($centre_id, $nom, $code)=db_fetch_row($result,$i);
 
-          $val=htmlspecialchars($nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+          $val=htmlspecialchars($nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
 
           print("<option value='$centre_id'>$val ($code)</option>\n");
         }
@@ -359,11 +364,11 @@ CeCILL-B, et que vous en avez accepté les termes.
   </tr>
   <tr>
     <td class='td-gauche fond_menu2'><font class='Texte_menu2'><b>Nom du Centre de Gestion : </b></font></td>
-    <td class='td-droite fond_menu'><input type='text' name='nom' value='<?php if(isset($new_nom)) echo htmlspecialchars($new_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size='40'></td>
+    <td class='td-droite fond_menu'><input type='text' name='nom' value='<?php if(isset($new_nom)) echo htmlspecialchars($new_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size='40'></td>
   </tr>
   <tr>
     <td class='td-gauche fond_menu2'><font class='Texte_menu2'><b>Code Apogée du Centre : </b></font></td>
-    <td class='td-droite fond_menu'><input type='text' name='code' value='<?php if(isset($new_code)) echo htmlspecialchars($new_code, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size='40'></td>
+    <td class='td-droite fond_menu'><input type='text' name='code' value='<?php if(isset($new_code)) echo htmlspecialchars($new_code, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size='40'></td>
   </tr>
   </table>
 

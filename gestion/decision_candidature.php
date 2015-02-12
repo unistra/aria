@@ -329,15 +329,6 @@ CeCILL-B, et que vous en avez accepté les termes.
                               db_query($dbr,"UPDATE $_DB_cand SET $_DBU_cand_liste_attente='$next_rang' WHERE $_DBU_cand_id='$dec_cand_id'");
                            }
                         }
-/*
-
-                        db_query($dbr,"UPDATE $_DB_cand SET $_DBU_cand_liste_attente=CAST($_DBU_cand_liste_attente AS int)+1
-                                       WHERE $_DBU_cand_propspec_id='$cand_array[propspec_id]'
-                                       AND $_DBU_cand_periode='$__PERIODE'
-                                       AND ($_DBU_cand_decision='$__DOSSIER_LISTE' OR $_DBU_cand_decision='$__DOSSIER_LISTE_ENTRETIEN')
-                                       AND $_DBU_cand_liste_attente!=''
-                                       AND CAST($_DBU_cand_liste_attente AS int)>= '$rang_liste_attente'");
-*/
                      }
                      // else // sinon, on met juste le rang
 
@@ -355,13 +346,6 @@ CeCILL-B, et que vous en avez accepté les termes.
          // Récupération de la décision précédente, pour tester si on doit réordonner le classement dans une liste complémentaire
          $old_decision=$_POST['old_decision'];
 
-/*
-         // CASE "recours" OBSOLETE
-         // TODO : nettoyer la base pour supprimer cette colonne
-         if(isset($_POST['recours']))
-            $cand_array["recours"]=1;
-         else
-*/
          $cand_array["recours"]=0;
 
          // la présence du champ 'transmission de dossier' n'est pas obligatoire dans le formulaire, donc on la teste
@@ -580,16 +564,16 @@ $_SESSION[universite]";
             // on peut mettre à jour la décision de cette candidature
             $req="UPDATE $_DB_cand SET $_DBU_cand_date_decision='$cand_array[date_decision_unix]',
                                        $_DBU_cand_decision='$decision',
-                                       $_DBU_cand_motivation_decision='$motivation_decision',
+                                       $_DBU_cand_motivation_decision='".preg_replace("/[']+/", "''", stripslashes($motivation_decision))."',
                                        $_DBU_cand_recours='$cand_array[recours]',
-                                       $_DBU_cand_liste_attente='$rang_liste_attente',
-                                       $_DBU_cand_transmission_dossier='$transmission_txt',
+                                       $_DBU_cand_liste_attente='".preg_replace("/[']+/", "''", stripslashes($rang_liste_attente))."',
+                                       $_DBU_cand_transmission_dossier='".preg_replace("/[']+/", "''", stripslashes($transmission_txt))."',
                                        $_DBU_cand_vap_flag='$cand_array[vap]',
                                        $_DBU_cand_talon_reponse='$cand_array[talon_reponse]',
-                                       $_DBU_cand_entretien_date='$entretien_date',
-                                       $_DBU_cand_entretien_heure='$entretien_heure',
-                                       $_DBU_cand_entretien_lieu='$entretien_lieu',
-                                       $_DBU_cand_entretien_salle='$entretien_salle',
+                                       $_DBU_cand_entretien_date='".preg_replace("/[']+/", "''", stripslashes($entretien_date))."',
+                                       $_DBU_cand_entretien_heure='".preg_replace("/[']+/", "''", stripslashes($entretien_heure))."',
+                                       $_DBU_cand_entretien_lieu='".preg_replace("/[']+/", "''", stripslashes($entretien_lieu))."',
+                                       $_DBU_cand_entretien_salle='".preg_replace("/[']+/", "''", stripslashes($entretien_salle))."',
                                        $_DBU_cand_date_prise_decision='$date_prise_decision'
                   WHERE $_DBU_cand_id='$cand_id'";
 
@@ -665,8 +649,8 @@ $_SESSION[universite]";
                   list($decalage_inid,$decalage_rang)=db_fetch_row($result,$i);
 
                   $nouveau_rang=$decalage_rang-1;
-                  db_query($dbr,"UPDATE $_DB_cand SET $_DBU_cand_liste_attente='$nouveau_rang'
-                                             WHERE $_DBU_cand_id='$decalage_inid'");
+                  db_query($dbr,"UPDATE $_DB_cand SET $_DBU_cand_liste_attente='".preg_replace("/[']+/", "''", stripslashes($nouveau_rang))."'
+                                 WHERE $_DBU_cand_id='$decalage_inid'");
                }
 
                db_free_result($result);
@@ -676,23 +660,6 @@ $_SESSION[universite]";
             // si transmission de dossier : création d'une nouvelle candidature (si transmission vers une formation de la composante)
             if($decision==$__DOSSIER_TRANSMIS && $old_decision!=$decision)
             {
-               /*
-               $candidature_id=time();
-
-               // Unicité de l'identifiant de la nouvelle candidature
-               while(db_num_rows(db_query($dbr,"SELECT $_DBC_cand_id FROM $_DB_cand WHERE $_DBC_cand_id='$candidature_id'")))
-                  $candidature_id++;
-               */
-/*
-               // Identifiant de l'année trans_annee (TODO : REMPLACER PAR LES IDENTIFIANTS)
-               $result=db_query($dbr,"SELECT $_DBC_annees_id FROM $_DB_annees WHERE $_DBC_annees_annee ILIKE '$trans_annee'");
-               $rows=db_num_rows($result);
-               if($rows)
-                  list($trans_annee_id)=db_feth_row($result,0);
-               else
-                  die("Incohérence de la base de données (trans_annee_id), merci de contacter d'urgence l'administrateur de l'application");
-               db_free_result($result);
-*/
                // on détermine l'ordre max
                $result=db_query($dbr,"SELECT max($_DBC_cand_ordre)+1 FROM $_DB_cand, $_DB_propspec
                                        WHERE $_DBC_cand_candidat_id='$candidat_id'
@@ -758,36 +725,37 @@ $_SESSION[universite]";
 
                   db_free_result($res_session);
 
-                  $candidature_id=db_locked_query($dbr, $_DB_cand, "INSERT INTO $_DB_cand VALUES ('##NEW_ID##',
-                                                                                                '$candidat_id',
-                                                                                                '$transmission',
-                                                                                                '$new_ordre',
-                                                                                                '$__PREC_RECEVABLE',
-                                                                                                '$new_motif_decision',
-                                                                                                '$_SESSION[auth_id]',
-                                                                                                '$new_ordre_spec',
-                                                                                                '$new_groupe_spec',
-                                                                                                '$cand_array[date_decision_unix]',
-                                                                                                '$__DOSSIER_NON_TRAITE',
-                                                                                                '$new_recours',
-                                                                                                '$new_liste',
-                                                                                                'Dossier transmis depuis : $cand_array[annee] - $spec_nom_transfert $cand_array[nom_finalite]',
-                                                                                                '$cand_array[vap]',
-                                                                                                '$new_masse',
-                                                                                                '$new_talon_reponse',
-                                                                                                '$statut_frais',
-                                                                                                '$new_entretien_date',
-                                                                                                '$new_entretien_heure',
-                                                                                                '$new_entretien_lieu',
-                                                                                                '$new_entretien_salle',
-                                                                                                '$new_date_statut',
-                                                                                                '$new_date_prise_decision',
-                                                                                                '$__PERIODE',
-                                                                                                '$new_session_id',
-                                                                                                '$new_lock',
-                                                                                                '$cand_array[lockdate]',
-                                                                                                '$nb_rappels',
-                                                                                                '0')");
+                  $candidature_id=db_locked_query($dbr, $_DB_cand, "INSERT INTO $_DB_cand VALUES (
+                      '##NEW_ID##',
+                      '$candidat_id',
+                      '".preg_replace("/[']+/", "''", stripslashes($transmission))."',
+                      '$new_ordre',
+                      '$__PREC_RECEVABLE',
+                      '".preg_replace("/[']+/", "''", stripslashes($new_motif_decision))."',
+                      '$_SESSION[auth_id]',
+                      '$new_ordre_spec',
+                      '$new_groupe_spec',
+                      '$cand_array[date_decision_unix]',
+                      '$__DOSSIER_NON_TRAITE',
+                      '$new_recours',
+                      '".preg_replace("/[']+/", "''", stripslashes($new_liste))."',
+                      '".preg_replace("/[']+/", "''", stripslashes("Dossier transmis depuis : $cand_array[annee] - $spec_nom_transfert $cand_array[nom_finalite]"))."',
+                      '$cand_array[vap]',
+                      '$new_masse',
+                      '$new_talon_reponse',
+                      '$statut_frais',
+                      '".preg_replace("/[']+/", "''", stripslashes($new_entretien_date))."',
+                      '".preg_replace("/[']+/", "''", stripslashes($new_entretien_heure))."',
+                      '".preg_replace("/[']+/", "''", stripslashes($new_entretien_lieu))."',
+                      '".preg_replace("/[']+/", "''", stripslashes($new_entretien_salle))."',
+                      '".preg_replace("/[']+/", "''", stripslashes($new_date_statut))."',
+                      '$new_date_prise_decision',
+                      '$__PERIODE',
+                      '$new_session_id',
+                      '$new_lock',
+                      '$cand_array[lockdate]',
+                      '$nb_rappels',
+                      '0')");
                }
             }
 
@@ -901,7 +869,7 @@ $_SESSION[universite]";
                      {
                         list($decision_id,$decision_txt)=db_fetch_row($result2,$j);
 
-                        $value=htmlspecialchars($decision_txt, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+                        $value=htmlspecialchars($decision_txt, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
 
                         if($decision_id==$cand_array["decision"])
                            $selected="selected=1";
@@ -981,7 +949,7 @@ $_SESSION[universite]";
                            print("</optgroup>
                                     <option value='' label='' disabled></option>\n");
 
-                        $val=htmlspecialchars($form_mention_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+                        $val=htmlspecialchars($form_mention_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
 
                         print("<optgroup label='- $val'>\n");
 
@@ -1015,7 +983,7 @@ $_SESSION[universite]";
             <font class='Texte_menu' style='vertical-align:middle;'><b>Ou</b> formation en toute lettres :<br>(si celle-ci n'est pas gérée par l'interface)</font>
          </td>
          <td class='td-droite fond_menu'>
-            <input type='text' name='transmission_libre' value='<?php if(isset($transmission_txt) && (!isset($transmission) || $transmission=='')) echo htmlspecialchars($transmission_txt, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size='50' maxlength='256'>
+            <input type='text' name='transmission_libre' value='<?php if(isset($transmission_txt) && (!isset($transmission) || $transmission=='')) echo htmlspecialchars($transmission_txt, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size='50' maxlength='256'>
             &nbsp;&nbsp;<font class='Texte_menu'><i>(Champ prioritaire sur le précédent)</i></font>
          </td>
       </tr>
@@ -1066,25 +1034,25 @@ $_SESSION[universite]";
                <td><font class='Texte_menu'><b>Date :</b></font></td>
                <td>
                   <font class='Texte_menu'>
-                     JJ : <input type="text" name='entretien_jour' value='<?php if(isset($entretien_jour)) echo htmlspecialchars($entretien_jour, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); else echo htmlspecialchars($cand_array_entretien_jour, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size='3' maxlength='2'>&nbsp;
-                     MM : <input type="text" name='entretien_mois' value='<?php if(isset($entretien_mois)) echo htmlspecialchars($entretien_mois, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); else echo htmlspecialchars($cand_array_entretien_mois, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size='3' maxlength='2'>&nbsp;
-                     AAAA : <input type="text" name='entretien_annee' value='<?php if(isset($entretien_annee)) echo htmlspecialchars($entretien_annee, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); else echo htmlspecialchars($cand_array_entretien_annee, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size='5' maxlength='4'>&nbsp;&nbsp;
+                     JJ : <input type="text" name='entretien_jour' value='<?php if(isset($entretien_jour)) echo htmlspecialchars($entretien_jour, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); else echo htmlspecialchars($cand_array_entretien_jour, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size='3' maxlength='2'>&nbsp;
+                     MM : <input type="text" name='entretien_mois' value='<?php if(isset($entretien_mois)) echo htmlspecialchars($entretien_mois, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); else echo htmlspecialchars($cand_array_entretien_mois, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size='3' maxlength='2'>&nbsp;
+                     AAAA : <input type="text" name='entretien_annee' value='<?php if(isset($entretien_annee)) echo htmlspecialchars($entretien_annee, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); else echo htmlspecialchars($cand_array_entretien_annee, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size='5' maxlength='4'>&nbsp;&nbsp;
                   </font>
                </td>
                <td><font class='Texte_menu'><b>Heure :</b></font></td>
                <td>
                   <font class='Texte_menu'>
-                     h : <input type="text" name='entretien_heure' value='<?php if(isset($entretien_h)) echo htmlspecialchars($entretien_h, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); else echo htmlspecialchars($cand_array_entretien_heure, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size='3' maxlength='2'> min : <input type="text" name='entretien_minute' value='<?php if(isset($entretien_m)) echo htmlspecialchars($entretien_m, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); else echo htmlspecialchars($cand_array_entretien_minute, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size='3' maxlength='2'>
+                     h : <input type="text" name='entretien_heure' value='<?php if(isset($entretien_h)) echo htmlspecialchars($entretien_h, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); else echo htmlspecialchars($cand_array_entretien_heure, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size='3' maxlength='2'> min : <input type="text" name='entretien_minute' value='<?php if(isset($entretien_m)) echo htmlspecialchars($entretien_m, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); else echo htmlspecialchars($cand_array_entretien_minute, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size='3' maxlength='2'>
                   </font>
                </td>
             </tr>
             <tr>
                <td><font class='Texte_menu'><b>Salle :</b></font></td>
                <td>
-                  <input type="text" name='entretien_salle' value='<?php if(isset($entretien_salle)) echo htmlspecialchars(stripslashes($entretien_salle), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); else echo htmlspecialchars($cand_array["entretien_salle"], ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size='25' maxlength='50'>
+                  <input type="text" name='entretien_salle' value='<?php if(isset($entretien_salle)) echo htmlspecialchars(stripslashes($entretien_salle), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); else echo htmlspecialchars($cand_array["entretien_salle"], ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size='25' maxlength='50'>
                <td><font class='Texte_menu'><b>Lieu :</b></font></td>
                <td>
-                  <input type="text" name='entretien_lieu' value='<?php if(isset($entretien_lieu)) echo htmlspecialchars(stripslashes($entretien_lieu), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); else echo htmlspecialchars($cand_array["entretien_lieu"], ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size='40' maxlength='128'>
+                  <input type="text" name='entretien_lieu' value='<?php if(isset($entretien_lieu)) echo htmlspecialchars(stripslashes($entretien_lieu), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); else echo htmlspecialchars($cand_array["entretien_lieu"], ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size='40' maxlength='128'>
                </td>
             </tr>
             <tr>
@@ -1233,7 +1201,7 @@ $_SESSION[universite]";
                      for($i=0; $i<$rows; $i++)
                      {
                         list($motif_id,$motif,$motif_exclusif)=db_fetch_row($result,$i);
-                        $value=htmlspecialchars($motif, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+                        $value=htmlspecialchars($motif, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
    
                         for($k=0; $k<$cnt2; $k++)
                         {
@@ -1284,7 +1252,7 @@ $_SESSION[universite]";
                   if(!strncmp($array_current_motifs[$l], '@',1))
                   {
                      $value=$array_current_motifs[$l];
-                     echo htmlspecialchars(substr(stripslashes($value),1), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+                     echo htmlspecialchars(substr(stripslashes($value),1), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
                   }
                }
             ?></textarea>
@@ -1318,7 +1286,7 @@ $_SESSION[universite]";
                   for($i=0; $i<$rows; $i++)
                   {
                      list($motif_id,$motif,$motif_exclusif)=db_fetch_row($result,$i);
-                     $value=htmlspecialchars($motif, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+                     $value=htmlspecialchars($motif, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
    
                      if($motif_id==$current_motif)
                         $selected="selected=1";
@@ -1347,7 +1315,7 @@ $_SESSION[universite]";
                   if(!strncmp($array_current_motifs[$l], '@',1))
                   {
                      $value=$array_current_motifs[$l];
-                     echo htmlspecialchars(substr(stripslashes($value), 1), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+                     echo htmlspecialchars(substr(stripslashes($value), 1), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
                   }
                }
             ?></textarea>

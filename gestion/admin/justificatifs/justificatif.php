@@ -88,16 +88,16 @@ CeCILL-B, et que vous en avez accepté les termes.
 
       // unicité
       if(db_num_rows(db_query($dbr,"SELECT * FROM $_DB_justifs
-                          WHERE ($_DBC_justifs_intitule ILIKE '$justif_intitule'
-                            OR ($_DBC_justifs_texte!='' AND $_DBC_justifs_texte ILIKE '$justif_texte'))
+                          WHERE ($_DBC_justifs_intitule ILIKE '".preg_replace("/[']+/", "''", stripslashes($justif_intitule))."'
+                            OR ($_DBC_justifs_texte!='' AND $_DBC_justifs_texte ILIKE '".preg_replace("/[']+/", "''", stripslashes($justif_texte))."'))
                           AND $_DBC_justifs_id!='$new_id'
                           AND $_DBC_justifs_comp_id='$_SESSION[comp_id]'")))
         $justif_existe="1";
     }
     elseif(isset($_SESSION["ajout"])
          && db_num_rows(db_query($dbr,"SELECT * FROM $_DB_justifs
-                              WHERE ($_DBC_justifs_intitule ILIKE '$justif_intitule'
-                                OR ($_DBC_justifs_texte!='' AND $_DBC_justifs_texte ILIKE '$justif_texte'))
+                              WHERE ($_DBC_justifs_intitule ILIKE '".preg_replace("/[']+/", "''", stripslashes($justif_intitule))."'
+                                OR ($_DBC_justifs_texte!='' AND $_DBC_justifs_texte ILIKE '".preg_replace("/[']+/", "''", stripslashes($justif_texte))."'))
                               AND $_DBC_justifs_comp_id='$_SESSION[comp_id]'")))
       $justif_existe="1";
 
@@ -114,12 +114,18 @@ CeCILL-B, et que vous en avez accepté les termes.
       {
         // Modification
         if(!isset($_SESSION["ajout"]) && isset($new_id))
-          db_query($dbr,"UPDATE $_DB_justifs SET  $_DBU_justifs_intitule='$justif_intitule',
-                                    $_DBU_justifs_titre='$justif_titre',
-                                    $_DBU_justifs_texte='$justif_texte'
-                    WHERE $_DBU_justifs_id='$new_id'");
+          db_query($dbr,"UPDATE $_DB_justifs SET
+              $_DBU_justifs_intitule='".preg_replace("/[']+/", "''", stripslashes($justif_intitule))."',
+              $_DBU_justifs_titre='".preg_replace("/[']+/", "''", stripslashes($justif_titre))."',
+              $_DBU_justifs_texte='".preg_replace("/[']+/", "''", stripslashes($justif_texte))."'
+              WHERE $_DBU_justifs_id='$new_id'");
         else
-          $new_id=db_locked_query($dbr, $_DB_justifs, "INSERT INTO $_DB_justifs VALUES ('##NEW_ID##', '$_SESSION[comp_id]', '$justif_intitule', '$justif_titre', '$justif_texte')");
+          $new_id=db_locked_query($dbr, $_DB_justifs, "INSERT INTO $_DB_justifs VALUES (
+              '##NEW_ID##', 
+              '$_SESSION[comp_id]', 
+              '".preg_replace("/[']+/", "''", stripslashes($justif_intitule))."', 
+              '".preg_replace("/[']+/", "''", stripslashes($justif_titre))."', 
+              '".preg_replace("/[']+/", "''", stripslashes($justif_texte))."')");
 
         db_close($dbr);
 
@@ -197,7 +203,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       {
         list($justif_id, $intitule)=db_fetch_row($result,$i);
 
-        $value=htmlspecialchars($intitule, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+        $value=htmlspecialchars($intitule, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
 
         print("<option value='$justif_id' label=\"$value\">$value</option>\n");
       }
@@ -256,7 +262,7 @@ CeCILL-B, et que vous en avez accepté les termes.
         <font class='Texte_menu2'><b>Intitulé (court)</b></font>
       </td>
       <td class='td-droite fond_menu'>
-        <input type='text' name='intitule' value='<?php if(isset($intitule)) echo htmlspecialchars(stripslashes($intitule), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' maxlength='196' size='70'>
+        <input type='text' name='intitule' value='<?php if(isset($intitule)) echo htmlspecialchars(stripslashes($intitule), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' maxlength='196' size='70'>
       </td>
     </tr>
     <tr>
@@ -264,7 +270,7 @@ CeCILL-B, et que vous en avez accepté les termes.
         <font class='Texte_menu2'><b>Titre du paragraphe<br>(affiché en gras)</b></font>
       </td>
       <td class='td-droite fond_menu'>
-        <input type='text' name='titre' value='<?php if(isset($titre)) echo htmlspecialchars(stripslashes($titre), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' maxlength='256' size='70'>
+        <input type='text' name='titre' value='<?php if(isset($titre)) echo htmlspecialchars(stripslashes($titre), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' maxlength='256' size='70'>
       </td>
     </tr>
     <tr>
@@ -273,7 +279,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       </td>
       <td class='td-droite fond_menu'>
         <textarea name='texte' rows='20' cols='80'><?php
-          if(isset($texte)) echo htmlspecialchars(stripslashes($texte), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+          if(isset($texte)) echo htmlspecialchars(stripslashes($texte), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
         ?></textarea>
       </td>
     </tr>

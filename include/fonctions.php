@@ -1437,11 +1437,11 @@ function en_tete_index()
    }
    
    print("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">
-            <html><head><title>". htmlspecialchars($GLOBALS["__TITRE_HTML"], ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]) ."</title>
+            <html><head><title>". htmlspecialchars($GLOBALS["__TITRE_HTML"], ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE) ."</title>
 
             <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">
             <meta http-equiv=\"Pragma\" content=\"no-cache\">
-            <meta name=\"keywords\" content=\"". htmlspecialchars($GLOBALS["__META"], ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]) ."\">
+            <meta name=\"keywords\" content=\"". htmlspecialchars($GLOBALS["__META"], ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE) ."\">
             <link rel=\"stylesheet\" type=\"text/css\" href=\"$GLOBALS[__STATIC_DIR]/$_SESSION[css]\"></head>
 
             <body class=\"main\" leftmargin=\"0\" topmargin=\"0\" marginwidth=\"0\" marginheight=\"0\" vlink=\"black\" alink=\"black\" link=\"black\">
@@ -1455,7 +1455,7 @@ function en_tete_index()
 
    print("</td>
           <td height=\"$hauteur_logo\" align=\"center\">
-            <font class=\"TitrePage2\"><b>". htmlspecialchars($GLOBALS["__TITRE_PAGE"], ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]) ."</b></font>
+            <font class=\"TitrePage2\"><b>". htmlspecialchars($GLOBALS["__TITRE_PAGE"], ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE) ."</b></font>
          </td>
          <td width=\"$largeur_logo\" height=\"$hauteur_logo\"></td>
       </tr>
@@ -1611,7 +1611,7 @@ function en_tete_candidat()
    }
 
    print("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">
-         <html><head><title>". htmlspecialchars($GLOBALS["__TITRE_HTML"], ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]) ."</title>
+         <html><head><title>". htmlspecialchars($GLOBALS["__TITRE_HTML"], ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE) ."</title>
 
          <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">
          <meta http-equiv=\"Pragma\" content=\"no-cache\">
@@ -1633,7 +1633,7 @@ function en_tete_candidat()
    if(isset($_SESSION["composante"]))
       print("<b>$_SESSION[composante]</b><br>\n");
    else
-      print("<b>". htmlspecialchars($GLOBALS["__TITRE_PAGE"], ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]) ."</b><br>\n");
+      print("<b>". htmlspecialchars($GLOBALS["__TITRE_PAGE"], ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE) ."</b><br>\n");
 
    print("         <b>Précandidatures en ligne</b>
                </font>
@@ -1689,7 +1689,7 @@ function en_tete_candidat_simple()
    }
    
    print("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">
-            <html><head><title>". htmlspecialchars($GLOBALS["__TITRE_HTML"], ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]) ."</title>
+            <html><head><title>". htmlspecialchars($GLOBALS["__TITRE_HTML"], ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE) ."</title>
 
             <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">
             <meta http-equiv=\"Pragma\" content=\"no-cache\">
@@ -1706,7 +1706,7 @@ function en_tete_candidat_simple()
 
    print("</td>
           <td height=\"$hauteur_logo\" align=\"center\">
-            <font class='TitrePage2'><b>". htmlspecialchars($GLOBALS["__TITRE_PAGE"], ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]) ."<br>Précandidatures en ligne</b></font>
+            <font class='TitrePage2'><b>". htmlspecialchars($GLOBALS["__TITRE_PAGE"], ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE) ."<br>Précandidatures en ligne</b></font>
          </td>
          <td width=\"$largeur_logo\" height=\"$hauteur_logo\"></td>
       </tr>
@@ -2185,7 +2185,7 @@ function write_msg()
             $headers = "MIME-Version: 1.0\r\nFrom: $GLOBALS[__EMAIL_NOREPLY]\r\nReply-To: $GLOBALS[__EMAIL_NOREPLY]\r\nContent-Type: text/plain; charset=UTF-8\r\nContent-transfer-encoding: 8bit\r\n\r\n";
 
             // TODO URGENT déc. 2008 : intégrer le contenu de ce message dans la BDD
-            $corps_message="============================================================\nCeci est un message automatique, merci de ne pas y répondre.\n============================================================\n\nBonjour $destinataire_array[civ] $destinataire_array[nom], \n\nVous avez reçu un message sur l'interface de Candidatures $GLOBALS[__COURRIEL_ETABLISSEMENT_SOURCE].\n\nSujet : $sujet\n\nPour lire ce message, connectez vous à l'adresse suivante : \n\n$GLOBALS[__URL_CANDIDAT]\n\nUtilisez votre identifiant et votre mot de passe pour vous authentifier, puis cliquez sur le menu \"Messagerie\".\n\nBien cordialement,\n\n\n$comp_nom\n$GLOBALS[__SIGNATURE_COURRIELS]";
+            $corps_message="============================================================\nCeci est un message automatique, merci de ne pas y répondre.\n============================================================\n\nBonjour $destinataire_array[civ] $destinataire_array[nom], \n\nVous avez reçu un message sur l'interface de Candidatures.\n\nSujet : $sujet\n\nPour lire ce message, connectez vous à l'adresse suivante : \n\n$GLOBALS[__URL_CANDIDAT]\n\nUtilisez votre identifiant et votre mot de passe pour vous authentifier, puis cliquez sur le menu \"Messagerie\".\n\nBien cordialement,\n\n\n$comp_nom\n$GLOBALS[__SIGNATURE_COURRIELS]";
             $ret=mail($destinataire_array["email"], "Candidatures - Notification de réception", $corps_message, $headers);
          }
          
@@ -2485,7 +2485,7 @@ function write_msg_2()
                $headers = "MIME-Version: 1.0\r\nFrom: $GLOBALS[__EMAIL_NOREPLY]\r\nReply-To: $GLOBALS[__EMAIL_NOREPLY]\r\nContent-Type: text/plain; charset=UTF-8\r\nContent-transfer-encoding: 8bit\r\n\r\n";
 
                // TODO URGENT déc. 2008 : intégrer le contenu de ce message dans la BDD
-               $corps_message="============================================================\nCeci est un message automatique, merci de ne pas y répondre.\n============================================================\n\nBonjour $destinataire_array[civ] $destinataire_array[nom], \n\nVous avez reçu un message sur l'interface de Candidatures $GLOBALS[__COURRIEL_ETABLISSEMENT_SOURCE].\n\nSujet : $sujet\n\nPour lire ce message, connectez vous à l'adresse suivante : \n\n$GLOBALS[__URL_CANDIDAT]\n\nUtilisez votre identifiant et votre mot de passe pour vous authentifier, puis cliquez sur le menu \"Messagerie\".\n\nBien cordialement,\n\n\n$comp_nom\n$GLOBALS[__SIGNATURE_COURRIELS]";
+               $corps_message="============================================================\nCeci est un message automatique, merci de ne pas y répondre.\n============================================================\n\nBonjour $destinataire_array[civ] $destinataire_array[nom], \n\nVous avez reçu un message sur l'interface de Candidatures.\n\nSujet : $sujet\n\nPour lire ce message, connectez vous à l'adresse suivante : \n\n$GLOBALS[__URL_CANDIDAT]\n\nUtilisez votre identifiant et votre mot de passe pour vous authentifier, puis cliquez sur le menu \"Messagerie\".\n\nBien cordialement,\n\n\n$comp_nom\n$GLOBALS[__SIGNATURE_COURRIELS]";
                $ret=mail($destinataire_array["email"], "Candidatures - Notification de réception", $corps_message, $headers);
             }
             
@@ -2965,8 +2965,6 @@ function send_recap_justifs()
                {
                   $corps_message.="<b>- " . $liste_specs[$next_cand_id]["formation"] . "</b>\n";
 
-                  // db_query($GLOBALS["dbr"],"UPDATE $GLOBALS[_DB_cand] SET $GLOBALS[_DBU_cand_lock]='1' WHERE $GLOBALS[_DBU_cand_id]='$next_cand_id'");
-
                   // on avance la boucle d'autant de candidatures que de choix multiples du même groupe
                   $i++;
                }
@@ -2974,8 +2972,6 @@ function send_recap_justifs()
             else
             {
                $sujet="[$comp_nom] - Renvoi des justificatifs et du récapitulatif - $formation";
-
-               // db_query($GLOBALS["dbr"],"UPDATE $GLOBALS[_DB_cand] SET $GLOBALS[_DBU_cand_lock]='1' WHERE $GLOBALS[_DBU_cand_id]='$cand_id'");
 
                $corps_message="Candidature : <b>$formation</b>\n";
 

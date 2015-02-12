@@ -171,8 +171,8 @@ CeCILL-B, et que vous en avez accepté les termes.
     {
       $result=db_query($dbr,"SELECT $_DBC_candidat_nom, $_DBC_candidat_prenom, $_DBC_candidat_date_naissance
                         FROM $_DB_candidat
-                      WHERE $_DBC_candidat_nom ILIKE '$nom'
-                      AND $_DBC_candidat_prenom ILIKE '$prenom'
+                      WHERE $_DBC_candidat_nom ILIKE '".preg_replace("/'/","''",stripslashes($nom))."'
+                      AND $_DBC_candidat_prenom ILIKE '".preg_replace("/'/","''",stripslashes($prenom))."'
                       AND $_DBC_candidat_date_naissance='$date_naissance'
                       AND $_DBC_candidat_id!='$candidat_id'");
       $rows=db_num_rows($result);
@@ -190,101 +190,103 @@ CeCILL-B, et que vous en avez accepté les termes.
       // Les données du nouvel utilisateur sont complètes (pas forcément bonnes, mais ça le pénalisera)
       // On peut créer l'identifiant et le code, l'insérer dans la base et envoyer le mail
 
-      $requete="UPDATE $_DB_candidat SET $_DBU_candidat_civilite='$civilite',
-                              $_DBU_candidat_nom='$nom',
-                              $_DBU_candidat_nom_naissance='$nom_naissance',
-                              $_DBU_candidat_prenom='$prenom',
-                              $_DBU_candidat_prenom2='$prenom',
-                              $_DBU_candidat_date_naissance='$date_naissance',
-                              $_DBU_candidat_nationalite='$nationalite_code',
-                              $_DBU_candidat_telephone='$telephone',
-                              $_DBU_candidat_telephone_portable='$telephone_portable',
-                              $_DBU_candidat_adresse_1='$adresse_1',
-                              $_DBU_candidat_adresse_2='$adresse_2',
-                              $_DBU_candidat_adresse_3='$adresse_3',
-                              $_DBU_candidat_numero_ine='$num_ine',
-                              $_DBU_candidat_email='$email',
-                              $_DBU_candidat_lieu_naissance='$lieu_naissance',
-                              $_DBU_candidat_pays_naissance='$pays_naissance_code',
-                              $_DBU_candidat_adresse_cp='$adr_cp',
-                              $_DBU_candidat_adresse_ville='$adr_ville',
-                              $_DBU_candidat_adresse_pays='$adr_pays_code',
-                              $_DBU_candidat_dpt_naissance='$dpt_naissance',
-                              $_DBU_candidat_deja_inscrit='$deja_inscrit',
-                              $_DBU_candidat_annee_premiere_inscr='$premiere_inscr',
-                              $_DBU_candidat_annee_bac='$baccalaureat',
-                              $_DBU_candidat_serie_bac='$serie_bac'
-                          WHERE $_DBU_candidat_id='$candidat_id';";
+      $requete="UPDATE $_DB_candidat SET 
+          $_DBU_candidat_civilite='$civilite',
+          $_DBU_candidat_nom='".preg_replace("/'/","''",stripslashes($nom))."',
+          $_DBU_candidat_nom_naissance='".preg_replace("/'/","''",stripslashes($nom_naissance))."',
+          $_DBU_candidat_prenom='".preg_replace("/'/","''",stripslashes($prenom))."',
+          $_DBU_candidat_prenom2='".preg_replace("/'/","''",stripslashes($prenom2))."',
+          $_DBU_candidat_date_naissance='$date_naissance',
+          $_DBU_candidat_nationalite='$nationalite_code',
+          $_DBU_candidat_telephone='".preg_replace("/'/","''",stripslashes($telephone))."',
+          $_DBU_candidat_telephone_portable='".preg_replace("/'/","''",stripslashes($telephone_portable))."',
+          $_DBU_candidat_adresse_1='".preg_replace("/'/","''",stripslashes($adresse_1))."',
+          $_DBU_candidat_adresse_2='".preg_replace("/'/","''",stripslashes($adresse_2))."',
+          $_DBU_candidat_adresse_3='".preg_replace("/'/","''",stripslashes($adresse_3))."',
+          $_DBU_candidat_numero_ine='$num_ine',
+          $_DBU_candidat_email='".preg_replace("/'/","''",stripslashes($email))."',
+          $_DBU_candidat_lieu_naissance='".preg_replace("/'/","''",stripslashes($lieu_naissance))."',
+          $_DBU_candidat_pays_naissance='$pays_naissance_code',
+          $_DBU_candidat_adresse_cp='".preg_replace("/'/","''",stripslashes($adr_cp))."',
+          $_DBU_candidat_adresse_ville='".preg_replace("/'/","''",stripslashes($adr_ville))."',
+          $_DBU_candidat_adresse_pays='$adr_pays_code',
+          $_DBU_candidat_dpt_naissance='".preg_replace("/'/","''",stripslashes($dpt_naissance))."',
+          $_DBU_candidat_deja_inscrit='$deja_inscrit',
+          $_DBU_candidat_annee_premiere_inscr='$premiere_inscr',
+          $_DBU_candidat_annee_bac='".preg_replace("/'/","''",stripslashes($baccalaureat))."',
+          $_DBU_candidat_serie_bac='".preg_replace("/'/","''",stripslashes($serie_bac))."'
+          WHERE $_DBU_candidat_id='$candidat_id';";
 
       // Requête : ici, on n'utilise pas la variable "$requete" précédente car on ne peut pas "l'échapper" correctement
       // (les ' sont doublés partout, c'est ok pour les valeurs, mais pas pour leur délimitation ...)
-      db_query($dbr, "UPDATE $_DB_candidat SET $_DBU_candidat_civilite='$civilite',
-                              $_DBU_candidat_nom='$nom',
-                              $_DBU_candidat_nom_naissance='$nom_naissance',
-                              $_DBU_candidat_prenom='$prenom',
-                              $_DBU_candidat_prenom2='$prenom2',
-                              $_DBU_candidat_date_naissance='$date_naissance',
-                              $_DBU_candidat_nationalite='$nationalite_code',
-                              $_DBU_candidat_telephone='$telephone',
-                              $_DBU_candidat_telephone_portable='$telephone_portable',
-                              $_DBU_candidat_adresse_1='$adresse_1',
-                              $_DBU_candidat_adresse_2='$adresse_2',
-                              $_DBU_candidat_adresse_3='$adresse_3',
-                              $_DBU_candidat_numero_ine='$num_ine',
-                              $_DBU_candidat_email='$email',
-                              $_DBU_candidat_lieu_naissance='$lieu_naissance',
-                              $_DBU_candidat_pays_naissance='$pays_naissance_code',
-                              $_DBU_candidat_adresse_cp='$adr_cp',
-                              $_DBU_candidat_adresse_ville='$adr_ville',
-                              $_DBU_candidat_adresse_pays='$adr_pays_code',
-                              $_DBU_candidat_dpt_naissance='$dpt_naissance',
-                              $_DBU_candidat_deja_inscrit='$deja_inscrit',
-                              $_DBU_candidat_annee_premiere_inscr='$premiere_inscr',
-                              $_DBU_candidat_annee_bac='$baccalaureat',
-                              $_DBU_candidat_serie_bac='$serie_bac'                             
-                          WHERE $_DBU_candidat_id='$candidat_id';");
+      db_query($dbr, "UPDATE $_DB_candidat SET 
+          $_DBU_candidat_civilite='$civilite',
+          $_DBU_candidat_nom='".preg_replace("/'/","''",stripslashes($nom))."',
+          $_DBU_candidat_nom_naissance='".preg_replace("/'/","''",stripslashes($nom_naissance))."',
+          $_DBU_candidat_prenom='".preg_replace("/'/","''",stripslashes($prenom))."',
+          $_DBU_candidat_prenom2='".preg_replace("/'/","''",stripslashes($prenom2))."',
+          $_DBU_candidat_date_naissance='$date_naissance',
+          $_DBU_candidat_nationalite='$nationalite_code',
+          $_DBU_candidat_telephone='".preg_replace("/'/","''",stripslashes($telephone))."',
+          $_DBU_candidat_telephone_portable='".preg_replace("/'/","''",stripslashes($telephone_portable))."',
+          $_DBU_candidat_adresse_1='".preg_replace("/'/","''",stripslashes($adresse_1))."',
+          $_DBU_candidat_adresse_2='".preg_replace("/'/","''",stripslashes($adresse_2))."',
+          $_DBU_candidat_adresse_3='".preg_replace("/'/","''",stripslashes($adresse_3))."',
+          $_DBU_candidat_numero_ine='$num_ine',
+          $_DBU_candidat_email='".preg_replace("/'/","''",stripslashes($email))."',
+          $_DBU_candidat_lieu_naissance='".preg_replace("/'/","''",stripslashes($lieu_naissance))."',
+          $_DBU_candidat_pays_naissance='$pays_naissance_code',
+          $_DBU_candidat_adresse_cp='".preg_replace("/'/","''",stripslashes($adr_cp))."',
+          $_DBU_candidat_adresse_ville='".preg_replace("/'/","''",stripslashes($adr_ville))."',
+          $_DBU_candidat_adresse_pays='".preg_replace("/'/","''",stripslashes($adr_pays_code))."',
+          $_DBU_candidat_dpt_naissance='".preg_replace("/'/","''",stripslashes($dpt_naissance))."',
+          $_DBU_candidat_deja_inscrit='$deja_inscrit',
+          $_DBU_candidat_annee_premiere_inscr='$premiere_inscr',
+          $_DBU_candidat_annee_bac='".preg_replace("/'/","''",stripslashes($baccalaureat))."',
+          $_DBU_candidat_serie_bac='".preg_replace("/'/","''",stripslashes($serie_bac))."'
+          WHERE $_DBU_candidat_id='$candidat_id';");
 
       write_evt("", $__EVT_ID_C_ID, "MAJ Identité", $candidat_id, $candidat_id, preg_replace("/[']+/","''", stripslashes($requete)));
 
       db_close($dbr);
 
       if(array_key_exists($pays_naissance_code, $_SESSION["liste_pays_nat_iso"]))
-        $_SESSION["pays_naissance"]=htmlspecialchars(stripslashes($_SESSION["liste_pays_nat_iso"]["$pays_naissance_code"]["pays"]), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+        $_SESSION["pays_naissance"]=htmlspecialchars(stripslashes($_SESSION["liste_pays_nat_iso"]["$pays_naissance_code"]["pays"]), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
       else
         $_SESSION["pays_naissance"]="";
 
       if(array_key_exists($adr_pays_code, $_SESSION["liste_pays_nat_iso"]))
-        $_SESSION["adresse_pays"]=htmlspecialchars(stripslashes($_SESSION["liste_pays_nat_iso"]["$adr_pays_code"]["pays"]), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+        $_SESSION["adresse_pays"]=htmlspecialchars(stripslashes($_SESSION["liste_pays_nat_iso"]["$adr_pays_code"]["pays"]), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
       else
         $_SESSION["adresse_pays"]="";
 
       if(array_key_exists($nationalite_code, $_SESSION["liste_pays_nat_iso"]))
-        $_SESSION["nationalite"]=htmlspecialchars(stripslashes($_SESSION["liste_pays_nat_iso"]["$nationalite_code"]["nationalite"]), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+        $_SESSION["nationalite"]=htmlspecialchars(stripslashes($_SESSION["liste_pays_nat_iso"]["$nationalite_code"]["nationalite"]), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
       else
         $_SESSION["nationalite"]="";
 
 
-      $_SESSION["nom"]=htmlspecialchars(stripslashes($nom), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
-      $_SESSION["nom_naissance"]=htmlspecialchars(stripslashes($nom_naissance), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
-      $_SESSION["civilite"]=htmlspecialchars(stripslashes($civilite), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
-      $_SESSION["prenom"]=htmlspecialchars(stripslashes($prenom), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
-      $_SESSION["prenom2"]=htmlspecialchars(stripslashes($prenom2), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
-      $_SESSION["naissance"]=htmlspecialchars(stripslashes($date_naissance), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
-      $_SESSION["lieu_naissance"]=htmlspecialchars(stripslashes($lieu_naissance), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+      $_SESSION["nom"]=htmlspecialchars(stripslashes($nom), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
+      $_SESSION["nom_naissance"]=htmlspecialchars(stripslashes($nom_naissance), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
+      $_SESSION["civilite"]=htmlspecialchars(stripslashes($civilite), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
+      $_SESSION["prenom"]=htmlspecialchars(stripslashes($prenom), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
+      $_SESSION["prenom2"]=htmlspecialchars(stripslashes($prenom2), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
+      $_SESSION["naissance"]=htmlspecialchars(stripslashes($date_naissance), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
+      $_SESSION["lieu_naissance"]=htmlspecialchars(stripslashes($lieu_naissance), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
       $_SESSION["dpt_naissance"]=$dpt_naissance;
       $_SESSION["nom_departement"]=isset($_SESSION["liste_departements"]) && array_key_exists("$dpt_naissance", $_SESSION["liste_departements"]) ? $_SESSION["liste_departements"]["$dpt_naissance"]: "";
       $_SESSION["pays_naissance_code"]=$pays_naissance_code;
       $_SESSION["nationalite_code"]=$nationalite_code;
-      $_SESSION["telephone"]=htmlspecialchars(stripslashes($telephone), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
-      $_SESSION["telephone_portable"]=htmlspecialchars(stripslashes($telephone_portable), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
-      $_SESSION["adresse_1"]=htmlspecialchars(stripslashes($adresse_1), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
-      $_SESSION["adresse_2"]=htmlspecialchars(stripslashes($adresse_2), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
-      $_SESSION["adresse_3"]=htmlspecialchars(stripslashes($adresse_3), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+      $_SESSION["telephone"]=htmlspecialchars(stripslashes($telephone), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
+      $_SESSION["telephone_portable"]=htmlspecialchars(stripslashes($telephone_portable), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
+      $_SESSION["adresse_1"]=htmlspecialchars(stripslashes($adresse_1), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
+      $_SESSION["adresse_2"]=htmlspecialchars(stripslashes($adresse_2), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
+      $_SESSION["adresse_3"]=htmlspecialchars(stripslashes($adresse_3), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
       $_SESSION["adresse_cp"]=$adr_cp;
-      $_SESSION["adresse_ville"]=htmlspecialchars(stripslashes($adr_ville), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+      $_SESSION["adresse_ville"]=htmlspecialchars(stripslashes($adr_ville), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
       $_SESSION["adresse_pays_code"]=$adr_pays_code;      
-      $_SESSION["numero_ine"]=htmlspecialchars(stripslashes($num_ine), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
-      $_SESSION["email"]=htmlspecialchars(stripslashes($email), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+      $_SESSION["numero_ine"]=htmlspecialchars(stripslashes($num_ine), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
+      $_SESSION["email"]=htmlspecialchars(stripslashes($email), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
       $_SESSION["deja_inscrit"]=$deja_inscrit;
       $_SESSION["annee_premiere_inscr"]=$premiere_inscr;
       $_SESSION["annee_bac"]=$baccalaureat;
@@ -416,7 +418,7 @@ CeCILL-B, et que vous en avez accepté les termes.
   <?php
     message("<font class='Texte_menu'>Les champs <strong>en gras</strong> sont <strong><u>obligatoires</u></strong>", $__WARNING);
   ?>
-
+  
   <table align='center'>
   <tr>
     <td class='td-complet fond_menu2' colspan='2'>
@@ -473,7 +475,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <font class='Texte_important_menu2'><b>Nom usuel : </b></font>
     </td>
     <td class='td-droite fond_menu'>
-      <input type='text' name='nom' value='<?php if(isset($nom)) echo htmlspecialchars(stripslashes($nom), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); else echo htmlspecialchars(stripslashes($_SESSION["nom"]), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="25" maxlength="30">
+      <input type='text' name='nom' value="<?php if(isset($nom)) echo htmlspecialchars(stripslashes($nom), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); else echo htmlspecialchars(stripslashes($_SESSION["nom"]), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>" size="25" maxlength="30">
     </td>
   </tr>
   <tr>
@@ -481,7 +483,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <font class='Texte_important_menu2'>Nom de naissance (si différent) :</font>
     </td>
     <td class='td-droite fond_menu'>
-      <input type='text' name='nom_naissance' value='<?php if(isset($nom_naissance)) echo htmlspecialchars(stripslashes($nom_naissance), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); else echo htmlspecialchars(stripslashes($_SESSION["nom_naissance"]), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="25" maxlength="30">
+      <input type='text' name='nom_naissance' value='<?php if(isset($nom_naissance)) echo htmlspecialchars(stripslashes($nom_naissance), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); else echo htmlspecialchars(stripslashes($_SESSION["nom_naissance"]), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size="25" maxlength="30">
     </td>
   </tr>
   <tr>
@@ -489,7 +491,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <font class='Texte_important_menu2'><b>Prénom : </b></font>
     </td>
     <td class='td-droite fond_menu'>
-      <input type='text' name='prenom' value='<?php if(isset($prenom)) echo htmlspecialchars(stripslashes($prenom), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); else echo htmlspecialchars(stripslashes($_SESSION["prenom"]), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="25" maxlength="30">
+      <input type='text' name='prenom' value='<?php if(isset($prenom)) echo htmlspecialchars(stripslashes($prenom), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); else echo htmlspecialchars(stripslashes($_SESSION["prenom"]), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size="25" maxlength="30">
     </td>
   </tr>
   <tr>
@@ -497,7 +499,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <font class='Texte_menu2'>Deuxième prénom : </font>
     </td>
     <td class='td-droite fond_menu'>
-      <input type='text' name='prenom2' value='<?php if(isset($prenom2)) echo htmlspecialchars(stripslashes($prenom2), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); else echo htmlspecialchars(stripslashes($_SESSION["prenom2"]), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="25" maxlength="30">
+      <input type='text' name='prenom2' value='<?php if(isset($prenom2)) echo htmlspecialchars(stripslashes($prenom2), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); else echo htmlspecialchars(stripslashes($_SESSION["prenom2"]), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size="25" maxlength="30">
     </td>
   </tr>
   <tr>
@@ -505,9 +507,9 @@ CeCILL-B, et que vous en avez accepté les termes.
       <font class='Texte_important_menu2'><b>Date de naissance (JJ/MM/AAAA) : </b></font>
     </td>
     <td class='td-droite fond_menu'>
-      <input type='text' name='jour' value='<?php if(isset($jour)) echo htmlspecialchars($jour,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); else echo htmlspecialchars($cur_jour,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="2" maxlength="2">/
-      <input type='text' name='mois' value='<?php if(isset($mois)) echo htmlspecialchars($mois,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); else echo htmlspecialchars($cur_mois,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="2" maxlength="2">/
-      <input type='text' name='annee' value='<?php if(isset($annee)) echo htmlspecialchars($annee,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); else echo htmlspecialchars($cur_annee,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="4" maxlength="4">
+      <input type='text' name='jour' value='<?php if(isset($jour)) echo htmlspecialchars($jour,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); else echo htmlspecialchars($cur_jour,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size="2" maxlength="2">/
+      <input type='text' name='mois' value='<?php if(isset($mois)) echo htmlspecialchars($mois,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); else echo htmlspecialchars($cur_mois,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size="2" maxlength="2">/
+      <input type='text' name='annee' value='<?php if(isset($annee)) echo htmlspecialchars($annee,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); else echo htmlspecialchars($cur_annee,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size="4" maxlength="4">
     </td>
   </tr>
   <tr>
@@ -515,7 +517,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <font class='Texte_important_menu2'><b>Ville de naissance : </b></font>
     </td>
     <td class='td-droite fond_menu'>
-      <input type='text' name='lieu_naissance' value='<?php if(isset($lieu_naissance)) echo htmlspecialchars(stripslashes($lieu_naissance), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); else echo htmlspecialchars(stripslashes($_SESSION["lieu_naissance"]), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="25" maxlength="60">
+      <input type='text' name='lieu_naissance' value='<?php if(isset($lieu_naissance)) echo htmlspecialchars(stripslashes($lieu_naissance), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); else echo htmlspecialchars(stripslashes($_SESSION["lieu_naissance"]), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size="25" maxlength="60">
     </td>
   </tr>
   <tr>
@@ -569,7 +571,7 @@ CeCILL-B, et que vous en avez accepté les termes.
           }
         ?>
       </select>
-      <!-- <input type='text' name='pays_naissance' value='<?php if(isset($pays_naissance)) echo htmlspecialchars(stripslashes($pays_naissance), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); else echo stripslashes($_SESSION["pays_naissance"]); ?>' size="25" maxlength="60"> -->
+      <!-- <input type='text' name='pays_naissance' value='<?php if(isset($pays_naissance)) echo htmlspecialchars(stripslashes($pays_naissance), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); else echo stripslashes($_SESSION["pays_naissance"]); ?>' size="25" maxlength="60"> -->
     </td>
   </tr>
   <tr>
@@ -598,7 +600,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <font class='Texte_important_menu2'><b>Adresse électronique valide (<i>email</i>) : </b></font>
     </td>
     <td class='td-droite fond_menu2'>
-      <input type='text' name='email' value='<?php if(isset($email)) echo htmlspecialchars(stripslashes($email), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); else echo htmlspecialchars($_SESSION["email"],ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="40" maxlength="255">
+      <input type='text' name='email' value='<?php if(isset($email)) echo htmlspecialchars(stripslashes($email), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); else echo htmlspecialchars($_SESSION["email"],ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size="40" maxlength="255">
       &nbsp;&nbsp;<font class='Texte_menu'><b><u>Une seule adresse</u> dans ce champ.</b></font>
     </td>
   </tr>
@@ -607,7 +609,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <font class='Texte_important_menu2'><b>Veuillez confirmer l'adresse électronique : </b></font>
     </td>
     <td class='td-droite fond_menu2'>
-      <input type='text' name='emailconf' value='<?php if(isset($emailconf)) echo htmlspecialchars(stripslashes($emailconf), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); else echo htmlspecialchars($_SESSION["email"],ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="40" maxlength="255">
+      <input type='text' name='emailconf' value='<?php if(isset($emailconf)) echo htmlspecialchars(stripslashes($emailconf), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); else echo htmlspecialchars($_SESSION["email"],ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size="40" maxlength="255">
     </td>
   </tr>
   <tr>
@@ -623,7 +625,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          <font class='Texte_important_menu2'><b>Adresse : <br></b></font>
       </td>
       <td class='td-droite fond_menu' style="text-align:left;">
-         <input name='adresse_1' value="<?php if(isset($adresse_1)) echo htmlspecialchars(stripslashes($adresse_1), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); else echo htmlspecialchars(stripslashes($_SESSION["adresse_1"]), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>" size='40' maxlength="30">
+         <input name='adresse_1' value="<?php if(isset($adresse_1)) echo htmlspecialchars(stripslashes($adresse_1), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); else echo htmlspecialchars(stripslashes($_SESSION["adresse_1"]), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>" size='40' maxlength="30">
       </td>
    </tr>
    <tr>
@@ -631,7 +633,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          <font class='Texte_important_menu2'><b>Adresse (suite) : <br></b></font>
       </td>
       <td class='td-droite fond_menu' style="text-align:left;">
-         <input name='adresse_2' value="<?php if(isset($adresse_2)) echo htmlspecialchars(stripslashes($adresse_2), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); else echo htmlspecialchars(stripslashes($_SESSION["adresse_2"]), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>" size='40' maxlength="30">
+         <input name='adresse_2' value="<?php if(isset($adresse_2)) echo htmlspecialchars(stripslashes($adresse_2), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); else echo htmlspecialchars(stripslashes($_SESSION["adresse_2"]), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>" size='40' maxlength="30">
       </td>
    </tr>
    <tr>
@@ -639,7 +641,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          <font class='Texte_important_menu2'><b>Adresse (suite) : <br></b></font>
       </td>
       <td class='td-droite fond_menu' style="text-align:left;">
-         <input name='adresse_3' value="<?php if(isset($adresse_3)) echo htmlspecialchars(stripslashes($adresse_3), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); else echo htmlspecialchars(stripslashes($_SESSION["adresse_3"]), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>" size='40' maxlength="30">
+         <input name='adresse_3' value="<?php if(isset($adresse_3)) echo htmlspecialchars(stripslashes($adresse_3), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); else echo htmlspecialchars(stripslashes($_SESSION["adresse_3"]), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>" size='40' maxlength="30">
       </td>
    </tr>
   <tr>
@@ -647,7 +649,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <font class='Texte_important_menu2'><b>Code Postal :</b></font>
     </td>
     <td class='td-droite fond_menu'>
-      <input type='text' name='adr_cp' value='<?php if(isset($adr_cp)) echo htmlspecialchars(stripslashes($adr_cp), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); else echo htmlspecialchars(stripslashes($_SESSION["adresse_cp"]), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="25" maxlength="15">
+      <input type='text' name='adr_cp' value='<?php if(isset($adr_cp)) echo htmlspecialchars(stripslashes($adr_cp), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); else echo htmlspecialchars(stripslashes($_SESSION["adresse_cp"]), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size="25" maxlength="15">
     </td>
   </tr>
   <tr>
@@ -655,7 +657,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <font class='Texte_important_menu2'><b>Ville :</b></font>
     </td>
     <td class='td-droite fond_menu'>
-      <input type='text' name='adr_ville' value='<?php if(isset($adr_ville)) echo htmlspecialchars(stripslashes($adr_ville), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); else echo htmlspecialchars(stripslashes($_SESSION["adresse_ville"]), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="25" maxlength="60">
+      <input type='text' name='adr_ville' value='<?php if(isset($adr_ville)) echo htmlspecialchars(stripslashes($adr_ville), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); else echo htmlspecialchars(stripslashes($_SESSION["adresse_ville"]), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size="25" maxlength="60">
     </td>
   </tr>
   <tr>
@@ -792,7 +794,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <font class='Texte_menu2'>Numéro INE <b>ou</b> BEA : </font>
     </td>
     <td class='td-droite fond_menu'>
-      <input type='text' name='num_ine' value='<?php if(isset($num_ine)) echo htmlspecialchars(stripslashes($num_ine), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); else echo htmlspecialchars($_SESSION["numero_ine"],ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="25" maxlength="11"> <font class='Texte_menu'>(<b>obligatoire</b> en cas d'inscription antérieure dans cette Université)</font>
+      <input type='text' name='num_ine' value='<?php if(isset($num_ine)) echo htmlspecialchars(stripslashes($num_ine), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); else echo htmlspecialchars($_SESSION["numero_ine"],ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size="25" maxlength="11"> <font class='Texte_menu'>(<b>obligatoire</b> en cas d'inscription antérieure dans cette Université)</font>
     </td>
   </tr>
   <tr>
@@ -808,7 +810,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <font class='Texte_menu2'>Numéro de téléphone fixe : </font>
     </td>
     <td class='td-droite fond_menu'>
-      <input type='text' name='telephone' value='<?php if(isset($telephone)) echo htmlspecialchars(stripslashes($telephone), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); else echo stripslashes($_SESSION["telephone"]); ?>' size="25" maxlength="15">
+      <input type='text' name='telephone' value='<?php if(isset($telephone)) echo htmlspecialchars(stripslashes($telephone), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); else echo stripslashes($_SESSION["telephone"]); ?>' size="25" maxlength="15">
     </td>
   </tr>
   <tr>
@@ -816,7 +818,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <font class='Texte_menu2'>Numéro de téléphone portable : </font>
     </td>
     <td class='td-droite fond_menu'>
-      <input type='text' name='telephone_portable' value='<?php if(isset($telephone_portable)) echo htmlspecialchars(stripslashes($telephone_portable), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); else echo stripslashes($_SESSION["telephone_portable"]); ?>' size="25" maxlength="15">
+      <input type='text' name='telephone_portable' value='<?php if(isset($telephone_portable)) echo htmlspecialchars(stripslashes($telephone_portable), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); else echo stripslashes($_SESSION["telephone_portable"]); ?>' size="25" maxlength="15">
     </td>
   </tr>
   </table>

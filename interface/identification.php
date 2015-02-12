@@ -96,8 +96,8 @@ CeCILL-B, et que vous en avez accepté les termes.
                         $_DBC_candidat_cursus_en_cours, $_DBC_candidat_deja_inscrit, $_DBC_candidat_annee_premiere_inscr,
                       $_DBC_candidat_annee_bac, $_DBC_candidat_serie_bac
                       FROM $_DB_candidat
-                    WHERE $_DBC_candidat_identifiant LIKE '$identifiant'
-                    AND $_DBC_candidat_code_acces LIKE '$code_personnel'");
+                    WHERE $_DBC_candidat_identifiant LIKE '".preg_replace("/[']+/", "''", stripslashes($identifiant))."'
+                    AND $_DBC_candidat_code_acces LIKE '".preg_replace("/[']+/", "''", stripslashes($code_personnel))."'");
     if(db_num_rows($result)) // on a une réponse positive : le code existe
     {
       list($candidat_id,$civilite,$nom,$nom_naissance, $prenom,$prenom2,$date_naissance,$lieu_naissance,$dpt_naissance,$nationalite_code,$nationalite,$telephone, $telephone_portable, 
@@ -128,30 +128,30 @@ CeCILL-B, et que vous en avez accepté les termes.
       db_free_result($res_series_bac);
       
       $_SESSION["authentifie"]=$candidat_id;
-      $_SESSION["nom"]=htmlspecialchars($nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
-      $_SESSION["nom_naissance"]=htmlspecialchars($nom_naissance, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
-      $_SESSION["civilite"]=htmlspecialchars($civilite, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
-      $_SESSION["prenom"]=htmlspecialchars($prenom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
-      $_SESSION["prenom2"]=htmlspecialchars($prenom2, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+      $_SESSION["nom"]=htmlspecialchars($nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
+      $_SESSION["nom_naissance"]=htmlspecialchars($nom_naissance, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
+      $_SESSION["civilite"]=htmlspecialchars($civilite, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
+      $_SESSION["prenom"]=htmlspecialchars($prenom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
+      $_SESSION["prenom2"]=htmlspecialchars($prenom2, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
       $_SESSION["naissance"]=$date_naissance;
-      $_SESSION["lieu_naissance"]=htmlspecialchars($lieu_naissance, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+      $_SESSION["lieu_naissance"]=htmlspecialchars($lieu_naissance, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
       $_SESSION["dpt_naissance"]=$dpt_naissance;
       $_SESSION["nom_departement"]=$nom_departement;
       $_SESSION["pays_naissance_code"]=$pays_naissance_code;
-      $_SESSION["pays_naissance"]=htmlspecialchars($pays_naissance, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+      $_SESSION["pays_naissance"]=htmlspecialchars($pays_naissance, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
       $_SESSION["nationalite_code"]=$nationalite_code;
-      $_SESSION["nationalite"]=htmlspecialchars($nationalite, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
-      $_SESSION["telephone"]=htmlspecialchars($telephone, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
-      $_SESSION["telephone_portable"]=htmlspecialchars($telephone_portable, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
-      $_SESSION["adresse_1"]=htmlspecialchars($adresse_1, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
-      $_SESSION["adresse_2"]=htmlspecialchars($adresse_2, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
-      $_SESSION["adresse_3"]=htmlspecialchars($adresse_3, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+      $_SESSION["nationalite"]=htmlspecialchars($nationalite, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
+      $_SESSION["telephone"]=htmlspecialchars($telephone, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
+      $_SESSION["telephone_portable"]=htmlspecialchars($telephone_portable, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
+      $_SESSION["adresse_1"]=htmlspecialchars($adresse_1, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
+      $_SESSION["adresse_2"]=htmlspecialchars($adresse_2, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
+      $_SESSION["adresse_3"]=htmlspecialchars($adresse_3, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
       $_SESSION["adresse_cp"]=$adr_cp;
       $_SESSION["adresse_ville"]=$adr_ville;
       $_SESSION["adresse_pays_code"]=$adr_pays_code;
-      $_SESSION["adresse_pays"]=htmlspecialchars($adr_pays, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
-      $_SESSION["numero_ine"]=htmlspecialchars($numero_ine, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
-      $_SESSION["email"]=htmlspecialchars($email, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+      $_SESSION["adresse_pays"]=htmlspecialchars($adr_pays, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
+      $_SESSION["numero_ine"]=htmlspecialchars($numero_ine, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
+      $_SESSION["email"]=htmlspecialchars($email, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
       $_SESSION["derniere_connexion"]=$connexion;
       $_SESSION["cursus_en_cours"]=$cursus_en_cours;
       $_SESSION["deja_inscrit"]=$deja_inscrit;
@@ -169,8 +169,8 @@ CeCILL-B, et que vous en avez accepté les termes.
       $last_host=gethostbyaddr($_SERVER['REMOTE_ADDR']);
       $last_user_agent=$_SERVER["HTTP_USER_AGENT"];
 
-         // Niveau supplémentaire dans l'arborescence des messages
-         $_SESSION["MSG_SOUS_REP"]=sous_rep_msg($_SESSION["authentifie"]);
+      // Niveau supplémentaire dans l'arborescence des messages
+      $_SESSION["MSG_SOUS_REP"]=sous_rep_msg($_SESSION["authentifie"]);
 
       if($browser=get_browser(null, true))
       {
@@ -236,7 +236,7 @@ CeCILL-B, et que vous en avez accepté les termes.
         else
           $location="precandidatures.php";
 
-        db_close($dbr);
+        #db_close($dbr);
 
         session_write_close();
         // header("Location:$location");
@@ -245,7 +245,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       }
       else
       {
-        db_close($dbr);
+        #db_close($dbr);
 
         session_write_close();
         // header("Location:composantes.php");
@@ -262,7 +262,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       // On écrit dans le champ "last_error" le code entré par le candidat et la date de cette erreur (à des fins de vérification coté admin)
       // Si l'identifiant n'existe pas, ça ne changera rien
       db_query($dbr, "UPDATE $_DB_candidat SET $_DBU_candidat_derniere_erreur_code='$time_erreur - [$code_personnel]'
-                 WHERE $_DBU_candidat_identifiant LIKE '$identifiant'");
+                 WHERE $_DBU_candidat_identifiant LIKE '".preg_replace("/[']+/", "''", stripslashes($identifiant))."'");
 
       $identification_incorrecte=1;
       unset($code_personnel);
@@ -298,13 +298,6 @@ CeCILL-B, et que vous en avez accepté les termes.
     $prev_periode=$__PERIODE-1 . "-$__PERIODE";
 
     message("Si vous avez déjà rempli une fiche sur cette interface l'année passée, vous pouvez réutiliser vos anciens identifiants", $__INFO);
-/*
-    if(!isset($_SESSION["interface_ouverte"]) || $_SESSION["interface_ouverte"]==0)
-      message("<center>
-              L'enregistrement n'est pas encore possible : aucune session de candidatures n'est actuellement en cours.
-              <br>Merci de consulter les dates <a href='../doc/limites.php' class='lien_bleu_12' style='vertical-align:top;'><b>sur cette page</b></a>.
-            </center>", $__WARNING);
-*/
   ?>
 
   <div style='text-align:center; padding-bottom:10px;'>
@@ -319,7 +312,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <font class='Texte_menu2'>Identifiant : </font>
     </td>
     <td class='td-droite fond_menu'>
-      <input name="identifiant" value="<?php if(isset($identifiant)) echo htmlspecialchars($identifiant,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>" autocomplete="off" type="text" size=20 maxlength='30'>
+      <input name="identifiant" value="<?php if(isset($identifiant)) echo htmlspecialchars($identifiant,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>" autocomplete="off" type="text" size=20 maxlength='30'>
     </td>
   </tr>
   <tr>
@@ -356,7 +349,7 @@ CeCILL-B, et que vous en avez accepté les termes.
   </form>
 
   <?php
-    db_close($dbr);
+    #db_close($dbr);
   ?>
 </div>
 <?php

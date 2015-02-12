@@ -136,17 +136,27 @@ CeCILL-B, et que vous en avez accepté les termes.
     {
       if(!isset($iid))
       {
-        $info_id=db_locked_query($dbr, $_DB_infos_comp, "INSERT INTO $_DB_infos_comp VALUES('##NEW_ID##','$candidat_id','$information','$annee','$duree')");
+        $info_id=db_locked_query($dbr, $_DB_infos_comp, "INSERT INTO $_DB_infos_comp VALUES(
+            '##NEW_ID##',
+            '$candidat_id',
+            '".preg_replace("/[']+/", "''", stripslashes($information))."',
+            '".preg_replace("/[']+/", "''", stripslashes($annee))."',
+            '".preg_replace("/[']+/", "''", stripslashes($duree))."')");
 
-        write_evt($dbr, $__EVT_ID_G_INFO, "Ajout information $info_id", $candidat_id, $info_id, "INSERT INTO $_DB_infos_comp VALUES('$info_id','$candidat_id','$information','$annee','$duree')");
+        write_evt($dbr, $__EVT_ID_G_INFO, 
+            "Ajout information $info_id", 
+            $candidat_id,
+            $info_id, 
+            "INSERT INTO $_DB_infos_comp VALUES('$info_id','$candidat_id','$information','$annee','$duree')");
       }
       else // mise à jour
       {
-        $req="UPDATE $_DB_infos_comp SET  $_DBU_infos_comp_texte='$information',
-                                $_DBU_infos_comp_annee='$annee',
-                                $_DBU_infos_comp_duree='$duree'
-            WHERE $_DBU_infos_comp_id='$iid'
-            AND $_DBU_infos_comp_candidat_id='$candidat_id'";
+        $req="UPDATE $_DB_infos_comp SET 
+              $_DBU_infos_comp_texte='".preg_replace("/[']+/", "''", stripslashes($information))."',
+              $_DBU_infos_comp_annee='".preg_replace("/[']+/", "''", stripslashes($annee))."',
+              $_DBU_infos_comp_duree='".preg_replace("/[']+/", "''", stripslashes($duree))."'
+              WHERE $_DBU_infos_comp_id='$iid'
+              AND $_DBU_infos_comp_candidat_id='$candidat_id'";
 
         db_query($dbr, $req);
 
@@ -191,7 +201,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <font class='Texte_menu2'><b>Année (YYYY)</b></font>
     </td>
     <td class='td-droite fond_menu'>
-      <input type='text' name='annee' value='<?php if(isset($annee)) echo htmlspecialchars(stripslashes($annee), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); elseif(isset($cur_annee)) echo htmlspecialchars(stripslashes($cur_annee), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' maxlength='4' size='15'>
+      <input type='text' name='annee' value='<?php if(isset($annee)) echo htmlspecialchars(stripslashes($annee), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); elseif(isset($cur_annee)) echo htmlspecialchars(stripslashes($cur_annee), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' maxlength='4' size='15'>
     </td>
   </tr>
   <tr>
@@ -199,7 +209,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <font class='Texte_menu2'><b>Information</b></font>
     </td>
     <td class='td-droite fond_menu'>
-      <textarea name='information' rows='6' cols='70' class='input'><?php if(isset($information)) echo htmlspecialchars(stripslashes($information), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); elseif(isset($cur_texte)) echo htmlspecialchars(stripslashes($cur_texte), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);?></textarea>
+      <textarea name='information' rows='6' cols='70' class='input'><?php if(isset($information)) echo htmlspecialchars(stripslashes($information), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); elseif(isset($cur_texte)) echo htmlspecialchars(stripslashes($cur_texte), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);?></textarea>
     </td>
   </tr>
   <tr>
@@ -207,7 +217,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <font class='Texte_menu2'><b>Durée</b></font>
     </td>
     <td class='td-droite fond_menu'>
-      <input type='text' name='duree' value='<?php if(isset($duree)) echo htmlspecialchars(stripslashes($duree), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); elseif(isset($cur_duree)) echo htmlspecialchars(stripslashes($cur_duree), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' maxlength='20' size='30'>&nbsp;&nbsp;<font class='Texte_menu'><i>exemple : 1 mois, 2 ans, ...</i></font>
+      <input type='text' name='duree' value='<?php if(isset($duree)) echo htmlspecialchars(stripslashes($duree), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); elseif(isset($cur_duree)) echo htmlspecialchars(stripslashes($cur_duree), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' maxlength='20' size='30'>&nbsp;&nbsp;<font class='Texte_menu'><i>exemple : 1 mois, 2 ans, ...</i></font>
     </td>
   </tr>
   </table>

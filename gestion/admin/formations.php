@@ -278,25 +278,42 @@ CeCILL-B, et que vous en avez accepté les termes.
     {
       if((!isset($_SESSION["ajout_formation"]) || $_SESSION["ajout_formation"]==0) && isset($propspec_id))
       {
-        db_query($dbr,"UPDATE $_DB_propspec SET $_DBU_propspec_annee='$new_annee_id',
-                                   $_DBU_propspec_id_spec='$new_spec_id',
-                                   $_DBU_propspec_finalite='$new_finalite',
-                                   $_DBU_propspec_selective='$new_selective',
-                                   $_DBU_propspec_resp='$new_resp',
-                                   $_DBU_propspec_mailresp='$new_resp_email',
-                                   $_DBU_propspec_frais='$new_frais',
-                                   $_DBU_propspec_entretiens='$new_entretiens',
-                                   $_DBU_propspec_active='$new_active',
-                                   $_DBU_propspec_manuelle='$new_manuelle',
-                                   $_DBU_propspec_flag_pass='$new_flag_pass',
-                                   $_DBU_propspec_pass='$md5_pass'
-                  WHERE $_DBU_propspec_id='$propspec_id'");
+        db_query($dbr,"UPDATE $_DB_propspec SET 
+           $_DBU_propspec_annee='$new_annee_id',
+           $_DBU_propspec_id_spec='$new_spec_id',
+           $_DBU_propspec_finalite='$new_finalite',
+           $_DBU_propspec_selective='$new_selective',
+           $_DBU_propspec_resp='".preg_replace("/[']+/", "''", stripslashes($new_resp))."',
+           $_DBU_propspec_mailresp='".preg_replace("/[']+/", "''", stripslashes($new_resp_email))."',
+           $_DBU_propspec_frais='$new_frais',
+           $_DBU_propspec_entretiens='$new_entretiens',
+           $_DBU_propspec_active='$new_active',
+           $_DBU_propspec_manuelle='$new_manuelle',
+           $_DBU_propspec_flag_pass='$new_flag_pass',
+           $_DBU_propspec_pass='$md5_pass'
+           WHERE $_DBU_propspec_id='$propspec_id'");
 
         write_evt($dbr, $__EVT_ID_G_ADMIN, "MAJ Formation $propspec_id", "", $propspec_id);
       }
       else
       {
-        $new_propspec_id=db_locked_query($dbr, $_DB_propspec, "INSERT INTO $_DB_propspec VALUES('$new_spec_id', '$new_selective', '$new_resp', '$new_resp_email', '$new_frais', '$new_annee_id', '$_SESSION[comp_id]', '$new_entretiens', '$new_finalite', '##NEW_ID##', '$new_active', '','$new_manuelle', '0','$new_flag_pass','$md5_pass')");
+        $new_propspec_id=db_locked_query($dbr, $_DB_propspec, "INSERT INTO $_DB_propspec VALUES(
+            '$new_spec_id', 
+            '$new_selective', 
+            '".preg_replace("/[']+/", "''", stripslashes($new_resp))."', 
+            '".preg_replace("/[']+/", "''", stripslashes($new_resp_email))."', 
+            '$new_frais', 
+            '$new_annee_id',
+            '$_SESSION[comp_id]',
+            '$new_entretiens',
+            '$new_finalite',
+            '##NEW_ID##',
+            '$new_active',
+            '',
+            '$new_manuelle',
+            '0',
+            '$new_flag_pass',
+            '$md5_pass')");
 
         write_evt($dbr, $__EVT_ID_G_ADMIN, "Nouvelle formation $new_propspec_id", "", $new_propspec_id);
       }
@@ -436,7 +453,7 @@ CeCILL-B, et que vous en avez accepté les termes.
               print("</optgroup>
                     <option value='' label='' disabled></option>\n");
 
-            $val=htmlspecialchars($form_mention_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+            $val=htmlspecialchars($form_mention_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
 
             print("<optgroup label='- $val'>\n");
 
@@ -661,7 +678,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                 print("</optgroup>
                      <option value='' label='' disabled></option>\n");
 
-              $val=htmlspecialchars($mention_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+              $val=htmlspecialchars($mention_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
 
               print("<optgroup label='$val'>\n");
 
@@ -780,7 +797,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <font class='Texte_menu2'>Code APOGEE :</font>
     </td>
     <td class='td-droite fond_menu'>
-      <input type='text' name='apogee' value='<?php /* if(isset($current_apogee)) echo htmlspecialchars(stripslashes($current_apogee), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); elseif(isset($new_apogee)) echo htmlspecialchars(stripslashes($new_apogee), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); */ ?>' maxlength='92' size='80'>
+      <input type='text' name='apogee' value='<?php /* if(isset($current_apogee)) echo htmlspecialchars(stripslashes($current_apogee), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); elseif(isset($new_apogee)) echo htmlspecialchars(stripslashes($new_apogee), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); */ ?>' maxlength='92' size='80'>
     </td>
   </tr>
 -->
@@ -789,7 +806,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <font class='Texte_menu2'><strong>Frais de dossiers :</strong></font>
     </td>
     <td class='td-droite fond_menu'>
-      <input type='text' name='frais' value='<?php if(isset($current_frais)) echo htmlspecialchars(stripslashes($current_frais), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); elseif(isset($new_frais)) echo htmlspecialchars(stripslashes($new_frais), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);?>' maxlength='92' size='80'>
+      <input type='text' name='frais' value='<?php if(isset($current_frais)) echo htmlspecialchars(stripslashes($current_frais), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); elseif(isset($new_frais)) echo htmlspecialchars(stripslashes($new_frais), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);?>' maxlength='92' size='80'>
     </td>
   </tr>
   <tr>
@@ -797,7 +814,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <font class='Texte_menu2'><strong>Responsable de la formation :</strong></font>
     </td>
     <td class='td-droite fond_menu'>
-      <input type='text' name='responsable' value='<?php if(isset($current_resp)) echo htmlspecialchars(stripslashes($current_resp), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); elseif(isset($new_resp)) echo htmlspecialchars(stripslashes($new_resp), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);?>' maxlength='92' size='80'>
+      <input type='text' name='responsable' value='<?php if(isset($current_resp)) echo htmlspecialchars(stripslashes($current_resp), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); elseif(isset($new_resp)) echo htmlspecialchars(stripslashes($new_resp), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);?>' maxlength='92' size='80'>
     </td>
   </tr>
   <tr>
@@ -805,7 +822,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <font class='Texte_menu2'>Courriel du responsable :</font>
     </td>
     <td class='td-droite fond_menu'>
-      <input type='text' name='resp_email' value='<?php if(isset($current_resp_email)) echo htmlspecialchars(stripslashes($current_resp_email), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); elseif(isset($new_resp_email)) echo htmlspecialchars(stripslashes($new_resp_email), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);?>' maxlength='92' size='80'>
+      <input type='text' name='resp_email' value='<?php if(isset($current_resp_email)) echo htmlspecialchars(stripslashes($current_resp_email), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); elseif(isset($new_resp_email)) echo htmlspecialchars(stripslashes($new_resp_email), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);?>' maxlength='92' size='80'>
     </td>
   </tr>
   <tr>
@@ -908,7 +925,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <font class='Texte_menu2'>Nouveau mot de passe :</font>
     </td>
     <td class='td-droite fond_menu'>
-      <input type='password' name='pass' value='<?php if((!isset($current_flag_pass) || $current_flag_pass=='f') && isset($new_pass)) echo htmlspecialchars(stripslashes($new_pass), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);?>' maxlength='24' size='32'>
+      <input type='password' name='pass' value='<?php if((!isset($current_flag_pass) || $current_flag_pass=='f') && isset($new_pass)) echo htmlspecialchars(stripslashes($new_pass), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);?>' maxlength='24' size='32'>
       <font class='Texte_menu'><i>(6 caractères minimum)</i></font>
     </td>
   </tr>
@@ -917,7 +934,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <font class='Texte_menu2'>Confirmation du nouveau mot de passe :</font>
     </td>
     <td class='td-droite fond_menu'>
-      <input type='password' name='pass_conf' value='<?php if((!isset($current_flag_pass) || $current_flag_pass=='f') && isset($new_pass_conf)) echo htmlspecialchars(stripslashes($new_pass_conf), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);?>' maxlength='24' size='32'>
+      <input type='password' name='pass_conf' value='<?php if((!isset($current_flag_pass) || $current_flag_pass=='f') && isset($new_pass_conf)) echo htmlspecialchars(stripslashes($new_pass_conf), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);?>' maxlength='24' size='32'>
     </td>
   </tr>
   </table>

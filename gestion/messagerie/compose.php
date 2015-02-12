@@ -118,7 +118,7 @@ CeCILL-B, et que vous en avez accepté les termes.
     $file_tmp_name=$_FILES["fichier"]["tmp_name"];
     $file_error=$_FILES["fichier"]["error"]; // PHP > 4.2.0 uniquement
 
-    $realname=html_entity_decode(validate_filename(mb_convert_encoding("$file_name", "UTF-8", mb_detect_encoding($file_name))), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+    $realname=html_entity_decode(validate_filename(mb_convert_encoding("$file_name", "UTF-8", mb_detect_encoding($file_name))), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
 
     if($file_size>4194304)
       $trop_gros=1;
@@ -370,7 +370,7 @@ CeCILL-B, et que vous en avez accepté les termes.
           // $_SESSION["msg_dest"]=$msg_dest="$_SESSION[msg_exp]";
           $_SESSION["msg_dest"]=$msg_dest="$_SESSION[msg_dest_prenom] $_SESSION[msg_dest_nom]";
 
-          $sujet=htmlspecialchars("Re: $_SESSION[msg_sujet]", ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+          $sujet=htmlspecialchars("Re: $_SESSION[msg_sujet]", ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
 
           if(!isset($no_sign))
           {
@@ -451,7 +451,7 @@ CeCILL-B, et que vous en avez accepté les termes.
             else
               $selected="";
 
-            $modele_intitule=stripslashes(htmlspecialchars($modele_intitule, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]));
+            $modele_intitule=stripslashes(htmlspecialchars($modele_intitule, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE));
 
             print("<option value='$modele_id' $selected>$modele_intitule</option>\n");
           }

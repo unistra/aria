@@ -198,10 +198,10 @@ CeCILL-B, et que vous en avez accepté les termes.
           print("</optgroup>
                <option value='' label='' disabled></option>\n");
 
-        print("<optgroup label='".htmlspecialchars(stripslashes($univ_nom), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"])."'>\n");
+        print("<optgroup label='".htmlspecialchars(stripslashes($univ_nom), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE)."'>\n");
       }
 
-      $value=htmlspecialchars($comp_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+      $value=htmlspecialchars($comp_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
 
       print("<option value='$comp_id' label=\"$value\">$value</option>\n");
 

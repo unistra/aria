@@ -637,7 +637,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          </td>
          <td class='td-droite fond_menu' style='width:50%; padding:4px;'>
             <font class='Texte_menu'>
-               <input type='text' name='config[__TITRE_HTML]' value='<?php echo htmlspecialchars(stripslashes($titre_html), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size='60' maxlength='128'>
+               <input type='text' name='config[__TITRE_HTML]' value='<?php echo htmlspecialchars(stripslashes($titre_html), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size='60' maxlength='128'>
             </font>
          </td>
       </tr>
@@ -650,7 +650,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          </td>
          <td class='td-droite fond_menu' style='padding:4px;'>
             <font class='Texte_menu'>
-               <input type='text' name='config[__TITRE_PAGE]' value='<?php echo htmlspecialchars(stripslashes($titre_page), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size='60' maxlength='128'>
+               <input type='text' name='config[__TITRE_PAGE]' value='<?php echo htmlspecialchars(stripslashes($titre_page), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size='60' maxlength='128'>
             </font>
          </td>
       </tr>
@@ -663,7 +663,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          </td>
          <td class='td-droite fond_menu' style='padding:4px;'>
             <font class='Texte_menu'>
-               <input type='text' name='config[__URL_CANDIDAT]' value='<?php echo htmlspecialchars(stripslashes($url_candidat), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size='60' maxlength='256'>
+               <input type='text' name='config[__URL_CANDIDAT]' value='<?php echo htmlspecialchars(stripslashes($url_candidat), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size='60' maxlength='256'>
             </font>
          </td>
       </tr>
@@ -676,7 +676,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          </td>
          <td class='td-droite fond_menu' style='padding:4px;'>
             <font class='Texte_menu'>
-               <input type='text' name='config[__URL_GESTION]' value='<?php echo htmlspecialchars(stripslashes($url_gestion), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size='60' maxlength='256'>
+               <input type='text' name='config[__URL_GESTION]' value='<?php echo htmlspecialchars(stripslashes($url_gestion), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size='60' maxlength='256'>
             </font>
          </td>
       </tr>
@@ -689,7 +689,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          </td>
          <td class='td-droite fond_menu' style='padding:4px;'>
             <font class='Texte_menu'>
-               <input type='text' name='config[__META]' value='<?php echo htmlspecialchars(stripslashes($meta), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size='60' maxlength='2048'>
+               <input type='text' name='config[__META]' value='<?php echo htmlspecialchars(stripslashes($meta), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size='60' maxlength='2048'>
             </font>
          </td>
       </tr>
@@ -844,7 +844,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          </td>
          <td class='td-droite fond_menu' style='padding:4px;'>
             <font class='Texte_menu'>
-               <input type='text' name='config[__LDAP_HOST]' value='<?php echo htmlspecialchars(stripslashes($ldap_host), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size='60' maxlength='128'>
+               <input type='text' name='config[__LDAP_HOST]' value='<?php echo htmlspecialchars(stripslashes($ldap_host), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size='60' maxlength='128'>
             </font>
          </td>
       </tr>
@@ -856,7 +856,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          </td>
          <td class='td-droite fond_menu' style='padding:4px;'>
             <font class='Texte_menu'>
-               <input type='text' name='config[__LDAP_PORT]' value='<?php echo htmlspecialchars(stripslashes($ldap_port), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size='6' maxlength='5'>
+               <input type='text' name='config[__LDAP_PORT]' value='<?php echo htmlspecialchars(stripslashes($ldap_port), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size='6' maxlength='5'>
             </font>
          </td>
       </tr>
@@ -883,7 +883,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          </td>
          <td class='td-droite fond_menu' style='padding:4px;'>
             <font class='Texte_menu'>
-               <input type='text' name='config[__LDAP_ID]' value='<?php echo htmlspecialchars(stripslashes($ldap_id), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size='60' maxlength='128'>
+               <input type='text' name='config[__LDAP_ID]' value='<?php echo htmlspecialchars(stripslashes($ldap_id), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size='60' maxlength='128'>
             </font>
          </td>
       </tr>
@@ -895,7 +895,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          </td>
          <td class='td-droite fond_menu' style='padding:4px;'>
             <font class='Texte_menu'>
-               <input type='password' name='config[__LDAP_PASS]' value='<?php echo htmlspecialchars(stripslashes($ldap_pass), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size='60' maxlength='128'>
+               <input type='password' name='config[__LDAP_PASS]' value='<?php echo htmlspecialchars(stripslashes($ldap_pass), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size='60' maxlength='128'>
             </font>
          </td>
       </tr>
@@ -907,7 +907,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          </td>
          <td class='td-droite fond_menu' style='padding:4px;'>
             <font class='Texte_menu'>
-               <input type='text' name='config[__LDAP_BASEDN]' value='<?php echo htmlspecialchars(stripslashes($ldap_basedn), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size='60' maxlength='128'>
+               <input type='text' name='config[__LDAP_BASEDN]' value='<?php echo htmlspecialchars(stripslashes($ldap_basedn), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size='60' maxlength='128'>
             </font>
          </td>
       </tr>
@@ -927,7 +927,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          </td>
          <td class='td-droite fond_menu' style='padding:4px;'>
             <font class='Texte_menu'>
-               <input type='text' name='config[__LDAP_ATTR_NOM]' value='<?php echo htmlspecialchars(stripslashes($ldap_attr_nom), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size='25' maxlength='128'>
+               <input type='text' name='config[__LDAP_ATTR_NOM]' value='<?php echo htmlspecialchars(stripslashes($ldap_attr_nom), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size='25' maxlength='128'>
             </font>
          </td>
       </tr>
@@ -939,7 +939,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          </td>
          <td class='td-droite fond_menu' style='padding:4px;'>
             <font class='Texte_menu'>
-               <input type='text' name='config[__LDAP_ATTR_PRENOM]' value='<?php echo htmlspecialchars(stripslashes($ldap_attr_prenom), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size='25' maxlength='128'>
+               <input type='text' name='config[__LDAP_ATTR_PRENOM]' value='<?php echo htmlspecialchars(stripslashes($ldap_attr_prenom), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size='25' maxlength='128'>
             </font>
          </td>
       </tr>
@@ -951,7 +951,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          </td>
          <td class='td-droite fond_menu' style='padding:4px;'>
             <font class='Texte_menu'>
-               <input type='text' name='config[__LDAP_ATTR_LOGIN]' value='<?php echo htmlspecialchars(stripslashes($ldap_attr_login), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size='25' maxlength='128'>
+               <input type='text' name='config[__LDAP_ATTR_LOGIN]' value='<?php echo htmlspecialchars(stripslashes($ldap_attr_login), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size='25' maxlength='128'>
             </font>
          </td>
       </tr>
@@ -964,7 +964,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          </td>
          <td class='td-droite fond_menu' style='padding:4px;'>
             <font class='Texte_menu'>
-               <input type='text' name='config[__LDAP_ATTR_PASS]' value='<?php echo htmlspecialchars(stripslashes($ldap_attr_pass), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size='25' maxlength='128'>
+               <input type='text' name='config[__LDAP_ATTR_PASS]' value='<?php echo htmlspecialchars(stripslashes($ldap_attr_pass), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size='25' maxlength='128'>
             </font>
          </td>
       </tr>
@@ -977,7 +977,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          </td>
          <td class='td-droite fond_menu' style='padding:4px;'>
             <font class='Texte_menu'>
-               <input type='text' name='config[__LDAP_ATTR_MAIL]' value='<?php echo htmlspecialchars(stripslashes($ldap_attr_mail), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size='25' maxlength='128'>
+               <input type='text' name='config[__LDAP_ATTR_MAIL]' value='<?php echo htmlspecialchars(stripslashes($ldap_attr_mail), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size='25' maxlength='128'>
                <br /><i>Plusieurs attributs possibles, séparés par des virgules</i>
             </font>
          </td>
@@ -1044,7 +1044,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          </td>
          <td class='td-droite fond_menu' style='padding:4px;'>
             <font class='Texte_menu'>
-               <input type='text' name='config[__NOM_ADMIN]' value='<?php echo htmlspecialchars(stripslashes($nom_admin), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size='60' maxlength='256'>
+               <input type='text' name='config[__NOM_ADMIN]' value='<?php echo htmlspecialchars(stripslashes($nom_admin), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size='60' maxlength='256'>
             </font>
          </td>
       </tr>
@@ -1057,7 +1057,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          </td>
          <td class='td-droite fond_menu' style='padding:4px;'>
             <font class='Texte_menu'>
-               <input type='text' name='config[__EMAIL_ADMIN]' value='<?php echo htmlspecialchars(stripslashes($email_admin), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size='60' maxlength='128'>
+               <input type='text' name='config[__EMAIL_ADMIN]' value='<?php echo htmlspecialchars(stripslashes($email_admin), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size='60' maxlength='128'>
             </font>
          </td>
       </tr>
@@ -1070,7 +1070,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          </td>
          <td class='td-droite fond_menu' style='padding:4px;'>
             <font class='Texte_menu'>
-               <input type='text' name='config[__EMAIL_NOREPLY]' value='<?php echo htmlspecialchars(stripslashes($email_noreply), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size='60' maxlength='128'>
+               <input type='text' name='config[__EMAIL_NOREPLY]' value='<?php echo htmlspecialchars(stripslashes($email_noreply), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size='60' maxlength='128'>
             </font>
          </td>
       </tr>
@@ -1083,7 +1083,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          </td>
          <td class='td-droite fond_menu' style='padding:4px;'>
             <font class='Texte_menu'>
-               <input type='text' name='config[__EMAIL_SUPPORT]' value='<?php echo htmlspecialchars(stripslashes($email_support), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size='60' maxlength='128'>
+               <input type='text' name='config[__EMAIL_SUPPORT]' value='<?php echo htmlspecialchars(stripslashes($email_support), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size='60' maxlength='128'>
             </font>
          </td>
       </tr>
@@ -1096,7 +1096,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          </td>
          <td class='td-droite fond_menu' style='padding:4px;'>
             <font class='Texte_menu'>
-               <textarea name='config[__SIGNATURE_ADMIN]' cols='50' rows='5'><?php echo htmlspecialchars(stripslashes($signature_admin), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?></textarea>
+               <textarea name='config[__SIGNATURE_ADMIN]' cols='50' rows='5'><?php echo htmlspecialchars(stripslashes($signature_admin), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?></textarea>
             </font>
          </td>
       </tr>
@@ -1109,7 +1109,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          </td>
          <td class='td-droite fond_menu' style='padding:4px;'>
             <font class='Texte_menu'>
-               <textarea name='config[__SIGNATURE_COURRIELS]' cols='50' rows='5'><?php echo htmlspecialchars(stripslashes($signature_courriels), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?></textarea>
+               <textarea name='config[__SIGNATURE_COURRIELS]' cols='50' rows='5'><?php echo htmlspecialchars(stripslashes($signature_courriels), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?></textarea>
             </font>
          </td>
       </tr>
@@ -1228,7 +1228,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          </td>
          <td class='td-droite fond_menu' style='padding:4px;'>
             <font class='Texte_menu'>
-               <input type='text' name='config[__VILLE]' value='<?php echo htmlspecialchars(stripslashes($ville), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size='60' maxlength='128'>
+               <input type='text' name='config[__VILLE]' value='<?php echo htmlspecialchars(stripslashes($ville), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size='60' maxlength='128'>
             </font>
          </td>
       </tr>
@@ -1241,7 +1241,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          </td>
          <td class='td-droite fond_menu' style='padding:4px;'>
             <font class='Texte_menu'>
-               <textarea name='config[__INFORMATIQUE_ET_LIBERTES]' cols='60' rows='7'><?php echo htmlspecialchars(stripslashes($informatique_liberte), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?></textarea>
+               <textarea name='config[__INFORMATIQUE_ET_LIBERTES]' cols='60' rows='7'><?php echo htmlspecialchars(stripslashes($informatique_liberte), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?></textarea>
             </font>
          </td>
       </tr>
@@ -1500,7 +1500,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          </td>
          <td class='td-droite fond_menu' style='padding:4px;'>
             <font class='Texte_menu'>
-               <input type='text' name='config[__ERREUR_SUJET]' value='<?php echo htmlspecialchars(stripslashes($erreur_sujet), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size='60' maxlength='256'>
+               <input type='text' name='config[__ERREUR_SUJET]' value='<?php echo htmlspecialchars(stripslashes($erreur_sujet), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size='60' maxlength='256'>
             </font>
          </td>
       </tr>
@@ -1518,7 +1518,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          </td>
          <td class='td-droite fond_menu' style='padding:4px;'>
             <font class='Texte_menu'>
-               <input type='text' name='config[__DEBUG_SUJET]' value='<?php echo htmlspecialchars(stripslashes($debug_sujet), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size='60' maxlength='256'>
+               <input type='text' name='config[__DEBUG_SUJET]' value='<?php echo htmlspecialchars(stripslashes($debug_sujet), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size='60' maxlength='256'>
             </font>
          </td>
       </tr>

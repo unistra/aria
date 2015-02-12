@@ -155,7 +155,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       $rows=db_num_rows($result);
 
       list($justif_intitule, $justif_nationalite)=db_fetch_row($result, 0);
-      $val=htmlspecialchars($justif_intitule, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+      $val=htmlspecialchars($justif_intitule, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
 
       print("<font class='Texte_menu'><b>$val</b></font>\n");
     ?>

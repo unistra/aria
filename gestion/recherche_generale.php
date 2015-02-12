@@ -227,7 +227,7 @@ CeCILL-B, et que vous en avez accepté les termes.
           // critère spécial dans ce cas : on ne peut pas se fier au champ "Periode" car inexistant
           // => recherche sur les candidats enregistrés cette année => date("y")
           $debut_recherche_id=preg_replace("/^0*/", "", date("y")); 
-          $critere_periode="AND CAST($_DBC_candidat_id AS TEXT) LIKE '$debut_recherche_id%'";
+          $critere_periode="AND CAST($_DBC_candidat_id AS TEXT) LIKE '".preg_replace("/[']+/", "''", stripslashes($debut_recherche_id))."%'";
           
           $requete=$_SESSION["requete"]="SELECT distinct($_DBC_candidat_id), $_DBC_candidat_civilite, unaccent($_DBC_candidat_nom), unaccent($_DBC_candidat_nom_naissance), 
                                     $_DBC_candidat_prenom, $_DBC_candidat_date_naissance, $_DBC_candidat_lieu_naissance,
@@ -439,7 +439,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                   print("<!-- </optgroup> -->
                         <option value='' label='' disabled></option>\n");
 
-                $val=htmlspecialchars($form_mention_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+                $val=htmlspecialchars($form_mention_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
 
                 print("<!-- <optgroup label='- $val'> -->\n");
                 
@@ -640,7 +640,7 @@ CeCILL-B, et que vous en avez accepté les termes.
             if(substr($y, 0, 1) == "0") // réduction à un chiffre si le premier vaut 0
               $y=substr($y, 1, 1);
               
-             $annee_sup=date("Y")>$__PERIODE ? date("Y") : $__PERIODE;
+            $annee_sup=date("Y")>$__PERIODE ? date("Y") : $__PERIODE;
 
             $res_min_max=db_query($dbr,"SELECT min($_DBC_candidat_id), max($_DBC_candidat_id) FROM $_DB_candidat
                                 WHERE CAST($_DBC_candidat_id AS TEXT) LIKE '$y%'");

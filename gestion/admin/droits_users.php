@@ -239,7 +239,8 @@ CeCILL-B, et que vous en avez accepté les termes.
             </td>
            </tr>");
 
-      $critere_recherche=isset($nom_recherche) && trim($nom_recherche!="") ? "AND ($_DBC_acces_nom ILIKE '$nom_recherche"."%"."' OR $_DBC_acces_login ILIKE '$nom_recherche"."%"."')" : "";
+      $critere_recherche=isset($nom_recherche) && trim($nom_recherche!="") ? "AND ($_DBC_acces_nom ILIKE '".preg_replace("/[']+/", "''", stripslashes($nom_recherche))."%"."' 
+          OR $_DBC_acces_login ILIKE '".preg_replace("/[']+/", "''", stripslashes($nom_recherche))."%"."')" : "";
       
       if(isset($nom_recherche) && trim($nom_recherche!=""))
       {   
@@ -247,7 +248,8 @@ CeCILL-B, et que vous en avez accepté les termes.
                                                       $_DBC_acces_prenom as aprenom, $_DBC_acces_login, '0' as cnom
                                                   FROM $_DB_acces
                                                WHERE $_DBC_acces_niveau IN ('$GLOBALS[__LVL_ADMIN]','$GLOBALS[__LVL_SUPPORT]','$GLOBALS[__LVL_SUPER_RESP]')
-                                               AND ($_DBC_acces_nom ILIKE '$nom_recherche"."%"."' OR $_DBC_acces_login ILIKE '$nom_recherche"."%"."')
+                                               AND ($_DBC_acces_nom ILIKE '".preg_replace("/[']+/", "''", stripslashes($nom_recherche))."%"."' 
+                                                    OR $_DBC_acces_login ILIKE '".preg_replace("/[']+/", "''", stripslashes($nom_recherche))."%"."')
                                               )
                                              UNION   
                                                 (SELECT $_DBC_acces_id, $_DBC_acces_niveau as aniveau, $_DBC_acces_nom as anom,
@@ -255,7 +257,8 @@ CeCILL-B, et que vous en avez accepté les termes.
                                                    FROM $_DB_acces, $_DB_composantes
                                                 WHERE $_DBC_acces_composante_id=$_DBC_composantes_id
                                                 AND $_DBC_acces_niveau NOT IN ('$GLOBALS[__LVL_ADMIN]','$GLOBALS[__LVL_SUPPORT]','$GLOBALS[__LVL_SUPER_RESP]')
-                                                AND ($_DBC_acces_nom ILIKE '$nom_recherche"."%"."' OR $_DBC_acces_login ILIKE '$nom_recherche"."%"."'))
+                                                AND ($_DBC_acces_nom ILIKE '".preg_replace("/[']+/", "''", stripslashes($nom_recherche))."%"."' 
+                                                    OR $_DBC_acces_login ILIKE '".preg_replace("/[']+/", "''", stripslashes($nom_recherche))."%"."'))
                                              UNION
                                                 (SELECT $_DBC_acces_id, $_DBC_acces_niveau as aniveau, $_DBC_acces_nom as anom,
                                                         $_DBC_acces_prenom as aprenom, $_DBC_acces_login, $_DBC_composantes_nom as cnom
@@ -263,7 +266,8 @@ CeCILL-B, et que vous en avez accepté les termes.
                                                 WHERE $_DBC_acces_comp_composante_id=$_DBC_composantes_id
                                                 AND $_DBC_acces_comp_acces_id=$_DBC_acces_id
                                                 AND $_DBC_acces_niveau NOT IN ('$GLOBALS[__LVL_ADMIN]','$GLOBALS[__LVL_SUPPORT]','$GLOBALS[__LVL_SUPER_RESP]')
-                                                AND ($_DBC_acces_nom ILIKE '$nom_recherche"."%"."' OR $_DBC_acces_login ILIKE '$nom_recherche"."%"."'))
+                                                AND ($_DBC_acces_nom ILIKE '".preg_replace("/[']+/", "''", stripslashes($nom_recherche))."%"."' 
+                                                    OR $_DBC_acces_login ILIKE '".preg_replace("/[']+/", "''", stripslashes($nom_recherche))."%"."'))
                                              ORDER BY cnom, aniveau DESC, anom, aprenom");
                               
             $rows_recherche=db_num_rows($result_recherche);
@@ -321,7 +325,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                      if($comp_nom=="0")
                         print("<optgroup label='==== Administrateurs, support et accès étendus ===='>\n");
                      else
-                        print("<optgroup label='==== ".htmlspecialchars($comp_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"])." ===='>\n");
+                        print("<optgroup label='==== ".htmlspecialchars($comp_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE)." ===='>\n");
    
                      $old_comp=$comp_nom;
                      $old_niveau="";
@@ -333,12 +337,12 @@ CeCILL-B, et que vous en avez accepté les termes.
                        print("</optgroup>
                               <option value='' label='' disabled></option>\n");
                
-                    print("<optgroup label='".htmlspecialchars(stripslashes($GLOBALS["tab_niveau"]["$login_niveau"]), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"])."'></optgroup>\n");
+                    print("<optgroup label='".htmlspecialchars(stripslashes($GLOBALS["tab_niveau"]["$login_niveau"]), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE)."'></optgroup>\n");
                
                     $old_niveau=$login_niveau;
                   }
    
-                  print("<option value='$user_id'>" . htmlspecialchars("$login_nom $login_prenom", ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]) . "</option>\n");
+                  print("<option value='$user_id'>" . htmlspecialchars("$login_nom $login_prenom", ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE) . "</option>\n");
                }
    
                print("</optgroup>
@@ -379,7 +383,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                if($comp_nom=="0")
                   print("<optgroup label='==== Administrateurs, support et accès étendus ===='>\n");
                else
-                  print("<optgroup label='==== ".htmlspecialchars($comp_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"])." ===='>\n");
+                  print("<optgroup label='==== ".htmlspecialchars($comp_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE)." ===='>\n");
 
                $old_comp=$comp_nom;
                $old_niveau="";
@@ -391,12 +395,12 @@ CeCILL-B, et que vous en avez accepté les termes.
                   print("</optgroup>
                          <option value='' label='' disabled></option>\n");
             
-               print("<optgroup label='".htmlspecialchars(stripslashes($GLOBALS["tab_niveau"]["$login_niveau"]), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"])."'></optgroup>\n");
+               print("<optgroup label='".htmlspecialchars(stripslashes($GLOBALS["tab_niveau"]["$login_niveau"]), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE)."'></optgroup>\n");
             
                $old_niveau=$login_niveau;
             }
 
-            print("<option value='$user_id'>" . htmlspecialchars("$login_nom $login_prenom", ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]) . "</option>\n");
+            print("<option value='$user_id'>" . htmlspecialchars("$login_nom $login_prenom", ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE) . "</option>\n");
          }
 
          print("</optgroup>
@@ -462,7 +466,7 @@ CeCILL-B, et que vous en avez accepté les termes.
             print("</optgroup>
                   <option value='' label='' disabled></option>\n");
 
-          print("<optgroup label='" . htmlspecialchars($comp_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]) . "'>\n");
+          print("<optgroup label='" . htmlspecialchars($comp_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE) . "'>\n");
 
           $old_comp=$comp_nom;
         }
@@ -470,7 +474,7 @@ CeCILL-B, et que vous en avez accepté les termes.
         // Affichage du niveau (entre crochets) - A conserver ?
         // $menu_niveau=$tab_niveau_menu[$login_niveau];
 
-        print("<option value='$login_id'>" . htmlspecialchars("$login_nom $login_prenom", ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]) . "</option>\n");
+        print("<option value='$login_id'>" . htmlspecialchars("$login_nom $login_prenom", ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE) . "</option>\n");
       }
 
       print("   </optgroup>

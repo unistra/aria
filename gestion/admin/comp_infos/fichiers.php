@@ -121,9 +121,10 @@ CeCILL-B, et que vous en avez accepté les termes.
       if(empty($texte))
         $texte=$fichier;
 
-      db_query($dbr,"UPDATE $_DB_comp_infos_fichiers SET $_DBU_comp_infos_fichiers_texte='$texte'
-                        WHERE $_DBU_comp_infos_fichiers_info_id='$info_doc_id'
-                        AND $_DBU_comp_infos_fichiers_ordre='$_SESSION[ordre]'");
+      db_query($dbr,"UPDATE $_DB_comp_infos_fichiers SET 
+          $_DBU_comp_infos_fichiers_texte='".preg_replace("/[']+/", "''", stripslashes($texte))."'
+          WHERE $_DBU_comp_infos_fichiers_info_id='$info_doc_id'
+          AND $_DBU_comp_infos_fichiers_ordre='$_SESSION[ordre]'");
 
       db_close($dbr);
       header("Location:index.php");
@@ -137,7 +138,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       $file_tmp_name=$_FILES["fichier"]["tmp_name"];
       $file_error=$_FILES["fichier"]["error"]; // PHP > 4.2.0 uniquement
 
-      $file_name=html_entity_decode(validate_filename($file_name),ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+      $file_name=html_entity_decode(validate_filename($file_name),ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
 
       if($file_size>16777216)
         $trop_gros=1;
@@ -195,7 +196,11 @@ CeCILL-B, et que vous en avez accepté les termes.
           if(empty($texte))
             $texte=$file_name;
 
-          db_query($dbr,"INSERT INTO $_DB_comp_infos_fichiers VALUES ('$info_doc_id', '$texte', '$file_name', '$_SESSION[ordre]')");
+          db_query($dbr,"INSERT INTO $_DB_comp_infos_fichiers VALUES (
+            '$info_doc_id', 
+            '".preg_replace("/[']+/", "''", stripslashes($texte))."', 
+            '".preg_replace("/[']+/", "''", stripslashes($file_name))."', 
+            '$_SESSION[ordre]')");
 
           db_close($dbr);
           header("Location:index.php");
@@ -255,7 +260,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <font class='Texte_menu2'><b>Description</b></font>
     </td>
     <td class='td-droite fond_menu' style='white-space:normal; vertical-align:top;'>
-      <input type='text' name='texte' value='<?php if(isset($texte)) echo htmlspecialchars(stripslashes($texte), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' maxlength='128' size='60'>
+      <input type='text' name='texte' value='<?php if(isset($texte)) echo htmlspecialchars(stripslashes($texte), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' maxlength='128' size='60'>
       <br><br>
       <font class='Texte_menu'>
         <i>La description est le texte qui apparaît sur la page d'information, sur lequel le candidat devra cliquer pour obtenir le fichier</i>

@@ -142,24 +142,6 @@ CeCILL-B, et que vous en avez accepté les termes.
       if(isset($_POST["comp_id"]))
          $comp_id=$_POST["comp_id"];
 
-      // OBSOLETE : ID standards utilisés (bigint)
-/*
-      else
-      {
-         // limites pour l'identifiant de la composante (c'est simplement pour les trier facilement)
-         $limite_inf=$new_comp_univ_id*100;
-         $limite_sup=($new_comp_univ_id+1)*100;
-
-         // identifiant
-         $result=db_query($dbr,"SELECT max($_DBC_composantes_id)+1 as max FROM $_DB_composantes
-                                 WHERE $_DBC_composantes_id BETWEEN $limite_inf AND $limite_sup");
-         list($comp_id)=db_fetch_row($result,0);
-         db_free_result($result);
-
-         if(empty($comp_id))
-            $comp_id=$limite_inf+1;
-      }
-*/
       // vérification des champs
       if($new_comp_nom=="") $nom_vide=1;
       if($new_comp_adresse=="") $adresse_vide=1;
@@ -171,7 +153,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       if(isset($comp_id) && ctype_digit($comp_id))
       {
          if(db_num_rows(db_query($dbr,"SELECT $_DBC_composantes_id FROM $_DB_composantes
-                                       WHERE $_DBC_composantes_nom ILIKE '".str_replace("'","''", $new_comp_nom)."'
+                                       WHERE $_DBC_composantes_nom ILIKE '".preg_replace("/[']+/", "''", stripslashes($new_comp_nom))."'
                                        AND $_DBC_composantes_id!='$comp_id'")))
             $nom_existe="1";
       }
@@ -180,24 +162,25 @@ CeCILL-B, et que vous en avez accepté les termes.
       {
          if($_SESSION["ajout_comp"]==0)
          {
-            db_query($dbr,"UPDATE $_DB_composantes SET   $_DBU_composantes_nom='$new_comp_nom',
-                                                         $_DBU_composantes_contact='$new_comp_contact',
-                                                         $_DBU_composantes_adresse='$new_comp_adresse',
-                                                         $_DBU_composantes_univ_id='$new_comp_univ_id',
-                                                         $_DBU_composantes_directeur='$new_comp_directeur',
-                                                         $_DBU_composantes_scolarite='".str_replace("'","''", $new_comp_scolarite)."',
-                                                         $_DBU_composantes_delai_lock='$new_comp_verr_delai',
-                                                         $_DBU_composantes_courriel_scol='$new_comp_courriel_scolarite',
-                                                         $_DBU_composantes_limite_cand_nombre='$new_limite_nombre',
-                                                         $_DBU_composantes_limite_cand_annee='$new_limite_annee',
-                                                         $_DBU_composantes_limite_cand_annee_mention='$new_limite_annee_mention',
-                                                         $_DBU_composantes_gestion_motifs='$new_gestion_motifs',
-                                                         $_DBU_composantes_ent_salle='$new_comp_entretien_salle',
-                                                         $_DBU_composantes_ent_lieu='$new_comp_entretien_lieu',
-                                                         $_DBU_composantes_www='$new_comp_www',
-                                                         $_DBU_composantes_affichage_decisions='$new_defaut_affichage_decisions',
-                                                         $_DBU_composantes_avertir_decision='$new_avertir_decision'
-                              WHERE $_DBU_composantes_id='$comp_id'");
+            db_query($dbr,"UPDATE $_DB_composantes SET   
+               $_DBU_composantes_nom='".preg_replace("/[']+/", "''", stripslashes($new_comp_nom))."',
+               $_DBU_composantes_contact='".preg_replace("/[']+/", "''", stripslashes($new_comp_contact))."',
+               $_DBU_composantes_adresse='".preg_replace("/[']+/", "''", stripslashes($new_comp_adresse))."',
+               $_DBU_composantes_univ_id='$new_comp_univ_id',
+               $_DBU_composantes_directeur='".preg_replace("/[']+/", "''", stripslashes($new_comp_directeur))."',
+               $_DBU_composantes_scolarite='".preg_replace("/[']+/", "''", stripslashes($new_comp_scolarite))."',
+               $_DBU_composantes_delai_lock='$new_comp_verr_delai',
+               $_DBU_composantes_courriel_scol='$new_comp_courriel_scolarite',
+               $_DBU_composantes_limite_cand_nombre='$new_limite_nombre',
+               $_DBU_composantes_limite_cand_annee='$new_limite_annee',
+               $_DBU_composantes_limite_cand_annee_mention='$new_limite_annee_mention',
+               $_DBU_composantes_gestion_motifs='$new_gestion_motifs',
+               $_DBU_composantes_ent_salle='".preg_replace("/[']+/", "''", stripslashes($new_comp_entretien_salle))."',
+               $_DBU_composantes_ent_lieu='".preg_replace("/[']+/", "''", stripslashes($new_comp_entretien_lieu))."',
+               $_DBU_composantes_www='$new_comp_www',
+               $_DBU_composantes_affichage_decisions='$new_defaut_affichage_decisions',
+               $_DBU_composantes_avertir_decision='$new_avertir_decision'
+               WHERE $_DBU_composantes_id='$comp_id'");
 
             // MAJ du paramètre d'affichage des résultats, si besoin
             // TODO : écrire des fonctions de rafraichissement automatique de ce genre de paramètres
@@ -211,7 +194,32 @@ CeCILL-B, et que vous en avez accepté les termes.
          }
          else
          {
-            $comp_id=db_locked_query($dbr, $_DB_composantes, "INSERT INTO $_DB_composantes VALUES ('##NEW_ID##','$new_comp_nom', '$new_comp_univ_id', '$new_comp_adresse', '$new_comp_contact', '$new_comp_directeur', '$new_comp_scolarite', '','','','', '$new_comp_verr_delai', '32', '$new_comp_courriel_scolarite', '$new_limite_nombre', '$new_limite_annee', '$new_limite_annee_mention','$new_gestion_motifs', '$new_comp_entretien_salle','$new_comp_entretien_lieu','$new_comp_www', '$new_defaut_affichage_decisions','109','42','$new_avertir_decision')");
+            $comp_id=db_locked_query($dbr, $_DB_composantes, "INSERT INTO $_DB_composantes VALUES (
+                '##NEW_ID##',
+                '".preg_replace("/[']+/", "''", stripslashes($new_comp_nom))."', 
+                '$new_comp_univ_id', 
+                '".preg_replace("/[']+/", "''", stripslashes($new_comp_adresse))."', 
+                '".preg_replace("/[']+/", "''", stripslashes($new_comp_contact))."', 
+                '".preg_replace("/[']+/", "''", stripslashes($new_comp_directeur))."', 
+                '".preg_replace("/[']+/", "''", stripslashes($new_comp_scolarite))."', 
+                '',
+                '',
+                '',
+                '', 
+                '$new_comp_verr_delai', 
+                '32', 
+                '$new_comp_courriel_scolarite', 
+                '$new_limite_nombre', 
+                '$new_limite_annee', 
+                '$new_limite_annee_mention',
+                '$new_gestion_motifs', 
+                '".preg_replace("/[']+/", "''", stripslashes($new_comp_entretien_salle))."',
+                '".preg_replace("/[']+/", "''", stripslashes($new_comp_entretien_lieu))."',
+                '$new_comp_www', 
+                '$new_defaut_affichage_decisions',
+                '109',
+                '42',
+                '$new_avertir_decision')");
 
             // Une fois la composante créée, on regarde si des données par défaut doivent être renseignées (motifs de refus, ...)
             // TODO : faire ça coté application ou directement via la base ?
@@ -352,10 +360,10 @@ CeCILL-B, et que vous en avez accepté les termes.
                   print("</optgroup>
                            <option value='' label='' disabled></option>\n");
 
-               print("<optgroup label='".htmlspecialchars(stripslashes($univ_nom), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"])."'>\n");
+               print("<optgroup label='".htmlspecialchars(stripslashes($univ_nom), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE)."'>\n");
             }
 
-            $value=htmlspecialchars($comp_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+            $value=htmlspecialchars($comp_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
 
             if(isset($_SESSION["comp_id"]) && $_SESSION["comp_id"]==$comp_id)
                $selected="selected='1'";
@@ -504,7 +512,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          <font class='Texte_menu2'><b>Nom de la composante :</b></font>
       </td>
       <td class='td-droite fond_menu'>
-         <input type='text' name='nom' value='<?php if(isset($new_comp_nom)) echo htmlspecialchars(stripslashes($new_comp_nom), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); elseif(isset($current_comp_nom)) echo htmlspecialchars(stripslashes($current_comp_nom), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' maxlength='92' size='60'>
+         <input type='text' name='nom' value='<?php if(isset($new_comp_nom)) echo htmlspecialchars(stripslashes($new_comp_nom), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); elseif(isset($current_comp_nom)) echo htmlspecialchars(stripslashes($current_comp_nom), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' maxlength='92' size='60'>
       </td>
    </tr>
    <tr>
@@ -513,8 +521,8 @@ CeCILL-B, et que vous en avez accepté les termes.
       </td>
       <td class='td-droite fond_menu'>
          <textarea name='adresse' rows='4' cols='60'><?php
-            if(isset($new_comp_adresse)) echo htmlspecialchars(stripslashes($new_comp_adresse), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
-            elseif(isset($current_comp_adresse)) echo htmlspecialchars(stripslashes($current_comp_adresse), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+            if(isset($new_comp_adresse)) echo htmlspecialchars(stripslashes($new_comp_adresse), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
+            elseif(isset($current_comp_adresse)) echo htmlspecialchars(stripslashes($current_comp_adresse), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
          ?></textarea>
       </td>
    </tr>
@@ -523,7 +531,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          <font class='Texte_menu2'><b>Directeur (avec civilité)</b></font>
       </td>
       <td class='td-droite fond_menu'>
-         <input type='text' name='directeur' value='<?php if(isset($new_comp_directeur)) echo htmlspecialchars(stripslashes($new_comp_directeur), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); elseif(isset($current_comp_directeur)) echo htmlspecialchars(stripslashes($current_comp_directeur), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);?>' maxlength='92' size='60'>
+         <input type='text' name='directeur' value='<?php if(isset($new_comp_directeur)) echo htmlspecialchars(stripslashes($new_comp_directeur), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); elseif(isset($current_comp_directeur)) echo htmlspecialchars(stripslashes($current_comp_directeur), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);?>' maxlength='92' size='60'>
       </td>
    </tr>
    <tr>
@@ -532,8 +540,8 @@ CeCILL-B, et que vous en avez accepté les termes.
       </td>
       <td class='td-droite fond_menu'>
          <textarea name='contact' rows='4' cols='60'><?php
-            if(isset($new_comp_contact)) echo htmlspecialchars(stripslashes($new_comp_contact), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
-            elseif(isset($current_comp_contact)) echo htmlspecialchars(stripslashes($current_comp_contact), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+            if(isset($new_comp_contact)) echo htmlspecialchars(stripslashes($new_comp_contact), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
+            elseif(isset($current_comp_contact)) echo htmlspecialchars(stripslashes($current_comp_contact), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
          ?></textarea>
       </td>
    </tr>
@@ -543,8 +551,8 @@ CeCILL-B, et que vous en avez accepté les termes.
       </td>
       <td class='td-droite fond_menu'>
          <textarea name='scolarite' rows='7' cols='60'><?php
-            if(isset($new_comp_scolarite)) echo htmlspecialchars(stripslashes($new_comp_scolarite), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
-            elseif(isset($current_comp_scolarite)) echo htmlspecialchars(stripslashes($current_comp_scolarite), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+            if(isset($new_comp_scolarite)) echo htmlspecialchars(stripslashes($new_comp_scolarite), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
+            elseif(isset($current_comp_scolarite)) echo htmlspecialchars(stripslashes($current_comp_scolarite), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
          ?></textarea>
       </td>
    </tr>
@@ -553,7 +561,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          <font class='Texte_menu2'><b>Adresse électronique de la Scolarité :</b></font>
       </td>
       <td class='td-droite fond_menu'>
-         <input type='text' name='courriel_scolarite' value='<?php if(isset($new_comp_courriel_scolarite)) echo htmlspecialchars(stripslashes($new_comp_courriel_scolarite), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); elseif(isset($current_comp_courriel_scolarite)) echo htmlspecialchars(stripslashes($current_comp_courriel_scolarite), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' maxlength='128' size='60'>
+         <input type='text' name='courriel_scolarite' value='<?php if(isset($new_comp_courriel_scolarite)) echo htmlspecialchars(stripslashes($new_comp_courriel_scolarite), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); elseif(isset($current_comp_courriel_scolarite)) echo htmlspecialchars(stripslashes($current_comp_courriel_scolarite), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' maxlength='128' size='60'>
       </td>
    </tr>
    <tr>
@@ -561,7 +569,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          <font class='Texte_menu2'><b>Adresse du site Internet de la composante :</b><br><i>(N'oubliez pas http:// ou https:// ...)</i></font>
       </td>
       <td class='td-droite fond_menu'>
-         <input type='text' name='www' value='<?php if(isset($new_comp_www)) echo htmlspecialchars(stripslashes($new_comp_www), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); elseif(isset($current_comp_www)) echo htmlspecialchars(stripslashes($current_comp_www), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' maxlength='128' size='60'>
+         <input type='text' name='www' value='<?php if(isset($new_comp_www)) echo htmlspecialchars(stripslashes($new_comp_www), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); elseif(isset($current_comp_www)) echo htmlspecialchars(stripslashes($current_comp_www), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' maxlength='128' size='60'>
       </td>
    </tr>
    </table>
@@ -761,7 +769,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          <font class='Texte_menu2'><b>Entretiens : salle par défaut :</b></font>
       </td>
       <td class='td-milieu fond_menu'>
-         <input type='text' name='entretien_salle' value='<?php if(isset($new_comp_entretien_salle)) echo htmlspecialchars(stripslashes($new_comp_entretien_salle), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); elseif(isset($comp_entretien_salle)) echo htmlspecialchars(stripslashes($current_comp_entretien_salle), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' maxlength='50' size='52'>
+         <input type='text' name='entretien_salle' value='<?php if(isset($new_comp_entretien_salle)) echo htmlspecialchars(stripslashes($new_comp_entretien_salle), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); elseif(isset($comp_entretien_salle)) echo htmlspecialchars(stripslashes($current_comp_entretien_salle), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' maxlength='50' size='52'>
       </td>
       <td class='td-droite fond_menu' rowspan='2'>
          <font class='Texte_menu'>
@@ -773,7 +781,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          <font class='Texte_menu2'><b>Entretiens : lieu (adresse) par défaut :</b></font>
       </td>
       <td class='td-milieu fond_menu'>
-         <input type='text' name='entretien_lieu' value='<?php if(isset($new_comp_entretien_lieu)) echo htmlspecialchars(stripslashes($new_comp_entretien_lieu), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); elseif(isset($comp_entretien_lieu)) echo htmlspecialchars(stripslashes($current_comp_entretien_lieu), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' maxlength='128' size='60'>
+         <input type='text' name='entretien_lieu' value='<?php if(isset($new_comp_entretien_lieu)) echo htmlspecialchars(stripslashes($new_comp_entretien_lieu), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); elseif(isset($comp_entretien_lieu)) echo htmlspecialchars(stripslashes($current_comp_entretien_lieu), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' maxlength='128' size='60'>
       </td>
    </tr>
    </table>

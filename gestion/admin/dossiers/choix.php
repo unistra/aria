@@ -110,11 +110,12 @@ CeCILL-B, et que vous en avez accepté les termes.
       if(db_num_rows(db_query($dbr,"SELECT * FROM $_DB_dossiers_elems_choix
                           WHERE $_DBC_dossiers_elems_choix_id='$params[cid]'")))
 
-        db_query($dbr,"UPDATE $_DB_dossiers_elems_choix SET $_DBU_dossiers_elems_choix_ordre=$_DBU_dossiers_elems_choix_ordre-1
-                  WHERE $_DBU_dossiers_elems_choix_elem_id='$_SESSION[element_id]'
-                  AND $_DBU_dossiers_elems_choix_ordre > (SELECT $_DBC_dossiers_elems_choix_ordre FROM $_DB_dossiers_elems_choix
-                                            WHERE $_DBC_dossiers_elems_choix_id='$params[cid]');
-                  DELETE FROM $_DB_dossiers_elems_choix WHERE $_DBC_dossiers_elems_choix_id='$params[cid]'");
+        db_query($dbr,"UPDATE $_DB_dossiers_elems_choix SET 
+            $_DBU_dossiers_elems_choix_ordre=$_DBU_dossiers_elems_choix_ordre-1
+            WHERE $_DBU_dossiers_elems_choix_elem_id='$_SESSION[element_id]'
+            AND $_DBU_dossiers_elems_choix_ordre > (SELECT $_DBC_dossiers_elems_choix_ordre FROM $_DB_dossiers_elems_choix
+              WHERE $_DBC_dossiers_elems_choix_id='$params[cid]');
+            DELETE FROM $_DB_dossiers_elems_choix WHERE $_DBC_dossiers_elems_choix_id='$params[cid]'");
       
       db_close($dbr);
       header("Location:element.php");
@@ -132,7 +133,8 @@ CeCILL-B, et que vous en avez accepté les termes.
         $new_ordre_cond=$params["o"]-1;
 
       if(isset($new_ordre_cond))
-        db_query($dbr,"UPDATE $_DB_dossiers_elems_choix SET $_DBU_dossiers_elems_choix_ordre='$params[o]'
+        db_query($dbr,"UPDATE $_DB_dossiers_elems_choix SET 
+                  $_DBU_dossiers_elems_choix_ordre='$params[o]'
                   WHERE $_DBU_dossiers_elems_choix_ordre='$new_ordre_cond'
                   AND $_DBU_dossiers_elems_choix_elem_id='$_SESSION[element_id]';
 
@@ -162,8 +164,9 @@ CeCILL-B, et que vous en avez accepté les termes.
     else
     {
       if(!isset($_SESSION["ajout_choix"]))
-        db_query($dbr,"UPDATE $_DB_dossiers_elems_choix SET $_DBU_dossiers_elems_choix_texte='$texte'
-                  WHERE $_DBC_dossiers_elems_choix_id='$_SESSION[cid]'");
+        db_query($dbr,"UPDATE $_DB_dossiers_elems_choix SET 
+            $_DBU_dossiers_elems_choix_texte='".preg_replace("/[']+/", "''", stripslashes($texte))."'
+            WHERE $_DBC_dossiers_elems_choix_id='$_SESSION[cid]'");
       else
       {
         // détermination de l'ordre max
@@ -177,7 +180,11 @@ CeCILL-B, et que vous en avez accepté les termes.
         db_free_result($res_ordre);
 
         // Insertion du nouvel élément
-        $new_cid=db_locked_query($dbr, $_DB_dossiers_elems_choix, "INSERT INTO $_DB_dossiers_elems_choix VALUES ('##NEW_ID##', '$_SESSION[element_id]','$texte', '$new_ordre')");
+        $new_cid=db_locked_query($dbr, $_DB_dossiers_elems_choix, "INSERT INTO $_DB_dossiers_elems_choix VALUES (
+            '##NEW_ID##', 
+            '$_SESSION[element_id]',
+            '".preg_replace("/[']+/", "''", stripslashes($texte))."', 
+            '$new_ordre')");
       }
 
       db_close($dbr);
@@ -206,7 +213,7 @@ CeCILL-B, et que vous en avez accepté les termes.
     if(isset($texte_vide))
       message("Erreur : le texte ne doit pas être vide", $__ERREUR);
 
-    $texte=isset($texte) ? htmlspecialchars(stripslashes($texte),ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]) : "";
+    $texte=isset($texte) ? htmlspecialchars(stripslashes($texte),ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE) : "";
 
     print("<form method='post' action='$php_self'>
 

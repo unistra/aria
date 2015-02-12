@@ -186,7 +186,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
             $corps_message.="<tr>
                               <td class='td-gauche' width='10px'>
-                                 <input type='hidden' name='spec_nom[".htmlspecialchars(stripslashes($formation_array["cand_id"]))."]' value='".htmlspecialchars(stripslashes($formation_array["nom"]), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"])."'>
+                                 <input type='hidden' name='spec_nom[".htmlspecialchars(stripslashes($formation_array["cand_id"]))."]' value='".htmlspecialchars(stripslashes($formation_array["nom"]), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE)."'>
                                  $selection
                               </td>
                               <td class='td-gauche'><font class='$font_class'>$formation_array[nom]</font></td>
@@ -516,7 +516,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          <font class='Texte_important_menu2'><strong>Détails de la demande de déverrouillage :</strong></font>
       </td>
       <td class='td-droite fond_menu'>
-         <textarea name='motif' cols="50" rows="7"><?php if(isset($motif)) echo htmlspecialchars(stripslashes($motif), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?></textarea>
+         <textarea name='motif' cols="50" rows="7"><?php if(isset($motif)) echo htmlspecialchars(stripslashes($motif), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?></textarea>
       </td>
    </tr>
    </table>

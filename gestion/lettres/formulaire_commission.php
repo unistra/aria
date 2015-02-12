@@ -371,7 +371,7 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
                         for($c=0; $c<$rows; $c++)
                         {
                            list($motif)=db_fetch_row($result,$c);
-                           $value=htmlspecialchars($motif, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+                           $value=htmlspecialchars($motif, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
 
                            // Colonne gauche ou droite ?
                            $pos=$prev_pos ? 0 : 1;
@@ -594,7 +594,7 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
                         for($c=0; $c<$rows; $c++)
                         {
                            list($motif)=db_fetch_row($result,$c);
-                           $value=htmlspecialchars($motif, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+                           $value=htmlspecialchars($motif, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
 
                            // Colonne gauche ou droite ?
                            $pos=$prev_pos ? 0 : 1;

@@ -144,7 +144,7 @@ CeCILL-B, et que vous en avez accepté les termes.
     else
     {
       if(!isset($_SESSION["ajout"]))
-        db_query($dbr,"UPDATE $_DB_para SET $_DBU_para_texte='$texte',
+        db_query($dbr,"UPDATE $_DB_para SET $_DBU_para_texte='".preg_replace("/[']+/", "''", stripslashes($texte))."',
                                 $_DBU_para_align='$alignement',
                                 $_DBU_para_gras='$gras',
                                 $_DBU_para_italique='$italique',
@@ -179,7 +179,15 @@ CeCILL-B, et que vous en avez accepté les termes.
         }
 
         // Insertion du nouvel élément
-        db_query($dbr,"INSERT INTO $_DB_para VALUES ('$lettre_id', '$_SESSION[ordre]','$texte', '$gras', '$italique', '$alignement', '$taille', '$marge_g')");
+        db_query($dbr,"INSERT INTO $_DB_para VALUES (
+            '$lettre_id', 
+            '$_SESSION[ordre]',
+            '".preg_replace("/[']+/", "''", stripslashes($texte))."',
+            '$gras',
+            '$italique',
+            '$alignement',
+            '$taille',
+            '$marge_g')");
       }
 
       db_close($dbr);
@@ -207,7 +215,7 @@ CeCILL-B, et que vous en avez accepté les termes.
     if(isset($para_vide))
       message("Erreur : le texte du paragraphe ne doit pas être vide.", $__ERREUR);
 
-    $texte=isset($texte) ? htmlspecialchars(stripslashes($texte),ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]) : "";
+    $texte=isset($texte) ? htmlspecialchars(stripslashes($texte),ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE) : "";
     $current_taille=isset($taille) ? $taille : "10";
     $current_marge_g=isset($marge_g) ? $marge_g : "0";
 

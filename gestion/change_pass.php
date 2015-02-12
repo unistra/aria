@@ -49,144 +49,145 @@ CeCILL-B, et que vous en avez accepté les termes.
 */
 ?>
 <?php
-	session_name("preinsc_gestion");
-	session_start();
+  session_name("preinsc_gestion");
+  session_start();
 
-	include "../configuration/aria_config.php";
-	include "$__INCLUDE_DIR_ABS/vars.php";
-	include "$__INCLUDE_DIR_ABS/fonctions.php";
-	include "$__INCLUDE_DIR_ABS/db.php";
+  include "../configuration/aria_config.php";
+  include "$__INCLUDE_DIR_ABS/vars.php";
+  include "$__INCLUDE_DIR_ABS/fonctions.php";
+  include "$__INCLUDE_DIR_ABS/db.php";
 
-	$php_self=$_SERVER['PHP_SELF'];
-	$_SESSION['CURRENT_FILE']=$php_self;
+  $php_self=$_SERVER['PHP_SELF'];
+  $_SESSION['CURRENT_FILE']=$php_self;
 
-	if(isset($_POST["go"]) || isset($_POST["go_x"]))
-	{
-		$login=strtolower(trim($_POST["login"]));
-		$pass=trim($_POST["current_pass"]);
-		$new_pass=trim($_POST["pass"]);
-		$new_pass_conf=trim($_POST["conf_pass"]);
+  if(isset($_POST["go"]) || isset($_POST["go_x"]))
+  {
+    $login=strtolower(trim($_POST["login"]));
+    $pass=trim($_POST["current_pass"]);
+    $new_pass=trim($_POST["pass"]);
+    $new_pass_conf=trim($_POST["conf_pass"]);
 
-		// vérification des champs
-		if($pass=="" || $new_pass=="" || $new_pass_conf=="")
-			$champs_vides=1;
-		else
-		{
-			// récupération des valeurs courantes et vérification du login
-			$dbr=db_connect();
-			$result=db_query($dbr,"SELECT $_DBC_acces_id, $_DBC_acces_pass FROM $_DB_acces WHERE $_DBC_acces_login like '$login'");
-			$rows=db_num_rows($result);
-			if(!$rows)
-			{
-				$login_existe_pas=1;
-				db_free_result($result);
-				db_close($dbr);
-			}
-			else
-			{
-				list($current_id,$current_pass)=db_fetch_row($result,0);
-				// vérification de la validité du pass actuel
-				if(md5($pass)!=$current_pass)
-				{
-					$old_pass_error=1;
-					db_free_result($result);
-					db_close($dbr);
-				}
-				else
-				{
-					// vérification des nouveaux pass
-					if($new_pass!=$new_pass_conf)
-						$pass_dont_match=1;
-					else
-					{
-						$md5_pass=md5($new_pass);
+    // vérification des champs
+    if($pass=="" || $new_pass=="" || $new_pass_conf=="")
+      $champs_vides=1;
+    else
+    {
+      // récupération des valeurs courantes et vérification du login
+      $dbr=db_connect();
+      $result=db_query($dbr,"SELECT $_DBC_acces_id, $_DBC_acces_pass FROM $_DB_acces 
+            WHERE $_DBC_acces_login like '".preg_replace("/[']+/", "''", stripslashes($login))."'");
+      $rows=db_num_rows($result);
+      if(!$rows)
+      {
+        $login_existe_pas=1;
+        db_free_result($result);
+        db_close($dbr);
+      }
+      else
+      {
+        list($current_id,$current_pass)=db_fetch_row($result,0);
+        // vérification de la validité du pass actuel
+        if(md5($pass)!=$current_pass)
+        {
+          $old_pass_error=1;
+          db_free_result($result);
+          db_close($dbr);
+        }
+        else
+        {
+          // vérification des nouveaux pass
+          if($new_pass!=$new_pass_conf)
+            $pass_dont_match=1;
+          else
+          {
+            $md5_pass=md5($new_pass);
 
-						// on peut mettre à jour
-						db_query($dbr,"UPDATE $_DB_acces SET $_DBU_acces_pass='$md5_pass' WHERE $_DBU_acces_id='$current_id'");
-						db_close($dbr);
-						$succes=1;
-					}
-				}
-			}
-		}
-	}
+            // on peut mettre à jour
+            db_query($dbr,"UPDATE $_DB_acces SET $_DBU_acces_pass='$md5_pass' WHERE $_DBU_acces_id='$current_id'");
+            db_close($dbr);
+            $succes=1;
+          }
+        }
+      }
+    }
+  }
 
-	en_tete_simple();
-	menu_sup_simple();
+  en_tete_simple();
+  menu_sup_simple();
 ?>
 
 <div class='main'>
-	<?php
-		titre_page_icone("Changer son mot de passe", "password2_32x32_fond.png", 15, "C");
+  <?php
+    titre_page_icone("Changer son mot de passe", "password2_32x32_fond.png", 15, "C");
 
-		if(isset($champs_vides))
-			message("Erreur : Tous les champs doivent être remplis.", $__ERREUR);
+    if(isset($champs_vides))
+      message("Erreur : Tous les champs doivent être remplis.", $__ERREUR);
 
-		if(isset($login_existe_pas))
-			message("Erreur : identifiant incorrect.", $__ERREUR);
+    if(isset($login_existe_pas))
+      message("Erreur : identifiant incorrect.", $__ERREUR);
 
-		if(isset($old_pass_error))
-			message("Erreur : mot de passe actuel incorrect.", $__ERREUR);
+    if(isset($old_pass_error))
+      message("Erreur : mot de passe actuel incorrect.", $__ERREUR);
 
-		if(isset($pass_dont_match))
-			message("Erreur : les nouveaux mots de passe sont différents.", $__ERREUR);
+    if(isset($pass_dont_match))
+      message("Erreur : les nouveaux mots de passe sont différents.", $__ERREUR);
 
-		if(isset($succes) && $succes==1)
-			message("Mot de passe modifié avec succès.", $__SUCCES);
+    if(isset($succes) && $succes==1)
+      message("Mot de passe modifié avec succès.", $__SUCCES);
 
-		print("<form action='$php_self' method='POST' name='form1'>
-					<input type='hidden' name='act' value='1'>\n");
-	?>
+    print("<form action='$php_self' method='POST' name='form1'>
+          <input type='hidden' name='act' value='1'>\n");
+  ?>
 
-	<table border="0" cellpadding="4" align='center' valign="top">
-	<tr>
-		<td class='td-gauche fond_menu2'>
-			<font class='Texte_menu2'>Identifiant (en minuscules) : </font>
-		</td>
-		<td class='td-droite fond_menu'>
-			<input type='text' name='login' value='<?php if(isset($login)) print($login); ?>' size='20'>
-		</td>
-	</tr>
-	<tr>
-		<td class='td-gauche fond_menu2'>
-			<font class='Texte_menu2'>Votre mot de passe actuel : </font>
-		</td>
-		<td class='td-droite fond_menu'>
-			<input type='password' name='current_pass' value='' size='40'>
-		</td>
-	</tr>
-	<tr>
-		<td class='td-gauche fond_menu2'>
-			<font class='Texte_menu2'>Votre nouveau mot de passe : </font>
-		</td>
-		<td class='td-droite fond_menu'>
-			<input type='password' name='pass' value='' size='40'>
-		</td>
-	</tr>
-	<tr>
-		<td class='td-gauche fond_menu2'>
-			<font class='Texte_menu2'>Confirmation du nouveau mot de passe : </font>
-		</td>
-		<td class='td-droite fond_menu'>
-			<input type='password' name='conf_pass' value='' size='40'>
-		</td>
-	</tr>
-	</table>
+  <table border="0" cellpadding="4" align='center' valign="top">
+  <tr>
+    <td class='td-gauche fond_menu2'>
+      <font class='Texte_menu2'>Identifiant (en minuscules) : </font>
+    </td>
+    <td class='td-droite fond_menu'>
+      <input type='text' name='login' value='<?php if(isset($login)) print($login); ?>' size='20'>
+    </td>
+  </tr>
+  <tr>
+    <td class='td-gauche fond_menu2'>
+      <font class='Texte_menu2'>Votre mot de passe actuel : </font>
+    </td>
+    <td class='td-droite fond_menu'>
+      <input type='password' name='current_pass' value='' size='40'>
+    </td>
+  </tr>
+  <tr>
+    <td class='td-gauche fond_menu2'>
+      <font class='Texte_menu2'>Votre nouveau mot de passe : </font>
+    </td>
+    <td class='td-droite fond_menu'>
+      <input type='password' name='pass' value='' size='40'>
+    </td>
+  </tr>
+  <tr>
+    <td class='td-gauche fond_menu2'>
+      <font class='Texte_menu2'>Confirmation du nouveau mot de passe : </font>
+    </td>
+    <td class='td-droite fond_menu'>
+      <input type='password' name='conf_pass' value='' size='40'>
+    </td>
+  </tr>
+  </table>
 
-	<div class='centered_icons_box'>
-		<?php
-			if(isset($succes))
-				print("<a href='login.php' target='_self'><img src='$__ICON_DIR/back_32x32_fond.png' alt='Retour' border='0'></a>&nbsp;&nbsp;\n");
-			else
-				print("<a href='login.php' target='_self'><img src='$__ICON_DIR/button_cancel_32x32_fond.png' alt='Retour' border='0'></a>\n");
-		?>
-		<input type="image" src="<?php echo "$__ICON_DIR/button_ok_32x32.png"; ?>" alt="Confirmer" name="go" value="Confirmer">
-		</form>
-	</div>
-	
+  <div class='centered_icons_box'>
+    <?php
+      if(isset($succes))
+        print("<a href='login.php' target='_self'><img src='$__ICON_DIR/back_32x32_fond.png' alt='Retour' border='0'></a>&nbsp;&nbsp;\n");
+      else
+        print("<a href='login.php' target='_self'><img src='$__ICON_DIR/button_cancel_32x32_fond.png' alt='Retour' border='0'></a>\n");
+    ?>
+    <input type="image" src="<?php echo "$__ICON_DIR/button_ok_32x32.png"; ?>" alt="Confirmer" name="go" value="Confirmer">
+    </form>
+  </div>
+  
 </div>
 <?php
-	pied_de_page();
+  pied_de_page();
 ?>
 
 </body></html>

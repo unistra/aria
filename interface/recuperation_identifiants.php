@@ -100,9 +100,9 @@ CeCILL-B, et que vous en avez accepté les termes.
       $result=db_query($dbr,"SELECT $_DBC_candidat_id, $_DBC_candidat_civilite, $_DBC_candidat_prenom, $_DBC_candidat_identifiant,
                           $_DBC_candidat_code_acces
                         FROM $_DB_candidat
-                      WHERE $_DBC_candidat_nom ILIKE '$nom'
+                      WHERE $_DBC_candidat_nom ILIKE '".preg_replace("/[']+/", "''", stripslashes($nom))."'
                       AND $_DBC_candidat_date_naissance='$date_naissance'
-                      AND $_DBC_candidat_email ILIKE '$email'");
+                      AND $_DBC_candidat_email ILIKE '".preg_replace("/[']+/", "''", stripslashes($email))."'");
       $rows=db_num_rows($result);
 
       if(!$rows)
@@ -211,7 +211,7 @@ $__SIGNATURE_COURRIELS";
       <font class='Texte_menu2'><b>Nom : </b></font>
     </td>
     <td class='td-droite fond_menu'>
-      <input type='text' name='nom' value='<?php if(isset($nom)) echo htmlspecialchars($nom,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="25" maxlength="30">
+      <input type='text' name='nom' value='<?php if(isset($nom)) echo htmlspecialchars($nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size="25" maxlength="30">
     </td>
   </tr>
   <tr>
@@ -219,9 +219,9 @@ $__SIGNATURE_COURRIELS";
       <font class='Texte_menu2'><b>Date de naissance (JJ/MM/AAAA) : </b></font>
     </td>
     <td class='td-droite fond_menu'>
-      <input type='text' name='jour' value='<?php if(isset($jour)) echo htmlspecialchars($jour,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="2" maxlength="2">/
-      <input type='text' name='mois' value='<?php if(isset($mois)) echo htmlspecialchars($mois,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="2" maxlength="2">/
-      <input type='text' name='annee' value='<?php if(isset($annee)) echo htmlspecialchars($annee,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="4" maxlength="4">
+      <input type='text' name='jour' value='<?php if(isset($jour)) echo htmlspecialchars($jour,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size="2" maxlength="2">/
+      <input type='text' name='mois' value='<?php if(isset($mois)) echo htmlspecialchars($mois,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size="2" maxlength="2">/
+      <input type='text' name='annee' value='<?php if(isset($annee)) echo htmlspecialchars($annee,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size="4" maxlength="4">
     </td>
   </tr>
   <tr>
@@ -229,7 +229,7 @@ $__SIGNATURE_COURRIELS";
       <font class='Texte_menu2'><b>Adresse électronique (<i>e-mail</i>) : </b></font>
     </td>
     <td class='td-droite fond_menu'>
-      <input type='text' name='email' value='<?php if(isset($email)) echo htmlspecialchars($email,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="25" maxlength="255">
+      <input type='text' name='email' value='<?php if(isset($email)) echo htmlspecialchars($email,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size="25" maxlength="255">
     </td>
   </tr>
   </table>

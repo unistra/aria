@@ -59,7 +59,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
    // includes spécifiques au module
   include "include/db.php"; // db.php appellera également update_db.php pour la mise à jour du schéma 
-   include "include/vars.php";
+  include "include/vars.php";
 
   $php_self=$_SERVER['PHP_SELF'];
   $_SESSION['CURRENT_FILE']=$php_self;
@@ -267,7 +267,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                    $old_type=$msg_type;
                 }
 
-                $val=htmlspecialchars($msg_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+                $val=htmlspecialchars($msg_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
 
                 $selected=isset($msg_id) && $msg_id==$select_msg_id ? "selected='1'" : "";
 
@@ -297,7 +297,7 @@ CeCILL-B, et que vous en avez accepté les termes.
             $rows=db_num_rows($result);
 
             list($msg_nom, $msg_type)=db_fetch_row($result, 0);
-            $val=htmlspecialchars($msg_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+            $val=htmlspecialchars($msg_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
 
             print("<font class='Texte_menu'><b>$val</b></font>\n");
           }

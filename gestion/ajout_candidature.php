@@ -283,9 +283,43 @@ CeCILL-B, et que vous en avez accepté les termes.
 
         $decision=$recours=$masse=$talon_reponse=$statut_frais=$nb_rappels=$notification_envoyee=0;
 
-        $candidature_id=db_locked_query($dbr, $_DB_cand, "INSERT INTO $_DB_cand VALUES('##NEW_ID##','$candidat_id','$candidature','$ordre','$statut','$motivation_decision','$traitee_par','$ordre_spec','$groupe_spec','$date_decision','$decision','$recours','$liste_attente','$transmission_dossier','$vap_flag','$masse','$talon_reponse','$statut_frais','$new_entretien_date','$new_entretien_heure','$new_entretien_lieu','$new_entretien_salle','$new_date_statut','$new_date_prise_decision','$__PERIODE','$session_id','$lock','$lockdate','$nb_rappels','$notification_envoyee')");
+        $candidature_id=db_locked_query($dbr, $_DB_cand, "INSERT INTO $_DB_cand VALUES(
+            '##NEW_ID##',
+            '$candidat_id',
+            '$candidature',
+            '$ordre',
+            '$statut',
+            '$motivation_decision',
+            '$traitee_par',
+            '$ordre_spec',
+            '$groupe_spec',
+            '$date_decision',
+            '$decision',
+            '$recours',
+            '$liste_attente',
+            '$transmission_dossier',
+            '$vap_flag',
+            '$masse',
+            '$talon_reponse',
+            '$statut_frais',
+            '$new_entretien_date',
+            '$new_entretien_heure',
+            '$new_entretien_lieu',
+            '$new_entretien_salle',
+            '$new_date_statut',
+            '$new_date_prise_decision',
+            '$__PERIODE',
+            '$session_id',
+            '$lock',
+            '$lockdate',
+            '$nb_rappels',
+            '$notification_envoyee')");
 
-        write_evt($dbr, $__EVT_ID_G_PREC, "Ajout candidature $candidature_id (Formation $candidature)", $candidat_id, $candidature_id, "INSERT INTO $_DB_cand VALUES('$candidature_id','$candidat_id','$candidature','$ordre','$statut','$motivation_decision','$traitee_par','$lock','$ordre_spec','$groupe_spec','$date_decision','$decision','$recours','$liste_attente','$transmission_dossier','$vap_flag','$masse','$talon_reponse','$statut_frais','$new_entretien_date','$new_entretien_heure','$new_entretien_lieu','$new_entretien_salle','$new_date_statut','$new_date_prise_decision','$__PERIODE','$nb_rappels','$notification_envoyee')");
+        write_evt($dbr, $__EVT_ID_G_PREC, 
+            "Ajout candidature $candidature_id (Formation $candidature)", 
+            $candidat_id, 
+            $candidature_id, 
+            "INSERT INTO $_DB_cand VALUES('$candidature_id','$candidat_id','$candidature','$ordre','$statut','$motivation_decision','$traitee_par','$lock','$ordre_spec','$groupe_spec','$date_decision','$decision','$recours','$liste_attente','$transmission_dossier','$vap_flag','$masse','$talon_reponse','$statut_frais','$new_entretien_date','$new_entretien_heure','$new_entretien_lieu','$new_entretien_salle','$new_date_statut','$new_date_prise_decision','$__PERIODE','$nb_rappels','$notification_envoyee')");
 
         db_close($dbr);
         header("Location:edit_candidature.php");
@@ -357,7 +391,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
             $nom_finalite=$tab_finalite[$finalite];
 
-            $mention_nom=htmlspecialchars($mention_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+            $mention_nom=htmlspecialchars($mention_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
 
             if($annee!=$prev_annee)
             {

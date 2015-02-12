@@ -143,10 +143,6 @@ CeCILL-B, et que vous en avez accepté les termes.
         $mot_libre="";
         
       $new_motivation="";
-/*
-      $entretien_date="0";
-      $entretien_jour=$entretien_mois=$entretien_annee=$entretien_heure=$entretien_h=$entretien_m=$entretien_salle=$entretien_lieu="";
-*/
 
       $entretien_jour=(isset($_POST["entretien_jour"][$inid]) && ctype_digit($_POST["entretien_jour"][$inid])) ? trim($_POST["entretien_jour"][$inid]) : "";
       $entretien_mois=(isset($_POST["entretien_mois"][$inid]) && ctype_digit($_POST["entretien_mois"][$inid]))? trim($_POST["entretien_mois"][$inid]) : "";
@@ -355,20 +351,24 @@ CeCILL-B, et que vous en avez accepté les termes.
               $partie++;
 
             db_query($dbr,"UPDATE $_DB_cand SET $_DBU_cand_decision='$new_decision',
-                                    $_DBU_cand_motivation_decision='$new_motivation',
+                                    $_DBU_cand_motivation_decision='".preg_replace("/[']+/", "''", stripslashes($new_motivation))."',
                                     $_DBU_cand_liste_attente='$current_decision_array[rang_liste]',
                                     $_DBU_cand_masse='1',
                                     $_DBU_cand_date_prise_decision='$date_prise_decision',
                                     $_DBU_cand_entretien_date='$entretien_date',
                                     $_DBU_cand_entretien_heure='$entretien_heure_texte',
-                                    $_DBU_cand_entretien_salle='$entretien_salle',
-                                    $_DBU_cand_entretien_lieu='$entretien_lieu',
+                                    $_DBU_cand_entretien_salle='".preg_replace("/[']+/", "''", stripslashes($entretien_salle))."',
+                                    $_DBU_cand_entretien_lieu='".preg_replace("/[']+/", "''", stripslashes($entretien_lieu))."',
                                     $_DBU_cand_traitee_par='$_SESSION[auth_id]'
                                 WHERE $_DBU_cand_id='$inid';
                         DELETE FROM $_DB_traitement_masse WHERE $_DBC_traitement_masse_cid='$inid';
                         INSERT INTO $_DB_traitement_masse VALUES ('$masse_id', '$partie', '$inid', '$_SESSION[auth_id]')");
                   
-            write_evt($dbr, $__EVT_ID_G_PREC, "Décision en Masse : \"$_SESSION[nom_formation]\" : " . $_SESSION["decision_array"]["$new_decision"], $current_decision_array["candidat_id"], $inid, "");     
+            write_evt($dbr, $__EVT_ID_G_PREC, 
+              "Décision en Masse : \"$_SESSION[nom_formation]\" : " . $_SESSION["decision_array"]["$new_decision"], 
+              $current_decision_array["candidat_id"], 
+              $inid, 
+              "");
             
             // Si : 
                 // 1 - les décisions sont publiées 
@@ -775,7 +775,7 @@ $_SESSION[universite]";
         {
           list($motif_id, $motif)=db_fetch_row($result2,$i_motif);
 
-          $value=htmlspecialchars($motif, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+          $value=htmlspecialchars($motif, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
           $motifs_array[$motif_id]=$motif;
         }
         db_free_result($result2);
@@ -978,7 +978,7 @@ $_SESSION[universite]";
                       <font class='$font1'>Salle :&nbsp;</font>
                     </td>
                     <td colspan='6'>
-                      <input class='input_small' type='text' name='entretien_salle[$inid]' value='" . htmlspecialchars(stripslashes($entretien_salle), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]) . "' size='25' maxlength='50'>
+                      <input class='input_small' type='text' name='entretien_salle[$inid]' value='" . htmlspecialchars(stripslashes($entretien_salle), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE) . "' size='25' maxlength='50'>
                     </td>
                   </tr>
                   <tr>
@@ -986,7 +986,7 @@ $_SESSION[universite]";
                       <font class='$font1'>Lieu :&nbsp;</font>
                     </td>
                     <td colspan='6'>
-                      <input class='input_small' type='text' name='entretien_lieu[$inid]' value='" . htmlspecialchars(stripslashes($entretien_lieu), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]) . "' size='40' maxlength='128'>
+                      <input class='input_small' type='text' name='entretien_lieu[$inid]' value='" . htmlspecialchars(stripslashes($entretien_lieu), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE) . "' size='40' maxlength='128'>
                     </td>
                   </tr>
                   </table>

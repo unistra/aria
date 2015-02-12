@@ -76,23 +76,6 @@ CeCILL-B, et que vous en avez accepté les termes.
    elseif(isset($_GET["mod"]) && $_GET["mod"]==1)
       $mod=1;
 
-   /*
-   if(isset($_POST["valider_auto"]) || isset($_POST["valider_auto_x"]))
-   {
-      if(array_key_exists("auto", $_POST))
-      {
-         foreach($_POST["auto"] as $groupe => $auto)
-         {
-            if($auto=="f" || $auto=="t")
-            {
-               db_query($dbr, "UPDATE $_DB_groupes_spec SET $_DBU_groupes_spec_auto='$auto' WHERE $_DBU_groupes_spec_groupe='$groupe'");
-               $succes=1;
-            }
-         }
-      }
-   }
-   */
-   
    if(isset($_POST["creer"]) || isset($_POST["creer_x"])) // création d'un nouveau groupe
    {
       $propspec_id=$_POST["selection"];
@@ -119,7 +102,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          $formation_vide=1;
       elseif($nom_groupe=="")
          $nom_vide=1;
-      elseif(db_num_rows(db_query($dbr, "SELECT * FROM $_DB_groupes_spec WHERE $_DBC_groupes_spec_nom ILIKE '$nom_groupe'")))
+      elseif(db_num_rows(db_query($dbr, "SELECT * FROM $_DB_groupes_spec WHERE $_DBC_groupes_spec_nom ILIKE '".preg_replace("/[']+/", "''", stripslashes($nom_groupe))."'")))
          $nom_existe=1;
       else
       {
@@ -148,7 +131,13 @@ CeCILL-B, et que vous en avez accepté les termes.
             while(db_num_rows(db_query($dbr,"SELECT * FROM $_DB_cand WHERE $_DBC_cand_groupe_spec='$new_id'")))
                $new_id++;
 
-            db_query($dbr,"INSERT INTO $_DB_groupes_spec VALUES('$propspec_id','$new_id','$auto', '$nom_groupe','$dates_communes')");
+            db_query($dbr,"INSERT INTO $_DB_groupes_spec VALUES(
+                '$propspec_id',
+                '$new_id',
+                '$auto', 
+                '".preg_replace("/[']+/", "''", stripslashes($nom_groupe))."',
+                '$dates_communes')");
+                
             db_close($dbr);
    
             header("Location:groupes_formations.php");
@@ -170,13 +159,16 @@ CeCILL-B, et que vous en avez accepté les termes.
             
       if($nom_groupe=="")
          $nom_vide=1;
-      elseif(db_num_rows(db_query($dbr, "SELECT * FROM $_DB_groupes_spec WHERE $_DBC_groupes_spec_nom ILIKE '$nom_groupe' AND $_DBC_groupes_spec_groupe!='$groupe'")))
+      elseif(db_num_rows(db_query($dbr, "SELECT * FROM $_DB_groupes_spec 
+            WHERE $_DBC_groupes_spec_nom ILIKE '".preg_replace("/[']+/", "''", stripslashes($nom_groupe))."' 
+            AND $_DBC_groupes_spec_groupe!='$groupe'")))
          $nom_existe=1;
       else
       {
-         db_query($dbr,"UPDATE $_DB_groupes_spec SET $_DBU_groupes_spec_auto='$auto',
-                                                     $_DBU_groupes_spec_nom='$nom_groupe',
-                                                     $_DBU_groupes_spec_dates_communes='$dates_communes'
+         db_query($dbr,"UPDATE $_DB_groupes_spec SET 
+                          $_DBU_groupes_spec_auto='$auto',
+                          $_DBU_groupes_spec_nom='".preg_replace("/[']+/", "''", stripslashes($nom_groupe))."',
+                          $_DBU_groupes_spec_dates_communes='$dates_communes'
                         WHERE $_DBU_groupes_spec_groupe='$groupe'");
          db_close($dbr);
    
@@ -197,14 +189,6 @@ CeCILL-B, et que vous en avez accepté les termes.
       else
       {
          // unicité du couple année/specialité : un couple ne peut appartenir qu'à un seul groupe !
-/*
-         $result=db_query($dbr,"SELECT groupe FROM $_DB_groupes_spec WHERE annee_id='$annee_id' AND spec_id='$spec'");
-         if(db_num_rows($result))
-            $groupe_existe_deja=1;
-         else
-         {
-*/
-
          $res_nom_auto=db_query($dbr, "SELECT $_DBU_groupes_spec_nom, $_DBU_groupes_spec_auto, $_DBU_groupes_spec_dates_communes 
                                        FROM $_DB_groupes_spec 
                                        WHERE $_DBU_groupes_spec_groupe='$groupe' limit 1");
@@ -220,7 +204,13 @@ CeCILL-B, et que vous en avez accepté les termes.
             
          db_free_result($res_nom_auto);
          
-         db_query($dbr,"INSERT INTO $_DB_groupes_spec VALUES('$propspec_id', '$groupe', '$auto', '$nom_groupe','$dates_communes')");
+         db_query($dbr,"INSERT INTO $_DB_groupes_spec VALUES(
+            '$propspec_id', 
+            '$groupe', 
+            '$auto', 
+            '".preg_replace("/[']+/", "''", stripslashes($nom_groupe))."',
+            '$dates_communes')");
+            
          db_close($dbr);
 
          header("Location:groupes_formations.php");
@@ -343,7 +333,7 @@ CeCILL-B, et que vous en avez accepté les termes.
             <font class='Texte_menu2'><b>Nom du groupe</b></font>
          </td>
          <td class='td-droite fond_menu'>
-            <input type='text' name='nom' value='<?php echo htmlspecialchars(stripslashes($nom_groupe), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>'>
+            <input type='text' name='nom' value='<?php echo htmlspecialchars(stripslashes($nom_groupe), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>'>
          </td>
       </tr>
       <tr>
@@ -513,7 +503,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                <font class='Texte_menu2'><b>Nom du groupe</b></font>
             </td>
             <td class='td-droite fond_menu'>
-               <input type='text' name='nom' value='<?php echo htmlspecialchars(stripslashes($nom_groupe), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>'>
+               <input type='text' name='nom' value='<?php echo htmlspecialchars(stripslashes($nom_groupe), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>'>
             </td>
          </tr>
          <tr>

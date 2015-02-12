@@ -444,20 +444,80 @@ CeCILL-B, et que vous en avez accepté les termes.
 
           $new_date_prise_decision=$new_date_statut=$decision=$recours=$masse=$talon_reponse=$statut_frais=$nb_rappels=$notification_envoyee=0;
 
-          $candidature_id=db_locked_query($dbr, $_DB_cand, "INSERT INTO $_DB_cand VALUES('##NEW_ID##','$candidat_id','$_SESSION[propspec_id]','$ordre','$statut','$motivation_decision','$traitee_par','$ordre_spec','$groupe_spec','$date_decision','$decision','$recours','$liste_attente','$transmission_dossier','$_SESSION[vap_flag]','$masse','$talon_reponse','$statut_frais','$new_entretien_date','$new_entretien_heure','$new_entretien_lieu','$new_entretien_salle','$new_date_statut','$new_date_prise_decision', '$session_periode', '$session_id', '$lock', '$new_lockdate2','$nb_rappels','$notification_envoyee')");
+          $candidature_id=db_locked_query($dbr, $_DB_cand, "INSERT INTO $_DB_cand VALUES(
+              '##NEW_ID##',
+              '$candidat_id',
+              '$_SESSION[propspec_id]',
+              '$ordre',
+              '$statut',
+              '$motivation_decision',
+              '$traitee_par',
+              '$ordre_spec',
+              '$groupe_spec',
+              '$date_decision',
+              '$decision',
+              '$recours',
+              '$liste_attente',
+              '$transmission_dossier',
+              '$_SESSION[vap_flag]',
+              '$masse',
+              '$talon_reponse',
+              '$statut_frais',
+              '$new_entretien_date',
+              '$new_entretien_heure',
+              '$new_entretien_lieu',
+              '$new_entretien_salle',
+              '$new_date_statut',
+              '$new_date_prise_decision',
+              '$session_periode',
+              '$session_id',
+              '$lock',
+              '$new_lockdate2',
+              '$nb_rappels',
+              '$notification_envoyee')");
 
-               // ajout automatique des autres formations, s'il y en a
-               // seul l'ordre dans le groupe doit être incrémenté, les autres variables sont identiques
-               if(isset($array_formations_groupe) && is_array($array_formations_groupe) && count($array_formations_groupe))
-               {
-                  $_SESSION["array_formations_groupe"]=$array_formations_groupe;
-                  
-                  foreach($array_formations_groupe as $groupe_propspec_id => $groupe_formations_spec_nom)
-                  {
-                     $ordre_spec++;
-                     $groupe_candidature_id=db_locked_query($dbr, $_DB_cand, "INSERT INTO $_DB_cand VALUES('##NEW_ID##','$candidat_id','$groupe_propspec_id','$ordre','$statut','$motivation_decision','$traitee_par','$ordre_spec','$groupe_spec','$date_decision','$decision','$recours','$liste_attente','$transmission_dossier','$_SESSION[vap_flag]','$masse','$talon_reponse','$statut_frais','$new_entretien_date','$new_entretien_heure','$new_entretien_lieu','$new_entretien_salle','$new_date_statut','$new_date_prise_decision', '$session_periode', '$session_id', '$lock', '$new_lockdate2','$nb_rappels','$notification_envoyee')");
-            }
-               }
+           // ajout automatique des autres formations, s'il y en a
+           // seul l'ordre dans le groupe doit être incrémenté, les autres variables sont identiques
+           if(isset($array_formations_groupe) && is_array($array_formations_groupe) && count($array_formations_groupe))
+           {
+              $_SESSION["array_formations_groupe"]=$array_formations_groupe;
+              
+              foreach($array_formations_groupe as $groupe_propspec_id => $groupe_formations_spec_nom)
+              {
+                 $ordre_spec++;
+                 $groupe_candidature_id=db_locked_query($dbr, $_DB_cand, "INSERT INTO $_DB_cand VALUES(
+                    '##NEW_ID##',
+                    '$candidat_id',
+                    '$groupe_propspec_id',
+                    '$ordre',
+                    '$statut',
+                    '$motivation_decision',
+                    '$traitee_par',
+                    '$ordre_spec',
+                    '$groupe_spec',
+                    '$date_decision',
+                    '$decision',
+                    '$recours',
+                    '$liste_attente',
+                    '$transmission_dossier',
+                    '$_SESSION[vap_flag]',
+                    '$masse',
+                    '$talon_reponse',
+                    '$statut_frais',
+                    '$new_entretien_date',
+                    '$new_entretien_heure',
+                    '$new_entretien_lieu',
+                    '$new_entretien_salle',
+                    '$new_date_statut',
+                    '$new_date_prise_decision',
+                    '$session_periode',
+                    '$session_id',
+                    '$lock',
+                    '$new_lockdate2',
+                    '$nb_rappels',
+                    '$notification_envoyee')");
+              }
+           }
 
           // Nom de la formation, pour l'historique
           $res_formation=db_query($dbr,"SELECT $_DBC_annees_annee, $_DBC_specs_nom_court, $_DBC_propspec_finalite
@@ -488,24 +548,14 @@ CeCILL-B, et que vous en avez accepté les termes.
           // Renseignements complémentaires
           $count=db_num_rows(db_query($dbr, "SELECT * FROM $_DB_dossiers_ef
                                 WHERE $_DBC_dossiers_ef_propspec_id='$_SESSION[propspec_id]'"));
-/*
-          if(trim($propspec_info)!="" || $count)
-          {
-            // on conserve la date de verrouillage pour prévenir le candidat, s'il y a des infos à compléter dans "Autres renseignements".
-*/
-            $_SESSION["info_lockdate"]=$new_lockdate2;
 
-            db_close($dbr);
-
-            header("Location:info_formation.php?vap=$_SESSION[vap_flag]");
-            exit();
-/*
-          }
+          $_SESSION["info_lockdate"]=$new_lockdate2;
 
           db_close($dbr);
-          header("Location:precandidatures.php");
+
+          header("Location:info_formation.php?vap=$_SESSION[vap_flag]");
           exit();
-*/
+
         }
       } // fin du if(pass ...)
     }
@@ -616,8 +666,6 @@ CeCILL-B, et que vous en avez accepté les termes.
                               AND $_DBC_propspec_comp_id='$_SESSION[comp_id]'
                               AND $_DBC_session_ouverture<='$date_courante'
                               AND $_DBC_session_fermeture>='$date_courante'")))
-
-  //                            AND $_DBC_session_periode='$__PERIODE'")))
         {
           message("Aucune précandidature ne peut être déposée dans cette composante car toutes les dates limites sont dépassées", $__ERREUR);
 
@@ -779,7 +827,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                   {
                     if(!isset($condition_annee_mention[$mention]) || (isset($condition_annee_mention[$mention]) && $condition_annee_mention[$mention]==$annee_id))
                     {
-                      $mention_nom=htmlspecialchars($mention_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+                      $mention_nom=htmlspecialchars($mention_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
                     
                       if(!isset($prem))
                       {

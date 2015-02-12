@@ -86,14 +86,15 @@ CeCILL-B, et que vous en avez accepté les termes.
 
       // unicité
       if(db_num_rows(db_query($dbr,"SELECT * FROM $_DB_msg_modeles
-                          WHERE ($_DBC_msg_modeles_intitule ILIKE '$intitule' OR $_DBC_msg_modeles_texte ILIKE '$texte')
+                          WHERE ($_DBC_msg_modeles_intitule ILIKE '".preg_replace("/[']+/", "''", stripslashes($intitule))."' 
+                              OR $_DBC_msg_modeles_texte ILIKE '".preg_replace("/[']+/", "''", stripslashes($texte))."')
                           AND $_DBC_msg_modeles_id!='$new_id'
                           AND $_DBC_msg_modeles_acces_id='$_SESSION[auth_id]'")))
         $modele_existe="1";
     }
     elseif(db_num_rows(db_query($dbr,"SELECT * FROM $_DB_msg_modeles
-                           WHERE ($_DBC_msg_modeles_intitule ILIKE '$intitule'
-                            OR $_DBC_msg_modeles_texte ILIKE '$texte')
+                           WHERE ($_DBC_msg_modeles_intitule ILIKE '".preg_replace("/[']+/", "''", stripslashes($intitule))."'
+                            OR $_DBC_msg_modeles_texte ILIKE '".preg_replace("/[']+/", "''", stripslashes($texte))."')
                            AND $_DBC_msg_modeles_acces_id='$_SESSION[auth_id]'")))
       $modele_existe="1";
 
@@ -111,10 +112,14 @@ CeCILL-B, et que vous en avez accepté les termes.
         // Modification
         if(!isset($_SESSION["ajout"]) && isset($new_id))
           db_query($dbr,"UPDATE $_DB_msg_modeles SET $_DBU_msg_modeles_intitule='$intitule',
-                                       $_DBU_msg_modeles_texte='$texte'
-                    WHERE $_DBU_msg_modeles_id='$new_id'");
+                                $_DBU_msg_modeles_texte='".preg_replace("/[']+/", "''", stripslashes($texte))."'
+                         WHERE $_DBU_msg_modeles_id='$new_id'");
         else
-          $new_id=db_locked_query($dbr, $_DB_msg_modeles, "INSERT INTO $_DB_msg_modeles VALUES ('##NEW_ID##', '$_SESSION[auth_id]', '$intitule', '$texte')");
+          $new_id=db_locked_query($dbr, $_DB_msg_modeles, "INSERT INTO $_DB_msg_modeles VALUES (
+              '##NEW_ID##', 
+              '$_SESSION[auth_id]', 
+              '$intitule', 
+              '".preg_replace("/[']+/", "''", stripslashes($texte))."')");
 
         db_close($dbr);
 
@@ -186,7 +191,7 @@ CeCILL-B, et que vous en avez accepté les termes.
         {
           list($modele_id, $intitule)=db_fetch_row($result,$i);
 
-          $value=htmlspecialchars($intitule, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+          $value=htmlspecialchars($intitule, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
 
           print("<option value='$modele_id' label=\"$value\">$value</option>\n");
         }
@@ -255,7 +260,7 @@ CeCILL-B, et que vous en avez accepté les termes.
         <font class='Texte_menu2'><b>Intitulé du modèle</b></font>
       </td>
       <td class='td-droite fond_menu'>
-        <input type='text' name='intitule' value='<?php if(isset($intitule)) echo htmlspecialchars(stripslashes($intitule), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' maxlength='196' size='70'>
+        <input type='text' name='intitule' value='<?php if(isset($intitule)) echo htmlspecialchars(stripslashes($intitule), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' maxlength='196' size='70'>
       </td>
     </tr>
     <tr>
@@ -264,7 +269,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       </td>
       <td class='td-droite fond_menu'>
         <textarea name='texte' rows='18' cols='80'><?php
-          if(isset($texte)) echo htmlspecialchars(stripslashes($texte), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+          if(isset($texte)) echo htmlspecialchars(stripslashes($texte), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
         ?></textarea>
       </td>
     </tr>

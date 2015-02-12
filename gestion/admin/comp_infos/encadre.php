@@ -118,54 +118,51 @@ CeCILL-B, et que vous en avez accepté les termes.
     $texte=trim($_POST['new_encadre']);
     $alignement=$_POST['alignement'];
 
-//    if(str_is_clean($texte))
-//    {
-      // le nouveau texte est ok, on le modifie dans la table "encadre"
-      // et on modifie la date de dernière modif de l'article
-
-      if(!isset($_SESSION["ajout"]))
-        db_query($dbr,"UPDATE $_DB_comp_infos_encadre SET   $_DBU_comp_infos_encadre_texte='$texte',
-                                                                    $_DBU_comp_infos_encadre_txt_align='$alignement'
-                        WHERE $_DBU_comp_infos_encadre_info_id='$info_doc_id'
-                        AND $_DBU_comp_infos_encadre_ordre='$_SESSION[ordre]'");
-      else
+    if(!isset($_SESSION["ajout"]))
+      db_query($dbr,"UPDATE $_DB_comp_infos_encadre SET 
+          $_DBU_comp_infos_encadre_texte='".preg_replace("/[']+/", "''", stripslashes($texte))."',
+          $_DBU_comp_infos_encadre_txt_align='$alignement'
+          WHERE $_DBU_comp_infos_encadre_info_id='$info_doc_id'
+          AND $_DBU_comp_infos_encadre_ordre='$_SESSION[ordre]'");
+    else
+    {
+      if($_SESSION["ordre"]!=$_SESSION["ordre_max"]) // On n'insère pas l'élément en dernier : décallage
       {
-        if($_SESSION["ordre"]!=$_SESSION["ordre_max"]) // On n'insère pas l'élément en dernier : décallage
+        // 1 - Reconstruction des éléments (comme pour la suppression)
+        $a=get_all_elements($dbr, $info_doc_id);
+        $nb_elements=count($a);
+
+        for($i=$nb_elements; $i>$_SESSION["ordre"]; $i--)
         {
-          // 1 - Reconstruction des éléments (comme pour la suppression)
-          $a=get_all_elements($dbr, $info_doc_id);
-          $nb_elements=count($a);
+          $current_ordre=$i-1;
+          $new_ordre=$i;
+          $current_type=$a["$current_ordre"]["type"]; // le type sert juste à savoir dans quelle table on doit modifier l'élément courant
+          $current_id=$a["$current_ordre"]["id"];
 
-          for($i=$nb_elements; $i>$_SESSION["ordre"]; $i--)
-          {
-            $current_ordre=$i-1;
-            $new_ordre=$i;
-            $current_type=$a["$current_ordre"]["type"]; // le type sert juste à savoir dans quelle table on doit modifier l'élément courant
-            $current_id=$a["$current_ordre"]["id"];
-
-            $current_table_name=get_table_name($current_type);
-            $col_ordre=$current_table_name["ordre"];
-            $col_id=$current_table_name["id"];
-            $table=$current_table_name["table"];
+          $current_table_name=get_table_name($current_type);
+          $col_ordre=$current_table_name["ordre"];
+          $col_id=$current_table_name["id"];
+          $table=$current_table_name["table"];
 
 
-            db_query($dbr,"UPDATE $table SET $col_ordre='$new_ordre'
-                              WHERE $col_id='$current_id'
-                              AND $col_ordre='$current_ordre'");
-          }
+          db_query($dbr,"UPDATE $table SET $col_ordre='$new_ordre'
+                            WHERE $col_id='$current_id'
+                            AND $col_ordre='$current_ordre'");
         }
-
-        // Insertion du nouvel élément
-        db_query($dbr,"INSERT INTO $_DB_comp_infos_encadre VALUES ('$info_doc_id', '$texte', $alignement, '$_SESSION[ordre]')");
       }
 
-      db_close($dbr);
+      // Insertion du nouvel élément
+      db_query($dbr,"INSERT INTO $_DB_comp_infos_encadre VALUES (
+          '$info_doc_id', 
+          '".preg_replace("/[']+/", "''", stripslashes($texte))."', 
+          '$alignement', 
+          '$_SESSION[ordre]')");
+    }
 
-      header("Location:index.php");
-      exit;
-//    }
-//    else
-//      $encadre_pas_clean=1;
+    db_close($dbr);
+
+    header("Location:index.php");
+    exit();
   }
 
   // EN-TETE
@@ -230,7 +227,7 @@ CeCILL-B, et que vous en avez accepté les termes.
     </td>
     <td class='td-droite fond_menu'>
       <font class='Texte_menu'><i>Les adresses http(s):// seront automatiquement transformées en liens HTML</i></font>
-      <br><textarea  name='new_encadre' rows='10' cols='60' class='input'><?php if(isset($texte)) echo htmlspecialchars($texte, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?></textarea>
+      <br><textarea  name='new_encadre' rows='10' cols='60' class='input'><?php if(isset($texte)) echo htmlspecialchars($texte, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?></textarea>
     </td>
   </tr>
   <tr>

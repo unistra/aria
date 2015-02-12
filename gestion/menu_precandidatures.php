@@ -528,10 +528,10 @@ CeCILL-B, et que vous en avez accepté les termes.
          if(isset($new_motivation[$cand_id]))
          {
             $mot=$new_motivation[$cand_id];
-            $motivation_txt=htmlspecialchars(stripslashes($mot), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+            $motivation_txt=htmlspecialchars(stripslashes($mot), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
          }
          else
-            $motivation_txt=htmlspecialchars(stripslashes($motivation_decision), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+            $motivation_txt=htmlspecialchars(stripslashes($motivation_decision), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
       }
       else
          $motivation_txt="";

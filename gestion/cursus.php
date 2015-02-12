@@ -108,15 +108,7 @@ CeCILL-B, et que vous en avez accepté les termes.
   if(isset($_POST["go"]) || isset($_POST["go_x"])) // validation du formulaire
   {
     $diplome=$_POST["filiere"];
-/*
-    if(empty($diplome)) // filière venant du champ libre ?
-      $diplome=html_entity_decode(ucfirst(trim($_POST["filiere_libre"])));
-*/
-    // même traitement avec l'intitulé
-/*
-    $intitule=html_entity_decode($_POST["intitule"]);
-    if(empty($intitule)) // pays venant du champ libre ?
-*/
+
     $intitule=html_entity_decode(ucfirst(trim($_POST["intitule_libre"])));
 
     // presque pareil avec la spécialité, la ville et l'école
@@ -154,22 +146,39 @@ CeCILL-B, et que vous en avez accepté les termes.
       
       if($cu_id==0)
       {
-        $cursus_id=db_locked_query($dbr, $_DB_cursus, "INSERT INTO $_DB_cursus VALUES('##NEW_ID##','$candidat_id','$diplome','$intitule','$specialite','$annee_obtention','$ecole','$ville','$pays','$note_moyenne','$mention','$rang')");
+        $cursus_id=db_locked_query($dbr, $_DB_cursus, "INSERT INTO $_DB_cursus VALUES(
+            '##NEW_ID##',
+            '$candidat_id',
+            '".preg_replace("/[']+/", "''", stripslashes($diplome))."',
+            '".preg_replace("/[']+/", "''", stripslashes($intitule))."',
+            '".preg_replace("/[']+/", "''", stripslashes($specialite))."',
+            '".preg_replace("/[']+/", "''", stripslashes($annee_obtention))."',
+            '".preg_replace("/[']+/", "''", stripslashes($ecole))."',
+            '".preg_replace("/[']+/", "''", stripslashes($ville))."',
+            '".preg_replace("/[']+/", "''", stripslashes($pays))."',
+            '".preg_replace("/[']+/", "''", stripslashes($note_moyenne))."',
+            '".preg_replace("/[']+/", "''", stripslashes($mention))."',
+            '".preg_replace("/[']+/", "''", stripslashes($rang))."')");
 
-        write_evt($dbr, $__EVT_ID_G_CURSUS, "Ajout cursus $cursus_id", $candidat_id, $cursus_id, "INSERT INTO $_DB_cursus VALUES('$cursus_id','$candidat_id','$diplome','$intitule','$specialite','$annee_obtention','$ecole','$ville','$pays','$note_moyenne','$mention','$rang')");
+        write_evt($dbr, $__EVT_ID_G_CURSUS, 
+            "Ajout cursus $cursus_id", 
+            $candidat_id, 
+            $cursus_id, 
+            "INSERT INTO $_DB_cursus VALUES('$cursus_id','$candidat_id','$diplome','$intitule','$specialite','$annee_obtention','$ecole','$ville','$pays','$note_moyenne','$mention','$rang')");
       }
       else
       {
-        $req="UPDATE $_DB_cursus SET $_DBU_cursus_diplome='$diplome',
-                            $_DBU_cursus_intitule='$intitule',
-                            $_DBU_cursus_spec='$specialite',
-                            $_DBU_cursus_annee='$annee_obtention',
-                            $_DBU_cursus_ecole='$ecole',
-                            $_DBU_cursus_ville='$ville',
-                            $_DBU_cursus_pays='$pays',
-                            $_DBU_cursus_moyenne='$note_moyenne',
-                            $_DBU_cursus_mention='$mention',
-                            $_DBU_cursus_rang='$rang'
+        $req="UPDATE $_DB_cursus SET 
+            $_DBU_cursus_diplome='".preg_replace("/[']+/", "''", stripslashes($diplome))."',
+            $_DBU_cursus_intitule='".preg_replace("/[']+/", "''", stripslashes($intitule))."',
+            $_DBU_cursus_spec='".preg_replace("/[']+/", "''", stripslashes($specialite))."',
+            $_DBU_cursus_annee='".preg_replace("/[']+/", "''", stripslashes($annee_obtention))."',
+            $_DBU_cursus_ecole='".preg_replace("/[']+/", "''", stripslashes($ecole))."',
+            $_DBU_cursus_ville='".preg_replace("/[']+/", "''", stripslashes($ville))."',
+            $_DBU_cursus_pays='".preg_replace("/[']+/", "''", stripslashes($pays))."',
+            $_DBU_cursus_moyenne='".preg_replace("/[']+/", "''", stripslashes($note_moyenne))."',
+            $_DBU_cursus_mention='".preg_replace("/[']+/", "''", stripslashes($mention))."',
+            $_DBU_cursus_rang='".preg_replace("/[']+/", "''", stripslashes($rang))."'
             WHERE $_DBU_cursus_id='$cu_id' AND $_DBU_cursus_candidat_id='$candidat_id'";
 
         db_query($dbr, $req);
@@ -188,9 +197,9 @@ CeCILL-B, et que vous en avez accepté les termes.
   {
     // récupération des valeurs courantes
     $result=db_query($dbr,"SELECT $_DBC_cursus_diplome, $_DBC_cursus_intitule, $_DBC_cursus_spec, $_DBC_cursus_annee,
-                                      $_DBC_cursus_ecole, $_DBC_cursus_ville, $_DBC_cursus_pays, $_DBC_cursus_moyenne,
-                                      $_DBC_cursus_mention, $_DBC_cursus_rang
-                              FROM $_DB_cursus WHERE $_DBC_cursus_id='$cu_id'");
+                                  $_DBC_cursus_ecole, $_DBC_cursus_ville, $_DBC_cursus_pays, $_DBC_cursus_moyenne,
+                                  $_DBC_cursus_mention, $_DBC_cursus_rang
+                            FROM $_DB_cursus WHERE $_DBC_cursus_id='$cu_id'");
     $rows=db_num_rows($result);
 
     if(!$rows) // erreur
@@ -246,11 +255,7 @@ CeCILL-B, et que vous en avez accepté les termes.
           $result=db_query($dbr,"SELECT $_DBC_cursus_diplomes_intitule, $_DBC_cursus_diplomes_niveau
                             FROM $_DB_cursus_diplomes
                           ORDER BY $_DBC_cursus_diplomes_niveau,lower($_DBC_cursus_diplomes_intitule)");
-  /*
-          $result=db_query($dbr,"SELECT $_DBC_cursus_apogee_code, $_DBC_cursus_apogee_libelle_long
-                            FROM $_DB_cursus_apogee
-                          ORDER BY $_DBC_cursus_apogee_code");
-  */
+
           $rows=db_num_rows($result);
 
           $current_niveau=-10; // initialisé à n'importe quelle valeur inférieure à -1
@@ -268,12 +273,12 @@ CeCILL-B, et que vous en avez accepté les termes.
           print("<option value='Autre' $selected>Autre (préciser dans le champ \"Mention - Intitulé\"</option>
                <option value=''></option>\n");
 
-          $value2=preg_replace("/_/","",htmlspecialchars(stripslashes($cur_diplome), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]));
+          $value2=preg_replace("/_/","",htmlspecialchars(stripslashes($cur_diplome), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE));
 
           for($i=0; $i<$rows; $i++)
           {
             list($diplome_intitule, $diplome_niveau)=db_fetch_row($result,$i);
-            $value=htmlspecialchars($diplome_intitule, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+            $value=htmlspecialchars($diplome_intitule, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
 
             if($diplome_niveau!=$current_niveau)
             {
@@ -312,7 +317,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <font class='Texte_important_menu2'><b>Mention / Intitulé</b></font>
     </td>
     <td class='td-droite fond_menu'>
-      <input type='text' name='intitule_libre' value='<?php if(isset($cur_intitule) && !isset($intitule_liste)) echo htmlspecialchars(str_replace("_","",stripslashes($cur_intitule)),ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="80" maxlength="256">
+      <input type='text' name='intitule_libre' value='<?php if(isset($cur_intitule) && !isset($intitule_liste)) echo htmlspecialchars(str_replace("_","",stripslashes($cur_intitule)),ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size="80" maxlength="256">
     </td>
   </tr>
   <tr>
@@ -320,7 +325,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <font class='Texte_menu2'>Spécialité / Parcours (si applicable)</font>
     </td>
     <td class='td-droite fond_menu'>
-      <input type='text' name='specialite' value='<?php if(isset($specialite)) echo htmlspecialchars(stripslashes(str_replace("_","",$specialite)), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);  else echo htmlspecialchars(preg_replace("/_/","",$cur_specialite),ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' maxlength='50' size='30'>
+      <input type='text' name='specialite' value='<?php if(isset($specialite)) echo htmlspecialchars(stripslashes(str_replace("_","",$specialite)), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);  else echo htmlspecialchars(preg_replace("/_/","",$cur_specialite),ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' maxlength='50' size='30'>
     </td>
   </tr>
   <tr>
@@ -341,7 +346,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <font class='Texte_important_menu2'><b>Etablissement</b></font>
     </td>
     <td class='td-droite fond_menu'>
-      <input type='text' name='ecole' value='<?php if(isset($ecole)) $cur_ecole=$ecole; echo htmlspecialchars(str_replace("_","",stripslashes($cur_ecole)),ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);?>' maxlength='128' size='30'>
+      <input type='text' name='ecole' value='<?php if(isset($ecole)) $cur_ecole=$ecole; echo htmlspecialchars(str_replace("_","",stripslashes($cur_ecole)),ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);?>' maxlength='128' size='30'>
     </td>
   </tr>
   <tr>
@@ -349,7 +354,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <font class='Texte_important_menu2'><b>Ville</b></font>
     </td>
     <td class='td-droite fond_menu'>
-      <input type='text' name='ville' value='<?php if(isset($ville)) $cur_ville=$ville; echo htmlspecialchars(str_replace("_","",stripslashes($cur_ville)),ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' maxlength='128' size='30'>
+      <input type='text' name='ville' value='<?php if(isset($ville)) $cur_ville=$ville; echo htmlspecialchars(str_replace("_","",stripslashes($cur_ville)),ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' maxlength='128' size='30'>
     </td>
   </tr>
   <tr>
@@ -389,12 +394,12 @@ CeCILL-B, et que vous en avez accepté les termes.
           if(isset($mention))
             $cur_mention=$mention;
 
-          $value2=htmlspecialchars($cur_mention,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+          $value2=htmlspecialchars($cur_mention,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
 
           for($i=0; $i<$rows; $i++)
           {
             list($mention)=db_fetch_row($result,$i);
-            $value=htmlspecialchars($mention,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+            $value=htmlspecialchars($mention,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
 
             if(isset($value2) && !strcmp($value,$value2))
               $selected="selected=1";

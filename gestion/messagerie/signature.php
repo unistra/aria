@@ -148,9 +148,9 @@ CeCILL-B, et que vous en avez accepté les termes.
     <td class='td-droite fond_menu'>
       <textarea name='texte' rows='8' cols='80'><?php
         if(isset($texte))
-          echo htmlspecialchars(stripslashes($texte), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+          echo htmlspecialchars(stripslashes($texte), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
         elseif(isset($cur_texte))
-          echo htmlspecialchars(stripslashes($cur_texte), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+          echo htmlspecialchars(stripslashes($cur_texte), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
       ?></textarea>
     </td>
   </tr>

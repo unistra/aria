@@ -49,220 +49,220 @@ CeCILL-B, et que vous en avez accepté les termes.
 */
 ?>
 <?php
-	session_name("preinsc_gestion");
-	session_start();
+  session_name("preinsc_gestion");
+  session_start();
 
-	include "../../../configuration/aria_config.php";
-	include "$__INCLUDE_DIR_ABS/vars.php";
-	include "$__INCLUDE_DIR_ABS/fonctions.php";
-	include "$__INCLUDE_DIR_ABS/db.php";
-	include "include/editeur_fonctions.php";
+  include "../../../configuration/aria_config.php";
+  include "$__INCLUDE_DIR_ABS/vars.php";
+  include "$__INCLUDE_DIR_ABS/fonctions.php";
+  include "$__INCLUDE_DIR_ABS/db.php";
+  include "include/editeur_fonctions.php";
 
-	$php_self=$_SERVER['PHP_SELF'];
-	$_SESSION['CURRENT_FILE']=$php_self;
+  $php_self=$_SERVER['PHP_SELF'];
+  $_SESSION['CURRENT_FILE']=$php_self;
 
-	verif_auth("../../login.php");
+  verif_auth("../../login.php");
 
-	// Modification des propriétés
-	if(isset($_SESSION["lettre_id"]))
-		$lettre_id=$_SESSION["lettre_id"];
-	else
-	{
-		header("Location:index.php");
-		exit;
-	}
+  // Modification des propriétés
+  if(isset($_SESSION["lettre_id"]))
+    $lettre_id=$_SESSION["lettre_id"];
+  else
+  {
+    header("Location:index.php");
+    exit;
+  }
 
-	// section exécutée lorsque le formulaire est validé
-	if(isset($_POST["go"]) || isset($_POST["go_x"]))
-	{
-		$dbr=db_connect();
+  // section exécutée lorsque le formulaire est validé
+  if(isset($_POST["go"]) || isset($_POST["go_x"]))
+  {
+    $dbr=db_connect();
 
-		// Décisions associées
+    // Décisions associées
 
-		// Nettoyage préalable (économise des vérifications)
-		db_query($dbr, "DELETE FROM $_DB_lettres_dec WHERE $_DBC_lettres_dec_lettre_id='$lettre_id'");
+    // Nettoyage préalable (économise des vérifications)
+    db_query($dbr, "DELETE FROM $_DB_lettres_dec WHERE $_DBC_lettres_dec_lettre_id='$lettre_id'");
 
-		if(array_key_exists("decision", $_POST))
-		{
-			foreach($_POST["decision"] as $dec_id)
-				db_query($dbr, "INSERT INTO $_DB_lettres_dec VALUES ('$lettre_id', '$dec_id')");
-		}
-		
-		// Menu des options particulières
+    if(array_key_exists("decision", $_POST))
+    {
+      foreach($_POST["decision"] as $dec_id)
+        db_query($dbr, "INSERT INTO $_DB_lettres_dec VALUES ('$lettre_id', '$dec_id')");
+    }
+    
+    // Menu des options particulières
 
-		if(isset($_POST["options_particulieres"]) && $_POST["options_particulieres"]!="")
-		{
-			if($_POST["options_particulieres"]=="toutes_formations")
-			{
-				// Suppression avant insertion
-				db_query($dbr, "DELETE FROM $_DB_lettres_propspec WHERE $_DBC_lettres_propspec_lettre_id='$lettre_id'");
+    if(isset($_POST["options_particulieres"]) && $_POST["options_particulieres"]!="")
+    {
+      if($_POST["options_particulieres"]=="toutes_formations")
+      {
+        // Suppression avant insertion
+        db_query($dbr, "DELETE FROM $_DB_lettres_propspec WHERE $_DBC_lettres_propspec_lettre_id='$lettre_id'");
 
-				db_query($dbr, "UPDATE $_DB_lettres SET $_DBU_lettres_choix_multiples='0' WHERE $_DBC_lettres_id='$lettre_id'");
+        db_query($dbr, "UPDATE $_DB_lettres SET $_DBU_lettres_choix_multiples='0' WHERE $_DBC_lettres_id='$lettre_id'");
 
-				db_query($dbr,"INSERT INTO $_DB_lettres_propspec (SELECT '$lettre_id', $_DBC_propspec_id FROM $_DB_propspec
-																					WHERE $_DBC_propspec_comp_id='$_SESSION[comp_id]')");
-			}
-			elseif($_POST["options_particulieres"]=="aucune_formation") // Suppression
-			{
-				db_query($dbr, "DELETE FROM $_DB_lettres_propspec WHERE $_DBC_lettres_propspec_lettre_id='$lettre_id'");
-				db_query($dbr, "UPDATE $_DB_lettres SET $_DBU_lettres_choix_multiples='0' WHERE $_DBC_lettres_id='$lettre_id'");
-			}
-			elseif($_POST["options_particulieres"]=="choix_multiples")
-			{
-				db_query($dbr, "DELETE FROM $_DB_lettres_propspec WHERE $_DBC_lettres_propspec_lettre_id='$lettre_id'");
-				db_query($dbr, "UPDATE $_DB_lettres SET $_DBU_lettres_choix_multiples='1' WHERE $_DBC_lettres_id='$lettre_id'");
-				
-				db_query($dbr, "DELETE FROM $_DB_lettres_groupes WHERE $_DBC_lettres_groupes_lettre_id='$lettre_id'");
-				
-				foreach($_POST["groupe"] as $groupe_id) {
-				   db_query($dbr, "INSERT INTO $_DB_lettres_groupes ($_DBU_lettres_groupes_lettre_id, $_DBU_lettres_groupes_groupe_id) VALUES ('$lettre_id','$groupe_id')");
-				}
-			}
-		}
-		else
-		{
-			db_query($dbr, "UPDATE $_DB_lettres SET $_DBU_lettres_choix_multiples='0' WHERE $_DBC_lettres_id='$lettre_id'");
+        db_query($dbr,"INSERT INTO $_DB_lettres_propspec (SELECT '$lettre_id', $_DBC_propspec_id FROM $_DB_propspec
+                          WHERE $_DBC_propspec_comp_id='$_SESSION[comp_id]')");
+      }
+      elseif($_POST["options_particulieres"]=="aucune_formation") // Suppression
+      {
+        db_query($dbr, "DELETE FROM $_DB_lettres_propspec WHERE $_DBC_lettres_propspec_lettre_id='$lettre_id'");
+        db_query($dbr, "UPDATE $_DB_lettres SET $_DBU_lettres_choix_multiples='0' WHERE $_DBC_lettres_id='$lettre_id'");
+      }
+      elseif($_POST["options_particulieres"]=="choix_multiples")
+      {
+        db_query($dbr, "DELETE FROM $_DB_lettres_propspec WHERE $_DBC_lettres_propspec_lettre_id='$lettre_id'");
+        db_query($dbr, "UPDATE $_DB_lettres SET $_DBU_lettres_choix_multiples='1' WHERE $_DBC_lettres_id='$lettre_id'");
+        
+        db_query($dbr, "DELETE FROM $_DB_lettres_groupes WHERE $_DBC_lettres_groupes_lettre_id='$lettre_id'");
+        
+        foreach($_POST["groupe"] as $groupe_id) {
+           db_query($dbr, "INSERT INTO $_DB_lettres_groupes ($_DBU_lettres_groupes_lettre_id, $_DBU_lettres_groupes_groupe_id) VALUES ('$lettre_id','$groupe_id')");
+        }
+      }
+    }
+    else
+    {
+      db_query($dbr, "UPDATE $_DB_lettres SET $_DBU_lettres_choix_multiples='0' WHERE $_DBC_lettres_id='$lettre_id'");
 
-			db_query($dbr, "DELETE FROM $_DB_lettres_propspec WHERE $_DBC_lettres_propspec_lettre_id='$lettre_id'");
+      db_query($dbr, "DELETE FROM $_DB_lettres_propspec WHERE $_DBC_lettres_propspec_lettre_id='$lettre_id'");
 
-			$requete="";
+      $requete="";
 
-			if(array_key_exists("propspec", $_POST))
+      if(array_key_exists("propspec", $_POST))
          {
             foreach($_POST["propspec"] as $propspec_id)
                $requete.="INSERT INTO $_DB_lettres_propspec VALUES ('$lettre_id', '$propspec_id');";
          }
-			
-			if(!empty($requete))
-				db_query($dbr,"$requete");
-		}
+      
+      if(!empty($requete))
+        db_query($dbr,"$requete");
+    }
 
-		db_close($dbr);
+    db_close($dbr);
 
-		header("Location:editeur.php");
-		exit;
-	}
+    header("Location:editeur.php");
+    exit;
+  }
 
-	// EN-TETE
-	en_tete_gestion();
+  // EN-TETE
+  en_tete_gestion();
 
-	// MENU SUPERIEUR
-	menu_sup_simple();
+  // MENU SUPERIEUR
+  menu_sup_simple();
 ?>
 
 <div class='main'>
-	<?php
-		titre_page_icone("Modifier les liens de la lettre", "randr_32x32_fond.png", 15, "L");
+  <?php
+    titre_page_icone("Modifier les liens de la lettre", "randr_32x32_fond.png", 15, "L");
 
-		$dbr=db_connect();
-		$result=db_query($dbr,"SELECT $_DBC_lettres_titre, $_DBC_lettres_choix_multiples
-										FROM $_DB_lettres WHERE $_DBC_lettres_id='$lettre_id'");
+    $dbr=db_connect();
+    $result=db_query($dbr,"SELECT $_DBC_lettres_titre, $_DBC_lettres_choix_multiples
+                    FROM $_DB_lettres WHERE $_DBC_lettres_id='$lettre_id'");
 
-		$rows=db_num_rows($result);
+    $rows=db_num_rows($result);
 
-		if($rows) // si != 1 : probleme...
-		{
-			list($current_titre, $current_choix_multiples)=db_fetch_row($result,0);
-			db_free_result($result);
+    if($rows) // si != 1 : probleme...
+    {
+      list($current_titre, $current_choix_multiples)=db_fetch_row($result,0);
+      db_free_result($result);
 
-			// on doit récupérer les décisions associées à cette lettre
+      // on doit récupérer les décisions associées à cette lettre
 
-			$result=db_query($dbr, "SELECT $_DBC_lettres_dec_dec_id FROM $_DB_lettres_dec WHERE $_DBC_lettres_dec_lettre_id='$lettre_id'");
-			$rows=db_num_rows($result);
+      $result=db_query($dbr, "SELECT $_DBC_lettres_dec_dec_id FROM $_DB_lettres_dec WHERE $_DBC_lettres_dec_lettre_id='$lettre_id'");
+      $rows=db_num_rows($result);
 
-			if($rows)
-			{
-				$decisions_id_array=array();
+      if($rows)
+      {
+        $decisions_id_array=array();
 
-				for($i=0; $i<$rows; $i++)
-				{
-					list($dec_id)=db_fetch_row($result, $i);
-					$decisions_id_array[$dec_id]=$dec_id;
-				}
-			}
+        for($i=0; $i<$rows; $i++)
+        {
+          list($dec_id)=db_fetch_row($result, $i);
+          $decisions_id_array[$dec_id]=$dec_id;
+        }
+      }
 
-			print("<div class='centered_box'>
-						<font class='TitrePage2' style='font-size:16px'><b>'$current_titre'</b></font>
-					 </div>
-							
-					 <form method='post' action='$php_self'>\n");
-		?>
+      print("<div class='centered_box'>
+            <font class='TitrePage2' style='font-size:16px'><b>'$current_titre'</b></font>
+           </div>
+              
+           <form method='post' action='$php_self'>\n");
+    ?>
 
-		<table style='margin-left:auto; margin-right:auto; padding-bottom:20px;'>
-		<tr>
-			<td class='fond_menu2' colspan='2' style='padding:4px 20px 4px 20px;'>
-				<font class='Texte_menu2'>
-					<b>&#8226;&nbsp;&nbsp;Décisions pour lesquelles imprimer cette lettre :</b>
-				</font>
-			</td>
-		</tr>
-			<?php
-				$result2=db_query($dbr,"SELECT $_DBC_decisions_id, $_DBC_decisions_texte FROM $_DB_decisions
-															WHERE $_DBC_decisions_id IN (SELECT distinct($_DBC_decisions_comp_dec_id) FROM $_DB_decisions_comp
-																									WHERE $_DBC_decisions_comp_comp_id='$_SESSION[comp_id]')
-														ORDER BY $_DBC_decisions_texte");
+    <table style='margin-left:auto; margin-right:auto; padding-bottom:20px;'>
+    <tr>
+      <td class='fond_menu2' colspan='2' style='padding:4px 20px 4px 20px;'>
+        <font class='Texte_menu2'>
+          <b>&#8226;&nbsp;&nbsp;Décisions pour lesquelles imprimer cette lettre :</b>
+        </font>
+      </td>
+    </tr>
+      <?php
+        $result2=db_query($dbr,"SELECT $_DBC_decisions_id, $_DBC_decisions_texte FROM $_DB_decisions
+                              WHERE $_DBC_decisions_id IN (SELECT distinct($_DBC_decisions_comp_dec_id) FROM $_DB_decisions_comp
+                                                  WHERE $_DBC_decisions_comp_comp_id='$_SESSION[comp_id]')
+                            ORDER BY $_DBC_decisions_texte");
 
-				$rows2=db_num_rows($result2);
+        $rows2=db_num_rows($result2);
 
-				for($j=0; $j<$rows2; $j++)
-				{
-					list($decision_id, $decision_texte)=db_fetch_row($result2, $j);
+        for($j=0; $j<$rows2; $j++)
+        {
+          list($decision_id, $decision_texte)=db_fetch_row($result2, $j);
 
-					if(isset($decisions_id_array) && array_key_exists($decision_id, $decisions_id_array))
-						$checked="checked=1";
-					else
-						$checked="";
+          if(isset($decisions_id_array) && array_key_exists($decision_id, $decisions_id_array))
+            $checked="checked=1";
+          else
+            $checked="";
 
-					// print("<option value='$decision_id' $selected>$decision_texte</option>\n");
+          // print("<option value='$decision_id' $selected>$decision_texte</option>\n");
 
-					if(!($j%2))
-						print("<tr>\n");
+          if(!($j%2))
+            print("<tr>\n");
 
-					print("<td class='td-gauche fond_menu'>
-								<font class='Texte_menu'>
-									<input type='checkbox' name='decision[]' value='$decision_id' $checked>&nbsp;&nbsp;$decision_texte
-								</font>
-							</td>\n");
+          print("<td class='td-gauche fond_menu'>
+                <font class='Texte_menu'>
+                  <input type='checkbox' name='decision[]' value='$decision_id' $checked>&nbsp;&nbsp;$decision_texte
+                </font>
+              </td>\n");
 
-					if($j%2)
-						print("</tr>\n");
-				}
+          if($j%2)
+            print("</tr>\n");
+        }
 
-				if($j%2)
-					print("<td></td>
-							</tr>\n");
+        if($j%2)
+          print("<td></td>
+              </tr>\n");
 
-				db_free_result($result2);
-			?>
-		</table>
+        db_free_result($result2);
+      ?>
+    </table>
 
-		<?php
-			$result=db_query($dbr,"SELECT $_DBC_propspec_id, $_DBC_annees_annee, $_DBC_specs_nom_court, $_DBC_propspec_finalite
-												FROM $_DB_propspec, $_DB_annees, $_DB_specs
-											WHERE $_DBC_propspec_annee=$_DBC_annees_id
-											AND $_DBC_propspec_id_spec=$_DBC_specs_id
-											AND $_DBC_propspec_comp_id='$_SESSION[comp_id]'
-											AND $_DBC_propspec_active='1'
-												ORDER BY $_DBC_annees_ordre, $_DBC_specs_nom_court, $_DBC_propspec_finalite");
+    <?php
+      $result=db_query($dbr,"SELECT $_DBC_propspec_id, $_DBC_annees_annee, $_DBC_specs_nom_court, $_DBC_propspec_finalite
+                        FROM $_DB_propspec, $_DB_annees, $_DB_specs
+                      WHERE $_DBC_propspec_annee=$_DBC_annees_id
+                      AND $_DBC_propspec_id_spec=$_DBC_specs_id
+                      AND $_DBC_propspec_comp_id='$_SESSION[comp_id]'
+                      AND $_DBC_propspec_active='1'
+                        ORDER BY $_DBC_annees_ordre, $_DBC_specs_nom_court, $_DBC_propspec_finalite");
 
-			$rows=db_num_rows($result);
+      $rows=db_num_rows($result);
 
-			$old_annee="===="; // on initialise à n'importe quoi (sauf vide)
+      $old_annee="===="; // on initialise à n'importe quoi (sauf vide)
 
-			if($rows)
-			{
-				if($current_choix_multiples==1)
-				{
-					$multiples_selected="selected";
-					$none_selected="";
-				}
-				else
-				{
-					$multiples_selected="";
-					$none_selected="selected";
-				}
-				
-				$res_groupes=db_query($dbr,"SELECT $_DBC_groupes_spec_groupe, $_DBC_groupes_spec_nom 
+      if($rows)
+      {
+        if($current_choix_multiples==1)
+        {
+          $multiples_selected="selected";
+          $none_selected="";
+        }
+        else
+        {
+          $multiples_selected="";
+          $none_selected="selected";
+        }
+        
+        $res_groupes=db_query($dbr,"SELECT $_DBC_groupes_spec_groupe, $_DBC_groupes_spec_nom 
                                            FROM $_DB_groupes_spec 
                                            WHERE $_DBC_groupes_spec_propspec_id IN (SELECT $_DBC_propspec_id FROM $_DB_propspec 
                                                                                     WHERE $_DBC_propspec_comp_id='$_SESSION[comp_id]'
@@ -288,27 +288,27 @@ CeCILL-B, et que vous en avez accepté les termes.
 
             db_free_result($res_groupes);
 
-				print("<table align='center'>
-							<tr>
-								<td class='fond_menu2' align='center' colspan='2' style='padding:4px 20px 4px 20px;'>
-									<font class='Texte_menu2'><b>Formations concernées par cette lettre</b></font>
-								</td>
-								<tr>
-									<td class='fond_menu2' align='center' colspan='2' style='padding:4px 20px 4px 20px;'>
-										<font class='Texte_menu2'><b>Options particulières</b></font>
-									</td>
-								</tr>
-								<tr>
-									<td class='fond_page' align='left' colspan='2' style='padding:4px 20px 4px 20px;'>
-										<select name='options_particulieres'>
-											<option value='' $none_selected></option>
-											<option value='toutes_formations'>Sélectionner toutes les formations</option>
-											<option value='aucune_formation'>Ne sélectionner aucune formation</option>
-											<option value='choix_multiples' $multiples_selected>Ne s'applique qu'aux formations à choix multiples</option>
-										</select>
-										<br>
-										<font class='Texte'>
-											<b>Si vous utilisez ce menu, il est inutile de sélectionner individuellement les formations ci-dessous.</b>
+        print("<table align='center'>
+              <tr>
+                <td class='fond_menu2' align='center' colspan='2' style='padding:4px 20px 4px 20px;'>
+                  <font class='Texte_menu2'><b>Formations concernées par cette lettre</b></font>
+                </td>
+                <tr>
+                  <td class='fond_menu2' align='center' colspan='2' style='padding:4px 20px 4px 20px;'>
+                    <font class='Texte_menu2'><b>Options particulières</b></font>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='fond_page' align='left' colspan='2' style='padding:4px 20px 4px 20px;'>
+                    <select name='options_particulieres'>
+                      <option value='' $none_selected></option>
+                      <option value='toutes_formations'>Sélectionner toutes les formations</option>
+                      <option value='aucune_formation'>Ne sélectionner aucune formation</option>
+                      <option value='choix_multiples' $multiples_selected>Ne s'applique qu'aux formations à choix multiples</option>
+                    </select>
+                    <br>
+                    <font class='Texte'>
+                      <b>Si vous utilisez ce menu, il est inutile de sélectionner individuellement les formations ci-dessous.</b>
                                  <br>");
 
             if(isset($selection_groupes)) {
@@ -320,77 +320,77 @@ CeCILL-B, et que vous en avez accepté les termes.
                  </td>    
               </tr>\n");      
 
-				$count=0;
+        $count=0;
 
-				for($i=0; $i<$rows; $i++)
-				{
-					list($propspec_id, $annee, $spec_nom, $finalite)=db_fetch_row($result, $i);
+        for($i=0; $i<$rows; $i++)
+        {
+          list($propspec_id, $annee, $spec_nom, $finalite)=db_fetch_row($result, $i);
 
-					$nom_finalite=$tab_finalite[$finalite];
+          $nom_finalite=$tab_finalite[$finalite];
 
-					if(db_num_rows(db_query($dbr, "SELECT * FROM $_DB_lettres_propspec
-															WHERE $_DBC_lettres_propspec_lettre_id='$_SESSION[lettre_id]'
-															AND $_DBC_lettres_propspec_propspec_id='$propspec_id'")))
-						$checked="checked";
-					else
-						$checked="";
+          if(db_num_rows(db_query($dbr, "SELECT * FROM $_DB_lettres_propspec
+                              WHERE $_DBC_lettres_propspec_lettre_id='$_SESSION[lettre_id]'
+                              AND $_DBC_lettres_propspec_propspec_id='$propspec_id'")))
+            $checked="checked";
+          else
+            $checked="";
 
-					if($annee=="")
-						$annee="Années particulières";
+          if($annee=="")
+            $annee="Années particulières";
 
-					if($annee!=$old_annee)
-					{
-						if($count%2)
-							print("<td class='td-droite fond_page'></td>\n");
+          if($annee!=$old_annee)
+          {
+            if($count%2)
+              print("<td class='td-droite fond_page'></td>\n");
 
-						$count=0;
+            $count=0;
 
-						$old_annee=$annee;
+            $old_annee=$annee;
 
-						print("</tr>
-									<tr>
-										<td class='fond_menu' align='center' colspan='2' style='padding:4px 20px 4px 20px;'>
-											<font class='Texte_menu'><b>$annee</b></font>
-										</td>
-									</tr>\n");
-					}
+            print("</tr>
+                  <tr>
+                    <td class='fond_menu' align='center' colspan='2' style='padding:4px 20px 4px 20px;'>
+                      <font class='Texte_menu'><b>$annee</b></font>
+                    </td>
+                  </tr>\n");
+          }
 
-					if(!($count%2))
-						print("<tr>");
+          if(!($count%2))
+            print("<tr>");
 
-					print("<td class='td-gauche fond_page'>
-									<input style='padding-right:10px;' type='checkbox' name='propspec[]' value='$propspec_id' $checked>
-									<font class='Texte'>$spec_nom $nom_finalite</font>
-								</td>\n");
+          print("<td class='td-gauche fond_page'>
+                  <input style='padding-right:10px;' type='checkbox' name='propspec[]' value='$propspec_id' $checked>
+                  <font class='Texte'>$spec_nom $nom_finalite</font>
+                </td>\n");
 
-					if($count%2)
-						print("</tr>\n");
+          if($count%2)
+            print("</tr>\n");
 
-					$count++;
-				}
+          $count++;
+        }
 
-				db_free_result($result);
+        db_free_result($result);
 
-				if($count%2)
-					print("<td class='td-droite fond_page'></td>");
+        if($count%2)
+          print("<td class='td-droite fond_page'></td>");
 
-				print("</tr>
-						 </table>\n");
-			}
-		?>
+        print("</tr>
+             </table>\n");
+      }
+    ?>
 
-		<div class='centered_icons_box'>
-			<a href='editeur.php' target='_self' class='lien2'><img src='<?php echo "$__ICON_DIR/button_cancel_32x32_fond.png"; ?>' alt='Annuler' border='0'></a>
-			<input type="image" src="<?php echo "$__ICON_DIR/button_ok_32x32_fond.png"; ?>" alt="Valider" name="go" value="Valider">
-			</form>
-		</div>
-	<?php
-		}
-	?>
+    <div class='centered_icons_box'>
+      <a href='editeur.php' target='_self' class='lien2'><img src='<?php echo "$__ICON_DIR/button_cancel_32x32_fond.png"; ?>' alt='Annuler' border='0'></a>
+      <input type="image" src="<?php echo "$__ICON_DIR/button_ok_32x32_fond.png"; ?>" alt="Valider" name="go" value="Valider">
+      </form>
+    </div>
+  <?php
+    }
+  ?>
 </div>
 <?php
-	pied_de_page();
-	db_close($dbr);
+  pied_de_page();
+  db_close($dbr);
 ?>
 </body></html>
 

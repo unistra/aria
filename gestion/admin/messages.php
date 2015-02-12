@@ -105,12 +105,19 @@ CeCILL-B, et que vous en avez accepté les termes.
       $type_message=$_POST["message_type"];
       
       if(db_num_rows(db_query($dbr, "SELECT * FROM $_DB_messages WHERE $_DBC_messages_comp_id='$_SESSION[comp_id]' AND $_DBC_messages_type='$type_message'")))
-         db_query($dbr, "UPDATE $_DB_messages SET $_DBU_messages_contenu='$corps_message',
-                                                  $_DBU_messages_actif='t'
+         db_query($dbr, "UPDATE $_DB_messages SET 
+                          $_DBU_messages_contenu='".preg_replace("/[']+/", "''", stripslashes($corps_message))."',
+                          $_DBU_messages_actif='t'
                          WHERE $_DBC_messages_comp_id='$_SESSION[comp_id]' 
                          AND $_DBC_messages_type='$type_message'");
       else
-         db_query($dbr, "INSERT INTO $_DB_messages VALUES ('$_SESSION[comp_id]', '$type_message', '0', '0', '$corps_message', 't')");
+         db_query($dbr, "INSERT INTO $_DB_messages VALUES (
+            '$_SESSION[comp_id]', 
+            '$type_message', 
+            '0', 
+            '0', 
+            '".preg_replace("/[']+/", "''", stripslashes($corps_message))."',
+            't')");
          
       $succes=1;      
    }

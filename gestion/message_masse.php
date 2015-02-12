@@ -79,7 +79,7 @@ CeCILL-B, et que vous en avez accepté les termes.
     $file_tmp_name=$_FILES["fichier"]["tmp_name"];
     $file_error=$_FILES["fichier"]["error"]; // PHP > 4.2.0 uniquement
 
-    $realname=html_entity_decode(validate_filename(mb_convert_encoding("$file_name", "UTF-8", mb_detect_encoding($file_name))), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+    $realname=html_entity_decode(validate_filename(mb_convert_encoding("$file_name", "UTF-8", mb_detect_encoding($file_name))), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
 
     if($file_size>2097152)
       $trop_gros=1;
@@ -311,7 +311,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <font class='Texte_menu2'><b>Sujet :</b></font>
     </td>
     <td class='td-droite fond_menu2'>
-      <input type='text' name='sujet' value='<?php if(isset($sujet)) echo htmlspecialchars(stripslashes($sujet), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size='80' maxlength='140'>
+      <input type='text' name='sujet' value='<?php if(isset($sujet)) echo htmlspecialchars(stripslashes($sujet), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size='80' maxlength='140'>
     </td>
   </tr>
   <tr>
@@ -354,7 +354,7 @@ CeCILL-B, et que vous en avez accepté les termes.
   ?>
   <tr>
     <td class='td-msg fond_blanc' style='vertical-align:top;' colspan='2'>
-      <textarea name='corps' class='textArea' rows='12'><?php if(isset($contenu)) echo htmlspecialchars(stripslashes($contenu),ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?></textarea>
+      <textarea name='corps' class='textArea' rows='12'><?php if(isset($contenu)) echo htmlspecialchars(stripslashes($contenu),ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?></textarea>
     </td>
   </tr>
   </table>

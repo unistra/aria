@@ -149,7 +149,7 @@ CeCILL-B, et que vous en avez accepté les termes.
     if(isset($annee_id) && ctype_digit($annee_id))
     {
       if(db_num_rows(db_query($dbr,"SELECT $_DBC_annees_id FROM $_DB_annees
-                          WHERE $_DBC_annees_annee ILIKE '$new_annee_nom'
+                          WHERE $_DBC_annees_annee ILIKE '".preg_replace("/[']+/", "''", stripslashes($new_annee_nom))."'
                           AND $_DBC_annees_id!='$annee_id'")))
         $nom_existe="1";
     }
@@ -158,9 +158,10 @@ CeCILL-B, et que vous en avez accepté les termes.
     {
       if($_SESSION["ajout_annee"]==0)
       {
-        db_query($dbr,"UPDATE $_DB_annees SET $_DBU_annees_annee='$new_annee_nom',
-                                  $_DBU_annees_annee_longue='$new_annee_nom_complet'
-                  WHERE $_DBU_annees_id='$annee_id'");
+        db_query($dbr,"UPDATE $_DB_annees SET 
+            $_DBU_annees_annee='".preg_replace("/[']+/", "''", stripslashes($new_annee_nom))."',
+            $_DBU_annees_annee_longue='".preg_replace("/[']+/", "''", stripslashes($new_annee_nom_complet))."'
+            WHERE $_DBU_annees_id='$annee_id'");
 
         write_evt($dbr, $__EVT_ID_G_ADMIN, "MAJ Année $annee_id", "", $annee_id);
       }
@@ -184,7 +185,11 @@ CeCILL-B, et que vous en avez accepté les termes.
         db_free_result($res_ordre);
         
 
-        db_query($dbr, "INSERT INTO $_DB_annees VALUES ('$new_annee_id','$new_annee_nom', '$new_annee_nom_complet', '$new_annee_ordre')");
+        db_query($dbr, "INSERT INTO $_DB_annees VALUES (
+            '$new_annee_id',
+            '".preg_replace("/[']+/", "''", stripslashes($new_annee_nom))."', 
+            '".preg_replace("/[']+/", "''", stripslashes($new_annee_nom_complet))."', 
+            '$new_annee_ordre')");
 
         write_evt($dbr, $__EVT_ID_G_ADMIN, "Nouvelle année $new_annee_id", "", $new_annee_id);
       }
@@ -419,7 +424,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <font class='Texte_menu2'>Nom court (peut être vide) :</font>
     </td>
     <td class='td-droite fond_menu'>
-      <input type='text' name='nom' value='<?php if(isset($new_annee_nom)) echo htmlspecialchars(stripslashes($new_annee_nom), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); elseif(isset($current_annee_nom)) echo htmlspecialchars(stripslashes($current_annee_nom), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' maxlength='20' size='30'>
+      <input type='text' name='nom' value='<?php if(isset($new_annee_nom)) echo htmlspecialchars(stripslashes($new_annee_nom), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); elseif(isset($current_annee_nom)) echo htmlspecialchars(stripslashes($current_annee_nom), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' maxlength='20' size='30'>
     </td>
   </tr>
   <tr>
@@ -427,7 +432,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <font class='Texte_menu2'><b>Nom complet :</b></font>
     </td>
     <td class='td-droite fond_menu'>
-      <input type='text' name='nom_complet' value='<?php if(isset($new_annee_nom_complet)) echo htmlspecialchars(stripslashes($new_annee_nom_complet), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); elseif(isset($current_annee_nom_complet)) echo htmlspecialchars(stripslashes($current_annee_nom_complet), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' maxlength='80' size='85'>
+      <input type='text' name='nom_complet' value='<?php if(isset($new_annee_nom_complet)) echo htmlspecialchars(stripslashes($new_annee_nom_complet), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); elseif(isset($current_annee_nom_complet)) echo htmlspecialchars(stripslashes($current_annee_nom_complet), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' maxlength='80' size='85'>
     </td>
   </tr>
   </table>

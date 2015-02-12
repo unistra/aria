@@ -138,12 +138,23 @@ CeCILL-B, et que vous en avez accepté les termes.
    
             // La configuration existe pour cette composante : mise à jour         
             if(db_num_rows(db_query($dbr,"SELECT * FROM $_module_apogee_DB_config WHERE $_module_apogee_DBC_config_comp_id='$composante_id'")))
-               db_query($dbr,"UPDATE $_module_apogee_DB_config SET $_module_apogee_DBU_config_message_primo='$message_primo',
-                                                                   $_module_apogee_DBU_config_message_lp='$message_lp',
-                                                                   $_module_apogee_DBU_config_message_reserve='$message_reserve'
+               db_query($dbr,"UPDATE $_module_apogee_DB_config SET 
+                                $_module_apogee_DBU_config_message_primo='".preg_replace("/[']+/", "''", stripslashes($message_primo))."',
+                                $_module_apogee_DBU_config_message_lp='".preg_replace("/[']+/", "''", stripslashes($message_lp))."',
+                                $_module_apogee_DBU_config_message_reserve='".preg_replace("/[']+/", "''", stripslashes($message_reserve))."'
                               WHERE $_module_apogee_DBU_config_comp_id='$composante_id'");
             else // insertion complète
-               db_query($dbr,"INSERT INTO $_module_apogee_DB_config VALUES ('$composante_id','$univ_lettre_code_apogee','$prefixe_opi','$message_primo','$message_lp','$message_reserve','$adr_primo','$adr_reins','$adr_rdv','$adr_conditions')");
+               db_query($dbr,"INSERT INTO $_module_apogee_DB_config VALUES (
+                  '$composante_id',
+                  '$univ_lettre_code_apogee',
+                  '$prefixe_opi',
+                  '".preg_replace("/[']+/", "''", stripslashes($message_primo))."',
+                  '".preg_replace("/[']+/", "''", stripslashes($message_lp))."',
+                  '".preg_replace("/[']+/", "''", stripslashes($message_reserve))."',
+                  '$adr_primo',
+                  '$adr_reins',
+                  '$adr_rdv',
+                  '$adr_conditions')");
 
             write_evt($dbr, $__EVT_ID_G_ADMIN, "MOD_APOGEE : modification des messages - Composante id#$composante_id", "", $composante_id);
          }
@@ -154,18 +165,29 @@ CeCILL-B, et que vous en avez accepté les termes.
       if(!isset($_POST["all_comp_config"]) && !isset($_POST["all_comp_msg"])) // Modification uniquement pour cette composante
       {
        if(db_num_rows(db_query($dbr,"SELECT * FROM $_module_apogee_DB_config WHERE $_module_apogee_DBC_config_comp_id='$comp_id'")))
-         db_query($dbr,"UPDATE $_module_apogee_DB_config SET $_module_apogee_DBU_config_code='$univ_lettre_code_apogee',
-                                             $_module_apogee_DBU_config_prefixe_opi='$prefixe_opi',
-                                                                $_module_apogee_DBU_config_message_primo='$message_primo',
-                                                                $_module_apogee_DBU_config_message_lp='$message_lp',
-                                                                $_module_apogee_DBU_config_message_reserve='$message_reserve',
-                                                                $_module_apogee_DBU_config_adr_primo='$adr_primo',
-                                                                $_module_apogee_DBU_config_adr_reins='$adr_reins',
-                                                                $_module_apogee_DBU_config_adr_rdv='$adr_rdv',
-                                                                $_module_apogee_DBU_config_adr_conditions='$adr_conditions'
-                  WHERE $_module_apogee_DBU_config_comp_id='$comp_id'");
+         db_query($dbr,"UPDATE $_module_apogee_DB_config SET 
+            $_module_apogee_DBU_config_code='$univ_lettre_code_apogee',
+            $_module_apogee_DBU_config_prefixe_opi='$prefixe_opi',
+            $_module_apogee_DBU_config_message_primo='".preg_replace("/[']+/", "''", stripslashes($message_primo))."',
+            $_module_apogee_DBU_config_message_lp='".preg_replace("/[']+/", "''", stripslashes($message_lp))."',
+            $_module_apogee_DBU_config_message_reserve='".preg_replace("/[']+/", "''", stripslashes($message_reserve))."',
+            $_module_apogee_DBU_config_adr_primo='$adr_primo',
+            $_module_apogee_DBU_config_adr_reins='$adr_reins',
+            $_module_apogee_DBU_config_adr_rdv='$adr_rdv',
+            $_module_apogee_DBU_config_adr_conditions='$adr_conditions'
+            WHERE $_module_apogee_DBU_config_comp_id='$comp_id'");
          else
-         db_query($dbr,"INSERT INTO $_module_apogee_DB_config VALUES ('$comp_id','$univ_lettre_code_apogee','$prefixe_opi','$message_primo','$message_lp','$message_reserve','$adr_primo','$adr_reins','$adr_rdv','$adr_conditions')");
+            db_query($dbr,"INSERT INTO $_module_apogee_DB_config VALUES (
+              '$comp_id',
+              '$univ_lettre_code_apogee',
+              '$prefixe_opi',
+              '".preg_replace("/[']+/", "''", stripslashes($message_primo))."',
+              '".preg_replace("/[']+/", "''", stripslashes($message_lp))."',
+              '".preg_replace("/[']+/", "''", stripslashes($message_reserve))."',
+              '$adr_primo',
+              '$adr_reins',
+              '$adr_rdv',
+              '$adr_conditions')");
 
          write_evt($dbr, $__EVT_ID_G_ADMIN, "MOD_APOGEE : modification de la configuration - Composante id#$comp_id", "", $comp_id);
       }   
@@ -204,9 +226,9 @@ CeCILL-B, et que vous en avez accepté les termes.
                   <br>S'il y a plusieurs universités sur l'interface, répétez la procédure avec une composante de chacune d'elles.", $__INFO);      
     
          $result=db_query($dbr, "SELECT $_DBC_composantes_id, $_DBC_composantes_nom, $_DBC_composantes_univ_id, $_DBC_universites_nom
-                                       FROM $_DB_composantes, $_DB_universites
-                                    WHERE $_DBC_composantes_univ_id=$_DBC_universites_id
-                                    ORDER BY $_DBC_composantes_univ_id, $_DBC_composantes_nom ASC");
+                                   FROM $_DB_composantes, $_DB_universites
+                                 WHERE $_DBC_composantes_univ_id=$_DBC_universites_id
+                                 ORDER BY $_DBC_composantes_univ_id, $_DBC_composantes_nom ASC");
       
       $rows=db_num_rows($result);
       
@@ -231,10 +253,10 @@ CeCILL-B, et que vous en avez accepté les termes.
                      print("</optgroup>
                             <option value='' label='' disabled></option>\n");
 
-                  print("<optgroup label='".htmlspecialchars(stripslashes($univ_nom), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"])."'>\n");
+                  print("<optgroup label='".htmlspecialchars(stripslashes($univ_nom), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE)."'>\n");
                }
 
-               $value=htmlspecialchars($comp_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+               $value=htmlspecialchars($comp_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
 
                $selected=(isset($_SESSION["comp_id"]) && $_SESSION["comp_id"]==$comp_id) ? "selected='1'" : "";
 
@@ -312,7 +334,7 @@ CeCILL-B, et que vous en avez accepté les termes.
     <td class='td-droite fond_menu'>
       <font class='Texte_menu'>
          <strong>
-          <?php echo htmlspecialchars(stripslashes($composante_nom), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>
+          <?php echo htmlspecialchars(stripslashes($composante_nom), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>
         </strong>
       </font>
       <br><input type='checkbox' name='all_comp_config' value='<?php echo $universite_id; ?>' style='vertical-align:bottom;'>
@@ -326,7 +348,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <font class='Texte_menu2'><b>Préfixe des codes OPI (Primo-Entrants) :</b></font>
     </td>
     <td class='td-droite fond_menu'>
-      <input type='text' name='prefixe_opi' value='<?php if(isset($prefixe_opi)) echo htmlspecialchars(stripslashes($prefixe_opi), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' maxlength='3' size='16'>
+      <input type='text' name='prefixe_opi' value='<?php if(isset($prefixe_opi)) echo htmlspecialchars(stripslashes($prefixe_opi), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' maxlength='3' size='16'>
     </td>
   </tr>
   <tr>
@@ -334,7 +356,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <font class='Texte_menu2'><b>Première lettre permettant la génération<br>des numéros d'autorisation (prise de RDV) :</b></font>
     </td>
     <td class='td-droite fond_menu'>
-      <input type='text' name='lettre_code_apogee' value='<?php if(isset($code_apogee)) echo htmlspecialchars(stripslashes($code_apogee), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' maxlength='16' size='16'>
+      <input type='text' name='lettre_code_apogee' value='<?php if(isset($code_apogee)) echo htmlspecialchars(stripslashes($code_apogee), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' maxlength='16' size='16'>
     </td>
   </tr>
   <tr>
@@ -342,7 +364,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <font class='Texte_menu2'><b>Site pour les conditions générales d'utilisations (%ADR_COND%) :</b></font>
     </td>
     <td class='td-droite fond_menu'>
-      <input type='text' name='adr_conditions' value='<?php if(isset($adr_conditions)) echo htmlspecialchars($adr_conditions, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' maxlength='256' size='60'>
+      <input type='text' name='adr_conditions' value='<?php if(isset($adr_conditions)) echo htmlspecialchars($adr_conditions, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' maxlength='256' size='60'>
     </td>
   </tr>
   <tr>
@@ -350,7 +372,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <font class='Texte_menu2'><b>Site pour les étudiants Primo Entrants (%ADR_PRIMO%) :</b></font>
     </td>
     <td class='td-droite fond_menu'>
-      <input type='text' name='adr_primo' value='<?php if(isset($adr_primo)) echo htmlspecialchars($adr_primo, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' maxlength='256' size='60'>
+      <input type='text' name='adr_primo' value='<?php if(isset($adr_primo)) echo htmlspecialchars($adr_primo, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' maxlength='256' size='60'>
     </td>
   </tr>
   <tr>
@@ -358,7 +380,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <font class='Texte_menu2'><b>Site pour les Réinscription (%ADR_REINS%) :</b></font>
     </td>
     <td class='td-droite fond_menu'>
-      <input type='text' name='adr_reins' value='<?php if(isset($adr_reins)) echo htmlspecialchars($adr_reins, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' maxlength='256' size='60'>
+      <input type='text' name='adr_reins' value='<?php if(isset($adr_reins)) echo htmlspecialchars($adr_reins, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' maxlength='256' size='60'>
     </td>
   </tr>
   <tr>
@@ -366,7 +388,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <font class='Texte_menu2'><b>Site pour les inscriptions sur rendez-vous (%ADR_RDV%) :</b></font>
     </td>
     <td class='td-droite fond_menu'>
-      <input type='text' name='adr_rdv' value='<?php if(isset($adr_rdv)) echo htmlspecialchars($adr_rdv, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' maxlength='256' size='60'>
+      <input type='text' name='adr_rdv' value='<?php if(isset($adr_rdv)) echo htmlspecialchars($adr_rdv, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' maxlength='256' size='60'>
     </td>
   </tr>
   <tr> 
@@ -388,7 +410,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          <font class='Texte_menu2'><b>Message envoyé à un candidat<br>Primo-entrant <u>pour chaque admission</u> : </b></font>
       </td>
       <td class='td-droite fond_menu'>
-         <textarea name='message_primo' cols='100' rows='12'><?php if(isset($message_primo)) echo htmlspecialchars(stripslashes($message_primo), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?></textarea>
+         <textarea name='message_primo' cols='100' rows='12'><?php if(isset($message_primo)) echo htmlspecialchars(stripslashes($message_primo), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?></textarea>
       </td>
    </tr>
    <tr>
@@ -396,7 +418,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          <font class='Texte_menu2'><b>Message envoyé à un candidat ayant<br>déjà été inscrit (laisser-passer)<br><u>pour chaque admission</u> : </b></font>
       </td>
       <td class='td-droite fond_menu'>
-         <textarea name='message_lp' cols='100' rows='12'><?php if(isset($message_lp)) echo htmlspecialchars(stripslashes($message_lp), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?></textarea>
+         <textarea name='message_lp' cols='100' rows='12'><?php if(isset($message_lp)) echo htmlspecialchars(stripslashes($message_lp), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?></textarea>
       </td>
    </tr>
    <tr>
@@ -404,7 +426,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          <font class='Texte_menu2'><b>Message envoyé à un candidat "admis sous réserve"<br><u>pour chaque admission</u> : </b></font>
       </td>
       <td class='td-droite fond_menu'>
-         <textarea name='message_reserve' cols='100' rows='12'><?php if(isset($message_reserve)) echo htmlspecialchars(stripslashes($message_reserve), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?></textarea>
+         <textarea name='message_reserve' cols='100' rows='12'><?php if(isset($message_reserve)) echo htmlspecialchars(stripslashes($message_reserve), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?></textarea>
       </td>
    </tr>
   </table>

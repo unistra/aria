@@ -75,150 +75,150 @@ $Z=$Y+1;
 
 if(array_key_exists("jour", $_GET) && $_GET["jour"]!="" && ctype_digit($_GET["jour"]) && isset($_GET["id_form"]) && ctype_digit($_GET["id_form"]))
 {
-	$formation=$_GET["id_form"];
+  $formation=$_GET["id_form"];
 
-	$jour=$_GET["jour"];
+  $jour=$_GET["jour"];
 
-	if(isset($_SESSION["cur_entretien_salle"]))
-	{
-		$ent_salle=$_SESSION["cur_entretien_salle"];
-		$condition_salle="AND $_DBC_cand_entretien_salle ilike '$ent_salle'";
-	}
-	else
-	{
-		$ent_salle="";
-		$condition_salle="";
-	}
+  if(isset($_SESSION["cur_entretien_salle"]))
+  {
+    $ent_salle=$_SESSION["cur_entretien_salle"];
+    $condition_salle="AND $_DBC_cand_entretien_salle ILIKE '".preg_replace("/[']+/", "''", stripslashes($ent_salle))."'";
+  }
+  else
+  {
+    $ent_salle="";
+    $condition_salle="";
+  }
 
-	// Pour récupérer les bonnes dates, on doit prendre date jour-1:23h59 -> jour:23h59
+  // Pour récupérer les bonnes dates, on doit prendre date jour-1:23h59 -> jour:23h59
 
-	$j=date("j", $jour);
-	$m=date("m", $jour);
-	$y=date("Y", $jour);
+  $j=date("j", $jour);
+  $m=date("m", $jour);
+  $y=date("Y", $jour);
 
-	$limite_inf=MakeTime(23,59,0, $m, ($j-1), $y); // PHP calcule automatiquement le passage d'un mois à l'autre
-	$limite_sup=MakeTime(23,59,0, $m, $j, $y);
+  $limite_inf=MakeTime(23,59,0, $m, ($j-1), $y); // PHP calcule automatiquement le passage d'un mois à l'autre
+  $limite_sup=MakeTime(23,59,0, $m, $j, $y);
 
-	// Vérification des paramètres
-	$result=db_query($dbr, "SELECT $_DBC_cand_candidat_id, $_DBC_cand_id, $_DBC_candidat_nom, $_DBC_candidat_prenom,
-											 $_DBC_cand_entretien_date
-										FROM $_DB_cand, $_DB_propspec, $_DB_candidat
-									WHERE $_DBC_propspec_id=$_DBC_cand_propspec_id
-									AND $_DBC_cand_candidat_id=$_DBC_candidat_id
-									AND $_DBC_cand_propspec_id='$formation'
-									AND $_DBC_propspec_comp_id='$_SESSION[comp_id]'
-									AND $_DBC_cand_decision='$__DOSSIER_ENTRETIEN_TEL'
-									AND $_DBC_cand_statut='$__PREC_RECEVABLE'
-									AND $_DBC_cand_periode='$__PERIODE'
-									AND $_DBC_cand_entretien_date BETWEEN '$limite_inf' AND '$limite_sup'
-									$condition_salle
-										ORDER BY $_DBC_cand_entretien_date, $_DBC_candidat_nom, $_DBC_candidat_prenom");
+  // Vérification des paramètres
+  $result=db_query($dbr, "SELECT $_DBC_cand_candidat_id, $_DBC_cand_id, $_DBC_candidat_nom, $_DBC_candidat_prenom,
+                       $_DBC_cand_entretien_date
+                    FROM $_DB_cand, $_DB_propspec, $_DB_candidat
+                  WHERE $_DBC_propspec_id=$_DBC_cand_propspec_id
+                  AND $_DBC_cand_candidat_id=$_DBC_candidat_id
+                  AND $_DBC_cand_propspec_id='$formation'
+                  AND $_DBC_propspec_comp_id='$_SESSION[comp_id]'
+                  AND $_DBC_cand_decision='$__DOSSIER_ENTRETIEN_TEL'
+                  AND $_DBC_cand_statut='$__PREC_RECEVABLE'
+                  AND $_DBC_cand_periode='$__PERIODE'
+                  AND $_DBC_cand_entretien_date BETWEEN '$limite_inf' AND '$limite_sup'
+                  $condition_salle
+                    ORDER BY $_DBC_cand_entretien_date, $_DBC_candidat_nom, $_DBC_candidat_prenom");
 
-	$rows=db_num_rows($result);
+  $rows=db_num_rows($result);
 
-	if(!$rows) // personne sur la liste
-	{
-		db_free_result($result);
-		db_close($dbr);
-	
-		mail($_SESSION["mail_admin"], "[Précandidatures] - Entretiens téléphoniques : génération de listes", "=> Aucun candidat trouvé par la requête.\n\nJour passé en paramètre : $jour (" . date_fr("j F Y", $jour) . ")\nLimites : " . date_fr("j F Y h:i", $limite_inf) . " => " . date_fr("j F Y h:i", $limite_sup) . "\n\nFormation : $formation");
+  if(!$rows) // personne sur la liste
+  {
+    db_free_result($result);
+    db_close($dbr);
+  
+    mail($_SESSION["mail_admin"], "[Précandidatures] - Entretiens téléphoniques : génération de listes", "=> Aucun candidat trouvé par la requête.\n\nJour passé en paramètre : $jour (" . date_fr("j F Y", $jour) . ")\nLimites : " . date_fr("j F Y h:i", $limite_inf) . " => " . date_fr("j F Y h:i", $limite_sup) . "\n\nFormation : $formation");
 
-		header("Location:../masse_listes_entretiens_tel.php?erreur=1");
-		exit();
-	}
-	else
-	{
-		// Nom de la formation
+    header("Location:../masse_listes_entretiens_tel.php?erreur=1");
+    exit();
+  }
+  else
+  {
+    // Nom de la formation
 
-		$res_formation=db_query($dbr, "SELECT $_DBC_annees_annee, $_DBC_specs_nom, $_DBC_propspec_finalite
-													FROM $_DB_annees, $_DB_specs, $_DB_propspec
-												 WHERE $_DBC_annees_id=$_DBC_propspec_annee
-												 AND $_DBC_specs_id=$_DBC_propspec_id_spec
-												 AND $_DBC_propspec_id='$formation'");
+    $res_formation=db_query($dbr, "SELECT $_DBC_annees_annee, $_DBC_specs_nom, $_DBC_propspec_finalite
+                          FROM $_DB_annees, $_DB_specs, $_DB_propspec
+                         WHERE $_DBC_annees_id=$_DBC_propspec_annee
+                         AND $_DBC_specs_id=$_DBC_propspec_id_spec
+                         AND $_DBC_propspec_id='$formation'");
 
-		if(!db_num_rows($res_formation))
-		{
-			header("Location:../masse_listes_entretiens_tel.php?erreur=1");
-			exit();
-		}
-		else
-		{
-			list($nom_annee, $nom_spec, $finalite)=db_fetch_row($res_formation, 0);
+    if(!db_num_rows($res_formation))
+    {
+      header("Location:../masse_listes_entretiens_tel.php?erreur=1");
+      exit();
+    }
+    else
+    {
+      list($nom_annee, $nom_spec, $finalite)=db_fetch_row($res_formation, 0);
 
-			$formation_txt=$nom_annee=="" ? "" : $nom_annee;
+      $formation_txt=$nom_annee=="" ? "" : $nom_annee;
 
-			$formation_txt.=$tab_finalite[$finalite]=="" ? " $nom_spec" : " $nom_spec $tab_finalite[$finalite]";
-		}
+      $formation_txt.=$tab_finalite[$finalite]=="" ? " $nom_spec" : " $nom_spec $tab_finalite[$finalite]";
+    }
 
-		// Utilisation de la librairie fpdf (libre)
-		require("$__FPDF_DIR_ABS/fpdf.php");
+    // Utilisation de la librairie fpdf (libre)
+    require("$__FPDF_DIR_ABS/fpdf.php");
 
-		// Création du PDF
-		$doc_liste=new FPDF("P","mm","A4");
+    // Création du PDF
+    $doc_liste=new FPDF("P","mm","A4");
 
-		$doc_liste->SetCreator("Application de Gestion des Candidatures de l'Université de Strasbourg");
-		$doc_liste->SetAuthor("Christophe BOCCHECIAMPE - UFR de Mathématique et d'Informatique - Université de Strasbourg");
-		$doc_liste->SetSubject("Liste des candidats convoqués à l'entretien téléphonique");
-		$doc_liste->SetTitle("Liste des candidats convoqués à l'entretien téléphonique");
+    $doc_liste->SetCreator("Application de Gestion des Candidatures de l'Université de Strasbourg");
+    $doc_liste->SetAuthor("Christophe BOCCHECIAMPE - UFR de Mathématique et d'Informatique - Université de Strasbourg");
+    $doc_liste->SetSubject("Liste des candidats convoqués à l'entretien téléphonique");
+    $doc_liste->SetTitle("Liste des candidats convoqués à l'entretien téléphonique");
 
-		$doc_liste->SetAutoPageBreak(1,11);
+    $doc_liste->SetAutoPageBreak(1,11);
 
-		// TODO : ATTENTION : NE PAS OUBLIER DE GENERER LA FONTE ARIBLK.TTF LORS D'UN CHANGEMENT DE MACHINE
-		$doc_liste->AddFont("arial_black");
-		$doc_liste->SetFont('arial','',10);
-		$doc_liste->SetTextColor(0, 0, 0);
+    // TODO : ATTENTION : NE PAS OUBLIER DE GENERER LA FONTE ARIBLK.TTF LORS D'UN CHANGEMENT DE MACHINE
+    $doc_liste->AddFont("arial_black");
+    $doc_liste->SetFont('arial','',10);
+    $doc_liste->SetTextColor(0, 0, 0);
 
-		// Premier élément : position fixe (à affiner manuellement, sans doute)
-		// $doc_liste->SetXY(60, 78);
+    // Premier élément : position fixe (à affiner manuellement, sans doute)
+    // $doc_liste->SetXY(60, 78);
 
-		$doc_liste->AddPage();
+    $doc_liste->AddPage();
 
-		$doc_liste->SetXY(11, 11);
-		$doc_liste->SetFont('arial',"IB",14);
+    $doc_liste->SetXY(11, 11);
+    $doc_liste->SetFont('arial',"IB",14);
 
-		$date_jour=date_fr("l jS F Y", $jour);
+    $date_jour=date_fr("l jS F Y", $jour);
 
-		$titre_txt="$formation_txt\nEntretiens téléphoniques du $date_jour";
-		$titre_txt.=$ent_salle!="" ? " - $ent_salle" : "";
+    $titre_txt="$formation_txt\nEntretiens téléphoniques du $date_jour";
+    $titre_txt.=$ent_salle!="" ? " - $ent_salle" : "";
 
-		$doc_liste->MultiCell(0, 8, "$titre_txt", 0, "C");
+    $doc_liste->MultiCell(0, 8, "$titre_txt", 0, "C");
 
-		$doc_liste->Ln(10);
+    $doc_liste->Ln(10);
 
-		$doc_liste->SetFont('arial',"",10);
+    $doc_liste->SetFont('arial',"",10);
 
-		for($i=0; $i<$rows; $i++)
-		{
-			list($candidat_id, $candidature_id, $cand_nom, $cand_prenom, $ent_date)=db_fetch_row($result, $i);
+    for($i=0; $i<$rows; $i++)
+    {
+      list($candidat_id, $candidature_id, $cand_nom, $cand_prenom, $ent_date)=db_fetch_row($result, $i);
 
-			$doc_liste->SetX(11);
-			$doc_liste->Cell(140, 5, "$cand_nom $cand_prenom", 1, 0, "L");
+      $doc_liste->SetX(11);
+      $doc_liste->Cell(140, 5, "$cand_nom $cand_prenom", 1, 0, "L");
 
-			$heure=date_fr("G", $ent_date);
+      $heure=date_fr("G", $ent_date);
 
-			if($heure)
-			{
-				$date_txt=$heure . "h" . date_fr("i", $ent_date);
+      if($heure)
+      {
+        $date_txt=$heure . "h" . date_fr("i", $ent_date);
 
-				$doc_liste->Cell(48, 5, $date_txt, 1, 1, "C");
-			}
-		}
+        $doc_liste->Cell(48, 5, $date_txt, 1, 1, "C");
+      }
+    }
 
-		// write_evt($dbr,$__EVT_ID_G_PREC, "Liste entretiens", $candidat_id, $cand_id);
+    // write_evt($dbr,$__EVT_ID_G_PREC, "Liste entretiens", $candidat_id, $cand_id);
 
-		$date_fr=date_fr("j_F_Y_H_i", time());
-		$nom_fichier=clean_str("Liste_entretiens_tel_" . $_SESSION["auth_user"] . "_" . $formation . "_$date_fr.pdf");
+    $date_fr=date_fr("j_F_Y_H_i", time());
+    $nom_fichier=clean_str("Liste_entretiens_tel_" . $_SESSION["auth_user"] . "_" . $formation . "_$date_fr.pdf");
 
-		// TODO : centraliser ces fonctions de création automatique de chemins
-		if(!is_dir("$__GESTION_COMP_STOCKAGE_DIR_ABS/$_SESSION[comp_id]"))
-			mkdir("$__GESTION_COMP_STOCKAGE_DIR_ABS/$_SESSION[comp_id]", 0770);
+    // TODO : centraliser ces fonctions de création automatique de chemins
+    if(!is_dir("$__GESTION_COMP_STOCKAGE_DIR_ABS/$_SESSION[comp_id]"))
+      mkdir("$__GESTION_COMP_STOCKAGE_DIR_ABS/$_SESSION[comp_id]", 0770);
 
-		// $doc_liste->Output("$__COMP_FILES_DIR/$_SESSION[comp_id]/$nom_fichier");
-		$doc_liste->Output("$__GESTION_COMP_STOCKAGE_DIR_ABS/$_SESSION[comp_id]/$nom_fichier");
+    // $doc_liste->Output("$__COMP_FILES_DIR/$_SESSION[comp_id]/$nom_fichier");
+    $doc_liste->Output("$__GESTION_COMP_STOCKAGE_DIR_ABS/$_SESSION[comp_id]/$nom_fichier");
 
-		// Attention : chemin relatif à www-root (document_root du serveur Apache)
-		echo "<HTML><SCRIPT>document.location='$__GESTION_COMP_STOCKAGE_DIR/$_SESSION[comp_id]/$nom_fichier';</SCRIPT></HTML>";
-	}
+    // Attention : chemin relatif à www-root (document_root du serveur Apache)
+    echo "<HTML><SCRIPT>document.location='$__GESTION_COMP_STOCKAGE_DIR/$_SESSION[comp_id]/$nom_fichier';</SCRIPT></HTML>";
+  }
 }
 
 db_close($dbr);

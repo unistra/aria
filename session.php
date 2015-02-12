@@ -48,14 +48,32 @@ CeCILL-B, et que vous en avez accepté les termes.
 =======================================================================================================
 */
 ?>
-
 <?php
+	session_name("preinsc");
+	session_start();
 
-   if(isset($_GET["co"]) && ctype_digit($_GET["co"])) {
-      header("Location:index.php?co=$_GET[co]");
-   }   
-   else
-      header("Location:index.php");
-      
-   exit();
+	include "configuration/aria_config.php";
+	include "$__INCLUDE_DIR_ABS/vars.php";
+	include "$__INCLUDE_DIR_ABS/fonctions.php";
+
+
+	$php_self=$_SERVER['PHP_SELF'];
+	$_SESSION['CURRENT_FILE']=$php_self;
+
+	en_tete_index();
+	menu_sup_simple();
 ?>
+
+<div class='main'>
+	<?php
+		message("Votre session est expirée.", $__ERREUR);
+	?>
+	<br><br>
+	Merci de <a href='index.php' class='lien_bleu'>vous authentifier de nouveau</a>
+</div>
+<?php
+	pied_de_page_candidat();
+?>
+</body>
+</html>
+

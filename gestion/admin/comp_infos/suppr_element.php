@@ -49,129 +49,129 @@ CeCILL-B, et que vous en avez accepté les termes.
 */
 ?>
 <?php
-	session_name("preinsc_gestion");
-	session_start();
-	
-	include "../../../configuration/aria_config.php";
-	include "$__INCLUDE_DIR_ABS/vars.php";
-	include "$__INCLUDE_DIR_ABS/fonctions.php";
-	include "$__INCLUDE_DIR_ABS/db.php";
-	include "include/editeur_fonctions.php";
+  session_name("preinsc_gestion");
+  session_start();
+  
+  include "../../../configuration/aria_config.php";
+  include "$__INCLUDE_DIR_ABS/vars.php";
+  include "$__INCLUDE_DIR_ABS/fonctions.php";
+  include "$__INCLUDE_DIR_ABS/db.php";
+  include "include/editeur_fonctions.php";
 
-	$php_self=$_SERVER['PHP_SELF'];
-	$_SESSION['CURRENT_FILE']=$php_self;
+  $php_self=$_SERVER['PHP_SELF'];
+  $_SESSION['CURRENT_FILE']=$php_self;
 
-	verif_auth("../../login.php");
+  verif_auth("../../login.php");
 
-	// Suppression d'un élément
-	// Arguments :
-	// o : ordre de l'objet (dans le tableau) à supprimer (il faudra décaler tous les objets suivants).
-	// récupération des variables cryptées
-	
-	if(isset($_GET["o"]) && isset($_SESSION["info_doc_id"]))
-	{
-		$info_doc_id=$_SESSION["info_doc_id"];
-		$o=$_GET["o"];
-	}
-	elseif(isset($_POST["o"]) && isset($_SESSION["info_doc_id"]))
-	{	
-		$info_doc_id=$_SESSION["info_doc_id"];
-		$o=$_POST["o"];
-	}
-	else
-	{
-		header("Location:index.php");
-		exit;
-	}
+  // Suppression d'un élément
+  // Arguments :
+  // o : ordre de l'objet (dans le tableau) à supprimer (il faudra décaler tous les objets suivants).
+  // récupération des variables cryptées
+  
+  if(isset($_GET["o"]) && isset($_SESSION["info_doc_id"]))
+  {
+    $info_doc_id=$_SESSION["info_doc_id"];
+    $o=$_GET["o"];
+  }
+  elseif(isset($_POST["o"]) && isset($_SESSION["info_doc_id"]))
+  { 
+    $info_doc_id=$_SESSION["info_doc_id"];
+    $o=$_POST["o"];
+  }
+  else
+  {
+    header("Location:index.php");
+    exit;
+  }
 
-	if(isset($_POST["confirmer"]) || isset($_POST["confirmer_x"]))
-	{
-		$o=$_POST["o"];
+  if(isset($_POST["confirmer"]) || isset($_POST["confirmer_x"]))
+  {
+    $o=$_POST["o"];
 
-		$dbr=db_connect();
+    $dbr=db_connect();
 
-		$a=get_all_elements($dbr, $info_doc_id);
+    $a=get_all_elements($dbr, $info_doc_id);
 
-		// à priori, tout est bon, on supprime et on décale les éléments restants
+    // à priori, tout est bon, on supprime et on décale les éléments restants
 
-		$nb_elements=count($a);
-		$suppr_id=$a["$o"]["id"];
-		$suppr_type=$a["$o"]["type"];
+    $nb_elements=count($a);
+    $suppr_id=$a["$o"]["id"];
+    $suppr_type=$a["$o"]["type"];
 
-		// Fichier ?
-		if($suppr_type==6)
-		{
-			$result=db_query($dbr, "SELECT $_DBC_comp_infos_fichiers_fichier FROM $_DB_comp_infos_fichiers
-																	WHERE	$_DBC_comp_infos_fichiers_info_id='$suppr_id'
-																	AND $_DBC_comp_infos_fichiers_ordre='$o'");
+    // Fichier ?
+    if($suppr_type==6)
+    {
+      $result=db_query($dbr, "SELECT $_DBC_comp_infos_fichiers_fichier FROM $_DB_comp_infos_fichiers
+                                  WHERE $_DBC_comp_infos_fichiers_info_id='$suppr_id'
+                                  AND $_DBC_comp_infos_fichiers_ordre='$o'");
 
-			if(db_num_rows($result))
-			{
-				list($fichier_nom)=db_fetch_row($result, 0); // un seul résultat, normalement
+      if(db_num_rows($result))
+      {
+        list($fichier_nom)=db_fetch_row($result, 0); // un seul résultat, normalement
 
-				if(is_file("$__CAND_COMP_STOCKAGE_DIR_ABS/$_SESSION[comp_id]/$fichier_nom"))
-					unlink("$__CAND_COMP_STOCKAGE_DIR_ABS/$_SESSION[comp_id]/$fichier_nom");
-			}
+        if(is_file("$__CAND_COMP_STOCKAGE_DIR_ABS/$_SESSION[comp_id]/$fichier_nom"))
+          unlink("$__CAND_COMP_STOCKAGE_DIR_ABS/$_SESSION[comp_id]/$fichier_nom");
+      }
 
-			db_free_result($result);
-		}
+      db_free_result($result);
+    }
 
-		$suppr_table_name=get_table_name($suppr_type);
-		$col_ordre=$suppr_table_name["ordre"];
-		$col_id=$suppr_table_name["id"];
-		$table=$suppr_table_name["table"];
+    $suppr_table_name=get_table_name($suppr_type);
+    $col_ordre=$suppr_table_name["ordre"];
+    $col_id=$suppr_table_name["id"];
+    $table=$suppr_table_name["table"];
 
-		db_query($dbr,"DELETE FROM $table WHERE $col_id='$suppr_id' AND $col_ordre='$o'");
+    db_query($dbr,"DELETE FROM $table WHERE $col_id='$suppr_id' AND $col_ordre='$o'");
 
-		for($i=($o+1); $i<$nb_elements; $i++)
-		{
-			$current_ordre=$i;
-			$new_ordre=$i-1;
-			$current_type=$a["$i"]["type"]; // le type sert juste à savoir dans quelle table on doit modifier l'élément courant
-			$current_id=$a["$i"]["id"];
+    for($i=($o+1); $i<$nb_elements; $i++)
+    {
+      $current_ordre=$i;
+      $new_ordre=$i-1;
+      $current_type=$a["$i"]["type"]; // le type sert juste à savoir dans quelle table on doit modifier l'élément courant
+      $current_id=$a["$i"]["id"];
 
-			$current_table_name=get_table_name($current_type);
-			$col_ordre=$current_table_name["ordre"];
-			$col_id=$current_table_name["id"];
-			$table=$current_table_name["table"];
+      $current_table_name=get_table_name($current_type);
+      $col_ordre=$current_table_name["ordre"];
+      $col_id=$current_table_name["id"];
+      $table=$current_table_name["table"];
 
-			db_query($dbr,"UPDATE $table SET $col_ordre='$new_ordre' WHERE $col_id='$current_id' AND $col_ordre='$current_ordre'");
-		}
+      db_query($dbr,"UPDATE $table SET $col_ordre='$new_ordre' WHERE $col_id='$current_id' AND $col_ordre='$current_ordre'");
+    }
 
-		// décalage terminé
-		db_close($dbr);
+    // décalage terminé
+    db_close($dbr);
 
-		header("Location:index.php");
-		exit;
-	}
+    header("Location:index.php");
+    exit;
+  }
 
-	// EN-TETE
-	en_tete_gestion();
+  // EN-TETE
+  en_tete_gestion();
 
-	// MENU SUPERIEUR
-	menu_sup_gestion();
+  // MENU SUPERIEUR
+  menu_sup_gestion();
 ?>
 
 <div class='main'>
-	<?php
-		titre_page_icone("Supprimer un élément", "trashcan_full_32x32_slick_fond.png", 30, "L");
+  <?php
+    titre_page_icone("Supprimer un élément", "trashcan_full_32x32_slick_fond.png", 30, "L");
 
-		message("La suppression d'un élément est <strong>définitive</strong>.", $__WARNING);
+    message("La suppression d'un élément est <strong>définitive</strong>.", $__WARNING);
 
-		message("Souhaitez-vous vraiment supprimer cet élément ?", $__QUESTION);
+    message("Souhaitez-vous vraiment supprimer cet élément ?", $__QUESTION);
 
-		print("<form method='post' action='$php_self'>\n
-				 <input type='hidden' name='o' value='$o'>
+    print("<form method='post' action='$php_self'>\n
+         <input type='hidden' name='o' value='$o'>
 
- 				 <div class='centered_icons_box'>
-					<a href='index.php' target='_self' class='lien2'><img src='$__ICON_DIR/button_cancel_32x32_fond.png' alt='Retour' border='0'></a>
-					<input type='image' src='$__ICON_DIR/trashcan_full_32x32_slick_fond.png' alt='Confirmer' name='confirmer' value='Confirmer'>
-				 </div>
+         <div class='centered_icons_box'>
+          <a href='index.php' target='_self' class='lien2'><img src='$__ICON_DIR/button_cancel_32x32_fond.png' alt='Retour' border='0'></a>
+          <input type='image' src='$__ICON_DIR/trashcan_full_32x32_slick_fond.png' alt='Confirmer' name='confirmer' value='Confirmer'>
+         </div>
 
-				 </form>\n");
-	?>
+         </form>\n");
+  ?>
 </div>
 <?php
-	pied_de_page();
+  pied_de_page();
 ?>
 </body></html>

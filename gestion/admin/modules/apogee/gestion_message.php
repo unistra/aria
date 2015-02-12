@@ -97,16 +97,16 @@ CeCILL-B, et que vous en avez accepté les termes.
 
       // unicité
       if(db_num_rows(db_query($dbr,"SELECT * FROM $_module_apogee_DB_messages
-                          WHERE ($_module_apogee_DBC_messages_nom ILIKE '$msg_nom'
-                            OR ($_module_apogee_DBC_messages_contenu!='' AND $_module_apogee_DBC_messages_contenu ILIKE '$msg_contenu'))
+                          WHERE ($_module_apogee_DBC_messages_nom ILIKE '".preg_replace("/[']+/", "''", stripslashes($msg_nom))."'
+                            OR ($_module_apogee_DBC_messages_contenu!='' AND $_module_apogee_DBC_messages_contenu ILIKE '".preg_replace("/[']+/", "''", stripslashes($msg_contenu))."'))
                           AND $_module_apogee_DBC_messages_msg_id!='$new_id'
                           AND $_module_apogee_DBC_messages_comp_id='$_SESSION[comp_id]'")))
         $msg_existe="1";
     }
     elseif(isset($_SESSION["ajout"])
          && db_num_rows(db_query($dbr,"SELECT * FROM $_module_apogee_DB_messages
-                              WHERE ($_module_apogee_DBC_messages_nom ILIKE '$msg_nom'
-                                OR ($_module_apogee_DBC_messages_contenu!='' AND $_module_apogee_DBC_messages_contenu ILIKE '$msg_contenu'))
+                              WHERE ($_module_apogee_DBC_messages_nom ILIKE '".preg_replace("/[']+/", "''", stripslashes($msg_nom))."'
+                                OR ($_module_apogee_DBC_messages_contenu!='' AND $_module_apogee_DBC_messages_contenu ILIKE '".preg_replace("/[']+/", "''", stripslashes($msg_contenu))."'))
                               AND $_module_apogee_DBC_messages_comp_id='$_SESSION[comp_id]'")))
       $msg_existe="1";
 
@@ -123,9 +123,10 @@ CeCILL-B, et que vous en avez accepté les termes.
       {
         // Modification
         if(!isset($_SESSION["ajout"]) && isset($new_id))
-          db_query($dbr,"UPDATE $_module_apogee_DB_messages SET $_module_apogee_DBU_messages_nom='$msg_nom',
-                                                                     $_module_apogee_DBU_messages_contenu='$msg_contenu',
-                                                                     $_module_apogee_DBU_messages_type='$msg_type'
+          db_query($dbr,"UPDATE $_module_apogee_DB_messages SET 
+                      $_module_apogee_DBU_messages_nom='".preg_replace("/[']+/", "''", stripslashes($msg_nom))."',
+                      $_module_apogee_DBU_messages_contenu='".preg_replace("/[']+/", "''", stripslashes($msg_contenu))."',
+                      $_module_apogee_DBU_messages_type='$msg_type'
                     WHERE $_module_apogee_DBU_messages_msg_id='$new_id'");
         else
           $new_id=db_locked_query($dbr, $_module_apogee_DB_messages, "INSERT INTO $_module_apogee_DB_messages VALUES ('##NEW_ID##', '$_SESSION[comp_id]', '$msg_nom', '$msg_contenu', '$msg_type')");
@@ -205,7 +206,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       {
         list($msg_id, $msg_nom, $msg_type)=db_fetch_row($result,$i);
 
-        $value=htmlspecialchars($msg_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+        $value=htmlspecialchars($msg_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
 
             if($msg_type!=$old_type)
             {
@@ -275,7 +276,7 @@ CeCILL-B, et que vous en avez accepté les termes.
         <font class='Texte_menu2'><b>Nom du message :</b></font>
       </td>
       <td class='td-droite fond_menu'>
-        <input type='text' name='msg_nom' value='<?php if(isset($msg_nom)) echo htmlspecialchars(stripslashes($msg_nom), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' maxlength='196' size='70'>
+        <input type='text' name='msg_nom' value='<?php if(isset($msg_nom)) echo htmlspecialchars(stripslashes($msg_nom), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' maxlength='196' size='70'>
       </td>
     </tr>
     <tr>
@@ -296,7 +297,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       </td>
       <td class='td-droite fond_menu'>
         <textarea name='msg_contenu' rows='20' cols='80'><?php
-          if(isset($msg_contenu)) echo htmlspecialchars(stripslashes($msg_contenu), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+          if(isset($msg_contenu)) echo htmlspecialchars(stripslashes($msg_contenu), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
         ?></textarea>
       </td>
     </tr>

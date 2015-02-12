@@ -49,73 +49,73 @@ CeCILL-B, et que vous en avez accepté les termes.
 */
 ?>
 <?php
-	session_name("preinsc_gestion");
-	session_start();
-	
-	include "../../../configuration/aria_config.php";
-	include "$__INCLUDE_DIR_ABS/vars.php";
-	include "$__INCLUDE_DIR_ABS/fonctions.php";
-	include "$__INCLUDE_DIR_ABS/db.php";
-	include "include/editeur_fonctions.php";
+  session_name("preinsc_gestion");
+  session_start();
+  
+  include "../../../configuration/aria_config.php";
+  include "$__INCLUDE_DIR_ABS/vars.php";
+  include "$__INCLUDE_DIR_ABS/fonctions.php";
+  include "$__INCLUDE_DIR_ABS/db.php";
+  include "include/editeur_fonctions.php";
 
-	$php_self=$_SERVER['PHP_SELF'];
-	$_SESSION['CURRENT_FILE']=$php_self;
+  $php_self=$_SERVER['PHP_SELF'];
+  $_SESSION['CURRENT_FILE']=$php_self;
 
-	verif_auth("../../login.php");
+  verif_auth("../../login.php");
 
-	// Ajout d'un séparateur
+  // Ajout d'un séparateur
 
-	if(isset($_SESSION["info_doc_id"]))
-		$info_doc_id=$_SESSION["info_doc_id"];
-	else
-	{
-		header("Location:index.php");
-		exit;
-	}
+  if(isset($_SESSION["info_doc_id"]))
+    $info_doc_id=$_SESSION["info_doc_id"];
+  else
+  {
+    header("Location:index.php");
+    exit;
+  }
 
-	// récupération de la position
-	if(isset($_GET["a"]) && isset($_GET["o"])) // Nouvel élément
-	{
-		$_SESSION["ordre"]=$ordre=$_GET["o"];
-		$_SESSION["ordre_max"]=$_SESSION["cbo"];
-	}
-	else	// pas de variable position, on sort
-	{
-		header("Location:index.php");
-		exit;
-	}
+  // récupération de la position
+  if(isset($_GET["a"]) && isset($_GET["o"])) // Nouvel élément
+  {
+    $_SESSION["ordre"]=$ordre=$_GET["o"];
+    $_SESSION["ordre_max"]=$_SESSION["cbo"];
+  }
+  else  // pas de variable position, on sort
+  {
+    header("Location:index.php");
+    exit;
+  }
 
-	$dbr=db_connect();
+  $dbr=db_connect();
 
-	if($_SESSION["ordre"]!=$_SESSION["ordre_max"])
-	{
-		// 1 - Reconstruction des éléments (comme pour la suppression)
-		$a=get_all_elements($dbr, $info_doc_id);
-		$nb_elements=count($a);
+  if($_SESSION["ordre"]!=$_SESSION["ordre_max"])
+  {
+    // 1 - Reconstruction des éléments (comme pour la suppression)
+    $a=get_all_elements($dbr, $info_doc_id);
+    $nb_elements=count($a);
 
-		for($i=$nb_elements; $i>$_SESSION["ordre"]; $i--)
-		{
-			$current_ordre=$i-1;
-			$new_ordre=$i;
-			$current_type=$a["$current_ordre"]["type"]; // le type sert juste à savoir dans quelle table on doit modifier l'élément courant
-			$current_id=$a["$current_ordre"]["id"];
+    for($i=$nb_elements; $i>$_SESSION["ordre"]; $i--)
+    {
+      $current_ordre=$i-1;
+      $new_ordre=$i;
+      $current_type=$a["$current_ordre"]["type"]; // le type sert juste à savoir dans quelle table on doit modifier l'élément courant
+      $current_id=$a["$current_ordre"]["id"];
 
-			$current_table_name=get_table_name($current_type);
-			$col_ordre=$current_table_name["ordre"];
-			$col_id=$current_table_name["id"];
-			$table=$current_table_name["table"];
+      $current_table_name=get_table_name($current_type);
+      $col_ordre=$current_table_name["ordre"];
+      $col_id=$current_table_name["id"];
+      $table=$current_table_name["table"];
 
 
-			db_query($dbr,"UPDATE $table SET $col_ordre='$new_ordre'
-												WHERE $col_id='$current_id'
-												AND $col_ordre='$current_ordre'");
-		}
-	}
+      db_query($dbr,"UPDATE $table SET $col_ordre='$new_ordre'
+                        WHERE $col_id='$current_id'
+                        AND $col_ordre='$current_ordre'");
+    }
+  }
 
-	db_query($dbr,"INSERT INTO $_DB_comp_infos_sepa VALUES ('$info_doc_id', '$_SESSION[ordre]')");
-	db_close($dbr);
+  db_query($dbr,"INSERT INTO $_DB_comp_infos_sepa VALUES ('$info_doc_id', '$_SESSION[ordre]')");
+  db_close($dbr);
 
-	header("Location:index.php");
-	exit;
-					
+  header("Location:index.php");
+  exit;
+          
 ?>

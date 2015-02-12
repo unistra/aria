@@ -93,7 +93,9 @@ CeCILL-B, et que vous en avez accepté les termes.
       $titre_test=($new_titre=="") ? $current_titre : $new_titre;
       $x=2;
       
-      while("0"!=db_num_rows(db_query($dbr,"SELECT * FROM $_DB_lettres WHERE $_DBC_lettres_comp_id='$comp_destination' AND $_DBC_lettres_titre ILIKE '".preg_replace("/[']+/","''", stripslashes($titre_test))."'")))
+      while("0"!=db_num_rows(db_query($dbr,"SELECT * FROM $_DB_lettres 
+            WHERE $_DBC_lettres_comp_id='$comp_destination' 
+            AND $_DBC_lettres_titre ILIKE '".preg_replace("/[']+/","''", stripslashes($titre_test))."'")))
       {
         $titre_test=($new_titre=="") ? $current_titre . "#$x" : $new_titre . "$x";
         $x++;
@@ -122,7 +124,29 @@ CeCILL-B, et que vous en avez accepté les termes.
 
       // Création de la lettre
       $default_lang='FR';
-      $new_lettre_id=db_locked_query($dbr, $_DB_lettres, "INSERT INTO $_DB_lettres VALUES ('##NEW_ID##', '$comp_destination', '$new_titre', '', '', '', '', '0','TRUE','TRUE','TRUE','TRUE','TRUE','0','1','TRUE','$comp_adr_pos_x','$comp_adr_pos_y','TRUE', '$comp_corps_pos_x', '$comp_corps_pos_y','$default_lang')");
+      $new_lettre_id=db_locked_query($dbr, $_DB_lettres, "INSERT INTO $_DB_lettres VALUES (
+          '##NEW_ID##', 
+          '$comp_destination', 
+          '".preg_replace("/[']+/", "''", stripslashes($new_titre))."', 
+          '', 
+          '', 
+          '', 
+          '', 
+          '0',
+          'TRUE',
+          'TRUE',
+          'TRUE',
+          'TRUE',
+          'TRUE',
+          '0',
+          '1',
+          'TRUE',
+          '$comp_adr_pos_x',
+          '$comp_adr_pos_y',
+          'TRUE', 
+          '$comp_corps_pos_x', 
+          '$comp_corps_pos_y',
+          '$default_lang')");
 
       // Récupération et copie des éléments d'une lettre à l'autre
       // Paragraphes
@@ -139,7 +163,14 @@ CeCILL-B, et que vous en avez accepté les termes.
 
         $para_txt=str_replace("'","''", $para_txt);
 
-        db_query($dbr, "INSERT INTO $_DB_para VALUES('$new_lettre_id', '$para_ordre', '$para_txt', '$para_gras', '$para_italique', '$para_align', '$para_taille')");
+        db_query($dbr, "INSERT INTO $_DB_para VALUES(
+          '$new_lettre_id', 
+          '$para_ordre',
+          '".preg_replace("/[']+/", "''", stripslashes($para_txt))."',
+          '$para_gras', 
+          '$para_italique', 
+          '$para_align', 
+          '$para_taille')");
       }
 
       db_free_result($result);
@@ -156,7 +187,11 @@ CeCILL-B, et que vous en avez accepté les termes.
 
         $encadre_texte=str_replace("'","''", $encadre_texte);
 
-        db_query($dbr, "INSERT INTO $_DB_encadre VALUES('$new_lettre_id', '$encadre_ordre', '$encadre_texte', '$encadre_align')");
+        db_query($dbr, "INSERT INTO $_DB_encadre VALUES(
+            '$new_lettre_id', 
+            '$encadre_ordre', 
+            '".preg_replace("/[']+/", "''", stripslashes($encadre_texte))."', 
+            '$encadre_align')");
       }
 
       db_free_result($result);
@@ -309,7 +344,7 @@ CeCILL-B, et que vous en avez accepté les termes.
             print("</optgroup>
                   <option value='' label='' disabled></option>\n");
 
-          print("<optgroup label='----- ".htmlspecialchars(stripslashes($univ_nom), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"])." -----'>\n");
+          print("<optgroup label='----- ".htmlspecialchars(stripslashes($univ_nom), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE)." -----'>\n");
 
           $old_univ=$univ_id;
         }
@@ -320,7 +355,7 @@ CeCILL-B, et que vous en avez accepté les termes.
             print("</optgroup>
                   <option value='' label='' disabled></option>\n");
 
-          print("<optgroup label='".htmlspecialchars($comp_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"])."'>\n");
+          print("<optgroup label='".htmlspecialchars($comp_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE)."'>\n");
 
           $old_comp=$comp_id;
         }
@@ -341,7 +376,7 @@ CeCILL-B, et que vous en avez accepté les termes.
         <font class='Texte_menu2'><b>Titre de la lettre destination : </b><br>(laissez vide pour conserver le même titre)</font>
       </td>
       <td class='td-droite fond_menu'>
-        <input type='text' name='new_titre' value='<?php if(isset($new_titre)) echo htmlspecialchars($new_titre, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size='40' maxlenght='96'>
+        <input type='text' name='new_titre' value='<?php if(isset($new_titre)) echo htmlspecialchars($new_titre, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size='40' maxlenght='96'>
       </td>
     </tr>
     <tr>
@@ -392,12 +427,12 @@ CeCILL-B, et que vous en avez accepté les termes.
                 print("</optgroup>
                       <option value='' label='' disabled></option>\n");
 
-              print("<optgroup label='----- ".htmlspecialchars(stripslashes($univ_nom), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"])." -----'>\n");
+              print("<optgroup label='----- ".htmlspecialchars(stripslashes($univ_nom), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE)." -----'>\n");
 
               $old_univ=$univ_id;
             }
 
-            $val=htmlspecialchars($comp_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+            $val=htmlspecialchars($comp_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
 
             print("<option value='$comp_id' label=\"$val\">$val</option>\n");
           }

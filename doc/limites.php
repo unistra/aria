@@ -128,7 +128,7 @@ CeCILL-B, et que vous en avez accepté les termes.
           print("<optgroup label='$univ_nom'>\n");
         }
 
-        $value=htmlspecialchars($comp_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+        $value=htmlspecialchars($comp_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
 
         if(isset($_SESSION["comp_id"]) && $_SESSION["comp_id"]==$comp_id)
           $selected="selected='1'";

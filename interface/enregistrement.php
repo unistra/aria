@@ -63,14 +63,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
    $php_self=$_SERVER['PHP_SELF'];
    $_SESSION['CURRENT_FILE']=$php_self;
-/*
-   if(!isset($_SESSION["interface_ouverte"]) || $_SESSION["interface_ouverte"]==0)
-   {
-      session_write_close();
-      header("Location:identification.php");
-      exit();
-   }
-*/
+
    $dbr=db_connect();
 
    if(isset($_POST["go_valider"]) || isset($_POST["go_valider_x"]))
@@ -104,14 +97,14 @@ CeCILL-B, et que vous en avez accepté les termes.
 
       $civilite=$_POST["civilite"];
 
-      $nom=stripslashes(str_replace("'","''", mb_strtoupper(trim($_POST["nom"]), "UTF-8")));
-      $nom_naissance=stripslashes(str_replace("'","''", mb_strtoupper(trim($_POST["nom_naissance"]), "UTF-8")));
+      $nom=stripslashes(mb_strtoupper(trim($_POST["nom"]), "UTF-8"));
+      $nom_naissance=stripslashes(mb_strtoupper(trim($_POST["nom_naissance"]), "UTF-8"));
       
       if($nom_naissance=="")
          $nom_naissance=$nom;
       
-      $prenom=stripslashes(str_replace("'","''", ucwords(mb_strtolower(trim($_POST["prenom"]), "UTF-8"))));
-      $deuxieme_prenom=stripslashes(str_replace("'","''", ucwords(mb_strtolower(trim($_POST["prenom2"]), "UTF-8"))));
+      $prenom=stripslashes(ucwords(mb_strtolower(trim($_POST["prenom"]), "UTF-8")));
+      $deuxieme_prenom=stripslashes(ucwords(mb_strtolower(trim($_POST["prenom2"]), "UTF-8")));
 
       $jour=trim($_POST["jour"]);
       $mois=trim($_POST["mois"]);
@@ -203,8 +196,8 @@ CeCILL-B, et que vous en avez accepté les termes.
       {
          $result=db_query($dbr,"SELECT $_DBC_candidat_nom, $_DBC_candidat_prenom, $_DBC_candidat_date_naissance
                                     FROM $_DB_candidat
-                                 WHERE $_DBC_candidat_nom ILIKE '$nom'
-                                 AND $_DBC_candidat_prenom ILIKE '$prenom'
+                                 WHERE $_DBC_candidat_nom ILIKE '".preg_replace("/[']+/", "''", stripslashes($nom))."'
+                                 AND $_DBC_candidat_prenom ILIKE '".preg_replace("/[']+/", "''", stripslashes($prenom))."'
                                  AND $_DBC_candidat_date_naissance='$date_naissance'");
          $rows=db_num_rows($result);
 
@@ -217,7 +210,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       if(!isset($id_existe) && !isset($email_inegaux))
       {
          $result=db_query($dbr,"SELECT * FROM $_DB_candidat
-                                WHERE $_DBC_candidat_email ILIKE '$email'");
+                                WHERE $_DBC_candidat_email ILIKE '".preg_replace("/[']+/", "''", stripslashes($email))."'");
                                 
          $rows=db_num_rows($result);
 
@@ -245,7 +238,8 @@ CeCILL-B, et que vous en avez accepté les termes.
          $iteration=0;
          $len_prenom=strlen($base_prenom);
 
-         while(db_num_rows(db_query($dbr,"SELECT $_DBC_candidat_id FROM $_DB_candidat WHERE $_DBC_candidat_identifiant like '$new_identifiant'")))
+         while(db_num_rows(db_query($dbr,"SELECT $_DBC_candidat_id FROM $_DB_candidat 
+            WHERE $_DBC_candidat_identifiant like '".preg_replace("/[']+/", "''", stripslashes($new_identifiant))."'")))
          {
             if($nb_lettres_prenom<=$len_prenom) // si on peut encore utiliser le prénom
             {
@@ -311,79 +305,80 @@ $__SIGNATURE_COURRIELS";
                   $last_user_agent="$browser[parent] - $browser[platform] - $browser[browser] $browser[version] / CSS : $browser[css]";
             }
 
-            $new_id=db_locked_query($dbr, $_DB_candidat, "INSERT INTO $_DB_candidat ($_DBU_candidat_id,
-                                                                                     $_DBU_candidat_civilite, 
-                                                                                     $_DBU_candidat_nom, 
-                                                                                     $_DBU_candidat_nom_naissance, 
-                                                                                     $_DBU_candidat_prenom, 
-                                                                                     $_DBU_candidat_prenom2, 
-                                                                                     $_DBU_candidat_date_naissance, 
-                                                                                     $_DBU_candidat_lieu_naissance,
-                                                                                     $_DBU_candidat_dpt_naissance, 
-                                                                                     $_DBU_candidat_pays_naissance, 
-                                                                                     $_DBU_candidat_nationalite, 
-                                                                                     $_DBU_candidat_telephone, 
-                                                                                     $_DBU_candidat_telephone_portable, 
-                                                                                     $_DBU_candidat_adresse_1, 
-                                                                                     $_DBU_candidat_adresse_2, 
-                                                                                     $_DBU_candidat_adresse_3, 
-                                                                                     $_DBU_candidat_adresse_cp, 
-                                                                                     $_DBU_candidat_adresse_ville, 
-                                                                                     $_DBU_candidat_adresse_pays, 
-                                                                                     $_DBU_candidat_numero_ine, 
-                                                                                     $_DBU_candidat_email, 
-                                                                                     $_DBU_candidat_identifiant, 
-                                                                                     $_DBU_candidat_code_acces, 
-                                                                                     $_DBU_candidat_connexion, 
-                                                                                     $_DBU_candidat_derniere_ip, 
-                                                                                     $_DBU_candidat_dernier_host, 
-                                                                                     $_DBU_candidat_dernier_user_agent, 
-                                                                                     $_DBU_candidat_derniere_erreur_code, 
-                                                                                     $_DBU_candidat_manuelle, 
-                                                                                     $_DBU_candidat_cursus_en_cours, 
-                                                                                     $_DBU_candidat_lock, 
-                                                                                     $_DBU_candidat_lockdate, 
-                                                                                     $_DBU_candidat_deja_inscrit, 
-                                                                                     $_DBU_candidat_annee_premiere_inscr, 
-                                                                                     $_DBU_candidat_annee_bac, 
-                                                                                     $_DBU_candidat_serie_bac)
-             
-                                                                                   VALUES('##NEW_ID##',
-                                                                                          '$civilite',
-                                                                                          '$nom',
-                                                                                          '$nom_naissance',
-                                                                                          '$prenom',
-                                                                                          '$deuxieme_prenom',
-                                                                                          '$date_naissance',
-                                                                                          '$lieu_naissance',
-                                                                                          '$dpt_naissance',
-                                                                                          '$pays_naissance',
-                                                                                          '$nationalite',
-                                                                                          '$telephone',
-                                                                                          '$telephone_portable',
-                                                                                          '$adresse_1',
-                                                                                          '$adresse_2',
-                                                                                          '$adresse_3',
-                                                                                          '$adr_cp',
-                                                                                          '$adr_ville',
-                                                                                          '$adr_pays',
-                                                                                          '$num_ine',
-                                                                                          '$email',
-                                                                                          '$new_identifiant',
-                                                                                          '$new_code',
-                                                                                          '$derniere_connexion',
-                                                                                          '$last_ip',
-                                                                                          '$last_host',
-                                                                                          '$last_user_agent',
-                                                                                          '$derniere_erreur',
-                                                                                          '$fiche_manuelle',
-                                                                                          '$cursus_en_cours',
-                                                                                          '$candidat_lock',
-                                                                                          '$candidat_lockdate',
-                                                                                          '$deja_inscrit',
-                                                                                          '$premiere_inscr',
-                                                                                          '$baccalaureat',
-                                                                                          '$serie_bac')");
+            $new_id=db_locked_query($dbr, $_DB_candidat, "INSERT INTO $_DB_candidat (
+                 $_DBU_candidat_id,
+                 $_DBU_candidat_civilite, 
+                 $_DBU_candidat_nom, 
+                 $_DBU_candidat_nom_naissance, 
+                 $_DBU_candidat_prenom, 
+                 $_DBU_candidat_prenom2, 
+                 $_DBU_candidat_date_naissance, 
+                 $_DBU_candidat_lieu_naissance,
+                 $_DBU_candidat_dpt_naissance, 
+                 $_DBU_candidat_pays_naissance, 
+                 $_DBU_candidat_nationalite, 
+                 $_DBU_candidat_telephone, 
+                 $_DBU_candidat_telephone_portable, 
+                 $_DBU_candidat_adresse_1, 
+                 $_DBU_candidat_adresse_2, 
+                 $_DBU_candidat_adresse_3, 
+                 $_DBU_candidat_adresse_cp, 
+                 $_DBU_candidat_adresse_ville, 
+                 $_DBU_candidat_adresse_pays, 
+                 $_DBU_candidat_numero_ine, 
+                 $_DBU_candidat_email, 
+                 $_DBU_candidat_identifiant, 
+                 $_DBU_candidat_code_acces, 
+                 $_DBU_candidat_connexion, 
+                 $_DBU_candidat_derniere_ip, 
+                 $_DBU_candidat_dernier_host, 
+                 $_DBU_candidat_dernier_user_agent, 
+                 $_DBU_candidat_derniere_erreur_code, 
+                 $_DBU_candidat_manuelle, 
+                 $_DBU_candidat_cursus_en_cours, 
+                 $_DBU_candidat_lock, 
+                 $_DBU_candidat_lockdate, 
+                 $_DBU_candidat_deja_inscrit, 
+                 $_DBU_candidat_annee_premiere_inscr, 
+                 $_DBU_candidat_annee_bac, 
+                 $_DBU_candidat_serie_bac)
+
+               VALUES('##NEW_ID##',
+                      '$civilite',
+                      '".preg_replace("/[']+/", "''", stripslashes($nom))."',
+                      '".preg_replace("/[']+/", "''", stripslashes($nom_naissance))."',
+                      '".preg_replace("/[']+/", "''", stripslashes($prenom))."',
+                      '".preg_replace("/[']+/", "''", stripslashes($deuxieme_prenom))."',
+                      '$date_naissance',
+                      '".preg_replace("/[']+/", "''", stripslashes($lieu_naissance))."',
+                      '".preg_replace("/[']+/", "''", stripslashes($dpt_naissance))."',
+                      '".preg_replace("/[']+/", "''", stripslashes($pays_naissance))."',
+                      '".preg_replace("/[']+/", "''", stripslashes($nationalite))."',
+                      '".preg_replace("/[']+/", "''", stripslashes($telephone))."',
+                      '".preg_replace("/[']+/", "''", stripslashes($telephone_portable))."',
+                      '".preg_replace("/[']+/", "''", stripslashes($adresse_1))."',
+                      '".preg_replace("/[']+/", "''", stripslashes($adresse_2))."',
+                      '".preg_replace("/[']+/", "''", stripslashes($adresse_3))."',
+                      '".preg_replace("/[']+/", "''", stripslashes($adr_cp))."',
+                      '".preg_replace("/[']+/", "''", stripslashes($adr_ville))."',
+                      '".preg_replace("/[']+/", "''", stripslashes($adr_pays))."',
+                      '".preg_replace("/[']+/", "''", stripslashes($num_ine))."',
+                      '".preg_replace("/[']+/", "''", stripslashes($email))."',
+                      '$new_identifiant',
+                      '$new_code',
+                      '$derniere_connexion',
+                      '$last_ip',
+                      '".preg_replace("/[']+/", "''", stripslashes($last_host))."',
+                      '".preg_replace("/[']+/", "''", stripslashes($last_user_agent))."',
+                      '".preg_replace("/[']+/", "''", stripslashes($derniere_erreur))."',
+                      '$fiche_manuelle',
+                      '$cursus_en_cours',
+                      '$candidat_lock',
+                      '$candidat_lockdate',
+                      '$deja_inscrit',
+                      '".preg_replace("/[']+/", "''", stripslashes($premiere_inscr))."',
+                      '".preg_replace("/[']+/", "''", stripslashes($baccalaureat))."',
+                      '".preg_replace("/[']+/", "''", stripslashes($serie_bac))."')");
             
             $_SESSION["email"]=$email;
 
@@ -622,7 +617,7 @@ $__SIGNATURE_COURRIELS";
          <font class='Texte_important_menu2'><b>Nom usuel :</b></font>
       </td>
       <td class='td-droite fond_menu' style="text-align:left;">
-         <input type='text' name='nom' value='<?php if(isset($nom)) echo htmlspecialchars($nom,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="25" maxlength="30">
+         <input type='text' name='nom' value='<?php if(isset($nom)) echo htmlspecialchars($nom,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size="25" maxlength="30">
       </td>
    </tr>
    <tr>
@@ -630,7 +625,7 @@ $__SIGNATURE_COURRIELS";
          <font class='Texte_important_menu2'>Nom de naissance (si différent) :</font>
       </td>
       <td class='td-droite fond_menu' style="text-align:left;">
-         <input type='text' name='nom_naissance' value='<?php if(isset($nom_naissance)) echo htmlspecialchars($nom_naissance,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="25" maxlength="30">
+         <input type='text' name='nom_naissance' value='<?php if(isset($nom_naissance)) echo htmlspecialchars($nom_naissance,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size="25" maxlength="30">
       </td>
    </tr>
    <tr>
@@ -638,7 +633,7 @@ $__SIGNATURE_COURRIELS";
          <font class='Texte_important_menu2'><b>Prénom : </b></font>
       </td>
       <td class='td-droite fond_menu' style="text-align:left;">
-         <input type='text' name='prenom' value='<?php if(isset($prenom)) echo htmlspecialchars($prenom,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="25" maxlength="30">
+         <input type='text' name='prenom' value='<?php if(isset($prenom)) echo htmlspecialchars($prenom,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size="25" maxlength="30">
       </td>
    </tr>
    <tr>
@@ -646,7 +641,7 @@ $__SIGNATURE_COURRIELS";
          <font class='Texte_menu2'>Deuxième prénom (recommandé) : </font>
       </td>
       <td class='td-droite fond_menu' style="text-align:left;">
-         <input type='text' name='prenom2' value='<?php if(isset($deuxieme_prenom)) echo htmlspecialchars($deuxieme_prenom,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="25" maxlength="30">
+         <input type='text' name='prenom2' value='<?php if(isset($deuxieme_prenom)) echo htmlspecialchars($deuxieme_prenom,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size="25" maxlength="30">
       </td>
    </tr>
    <tr>
@@ -654,9 +649,9 @@ $__SIGNATURE_COURRIELS";
          <font class='Texte_important_menu2'><b>Date de naissance (JJ/MM/AAAA) : </b></font>
       </td>
       <td class='td-droite fond_menu' style="text-align:left;">
-         <input type='text' name='jour' value='<?php if(isset($jour)) echo htmlspecialchars($jour,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="2" maxlength="2">/
-         <input type='text' name='mois' value='<?php if(isset($mois)) echo htmlspecialchars($mois,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="2" maxlength="2">/
-         <input type='text' name='annee' value='<?php if(isset($annee)) echo htmlspecialchars($annee,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="4" maxlength="4">
+         <input type='text' name='jour' value='<?php if(isset($jour)) echo htmlspecialchars($jour,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size="2" maxlength="2">/
+         <input type='text' name='mois' value='<?php if(isset($mois)) echo htmlspecialchars($mois,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size="2" maxlength="2">/
+         <input type='text' name='annee' value='<?php if(isset($annee)) echo htmlspecialchars($annee,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size="4" maxlength="4">
       </td>
    </tr>
    <tr>
@@ -664,7 +659,7 @@ $__SIGNATURE_COURRIELS";
          <font class='Texte_important_menu2'><b>Ville de naissance : </b></font>
       </td>
       <td class='td-droite fond_menu' style="text-align:left;">
-         <input type='text' name='lieu_naissance' value='<?php if(isset($lieu_naissance)) echo htmlspecialchars($lieu_naissance,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="25" maxlength="60">
+         <input type='text' name='lieu_naissance' value='<?php if(isset($lieu_naissance)) echo htmlspecialchars($lieu_naissance,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size="25" maxlength="60">
       </td>
    </tr>
    <tr>
@@ -742,7 +737,7 @@ $__SIGNATURE_COURRIELS";
          <font class='Texte_important_menu2'><b>Adresse électronique valide (<i>email</i>) : </b></font>
       </td>
       <td class='td-droite fond_menu' style='text-align:left;'>
-         <input type='text' name='email' value='<?php if(isset($email)) echo htmlspecialchars($email,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="25" maxlength="255">
+         <input type='text' name='email' value='<?php if(isset($email)) echo htmlspecialchars($email,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size="25" maxlength="255">
          &nbsp;&nbsp;<font class='Texte_menu'><b><u>Une seule adresse</u> dans ce champ</b></font>
          <br>
          <font class='Texte_important_menu'>
@@ -757,7 +752,7 @@ $__SIGNATURE_COURRIELS";
          <font class='Texte_important_menu2'><b>Veuillez confirmer l'adresse électronique : </b></font>
       </td>
       <td class='td-droite fond_menu' style='text-align:left;'>
-         <input type='text' name='emailconf' value='<?php if(isset($emailconf)) echo htmlspecialchars($emailconf,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="25" maxlength="255">
+         <input type='text' name='emailconf' value='<?php if(isset($emailconf)) echo htmlspecialchars($emailconf,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size="25" maxlength="255">
       </td>
    </tr>
    <tr>
@@ -773,7 +768,7 @@ $__SIGNATURE_COURRIELS";
          <font class='Texte_important_menu2'><b>Adresse : <br></b></font>
       </td>
       <td class='td-droite fond_menu' style="text-align:left;">
-         <input name='adresse_1' value="<?php if(isset($adresse_1)) echo htmlspecialchars(stripslashes($adresse_1), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>" size='40' maxlength="30">
+         <input name='adresse_1' value="<?php if(isset($adresse_1)) echo htmlspecialchars(stripslashes($adresse_1), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>" size='40' maxlength="30">
       </td>
    </tr>
    <tr>
@@ -781,7 +776,7 @@ $__SIGNATURE_COURRIELS";
          <font class='Texte_important_menu2'><b>Adresse (suite) : <br></b></font>
       </td>
       <td class='td-droite fond_menu' style="text-align:left;">
-         <input name='adresse_2' value="<?php if(isset($adresse_2)) echo htmlspecialchars(stripslashes($adresse_2), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>" size='40' maxlength="30">
+         <input name='adresse_2' value="<?php if(isset($adresse_2)) echo htmlspecialchars(stripslashes($adresse_2), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>" size='40' maxlength="30">
       </td>
    </tr>
    <tr>
@@ -789,7 +784,7 @@ $__SIGNATURE_COURRIELS";
          <font class='Texte_important_menu2'><b>Adresse (suite) : <br></b></font>
       </td>
       <td class='td-droite fond_menu' style="text-align:left;">
-         <input name='adresse_3' value="<?php if(isset($adresse_3)) echo htmlspecialchars(stripslashes($adresse_3), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>" size='40' maxlength="30">
+         <input name='adresse_3' value="<?php if(isset($adresse_3)) echo htmlspecialchars(stripslashes($adresse_3), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>" size='40' maxlength="30">
       </td>
    </tr>
    <tr>
@@ -797,7 +792,7 @@ $__SIGNATURE_COURRIELS";
          <font class='Texte_important_menu2'><b>Code Postal :</b></font>
       </td>
       <td class='td-droite fond_menu' style="text-align:left;">
-         <input type='text' name='adr_cp' value='<?php if(isset($adr_cp)) echo htmlspecialchars($adr_cp,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="25" maxlength="15">
+         <input type='text' name='adr_cp' value='<?php if(isset($adr_cp)) echo htmlspecialchars($adr_cp,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size="25" maxlength="15">
       </td>
    </tr>
    <tr>
@@ -805,7 +800,7 @@ $__SIGNATURE_COURRIELS";
          <font class='Texte_important_menu2'><b>Ville :</b></font>
       </td>
       <td class='td-droite fond_menu' style="text-align:left;">
-         <input type='text' name='adr_ville' value='<?php if(isset($adr_ville)) echo htmlspecialchars($adr_ville,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="25" maxlength="60">
+         <input type='text' name='adr_ville' value='<?php if(isset($adr_ville)) echo htmlspecialchars($adr_ville,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size="25" maxlength="60">
       </td>
    </tr>
    <tr>
@@ -827,7 +822,7 @@ $__SIGNATURE_COURRIELS";
                }
             ?>
          </select>
-         <!-- <input type='text' name='adr_pays' value='<?php if(isset($adr_pays)) echo htmlspecialchars($adr_pays,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="25" maxlength="60"> -->
+         <!-- <input type='text' name='adr_pays' value='<?php if(isset($adr_pays)) echo htmlspecialchars($adr_pays,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size="25" maxlength="60"> -->
       </td>
    </tr>
    <tr>
@@ -913,7 +908,7 @@ $__SIGNATURE_COURRIELS";
          <font class='Texte_menu2'>Numéro INE <b>ou</b> BEA : </font>
       </td>
       <td class='td-droite fond_menu' style="text-align:left;">
-         <input type='text' name='num_ine' value='<?php if(isset($num_ine)) echo htmlspecialchars($num_ine,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="25" maxlength="11"> <font class='Texte_menu'>(<b>obligatoire</b> si vous avez déjà été inscrit(e) dans cette Université)</font>
+         <input type='text' name='num_ine' value='<?php if(isset($num_ine)) echo htmlspecialchars($num_ine,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size="25" maxlength="11"> <font class='Texte_menu'>(<b>obligatoire</b> si vous avez déjà été inscrit(e) dans cette Université)</font>
       </td>
    </tr>
    <tr>
@@ -921,7 +916,7 @@ $__SIGNATURE_COURRIELS";
          <font class='Texte_menu2'>Numéro de téléphone fixe : </font>
       </td>
       <td class='td-droite fond_menu' style="text-align:left;">
-         <input type='text' name='telephone' value='<?php if(isset($telephone)) echo htmlspecialchars($telephone,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="25" maxlength="15">
+         <input type='text' name='telephone' value='<?php if(isset($telephone)) echo htmlspecialchars($telephone,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size="25" maxlength="15">
       </td>
    </tr>
    <tr>
@@ -929,7 +924,7 @@ $__SIGNATURE_COURRIELS";
          <font class='Texte_menu2'>Numéro de téléphone portable : </font>
       </td>
       <td class='td-droite fond_menu' style="text-align:left;">
-         <input type='text' name='telephone_portable' value='<?php if(isset($telephone_portable)) echo htmlspecialchars($telephone_portable,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="25" maxlength="15">
+         <input type='text' name='telephone_portable' value='<?php if(isset($telephone_portable)) echo htmlspecialchars($telephone_portable,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size="25" maxlength="15">
       </td>
    </tr>
    </table>
@@ -958,7 +953,7 @@ $__SIGNATURE_COURRIELS";
 
    <div class="centered_box">
       <img style='vertical-align:middle;' name="confirmation" src="code_confirmation.php" border="1">
-      <font class='Texte'><strong>Code : </strong><input type='text' name='code_conf' value='<?php if(isset($code_conf)) echo htmlspecialchars($code_conf,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="15" maxlength="5"></font>
+      <font class='Texte'><strong>Code : </strong><input type='text' name='code_conf' value='<?php if(isset($code_conf)) echo htmlspecialchars($code_conf,ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size="15" maxlength="5"></font>
    </div>
 
    <div class="centered_icons_box">

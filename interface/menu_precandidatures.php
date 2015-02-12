@@ -436,14 +436,14 @@ CeCILL-B, et que vous en avez accepté les termes.
                                           $statut_txt="Précandidature en attente";
                                           $crypt_params=crypt_params("cand_id=$cand_id&groupe=$groupe_spec&ordre_spec=$ordre_spec&annuler=1");                                         
                                           $lien_suppr="<a href='suppr_cand.php?p=$crypt_params' class='lien_rouge12'><img src='$__ICON_DIR/trashcan_full_16x16_slick_menu.png' alt='Annuler' border='0'></a>" ;
-                                          $motivation_rec_txt=$motivation_decision=="" ? "" : "(Motivation : " . htmlspecialchars(stripslashes($motivation_decision), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]) . ")";
+                                          $motivation_rec_txt=$motivation_decision=="" ? "" : "(Motivation : " . htmlspecialchars(stripslashes($motivation_decision), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE) . ")";
                                           break;
 
             case $__PREC_NON_RECEVABLE   :   // précandidature non recevable
                                           $font_class='Texte_important_menu';
                                           $statut_txt="Précandidature non recevable";
                                           $lien_suppr="";
-                                          $motivation_rec_txt=$motivation_decision=="" ? "" : "(Motivation : " . htmlspecialchars(stripslashes($motivation_decision), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]) . ")";
+                                          $motivation_rec_txt=$motivation_decision=="" ? "" : "(Motivation : " . htmlspecialchars(stripslashes($motivation_decision), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE) . ")";
                                           break;
 
             case $__PREC_ANNULEE   :      // précandidature annulée

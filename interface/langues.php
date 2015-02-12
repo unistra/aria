@@ -109,7 +109,7 @@ CeCILL-B, et que vous en avez accepté les termes.
     if(empty($langue) && !empty($langue_libre)) // on vérifie que ce qui a été saisi dans le champ libre n'est pas dans la liste
     {
       $result=db_query($dbr,"SELECT $_DBC_liste_langues_langue FROM $_DB_liste_langues
-                                  WHERE $_DBC_liste_langues_langue ILIKE '$langue_libre'");
+                             WHERE $_DBC_liste_langues_langue ILIKE '".str_replace("'", "''", $langue_libre)."'");
 
       if(db_num_rows($result)) // 1 seul résultat si ça donne quelque chose
         list($langue)=db_fetch_row($result,0);
@@ -136,7 +136,11 @@ CeCILL-B, et que vous en avez accepté les termes.
     {
       if($la_id==0) // nouvelle langue
       {
-        $new_id=db_locked_query($dbr, $_DB_langues, "INSERT INTO $_DB_langues VALUES('##NEW_ID##','$candidat_id','$langue','$niveau','$nb_annees')");
+        $new_id=db_locked_query($dbr, $_DB_langues, "INSERT INTO $_DB_langues VALUES('##NEW_ID##','$candidat_id',
+            '".str_replace("'", "''", $langue)."',
+            '".str_replace("'", "''", $niveau)."',
+            '".str_replace("'", "''", $nb_annees)."')");
+            
         db_close($dbr);
   
         session_write_close();
@@ -145,10 +149,11 @@ CeCILL-B, et que vous en avez accepté les termes.
       }
       else  // mise à jour d'une valeur existante
       {
-        db_query($dbr,"UPDATE $_DB_langues SET  $_DBU_langues_langue='$langue',
-                                  $_DBU_langues_niveau='$niveau',
-                                  $_DBU_langues_annees='$nb_annees'
-                  WHERE $_DBU_langues_id='$la_id' AND $_DBU_langues_candidat_id='$candidat_id'");
+        db_query($dbr,"UPDATE $_DB_langues 
+            SET $_DBU_langues_langue='".str_replace("'", "''", $langue)."',
+                $_DBU_langues_niveau='".str_replace("'", "''", $niveau)."',
+                $_DBU_langues_annees='".str_replace("'", "''", $nb_annees)."'
+            WHERE $_DBU_langues_id='$la_id' AND $_DBU_langues_candidat_id='$candidat_id'");
 
         db_close($dbr);
   
@@ -235,12 +240,12 @@ CeCILL-B, et que vous en avez accepté les termes.
         else
           print("<option value=''></option>");
 
-        $value2=preg_replace("/_/","",htmlspecialchars(stripslashes($cur_langue), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]));
+        $value2=preg_replace("/_/","",htmlspecialchars(stripslashes($cur_langue), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE));
 
         for($i=0; $i<$rows; $i++)
         {
           list($langue)=db_fetch_row($result,$i);
-          $value=htmlspecialchars($langue, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+          $value=htmlspecialchars($langue, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
 
           if(isset($value2) && !strcasecmp($value,$value2))
           {
@@ -256,7 +261,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       </select>
 
       <font class='Texte_menu'>&nbsp;&nbsp;Si la langue n'est pas dans la liste : </font>
-      <input type='text' name='langue_libre' value='<?php if(isset($cur_langue) && !isset($langue_liste)) echo htmlspecialchars(preg_replace("/_/","",stripslashes($cur_langue)),ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="25" maxlength="128">&nbsp;&nbsp;
+      <input type='text' name='langue_libre' value='<?php if(isset($cur_langue) && !isset($langue_liste)) echo htmlspecialchars(preg_replace("/_/","",stripslashes($cur_langue)),ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size="25" maxlength="128">&nbsp;&nbsp;
     </td>
   </tr>
   <tr>
@@ -301,7 +306,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <font class='Texte'><b>Combien d'années l'avez vous étudiée ?</b></font>
     </td>
     <td class='td-droite fond_menu'>
-      <input type='text' name='nb_annees' value='<?php if(isset($cur_nb_annees)) echo htmlspecialchars(stripslashes($cur_nb_annees),ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="25" maxlength="128">
+      <input type='text' name='nb_annees' value='<?php if(isset($cur_nb_annees)) echo htmlspecialchars(stripslashes($cur_nb_annees),ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size="25" maxlength="128">
     </td>
   </tr>
   </table>  

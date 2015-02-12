@@ -122,10 +122,11 @@ CeCILL-B, et que vous en avez accepté les termes.
     // et on modifie la date de dernière modif de l'article
 
     if(!isset($_SESSION["ajout"]))
-      db_query($dbr,"UPDATE $_DB_encadre SET $_DBU_encadre_texte='$texte',
-                                $_DBU_encadre_txt_align='$alignement'
-                WHERE $_DBU_encadre_lettre_id='$lettre_id'
-                AND $_DBU_encadre_ordre='$_SESSION[ordre]'");
+      db_query($dbr,"UPDATE $_DB_encadre SET 
+          $_DBU_encadre_texte='".preg_replace("/[']+/", "''", stripslashes($texte))."',
+          $_DBU_encadre_txt_align='$alignement'
+          WHERE $_DBU_encadre_lettre_id='$lettre_id'
+          AND $_DBU_encadre_ordre='$_SESSION[ordre]'");
     else
     {
       if($_SESSION["ordre"]!=$_SESSION["ordre_max"]) // On n'insère pas l'élément en dernier : décallage
@@ -154,7 +155,11 @@ CeCILL-B, et que vous en avez accepté les termes.
       }
 
       // Insertion du nouvel élément
-      db_query($dbr,"INSERT INTO $_DB_encadre VALUES ('$lettre_id', '$_SESSION[ordre]', '$texte', $alignement)");
+      db_query($dbr,"INSERT INTO $_DB_encadre VALUES (
+          '$lettre_id', 
+          '$_SESSION[ordre]', 
+          '".preg_replace("/[']+/", "''", stripslashes($texte))."',
+          '$alignement')");
     }
 
     db_close($dbr);
@@ -225,7 +230,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <font class='Texte_menu2'><b>Nouveau texte :</b></font>
     </td>
     <td class='td-droite fond_menu'>
-      <textarea  name='new_encadre' rows='10' cols='60' class='input'><?php if(isset($texte)) echo htmlspecialchars($texte, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?></textarea>
+      <textarea  name='new_encadre' rows='10' cols='60' class='input'><?php if(isset($texte)) echo htmlspecialchars($texte, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?></textarea>
     </td>
   </tr>
   <tr>

@@ -142,13 +142,14 @@ CeCILL-B, et que vous en avez accepté les termes.
     else
     {
       if(!isset($_SESSION["ajout"]))
-        db_query($dbr,"UPDATE $_DB_comp_infos_para SET  $_DBU_comp_infos_para_texte='$texte',
-                                        $_DBU_comp_infos_para_align='$alignement',
-                                        $_DBU_comp_infos_para_gras='$gras',
-                                        $_DBU_comp_infos_para_italique='$italique',
-                                        $_DBU_comp_infos_para_taille='$taille'
-                  WHERE $_DBU_comp_infos_para_info_id='$info_doc_id'
-                  AND $_DBU_comp_infos_para_ordre='$_SESSION[ordre]'");
+        db_query($dbr,"UPDATE $_DB_comp_infos_para SET
+            $_DBU_comp_infos_para_texte='".preg_replace("/[']+/", "''", stripslashes($texte))."',
+            $_DBU_comp_infos_para_align='$alignement',
+            $_DBU_comp_infos_para_gras='$gras',
+            $_DBU_comp_infos_para_italique='$italique',
+            $_DBU_comp_infos_para_taille='$taille'
+            WHERE $_DBU_comp_infos_para_info_id='$info_doc_id'
+            AND $_DBU_comp_infos_para_ordre='$_SESSION[ordre]'");
       else
       {
         if($_SESSION["ordre"]!=$_SESSION["ordre_max"]) // On n'insère pas l'élément en dernier : décallage
@@ -176,7 +177,11 @@ CeCILL-B, et que vous en avez accepté les termes.
         }
 
         // Insertion du nouvel élément
-        db_query($dbr,"INSERT INTO $_DB_comp_infos_para VALUES ('$info_doc_id', '$_SESSION[ordre]','$texte', '$gras', '$italique', '$alignement', '$taille')");
+        db_query($dbr,"INSERT INTO $_DB_comp_infos_para VALUES (
+              '$info_doc_id', 
+              '$_SESSION[ordre]',
+              '".preg_replace("/[']+/", "''", stripslashes($texte))."', 
+              '$gras', '$italique', '$alignement', '$taille')");
       }
 
       db_close($dbr);
@@ -205,7 +210,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       message("Erreur : le texte du paragraphe ne doit pas être vide", $__ERREUR);
 
     if(isset($texte))
-      $texte=htmlspecialchars(stripslashes($texte),ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+      $texte=htmlspecialchars(stripslashes($texte),ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
     else
       $texte="";
 

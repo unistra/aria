@@ -128,8 +128,8 @@ CeCILL-B, et que vous en avez accepté les termes.
     {
       // unicité  
       if(db_num_rows(db_query($dbr,"SELECT * FROM $_DB_dossiers_elems
-                          WHERE ($_DBC_dossiers_elems_intitule ILIKE '$_SESSION[element_intitule]'
-                                  AND $_DBC_dossiers_elems_para ILIKE '$element_para')
+                          WHERE ($_DBC_dossiers_elems_intitule ILIKE '".preg_replace("/[']+/", "''", stripslashes($_SESSION["element_intitule"]))."'
+                                  AND $_DBC_dossiers_elems_para ILIKE '".preg_replace("/[']+/", "''", stripslashes($element_para))."')
                           AND $_DBC_dossiers_elems_comp_id='$_SESSION[comp_id]'
                           AND $_DBC_dossiers_elems_id!='$_SESSION[element_id]'")))
         $element_existe="1";
@@ -138,8 +138,8 @@ CeCILL-B, et que vous en avez accepté les termes.
     {
       // unicité
       if(db_num_rows(db_query($dbr,"SELECT * FROM $_DB_dossiers_elems
-                          WHERE ($_DBC_dossiers_elems_intitule ILIKE '$_SESSION[element_intitule]'
-                                  AND $_DBC_dossiers_elems_para ILIKE '$element_para')
+                          WHERE ($_DBC_dossiers_elems_intitule ILIKE '".preg_replace("/[']+/", "''", stripslashes($_SESSION["element_intitule"]))."'
+                                  AND $_DBC_dossiers_elems_para ILIKE '".preg_replace("/[']+/", "''", stripslashes($element_para))."')
                           AND $_DBC_dossiers_elems_comp_id='$_SESSION[comp_id]'")))
       $element_existe="1";
     }
@@ -152,23 +152,38 @@ CeCILL-B, et que vous en avez accepté les termes.
     {
       // Modification
       if(!isset($_SESSION["ajout"]) && isset($_SESSION["element_id"]))
-        db_query($dbr,"UPDATE $_DB_dossiers_elems SET $_DBU_dossiers_elems_intitule='$_SESSION[element_intitule]',
-                                        $_DBU_dossiers_elems_vap='$element_vap',
-                                        $_DBU_dossiers_elems_type='$_SESSION[current_element_type]',
-                                        $_DBU_dossiers_elems_para='$element_para',
-                                        $_DBU_dossiers_elems_unique='$element_unique',
-                                        $_DBU_dossiers_elems_obligatoire='$_SESSION[element_obligatoire]',
-                                        $_DBU_dossiers_elems_recapitulatif='$element_recapitulatif',
-                                        $_DBU_dossiers_elems_nouvelle_page='$element_nouvelle_page',
-                                        $_DBU_dossiers_elems_extractions='$element_extractions'
-                  WHERE $_DBU_dossiers_elems_id='$_SESSION[element_id]'");
+        db_query($dbr,"UPDATE $_DB_dossiers_elems SET
+            $_DBU_dossiers_elems_intitule='".preg_replace("/[']+/", "''", stripslashes($_SESSION["element_intitule"]))."',
+            $_DBU_dossiers_elems_vap='$element_vap',
+            $_DBU_dossiers_elems_type='$_SESSION[current_element_type]',
+            $_DBU_dossiers_elems_para='".preg_replace("/[']+/", "''", stripslashes($element_para))."',
+            $_DBU_dossiers_elems_unique='$element_unique',
+            $_DBU_dossiers_elems_obligatoire='$_SESSION[element_obligatoire]',
+            $_DBU_dossiers_elems_recapitulatif='$element_recapitulatif',
+            $_DBU_dossiers_elems_nouvelle_page='$element_nouvelle_page',
+            $_DBU_dossiers_elems_extractions='$element_extractions'
+            WHERE $_DBU_dossiers_elems_id='$_SESSION[element_id]'");
       else
       {
         // Valeurs par défaut
         $min_choix=$_SESSION["element_obligatoire"]=="t" ? "1" : "0";
         $max_choix=$_SESSION["current_element_type"]==$__ELEM_TYPE_UN_CHOIX ? "1" : "0";
         
-        $_SESSION["element_id"]=db_locked_query($dbr, $_DB_dossiers_elems, "INSERT INTO $_DB_dossiers_elems VALUES ('##NEW_ID##','$_SESSION[current_element_type]', '$_SESSION[element_intitule]', '$element_para', '20', '$element_vap','$_SESSION[comp_id]', '$element_unique', '$_SESSION[element_obligatoire]', '$element_recapitulatif', '$min_choix', '$max_choix', '$element_nouvelle_page','$element_extractions')");
+        $_SESSION["element_id"]=db_locked_query($dbr, $_DB_dossiers_elems, "INSERT INTO $_DB_dossiers_elems VALUES (
+            '##NEW_ID##',
+            '$_SESSION[current_element_type]', 
+            '".preg_replace("/[']+/", "''", stripslashes($_SESSION["element_intitule"]))."', 
+            '".preg_replace("/[']+/", "''", stripslashes($element_para))."', 
+            '20', 
+            '$element_vap',
+            '$_SESSION[comp_id]', 
+            '$element_unique', 
+            '$_SESSION[element_obligatoire]', 
+            '$element_recapitulatif', 
+            '$min_choix', 
+            '$max_choix', 
+            '$element_nouvelle_page',
+            '$element_extractions')");
       }
 
       db_close($dbr);
@@ -204,9 +219,10 @@ CeCILL-B, et que vous en avez accepté les termes.
     if($min_elements>0 && $max_elements>0 && $min_elements>$max_elements)
       switch_vals($min_elements, $max_elements);
 
-    db_query($dbr,"UPDATE $_DB_dossiers_elems SET $_DBU_dossiers_elems_nb_choix_min='$min_elements',
-                                   $_DBU_dossiers_elems_nb_choix_max='$max_elements'
-              WHERE $_DBU_dossiers_elems_id='$_SESSION[element_id]'");
+    db_query($dbr,"UPDATE $_DB_dossiers_elems SET 
+        $_DBU_dossiers_elems_nb_choix_min='$min_elements',
+        $_DBU_dossiers_elems_nb_choix_max='$max_elements'
+        WHERE $_DBU_dossiers_elems_id='$_SESSION[element_id]'");
     db_close($dbr);
 
     header("Location:element.php?succes=1&r=1");
@@ -314,7 +330,7 @@ CeCILL-B, et que vous en avez accepté les termes.
         {
           list($element_id, $intitule)=db_fetch_row($result,$i);
 
-          $value=htmlspecialchars($intitule, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+          $value=htmlspecialchars($intitule, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
 
           print("<option value='$element_id' label=\"$value\">$value</option>\n");
         }
@@ -412,7 +428,7 @@ CeCILL-B, et que vous en avez accepté les termes.
         <font class='Texte_menu2'><b>Intitulé</b><br><i>(Non visible par le candidat)</i></font>
       </td>
       <td class='td-droite fond_menu'>
-        <input type='text' name='intitule' value='<?php if(isset($element_intitule)) echo htmlspecialchars(stripslashes($element_intitule), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); else echo htmlspecialchars(stripslashes($current_intitule), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);?>' maxlength='256' size='60'>
+        <input type='text' name='intitule' value='<?php if(isset($element_intitule)) echo htmlspecialchars(stripslashes($element_intitule), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); else echo htmlspecialchars(stripslashes($current_intitule), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);?>' maxlength='256' size='60'>
         <br><font class='Texte_menu'><i>Exemples : "Connaissances en Cuisine" ou "Titulaire d'un Master 1" ...</i></font>
       </td>
     </tr>
@@ -426,7 +442,7 @@ CeCILL-B, et que vous en avez accepté les termes.
           <br>
         </font>
         <textarea name='paragraphe' rows='10' cols='100'><?php
-          if(isset($element_para)) echo htmlspecialchars(stripslashes($element_para), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); else echo htmlspecialchars(stripslashes($current_para), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+          if(isset($element_para)) echo htmlspecialchars(stripslashes($element_para), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); else echo htmlspecialchars(stripslashes($current_para), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
         ?></textarea>
       </td>
     </tr>

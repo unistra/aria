@@ -146,21 +146,23 @@ CeCILL-B, et que vous en avez accepté les termes.
       // vérification d'unicité
       if(db_num_rows(db_query($dbr,"SELECT * FROM $_DB_langues_dip
                           WHERE $_DBC_langues_dip_langue_id='$_SESSION[la_id]'
-                          AND $_DBC_langues_dip_nom ILIKE '$diplome'
-                          AND $_DBC_langues_dip_annee='$annee_obtention'")))
+                          AND $_DBC_langues_dip_nom ILIKE '".preg_replace("/[']+/", "''", stripslashes($diplome))."'
+                          AND $_DBC_langues_dip_annee='".preg_replace("/[']+/", "''", stripslashes($annee_obtention))."'")))
         $langue_dip_existe=1;
       else
       {
-        /*
-        $new_id=time();
-        
-        // vérification d'unicité
-        while(db_num_rows(db_query($dbr,"SELECT $_DBC_langues_dip_id FROM $_DB_langues_dip WHERE $_DBC_langues_dip_id='$new_id'")))
-          $new_id++;
-        */
-        $new_id=db_locked_query($dbr, $_DB_langues_dip, "INSERT INTO $_DB_langues_dip VALUES('##NEW_ID##','$_SESSION[la_id]','$diplome','$annee_obtention','$resultat')");
+        $new_id=db_locked_query($dbr, $_DB_langues_dip, "INSERT INTO $_DB_langues_dip VALUES(
+            '##NEW_ID##',
+            '$_SESSION[la_id]',
+            '".preg_replace("/[']+/", "''", stripslashes($diplome))."',
+            '$annee_obtention',
+            '".preg_replace("/[']+/", "''", stripslashes($resultat))."')");
 
-        write_evt($dbr, $__EVT_ID_G_LANG, "Ajout diplôme langue : $diplome (langue $_SESSION[la_id])", $candidat_id, $new_id, "INSERT INTO $_DB_langues_dip VALUES('$new_id','$_SESSION[la_id]','$diplome','$annee_obtention','$resultat')");
+        write_evt($dbr, $__EVT_ID_G_LANG, 
+            "Ajout diplôme langue : $diplome (langue $_SESSION[la_id])", 
+            $candidat_id, 
+            $new_id, 
+            "INSERT INTO $_DB_langues_dip VALUES('$new_id','$_SESSION[la_id]','$diplome','$annee_obtention','$resultat')");
 
         db_close($dbr);
 
@@ -203,7 +205,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <font class='Texte_menu2'>Nom du diplôme :</font>
     </td>
     <td class='td-droite fond_menu'>
-      <input type='text' name='diplome' value='<?php if(isset($diplome)) echo htmlspecialchars(stripslashes($diplome),ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="25" maxlength="128">
+      <input type='text' name='diplome' value='<?php if(isset($diplome)) echo htmlspecialchars(stripslashes($diplome),ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size="25" maxlength="128">
     </td>
   </tr>
   <tr>
@@ -211,7 +213,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <font class='Texte_menu2'>Année d'obtention :</font>
     </td>
     <td class='td-droite fond_menu'>
-      <input type='text' name='annee_obtention' value='<?php if(isset($annee_obtention)) echo htmlspecialchars(stripslashes($annee_obtention),ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="25" maxlength="4">
+      <input type='text' name='annee_obtention' value='<?php if(isset($annee_obtention)) echo htmlspecialchars(stripslashes($annee_obtention),ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size="25" maxlength="4">
     </td>
   </tr>
   <tr>
@@ -219,7 +221,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <font class='Texte_menu2'>Résultat/mention :</font>
     </td>
     <td class='td-droite fond_menu'>
-      <input type='text' name='resultat' value='<?php if(isset($resultat)) echo htmlspecialchars(stripslashes($resultat),ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' size="25" maxlength="128">
+      <input type='text' name='resultat' value='<?php if(isset($resultat)) echo htmlspecialchars(stripslashes($resultat),ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size="25" maxlength="128">
     </td>
   </tr>
   </table>

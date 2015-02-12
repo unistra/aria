@@ -128,7 +128,7 @@ CeCILL-B, et que vous en avez accepté les termes.
           {
             list($element_id, $element_intitule)=db_fetch_row($result, $i);
 
-            $val=htmlspecialchars($element_intitule, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+            $val=htmlspecialchars($element_intitule, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
 
             print("<option value='$element_id'>$val</option>\n");
           }

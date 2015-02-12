@@ -119,17 +119,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
     // Nettoyage avant insertion : on supprime les rattachements entre cet élément et les formations de la composante courante
     // (en conservant l'ordre correct)
-/*
-    db_query($dbr, "UPDATE $_DB_dossiers_ef SET $_DBU_dossiers_ef_ordre=$_DBU_dossiers_ef_ordre-1
-               WHERE $_DBC_dossiers_ef_elem_id='$element_id'
-               AND $_DBC_dossiers_ef_propspec_id IN (SELECT $_DBC_propspec_id FROM $_DB_propspec
-                                        WHERE $_DBC_propspec_comp_id='$_SESSION[comp_id]')");
 
-    db_query($dbr, "DELETE FROM $_DB_dossiers_ef
-               WHERE $_DBC_dossiers_ef_elem_id='$element_id'
-               AND $_DBC_dossiers_ef_propspec_id IN (SELECT $_DBC_propspec_id FROM $_DB_propspec
-                                        WHERE $_DBC_propspec_comp_id='$_SESSION[comp_id]')");
-*/
     // Sélection de toutes les formations de la composante courante
     $propspec_array=array();
 
@@ -252,7 +242,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                 for($i=0; $i<$rows; $i++)
                 {
                   list($element_id, $element_intitule, $element_vap)=db_fetch_row($result, $i);
-                  $val=htmlspecialchars($element_intitule, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+                  $val=htmlspecialchars($element_intitule, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
 
                   if($element_vap==1)
                     $vap="(<i>VAP</i>) ";

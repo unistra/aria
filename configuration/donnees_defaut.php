@@ -56,7 +56,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 // Insertion si le paramètre $__DEFAUT_DECISIONS=1 est présent dans le fichier de configuration
 function insert_default_decisions($dbr, $comp_id)
 {
-	db_query($dbr, "INSERT INTO $GLOBALS[_DB_decisions_comp] (SELECT '$comp_id', $GLOBALS[_DBC_decisions_id] FROM $GLOBALS[_DB_decisions] ORDER BY id)");
+  db_query($dbr, "INSERT INTO $GLOBALS[_DB_decisions_comp] (SELECT '$comp_id', $GLOBALS[_DBC_decisions_id] FROM $GLOBALS[_DB_decisions] ORDER BY id)");
 }
 
 
@@ -71,23 +71,23 @@ function insert_default_decisions($dbr, $comp_id)
 // - soit supprimer son contenu
 
 $__DEFAUT_MOTIFS_REFUS=array(
-	array("Résultats insuffisants", "", 0),
-	array("Résultats insuffisants à l'examen du BTS", "", 0),
-	array("Résultats insuffisants en 1er cycle", "", 0),
-	array("Pas d'avis favorable de poursuite d'études", "", 0),
-	array("Prérequis en informatique non satisfaits", "", 0),
-	array("Cursus inadapté", "", 0),
-	array("Nombre maximum d'inscriptions atteint",
-			"Le dossier n'a pu etre retenu compte tenu du nombre de dossiers soumis et de leur qualité.", 1),
-	array("Non présentation à l'entretien de sélection","", 0),
-	array("Pas d'offre apprentissage adaptée",
-			"Pas de proposition de contrat d'apprentissage en adéquation avec votre parcours", 0),
-	array("Candidat sans contrat d'apprentissage",
-			"Vous ne justifiez pas de la signature d'un contrat d'apprentissage.", 0));
+  array("Résultats insuffisants", "", 0),
+  array("Résultats insuffisants à l'examen du BTS", "", 0),
+  array("Résultats insuffisants en 1er cycle", "", 0),
+  array("Pas d'avis favorable de poursuite d'études", "", 0),
+  array("Prérequis en informatique non satisfaits", "", 0),
+  array("Cursus inadapté", "", 0),
+  array("Nombre maximum d'inscriptions atteint",
+      "Le dossier n'a pu etre retenu compte tenu du nombre de dossiers soumis et de leur qualité.", 1),
+  array("Non présentation à l'entretien de sélection","", 0),
+  array("Pas d'offre apprentissage adaptée",
+      "Pas de proposition de contrat d'apprentissage en adéquation avec votre parcours", 0),
+  array("Candidat sans contrat d'apprentissage",
+      "Vous ne justifiez pas de la signature d'un contrat d'apprentissage.", 0));
 
 
 // =================================================================
-// 			Fonctions relatives aux données décrites ci-dessus
+//      Fonctions relatives aux données décrites ci-dessus
 // =================================================================
 
 // Fonction d'insertion des motifs par défaut
@@ -97,31 +97,31 @@ $__DEFAUT_MOTIFS_REFUS=array(
  
 function insert_default_motifs($dbr, $comp_id)
 {
-	if(array_key_exists("__DEFAUT_MOTIFS_REFUS", $GLOBALS) && is_array($GLOBALS["__DEFAUT_MOTIFS_REFUS"]))
-	{
-		foreach($GLOBALS["__DEFAUT_MOTIFS_REFUS"] as $array_decision)
-		{
-			// Chaque élément de $GLOBALS["__DEFAUT_MOTIFS_REFUS"] doit également être un tableau à
-			// trois éléments (texte court / texte long / caractère exclusif)
-			// Le contenu de ces éléments relève de l'administrateur ...
-			if(is_array($array_decision) && count($array_decision)==3)
-			{
-				// Calcul du nouvel identifiant
-				// Avec max(), on aura un résultat, même vide
-				list($new_id)=db_fetch_row(db_query($dbr, "SELECT max($GLOBALS[_DBC_motifs_refus_id])+1 FROM $GLOBALS[_DB_motifs_refus]"), 0);
+  if(array_key_exists("__DEFAUT_MOTIFS_REFUS", $GLOBALS) && is_array($GLOBALS["__DEFAUT_MOTIFS_REFUS"]))
+  {
+    foreach($GLOBALS["__DEFAUT_MOTIFS_REFUS"] as $array_decision)
+    {
+      // Chaque élément de $GLOBALS["__DEFAUT_MOTIFS_REFUS"] doit également être un tableau à
+      // trois éléments (texte court / texte long / caractère exclusif)
+      // Le contenu de ces éléments relève de l'administrateur ...
+      if(is_array($array_decision) && count($array_decision)==3)
+      {
+        // Calcul du nouvel identifiant
+        // Avec max(), on aura un résultat, même vide
+        list($new_id)=db_fetch_row(db_query($dbr, "SELECT max($GLOBALS[_DBC_motifs_refus_id])+1 FROM $GLOBALS[_DB_motifs_refus]"), 0);
 
-				if($new_id=="") $new_id=0;
+        if($new_id=="") $new_id=0;
 
-				$exclusif=$array_decision[2]=='1' ? 1 : 0;
-				$motif_court=str_replace("'", "''", preg_replace("/[']+/", "'", $array_decision[0]));
-				$motif_long=str_replace("'", "''", preg_replace("/[']+/", "'", $array_decision[1]));
+        $exclusif=$array_decision[2]=='1' ? 1 : 0;
+        $motif_court=preg_replace("/[']+/", "''", stripslashes($array_decision[0]));
+        $motif_long=preg_replace("/[']+/", "''", stripslashes($array_decision[1]));
 
-				// TODO : créer des fonctions d'accès pour toutes ces opérations ...
-				db_query($dbr, "INSERT INTO $GLOBALS[_DB_motifs_refus] VALUES ('$new_id', '$motif_court', '$motif_long', '$exclusif', '$comp_id')");
-			}
-		}
-	}
-	
-	// Mise à jour de la séquence
+        // TODO : créer des fonctions d'accès pour toutes ces opérations ...
+        db_query($dbr, "INSERT INTO $GLOBALS[_DB_motifs_refus] VALUES ('$new_id', '$motif_court', '$motif_long', '$exclusif', '$comp_id')");
+      }
+    }
+  }
+  
+  // Mise à jour de la séquence
    db_query($dbr, "SELECT setval('motifs_refus_id_seq', (select max($GLOBALS[_DBU_motifs_refus_id]) from $GLOBALS[_DB_motifs_refus]))");
 }

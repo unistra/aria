@@ -134,7 +134,7 @@ CeCILL-B, et que vous en avez accepté les termes.
     if(isset($_SESSION["modification"]) && $_SESSION["modification"]==1)
     {
       if(db_num_rows(db_query($dbr,"SELECT $_DBC_universites_id FROM $_DB_universites
-                          WHERE $_DBC_universites_nom ILIKE '$univ_nom'
+                          WHERE $_DBC_universites_nom ILIKE '".preg_replace("/[']+/", "''", stripslashes($univ_nom))."'
                           AND $_DBC_universites_id!='$univ_id'")))
         $nom_existe="1";
     }
@@ -167,12 +167,13 @@ CeCILL-B, et que vous en avez accepté les termes.
     {
       if($_SESSION["ajout_univ"]==0)
       {
-        db_query($dbr,"UPDATE $_DB_universites SET  $_DBU_universites_nom='$univ_nom',
-                                      $_DBU_universites_adresse='$univ_adresse',                                      
-                                      $_DBU_universites_img_dir='$univ_img_dir',
-                                      $_DBU_universites_css='$univ_css_file',
-                                      $_DBU_universites_couleur_texte_lettres='$univ_lettres_couleur_texte'
-                    WHERE $_DBU_universites_id='$univ_id'");
+        db_query($dbr,"UPDATE $_DB_universites SET  
+            $_DBU_universites_nom='".preg_replace("/[']+/", "''", stripslashes($univ_nom))."',
+            $_DBU_universites_adresse='".preg_replace("/[']+/", "''", stripslashes($univ_adresse))."',
+            $_DBU_universites_img_dir='$univ_img_dir',
+            $_DBU_universites_css='$univ_css_file',
+            $_DBU_universites_couleur_texte_lettres='$univ_lettres_couleur_texte'
+         WHERE $_DBU_universites_id='$univ_id'");
 
         write_evt($dbr, $__EVT_ID_G_ADMIN, "MAJ université $univ_id", "", $univ_id);
 
@@ -198,7 +199,13 @@ CeCILL-B, et que vous en avez accepté les termes.
 
         db_free_result($res_univ);
 
-        db_query($dbr,"INSERT INTO $_DB_universites VALUES ('$new_univ_id','$univ_nom', '$univ_adresse', '$univ_img_dir', '$univ_css_file', '$univ_lettres_couleur_texte')");
+        db_query($dbr,"INSERT INTO $_DB_universites VALUES (
+            '$new_univ_id',
+            '".preg_replace("/[']+/", "''", stripslashes($univ_nom))."', 
+            '".preg_replace("/[']+/", "''", stripslashes($univ_adresse))."', 
+            '$univ_img_dir', 
+            '$univ_css_file', 
+            '$univ_lettres_couleur_texte')");
 
         write_evt($dbr, $__EVT_ID_G_ADMIN, "Nouvelle université (id $new_univ_id)", "", $new_univ_id);
       }
@@ -305,7 +312,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
         $selected=(isset($_SESSION["universite_id"]) && $_SESSION["universite_id"]==$univ_id) ? "selected='1'" : "";
 
-        print("<option value='$univ_id' $selected>" . htmlspecialchars($univ_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]) . "</option>\n");
+        print("<option value='$univ_id' $selected>" . htmlspecialchars($univ_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE) . "</option>\n");
       }
 
       db_free_result($result);
@@ -393,7 +400,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <font class='Texte_menu2'><b>Nom de l'université :</b></font>
     </td>
     <td class='td-droite fond_menu'>
-      <input type='text' name='nom' value='<?php if(isset($univ_nom)) echo htmlspecialchars(stripslashes($univ_nom), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); elseif(isset($current_univ_nom)) echo htmlspecialchars(stripslashes($current_univ_nom), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);?>' maxlength='92' size='60'>
+      <input type='text' name='nom' value='<?php if(isset($univ_nom)) echo htmlspecialchars(stripslashes($univ_nom), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); elseif(isset($current_univ_nom)) echo htmlspecialchars(stripslashes($current_univ_nom), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);?>' maxlength='92' size='60'>
     </td>
   </tr>
 
@@ -403,8 +410,8 @@ CeCILL-B, et que vous en avez accepté les termes.
     </td>
     <td class='td-droite fond_menu'>
       <textarea name='adresse' rows='4' cols='60'><?php
-        if(isset($univ_adresse)) echo htmlspecialchars(stripslashes($univ_adresse), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
-        elseif(isset($current_univ_adresse)) echo htmlspecialchars(stripslashes($current_univ_adresse), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+        if(isset($univ_adresse)) echo htmlspecialchars(stripslashes($univ_adresse), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
+        elseif(isset($current_univ_adresse)) echo htmlspecialchars(stripslashes($current_univ_adresse), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
       ?></textarea>
     </td>
   </tr>
@@ -413,7 +420,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <font class='Texte_menu2'><b>Sous-répertoire contenant images et icônes : </b></font>
     </td>
     <td class='td-droite fond_menu'>
-      <input type='text' name='img_dir' value='<?php if(isset($univ_img_dir)) echo htmlspecialchars(stripslashes($univ_img_dir), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); elseif(isset($current_univ_img_dir)) echo htmlspecialchars(stripslashes($current_univ_img_dir), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);?>' maxlength='256' size='60'>
+      <input type='text' name='img_dir' value='<?php if(isset($univ_img_dir)) echo htmlspecialchars(stripslashes($univ_img_dir), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); elseif(isset($current_univ_img_dir)) echo htmlspecialchars(stripslashes($current_univ_img_dir), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);?>' maxlength='256' size='60'>
       &nbsp;<font class='Texte_menu'><i>(Chemin relatif au répertoire "<?php echo "$__IMG_DIR/"; ?>")</i>
     </td>
   </tr>
@@ -477,7 +484,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <font class='Texte_menu2'><b>Couleur du texte du logo dans les lettres : </b></font>
     </td>
     <td class='td-droite fond_menu'>
-      <input type='text' name='lettres_couleur_texte' value='<?php if(isset($current_univ_lettres_couleur_texte)) echo htmlspecialchars(stripslashes($current_univ_lettres_couleur_texte), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]); ?>' maxlength='7' size='60'>
+      <input type='text' name='lettres_couleur_texte' value='<?php if(isset($current_univ_lettres_couleur_texte)) echo htmlspecialchars(stripslashes($current_univ_lettres_couleur_texte), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' maxlength='7' size='60'>
     </td>
   </tr>
   </table>

@@ -168,7 +168,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                       if(ctype_digit($val))
                          $result=db_query($dbr,"SELECT * FROM $table_nom WHERE $colonne='$val'");
                       else                    
-                        $result=db_query($dbr,"SELECT * FROM $table_nom WHERE $colonne ILIKE '$val'");
+                         $result=db_query($dbr,"SELECT * FROM $table_nom WHERE $colonne ILIKE '".preg_replace("/[']+/", "''", stripslashes($val))."'");
                         
                       $rows=db_num_rows($result);
                       if($rows)
@@ -180,7 +180,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                     }
 
                     $ordre_valeurs .= "$colonne";
-                    $val=str_replace("'","''", stripslashes($val));
+                    $val=preg_replace("/[']+/", "''", stripslashes($val));
                     $valeurs .= "'$val'";
                   }
 
@@ -200,76 +200,75 @@ CeCILL-B, et que vous en avez accepté les termes.
                   break;
 
       case "modifier" : if($table_type!=1)
-                    $val_pkey=$_POST["element"];
+                          $val_pkey=$_POST["element"];
 
-                  $update_query="";
-                  $champs_existent=array();
-                  $mauvais_format=array();
-                  // $cnt_champs_existent=0;
+                          $update_query="";
+                          $champs_existent=array();
+                          $mauvais_format=array();
+                          // $cnt_champs_existent=0;
 
-                  // récupération des valeurs du formulaire
-                  foreach($table["colonnes"] as $colonne => $array_colonne)
-                  {
-                    if(!empty($update_query))
-                      $update_query.=", ";
+                          // récupération des valeurs du formulaire
+                          foreach($table["colonnes"] as $colonne => $array_colonne)
+                          {
+                            if(!empty($update_query))
+                              $update_query.=", ";
 
-                    $val=trim($_POST["field_$colonne"]);
+                            $val=trim($_POST["field_$colonne"]);
 
-                    if(isset($array_colonne["type"]))
-                    {
-                      if($array_colonne["type"]=="date")
-                      {
-                        if(strlen($val)==8) // cas particulier pour le type date
-                        {
-                          $jour=substr($val,0,2);
-                          $mois=substr($val,2,2);
-                          $annee=substr($val,4);
-                          $val=mktime(0,0,1, $mois, $jour, $annee); // date au format unix
-                        }
-                        else
-                          $mauvais_format[$colonne]=$val;
-                      }
-                    }
+                            if(isset($array_colonne["type"]))
+                            {
+                              if($array_colonne["type"]=="date")
+                              {
+                                if(strlen($val)==8) // cas particulier pour le type date
+                                {
+                                  $jour=substr($val,0,2);
+                                  $mois=substr($val,2,2);
+                                  $annee=substr($val,4);
+                                  $val=mktime(0,0,1, $mois, $jour, $annee); // date au format unix
+                                }
+                                else
+                                  $mauvais_format[$colonne]=$val;
+                              }
+                            }
 
-                    if(($array_colonne["not_null"] == 1) && $val=="") // si la valeur ne doit pas être vide
-                      $valeur_vide=1;
+                            if(($array_colonne["not_null"] == 1) && $val=="") // si la valeur ne doit pas être vide
+                              $valeur_vide=1;
 
-                    if(($array_colonne["unique"] == 1) && $table_type!=1) // vérification d'unicité (attention, ne gère pas les accents)
-                    {
-                      if(ctype_digit($val))
-                        $line_val="$colonne='$val'";
-                      else
-                        $line_val="$colonne ILIKE '$val'";
-                    
-                      if(ctype_digit($val_pkey))
-                        $line_val2="$table_pkey!='$val_pkey'";
-                      else
-                        $line_val2="$table_pkey NOT LIKE '$val_pkey'";
-                    
-                      $result=db_query($dbr,"SELECT * FROM $table_nom WHERE $line_val AND $line_val2");
-                      $rows=db_num_rows($result);
-                      if($rows)
-                        $champs_existent[$colonne]=$val;
+                            if(($array_colonne["unique"] == 1) && $table_type!=1) // vérification d'unicité (attention, ne gère pas les accents)
+                            {
+                              if(ctype_digit($val))
+                                $line_val="$colonne='$val'";
+                              else
+                                $line_val="$colonne ILIKE '".preg_replace("/[']+/", "''", stripslashes($val))."'";
+                            
+                              if(ctype_digit($val_pkey))
+                                $line_val2="$table_pkey!='$val_pkey'";
+                              else
+                                $line_val2="$table_pkey NOT LIKE '".preg_replace("/[']+/", "''", stripslashes($val_pkey))."'";
+                            
+                              $result=db_query($dbr,"SELECT * FROM $table_nom WHERE $line_val AND $line_val2");
+                              $rows=db_num_rows($result);
+                              if($rows)
+                                $champs_existent[$colonne]=$val;
 
-                      db_free_result($result);
-                    }
+                              db_free_result($result);
+                            }
 
-                    $val=str_replace("'","''", stripslashes($val));
-                    $update_query .= "$colonne='$val'";
-                  }
+                            $update_query .= "$colonne='".preg_replace("/[']+/", "''", stripslashes($val))."'";
+                          }
 
-                  if(!isset($valeur_vide) && !count($champs_existent) && !count($mauvais_format))
-                  {
-                    if($table_type!=1) // requête un peu particulière si type=1
-                      db_query($dbr,"UPDATE $table_nom SET $update_query WHERE $table_pkey='$val_pkey'");
-                    else
-                      db_query($dbr,"UPDATE $table_nom SET $update_query");
-                  }
-                  break;
+                          if(!isset($valeur_vide) && !count($champs_existent) && !count($mauvais_format))
+                          {
+                            if($table_type!=1) // requête un peu particulière si type=1
+                              db_query($dbr,"UPDATE $table_nom SET $update_query WHERE $table_pkey='".preg_replace("/[']+/", "''", stripslashes($val_pkey))."'");
+                            else
+                              db_query($dbr,"UPDATE $table_nom SET $update_query");
+                          }
+                          break;
 
       case "supprimer" :  $val_pkey=$_POST["element"];
                     if(!empty($val_pkey))
-                      db_query($dbr,"DELETE FROM $table_nom WHERE $table_pkey='$val_pkey'");
+                      db_query($dbr,"DELETE FROM $table_nom WHERE $table_pkey='".preg_replace("/[']+/", "''", stripslashes($val_pkey))."'");
                     else
                       $cle_vide=1;
                     break;
@@ -373,7 +372,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
                             // modification : la valeur existe déjà
                             if(isset($result_array))
-                              $val=htmlspecialchars($result_array[$colonne],ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+                              $val=htmlspecialchars($result_array[$colonne],ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
                             else
                               $val="";
 

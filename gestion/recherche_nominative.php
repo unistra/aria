@@ -97,11 +97,12 @@ CeCILL-B, et que vous en avez accepté les termes.
     else
     {
       if($nom=="")
-        $critere_recherche="$_DBC_candidat_email ILIKE '%$rechmail%' ";
+        $critere_recherche="$_DBC_candidat_email ILIKE '%".preg_replace("/[']+/", "''", stripslashes($rechmail))."%' ";
       elseif($rechmail=="")
-        $critere_recherche="unaccent($_DBC_candidat_nom) SIMILAR TO unaccent('$nom%') ";
+        $critere_recherche="unaccent($_DBC_candidat_nom) SIMILAR TO unaccent('".preg_replace("/[']+/", "''", stripslashes($nom))."%') ";
       else
-        $critere_recherche="(unaccent($_DBC_candidat_nom) SIMILAR TO unaccent('$nom%') OR $_DBC_candidat_email ILIKE '%$rechmail%') ";
+        $critere_recherche="(unaccent($_DBC_candidat_nom) SIMILAR TO unaccent('".preg_replace("/[']+/", "''", stripslashes($nom))."%') 
+            OR $_DBC_candidat_email ILIKE '%".preg_replace("/[']+/", "''", stripslashes($rechmail))."%') ";
 
       if(empty($rechmail) && !preg_match("/([a-zA-Z\'\ \-]+)/", $nom))
         $bad_rech=1;

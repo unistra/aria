@@ -92,33 +92,11 @@ CeCILL-B, et que vous en avez accepté les termes.
       // Ajout unique : on prend l'ordre en compte
       if(isset($_SESSION["filtre_justif"]) && $_SESSION["filtre_justif"]!="-1")
       {
-/*
-        $result=db_query($dbr, "SELECT $_DBC_justifs_jf_justif_id, $_DBC_justifs_jf_ordre
-                          FROM $_DB_justif_jf
-                        WHERE $_DBC_justif_jf_propspec_id='$_SESSION[filtre_justif]'
-                        AND $_DBC_justifs_jf_ordre>='$_SESSION[ordre]'
-                          ORDER BY $_DBC_justifs_jf_ordre");
-
-        $rows=db_num_rows($result);
-
-        for($i=0; $i<$rows; $i++)
-        {
-          list($justif_id, $justif_ordre)=db_fetch_row($result, $i);
-
-          $new_ordre=$justif_ordre+1;
-
-          db_query($dbr, "UPDATE $_DB_justif_jf SET $_DBU_justifs_jf_ordre='$new_ordre'
-                    WHERE $_DBU_justifs_jf_justif_id='$justificatif'
-                    AND $_DBU_justif_jf_propspec_id='$_SESSION[filtre_justif]'
-                    AND $_DBU_justif_jf_ordre='$justif_ordre'");
-        }
-
-        db_free_result($result);
-*/
         // Décalage des ordres pour faire une place
-        db_query($dbr, "UPDATE $_DB_justifs_jf SET $_DBU_justifs_jf_ordre=$_DBU_justifs_jf_ordre+1
-                   WHERE $_DBU_justifs_jf_propspec_id='$_SESSION[filtre_justif]'
-                   AND $_DBU_justifs_jf_ordre>'$_SESSION[ordre]'");
+        db_query($dbr, "UPDATE $_DB_justifs_jf SET
+            $_DBU_justifs_jf_ordre=$_DBU_justifs_jf_ordre+1
+            WHERE $_DBU_justifs_jf_propspec_id='$_SESSION[filtre_justif]'
+            AND $_DBU_justifs_jf_ordre>'$_SESSION[ordre]'");
 
         // Insertion
         db_query($dbr,"INSERT INTO $_DB_justif_jf VALUES ('$justificatif', '$_SESSION[filtre_justif]', '$ordre', '$cond_nationalite')");
@@ -235,7 +213,7 @@ CeCILL-B, et que vous en avez accepté les termes.
           {
             list($justif_id, $justif_intitule)=db_fetch_row($result, $i);
 
-            $val=htmlspecialchars($justif_intitule, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+            $val=htmlspecialchars($justif_intitule, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
 
             print("<option value='$justif_id'>$val</option>\n");
           }

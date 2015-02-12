@@ -189,7 +189,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                   print("</optgroup>
                         <option value='' label='' disabled></option>\n");
 
-                $val=htmlspecialchars($form_mention_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+                $val=htmlspecialchars($form_mention_nom, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
 
                 print("<optgroup label='- $val'>\n");
 
@@ -450,7 +450,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                      {
                         $selected=array_key_exists($propspec_id, $array_formations_msg) && array_key_exists($message_type, $array_formations_msg[$propspec_id]["messages"]) && $array_formations_msg[$propspec_id]["messages"]["$message_type"]==$current_message_id ? "selected='1'" : "";
                      
-                        print("<option value='$current_message_id' $selected>".htmlspecialchars(stripslashes($current_message_nom), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"])."</option>\n");
+                        print("<option value='$current_message_id' $selected>".htmlspecialchars(stripslashes($current_message_nom), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE)."</option>\n");
                      }
                   }
 

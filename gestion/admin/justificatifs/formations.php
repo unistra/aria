@@ -90,9 +90,10 @@ CeCILL-B, et que vous en avez accepté les termes.
     if(isset($_SESSION["filtre_justif"]) && $_SESSION["filtre_justif"]!="-1" && isset($_SESSION["ordre"]))
     {
       // Décalage des éléments suivants
-      db_query($dbr, "UPDATE $_DB_justifs_jf SET $_DBU_justifs_jf_ordre=$_DBU_justifs_jf_ordre+1
-                  WHERE $_DBU_justifs_jf_propspec_id='$_SESSION[filtre_justif]'
-                  AND $_DBU_justifs_jf_ordre>='$_SESSION[ordre]'");
+      db_query($dbr, "UPDATE $_DB_justifs_jf SET 
+          $_DBU_justifs_jf_ordre=$_DBU_justifs_jf_ordre+1
+          WHERE $_DBU_justifs_jf_propspec_id='$_SESSION[filtre_justif]'
+          AND $_DBU_justifs_jf_ordre>='$_SESSION[ordre]'");
 
       // TODO : rajouter le formulaire pour la nationalité
       db_query($dbr, "INSERT INTO $_DB_justifs_jf VALUES('$_SESSION[justif_id]', '$_SESSION[filtre_justif]', '$_SESSION[ordre]', '$__COND_NAT_TOUS')");
@@ -142,9 +143,10 @@ CeCILL-B, et que vous en avez accepté les termes.
         list($propspec_id)=db_fetch_row($result, $i);
 
         if(array_key_exists($propspec_id, $array_actuels)) // Mise à jour du rattachement
-          $requete.="UPDATE $_DB_justifs_jf SET $_DBU_justifs_jf_nationalite='$cond_nationalite_globale'
-                  WHERE $_DBU_justifs_jf_propspec_id='$propspec_id' 
-                  AND $_DBU_justifs_jf_justif_id='$_SESSION[justif_id]';";
+          $requete.="UPDATE $_DB_justifs_jf SET 
+              $_DBU_justifs_jf_nationalite='$cond_nationalite_globale'
+              WHERE $_DBU_justifs_jf_propspec_id='$propspec_id' 
+              AND $_DBU_justifs_jf_justif_id='$_SESSION[justif_id]';";
         else // insertion en dernière position
         {
           list($current_ordre)=db_fetch_row(db_query($dbr,"SELECT max($_DBC_justifs_jf_ordre) FROM $_DB_justifs_jf
@@ -183,9 +185,10 @@ CeCILL-B, et que vous en avez accepté les termes.
           if(!array_key_exists($formation_id, $array_actuels))
             $requete.="INSERT INTO $_DB_justifs_jf VALUES('$_SESSION[justif_id]', '$formation_id', '$new_ordre', '$cond_nationalite'); ";
           else // Mise à jour
-            $requete.="UPDATE $_DB_justifs_jf SET $_DBU_justifs_jf_nationalite='$cond_nationalite'
-                    WHERE $_DBU_justifs_jf_propspec_id='$formation_id'
-                    AND $_DBU_justifs_jf_justif_id='$_SESSION[justif_id]'; ";
+            $requete.="UPDATE $_DB_justifs_jf SET 
+                $_DBU_justifs_jf_nationalite='$cond_nationalite'
+                WHERE $_DBU_justifs_jf_propspec_id='$formation_id'
+                AND $_DBU_justifs_jf_justif_id='$_SESSION[justif_id]'; ";
 
           // Suppression de la formation traitée dans le tableau "actuels"
           unset($array_actuels[$formation_id]);
@@ -203,9 +206,10 @@ CeCILL-B, et que vous en avez accepté les termes.
                                       AND $_DBC_justifs_jf_ordre='$current_ordre'");
 
         // Décalage des éléments suivants
-        db_query($dbr, "UPDATE $_DB_justifs_jf SET $_DBU_justifs_jf_ordre=$_DBU_justifs_jf_ordre-1
-                   WHERE $_DBU_justifs_jf_propspec_id='$formation_id'
-                   AND $_DBU_justifs_jf_ordre>'$current_ordre'");
+        db_query($dbr, "UPDATE $_DB_justifs_jf SET
+            $_DBU_justifs_jf_ordre=$_DBU_justifs_jf_ordre-1
+            WHERE $_DBU_justifs_jf_propspec_id='$formation_id'
+            AND $_DBU_justifs_jf_ordre>'$current_ordre'");
       }
     }
 
@@ -295,7 +299,7 @@ CeCILL-B, et que vous en avez accepté les termes.
               {
                 list($select_justif_id, $justif_intitule)=db_fetch_row($result, $i);
 
-                $val=htmlspecialchars($justif_intitule, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+                $val=htmlspecialchars($justif_intitule, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
 
                 $selected=isset($justif_id) && $justif_id==$select_justif_id ? "selected='1'" : "";
 
@@ -321,7 +325,7 @@ CeCILL-B, et que vous en avez accepté les termes.
             $rows=db_num_rows($result);
 
             list($justif_intitule)=db_fetch_row($result, 0);
-            $val=htmlspecialchars($justif_intitule, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
+            $val=htmlspecialchars($justif_intitule, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
 
             print("<font class='Texte_menu'><b>$val</b></font>\n");
           }
