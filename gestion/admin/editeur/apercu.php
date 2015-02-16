@@ -306,9 +306,9 @@ CeCILL-B, et que vous en avez accepté les termes.
         if(!empty($univ_couleur_texte))
         {
           // La couleur doit être convertie hexa (#112233) => décimal
-          $texte_R=hexdec(substr($univ_couleur_texte, 1, 2));
-          $texte_V=hexdec(substr($univ_couleur_texte, 3, 2));
-          $texte_B=hexdec(substr($univ_couleur_texte, 5, 2));
+          $texte_R=hexdec(mb_substr($univ_couleur_texte, 1, 2, "UTF-8"));
+          $texte_V=hexdec(mb_substr($univ_couleur_texte, 3, 2, "UTF-8"));
+          $texte_B=hexdec(mb_substr($univ_couleur_texte, 5, 2, "UTF-8"));
 /*
           $texte_couleur=explode(",", $univ_couleur_texte);
 

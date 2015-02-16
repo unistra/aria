@@ -513,16 +513,16 @@ CeCILL-B, et que vous en avez accepté les termes.
           $date_offset=0;
           $annee_len=1;
           $leading_zero="0";
-          $msg_id=substr($nom_fichier, 0, 16);
-          $msg_read=substr($nom_fichier, 17, 1);
+          $msg_id=mb_substr($nom_fichier, 0, 16, "UTF-8");
+          $msg_read=mb_substr($nom_fichier, 17, 1, "UTF-8");
         }
         else // Année sur 2 caractères (chaine : 19 caractères)
         {
           $date_offset=1;
           $annee_len=2;
           $leading_zero="";
-          $msg_id=substr($nom_fichier, 0, 17);
-          $msg_read=substr($nom_fichier, 18, 1);
+          $msg_id=mb_substr($nom_fichier, 0, 17, "UTF-8");
+          $msg_read=mb_substr($nom_fichier, 18, 1, "UTF-8");
         }
 
         if(($array_file=file("$fichier"))==FALSE)
@@ -541,8 +541,12 @@ CeCILL-B, et que vous en avez accepté les termes.
         $date_today=date("ymd") . "00000000000"; // on s'aligne sur le format des identifiants
 
         // On convertit la date en temps Unix : plus simple ensuite pour l'affichage et les conversions
-        $unix_date=mktime(substr($msg_id, 5+$date_offset, 2), substr($msg_id, 7+$date_offset, 2), substr($msg_id, 9+$date_offset, 2),
-                    substr($msg_id, 1+$date_offset, 2), substr($msg_id, 3+$date_offset, 2), $leading_zero . substr($msg_id, 0, $annee_len));
+        $unix_date=mktime(mb_substr($msg_id, 5+$date_offset, 2, "UTF-8"), 
+              mb_substr($msg_id, 7+$date_offset, 2, "UTF-8"),
+              mb_substr($msg_id, 9+$date_offset, 2, "UTF-8"),
+              mb_substr($msg_id, 1+$date_offset, 2, "UTF-8"), 
+              mb_substr($msg_id, 3+$date_offset, 2, "UTF-8"), 
+              $leading_zero . mb_substr($msg_id, 0, $annee_len, "UTF-8"));
 
         if($msg_id<$date_today) // le message n'est pas du jour : on affiche la date entière (date + heure)
           $date_txt=date_fr("d/m/y - H\hi", $unix_date);

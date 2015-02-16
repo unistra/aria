@@ -980,7 +980,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       else
       {
          srand((double)microtime()*1000000);
-         $arg_key=substr(md5(rand(0,9999)), 12, 8);
+         $arg_key=mb_substr(md5(rand(0,9999)), 12, 8, "UTF-8");
       }
 
       if(is_file(dirname(__FILE__)."/../configuration/aria_config.php"))

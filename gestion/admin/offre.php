@@ -49,228 +49,228 @@ CeCILL-B, et que vous en avez accepté les termes.
 */
 ?>
 <?php
-	session_name("preinsc_gestion");
-	session_start();
+  session_name("preinsc_gestion");
+  session_start();
 
-	include "../../configuration/aria_config.php";
-	include "$__INCLUDE_DIR_ABS/vars.php";
-	include "$__INCLUDE_DIR_ABS/fonctions.php";
-	include "$__INCLUDE_DIR_ABS/db.php";
+  include "../../configuration/aria_config.php";
+  include "$__INCLUDE_DIR_ABS/vars.php";
+  include "$__INCLUDE_DIR_ABS/fonctions.php";
+  include "$__INCLUDE_DIR_ABS/db.php";
 
 
-	$php_self=$_SERVER['PHP_SELF'];
-	$_SESSION['CURRENT_FILE']=$php_self;
+  $php_self=$_SERVER['PHP_SELF'];
+  $_SESSION['CURRENT_FILE']=$php_self;
 
-	verif_auth("$__GESTION_DIR/login.php");
+  verif_auth("$__GESTION_DIR/login.php");
 
-	// Paramètre permettant de masquer/afficher les formations désactivées
-	if(isset($_GET["m"]) && ($_GET["m"]==1 || $_GET["m"]==0))
-		$_SESSION["affichage_masquees"]=$masquees=$_GET["m"];
-	elseif(isset($_SESSION["affichage_masquees"]))
-		$masquees=$_SESSION["affichage_masquees"];
-	else // par défaut : masquées
-		$masquees=0;
+  // Paramètre permettant de masquer/afficher les formations désactivées
+  if(isset($_GET["m"]) && ($_GET["m"]==1 || $_GET["m"]==0))
+    $_SESSION["affichage_masquees"]=$masquees=$_GET["m"];
+  elseif(isset($_SESSION["affichage_masquees"]))
+    $masquees=$_SESSION["affichage_masquees"];
+  else // par défaut : masquées
+    $masquees=0;
 
-	$dbr=db_connect();
+  $dbr=db_connect();
 
-	// EN-TETE
-	en_tete_gestion();
+  // EN-TETE
+  en_tete_gestion();
 
-	// MENU SUPERIEUR
-	menu_sup_gestion();
+  // MENU SUPERIEUR
+  menu_sup_gestion();
 ?>
 
 <div class='main'>
-	<?php
-		titre_page_icone("Liste des formations", "contents_32x32_fond.png", 10, "L");
+  <?php
+    titre_page_icone("Liste des formations", "contents_32x32_fond.png", 10, "L");
 
-		if(isset($_GET["succes"]) && $_GET["succes"]==1)
-			message("La formation a été modifiée avec succès.", $__SUCCES);
-			
-		if(isset($_GET["info_succes"]) && $_GET["info_succes"]==1)
-			message("Les informations sur la formation ont été enregistrées avec succès.", $__SUCCES);
+    if(isset($_GET["succes"]) && $_GET["succes"]==1)
+      message("La formation a été modifiée avec succès.", $__SUCCES);
+      
+    if(isset($_GET["info_succes"]) && $_GET["info_succes"]==1)
+      message("Les informations sur la formation ont été enregistrées avec succès.", $__SUCCES);
 
-		if(isset($masquees) && $masquees==1)
-		{
-			$condition_masquees="";
-			$lien_masquees="<a href='$php_self?m=0' class='lien_bleu_12'><strong>Masquer les formations désactivées</strong></a>";
+    if(isset($masquees) && $masquees==1)
+    {
+      $condition_masquees="";
+      $lien_masquees="<a href='$php_self?m=0' class='lien_bleu_12'><strong>Masquer les formations désactivées</strong></a>";
 
-			message("<center>
-							Les formations sur fond gris sont désactivées.
-							<br>Elles n'apparaissent pas sur la plupart des listes et les candidats ne pourront pas les sélectionner
-							<br><br>$lien_masquees
-						</center>", $__INFO);
+      message("<center>
+              Les formations sur fond gris sont désactivées.
+              <br>Elles n'apparaissent pas sur la plupart des listes et les candidats ne pourront pas les sélectionner
+              <br><br>$lien_masquees
+            </center>", $__INFO);
 
 
-		}
-		elseif(db_num_rows(db_query($dbr,"SELECT * FROM $_DB_propspec WHERE $_DBC_propspec_active='0'
-													 AND $_DBC_propspec_comp_id='$_SESSION[comp_id]'")))
-		{
-			$condition_masquees="AND $_DBC_propspec_active='1'";
-			$lien_masquees="<a href='$php_self?m=1' class='lien_bleu_12'><strong>Afficher les formations désactivées</strong></a>";
+    }
+    elseif(db_num_rows(db_query($dbr,"SELECT * FROM $_DB_propspec WHERE $_DBC_propspec_active='0'
+                           AND $_DBC_propspec_comp_id='$_SESSION[comp_id]'")))
+    {
+      $condition_masquees="AND $_DBC_propspec_active='1'";
+      $lien_masquees="<a href='$php_self?m=1' class='lien_bleu_12'><strong>Afficher les formations désactivées</strong></a>";
 
-			message("$lien_masquees", $__INFO);
-		}
-		else
-			$condition_masquees=$lien_masquees="";
+      message("$lien_masquees", $__INFO);
+    }
+    else
+      $condition_masquees=$lien_masquees="";
 
-		$result=db_query($dbr,"SELECT $_DBC_propspec_id, $_DBC_annees_annee, $_DBC_specs_nom, $_DBC_propspec_finalite, 
-												$_DBC_specs_mention_id, $_DBC_mentions_nom, $_DBC_propspec_selective, $_DBC_propspec_resp,
+    $result=db_query($dbr,"SELECT $_DBC_propspec_id, $_DBC_annees_annee, $_DBC_specs_nom, $_DBC_propspec_finalite, 
+                        $_DBC_specs_mention_id, $_DBC_mentions_nom, $_DBC_propspec_selective, $_DBC_propspec_resp,
                                     $_DBC_propspec_entretiens, $_DBC_propspec_manuelle, $_DBC_propspec_active, 
                                     $_DBC_propspec_info
-											FROM $_DB_propspec, $_DB_annees, $_DB_specs, $_DB_mentions
-										WHERE $_DBC_propspec_annee=$_DBC_annees_id
-										AND $_DBC_propspec_id_spec=$_DBC_specs_id
-										AND $_DBC_specs_mention_id=$_DBC_mentions_id
-										AND $_DBC_propspec_comp_id='$_SESSION[comp_id]'
-										$condition_masquees
-											ORDER BY $_DBC_annees_ordre, $_DBC_mentions_nom, $_DBC_specs_nom_court, $_DBC_propspec_finalite");
+                      FROM $_DB_propspec, $_DB_annees, $_DB_specs, $_DB_mentions
+                    WHERE $_DBC_propspec_annee=$_DBC_annees_id
+                    AND $_DBC_propspec_id_spec=$_DBC_specs_id
+                    AND $_DBC_specs_mention_id=$_DBC_mentions_id
+                    AND $_DBC_propspec_comp_id='$_SESSION[comp_id]'
+                    $condition_masquees
+                      ORDER BY $_DBC_annees_ordre, $_DBC_mentions_nom, $_DBC_specs_nom_court, $_DBC_propspec_finalite");
 
-		$rows=db_num_rows($result);
+    $rows=db_num_rows($result);
 
-		$old_annee="===="; // on initialise à n'importe quoi (sauf vide)
-		$old_mention="===="; // idem
-		$j=0;
+    $old_annee="===="; // on initialise à n'importe quoi (sauf vide)
+    $old_mention="===="; // idem
+    $j=0;
 
-		if($rows)
-		{
-			print("<table border='0' align='center' cellpadding='4' width='98%'>\n");
+    if($rows)
+    {
+      print("<table border='0' align='center' cellpadding='4' width='98%'>\n");
 
-			for($i=0; $i<$rows; $i++)
-			{
-				list($propspec_id, $annee, $spec_nom, $finalite, $mention, $mention_nom, $selective, $resp,
-						$entretiens, $manuelle, $active, $info_formation)=db_fetch_row($result, $i);
+      for($i=0; $i<$rows; $i++)
+      {
+        list($propspec_id, $annee, $spec_nom, $finalite, $mention, $mention_nom, $selective, $resp,
+            $entretiens, $manuelle, $active, $info_formation)=db_fetch_row($result, $i);
 
-				$nom_finalite=$tab_finalite_semicomplete[$finalite];
+        $nom_finalite=$tab_finalite_semicomplete[$finalite];
 
-				if($annee=="")
-					$annee="Années particulières";
+        if($annee=="")
+          $annee="Années particulières";
 
-				if($annee!=$old_annee)
-				{
-					$old_annee=$annee;
+        if($annee!=$old_annee)
+        {
+          $old_annee=$annee;
 
-					print("<tr>
+          print("<tr>
                            <td class='fond_page' height='15' colspan='5'>
                         </tr>
-								<tr>
-									<td class='fond_menu2' style='padding:4px 10px 4px 10px;'>
-										<font class='Texte_menu2'><b>$annee</b></font>
-									</td>
-									<td class='fond_menu2' style='padding:4px 10px 4px 10px;' width='80'>
+                <tr>
+                  <td class='fond_menu2' style='padding:4px 10px 4px 10px;'>
+                    <font class='Texte_menu2'><b>$annee</b></font>
+                  </td>
+                  <td class='fond_menu2' style='padding:4px 10px 4px 10px;' width='80'>
                               <font class='Texte_menu2'><b>Finalité</b></font>
                            </td>
-									<td class='fond_menu2' style='padding:4px 10px 4px 10px;' width='150'>
-										<font class='Texte_menu2'><b>Responsable</b></font>
-									</td>
-									<td class='fond_menu2' style='padding:4px 10px 4px 10px;' width='120'>
+                  <td class='fond_menu2' style='padding:4px 10px 4px 10px;' width='150'>
+                    <font class='Texte_menu2'><b>Responsable</b></font>
+                  </td>
+                  <td class='fond_menu2' style='padding:4px 10px 4px 10px;' width='120'>
                               <font class='Texte_menu2'><b>Gestion manuelle</b></font>
                            </td>
-									<td class='fond_menu2' style='padding:4px 10px 4px 10px;' width='100'>
-										<font class='Texte_menu2'><b>Entretiens</b></font>
-									</td>
-								</tr>\n");
+                  <td class='fond_menu2' style='padding:4px 10px 4px 10px;' width='100'>
+                    <font class='Texte_menu2'><b>Entretiens</b></font>
+                  </td>
+                </tr>\n");
 
-					$old_mention="====";
-					$nb=0;
-				}
+          $old_mention="====";
+          $nb=0;
+        }
 
-				if($old_mention!=$mention)
-				{
-					$old_mention=$mention;
+        if($old_mention!=$mention)
+        {
+          $old_mention=$mention;
 
-					print("<tr>
-								<td class='td-gauche fond_page' height='20' colspan='5'>
-									<font class='Texte'><b>$mention_nom</b></font>
-								</td>
-							</tr>\n");
-				}
+          print("<tr>
+                <td class='td-gauche fond_page' height='20' colspan='5'>
+                  <font class='Texte'><b>$mention_nom</b></font>
+                </td>
+              </tr>\n");
+        }
 
-				$selective_text=$selective ? "Oui" : "";
-				$entretiens_txt=$entretiens ? "Oui" : "";
+        $selective_text=$selective ? "Oui" : "";
+        $entretiens_txt=$entretiens ? "Oui" : "";
 
-				if($resp=="Le Responsable") {
-					$resp="";
+        if($resp=="Le Responsable") {
+          $resp="";
             }
 
-				$manuelle_txt=$manuelle ? "Oui" : "";
+        $manuelle_txt=$manuelle ? "Oui" : "";
 
-				$fond=$active ? "fond_menu" : "fond_gris_C";
+        $fond=$active ? "fond_menu" : "fond_gris_C";
 
-				// Lien direct vers la modification si les droits sont corrects
-				if(in_array($_SESSION["niveau"], array("$__LVL_RESP","$__LVL_SUPER_RESP","$__LVL_ADMIN")))
-				{
-					$crypt_params=crypt_params("propspec=$propspec_id");
-					$spec_nom="<a href='formations.php?p=$crypt_params' class='lien_bleu_12'>$spec_nom</a>";
-				}
+        // Lien direct vers la modification si les droits sont corrects
+        if(in_array($_SESSION["niveau"], array("$__LVL_RESP","$__LVL_SUPER_RESP","$__LVL_ADMIN")))
+        {
+          $crypt_params=crypt_params("propspec=$propspec_id");
+          $spec_nom="<a href='formations.php?p=$crypt_params' class='lien_bleu_12'>$spec_nom</a>";
+        }
 
 
-				if($info_formation!="") {
-					if(strlen($info_formation)>70) // 70 caractères : bon compromis pour afficher un aperçu du texte ?
-						$info_formation=substr($info_formation, 0, 70) . " [...]";
-					
-					// suppression des retours de ligne superflus
-					$info_formation=preg_replace("/[\n\r]+/", "\n\r", $info_formation);
-					
-					// Lien direct vers la modification si les droits sont corrects
-					if(in_array($_SESSION["niveau"], array("$__LVL_SCOL_PLUS","$__LVL_RESP","$__LVL_SUPER_RESP","$__LVL_ADMIN")))
-					{
-						$crypt_params=crypt_params("propspec=$propspec_id");
-						$info_texte="<br><a href='info_formations.php?p=$crypt_params' class='lien_bleu_10'><i><u>Info formation :</u> ".nl2br($info_formation)."</i></a>";
-					}
-					else
-						$info_texte="<br><i><u>Info formation :</u> $info_formation</i>";
-				}
-				else
-				   $info_texte="";
-							
-				print("</font>
-						</td>
-						</tr>\n");
+        if($info_formation!="") {
+          if(strlen($info_formation)>70) // 70 caractères : bon compromis pour afficher un aperçu du texte ?
+            $info_formation=mb_substr($info_formation, 0, 70, "UTF-8") . " [...]";
+          
+          // suppression des retours de ligne superflus
+          $info_formation=preg_replace("/[\n\r]+/", "\n\r", $info_formation);
+          
+          // Lien direct vers la modification si les droits sont corrects
+          if(in_array($_SESSION["niveau"], array("$__LVL_SCOL_PLUS","$__LVL_RESP","$__LVL_SUPER_RESP","$__LVL_ADMIN")))
+          {
+            $crypt_params=crypt_params("propspec=$propspec_id");
+            $info_texte="<br><a href='info_formations.php?p=$crypt_params' class='lien_bleu_10'><i><u>Info formation :</u> ".nl2br($info_formation)."</i></a>";
+          }
+          else
+            $info_texte="<br><i><u>Info formation :</u> $info_formation</i>";
+        }
+        else
+           $info_texte="";
+              
+        print("</font>
+            </td>
+            </tr>\n");
 
             print("<tr>
-							<td class='td-gauche $fond' style='white-space:normal;'>
-								<font class='Texte_menu'>
+              <td class='td-gauche $fond' style='white-space:normal;'>
+                <font class='Texte_menu'>
                            &#8226;&nbsp;$spec_nom
                            $info_texte
                         </font>
-							</td>
-							<td class='td-milieu $fond'>
-								<font class='Texte_menu'>$nom_finalite</font>
-							</td>
-							<td class='td-milieu $fond'>
-								<font class='Texte_menu'>$resp</font>
-							</td>
-							<td class='td-milieu $fond'>
-							   <font class='Texte_menu'>$manuelle_txt</font>
-							</td>
-							<td class='td-droite $fond'>
-								<font class='Texte_menu'>$entretiens_txt</font>
-							</td>
-						</tr>
-						\n");
+              </td>
+              <td class='td-milieu $fond'>
+                <font class='Texte_menu'>$nom_finalite</font>
+              </td>
+              <td class='td-milieu $fond'>
+                <font class='Texte_menu'>$resp</font>
+              </td>
+              <td class='td-milieu $fond'>
+                 <font class='Texte_menu'>$manuelle_txt</font>
+              </td>
+              <td class='td-droite $fond'>
+                <font class='Texte_menu'>$entretiens_txt</font>
+              </td>
+            </tr>
+            \n");
 
-				$nb++;
-			}
+        $nb++;
+      }
 
-			print("</table>\n");
+      print("</table>\n");
 
-			if($j)
-				print("<td></td>\n");
+      if($j)
+        print("<td></td>\n");
 
-			print("</tr>
-					 </table>\n");
-		}
+      print("</tr>
+           </table>\n");
+    }
 
-		db_free_result($result);
-		db_close($dbr);
-	?>
+    db_free_result($result);
+    db_close($dbr);
+  ?>
 
-	<div class='centered_box'>
-		<a href='index.php' target='_self' class='lien2'><img src='<?php echo "$__ICON_DIR/back_32x32_fond.png"; ?>' alt='Retour' border='0'></a>
-	</div>
+  <div class='centered_box'>
+    <a href='index.php' target='_self' class='lien2'><img src='<?php echo "$__ICON_DIR/back_32x32_fond.png"; ?>' alt='Retour' border='0'></a>
+  </div>
 </div>
 <?php
-	pied_de_page();
+  pied_de_page();
 ?>
 </body></html>

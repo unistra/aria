@@ -70,9 +70,9 @@ CeCILL-B, et que vous en avez accepté les termes.
       while(($arg=array_shift($args))!=NULL) 
       {
          // Is it a option? (prefixed with --)
-         if(substr($arg, 0, 2)==='--') 
+         if(mb_substr($arg, 0, 2, "UTF-8")==='--') 
          {
-            $option=substr($arg, 2);
+            $option=mb_substr($arg, 2, NULL, "UTF-8");
          
             // is it the syntax '--option=argument'?
             if(strpos($option,'=') !== FALSE)
@@ -84,7 +84,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          }
          
          // Is it a flag or a serial of flags? (prefixed with -)
-         if(substr( $arg, 0, 1 )==='-')
+         if(mb_substr($arg, 0, 1, "UTF-8")==='-')
          {
             for($i=1; isset($arg[$i]) ; $i++)
                $ret['flags'][]=$arg[$i];
@@ -209,7 +209,7 @@ Paramètres :
 
    if($objet=="orph")
    {
-      $annee_orph=ltrim(substr($annee,2,2), "0");
+      $annee_orph=ltrim(mb_substr($annee,2,2, "UTF-8"), "0");
       
       switch($quand)
       {

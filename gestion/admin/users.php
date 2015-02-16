@@ -216,7 +216,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                $warn_pass_vide=1;
                srand((double)microtime()*1000000);
                $code_conf=mb_strtoupper(md5(rand(0,9999)), "UTF-8");
-               $new_pass=substr($code_conf, 17, 8);
+               $new_pass=mb_substr($code_conf, 17, 8, "UTF-8");
                // on supprime le chiffre 1, le zéro et la lettre O : portent à confusion - on les remplace par d'autres caractères
                $new_pass=str_replace("0","A", $new_pass);
                $new_pass=str_replace("O","H", $new_pass);
@@ -362,7 +362,7 @@ CeCILL-B, et que vous en avez accepté les termes.
             {
                srand((double)microtime()*1000000);
                $code_conf=mb_strtoupper(md5(rand(0,9999)), "UTF-8");
-               $new_pass=substr($code_conf, 17, 8);
+               $new_pass=mb_substr($code_conf, 17, 8, "UTF-8");
                // on supprime le chiffre 1, le zéro et la lettre O : portent à confusion - on les remplace par d'autres caractères
                $new_pass=str_replace("0","A", $new_pass);
                $new_pass=str_replace("O","H", $new_pass);
@@ -439,16 +439,16 @@ CeCILL-B, et que vous en avez accepté les termes.
                 $date_offset=0;
                 $annee_len=1;
                 $leading_zero="0";
-                $msg_id=substr($nom_fichier, 0, 16);
-                $msg_read=substr($nom_fichier, 17, 1);
+                $msg_id=mb_substr($nom_fichier, 0, 16, "UTF-8");
+                $msg_read=mb_substr($nom_fichier, 17, 1, "UTF-8");
               }
               else // Année sur 2 caractères (chaine : 19 caractères)
               {
                 $date_offset=1;
                 $annee_len=2;
                 $leading_zero="";
-                $msg_id=substr($nom_fichier, 0, 17);
-                $msg_read=substr($nom_fichier, 18, 1);
+                $msg_id=mb_substr($nom_fichier, 0, 17, "UTF-8");
+                $msg_read=mb_substr($nom_fichier, 18, NULL, "UTF-8");
               }
               
               if(!$msg_read)

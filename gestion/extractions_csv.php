@@ -128,7 +128,7 @@ CeCILL-B, et que vous en avez accepté les termes.
             $cur_statut_prec[$statut_prec_id]=$statut_prec_id;
             $condition_statut.="$statut_prec_id,";
          }
-         $condition_statut=substr($condition_statut, 0, -1) . ")";
+         $condition_statut=mb_substr($condition_statut, 0, -1, "UTF-8") . ")";
       }
       else
          $condition_statut="AND $_DBC_cand_statut='$__PREC_RECEVABLE'";
@@ -144,7 +144,7 @@ CeCILL-B, et que vous en avez accepté les termes.
             $cur_dec[$dec_id]=$dec_id;
             $condition_decision.="$dec_id,";
          }
-         $condition_decision=substr($condition_decision, 0, -1) . ")";
+         $condition_decision=mb_substr($condition_decision, 0, -1, "UTF-8") . ")";
       }
       else
          $condition_decision="";

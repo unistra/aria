@@ -101,9 +101,9 @@ $_SESSION["__MACROS_USERS"]["moduleapogee_macro_code_ia"]='
 
     // Question : doit-on quand même générer le code d\'inscription si le code_etape ou le code université ne sont pas renseignés ?
 
-    $code_annee=substr($candidature_array["periode"],-2); // deux derniers chiffres de l\'année
-    $code_nom=mb_strtoupper(substr(str_replace("\'","", str_replace(" ","",$cand_array["nom"])),0,2), "UTF-8");
-    $code_prenom=mb_strtoupper(substr(str_replace("\'","", str_replace(" ","",$cand_array["prenom"])),0,1), "UTF-8");
+    $code_annee=mb_substr($candidature_array["periode"],-2,NULL, "UTF-8"); // deux derniers chiffres de l\'année
+    $code_nom=mb_strtoupper(mb_substr(str_replace("\'","", str_replace(" ","",$cand_array["nom"])),0,2, "UTF-8"), "UTF-8");
+    $code_prenom=mb_strtoupper(mb_substr(str_replace("\'","", str_replace(" ","",$cand_array["prenom"])),0,1, "UTF-8"), "UTF-8");
     $code_annee_naiss=date_fr("y", $cand_array["naissance_unix"]);
     $code_mois_naiss=date_fr("m", $cand_array["naissance_unix"]);
     $code_jour_naiss=date_fr("d", $cand_array["naissance_unix"]);
@@ -138,9 +138,9 @@ $_SESSION["__MACROS_USERS"]["moduleapogee_macro_code_ia"]='
 
         // Question : doit-on quand même générer le code d\'inscription si le code_etape ou le code université ne sont pas renseignés ?
 
-        $code_annee=substr($candidature_array["periode"],-2); // deux derniers chiffres de l\'année
-        $code_nom=mb_strtoupper(substr(str_replace("\'","", str_replace(" ","",$cand_array["nom"])),0,2), "UTF-8");
-        $code_prenom=mb_strtoupper(substr(str_replace("\'","", str_replace(" ","",$cand_array["prenom"])),0,1), "UTF-8");
+        $code_annee=mb_substr($candidature_array["periode"],-2, NULL, "UTF-8"); // deux derniers chiffres de l\'année
+        $code_nom=mb_strtoupper(mb_substr(str_replace("\'","", str_replace(" ","",$cand_array["nom"])),0,2, "UTF-8"), "UTF-8");
+        $code_prenom=mb_strtoupper(mb_substr(str_replace("\'","", str_replace(" ","",$cand_array["prenom"])),0,1, "UTF-8"), "UTF-8");
         $code_annee_naiss=date_fr("y", $cand_array["naissance_unix"]);
         $code_mois_naiss=date_fr("m", $cand_array["naissance_unix"]);
         $code_jour_naiss=date_fr("d", $cand_array["naissance_unix"]);

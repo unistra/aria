@@ -98,7 +98,7 @@ CeCILL-B, et que vous en avez accepté les termes.
     // option particulière : toutes les formations d'une année
     if(!strncmp("all_", $propspec_id, 4))
     {
-      $annee_id=substr($propspec_id,4);
+      $annee_id=mb_substr($propspec_id, 4, NULL, "UTF-8");
       $param="&annee_id=$annee_id";
     }
     else
@@ -287,7 +287,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       if(!strncmp("all_", $propspec_id, 4)) // Année entière, toutes formations confondues
       {
         // Normalement propspec_id est passé en variable $_POST : le format ne devrait pas être incorrect
-        $annee_id=substr($propspec_id, 4);
+        $annee_id=mb_substr($propspec_id, 4, NULL,"UTF-8");
 
         $result=db_query($dbr,"SELECT $_DBC_annees_annee FROM $_DB_annees WHERE $_DBC_annees_id='$annee_id'");
 

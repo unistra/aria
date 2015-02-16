@@ -351,8 +351,8 @@ CeCILL-B, et que vous en avez accepté les termes.
 
             if(!check_ine_bea($c_ine))
             {
-               $ine_bea=strtoupper(substr($c_ine, 0, 10));
-               $controle=strtoupper(substr($c_ine, 10, 1));
+               $ine_bea=strtoupper(mb_substr($c_ine, 0, 10, "UTF-8"));
+               $controle=strtoupper(mb_substr($c_ine, 10, 1, "UTF-8"));
             }
             else
             {
@@ -364,32 +364,32 @@ CeCILL-B, et que vous en avez accepté les termes.
                $cand_nom_naissance=$cand_nom;
 
             if(strlen($cand_nom_naissance)>30)
-               $c_nom_naissance=substr($cand_nom_naissance, 0, 30);
+               $c_nom_naissance=mb_substr($cand_nom_naissance, 0, 30, "UTF-8");
             elseif(strlen($cand_nom_naissance)<30)
                $c_nom_naissance=$cand_nom_naissance.str_repeat(" ", (30-strlen($cand_nom_naissance)));
 
             if(strlen($cand_nom)>30)
-               $c_nom=substr($cand_nom, 0, 30);
+               $c_nom=mb_substr($cand_nom, 0, 30, "UTF-8");
             elseif(strlen($cand_nom)<30)
                $c_nom=$cand_nom.str_repeat(" ", (30-strlen($cand_nom)));
 
             if(strlen($cand_prenom)>20)
-               $c_prenom=substr($cand_prenom, 0, 20);
+               $c_prenom=mb_substr($cand_prenom, 0, 20, "UTF-8");
             elseif(strlen($cand_prenom)<20)
                $c_prenom=$cand_prenom.str_repeat(" ", (20-strlen($cand_prenom)));
 
             if(strlen($c_prenom2)>20)
-               $c_prenom2=substr($c_prenom2, 0, 20);
+               $c_prenom2=mb_substr($c_prenom2, 0, 20, "UTF-8");
             elseif(strlen($c_prenom2)<20)
                $c_prenom2.=str_repeat(" ", (20-strlen($c_prenom2)));
 
             if(strlen($c_tel)>15)
-               $c_tel=substr($c_tel, 0, 15);
+               $c_tel=mb_substr($c_tel, 0, 15, "UTF-8");
             elseif(strlen($c_tel)<15)
                $c_tel.=str_repeat(" ", (15-strlen($c_tel)));
 
             if(strlen($cand_email)>200)
-               $c_email=substr($cand_email, 0, 200);
+               $c_email=mb_substr($cand_email, 0, 200, "UTF-8");
             elseif(strlen($cand_email)<200)
                $c_email=$cand_email.str_repeat(" ", (200-strlen($cand_email)));
 
@@ -409,14 +409,14 @@ CeCILL-B, et que vous en avez accepté les termes.
             }
 
             if(strlen($c_lieu_naissance)>30)
-               $c_lieu_naissance=substr($c_lieu_naissance, 0, 30);
+               $c_lieu_naissance=mb_substr($c_lieu_naissance, 0, 30, "UTF-8");
             elseif(strlen($c_lieu_naissance)<30)
                $c_lieu_naissance.=str_repeat(" ", (30-strlen($c_lieu_naissance)));
 
             $c_adresse=preg_replace("/[ ]+/", " ", str_replace("\r\n", " ", $c_adresse));
 
             if(strlen($c_adresse)>32)
-               $c_adresse=substr($c_adresse, 0, 32);
+               $c_adresse=mb_substr($c_adresse, 0, 32, "UTF-8");
             elseif(strlen($c_adresse)<32)
                $c_adresse.=str_repeat(" ", (32-strlen($c_adresse)));
 
@@ -428,14 +428,14 @@ CeCILL-B, et que vous en avez accepté les termes.
                if(strlen("$c_adr_code_postal $c_adr_ville")<=32)
                   $adresse_cp_ville="$c_adr_code_postal $c_adr_ville" . str_repeat(" ", (32-strlen("$c_adr_code_postal $c_adr_ville")));
                else
-                  $adresse_cp_ville=substr("$c_adr_code_postal $c_adr_ville", 0, 32);
+                  $adresse_cp_ville=mb_substr("$c_adr_code_postal $c_adr_ville", 0, 32, "UTF-8");
             }
             else // adresse hors FR : une ligne avec tout
             {
                if(strlen("$c_adresse $c_adr_code_postal $c_adr_ville")<=32)
                   $adresse_ligne1="$c_adresse $c_adr_code_postal $c_adr_ville" . str_repeat(" ", (32-strlen("$c_adresse $c_adr_code_postal $c_adr_ville")));
                else
-                  $adresse_ligne1=substr("$c_adresse $c_adr_code_postal $c_adr_ville", 0, 32);
+                  $adresse_ligne1=mb_substr("$c_adresse $c_adr_code_postal $c_adr_ville", 0, 32, "UTF-8");
 
                $adresse_cp_ville=str_repeat(" ", 32);
             }

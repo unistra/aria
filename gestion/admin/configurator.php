@@ -150,9 +150,9 @@ CeCILL-B, et que vous en avez accepté les termes.
                       {
                         if(strlen($val)==8)
                         {
-                          $jour=substr($val,0,2);
-                          $mois=substr($val,2,2);
-                          $annee=substr($val,4);
+                          $jour=mb_substr($val,0,2, "UTF-8");
+                          $mois=mb_substr($val,2,2, "UTF-8");
+                          $annee=mb_substr($val,4, NULL, "UTF-8");
                           $val=mktime(12,0,1, $mois, $jour, $annee); // date au format unix
                         }
                         else
@@ -221,9 +221,9 @@ CeCILL-B, et que vous en avez accepté les termes.
                               {
                                 if(strlen($val)==8) // cas particulier pour le type date
                                 {
-                                  $jour=substr($val,0,2);
-                                  $mois=substr($val,2,2);
-                                  $annee=substr($val,4);
+                                  $jour=mb_substr($val,0,2, "UTF-8");
+                                  $mois=mb_substr($val,2,2, "UTF-8");
+                                  $annee=mb_substr($val,4, NULL, "UTF-8");
                                   $val=mktime(0,0,1, $mois, $jour, $annee); // date au format unix
                                 }
                                 else

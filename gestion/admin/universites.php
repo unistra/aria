@@ -464,7 +464,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
           foreach($contenu_dir_css as $dir_css_file)
           {
-            if($dir_css_file!="." && $dir_css_file!=".." && substr($dir_css_file, -3)=="css")
+            if($dir_css_file!="." && $dir_css_file!=".." && mb_substr($dir_css_file, -3, NULL, "UTF-8")=="css")
             {
               $selected=($form_univ_css_file==$dir_css_file) ? "selected='1'" : "";
 

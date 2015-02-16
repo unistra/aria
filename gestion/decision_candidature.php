@@ -1252,7 +1252,7 @@ $_SESSION[universite]";
                   if(!strncmp($array_current_motifs[$l], '@',1))
                   {
                      $value=$array_current_motifs[$l];
-                     echo htmlspecialchars(substr(stripslashes($value),1), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
+                     echo htmlspecialchars(mb_substr(stripslashes($value),1, NULL, "UTF-8"), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
                   }
                }
             ?></textarea>
@@ -1315,7 +1315,7 @@ $_SESSION[universite]";
                   if(!strncmp($array_current_motifs[$l], '@',1))
                   {
                      $value=$array_current_motifs[$l];
-                     echo htmlspecialchars(substr(stripslashes($value), 1), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
+                     echo htmlspecialchars(mb_substr(stripslashes($value), 1, NULL, "UTF-8"), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
                   }
                }
             ?></textarea>

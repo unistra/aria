@@ -146,7 +146,7 @@ function __get_config($dbr)
       else
       {
          srand((double)microtime()*1000000);
-         $GLOBALS["arg_key"]=$_SESSION["config"]["arg_key"]=substr(md5(rand(0,9999)), 12, 8);
+         $GLOBALS["arg_key"]=$_SESSION["config"]["arg_key"]=mb_substr(md5(rand(0,9999)), 12, 8, "UTF-8");
       }
 
       // ===============================================================================
@@ -784,9 +784,9 @@ function __get_cursus($dbr,$candidat_id)
       if($annee==9999) // marqueur pour les années =0 (=en cours) : l'identifiant donne la date exacte
       {
         if(strlen($cursus_id)==16) // => année sur un seul chiffre (7 => 2007)
-          $cursus_array[$i]["date"]="200" . substr($cursus_id, 0, 1);
+          $cursus_array[$i]["date"]="200" . mb_substr($cursus_id, 0, 1, "UTF-8");
         else
-          $cursus_array[$i]["date"]="20" . substr($cursus_id, 0, 2);
+          $cursus_array[$i]["date"]="20" . mb_substr($cursus_id, 0, 2, "UTF-8");
       }
       else
         $cursus_array[$i]["date"]="$annee";

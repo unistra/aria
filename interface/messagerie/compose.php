@@ -291,9 +291,12 @@ CeCILL-B, et que vous en avez accepté les termes.
           }
 
           // On convertit la date en temps Unix : plus simple ensuite pour l'affichage et les conversions
-          $unix_date=mktime(substr($_SESSION["msg_id"], 5+$date_offset, 2), substr($_SESSION["msg_id"], 7+$date_offset, 2),
-                      substr($_SESSION["msg_id"], 9+$date_offset, 2), substr($_SESSION["msg_id"], 1+$date_offset, 2),
-                      substr($_SESSION["msg_id"], 3+$date_offset, 2), $leading_zero . substr($_SESSION["msg_id"], 0, $annee_len));
+          $unix_date=mktime(mb_substr($_SESSION["msg_id"], 5+$date_offset, 2, "UTF-8"), 
+              mb_substr($_SESSION["msg_id"], 7+$date_offset, 2, "UTF-8"),
+              mb_substr($_SESSION["msg_id"], 9+$date_offset, 2, "UTF-8"), 
+              mb_substr($_SESSION["msg_id"], 1+$date_offset, 2, "UTF-8"),
+              mb_substr($_SESSION["msg_id"], 3+$date_offset, 2, "UTF-8"), 
+              $leading_zero . mb_substr($_SESSION["msg_id"], 0, $annee_len, "UTF-8"));
 
           $date_txt=$date_txt=date_fr("d/m/y à H\hi", $unix_date);;
 

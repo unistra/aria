@@ -591,7 +591,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
                 if($liste_choix!="")
                 {
-                  $liste_choix=substr($liste_choix, 0, -1);
+                  $liste_choix=mb_substr($liste_choix, 0, -1, "UTF-8");
 
                   $res_choix=db_query($dbr, "SELECT $_DBC_dossiers_elems_choix_texte FROM $_DB_dossiers_elems_choix
                                     WHERE $_DBC_dossiers_elems_choix_id IN ($liste_choix)

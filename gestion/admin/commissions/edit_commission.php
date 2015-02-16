@@ -328,7 +328,7 @@ CeCILL-B, et que vous en avez accepté les termes.
           foreach($reponse as $session_id)
             $critere_maj.="'$session_id',";
 
-          $critere_maj=substr($critere_maj, 0, -1) . ")";
+          $critere_maj=mb_substr($critere_maj, 0, -1, "UTF-8") . ")";
         }
         elseif($reponse==-2)  // toutes les candidatures => nouvelle date (toutes sessions confondues)
           $critere_maj="";
@@ -356,7 +356,7 @@ CeCILL-B, et que vous en avez accepté les termes.
     foreach($maj_dates_propspec_array as $propspec_id => $nb)
       $critere_existantes.="'$propspec_id', ";
 
-    $critere_existantes=substr($critere_existantes, 0, -2) . ")";
+    $critere_existantes=mb_substr($critere_existantes, 0, -2, "UTF-8") . ")";
   }
   else
     $critere_existantes="";

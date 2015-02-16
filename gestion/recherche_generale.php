@@ -635,10 +635,10 @@ CeCILL-B, et que vous en avez accepté les termes.
       <td class='td-droite fond_menu' colspan='2'>
         <font class='Texte_menu' style='vertical-align:bottom;'>
           <?php
-            $y=substr($__PERIODE, 2,2); // passage de la période de 4 à 2 chiffres (2008 => 08)         
+            $y=mb_substr($__PERIODE, 2,2, "UTF-8"); // passage de la période de 4 à 2 chiffres (2008 => 08)         
 
-            if(substr($y, 0, 1) == "0") // réduction à un chiffre si le premier vaut 0
-              $y=substr($y, 1, 1);
+            if(mb_substr($y, 0, 1, "UTF-8") == "0") // réduction à un chiffre si le premier vaut 0
+              $y=mb_substr($y, 1, 1, "UTF-8");
               
             $annee_sup=date("Y")>$__PERIODE ? date("Y") : $__PERIODE;
 
@@ -778,7 +778,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
           $naissance=date_fr("j F Y",$date_naiss);
 
-          $current_letter=strtolower(substr($nom,0,1));
+          $current_letter=strtolower(mb_substr($nom,0,1, "UTF-8"));
 
           if(empty($lieu))
             $lieu="non renseigné";

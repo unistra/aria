@@ -100,7 +100,7 @@ function new_id()
    // Le paramètre TRUE de microtime() indique que la fonction retourne un nombre à virgule (utile pour le découpage avec strstr)
 
 
-   $new_id=date("ymdHis",$time) . substr(current(explode(" ", microtime())) . "00000", 2, 5);
+   $new_id=date("ymdHis",$time) . mb_substr(current(explode(" ", microtime())) . "00000", 2, 5, "UTF-8");
 
    // On enlève les 0 à gauche une bonne fois pour toutes (postgresql le fait par défaut lors de l'insertion)
    return ltrim($new_id, "0");
@@ -247,7 +247,7 @@ function requete_auth_droits($composante_id)
                $requete_droits_formations.="'$droits_propspec_id',";
                
             // Suppression de la dernière virgule et terminaison avec une parenthèse
-            $requete_droits_formations=substr($requete_droits_formations, 0, -1) . ")";
+            $requete_droits_formations=mb_substr($requete_droits_formations, 0, -1, "UTF-8") . ")";
          }
       }
    }
@@ -267,10 +267,10 @@ function check_ine_bea($numero)
    if(strlen($numero)==11)
    {
       /* TEST INE */
-      $univ=substr($numero, 0, 5);
-      $serie=substr($numero, 5, 1);
-      $ordre=substr($numero, 6, 4);
-      $controle=substr($numero, 10, 1);
+      $univ=mb_substr($numero, 0, 5, "UTF-8");
+      $serie=mb_substr($numero, 5, 1, "UTF-8");
+      $ordre=mb_substr($numero, 6, 4, "UTF-8");
+      $controle=mb_substr($numero, 10, 1, "UTF-8");
 
       $sum=0;
 
@@ -279,13 +279,13 @@ function check_ine_bea($numero)
 
       $sum+=base_convert($numero[9], 36, 10);
 
-      if(!strcasecmp(substr($sum, -1), $controle))
+      if(!strcasecmp(mb_substr($sum, -1, NULL, "UTF-8"), $controle))
          $ine_ok=1;
 
       /* TEST BEA */
       // Le caractère de contrôle se trouve parmi la liste suivante.
       // Le rang dans la liste est déterminé par le reste modulo 23 des 10 premiers chiffres du matricule
-      if(ctype_digit(substr($numero, 0, 10)))
+      if(ctype_digit(mb_substr($numero, 0, 10, "UTF-8")))
       {
          $controle_array=array("0" => "a",
                                "1" => "b", 
@@ -311,12 +311,12 @@ function check_ine_bea($numero)
                                "21" => "y", 
                                "22" => "z");
 
-         $academie=substr($numero, 0, 2);
-         $annee_immat=substr($numero, 2, 2);
-         $ordre=substr($numero, 4, 6);
-         $controle=substr($numero, 10, 1);
+         $academie=mb_substr($numero, 0, 2, "UTF-8");
+         $annee_immat=mb_substr($numero, 2, 2, "UTF-8");
+         $ordre=mb_substr($numero, 4, 6, "UTF-8");
+         $controle=mb_substr($numero, 10, 1, "UTF-8");
 
-         $nombre=substr($numero, 0, 10);
+         $nombre=mb_substr($numero, 0, 10, "UTF-8");
 
          $reste=gmp_strval(gmp_mod(gmp_init($nombre, 10), gmp_init(23, 10)));
 
@@ -595,7 +595,7 @@ function crypt_params($txt)
    if(!isset($GLOBALS["arg_key"]) || $GLOBALS["arg_key"]=="")
    {
       srand((double)microtime()*1000000);
-      $_SESSION["config"]["arg_key"]=$GLOBALS["arg_key"]=substr(md5(rand(0,9999)), 12, 8);
+      $_SESSION["config"]["arg_key"]=$GLOBALS["arg_key"]=mb_substr(md5(rand(0,9999)), 12, 8, "UTF-8");
    }
 
    // initialisation
@@ -626,7 +626,7 @@ function get_params($txt)
       $c = '';
       for ($i=0; $i <= strlen($txt)-2; $i = $i + 2)
       {
-         $h = substr($txt, $i, 2);
+         $h = mb_substr($txt, $i, 2, "UTF-8");
          $c .= chr(hexdec($h));
       } 
       
@@ -766,7 +766,7 @@ function id_to_date($identifiant)
    if(strlen($identifiant)==16) // année sur un seul chiffre (le 0 du début est tronqué par PostgreSQL)
    {
       $annee_len=1;
-      $shift=0; // Décallage pour substr
+      $shift=0; // Décallage pour mb_substr
    }
    else
    {
@@ -774,18 +774,18 @@ function id_to_date($identifiant)
       $shift=1;
    }
 
-   $annee=substr($identifiant, 0, $annee_len);
+   $annee=mb_substr($identifiant, 0, $annee_len, "UTF-8");
 
    if($shift)
       $annee="20" . $annee;
    else
       $annee="200" . $annee;
 
-   $mois=substr($identifiant, (1+$shift), 2);
-   $jour=substr($identifiant, (3+$shift), 2);
-   $heure=substr($identifiant, (5+$shift), 2);
-   $minutes=substr($identifiant, (7+$shift), 2);
-   $secondes=substr($identifiant, (9+$shift), 2);
+   $mois=mb_substr($identifiant, (1+$shift), 2, "UTF-8");
+   $jour=mb_substr($identifiant, (3+$shift), 2, "UTF-8");
+   $heure=mb_substr($identifiant, (5+$shift), 2, "UTF-8");
+   $minutes=mb_substr($identifiant, (7+$shift), 2, "UTF-8");
+   $secondes=mb_substr($identifiant, (9+$shift), 2, "UTF-8");
    
    $timestamp=MakeTime($heure,$minutes,$secondes,$mois,$jour,$annee);
 
@@ -1753,9 +1753,9 @@ function sous_rep_msg($identifiant)
       return FALSE;
       
    if(strlen($identifiant)==17)
-      return substr($identifiant, 0, 2);
+      return mb_substr($identifiant, 0, 2, "UTF-8");
    elseif(strlen($identifiant)==16)
-      return substr($identifiant, 0, 1);
+      return mb_substr($identifiant, 0, 1, "UTF-8");
 }
 
 function dossiers_messagerie()
@@ -1807,7 +1807,7 @@ function dossiers_messagerie()
 
       foreach($array_dir as $element)
       {
-         if(is_file("$DIR/$_SESSION[MSG_SOUS_REP]/$ID/$dossier_id/$element") && substr($element, -2)==".0")
+         if(is_file("$DIR/$_SESSION[MSG_SOUS_REP]/$ID/$dossier_id/$element") && mb_substr($element, -2, NULL, "UTF-8")==".0")
             $count_new++;
          elseif(is_dir("$DIR/$_SESSION[MSG_SOUS_REP]/$ID/$dossier_id/$element") && $element!="." && $element!="..")   // Message avec pièces jointes = sous répertoire
          {
@@ -1815,7 +1815,7 @@ function dossiers_messagerie()
 
             foreach($array_subdir as $sub_element)
             {
-               if(is_file("$DIR/$_SESSION[MSG_SOUS_REP]/$ID/$dossier_id/$element/$sub_element") && substr($sub_element, -1)=="0")
+               if(is_file("$DIR/$_SESSION[MSG_SOUS_REP]/$ID/$dossier_id/$element/$sub_element") && mb_substr($sub_element, -1, NULL, "UTF-8")=="0")
                   $count_new++;
             }
          }
@@ -2623,7 +2623,7 @@ function check_messages()
       // Décompte des messages non lus (fichiers se terminant par .0)
       foreach($array_dir as $element)
       {
-         if(is_file("$DIR/$_SESSION[MSG_SOUS_REP]/$ID/$dossier_id/$element") && substr($element, -1)=="0")
+         if(is_file("$DIR/$_SESSION[MSG_SOUS_REP]/$ID/$dossier_id/$element") && mb_substr($element, -1, NULL, "UTF-8")=="0")
             $count_new++;
          elseif(is_dir("$DIR/$_SESSION[MSG_SOUS_REP]/$ID/$dossier_id/$element") && $element!="." && $element!="..")   // Message avec pièces jointes = sous répertoire
          {
@@ -2631,7 +2631,7 @@ function check_messages()
 
             foreach($array_subdir as $sub_element)
             {
-               if(is_file("$DIR/$_SESSION[MSG_SOUS_REP]/$ID/$dossier_id/$element/$sub_element") && substr($sub_element, -1)=="0")
+               if(is_file("$DIR/$_SESSION[MSG_SOUS_REP]/$ID/$dossier_id/$element/$sub_element") && mb_substr($sub_element, -1, NULL, "UTF-8")=="0")
                   $count_new++;
             }
          }

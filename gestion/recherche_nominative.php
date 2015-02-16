@@ -328,7 +328,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
           $naissance=date_fr("j F Y",$date_naiss);
 
-          $current_letter=strtolower(substr($nom,0,1));
+          $current_letter=strtolower(mb_substr($nom,0,1, "UTF-8"));
 
           if(empty($lieu))
             $lieu="non renseigné";

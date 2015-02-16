@@ -788,7 +788,7 @@ $_SESSION[universite]";
          // Regénération d'un code personnel
          srand((double)microtime()*1000000);
          $code_conf=mb_strtoupper(md5(rand(0,9999)), "UTF-8");
-         $new_code=substr($code_conf, 17, 8);
+         $new_code=mb_substr($code_conf, 17, 8, "UTF-8");
          // on supprime le chiffre 1, les lettres I, L, O et le zéro : portent à confusion - on les remplace par d'autres caractères
          $new_code=str_replace("0","A", $new_code);
          $new_code=str_replace("O","H", $new_code);

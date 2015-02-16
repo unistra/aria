@@ -674,7 +674,7 @@ $_SESSION[universite]";
         foreach($array_erreurs as $inid => $inid_array)
           $liste_id_erreurs.="$inid,";
 
-        $liste_id_erreurs=substr($liste_id_erreurs, 0, -1) . ")";
+        $liste_id_erreurs=mb_substr($liste_id_erreurs, 0, -1, "UTF-8") . ")";
 
         $condition_erreurs="AND $_DBC_cand_id IN $liste_id_erreurs";
 
@@ -864,7 +864,7 @@ $_SESSION[universite]";
             foreach($motif_candidat_array as $motif)
             {
               if(!strncmp('@', $motif, 1)) // motif libre
-                $motif_libre=substr($motif, 1);
+                $motif_libre=mb_substr($motif, 1, NULL, "UTF-8");
             }
           }
           else

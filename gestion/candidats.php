@@ -269,8 +269,8 @@ CeCILL-B, et que vous en avez accepté les termes.
 
     $annee_orph=date("y");
 
-    if(substr($annee_orph, 0,1)=="0")
-      $annee_orph=substr($annee_orph, 1,1);
+    if(mb_substr($annee_orph, 0,1, "UTF-8")=="0")
+      $annee_orph=mb_substr($annee_orph, 1,1, "UTF-8");
 
     // Nombre de fiches sans précandidatures
 /*    

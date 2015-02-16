@@ -90,7 +90,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          if(($array_file=@file("$fichier"))==FALSE)
          {
             // On tente en modifiant la fin du nom du fichier (flag read)
-            if(substr($fichier, -1)=="0")
+            if(mb_substr($fichier, -1, NULL, "UTF-8")=="0")
                $fichier=preg_replace("/\.0$/", ".1", $fichier);
             else
                $fichier=preg_replace("/\.1$/", ".0", $fichier);
@@ -123,16 +123,16 @@ CeCILL-B, et que vous en avez accepté les termes.
                $date_offset=0;
                $annee_len=1;
                $leading_zero="0";
-               $_SESSION["msg_id"]=$msg_id=substr($_SESSION["msg"], 0, 16);
-               $_SESSION["msg_read"]=substr($_SESSION["msg"], 17, 1);
+               $_SESSION["msg_id"]=$msg_id=mb_substr($_SESSION["msg"], 0, 16, "UTF-8");
+               $_SESSION["msg_read"]=mb_substr($_SESSION["msg"], 17, 1, "UTF-8");
             }
             else // Année sur 2 caractères (chaine : 19 caractères)
             {
                $date_offset=1;
                $annee_len=2;
                $leading_zero="";
-               $_SESSION["msg_id"]=$msg_id=substr($_SESSION["msg"], 0, 17);
-               $_SESSION["msg_read"]=substr($_SESSION["msg"], 18, 1);
+               $_SESSION["msg_id"]=$msg_id=mb_substr($_SESSION["msg"], 0, 17, "UTF-8");
+               $_SESSION["msg_read"]=mb_substr($_SESSION["msg"], 18, 1, "UTF-8");
             }
 
             $_SESSION['msg_exp_id']=trim($array_file["0"]);
@@ -255,8 +255,12 @@ CeCILL-B, et que vous en avez accepté les termes.
          }
 
          // On convertit la date en temps Unix : plus simple ensuite pour l'affichage et les conversions
-         $unix_date=mktime(substr($_SESSION["msg_id"], 5+$date_offset, 2), substr($_SESSION["msg_id"], 7+$date_offset, 2), substr($_SESSION["msg_id"], 9+$date_offset, 2),
-                                          substr($_SESSION["msg_id"], 1+$date_offset, 2), substr($_SESSION["msg_id"], 3+$date_offset, 2), $leading_zero . substr($_SESSION["msg_id"], 0, $annee_len));
+         $unix_date=mktime(mb_substr($_SESSION["msg_id"], 5+$date_offset, 2, "UTF-8"), 
+              mb_substr($_SESSION["msg_id"], 7+$date_offset, 2, "UTF-8"), 
+              mb_substr($_SESSION["msg_id"], 9+$date_offset, 2, "UTF-8"),
+              mb_substr($_SESSION["msg_id"], 1+$date_offset, 2, "UTF-8"), 
+              mb_substr($_SESSION["msg_id"], 3+$date_offset, 2, "UTF-8"), 
+              $leading_zero . mb_substr($_SESSION["msg_id"], 0, $annee_len, "UTF-8"));
 
          $date_txt=ucfirst(date_fr("l d F Y - H\hi", $unix_date));
 

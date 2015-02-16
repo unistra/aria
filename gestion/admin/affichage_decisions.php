@@ -49,66 +49,68 @@ CeCILL-B, et que vous en avez accepté les termes.
 */
 ?>
 <?php
-	session_name("preinsc_gestion");
-	session_start();
+  session_name("preinsc_gestion");
+  session_start();
 
-	include "../../configuration/aria_config.php";
-	include "$__INCLUDE_DIR_ABS/vars.php";
-	include "$__INCLUDE_DIR_ABS/fonctions.php";
-	include "$__INCLUDE_DIR_ABS/db.php";
+  include "../../configuration/aria_config.php";
+  include "$__INCLUDE_DIR_ABS/vars.php";
+  include "$__INCLUDE_DIR_ABS/fonctions.php";
+  include "$__INCLUDE_DIR_ABS/db.php";
 
-	$php_self=$_SERVER['PHP_SELF'];
-	$_SESSION['CURRENT_FILE']=$php_self;
+  $php_self=$_SERVER['PHP_SELF'];
+  $_SESSION['CURRENT_FILE']=$php_self;
 
-	verif_auth("$__GESTION_DIR/login.php");
+  verif_auth("$__GESTION_DIR/login.php");
 
-	if(!in_array($_SESSION['niveau'], array("$__LVL_SCOL_PLUS","$__LVL_RESP","$__LVL_SUPER_RESP","$__LVL_ADMIN")))
-	{
-		header("Location:$__GESTION_DIR/noaccess.php");
-		exit();
-	}
+  if(!in_array($_SESSION['niveau'], array("$__LVL_SCOL_PLUS","$__LVL_RESP","$__LVL_SUPER_RESP","$__LVL_ADMIN")))
+  {
+    header("Location:$__GESTION_DIR/noaccess.php");
+    exit();
+  }
 
-	$dbr=db_connect();
+  $dbr=db_connect();
 
-	// Validation du formulaire
-	if(isset($_POST["publier_tout"]))
-	{
-		db_query($dbr, "UPDATE $_DB_propspec SET $_DBU_propspec_affichage_decisions='1'
-								WHERE $_DBU_propspec_comp_id='$_SESSION[comp_id]'");
+  // Validation du formulaire
+  if(isset($_POST["publier_tout"]))
+  {
+    db_query($dbr, "UPDATE $_DB_propspec SET $_DBU_propspec_affichage_decisions='1'
+                WHERE $_DBU_propspec_comp_id='$_SESSION[comp_id]'");
 
-		$succes=1;
-	}
-	elseif(isset($_POST["publier_lettres"]))
-	{
-	   db_query($dbr, "UPDATE $_DB_propspec SET $_DBU_propspec_affichage_decisions='2'
-	   					 WHERE $_DBU_propspec_comp_id='$_SESSION[comp_id]'");
-	                                 
-	   $succes=2;
-	}
-	elseif(isset($_POST["masquer_tout"]))
-	{
-		db_query($dbr, "UPDATE $_DB_propspec SET $_DBU_propspec_affichage_decisions='0'
-								WHERE $_DBU_propspec_comp_id='$_SESSION[comp_id]'");
+    $succes=1;
+  }
+  elseif(isset($_POST["publier_lettres"]))
+  {
+     db_query($dbr, "UPDATE $_DB_propspec SET $_DBU_propspec_affichage_decisions='2'
+               WHERE $_DBU_propspec_comp_id='$_SESSION[comp_id]'");
+                                   
+     $succes=2;
+  }
+  elseif(isset($_POST["masquer_tout"]))
+  {
+    db_query($dbr, "UPDATE $_DB_propspec SET $_DBU_propspec_affichage_decisions='0'
+                WHERE $_DBU_propspec_comp_id='$_SESSION[comp_id]'");
 
-		$succes=3;
-	}	
-	elseif(isset($_POST["go_valider"]) || isset($_POST["go_valider_x"]))
-	{
-		foreach($_POST["formations"] as $propspec_id => $nouveau_statut)
-		{
-			if($nouveau_statut==0 || $nouveau_statut==1 || $nouveau_statut==2) // Décisions masquées / publiées / publiées avec courriers
-				db_query($dbr, "UPDATE $_DB_propspec SET $_DBU_propspec_affichage_decisions='$nouveau_statut' WHERE $_DBU_propspec_id='$propspec_id'");
-		}
+    $succes=3;
+  } 
+  elseif(isset($_POST["go_valider"]) || isset($_POST["go_valider_x"]))
+  {
+    foreach($_POST["formations"] as $propspec_id => $nouveau_statut)
+    {
+      if($nouveau_statut==0 || $nouveau_statut==1 || $nouveau_statut==2) // Décisions masquées / publiées / publiées avec courriers
+        db_query($dbr, "UPDATE $_DB_propspec SET $_DBU_propspec_affichage_decisions='$nouveau_statut' WHERE $_DBU_propspec_id='$propspec_id'");
+    }
 
-		$succes=4;
-	}
-	
-	if((isset($succes) && $succes!=3) || isset($_POST["envoyer_tout"]))
-	{
+    $succes=4;
+  }
+  
+  if((isset($succes) && $succes!=3) || isset($_POST["envoyer_tout"]))
+  {
       // Si on a publié des décisions et que la composante est configurée pour envoyer des notifications, on propose d'envoyer toutes celles en attente
       if(isset($_SESSION["avertir_decision"]) && $_SESSION["avertir_decision"]==1 && !isset($_POST["masquer_tout"]))
       {
-         if(isset($_POST["formations"]) && count($_POST["formations"])) // Liste des formations concernées
+         if(array_key_exists("publier_tout", $_POST) || array_key_exists("publier_lettres", $_POST) || array_key_exists("envoyer_tout", $_POST)) // toutes les formations
+            $requete_formations="";
+         elseif(isset($_POST["formations"]) && count($_POST["formations"])) // Liste des formations concernées
          {
             $liste_formations="";
                
@@ -119,10 +121,8 @@ CeCILL-B, et que vous en avez accepté les termes.
             }
             
             if($liste_formations!="")
-               $requete_formations=substr("AND $_DBC_propspec_id IN (".$liste_formations, 0, -1).")";
-         }
-         elseif(isset($_POST["publier_tout"]) || isset($_POST["publier_lettres"]) || isset($_POST["envoyer_tout"])) // toutes les formations
-            $requete_formations="";
+               $requete_formations=mb_substr("AND $_DBC_propspec_id IN (".$liste_formations, 0, -1, "UTF-8").")";
+         }           
 
          // Sélection des candidatures concernées
          $res_formations=db_query($dbr, "SELECT $_DBC_cand_id, $_DBC_candidat_id, $_DBC_candidat_civilite, $_DBC_candidat_nom, $_DBC_candidat_prenom, $_DBC_candidat_email,
@@ -161,9 +161,9 @@ CeCILL-B, et que vous en avez accepté les termes.
             
          db_free_result($res_formations);
       }
-	}
-	
-	if(isset($_POST["aucun_envoi"])) // Envoi des messages ?
+  }
+  
+  if(isset($_POST["aucun_envoi"])) // Envoi des messages ?
       $aucun_message=1;
    elseif(isset($_POST["envoyer"]) && isset($_SESSION["tab_envoyer_notifications"]) && is_array($_SESSION["tab_envoyer_notifications"]))
    {
@@ -202,32 +202,32 @@ $_SESSION[universite]";
       unset($_SESSION["tab_envoyer_notifications"]);
    }
    
-	// EN-TETE
-	en_tete_gestion();
+  // EN-TETE
+  en_tete_gestion();
 
-	// MENU SUPERIEUR
-	menu_sup_gestion();
+  // MENU SUPERIEUR
+  menu_sup_gestion();
 ?>
 
 <div class='main'>
-	<?php
-		titre_page_icone("Commissions Pédagogiques : affichage des décisions", "ksysv_32x32_fond.png", 15, "L");
+  <?php
+    titre_page_icone("Commissions Pédagogiques : affichage des décisions", "ksysv_32x32_fond.png", 15, "L");
 
-		if(isset($succes))
-		{
-		   switch($succes)
-		   {		   
-		      case 1 : message("Les décisions sont maintenant <strong>publiées</strong> (lettres non accessibles).", $__SUCCES);
-		               break;
-		      
-		      case 2 : message("Les décisions sont maintenant <strong>publiées</strong> et les lettres sont <strong>accessibles aux candidats</strong>.", $__SUCCES);
-		               break;
-		      
-		      case 3 : message("Les décisions sont maintenant <strong>masquées</strong>.", $__SUCCES);
-		               break;
-		      
-		      case 4 : message("Paramètres des formations validés avec succès.", $__SUCCES);
-		               break;
+    if(isset($succes))
+    {
+       switch($succes)
+       {       
+          case 1 : message("Les décisions sont maintenant <strong>publiées</strong> (lettres non accessibles).", $__SUCCES);
+                   break;
+          
+          case 2 : message("Les décisions sont maintenant <strong>publiées</strong> et les lettres sont <strong>accessibles aux candidats</strong>.", $__SUCCES);
+                   break;
+          
+          case 3 : message("Les décisions sont maintenant <strong>masquées</strong>.", $__SUCCES);
+                   break;
+          
+          case 4 : message("Paramètres des formations validés avec succès.", $__SUCCES);
+                   break;
          }
       }
    
@@ -259,7 +259,7 @@ $_SESSION[universite]";
                    <input type='submit' alt='Ne pas envoyer les messages' name='aucun_envoi' value='Je ne souhaite PAS envoyer les messages'>
                    <input type='submit' alt='Envoyer les messages' name='envoyer' value='Oui : envoyer les messages immédiatement'>
                 </div>
-   	          </form>\n");                        
+              </form>\n");                        
       }      
       else
       {
@@ -268,18 +268,18 @@ $_SESSION[universite]";
          elseif(isset($count_envoyes))
             message("$count_envoyes message(s) de notification envoyé(s).", $__INFO);
       
-		message("1/ Seules les décisions publiées sont visibles par les candidats. Les décisions prises <b>après</b> publication seront automatiquement publiées.
-					<br>2/ En cas de sélection individuelle des formations, n'oubliez pas de <b>valider les modifications</b> grâce à l'icône située sous les tableaux.", $__INFO);
+    message("1/ Seules les décisions publiées sont visibles par les candidats. Les décisions prises <b>après</b> publication seront automatiquement publiées.
+          <br>2/ En cas de sélection individuelle des formations, n'oubliez pas de <b>valider les modifications</b> grâce à l'icône située sous les tableaux.", $__INFO);
 
-		// Option particulière pour l'envoi des messages de notification
-		if(isset($_SESSION["avertir_decision"]) && $_SESSION["avertir_decision"]==1 && 
-		   $count_envois=db_num_rows(db_query($dbr, "SELECT * FROM $_DB_cand,$_DB_propspec WHERE $_DBC_propspec_id=$_DBC_cand_propspec_id 
-		                                                                                   AND $_DBC_cand_periode='$__PERIODE' 
-		                                                                                   AND $_DBC_propspec_comp_id='$_SESSION[comp_id]'
-		                                                                                   AND $_DBC_propspec_active='1'
-		                                                                                   AND $_DBC_cand_notification_envoyee='0'
-		                                                                                   AND $_DBC_propspec_affichage_decisions IN ('1', '2')   
-		                                                                                   AND $_DBC_cand_decision!='$__DOSSIER_NON_TRAITE'")))
+    // Option particulière pour l'envoi des messages de notification
+    if(isset($_SESSION["avertir_decision"]) && $_SESSION["avertir_decision"]==1 && 
+       $count_envois=db_num_rows(db_query($dbr, "SELECT * FROM $_DB_cand,$_DB_propspec WHERE $_DBC_propspec_id=$_DBC_cand_propspec_id 
+                                                                                       AND $_DBC_cand_periode='$__PERIODE' 
+                                                                                       AND $_DBC_propspec_comp_id='$_SESSION[comp_id]'
+                                                                                       AND $_DBC_propspec_active='1'
+                                                                                       AND $_DBC_cand_notification_envoyee='0'
+                                                                                       AND $_DBC_propspec_affichage_decisions IN ('1', '2')   
+                                                                                       AND $_DBC_cand_decision!='$__DOSSIER_NON_TRAITE'")))
       {
          $bottom_border="0px";
          $option_envoi=1;
@@ -292,177 +292,177 @@ $_SESSION[universite]";
       
       print("<form action='$php_self' method='POST' name='form1'>
 
-					<table cellpadding='0' cellspacing='0' border='0' align='center'>
-					<tr>
-						<td class='fond_menu2' colspan='3' align='center' style='padding:4px 10px 4px 10px; border-style:solid; border-color:black; border-width:1px 1px 0px 1px;'>
-							<font class='Texte_menu2'><b>Options spéciales (à effet immédiat)</b></font>
-						</td>
-					</tr>
-					<tr>
-						<td class='fond_menu2' align='center' width='33%' style='padding:4px 10px 4px 10px; border-style:solid; border-width:0px 0px $bottom_border 1px;'>
-						   <input type='submit' name='masquer_tout' value='Masquer toutes les décisions'>	
-						</td>
-						<td class='fond_menu2' align='center' width='33%' style='padding:4px 10px 4px 10px; border-style:solid; border-width:0px 0px $bottom_border 0px;'>
+          <table cellpadding='0' cellspacing='0' border='0' align='center'>
+          <tr>
+            <td class='fond_menu2' colspan='3' align='center' style='padding:4px 10px 4px 10px; border-style:solid; border-color:black; border-width:1px 1px 0px 1px;'>
+              <font class='Texte_menu2'><b>Options spéciales (à effet immédiat)</b></font>
+            </td>
+          </tr>
+          <tr>
+            <td class='fond_menu2' align='center' width='33%' style='padding:4px 10px 4px 10px; border-style:solid; border-width:0px 0px $bottom_border 1px;'>
+               <input type='submit' name='masquer_tout' value='Masquer toutes les décisions'> 
+            </td>
+            <td class='fond_menu2' align='center' width='33%' style='padding:4px 10px 4px 10px; border-style:solid; border-width:0px 0px $bottom_border 0px;'>
                      <input type='submit' name='publier_tout' value='Publier toutes les décisions'>
-						</td>
-						<td class='fond_menu2' align='center' width='34%' style='padding:4px 10px 4px 10px; border-style:solid; border-width:0px 1px $bottom_border 0px;'>
-							<input type='submit' name='publier_lettres' value='Publier les décisions + Lettres accessibles aux candidats'>
-						</td>
-					</tr>\n");
-					
-		if($option_envoi==1)
-		{
-		   print("<tr>
-					   <td class='fond_menu2' align='center' colspan='3' style='padding:4px 0px 4px 0px; border-style:solid; border-width:0px 1px 1px 1px;'>
-					      <input type='submit' alt='Envoyer les messages' name='envoyer_tout' value='Envoyer les notifications de prises de décisions aux candidats'>
-					      <br><font class='Texte'><i>(Il y a $count_envois message(s) en attente)</i></font>
-					   </td>
+            </td>
+            <td class='fond_menu2' align='center' width='34%' style='padding:4px 10px 4px 10px; border-style:solid; border-width:0px 1px $bottom_border 0px;'>
+              <input type='submit' name='publier_lettres' value='Publier les décisions + Lettres accessibles aux candidats'>
+            </td>
+          </tr>\n");
+          
+    if($option_envoi==1)
+    {
+       print("<tr>
+             <td class='fond_menu2' align='center' colspan='3' style='padding:4px 0px 4px 0px; border-style:solid; border-width:0px 1px 1px 1px;'>
+                <input type='submit' alt='Envoyer les messages' name='envoyer_tout' value='Envoyer les notifications de prises de décisions aux candidats'>
+                <br><font class='Texte'><i>(Il y a $count_envois message(s) en attente)</i></font>
+             </td>
                </tr>\n");
       }
       
       print("</table>
 
-				 <br clear='all'>\n");
-	?>
-	<table cellpadding='0' cellspacing='0' border='0' align='center'>
-	<?php
-		$result=db_query($dbr, "SELECT $_DBC_propspec_id, $_DBC_annees_id, $_DBC_annees_annee, $_DBC_specs_nom_court, $_DBC_propspec_finalite,
-												 $_DBC_mentions_nom, $_DBC_propspec_affichage_decisions
-											FROM $_DB_propspec, $_DB_annees, $_DB_specs, $_DB_mentions
-										WHERE $_DBC_propspec_annee=$_DBC_annees_id
-										AND $_DBC_propspec_id_spec=$_DBC_specs_id
-										AND $_DBC_specs_mention_id=$_DBC_mentions_id
-										AND $_DBC_propspec_comp_id='$_SESSION[comp_id]'
-										AND $_DBC_propspec_active='1'
-											ORDER BY $_DBC_annees_ordre, $_DBC_specs_mention_id, $_DBC_specs_nom_court, $_DBC_propspec_finalite");
+         <br clear='all'>\n");
+  ?>
+  <table cellpadding='0' cellspacing='0' border='0' align='center'>
+  <?php
+    $result=db_query($dbr, "SELECT $_DBC_propspec_id, $_DBC_annees_id, $_DBC_annees_annee, $_DBC_specs_nom_court, $_DBC_propspec_finalite,
+                         $_DBC_mentions_nom, $_DBC_propspec_affichage_decisions
+                      FROM $_DB_propspec, $_DB_annees, $_DB_specs, $_DB_mentions
+                    WHERE $_DBC_propspec_annee=$_DBC_annees_id
+                    AND $_DBC_propspec_id_spec=$_DBC_specs_id
+                    AND $_DBC_specs_mention_id=$_DBC_mentions_id
+                    AND $_DBC_propspec_comp_id='$_SESSION[comp_id]'
+                    AND $_DBC_propspec_active='1'
+                      ORDER BY $_DBC_annees_ordre, $_DBC_specs_mention_id, $_DBC_specs_nom_court, $_DBC_propspec_finalite");
 
-		$rows=db_num_rows($result);
+    $rows=db_num_rows($result);
 
-		$old_annee_id="===="; // on initialise à n'importe quoi (sauf année existante et valeur vide)
-		$old_propspec_id="";
-		$old_mention="--";
+    $old_annee_id="===="; // on initialise à n'importe quoi (sauf année existante et valeur vide)
+    $old_propspec_id="";
+    $old_mention="--";
 
-		for($i=0; $i<$rows; $i++)
-		{
-			list($propspec_id, $annee_id, $annee, $spec_nom, $finalite, $mention, $affichage_decisions)=db_fetch_row($result, $i);
+    for($i=0; $i<$rows; $i++)
+    {
+      list($propspec_id, $annee_id, $annee, $spec_nom, $finalite, $mention, $affichage_decisions)=db_fetch_row($result, $i);
 
-			$nom_finalite=$tab_finalite[$finalite];
+      $nom_finalite=$tab_finalite[$finalite];
 
-			$annee=$annee=="" ? "Années particulières" : $annee;
+      $annee=$annee=="" ? "Années particulières" : $annee;
 
-			$masquer_checked=$publier_checked=$publier_lettres_checked="";
+      $masquer_checked=$publier_checked=$publier_lettres_checked="";
 
-			if($affichage_decisions==0)
-			{
-				$statut_actuel="<font class='Texte_important_menu'>Masquées</font>";
-				$masquer_checked="checked";
-			}
-			elseif($affichage_decisions==1)
-			{
+      if($affichage_decisions==0)
+      {
+        $statut_actuel="<font class='Texte_important_menu'>Masquées</font>";
+        $masquer_checked="checked";
+      }
+      elseif($affichage_decisions==1)
+      {
             $statut_actuel="<font class='Textevert_menu'>Publiées</font>";
             $publier_checked="checked";
-			}
+      }
          elseif($affichage_decisions==2)
          {
-         	$statut_actuel="<font class='Textevert_menu'>Publiées et lettres accessibles</font>";
-         	$publier_lettres_checked="checked";
-         	
-			}
+          $statut_actuel="<font class='Textevert_menu'>Publiées et lettres accessibles</font>";
+          $publier_lettres_checked="checked";
+          
+      }
 
-			if($annee_id!=$old_annee_id)
-			{
-				if($i!=0)
-					print("</tr>
-							 <tr>
-							    <td colspan='8' height='25' style='border-style:solid; border-width:1px 0px 0px 0px;'></font>
-							 </tr>\n");
+      if($annee_id!=$old_annee_id)
+      {
+        if($i!=0)
+          print("</tr>
+               <tr>
+                  <td colspan='8' height='25' style='border-style:solid; border-width:1px 0px 0px 0px;'></font>
+               </tr>\n");
 
-				print("<tr>
-							<td class='fond_menu2' colspan='8' align='center' style='padding:4px 20px 4px 20px; border-style:solid; border-color:black; border-width:1px 1px 0px 1px;'>
-								<font class='Texte_menu2'><b>$annee</b></font>
-							</td>
-						 </tr>
-						 <tr>
-							<td class='fond_menu2' style='padding:4px 20px 4px 20px; border-style:solid; border-width:0px 0px 0px 1px;'>
-								<font class='Texte_menu2'><b>&#8226;&nbsp;&nbsp;$mention</b></font>
-							</td>
-							<td class='fond_menu2' style='padding:4px 10px 4px 10px; white-space:nowrap;'>
-								<font class='Texte_menu2'><b>Statut actuel des décisions</b></font>
-							</td>
-							<td class='fond_menu2' colspan='6' style='padding:4px 10px 4px 10px; white-space:nowrap; border-style:solid; border-width:0px 1px 0px 0px;'>
-								<font class='Texte_menu2'><b>Nouveau statut</b></font>
-							</td>\n");
+        print("<tr>
+              <td class='fond_menu2' colspan='8' align='center' style='padding:4px 20px 4px 20px; border-style:solid; border-color:black; border-width:1px 1px 0px 1px;'>
+                <font class='Texte_menu2'><b>$annee</b></font>
+              </td>
+             </tr>
+             <tr>
+              <td class='fond_menu2' style='padding:4px 20px 4px 20px; border-style:solid; border-width:0px 0px 0px 1px;'>
+                <font class='Texte_menu2'><b>&#8226;&nbsp;&nbsp;$mention</b></font>
+              </td>
+              <td class='fond_menu2' style='padding:4px 10px 4px 10px; white-space:nowrap;'>
+                <font class='Texte_menu2'><b>Statut actuel des décisions</b></font>
+              </td>
+              <td class='fond_menu2' colspan='6' style='padding:4px 10px 4px 10px; white-space:nowrap; border-style:solid; border-width:0px 1px 0px 0px;'>
+                <font class='Texte_menu2'><b>Nouveau statut</b></font>
+              </td>\n");
 
-				$first_spec=1;
-				$old_mention="--";
-			}
-			else
-				$first_spec=0;
+        $first_spec=1;
+        $old_mention="--";
+      }
+      else
+        $first_spec=0;
 
-			if($mention!=$old_mention)
-			{
-				if(!$first_spec)
-					print("<tr>
-								<td class='fond_menu2' colspan='8' style='padding:4px 20px 4px 20px; border-style:solid; border-width:0px 1px 0px 1px;'>
-									<font class='Texte_menu2'><b>&#8226;&nbsp;&nbsp;$mention</b></font>
-								</td>
-							</tr>\n");
+      if($mention!=$old_mention)
+      {
+        if(!$first_spec)
+          print("<tr>
+                <td class='fond_menu2' colspan='8' style='padding:4px 20px 4px 20px; border-style:solid; border-width:0px 1px 0px 1px;'>
+                  <font class='Texte_menu2'><b>&#8226;&nbsp;&nbsp;$mention</b></font>
+                </td>
+              </tr>\n");
 
-				$old_mention=$mention;
-			}
+        $old_mention=$mention;
+      }
 
-			print("</tr>
-					 <tr>
-						<td class='td-gauche fond_menu' style='border-style:solid; border-width:0px 0px 0px 1px;'>
-							<font class='Texte_menu'>$spec_nom $nom_finalite</font>
-						</td>
-						<td class='td-milieu fond_menu' align='center'>
-							$statut_actuel
-						</td>
-						<td class='td-milieu fond_menu' style='width:10px'>
-							<input type='radio' name='formations[$propspec_id]' value='0' $masquer_checked>
-						</td>
-						<td class='td-milieu fond_menu'>
-							<font class='Texte_menu'>Masquer</font>
-						</td>
-						<td class='td-milieu fond_menu' style='width:10px'>
-							<input type='radio' name='formations[$propspec_id]' value='1' $publier_checked>
-						</td>
-						<td class='td-milieu fond_menu'>
-							<font class='Texte_menu'>Publier</font>
-						</td>
-						<td class='td-milieu fond_menu' style='width:10px'>
-							<input type='radio' name='formations[$propspec_id]' value='2' $publier_lettres_checked>
-						</td>
-						<td class='td-droite fond_menu' style='border-style:solid; border-width:0px 1px 0px 0px;'>
-							<font class='Texte_menu'>Publier+Lettres</font>
-						</td>\n");
+      print("</tr>
+           <tr>
+            <td class='td-gauche fond_menu' style='border-style:solid; border-width:0px 0px 0px 1px;'>
+              <font class='Texte_menu'>$spec_nom $nom_finalite</font>
+            </td>
+            <td class='td-milieu fond_menu' align='center'>
+              $statut_actuel
+            </td>
+            <td class='td-milieu fond_menu' style='width:10px'>
+              <input type='radio' name='formations[$propspec_id]' value='0' $masquer_checked>
+            </td>
+            <td class='td-milieu fond_menu'>
+              <font class='Texte_menu'>Masquer</font>
+            </td>
+            <td class='td-milieu fond_menu' style='width:10px'>
+              <input type='radio' name='formations[$propspec_id]' value='1' $publier_checked>
+            </td>
+            <td class='td-milieu fond_menu'>
+              <font class='Texte_menu'>Publier</font>
+            </td>
+            <td class='td-milieu fond_menu' style='width:10px'>
+              <input type='radio' name='formations[$propspec_id]' value='2' $publier_lettres_checked>
+            </td>
+            <td class='td-droite fond_menu' style='border-style:solid; border-width:0px 1px 0px 0px;'>
+              <font class='Texte_menu'>Publier+Lettres</font>
+            </td>\n");
 
-			$old_annee_id=$annee_id;
-		}
+      $old_annee_id=$annee_id;
+    }
 
-		print("</tr>
-				 <tr>
-				    <td colspan='8' height='25' style='border-style:solid; border-width:1px 0px 0px 0px;'></font>
-				 </tr>\n");
+    print("</tr>
+         <tr>
+            <td colspan='8' height='25' style='border-style:solid; border-width:1px 0px 0px 0px;'></font>
+         </tr>\n");
 
-		db_free_result($result);
-	?>
-	</table>
+    db_free_result($result);
+  ?>
+  </table>
 
-	<div class='centered_box'>
-		<input type="image" src="<?php echo "$__ICON_DIR/button_ok_32x32_fond.png"; ?>" alt="Valider" name="go_valider" value="Valider">
-	</div>
-	
-	</form>
-	
-	<?php
+  <div class='centered_box'>
+    <input type="image" src="<?php echo "$__ICON_DIR/button_ok_32x32_fond.png"; ?>" alt="Valider" name="go_valider" value="Valider">
+  </div>
+  
+  </form>
+  
+  <?php
       }
       db_close($dbr);
    ?>
 </div>
 <?php
-	pied_de_page();
+  pied_de_page();
 ?>
 
 </body></html>

@@ -424,9 +424,9 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
                 if(!empty($univ_couleur_texte))
                 {
                   // Conversion hexa (#112233) => décimal
-                  $texte_R=hexdec(substr($univ_couleur_texte, 1, 2));
-                  $texte_V=hexdec(substr($univ_couleur_texte, 3, 2));
-                  $texte_B=hexdec(substr($univ_couleur_texte, 5, 2));
+                  $texte_R=hexdec(mb_substr($univ_couleur_texte, 1, 2, "UTF-8"));
+                  $texte_V=hexdec(mb_substr($univ_couleur_texte, 3, 2, "UTF-8"));
+                  $texte_B=hexdec(mb_substr($univ_couleur_texte, 5, 2, "UTF-8"));
 /*
                   $texte_couleur=explode(",", $univ_couleur_texte);
 
@@ -662,7 +662,7 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
                 $txt_scol=pdf_traitement_macros($dbr, $txt_scol, $candidat_array, $candidature_array, $cursus_array, $lettre_lang);
 
                 // Calcul de la hauteur du texte, en nombre de lignes (on compte les \n)
-                $hauteur_txt=substr_count($txt_scol, "\n");
+                $hauteur_txt=mb_substr_count($txt_scol, "\n", "UTF-8");
                 $hauteur_txt_mm=5*$hauteur_txt;
                 
                 $hauteur_disponible=275-$txt_scol_hauteur_courante; // (en millimètres)

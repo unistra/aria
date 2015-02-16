@@ -243,7 +243,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          {
             if($nb_lettres_prenom<=$len_prenom) // si on peut encore utiliser le prénom
             {
-               $new_identifiant=substr($base_prenom, 0, $nb_lettres_prenom) . "." . $base_identifiant;
+               $new_identifiant=mb_substr($base_prenom, 0, $nb_lettres_prenom, "UTF-8") . "." . $base_identifiant;
                $nb_lettres_prenom++;
             }
             else
@@ -256,7 +256,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          // génération du Code Personnel
          srand((double)microtime()*1000000);
          $code_conf=mb_strtoupper(md5(rand(0,9999)), "UTF-8");
-         $new_code=substr($code_conf, 17, 8);
+         $new_code=mb_substr($code_conf, 17, 8, "UTF-8");
          // on supprime le chiffre 1, les lettres I, L, O et le zéro : portent à confusion - on les remplace par d'autres caractères
          $new_code=str_replace("0","A", $new_code);
          $new_code=str_replace("O","H", $new_code);
@@ -940,7 +940,7 @@ $__SIGNATURE_COURRIELS";
       {
          srand((double)microtime()*1000000);
          $nouveau_code=strtoupper(md5(rand(0,9999)));
-         $_SESSION["code_conf"]=substr($nouveau_code, 17, 5);
+         $_SESSION["code_conf"]=mb_substr($nouveau_code, 17, 5, "UTF-8");
 
          // on supprime le chiffre 1, le zéro et la lettre O : portent à confusion - on les remplace par d'autres caractères
          $_SESSION["code_conf"]=str_replace("0","A", $_SESSION["code_conf"]);

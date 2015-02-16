@@ -203,7 +203,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       {
         if($nb_lettres_prenom<=$len_prenom) // si on peut encore utiliser le prénom
         {
-          $new_identifiant= substr($prenom2,0,$nb_lettres_prenom) . "." . mb_strtolower($nom, "UTF-8");
+          $new_identifiant= mb_substr($prenom2,0,$nb_lettres_prenom, "UTF-8") . "." . mb_strtolower($nom, "UTF-8");
           $nb_lettres_prenom++;
         }
         else
@@ -216,7 +216,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       // génération du Code Personnel
       srand((double)microtime()*1000000);
       $code_conf=mb_strtoupper(md5(rand(0,9999)), "UTF-8");
-      $new_code=substr($code_conf, 17, 8);
+      $new_code=mb_substr($code_conf, 17, 8, "UTF-8");
 
       $fiche_manuelle=1;
       $candidat_lock=$candidat_lockdate=$derniere_connexion=$cursus_en_cours=0;

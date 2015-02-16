@@ -51,11 +51,13 @@ CeCILL-B, et que vous en avez accepté les termes.
 
 <?php
 
+   # This file is for compatibility only, 'co' parameter is now in rootdir's 'index.php'
+
    if(isset($_GET["co"]) && ctype_digit($_GET["co"])) {
-      header("Location:index.php?co=$_GET[co]");
+      header("Location:interface/index.php?co=$_GET[co]");
    }   
    else
-      header("Location:index.php");
+      header("Location:interface/index.php");
       
    exit();
 ?>
