@@ -355,6 +355,8 @@ $univ_nom";
 
                   if(!isset($mode_test) || (isset($mode_test) && $mode_test!=1))
                   {
+                     $liste_fichiers="";
+                     
                      // Autres fichiers liés aux justificatifs
                      $result4=db_query($dbr, "SELECT distinct($_DBC_justifs_fichiers_nom)
                                                 FROM $_DB_justifs_fichiers, $_DB_justifs_ff
@@ -366,8 +368,6 @@ $univ_nom";
 
                      if($rows4)
                      {
-                        $liste_fichiers="";
-
                         for($l=0; $l<$rows4; $l++)
                         {
                            list($fichier_nom)=db_fetch_row($result4, $l);
