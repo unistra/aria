@@ -261,8 +261,9 @@ CeCILL-B, et que vous en avez accepté les termes.
 
       // On écrit dans le champ "last_error" le code entré par le candidat et la date de cette erreur (à des fins de vérification coté admin)
       // Si l'identifiant n'existe pas, ça ne changera rien
-      db_query($dbr, "UPDATE $_DB_candidat SET $_DBU_candidat_derniere_erreur_code='$time_erreur - [$code_personnel]'
-                 WHERE $_DBU_candidat_identifiant LIKE '".preg_replace("/[']+/", "''", stripslashes($identifiant))."'");
+      db_query($dbr, "UPDATE $_DB_candidat SET 
+                    $_DBU_candidat_derniere_erreur_code='$time_erreur - [".preg_replace("/[']+/", "''", stripslashes($code_personnel))."]'
+                    WHERE $_DBU_candidat_identifiant LIKE '".preg_replace("/[']+/", "''", stripslashes($identifiant))."'");
 
       $identification_incorrecte=1;
       unset($code_personnel);
