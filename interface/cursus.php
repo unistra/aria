@@ -97,10 +97,10 @@ CeCILL-B, et que vous en avez accepté les termes.
   {
     $diplome=$_POST["filiere"];
 
-    $intitule=html_entity_decode(ucfirst(trim($_POST["intitule_libre"])));
-    $specialite=html_entity_decode(ucfirst(strtolower(trim($_POST["specialite"]))));
-    $ville=html_entity_decode(ucfirst(trim($_POST["ville"])));
-    $ecole=html_entity_decode(trim($_POST["ecole"]));
+    $intitule=html_entity_decode(ucfirst(trim($_POST["intitule_libre"])), ENT_COMPAT | ENT_HTML401, "UTF-8");
+    $specialite=html_entity_decode(ucfirst(strtolower(trim($_POST["specialite"]))), ENT_COMPAT | ENT_HTML401, "UTF-8");
+    $ville=html_entity_decode(ucfirst(trim($_POST["ville"])), ENT_COMPAT | ENT_HTML401, "UTF-8");
+    $ecole=html_entity_decode(trim($_POST["ecole"]), ENT_COMPAT | ENT_HTML401, "UTF-8");
 
     // format strict
     $annee_obtention=trim($_POST["annee"]);
@@ -112,9 +112,9 @@ CeCILL-B, et que vous en avez accepté les termes.
 
     $pays=$_POST["pays"];
 
-    $mention=html_entity_decode(trim($_POST["mention"]));
+    $mention=html_entity_decode(trim($_POST["mention"]), ENT_COMPAT | ENT_HTML401, "UTF-8");
     
-    $note_moyenne=preg_replace("/,/",".",html_entity_decode(str_replace(" ", "", $_POST["note"])));
+    $note_moyenne=preg_replace("/,/",".",html_entity_decode(str_replace(" ", "", $_POST["note"])), ENT_COMPAT | ENT_HTML401, "UTF-8");
 
     if(empty($diplome) || empty($intitule) || empty($pays) || $pays=="00" || empty($ville) || empty($ecole))
       $champ_vide=1;
@@ -124,7 +124,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       $champ_vide=1;
       
     // champ facultatifs
-    $rang=html_entity_decode(trim($_POST["rang"]));
+    $rang=html_entity_decode(trim($_POST["rang"]), ENT_COMPAT | ENT_HTML401, "UTF-8");
 
     if(!isset($champ_vide) && !isset($annee_format))
     {
@@ -457,7 +457,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       <font class='Texte_important_menu2'><b>Mention / Intitulé</b></font>
     </td>
     <td class='td-droite fond_menu' style="text-align:left;">
-      <input type='text' name='intitule_libre' value='<?php if(isset($intitule)) echo html_entity_decode($intitule); elseif(isset($cur_intitule)) echo htmlspecialchars(stripslashes($cur_intitule),ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size="80" maxlength="256">
+      <input type='text' name='intitule_libre' value='<?php if(isset($intitule)) echo html_entity_decode($intitule, ENT_COMPAT | ENT_HTML401, "UTF-8"); elseif(isset($cur_intitule)) echo htmlspecialchars(stripslashes($cur_intitule),ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' size="80" maxlength="256">
     </td>
   </tr>
   <tr>

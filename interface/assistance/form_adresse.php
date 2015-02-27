@@ -183,8 +183,8 @@ CeCILL-B, et que vous en avez accepté les termes.
                                               $_DBC_candidat_lieu_naissance, $_DBC_candidat_pays_naissance,
                                               $_DBC_candidat_nationalite, $_DBC_candidat_manuelle
                                           FROM $_DB_candidat
-                                       WHERE (unaccent($_DBC_candidat_nom) SIMILAR TO unaccent('$rech_nom%')
-                                              AND unaccent($_DBC_candidat_prenom) SIMILAR TO unaccent('$rech_prenom%'))
+                                       WHERE (unaccent($_DBC_candidat_nom) ILIKE unaccent('".preg_replace("/[']+/", "''", stripslashes($rech_nom))."%')
+                                              AND unaccent($_DBC_candidat_prenom) ILIKE unaccent('".preg_replace("/[']+/", "''", stripslashes($rech_prenom))."%'))
                                        $condition_ine
                                        $condition_old_email
                                        OR $_DBC_candidat_email ILIKE '".preg_replace("/[']+/", "''", stripslashes($email))."'

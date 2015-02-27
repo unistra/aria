@@ -138,7 +138,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       $file_tmp_name=$_FILES["fichier"]["tmp_name"];
       $file_error=$_FILES["fichier"]["error"]; // PHP > 4.2.0 uniquement
 
-      $file_name=html_entity_decode(validate_filename($file_name),ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
+      $file_name=html_entity_decode(validate_filename($file_name), ENT_COMPAT | ENT_HTML401, "UTF-8");
 
       if($file_size>16777216)
         $trop_gros=1;

@@ -109,12 +109,12 @@ CeCILL-B, et que vous en avez accepté les termes.
   {
     $diplome=$_POST["filiere"];
 
-    $intitule=html_entity_decode(ucfirst(trim($_POST["intitule_libre"])));
+    $intitule=html_entity_decode(ucfirst(trim($_POST["intitule_libre"])), ENT_COMPAT | ENT_HTML401, "UTF-8");
 
     // presque pareil avec la spécialité, la ville et l'école
-    $specialite=html_entity_decode(ucfirst(strtolower(trim($_POST["specialite"]))));
-    $ville=html_entity_decode(ucfirst(trim($_POST["ville"])));
-    $ecole=html_entity_decode(trim($_POST["ecole"]));
+    $specialite=html_entity_decode(ucfirst(strtolower(trim($_POST["specialite"]))), ENT_COMPAT | ENT_HTML401, "UTF-8");
+    $ville=html_entity_decode(ucfirst(trim($_POST["ville"])), ENT_COMPAT | ENT_HTML401, "UTF-8");
+    $ecole=html_entity_decode(trim($_POST["ecole"]), ENT_COMPAT | ENT_HTML401, "UTF-8");
 
     // format strict
     $annee_obtention=trim($_POST["annee"]);
@@ -134,10 +134,10 @@ CeCILL-B, et que vous en avez accepté les termes.
       $champ_vide=1;
 
     // champ facultatifs
-    $rang=html_entity_decode(trim($_POST["rang"]));
-    $mention=html_entity_decode(trim($_POST["mention"]));
+    $rang=html_entity_decode(trim($_POST["rang"]), ENT_COMPAT | ENT_HTML401, "UTF-8");
+    $mention=html_entity_decode(trim($_POST["mention"]), ENT_COMPAT | ENT_HTML401, "UTF-8");
     
-    $note_moyenne=html_entity_decode(trim($_POST["note"]));
+    $note_moyenne=html_entity_decode(trim($_POST["note"]), ENT_COMPAT | ENT_HTML401, "UTF-8");
     $note_moyenne=preg_replace("/,/",".",$note_moyenne);
 
     if(!isset($champ_vide) && !isset($annee_format))

@@ -79,7 +79,7 @@ CeCILL-B, et que vous en avez accepté les termes.
     $file_tmp_name=$_FILES["fichier"]["tmp_name"];
     $file_error=$_FILES["fichier"]["error"]; // PHP > 4.2.0 uniquement
 
-    $realname=html_entity_decode(validate_filename(mb_convert_encoding("$file_name", "UTF-8", mb_detect_encoding($file_name))), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
+    $realname=html_entity_decode(validate_filename(mb_convert_encoding("$file_name", "UTF-8", mb_detect_encoding($file_name))), ENT_QUOTES, "UTF-8");
 
     if($file_size>2097152)
       $trop_gros=1;
