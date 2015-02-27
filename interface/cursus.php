@@ -114,7 +114,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
     $mention=html_entity_decode(trim($_POST["mention"]), ENT_COMPAT | ENT_HTML401, "UTF-8");
     
-    $note_moyenne=preg_replace("/,/",".",html_entity_decode(str_replace(" ", "", $_POST["note"])), ENT_COMPAT | ENT_HTML401, "UTF-8");
+    $note_moyenne=preg_replace("/,/",".",html_entity_decode(str_replace(" ", "", $_POST["note"]), ENT_COMPAT | ENT_HTML401, "UTF-8"));
 
     if(empty($diplome) || empty($intitule) || empty($pays) || $pays=="00" || empty($ville) || empty($ecole))
       $champ_vide=1;
