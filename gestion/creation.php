@@ -192,9 +192,11 @@ CeCILL-B, et que vous en avez accepté les termes.
       // Création de l'identifiant
       $new_identifiant=str_replace(" ","",mb_strtolower($nom, "UTF-8")); // base de l'identifiant
       $new_identifiant=str_replace("-","",$new_identifiant);
+      $base_identifiant=$new_identifiant=preg_replace("/[']+/","",$new_identifiant);
+      
+      $base_prenom=$prenom2=str_replace(" ","", str_replace("-","", preg_replace("/[']+/","", mb_strtolower($prenom, "UTF-8"))));
 
       // initialisation de la boucle
-      $prenom2=mb_strtolower(str_replace(" ","",$prenom));
       $nb_lettres_prenom=1;
       $iteration=0;
       $len_prenom=strlen($prenom);
@@ -203,13 +205,13 @@ CeCILL-B, et que vous en avez accepté les termes.
       {
         if($nb_lettres_prenom<=$len_prenom) // si on peut encore utiliser le prénom
         {
-          $new_identifiant= mb_substr($prenom2,0,$nb_lettres_prenom, "UTF-8") . "." . mb_strtolower($nom, "UTF-8");
+          $new_identifiant=mb_substr($base_prenom, 0, $nb_lettres_prenom, "UTF-8") . "." . $base_identifiant;
           $nb_lettres_prenom++;
         }
         else
         {
           $iteration++;
-          $new_identifiant=$prenom2 . "." . mb_strtolower($nom, "UTF-8") . $iteration;
+          $new_identifiant=$base_prenom . "." . $base_identifiant . $iteration;
         }
       }
 
