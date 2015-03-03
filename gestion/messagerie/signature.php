@@ -72,7 +72,7 @@ CeCILL-B, et que vous en avez accepté les termes.
     $dbr=db_connect();
 
     $activation=array_key_exists("activation", $_POST) ? $_POST["activation"] : "f";
-    $texte=$_POST['texte'];
+    $texte=preg_replace("/'/", "''", stripslashes($_POST['texte']));
 
     // Modification
     db_query($dbr,"UPDATE $_DB_acces SET $_DBU_acces_signature_txt='$texte',
