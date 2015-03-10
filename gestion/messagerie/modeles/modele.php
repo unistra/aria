@@ -111,7 +111,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       {
         // Modification
         if(!isset($_SESSION["ajout"]) && isset($new_id))
-          db_query($dbr,"UPDATE $_DB_msg_modeles SET $_DBU_msg_modeles_intitule='$intitule',
+          db_query($dbr,"UPDATE $_DB_msg_modeles SET $_DBU_msg_modeles_intitule='".preg_replace("/[']+/", "''", stripslashes($intitule))."',
                                 $_DBU_msg_modeles_texte='".preg_replace("/[']+/", "''", stripslashes($texte))."'
                          WHERE $_DBU_msg_modeles_id='$new_id'");
         else
