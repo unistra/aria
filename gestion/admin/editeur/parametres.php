@@ -140,8 +140,8 @@ CeCILL-B, et que vous en avez accepté les termes.
 
       db_query($dbr,"UPDATE $_DB_composantes SET  $update_logo
                                     $_DBU_composantes_txt_logo='$comp_txt_logo',
-                                    $_DBU_composantes_txt_sign='$comp_txt_sign',
-                                    $_DBU_composantes_txt_scol='$comp_txt_scol',
+                                    $_DBU_composantes_txt_sign='".preg_replace("/'/","''", stripslashes($comp_txt_sign))."',
+                                    $_DBU_composantes_txt_scol='".preg_replace("/'/","''", stripslashes($comp_txt_scol))."',
                                     $_DBU_composantes_largeur_logo='$comp_largeur_logo',
                                     $_DBU_composantes_adr_pos_x='$comp_adr_pos_x',
                                     $_DBU_composantes_adr_pos_y='$comp_adr_pos_y',

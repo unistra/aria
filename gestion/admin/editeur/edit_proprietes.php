@@ -189,11 +189,11 @@ CeCILL-B, et que vous en avez accepté les termes.
         else
           $update_logo="";
 
-        db_query($dbr,"UPDATE $_DB_lettres SET $_DBU_lettres_titre='$titre',
+        db_query($dbr,"UPDATE $_DB_lettres SET $_DBU_lettres_titre='".preg_replace("/'/","''", stripslashes($titre))."',
                                   $update_logo
-                                  $_DBU_lettres_txt_logo='$new_txt_logo',
-                                  $_DBU_lettres_txt_scol='$new_txt_scol',
-                                  $_DBU_lettres_txt_sign='$new_txt_sign',
+                                  $_DBU_lettres_txt_logo='".preg_replace("/'/","''", stripslashes($new_txt_logo))."',
+                                  $_DBU_lettres_txt_scol='".preg_replace("/'/","''", stripslashes($new_txt_scol))."',
+                                  $_DBU_lettres_txt_sign='".preg_replace("/'/","''", stripslashes($new_txt_sign))."',
                                   $_DBU_lettres_largeur_logo='$new_largeur_logo',
                                   $_DBU_lettres_flag_logo='$new_flag_logo',
                                   $_DBU_lettres_flag_txt_logo='$new_flag_txt_logo',
