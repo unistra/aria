@@ -66,12 +66,12 @@ function traitement_macros($txt, $cand_array, $cursus_array)
   $txt=preg_replace("/%CIVILIT.%/u", strtoupper($cand_array["civ_texte"]), $txt);
 
   // Nom
-  $txt=preg_replace("/%Nom%/", ucfirst(mb_strtolower($cand_array["nom"]), "UTF-8"), $txt);
+  $txt=preg_replace("/%Nom%/", ucfirst(mb_strtolower($cand_array["nom"], "UTF-8")), $txt);
   $txt=preg_replace("/%nom%/", mb_strtolower($cand_array["nom"], "UTF-8"), $txt);
   $txt=preg_replace("/%NOM%/", mb_strtoupper($cand_array["nom"], "UTF-8"), $txt);
 
   // Prénom
-  $txt=preg_replace("/%Pr.nom%/u", ucfirst(mb_strtolower($cand_array["prenom"]), "UTF-8"), $txt);
+  $txt=preg_replace("/%Pr.nom%/u", ucfirst(mb_strtolower($cand_array["prenom"], "UTF-8")), $txt);
   $txt=preg_replace("/%pr.nom%/u", mb_strtolower($cand_array["prenom"], "UTF-8"), $txt);
   $txt=preg_replace("/%PR.NOM%/u", mb_strtoupper($cand_array["prenom"], "UTF-8"), $txt);
 
