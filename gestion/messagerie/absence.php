@@ -117,7 +117,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       // Modification
       db_query($dbr,"UPDATE $_DB_acces SET $_DBU_acces_absence_debut='$absence_debut_date',
                                $_DBU_acces_absence_fin='$absence_fin_date',
-                               $_DBU_acces_absence_msg='$texte',
+                               $_DBU_acces_absence_msg='".preg_replace("/'/","''", stripslashes($texte))."',
                                $_DBU_acces_absence_active='$activation'
                 WHERE $_DBU_acces_id='$_SESSION[auth_id]'");
 
