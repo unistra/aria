@@ -90,7 +90,7 @@ CeCILL-B, et que vous en avez accepté les termes.
           $critere_recherche="AND lower(unaccent($_DBC_specs_nom)) ILIKE unaccent('%".preg_replace("/[']+/", "''", stripslashes($formation))."%') ";
         else
           $critere_recherche="AND (lower(unaccent($_DBC_mentions_nom)) ILIKE unaccent('%".preg_replace("/[']+/", "''", stripslashes($mention))."%') 
-              AND lower(unaccent($_DBC_specs_nom)) ILIKE unaccent(".preg_replace("/[']+/", "''", stripslashes($formation))."%')) ";
+              AND lower(unaccent($_DBC_specs_nom)) ILIKE unaccent('%".preg_replace("/[']+/", "''", stripslashes($formation))."%')) ";
 
         $result=db_query($dbr,"SELECT $_DBC_propspec_id, $_DBC_annees_annee, $_DBC_mentions_nom, $_DBC_specs_nom,
                             $_DBC_propspec_finalite, $_DBC_universites_nom, $_DBC_composantes_id, $_DBC_composantes_nom
