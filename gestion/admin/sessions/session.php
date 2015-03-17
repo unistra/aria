@@ -722,7 +722,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
             $annee=($annee=="") ? "Années particulières" : $annee;
             
-            if($groupe_id!="-1" && $groupe_id!=$old_groupe)
+            if($groupe_id!="-1" && $groupe_id!=$old_groupe_id)
             {
                $res_groupes=db_query($dbr, "SELECT $_DBC_groupes_spec_nom, count(*) FROM $_DB_groupes_spec , $_DB_propspec
                                                WHERE $_DBC_propspec_id=$_DBC_groupes_spec_propspec_id
