@@ -114,15 +114,6 @@ CeCILL-B, et que vous en avez accepté les termes.
     
       mail($__EMAIL_ADMIN, "[Précandidatures] - Génération des Récapitulatifs", "=> Aucun candidat trouvée par la requête.\n\nJours : de $jour_inf à $jour_sup\nCritère : $condition_formations");
 
-  /*
-      print("requete :   SELECT $_DBC_cand_candidat_id, $_DBC_cand_id FROM $_DB_cand, $_DB_propspec
-                      WHERE $_DBC_propspec_id=$_DBC_cand_propspec_id
-                      AND $_DBC_cand_propspec_id='$formation'
-                      AND $_DBC_propspec_comp_id='$_SESSION[comp_id]'
-                      AND $_DBC_cand_decision='$__DOSSIER_NON_TRAITE'
-                      AND $_DBC_cand_statut='$__PREC_RECEVABLE'
-                      $condition_jour");
-  */
       header("Location:$__GESTION_DIR/masse_recap.php?erreur=1");
       exit();
     }
@@ -549,7 +540,8 @@ CeCILL-B, et que vous en avez accepté les termes.
         $frais_dossiers_array=array();
 
         $result2=db_query($dbr,"SELECT $_DBC_cand_id, $_DBC_propspec_id, $_DBC_annees_annee,
-                             $_DBC_specs_nom, $_DBC_propspec_frais, $_DBC_propspec_finalite
+                             $_DBC_specs_nom, $_DBC_propspec_frais, $_DBC_propspec_finalite,
+                             $_DBC_cand_vap_flag
                           FROM $_DB_cand, $_DB_annees, $_DB_specs, $_DB_propspec
                         WHERE $_DBC_cand_candidat_id='$cand_id'
                         AND $_DBC_cand_propspec_id=$_DBC_propspec_id
@@ -573,7 +565,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
           for($j=0; $j<$rows2; $j++)
           {
-            list($candidature_id, $propspec_id, $nom_annee, $nom_specialite, $frais_dossiers, $finalite)=db_fetch_row($result2,$j);
+            list($candidature_id, $propspec_id, $nom_annee, $nom_specialite, $frais_dossiers, $finalite, $vap_flag)=db_fetch_row($result2,$j);
 
             // on stocke les frais de dossiers dans tableau
             if($frais_dossiers!="" && $frais_dossiers!=0)
@@ -590,6 +582,10 @@ CeCILL-B, et que vous en avez accepté les termes.
               $insc_texte="$nom_specialite $nom_finalite";
             else
               $insc_texte="$nom_annee - $nom_specialite $nom_finalite";
+
+            if($vap_flag) {
+              $insc_texte.=" - VAPP";
+            }
 
             $array_propspec[$propspec_id]=$candidature="$insc_texte";
 

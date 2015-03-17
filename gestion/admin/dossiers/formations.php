@@ -85,7 +85,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       list($element_intitule, $element_vap)=db_fetch_row($result, 0);
 
       if($element_vap==1)
-        $element_intitule="(<i>VAP</i>) $element_intitule";
+        $element_intitule="(<i>VAPP</i>) $element_intitule";
 
       $result2=db_query($dbr, "SELECT $_DBC_dossiers_ef_propspec_id FROM $_DB_dossiers_ef, $_DB_propspec
                       WHERE $_DBC_dossiers_ef_elem_id='$element_id'
@@ -245,7 +245,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                   $val=htmlspecialchars($element_intitule, ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);
 
                   if($element_vap==1)
-                    $vap="(<i>VAP</i>) ";
+                    $vap="(<i>VAPP</i>) ";
                   else
                     $vap="";
 

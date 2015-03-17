@@ -250,7 +250,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
       db_free_result($res_session);                              
 
-      $vap_flag=$vap ? "<strong>VAP/VAE</strong> " : "";
+      $vap_flag=$vap ? "<strong>VAPP</strong> " : "";
 
       $derniere_candidature=($i==($rows-1)) ? 1 : 0;
 

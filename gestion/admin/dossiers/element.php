@@ -611,7 +611,7 @@ CeCILL-B, et que vous en avez accepté les termes.
     </tr>
     <tr>
       <td class='td-gauche fond_menu2'>
-        <font class='Texte_menu2'><b>Cet élément est-il réservé à la VAP ?</b></font>
+        <font class='Texte_menu2'><b>Cet élément est-il réservé à la VAPP ?</b></font>
       </td>
       <td class='td-droite fond_menu'>
         <font class='Texte_menu'>
@@ -642,8 +642,8 @@ CeCILL-B, et que vous en avez accepté les termes.
               $no_checked="";
             }
 
-            print("<input type='radio' name='vap' value='1' $yes_checked>&nbsp;Demander cet élément UNIQUEMENT pour les candidats en VAP/VAE
-                  <br><input type='radio' name='vap' value='0' $no_checked>&nbsp;Ne PAS demander cet élément pour les candidats en VAP/VAE
+            print("<input type='radio' name='vap' value='1' $yes_checked>&nbsp;Demander cet élément UNIQUEMENT pour les candidats en VAPP
+                  <br><input type='radio' name='vap' value='0' $no_checked>&nbsp;Ne PAS demander cet élément pour les candidats en VAPP
                   <br><input type='radio' name='vap' value='-1' $ind_checked>&nbsp;Demander cet élément à tout le monde\n");
           ?>
         </font>

@@ -423,7 +423,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
     $result2=db_query($dbr,"SELECT $_DBC_cand_id, $_DBC_propspec_id, $_DBC_annees_annee,
                          $_DBC_specs_nom, $_DBC_propspec_frais, $_DBC_propspec_finalite,
-                         $_DBC_cand_periode
+                         $_DBC_cand_periode, $_DBC_cand_vap_flag
                       FROM $_DB_cand, $_DB_annees, $_DB_specs, $_DB_propspec
                     WHERE $_DBC_cand_candidat_id='$cand_id'
                     AND $_DBC_cand_propspec_id=$_DBC_propspec_id
@@ -447,7 +447,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
       for($j=0; $j<$rows2; $j++)
       {
-        list($candidature_id, $propspec_id, $nom_annee, $nom_specialite, $frais_dossiers, $finalite, $cand_periode)=db_fetch_row($result2,$j);
+        list($candidature_id, $propspec_id, $nom_annee, $nom_specialite, $frais_dossiers, $finalite, $cand_periode, $vap_flag)=db_fetch_row($result2,$j);
 
         if($cand_periode!=$old_periode)
         {
@@ -472,6 +472,10 @@ CeCILL-B, et que vous en avez accepté les termes.
           $insc_texte="$nom_specialite $nom_finalite";
         else
           $insc_texte="$nom_annee - $nom_specialite $nom_finalite";
+
+        if($vap_flag) {
+          $insc_texte.=" - VAPP";
+        }
 
         $array_propspec[$propspec_id]=$candidature="$insc_texte";
 

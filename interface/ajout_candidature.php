@@ -563,8 +563,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
   $def=isset($_POST["initiale"]) && $_POST["initiale"]=="Formation Initiale" ? "1" : "0";
   $def=isset($_POST["continue"]) && $_POST["continue"]=="Formation Continue" ? "2" : $def;
-  $def=isset($_POST["vae"]) && stripslashes($_POST["vae"])=="VAE : Validation des Acquis de l'Expérience" ? "3" : $def;
-  $def=isset($_POST["vap"]) && $_POST["vap"]=="VAP : Validation des Acquis Professionnels" ? "4" : $def;
+  $def=isset($_POST["vap"]) && $_POST["vap"]=="VAPP : Validation des Acquis Professionnels et Personnels" ? "4" : $def;
 
   en_tete_candidat();
   menu_sup_candidat($__MENU_FICHE);
@@ -894,9 +893,8 @@ CeCILL-B, et que vous en avez accepté les termes.
         <tr>
           <td class='td-gauche fond_menu2'>
             <font class='Texte_menu2'>
-              <b>Etes-vous en situation de VAE ou VAP pour ce voeu ?</b>
-              <br><i>(Validation des Acquis de l'Expérience
-              <br>ou Validation des Acquis Professionnels)</i>
+              <b>Etes-vous en situation de VAPP pour ce voeu ?</b>
+              <br><i>(Validation des Acquis Professionnels et Personnels)</i>
             </font>
           </td>
           <td class='td-droite fond_menu'>
@@ -952,8 +950,7 @@ CeCILL-B, et que vous en avez accepté les termes.
               <?php
                 $form_initiale="<input type='submit' class='texte_corps' style='font-weight:bold' name='initiale' alt='Formation Initiale' value='Formation Initiale'>";
                 $form_continue="<input type='submit' class='texte_corps' style='font-weight:bold' name='continue' alt='Formation Continue' value='Formation Continue'>";
-                $form_vae="<input type='submit' class='texte_corps' style='font-weight:bold' name='vae' alt=\"VAE : Validation des Acquis de l'Expérience\" value=\"VAE : Validation des Acquis de l'Expérience\">";
-                $form_vap="<input type='submit' class='texte_corps' style='font-weight:bold' name='vap' alt='VAP : Validation des Acquis Professionnels' value='VAP : Validation des Acquis Professionnels'>";
+                $form_vap="<input type='submit' class='texte_corps' style='font-weight:bold' name='vap' alt='VAPP : Validation des Acquis Professionnels et Personnels' value='VAPP : Validation des Acquis Professionnels et Personnels'>";
 
                 if(isset($def) && $def==1)
                   print("<br>- <b>Formation Initiale</b>
@@ -978,24 +975,8 @@ CeCILL-B, et que vous en avez accepté les termes.
                 else
                   print("<br>- $form_continue\n");
 
-                if(isset($def) && $def==3)
-                  print("<br><br>- <b>VAE : Validation des Acquis de l'Expérience</b>
-                      <div style='padding-left:20px'>
-                        La validation des acquis de l'expérience (VAE) permet de faire reconnaître son expérience (professionnelle
-                        ou non) afin d'obtenir un diplôme, un titre ou un certificat de qualification professionnelle. Diplômes, titres
-                        et certificats sont ainsi accessibles grâce à l'expérience (et non uniquement par le biais de la formation initiale
-                        ou continue), selon d'autres modalités que l'examen.
-                        <div style='padding-left:20px'>
-                          <br><u>Pour plus d'informations :</u>
-                          <br>- &nbsp;<a href='http://www.vae.gouv.fr' target='_blank' class='lien_bleu_12'>Consulter le Portail de la VAE</a>
-                        </div>
-                      </div>
-                      <br>\n");
-                else
-                  print("<br>- $form_vae\n");
-
                 if(isset($def) && $def==4)
-                  print("<br><br>- <b>VAP : Validation des Acquis Professionnels</b>
+                  print("<br><br>- <b>VAPP : Validation des Acquis Professionnels et Personnels</b>
                       <div style='padding-left:20px'>
                         Elle permet un accès dérogatoire aux différents niveaux de formations de l'enseignement, par validation des études, des expériences professionnelles et/ou des acquis personnels.
                         <br><br>Peuvent donner lieu à validation :

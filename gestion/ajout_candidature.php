@@ -650,7 +650,8 @@ CeCILL-B, et que vous en avez accepté les termes.
   <tr>
     <td class='td-gauche fond_menu2' style='border:1px;'>
       <font class='Texte_menu2'>
-        <b>Candidat en situation de VAE ou VAP pour ce voeu ?</b>
+        <b>Candidat en situation de VAPP pour ce voeu ?</b>
+        <br><i>(Validation des Acquis Professionnels et Personnels)</i>
       </font>
     </td>
     <td class='td-droite fond_menu'>

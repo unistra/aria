@@ -216,7 +216,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       if(!$vap)
          $vap_flag="";
       else
-         $vap_flag="<b>VAP/VAE</b> ";
+         $vap_flag="<b>VAPP</b> ";
 
       if($i==($rows-1))
          $derniere_candidature=1;

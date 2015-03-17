@@ -815,7 +815,7 @@ $_SESSION[universite]";
                      <strong>" . $_SESSION["tab_candidat"]["etudiant"] ." : " . $_SESSION["tab_candidat"]["civ_texte"] . " " . $_SESSION["tab_candidat"]["nom"] . " " . $_SESSION["tab_candidat"]["prenom"] .", " . $_SESSION["tab_candidat"]["ne_le"] . " " . $_SESSION["tab_candidat"]["txt_naissance"] ."</strong>
                   </div>
                   <div style='text-align:right; float:right; padding-right:10px;'>
-                     <strong>VAP : </strong>$vap_txt<strong> Statut :</strong> $cand_array[decision_txt]<strong> Commission :</strong> $commission_txt
+                     <strong>VAPP : </strong>$vap_txt<strong> Statut :</strong> $cand_array[decision_txt]<strong> Commission :</strong> $commission_txt
                   </div>
                </div>
 
