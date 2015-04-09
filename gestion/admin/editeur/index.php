@@ -157,13 +157,12 @@ CeCILL-B, et que vous en avez accepté les termes.
     // lettres associées à une décision
 
     $result=db_query($dbr,"SELECT $_DBC_lettres_id, $_DBC_lettres_titre, $_DBC_decisions_texte, count($_DBC_lettres_propspec_propspec_id)
-                      FROM $_DB_lettres LEFT JOIN $_DB_lettres_propspec on ($_DBC_lettres_id=$_DBC_lettres_propspec_lettre_id) 
-                           INNER JOIN $_DB_propspec ON ($_DBC_lettres_propspec_propspec_id=$_DBC_propspec_id), 
+                      FROM $_DB_lettres LEFT OUTER JOIN $_DB_lettres_propspec on ($_DBC_lettres_id=$_DBC_lettres_propspec_lettre_id) 
+                           LEFT OUTER JOIN $_DB_propspec ON ($_DBC_lettres_propspec_propspec_id=$_DBC_propspec_id), 
                            $_DB_decisions, $_DB_lettres_dec
                       WHERE $_DBC_lettres_comp_id=$_SESSION[comp_id]
                       AND $_DBC_lettres_id=$_DBC_lettres_dec_lettre_id
                       AND $_DBC_decisions_id=$_DBC_lettres_dec_dec_id
-                      AND $_DBC_propspec_active='1'
                       GROUP BY $_DBC_lettres_id, $_DBC_lettres_titre, $_DBC_decisions_texte
                       ORDER BY $_DBC_decisions_texte ASC");
     $rows=db_num_rows($result);
