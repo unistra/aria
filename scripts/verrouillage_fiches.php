@@ -349,7 +349,7 @@ $univ_nom";
                   if(db_num_rows($res_message))
                      list($corps_message_composante)=db_fetch_row($res_message, 0);
                   else
-                     $corps_message_composante=$__MSG_TYPES['$__MSG_TYPE_VERROUILLAGE']['defaut'];
+                     $corps_message_composante=$GLOBALS["__MSG_TYPES"][$GLOBALS["__MSG_TYPE_VERROUILLAGE"]]['defaut'];
                      
                   db_free_result($res_message);
 
