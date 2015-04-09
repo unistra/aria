@@ -213,10 +213,16 @@ CeCILL-B, et que vous en avez accepté les termes.
 
       db_free_result($res_session);         
 
-      if(!$vap)
+      if(!$vap) {
          $vap_flag="";
-      else
+         $no_selected="checked='1'";
+         $yes_selected="";
+      }
+      else {
          $vap_flag="<b>VAPP</b> ";
+         $no_selected="";
+         $yes_selected="checked='1'";
+      }
 
       if($i==($rows-1))
          $derniere_candidature=1;
@@ -224,7 +230,9 @@ CeCILL-B, et que vous en avez accepté les termes.
          $derniere_candidature=0;
 
       $_SESSION["tab_candidatures"][$cand_id]=array("propspec_id" => $propspec_id,
-                                                    "notification_envoyee" => $notification_envoyee);
+                                                    "notification_envoyee" => $notification_envoyee,
+                                                    "vap" => $vap,
+                                                    "lock" => $lock);
       if(empty($annee_courte))
          $_SESSION["tab_candidatures"][$cand_id]["filiere"]="$nom_specialite $tab_finalite[$finalite]";
       else
@@ -500,8 +508,21 @@ CeCILL-B, et que vous en avez accepté les termes.
 
       print("<td class='$td_class fond_menu' style='white-space:normal;'>
                <font class='$font_class'>
-                  <b><u>$ordre_spec_txt$annee$nom_specialite " . $tab_finalite[$finalite] . " $vap_flag</u></b>
-               </font>
+                  <b><u>$ordre_spec_txt$annee$nom_specialite " . $tab_finalite[$finalite] . "</u></b>");
+      
+      if($lock) {
+         print("&nbsp;&nbsp;<b>VAPP</b>:<input type='radio' style='vertical-align:bottom;' name='vap[$propspec_id]' value='1' $yes_selected>&nbsp;Oui <input type='radio' style='vertical-align:bottom;' name='vap[$propspec_id]' value='0' $no_selected>&nbsp;Non");
+      }
+      else {
+         if($vap) {
+            print("&nbsp;&nbsp;<b>VAPP</b>: Oui");
+         }
+         else {
+            print("&nbsp;&nbsp;<b>VAPP</b>: Non");
+         }
+      }         
+      
+      print("</font>
             </td>\n");
 
       // Affichage des Frais de dossiers

@@ -583,7 +583,7 @@ $_SESSION[universite]";
 
             foreach($_SESSION["tab_candidatures"] as $cand_id => $cand_array)
             {
-               if(verif_droits_formations($_SESSION["comp_id"], $cand_array["propspec_id"]))
+               if(verif_droits_formations($_SESSION["comp_id"], $cand_array["propspec_id"]) && $cand_array["lock"]==1)
                {
                // On détermine le nom complet de la candidature pour l'insertion dans l'historique (pour que le texte soit lisible)
                $res_prec=db_query($dbr,"SELECT $_DBC_annees_annee, $_DBC_specs_nom_court FROM $_DB_propspec, $_DB_annees, $_DB_specs, $_DB_cand
@@ -608,6 +608,17 @@ $_SESSION[universite]";
                $cur_motivation=$cand_array["motivation"];
 
                $filiere=$cand_array["filiere"];
+
+               // Update the vap_flag if different
+               
+               if(array_key_exists("vap", $_POST) && array_key_exists($cand_array["propspec_id"], $_POST["vap"])) {
+                  $vap_flag=$_POST["vap"][$cand_array["propspec_id"]];
+               
+                  if($cand_array["vap"]!=$vap_flag) {
+                     db_query($dbr, "UPDATE $_DB_cand SET $_DBU_cand_vap_flag='$vap_flag' 
+                                     WHERE $_DBC_cand_id='$cand_id'");
+                  }
+               }               
 
                // On teste si le nouveau statut est différent de l'ancien, ou si la motivation est différente
                if((isset($_POST["statut"]) && array_key_exists($cand_id, $_POST["statut"]) && $_POST["statut"]["$cand_id"]!=$statut)
