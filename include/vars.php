@@ -409,7 +409,7 @@ La procédure à suivre est maintenant la suivante :\n
 1/ Cliquez sur chacun des liens suivants :
 %recapitulatif%
 %justificatifs%\n
-2/ Enregistrez puis imprimez ces documents PDF. Conservez-les car ils pourront vous reservir plus tard.\n
+2/ Enregistrez puis imprimez ces documents PDF. Conservez-les car ils pourront vous resservir plus tard.\n
 3/ Envoyez ces documents ainsi que les pièces demandées dans le document \"Justificatifs\" par courrier à l'adresse postale indiquée dans ce message (<b>sauf</b> si une adresse spécifique est précisée dans la liste des justificatifs).\n
 [important][gras]IMPORTANT[/gras] :\n
 Sauf consignes contraires de la scolarité [gras](vérifiez bien le document \"Liste des justificatifs\" ci-dessus)[/gras] :\n

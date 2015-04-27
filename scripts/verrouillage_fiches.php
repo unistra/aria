@@ -489,7 +489,7 @@ La procédure à suivre est maintenant la suivante :
 <a href='###__CAND_DIR###/gen_recapitulatif.php?comp_id=$comp_id' target='_blank' class='lien_bleu_12'><b>- récapitulatif des informations que vous avez saisies</b> (format PDF)</a>
 <a href='###__CAND_DIR###/gen_justificatifs.php?cand_id=$cand_id' target='_blank' class='lien_bleu_12'><b>- liste des justificatifs à nous faire parvenir par voie postale pour $nom_formation_corps</b> (format PDF)</a>
 
-2/ Enregistrez puis imprimez ces documents PDF. Conservez-les car ils pourront vous reservir plus tard.
+2/ Enregistrez puis imprimez ces documents PDF. Conservez-les car ils pourront vous resservir plus tard.
 
 3/ Envoyez ces documents ainsi que les pièces demandées dans le document \"Justificatifs\" par courrier à l'adresse postale indiquée dans ce message (<b>sauf</b> si une adresse spécifique est précisée dans la liste des justificatifs).
 
