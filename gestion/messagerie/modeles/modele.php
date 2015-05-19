@@ -118,7 +118,7 @@ CeCILL-B, et que vous en avez accepté les termes.
           $new_id=db_locked_query($dbr, $_DB_msg_modeles, "INSERT INTO $_DB_msg_modeles VALUES (
               '##NEW_ID##', 
               '$_SESSION[auth_id]', 
-              '$intitule', 
+              '".preg_replace("/[']+/", "''", stripslashes($intitule))."',
               '".preg_replace("/[']+/", "''", stripslashes($texte))."')");
 
         db_close($dbr);
