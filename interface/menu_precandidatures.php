@@ -859,8 +859,10 @@ CeCILL-B, et que vous en avez accepté les termes.
             $decision_texte_complet.="</font>";
             
             // Lien pour générer la lettre ?
-            
-            if((isset($_SESSION["affichage_decisions"]) && $_SESSION["affichage_decisions"]==2) || $affichage_decisions==2)
+            if($cand_periode!=$__PERIODE) {
+               $lien_lettre="";
+            }
+            elseif((isset($_SESSION["affichage_decisions"]) && $_SESSION["affichage_decisions"]==2) || $affichage_decisions==2)
             {
                if(db_num_rows(db_query($dbr, "SELECT * FROM $_DB_lettres_dec, $_DB_lettres, $_DB_lettres_propspec
                                                WHERE $_DBC_lettres_id=$_DBC_lettres_dec_lettre_id
