@@ -107,6 +107,9 @@ CeCILL-B, et que vous en avez accepté les termes.
       $cur_cursus=array_key_exists("cursus", $_POST) ? $_POST["cursus"] : 0;
       $cur_aff_cursus=array_key_exists("aff_cursus", $_POST) ? $_POST["aff_cursus"] : 0;
       
+      $cur_vap=array_key_exists("vap", $_POST) ? $_POST["vap"] : 0;
+      $cur_vap_aff=array_key_exists("vap_aff", $_POST) ? $_POST["vap_aff"] : 0;      
+      
       $cur_dossier=array_key_exists("dossier", $_POST) ? $_POST["dossier"] : 0;
       $cur_langues=array_key_exists("langues", $_POST) ? $_POST["langues"] : 0;
       $cur_infoscomp=array_key_exists("infoscomp", $_POST) ? $_POST["infoscomp"] : 0;
@@ -132,6 +135,16 @@ CeCILL-B, et que vous en avez accepté les termes.
       }
       else
          $condition_statut="AND $_DBC_cand_statut='$__PREC_RECEVABLE'";
+
+      if(array_key_exists("vap", $_POST) && $_POST["vap"]<2) {
+         $condition_vap="AND $_DBC_cand_vap_flag='".$_POST["vap"]."'";
+      }
+      else {
+         $condition_vap="";
+      }
+
+      print($condition_vap);
+
 
       // Décisions : boucle sur dec[]
       if(array_key_exists("dec", $_POST))
@@ -257,6 +270,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                                      $condition_desactivees
                                      $condition_decision
                                      $condition_statut
+                                     $condition_vap
                                      $methode_tri");
 
          $rows_ext=db_num_rows($result_ext);
@@ -324,6 +338,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                $string.=$cur_motivation ? "\"MOTIF\";" : "";
                $string.=$cur_entretien ? "\"ENTRETIEN\";" : "";
                $string.=$cur_frais ? "\"FRAIS DOSSIER\";" : "";
+               $string.=$cur_vap_aff ? "\"Statut VAPP\";" : "";
 
                // Constructeur de dossiers : une colonne par question/réponse (attention au type)
                if($cur_dossier=="1")
@@ -658,6 +673,15 @@ CeCILL-B, et que vous en avez accepté les termes.
                      else
                         $frais_txt="Aucun pour cette formation";
                   }
+                  
+                  if($cur_vap_aff) {
+                     if($cand_vap) {
+                        $vap_txt="Oui";
+                     }
+                     else {
+                        $vap_txt="Non";
+                     }
+                  }
 
                   if($candidat_nom_naissance!=$candidat_nom && $candidat_nom_naissance!="")
                   {
@@ -710,6 +734,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                   $string.=$cur_motivation ? "\"" . str_replace(";", ",", str_replace("\"", "'", $motivation)) . "\";" : "";
                   $string.=$cur_entretien ? "\"" . str_replace(";", ",", str_replace("\"", "'", $entretien_txt)) . "\";" : "";
                   $string.=$cur_frais ? "\"" . str_replace(";", ",", str_replace("\"", "'", $frais_txt)) . "\";" : "";
+                  $string.=$cur_vap_aff ? "\"" . str_replace(";", ",", str_replace("\"", "'", $vap_txt)) . "\";" : "";
 
                   if($cur_dossier=="1" && isset($array_dossiers))
                   {
@@ -1216,9 +1241,6 @@ CeCILL-B, et que vous en avez accepté les termes.
       </tr>
       <tr>
          <td class='td-gauche fond_menu'>
-            <font class='Texte_menu'><b>Options</font>
-         </td>
-         <td class='td-milieu fond_menu'>
             <font class='Texte_menu'><b>Adresse postale :</font>
          </td>
          <td class='td-milieu fond_menu'>
@@ -1253,6 +1275,58 @@ CeCILL-B, et que vous en avez accepté les termes.
             <font class='Texte_menu'>
                <?php
                   print("<input type='radio' name='mode_adresse' value='1' $selected_1>&nbsp;&nbsp;Plusieurs colonnes");
+               ?>
+            </font>
+         </td>
+         <td class='td-milieu fond_menu'></td>
+      </tr>
+      <tr>
+         <td class='td-gauche fond_menu'>
+            <font class='Texte_menu'><b>Validation d'acquis :</font>
+         </td>
+         <td class='td-milieu fond_menu'>
+            <font class='Texte_menu'>
+               <?php
+                  if(isset($cur_vap))
+                  {
+                     switch($cur_vap)
+                     {
+                        case   0   : $selected_0="checked";
+                                     $selected_1=$selected_2="";
+                                     break;
+                        case   1   : $selected_1="checked";
+                                     $selected_0=$selected_2="";
+                                     break;
+                        case   2   : $selected_2="checked";  
+                                     $selected_0=$selected_1="";
+                                     break;
+                                                                                                  
+                        default   :  $selected_2="checked";
+                                     $selected_1=$selected_0="";
+                                     break;
+                     }
+                  }
+                  else
+                  {
+                     $selected_2="checked";
+                     $selected_1=$selected_0="";
+                  }
+
+                  print("<input type='radio' name='vap' value='0' $selected_0>&nbsp;&nbsp;Case VAPP non cochée");
+               ?>
+            </font>
+         </td>
+         <td class='td-milieu fond_menu'>
+            <font class='Texte_menu'>
+               <?php
+                  print("<input type='radio' name='vap' value='1' $selected_1>&nbsp;&nbsp;Case VAPP cochée");
+               ?>
+            </font>
+         </td>
+         <td class='td-milieu fond_menu'>
+            <font class='Texte_menu'>
+               <?php
+                  print("<input type='radio' name='vap' value='2' $selected_2>&nbsp;&nbsp;Indifférent");
                ?>
             </font>
          </td>
@@ -1452,7 +1526,7 @@ CeCILL-B, et que vous en avez accepté les termes.
          <td class='td-gauche fond_page' colspan='4'></td>
       </tr>
       <tr>
-         <td class='td-gauche fond_menu' rowspan='2'>
+         <td class='td-gauche fond_menu' rowspan='3'>
             <font class='Texte_menu'><b>Informations sur les candidatures</font>
          </td>
          <td class='td-milieu fond_menu'>
@@ -1517,7 +1591,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                ?>
             </font>
          </td>
-   <td class='td-droite fond_menu'>
+         <td class='td-droite fond_menu'>
             <font class='Texte_menu'>
                <?php
                   if(isset($cur_ordre_voeu) && $cur_ordre_voeu==1)
@@ -1529,6 +1603,22 @@ CeCILL-B, et que vous en avez accepté les termes.
                ?>
             </font>
          </td>
+      </tr>
+      <tr>
+         <td class='td-milieu fond_menu'>
+            <font class='Texte_menu'>
+               <?php
+                  if(isset($cur_vap_aff) && $cur_vap_aff==1)
+                     $selected="checked";
+                  else
+                     $selected="";
+
+                  print("<input type='checkbox' name='vap_aff' value='1' $selected>&nbsp;&nbsp;Statut VAPP");
+               ?>
+            </font>
+         </td>
+         <td class='td-milieu fond_menu'></td>
+         <td class='td-droite fond_menu'></td>
       </tr>
       <tr>
          <td class='td-gauche fond_page' colspan='2'></td>
