@@ -143,9 +143,6 @@ CeCILL-B, et que vous en avez accepté les termes.
          $condition_vap="";
       }
 
-      print($condition_vap);
-
-
       // Décisions : boucle sur dec[]
       if(array_key_exists("dec", $_POST))
       {
