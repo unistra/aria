@@ -92,7 +92,7 @@ CeCILL-B, et que vous en avez accepté les termes.
   }
    elseif((isset($_POST["recherche"]) || isset($_POST["recherche_x"])) && trim($_POST["recherche_nom"])!="")
   {
-     $recherche=1;
+    $recherche=1;
     $nom_recherche=trim($_POST["recherche_nom"]);
   }
   elseif(isset($_POST["clear_form"]) || isset($_POST["clear_form_x"]))
@@ -155,24 +155,22 @@ CeCILL-B, et que vous en avez accepté les termes.
     // Ce témoin va permettre de vérifier cet accès et de l'ajouter si besoin
     $droits_comp=0;
     
-    if(!isset($_POST["propspec"]))
+    if(!array_key_exists("propspec", $_POST)) {
       db_query($dbr,"DELETE FROM $_DB_droits_formations WHERE $_DBC_droits_formations_acces_id='$_SESSION[droits_user_id]'");
-    elseif(isset($_SESSION["all_propspec"])) // normalement toujours vrai à ce stade
-    {
-      foreach($_SESSION["all_propspec"] as $selected_propspec_id => $droits)
-      {
-        if(in_array($selected_propspec_id, $_POST["propspec"]) && !$droits)
-        {
+    }
+    elseif(isset($_SESSION["all_propspec"])) { // normalement toujours vrai à ce stade
+      foreach($_SESSION["all_propspec"] as $selected_propspec_id => $droits) {
+        if(in_array($selected_propspec_id, $_POST["propspec"]) && !$droits) {
           db_query($dbr, "INSERT INTO $_DB_droits_formations VALUES ('$_SESSION[droits_user_id]', '$selected_propspec_id','1')");
           $droits_comp=1;
         }
-        elseif(!in_array($selected_comp_id, $_POST["propspec"]) && $droits)
+        elseif(!in_array($selected_propspec_id, $_POST["propspec"]) && $droits) {
           db_query($dbr, "DELETE FROM $_DB_droits_formations WHERE $_DBC_droits_formations_acces_id='$_SESSION[droits_user_id]' 
                                         AND $_DBC_droits_formations_propspec_id='$selected_propspec_id'");
+        }
       }
       
-      if(1==$droits_comp)
-      {
+      if(1==$droits_comp) {
         if(!db_num_rows(db_query($dbr, "SELECT * FROM $_DB_acces_comp WHERE $_DBC_acces_comp_acces_id='$_SESSION[droits_user_id]' 
                                                   AND $_DBC_acces_comp_composante_id='$_SESSION[droits_comp_id]'")))
           db_query($dbr, "INSERT INTO $_DB_acces_comp VALUES ('$_SESSION[droits_user_id]', '$_SESSION[droits_comp_id]')");
@@ -512,7 +510,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       db_free_result($result);
 
       print("<form action='$php_self' method='POST' name='form1'>
-            <input type='hidden' name='user_id' value='$user_id'>\n");
+            <input type='hidden' name='user_id' value='".$_SESSION['droits_user_id']."'>\n");
   ?>
   <table align='center'>
   <tr>
@@ -622,7 +620,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       db_free_result($result);
 
       print("<form action='$php_self' method='POST' name='form1'>
-            <input type='hidden' name='user_id' value='$user_id'>\n");
+            <input type='hidden' name='user_id' value='".$_SESSION["droits_user_id"]."'>\n");
   ?>
   <table align='center' style='margin-bottom:20px;'>
   <tr>
@@ -702,28 +700,24 @@ CeCILL-B, et que vous en avez accepté les termes.
          $old_mention="--"; // idem
          $j=0;
 
-         // print("<table align='center'>\n");
-      
-      $_SESSION["all_propspec"]=array();
+         $_SESSION["all_propspec"]=array();
       
          for($i=0; $i<$rows; $i++)
          {
             list($propspec_id, $annee_id, $annee, $spec_nom, $finalite, $mention, $mention_nom)=db_fetch_row($result, $i);
 
-        // On teste si l'accès est accordé pour cette formation
-        $res_droits=db_query($dbr, "SELECT $_DBC_droits_formations_droits FROM $_DB_droits_formations 
+            // On teste si l'accès est accordé pour cette formation
+            $res_droits=db_query($dbr, "SELECT $_DBC_droits_formations_droits FROM $_DB_droits_formations 
                            WHERE $_DBC_droits_formations_acces_id='$_SESSION[droits_user_id]' AND $_DBC_droits_formations_propspec_id='$propspec_id'");
                            
-        if(db_num_rows($res_droits))
-        {
-          $checked="checked='1'";
-          list($_SESSION["all_propspec"][$propspec_id])=db_fetch_row($res_droits,0);
-        }
-        else
-        {
-          $_SESSION["all_propspec"][$propspec_id]=0;
-          $checked="";
-        }
+            if(db_num_rows($res_droits)) {
+               $checked="checked='1'";
+               list($_SESSION["all_propspec"][$propspec_id])=db_fetch_row($res_droits,0);
+            }
+            else {
+               $_SESSION["all_propspec"][$propspec_id]=0;
+               $checked="";
+            }
 
             $nom_finalite=$tab_finalite[$finalite];
 
@@ -809,7 +803,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                 </table>
 
                 <div class='centered_icons_box'>
-                   <a href='droits_users.php?r=1' target='_self'><img class='icone' src='$__ICON_DIR/rew_32x32_fond.png' alt='Annuler' border='0'></a>
+                   <a href='droits_users.php?e=2' target='_self'><img class='icone' src='$__ICON_DIR/rew_32x32_fond.png' alt='Annuler' border='0'></a>
                    <a href='$php_self?e=1' target='_self'><img class='icone' src='$__ICON_DIR/back_32x32_fond.png' alt='Retour' border='0'></a>
                    <input type='image' class='icone' src='$__ICON_DIR/button_ok_32x32_fond.png' alt='Valider' name='valider2' value='Valider'>
                    </form>
