@@ -181,7 +181,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       db_query($dbr,"UPDATE $_DB_candidat SET $_DBU_candidat_connexion='$date_cnx',
                                  $_DBU_candidat_derniere_ip='$last_ip',
                                  $_DBU_candidat_dernier_host='$last_host',
-                                 $_DBU_candidat_dernier_user_agent='$last_user_agent'
+                                 $_DBU_candidat_dernier_user_agent='".preg_replace("/[']+/", "''", stripslashes($last_user_agent))."'
                 WHERE $_DBU_candidat_id='$candidat_id'");
 
       // création du vecteur d'encryption (utilisé pour crypter les paramètres)
