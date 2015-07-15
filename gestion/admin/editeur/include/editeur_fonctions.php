@@ -258,16 +258,17 @@ if(!isset($_SESSION["__MACROS"]) || !is_array($_SESSION["__MACROS"]) || !count($
                         if(trim($cand_m_array["motivation"])=="") {
                            $decisions_multiples_texte.="\n\n";
                         }
-                       }
+                      }
 
                       if($cand_m_array["decision"]==$GLOBALS["__DOSSIER_REFUS"] || $cand_m_array["decision"]==$GLOBALS["__DOSSIER_TRANSMIS"])
                         $decisions_multiples_texte.=" (" . str_replace("\n",", ", $cand_m_array["motivation"]) . ").\n\n"; // Todo : affichage des motifs à peaufiner
                       elseif($cand_m_array["decision"]==$GLOBALS["__DOSSIER_LISTE"])
                         $decisions_multiples_texte.=" (rang actuel : $cand_m_array[rang_attente]).\n";
                       elseif($cand_m_array["decision"]==$GLOBALS["__DOSSIER_ADMIS"] || $cand_m_array["decision"]==$GLOBALS["__DOSSIER_ADMIS_AVANT_CONFIRMATION"] 
-                             || $cand_m_array["decision"]==$GLOBALS["__DOSSIER_ADMISSION_CONFIRMEE"] || $cand_m_array["decision"]==$GLOBALS["__DOSSIER_SOUS_RESERVE"])
+                             || $cand_m_array["decision"]==$GLOBALS["__DOSSIER_ADMISSION_CONFIRMEE"] || $cand_m_array["decision"]==$GLOBALS["__DOSSIER_SOUS_RESERVE"]
+                             || $cand_m_array["decision"]==$GLOBALS["__DOSSIER_EN_ATTENTE"])
                       {
-                        if($cand_m_array["decision"]==$GLOBALS["__DOSSIER_SOUS_RESERVE"])
+                        if($cand_m_array["decision"]==$GLOBALS["__DOSSIER_SOUS_RESERVE"] || $cand_m_array["decision"]==$GLOBALS["__DOSSIER_EN_ATTENTE"])
                           $decisions_multiples_texte.=" (" . str_replace("\n",", ", $cand_m_array["motivation"]) . ").\n\n";
 
                                     /*

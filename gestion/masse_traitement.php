@@ -203,7 +203,12 @@ CeCILL-B, et que vous en avez accepté les termes.
           $array_erreurs[$inid]["erreur_motif"]="entretien";
         }
       }
-
+      else {
+          if(isset($entretien_date)) {
+            unset($entretien_date);
+          }
+      }      
+      
       // Initialisation de variables pour l'entretien, au cas où ça n'aurait pas été fait dans le bloc précédent
       // Todo : à traiter plus proprement
       if(!isset($entretien_date))

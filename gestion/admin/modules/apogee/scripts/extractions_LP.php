@@ -231,7 +231,7 @@ CeCILL-B, et que vous en avez accepté les termes.
         elseif($TESTMODE==1) // envoi d'un seul message à l'admin
         {
            $TEST_CAND.="$ligne_candidat\n";
-           $TEST_VOEUX.="$ligne_voeu\n";
+           # $TEST_VOEUX.="$ligne_voeu\n";
 
            if(!$TESTCNT)
            {
