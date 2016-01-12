@@ -202,10 +202,11 @@ CeCILL-B, et que vous en avez accepté les termes.
         <option value="-1" disabled='1'></option>
         <?php
           $result=db_query($dbr,"SELECT $_DBC_decisions_id, $_DBC_decisions_texte
-                            FROM $_DB_decisions, $_DB_decisions_comp
-                          WHERE $_DBC_decisions_comp_dec_id=$_DBC_decisions_id
-                          AND $_DBC_decisions_comp_comp_id='$_SESSION[comp_id]'
-                          AND $_DBC_decisions_id>'$__DOSSIER_NON_TRAITE'
+                            FROM $_DB_decisions
+                            WHERE $_DBC_decisions_id IN 
+                              (SELECT distinct($_DBU_cand_decision) FROM $_DB_cand WHERE $_DBU_cand_periode='$__PERIODE'
+                              AND $_DBU_cand_propspec_id IN (SELECT $_DBU_propspec_id FROM $_DB_propspec WHERE $_DBU_propspec_comp_id='$_SESSION[comp_id]'))
+                            AND $_DBC_decisions_id>'$__DOSSIER_NON_TRAITE'
                             ORDER BY $_DBC_decisions_texte");
           $rows=db_num_rows($result);
 

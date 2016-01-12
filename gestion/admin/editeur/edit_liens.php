@@ -199,7 +199,10 @@ CeCILL-B, et que vous en avez accepté les termes.
       <?php
         $result2=db_query($dbr,"SELECT $_DBC_decisions_id, $_DBC_decisions_texte FROM $_DB_decisions
                               WHERE $_DBC_decisions_id IN (SELECT distinct($_DBC_decisions_comp_dec_id) FROM $_DB_decisions_comp
-                                                  WHERE $_DBC_decisions_comp_comp_id='$_SESSION[comp_id]')
+                                                  WHERE $_DBC_decisions_comp_comp_id='$_SESSION[comp_id]'
+                                                  UNION SELECT $_DBC_lettres_dec_dec_id FROM $_DB_lettres_dec 
+                                                  WHERE $_DBC_lettres_dec_lettre_id='$lettre_id')
+                                                  
                             ORDER BY $_DBC_decisions_texte");
 
         $rows2=db_num_rows($result2);

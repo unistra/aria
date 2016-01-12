@@ -123,7 +123,8 @@ CeCILL-B, et que vous en avez accepté les termes.
       $dec_id=$array_dec[$_DBU_decisions_id];
 
       // Pas dans la liste des décisions sélectionnée ET décision supprimable : suppression
-      if(in_array(array("$_DBU_decisions_comp_dec_id" => $dec_id), $active_decs) && !in_array($dec_id, $selected_decs) && !in_array(array("$_DBU_cand_decision" => $dec_id), $all_used_decs))
+      // if(in_array(array("$_DBU_decisions_comp_dec_id" => $dec_id), $active_decs) && !in_array($dec_id, $selected_decs) && !in_array(array("$_DBU_cand_decision" => $dec_id), $all_used_decs))
+      if(in_array(array("$_DBU_decisions_comp_dec_id" => $dec_id), $active_decs) && !in_array($dec_id, $selected_decs))
         db_query($dbr, "DELETE FROM $_DB_decisions_comp
                             WHERE $_DBC_decisions_comp_dec_id='$dec_id'  AND $_DBC_decisions_comp_comp_id='$_SESSION[comp_id]'");
       elseif(in_array($dec_id, $selected_decs) && !in_array(array("$_DBU_decisions_comp_dec_id" => $dec_id), $active_decs)) // Insertion
@@ -147,7 +148,7 @@ CeCILL-B, et que vous en avez accepté les termes.
     if(isset($succes))
       message("Paramètres enregistrés", $__SUCCES);
 
-    message("<center>Les cases grisées correspondent à des décisions déjà rendues<br>Elles ne peuvent pas être désactivées</center>", $__WARNING);
+    message("<center>Les décisions utilisées sur l'année universitaire sélectionnée sont marquées d'un '*'</center>", $__INFO);
 
     $result=db_query($dbr,"SELECT $_DBC_decisions_id,$_DBC_decisions_texte FROM $_DB_decisions ORDER BY $_DBC_decisions_texte");
     $rows=db_num_rows($result);
@@ -165,10 +166,11 @@ CeCILL-B, et que vous en avez accepté les termes.
 
       db_free_result($result2);
 
-      // Récupération des décisions utilisées
+      // Récupération des décisions utilisées sur la période sélectionnée
       $result2=db_query($dbr, "SELECT distinct($_DBC_cand_decision) FROM $_DB_cand, $_DB_propspec
                         WHERE $_DBC_cand_propspec_id=$_DBC_propspec_id
-                        AND $_DBC_propspec_comp_id='$_SESSION[comp_id]'");
+                        AND $_DBC_propspec_comp_id='$_SESSION[comp_id]'
+                        AND $_DBC_cand_periode='$__PERIODE'");
 
       if(db_num_rows($result2))
         $all_used_decs=db_fetch_all($result2);
@@ -194,17 +196,22 @@ CeCILL-B, et que vous en avez accepté les termes.
         if(!($i%2))
           print("<tr>\n");
 
+        // On regarde si la décision courante a déjà été utilisée, on ajoute un '*' au libellé
+        if(in_array(array("$_DBU_cand_decision" => $decision_id), $all_used_decs)) // utilisée
+            $decision_texte.="*";
+
         // Si la décision est activée ... (attention à la fonction in_array : on cherche bien un 'array' dans $all_decs et $all_used_decs
         if(in_array(array("$_DBU_decisions_comp_dec_id" => $decision_id), $active_decs))
         {
-          // On regarde si la décision courante est désactivable ou non
-          if(in_array(array("$_DBU_cand_decision" => $decision_id), $all_used_decs)) // pas désactivable car utilisée
+          /*
+          if(in_array(array("$_DBU_cand_decision" => $decision_id), $all_used_decs)) // utilisée : non désactivable
             print("<td align='left'>
                     <font class='Texte_menu'>
                       <input type='checkbox' name='decision_id[]' value='$decision_id' checked='1' disabled='1'>&nbsp;&nbsp;<i>$decision_texte</i>
                     </font>
                   </td>\n");
           else
+          */
             print("<td align='left'>
                     <font class='Texte_menu'>
                       <input type='checkbox' name='decision_id[]' value='$decision_id' checked='1'>&nbsp;&nbsp;$decision_texte
