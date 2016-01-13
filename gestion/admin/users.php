@@ -263,8 +263,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
             db_free_result($result);
 
-            if(strcasecmp($current_nom,$new_nom) || strcasecmp($current_prenom, $new_prenom))
-            {
+            if(strcasecmp($current_nom,$new_nom) || strcasecmp($current_prenom, $new_prenom)) {
                if(db_num_rows(db_query($dbr,"SELECT $_DBC_acces_id FROM $_DB_acces
                                              WHERE $_DBC_acces_nom ILIKE '".preg_replace("/[']+/", "''", stripslashes($new_nom))."'
                                              AND $_DBC_acces_prenom ILIKE '".preg_replace("/[']+/", "''", stripslashes($new_prenom))."'
@@ -281,8 +280,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                                        AND $_DBC_acces_id!='$user_id'")))
             $login_existe=1;
       }
-      else // Ajout d'un nouvel utilisateur
-      {
+      else { // Ajout d'un nouvel utilisateur
          if(db_num_rows(db_query($dbr,"SELECT $_DBC_acces_id FROM $_DB_acces
                                        WHERE $_DBC_acces_nom ILIKE '".preg_replace("/[']+/", "''", stripslashes($new_nom))."'
                                        AND $_DBC_acces_prenom ILIKE '".preg_replace("/[']+/", "''", stripslashes($new_prenom))."'")))
@@ -294,8 +292,7 @@ CeCILL-B, et que vous en avez accepté les termes.
             $login_existe=1;
       }
 
-      if(!isset($champs_vides) && !isset($pass_dont_match) && !isset($login_existe) && !isset($pass_vide) && !isset($erreur_pass_court) && !isset($erreur_pass_match))
-      {
+      if(!isset($champs_vides) && !isset($pass_dont_match) && !isset($login_existe) && !isset($pass_vide) && !isset($erreur_pass_court) && !isset($erreur_pass_match)) {
          if($_SESSION["ajout_user"]==0 && isset($user_id))
             db_query($dbr,"UPDATE $_DB_acces SET   
                 $_DBU_acces_login='$new_login',
@@ -356,10 +353,8 @@ CeCILL-B, et que vous en avez accepté les termes.
          // Renvoi des informations à l'utilisateur
          // Attention : le pass est automatiquement changé (non conservé en clair)
 
-         if(isset($_POST["renvoyer"]) && $_POST["renvoyer"]==1 && $_SESSION["ajout_user"]==0 && isset($user_id) && isset($new_mail) && isset($new_login))
-         {
-            if(!isset($md5_pass) && $new_pass=="" && $new_pass_conf=="")
-            {
+         if(isset($_POST["renvoyer"]) && $_POST["renvoyer"]==1 && $_SESSION["ajout_user"]==0 && isset($user_id) && isset($new_mail) && isset($new_login)) {
+            if(!isset($md5_pass) && $new_pass=="" && $new_pass_conf=="") {
                srand((double)microtime()*1000000);
                $code_conf=mb_strtoupper(md5(rand(0,9999)), "UTF-8");
                $new_pass=mb_substr($code_conf, 17, 8, "UTF-8");
@@ -382,68 +377,61 @@ CeCILL-B, et que vous en avez accepté les termes.
          }
 
       if((isset($_POST["copie_messages"]) && $_POST["copie_messages"]=="1" && isset($_POST["copie_messages_user_id"]) && ctype_digit($_POST["copie_messages_user_id"]))
-         || (isset($_POST["marquer_lus"]) && $_POST["marquer_lus"]=="1"))
-      {
+         || (isset($_POST["marquer_lus"]) && $_POST["marquer_lus"]=="1")) {
         // Il faut modifier l'entête de chaque message non lu et le copier dans le répertoire cible avec les bonnes informations
         
         // TODO : écrire des fonctions pour l'accès aux messages et à leurs paramètres
 
-        $sous_rep_user=sous_rep_msg($_SESSION[auth_id]);
+        $sous_rep_user=sous_rep_msg($user_id);
         
-        if(isset($_POST["copie_messages_user_id"]))
-        {
+        if(isset($_POST["copie_messages_user_id"])) {
           $destinataire_id=$_POST["copie_messages_user_id"];
           $sous_rep_destinataire=sous_rep_msg($destinataire_id);
         }
-        
-        if(is_dir("$__GESTION_MSG_STOCKAGE_DIR_ABS/$sous_rep_user/$_SESSION[auth_id]/"))
-        {
-           if(FALSE!==($contenu_repertoire=scandir("$GLOBALS[__GESTION_MSG_STOCKAGE_DIR_ABS]/$sous_rep_user/$_SESSION[auth_id]/$__MSG_INBOX", 1)))
-          {
-            if(FALSE!==($key=array_search(".", $contenu_repertoire)))
+
+        if(is_dir("$__GESTION_MSG_STOCKAGE_DIR_ABS/$sous_rep_user/$user_id/")) {
+           if(FALSE!==($contenu_repertoire=scandir("$GLOBALS[__GESTION_MSG_STOCKAGE_DIR_ABS]/$sous_rep_user/$user_id/$__MSG_INBOX", 1))) {
+              if(FALSE!==($key=array_search(".", $contenu_repertoire))) {
                  unset($contenu_repertoire[$key]);
+              }
 
-              if(FALSE!==($key=array_search("..", $contenu_repertoire)))
-                unset($contenu_repertoire[$key]);
-
-                if(FALSE!==($key=array_search("index.php", $contenu_repertoire)))
+              if(FALSE!==($key=array_search("..", $contenu_repertoire))) {
                  unset($contenu_repertoire[$key]);
+              }
 
-            foreach($contenu_repertoire as $nom_fichier)
-            {
-              $path="$__GESTION_MSG_STOCKAGE_DIR_ABS/$sous_rep_user/$_SESSION[auth_id]/$__MSG_INBOX/$nom_fichier";
+              if(FALSE!==($key=array_search("index.php", $contenu_repertoire))) {
+                 unset($contenu_repertoire[$key]);
+              }
+
+           foreach($contenu_repertoire as $nom_fichier) {
+              $path="$__GESTION_MSG_STOCKAGE_DIR_ABS/$sous_rep_user/$user_id/$__MSG_INBOX/$nom_fichier";
               $file_or_dir_name=$nom_fichier;
               
-              if(is_dir($path)) // Répertoire : message avec pièce(s) jointe(s)
-                 {
-                   // On regarde le contenu du répertoire. Normalement, le message a le même nom que ce dernier, terminé par .0 ou .1
-                   if(is_file("$path/$nom_fichier.0"))
-                {
-                  $nom_complet="$path/$nom_fichier.0";
-                  $nom_fichier="$file_or_dir_name.0";
-                }
-                elseif(is_file("$path/$nom_fichier.1"))
-                {
-                  $nom_complet="$path/$nom_fichier.1";
-                  $nom_fichier="$file_or_dir_name.1";
-                }
+              if(is_dir($path)) { // Répertoire : message avec pièce(s) jointe(s)
+                 // On regarde le contenu du répertoire. Normalement, le message a le même nom que ce dernier, terminé par .0 ou .1
+                 if(is_file("$path/$nom_fichier.0")) {
+                   $nom_complet="$path/$nom_fichier.0";
+                   $nom_fichier="$file_or_dir_name.0";
+                 }
+                 elseif(is_file("$path/$nom_fichier.1")) {
+                   $nom_complet="$path/$nom_fichier.1";
+                   $nom_fichier="$file_or_dir_name.1";
+                 }
               }
-              else
+              else {
                  $nom_complet=$path;
-
+              }
               // Identifiant du message = date
               // Format : AA(1 ou 2) MM JJ HH Mn SS µS(5)
 
-              if(strlen($nom_fichier)==18) // Année sur un caractère (16 pour l'identifiant + ".0" ou ".1" pour le flag "read")
-              {
-                $date_offset=0;
-                $annee_len=1;
-                $leading_zero="0";
-                $msg_id=mb_substr($nom_fichier, 0, 16, "UTF-8");
-                $msg_read=mb_substr($nom_fichier, 17, 1, "UTF-8");
+              if(strlen($nom_fichier)==18) { // Année sur un caractère (16 pour l'identifiant + ".0" ou ".1" pour le flag "read")
+                 $date_offset=0;
+                 $annee_len=1;
+                 $leading_zero="0";
+                 $msg_id=mb_substr($nom_fichier, 0, 16, "UTF-8");
+                 $msg_read=mb_substr($nom_fichier, 17, 1, "UTF-8");
               }
-              else // Année sur 2 caractères (chaine : 19 caractères)
-              {
+              else { // Année sur 2 caractères (chaine : 19 caractères)
                 $date_offset=1;
                 $annee_len=2;
                 $leading_zero="";
@@ -451,84 +439,54 @@ CeCILL-B, et que vous en avez accepté les termes.
                 $msg_read=mb_substr($nom_fichier, 18, NULL, "UTF-8");
               }
               
-              if(!$msg_read)
-              {
-                 if(($array_file=file("$nom_complet"))==FALSE)
-                {
-                  mail($__EMAIL_ADMIN, "[Précandidatures] - Erreur d'ouverture de mail", "Fichier : $nom_complet\n\nUtilisateur : $_SESSION[auth_prenom] $_SESSION[auth_nom]");
+              if(!$msg_read) {
+                 if(($array_file=file("$nom_complet"))==FALSE) {
+                    mail($__EMAIL_ADMIN, "[Précandidatures] - Erreur d'ouverture de mail", "Fichier : $nom_complet");
+                 
+                    die("Erreur d'ouverture du fichier. Un message a été envoyé à l'administrateur.");
+                 }
 
-                  die("Erreur d'ouverture du fichier. Un message a été envoyé à l'administrateur.");
-                }
-
-                $msg_exp_id=$array_file["0"];
-                $msg_exp=$array_file["1"];
-                $msg_to_id=$array_file["2"];
-                $msg_to=$array_file["3"];
-                $msg_sujet=stripslashes($array_file["4"]);
+                 $msg_exp_id=$array_file["0"];
+                 $msg_exp=$array_file["1"];
+                 $msg_to_id=$array_file["2"];
+                 $msg_to=$array_file["3"];
+                 $msg_sujet=stripslashes($array_file["4"]);
         
-                // On ne transfère pas les messages système non lus
-                if($msg_exp_id!="0")
-                {
-/*        
-                  $res_from=db_query($dbr,"SELECT $_DBC_candidat_nom, $_DBC_candidat_prenom
-                                                      FROM $_DB_candidat
-                                                   WHERE $_DBC_candidat_id='$msg_exp_id'");
-
-                    if(db_num_rows($res_from))
-                    {
-                        $array_from=array("id"    => $msg_exp_id);
-
-                        list($array_from["nom"], $array_from["prenom"])=db_fetch_row($res_from, 0);
-
-                        $array_dest=array("0" => array("id"    => $destinataire_id));
-
-                    echo "copie : $nom_fichier => $destinataire_id/\n<br>";
-                      $retour_copie=copy_msg("", $__MSG_INBOX, $nom_fichier, $destinataire_id);
-                   }
-
-                     db_free_result($res_from);
-*/                  
-
-                    $retour_copie=copy_msg("", $__MSG_INBOX, $file_or_dir_name, $destinataire_id);
-                }
+                 // On ne transfère pas les messages système non lus
+                 if($msg_exp_id!="0") {
+                    $retour_copie=copy_msg("", $user_id, $__MSG_INBOX, $file_or_dir_name, $destinataire_id);
+                 }
                 
-                if(isset($_POST["marquer_lus"]) && $_POST["marquer_lus"]==1)
-                {
-                   if(is_dir($path))
-                  {
+                 if(isset($_POST["marquer_lus"]) && $_POST["marquer_lus"]==1) {
+                    if(is_dir($path)) {
                     // Attention : il faut bien tenir compte du répertoire
-                        rename("$nom_complet", "$__GESTION_MSG_STOCKAGE_DIR_ABS/$sous_rep_user/$_SESSION[auth_id]/$__MSG_INBOX/$msg_id/$msg_id".".1");
-                  }
-                   else
-                  {
-                    rename("$nom_complet", "$__GESTION_MSG_STOCKAGE_DIR_ABS/$sous_rep_user/$_SESSION[auth_id]/$__MSG_INBOX/$msg_id".".1");
-                  }
-                }
+                       rename("$nom_complet", "$__GESTION_MSG_STOCKAGE_DIR_ABS/$sous_rep_user/$_SESSION[auth_id]/$__MSG_INBOX/$msg_id/$msg_id".".1");
+                    }
+                    else {
+                       rename("$nom_complet", "$__GESTION_MSG_STOCKAGE_DIR_ABS/$sous_rep_user/$_SESSION[auth_id]/$__MSG_INBOX/$msg_id".".1");
+                    }
+                 }
               }
             }
           }
-         }
+        }
       }
       
-      if(isset($_POST["marquer_lus"]) && $_POST["marquer_lus"]=="1")
-      {
+      if(isset($_POST["marquer_lus"]) && $_POST["marquer_lus"]=="1") {
       }
-      }
-   }
-  elseif((isset($_POST["recherche"]) || isset($_POST["recherche_x"])) && trim($_POST["recherche_nom"])!="")
-  {
+    }
+  }
+  elseif((isset($_POST["recherche"]) || isset($_POST["recherche_x"])) && trim($_POST["recherche_nom"])!="") {
      $recherche=1;
-    $nom_recherche=trim($_POST["recherche_nom"]);
+     $nom_recherche=trim($_POST["recherche_nom"]);
   }
-  elseif(isset($_POST["clear_form"]) || isset($_POST["clear_form_x"]))
-  {
+  elseif(isset($_POST["clear_form"]) || isset($_POST["clear_form_x"])) {
   }
-   else
-   {
-      unset($_SESSION["resultat_recherche_ldap"]);
-      unset($_SESSION["current_recherche_ldap"]);
-      unset($_SESSION["source"]);
-   }
+  else {
+     unset($_SESSION["resultat_recherche_ldap"]);
+     unset($_SESSION["current_recherche_ldap"]);
+     unset($_SESSION["source"]);
+  }
    
    // EN-TETE
    en_tete_gestion();
