@@ -268,9 +268,13 @@ if(!isset($_SESSION["__MACROS"]) || !is_array($_SESSION["__MACROS"]) || !count($
                              || $cand_m_array["decision"]==$GLOBALS["__DOSSIER_ADMISSION_CONFIRMEE"] || $cand_m_array["decision"]==$GLOBALS["__DOSSIER_SOUS_RESERVE"]
                              || $cand_m_array["decision"]==$GLOBALS["__DOSSIER_EN_ATTENTE"])
                       {
-                        if($cand_m_array["decision"]==$GLOBALS["__DOSSIER_SOUS_RESERVE"] || $cand_m_array["decision"]==$GLOBALS["__DOSSIER_EN_ATTENTE"])
+                        if($cand_m_array["decision"]==$GLOBALS["__DOSSIER_SOUS_RESERVE"] || $cand_m_array["decision"]==$GLOBALS["__DOSSIER_EN_ATTENTE"]) {
                           $decisions_multiples_texte.=" (" . str_replace("\n",", ", $cand_m_array["motivation"]) . ").\n\n";
-
+                        }
+                        else {
+                          $decisions_multiples_texte.="\n\n";
+                        }
+                        
                                     /*
                         // admission trouvée : on s\'arrête là et on affiche un message s\'il reste des voeux
                         if($ordre_cand!=$ordre_dernier_choix)
