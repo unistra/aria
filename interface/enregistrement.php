@@ -840,7 +840,21 @@ $__SIGNATURE_COURRIELS";
          </font>
       </td>
       <td class='td-droite fond_menu'>
-         <input type='text' name='baccalaureat' value='<?php if(isset($baccalaureat)) echo trim("$baccalaureat"); ?>' size="25" maxlength="4"><font class='Texte'><i>(Format : AAAA)</i></font>
+         <select name='baccalaureat'>
+            <option value=''></option>
+            <?php
+              $selected="";
+              $year = date('Y', time())+1;
+              
+              for($i=0; $i<=30; $i++) {
+                  if(isset($baccalaureat)) { 
+                      $selected = ($year-$i) == $baccalaureat ? "selected='1'" : "";
+                  }
+                  print("<option value='".($year-$i)."' $selected>".($year-$i)."</option>\n");
+              }
+            ?>
+          </select>
+         <!-- <input type='text' name='baccalaureat' value='<?php if(isset($baccalaureat)) echo trim("$baccalaureat"); ?>' size="25" maxlength="4"><font class='Texte'><i>(Format : AAAA)</i></font> -->
          <br><font class='Texte_menu_10'><i>Si vous n'avez pas le baccalauréat (et que vous ne le préparez pas cette année), sélectionnez "Sans bac" dans<br>la liste et indiquez l'année du dernier diplôme obtenu</i></font>
       </td>
    </tr>

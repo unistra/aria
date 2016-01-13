@@ -705,7 +705,18 @@ CeCILL-B, et que vous en avez accepté les termes.
         if(!isset($baccalaureat))
           $baccalaureat=$_SESSION["annee_bac"];
       ?>
-      <input type='text' name='baccalaureat' value='<?php if(isset($baccalaureat)) echo trim("$baccalaureat"); ?>' size="25" maxlength="4"><font class='Texte'><i>(Format : YYYY)</i></font>
+      <!-- <input type='text' name='baccalaureat' value='<?php if(isset($baccalaureat)) echo trim("$baccalaureat"); ?>' size="25" maxlength="4"><font class='Texte'><i>(Format : YYYY)</i></font>-->
+      <select name='baccalaureat'>
+        <option value=''></option>
+        <?php
+          $year = date('Y', time())+1;
+          
+          for($i=0; $i<=30; $i++) {
+              $selected = ($year-$i) == $baccalaureat ? "selected='1'" : "";
+              print("<option value='".($year-$i)."' $selected>".($year-$i)."</option>\n");
+          }
+        ?>
+      </select>
     </td>
   </tr>
   <tr>
