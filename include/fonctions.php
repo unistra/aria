@@ -1836,11 +1836,11 @@ function dossiers_messagerie()
 // Copie d'un message
 // Possible uniquement de gestion => gestion
 
-function copy_msg()
-{
-   if(!isset($_SESSION["auth_id"]) || !isset($_SESSION["auth_nom"]))
+function copy_msg() {
+   if(!isset($_SESSION["auth_id"]) || !isset($_SESSION["auth_nom"])) {
       return FALSE;
-      
+   }
+
    // Arguments
    // 0 : connexion à la BDD
    // 1 : dossier source
@@ -1849,66 +1849,68 @@ function copy_msg()
    // 4 : Optionnel : "nom prenom" du destinataire
    $num_args=func_num_args();
 
-   if($num_args<4)
+   if($num_args<4) {
       die("Erreur : utilisation incorrecte de la fonction copy_msg()");
+   }
 
    $foo=func_get_arg(0); // connexion (finalement abandonné : TODO : à nettoyer.
 
-   $dossier_source=func_get_arg(1);
-   $msg=func_get_arg(2);
-   $destinataire_id=func_get_arg(3);
+   $userid_source=func_get_arg(1);
+   $dossier_source=func_get_arg(2);
+   $msg=func_get_arg(3);
+   $destinataire_id=func_get_arg(4);
 
    // Niveau supplémentaire dans l'arborescence des messages
+   $_MSG_SRC_SOUS_REP=sous_rep_msg($userid_source);
    $_MSG_DEST_SOUS_REP=sous_rep_msg($destinataire_id);
 
-   if($num_args>4)
-      $dest_nom_prenom=func_get_arg(4);
-   elseif(isset($destinataire_id) && ctype_digit($destinataire_id))
-   {
+   if($num_args>5) {
+      $dest_nom_prenom=func_get_arg(5);
+   }
+   elseif(isset($destinataire_id) && ctype_digit($destinataire_id)) {
       $res_dest=db_query($GLOBALS["dbr"], "SELECT $GLOBALS[_DBC_acces_nom], $GLOBALS[_DBC_acces_prenom] FROM $GLOBALS[_DB_acces]
                                            WHERE $GLOBALS[_DBC_acces_id]='$destinataire_id'");
 
-      if(db_num_rows($res_dest))
-      {
+      if(db_num_rows($res_dest)) {
          list($dest_nom, $dest_prenom)=db_fetch_row($res_dest, 0);
 
          $dest_nom_prenom=trim("$dest_nom $dest_prenom");
 
          db_free_result($res_dest);
       }
-      else
+      else {
          return FALSE;
+      }
    }
-   else
+   else {
       return FALSE;
+   }
 
    // Ouverture du fichier
-  
-  echo "$GLOBALS[__GESTION_MSG_STOCKAGE_DIR_ABS]/$_SESSION[MSG_SOUS_REP]/$_SESSION[auth_id]/$dossier_source/$msg<br>\n";
-  
-  if(is_dir("$GLOBALS[__GESTION_MSG_STOCKAGE_DIR_ABS]/$_SESSION[MSG_SOUS_REP]/$_SESSION[auth_id]/$dossier_source/$msg"))
-  {
+   if(is_dir("$GLOBALS[__GESTION_MSG_STOCKAGE_DIR_ABS]/$_MSG_SRC_SOUS_REP/$userid_source/$dossier_source/$msg")) {
       $is_dir=1;
 
-      $nom_rep="$GLOBALS[__GESTION_MSG_STOCKAGE_DIR_ABS]/$_SESSION[MSG_SOUS_REP]/$_SESSION[auth_id]/$dossier_source/$msg";
+      $nom_rep="$GLOBALS[__GESTION_MSG_STOCKAGE_DIR_ABS]/$_MSG_SRC_SOUS_REP/$userid_source/$dossier_source/$msg";
     
-      if(is_file("$nom_rep/$msg".".1"))
+      if(is_file("$nom_rep/$msg".".1")) {
          $nom_fichier="$msg".".1";
-      elseif(is_file("$nom_rep/$msg".".0"))
+      }
+      elseif(is_file("$nom_rep/$msg".".0")) {
          $nom_fichier="$msg".".0";
+      }
     
       $path_complet="$nom_rep/$nom_fichier";
   }
-  else
-  {
+  else {
       $is_dir=0;
-      $nom_rep="$GLOBALS[__GESTION_MSG_STOCKAGE_DIR_ABS]/$_SESSION[MSG_SOUS_REP]/$_SESSION[auth_id]/$dossier_source";
+      $nom_rep="$GLOBALS[__GESTION_MSG_STOCKAGE_DIR_ABS]/$_MSG_SRC_SOUS_REP/$userid_source/$dossier_source";
       $nom_fichier=$msg;
       $path_complet="$nom_rep/$nom_fichier";    
   }
   
-   if(($array_file=@file($path_complet))!==FALSE)
-   {
+  $base_name=substr($nom_fichier, 0, -2);
+
+  if(($array_file=@file($path_complet))!==FALSE) {
       // Récupération du contenu
       $msg_exp_id=trim($array_file["0"]);
       $msg_exp=trim($array_file["1"]);
@@ -1922,7 +1924,10 @@ function copy_msg()
       $msg_message_txt=stripslashes(implode($msg_message));
 
       // création du nouveau message
-      $new_file_name=new_id() . ".0";
+      // $new_file_name=new_id() . ".0";
+      $new_file_name=$base_name.".0";
+
+      $file_path = "$GLOBALS[__GESTION_MSG_STOCKAGE_DIR_ABS]/$_MSG_DEST_SOUS_REP/$destinataire_id/$GLOBALS[__MSG_INBOX]";
 
       $array_message=array("from_id"    => "$msg_exp_id\n",
                            "from"       => "$msg_exp\n",
@@ -1931,38 +1936,48 @@ function copy_msg()
                            "sujet"       => "$msg_sujet\n",
                            "corps"       => "$msg_message_txt\n");
 
-      if(!is_dir("$GLOBALS[__GESTION_MSG_STOCKAGE_DIR_ABS]/$_MSG_DEST_SOUS_REP/$destinataire_id/$GLOBALS[__MSG_INBOX]"))
-      {
-         if(FALSE===(mkdir("$GLOBALS[__GESTION_MSG_STOCKAGE_DIR_ABS]/$_MSG_DEST_SOUS_REP/$destinataire_id/$GLOBALS[__MSG_INBOX]", 0770, TRUE)))
-         {
-            mail($GLOBALS["__EMAIL_ADMIN"], "[Précandidatures] - Erreur de création de répertoire", "Utilisateur : $_SESSION[auth_nom] $_SESSION[auth_prenom]\n\nRépertoire : $GLOBALS[__GESTION_MSG_STOCKAGE_DIR_ABS]/$_MSG_DEST_SOUS_REP/$destinataire_id/$GLOBALS[__MSG_INBOX]");
+      if(!is_dir($file_path)) {
+         if(FALSE===(mkdir($file_path, 0770, TRUE))) {
+            mail($GLOBALS["__EMAIL_ADMIN"], "[Précandidatures] - Erreur de création de répertoire", "Utilisateur : $_SESSION[auth_nom] $_SESSION[auth_prenom]\n\nRépertoire : $file_path");
             die("Erreur lors de la création du dossier de réception du destinataire sélectionné.\n<br>Un message a été envoyé à l'administrateur.");
          }         
       }
     
-    if($is_dir)
-    {
-         $dest_path="$GLOBALS[__GESTION_MSG_STOCKAGE_DIR_ABS]/$_MSG_DEST_SOUS_REP/$destinataire_id/$GLOBALS[__MSG_INBOX]/$msg/$new_file_name";
+      if($is_dir) {
+         $dest_path="$file_path/$msg/$new_file_name";
       
-         if(FALSE===(mkdir("$GLOBALS[__GESTION_MSG_STOCKAGE_DIR_ABS]/$_MSG_DEST_SOUS_REP/$destinataire_id/$GLOBALS[__MSG_INBOX]/$msg", 0770, TRUE)))
-         {
-            mail($GLOBALS["__EMAIL_ADMIN"], "[Précandidatures] - Erreur de création de répertoire", "Utilisateur : $_SESSION[auth_nom] $_SESSION[auth_prenom]\n\nRépertoire : $GLOBALS[__GESTION_MSG_STOCKAGE_DIR_ABS]/$_MSG_DEST_SOUS_REP/$destinataire_id/$GLOBALS[__MSG_INBOX]/$msg");
-            die("Erreur lors de la création du dossier de réception du destinataire sélectionné.\n<br>Un message a été envoyé à l'administrateur.");
-         }  
+         // does the dir already exist ?
+         if(!is_dir("$file_path/$msg")) {
+           if(FALSE===(mkdir("$file_path/$msg", 0770, TRUE))) {
+              mail($GLOBALS["__EMAIL_ADMIN"], "[Précandidatures] - Erreur de création de répertoire", "Utilisateur : $_SESSION[auth_nom] $_SESSION[auth_prenom]\n\nRépertoire : $file_path/$msg");
+              die("Erreur lors de la création du dossier de réception du destinataire sélectionné.\n<br>Un message a été envoyé à l'administrateur.");
+           }
+         }
+         else { 
+            // dir already exists : return "2" : warning
+            return 2;
+         }
       } 
-    else
-         $dest_path="$GLOBALS[__GESTION_MSG_STOCKAGE_DIR_ABS]/$_MSG_DEST_SOUS_REP/$destinataire_id/$GLOBALS[__MSG_INBOX]/$new_file_name";
+      else {
+         if(is_file("$file_path/$base_name".".1") || is_file("$file_path/$base_name".".0")) {
+           // file already exists : return "2" : warning
+           return 2;
+         }
+         else {
+           $dest_path="$file_path/$new_file_name";
+         }
+      }
 
-      if(FALSE===file_put_contents($dest_path, $array_message))
-      {
+      if(FALSE===file_put_contents($dest_path, $array_message)) {
          mail($GLOBALS["__EMAIL_ADMIN"], "[Précandidatures] - Erreur de copie de message", "Utilisateur : $_SESSION[auth_nom] $_SESSION[auth_prenom]\n\nMessage : $array_message");
          die("Erreur lors du transfert de votre message. Un message a été envoyé à l'administrateur.");
       }
 
       write_evt("", $GLOBALS["__EVT_ID_G_MSG"], "Message transféré : $_SESSION[auth_nom] $_SESSION[auth_prenom] => $dest_nom_prenom", $msg_exp_id);
    }
-   else
+   else {
       return FALSE;
+   }
 
    return 1;
 }
@@ -2824,6 +2839,8 @@ function send_recap_justifs()
          $formation=$annee=="" ? "$spec_nom" : "$annee $spec_nom";
          $formation.=$GLOBALS['tab_finalite'][$finalite]=="" ? "" : " " . $GLOBALS['tab_finalite'][$finalite];
 
+         $liste_fichiers = "";
+
          switch($cand_civ)
          {
             case "M" :       $ne_le="Né le";
@@ -2873,8 +2890,6 @@ function send_recap_justifs()
 
             if($rows4)
             {
-               $liste_fichiers="";
-
                for($l=0; $l<$rows4; $l++)
                {
                   list($fichier_nom)=db_fetch_row($result4, $l);
@@ -2989,7 +3004,7 @@ Le délai imparti pour modifier cette formation est échu. Après réception de 
 La procédure à suivre est maintenant la suivante :
 
 1/ Cliquez sur chacun des liens suivants :
-<a href='###__CAND_DIR###/gen_recapitulatif.php?comp_id=$comp_id' target='_blank' class='lien_bleu_12'><b>- récapitulatif des informations que vous avez saisies</b> (format PDF)</a>
+<a href='###__CAND_DIR###/gen_recapitulatif.php?comp_id=$comp_id&cand_id=$cand_id' target='_blank' class='lien_bleu_12'><b>- récapitulatif des informations que vous avez saisies</b> (format PDF)</a>
 <a href='###__CAND_DIR###/gen_justificatifs.php?cand_id=$cand_id' target='_blank' class='lien_bleu_12'><b>- liste des justificatifs à nous faire parvenir par voie postale pour $nom_formation_corps</b> (format PDF)</a>
 
 2/ Enregistrez puis imprimez ces documents PDF. Conservez-les car ils pourront vous resservir plus tard.
@@ -3027,7 +3042,7 @@ $univ_nom";
 
             // Macros spécifiques aux justificatifs (à intégrer dans une autre fonction ?)
             $new_corps=preg_replace("/%justificatifs%/i", "<a href='###__CAND_DIR###/gen_justificatifs.php?cand_id=$cand_id' target='_blank' class='lien_bleu_12'><b>- liste des justificatifs à nous faire parvenir par voie postale pour $nom_formation_corps</b> (format PDF)</a>", $corps_message2);
-            $new_corps=preg_replace("/%recapitulatif%/i", "<a href='###__CAND_DIR###/gen_recapitulatif.php?comp_id=$comp_id' target='_blank' class='lien_bleu_12'><b>- récapitulatif des informations que vous avez saisies</b> (format PDF)</a>", $new_corps);
+            $new_corps=preg_replace("/%recapitulatif%/i", "<a href='###__CAND_DIR###/gen_recapitulatif.php?comp_id=$comp_id&cand_id=$cand_id' target='_blank' class='lien_bleu_12'><b>- récapitulatif des informations que vous avez saisies</b> (format PDF)</a>", $new_corps);
             $new_corps=preg_replace("/%date_limite%/i", $limite_reception_txt, $new_corps);
             $new_corps=preg_replace("/%adresse_scolarite%/i", $adr_scol, $new_corps);
             $new_corps=preg_replace("/%composante%/i", $comp_nom, $new_corps);

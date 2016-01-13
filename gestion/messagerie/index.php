@@ -198,6 +198,36 @@ CeCILL-B, et que vous en avez accepté les termes.
       }
     }
   }
+  
+  // Marquer comme lu
+  if((isset($_POST["read"]) || isset($_POST["read_x"])) && isset($_SESSION["current_dossier"]) && isset($_POST["selection"])) {
+    foreach($_POST["selection"] as $filename) {
+      $path = "$__GESTION_MSG_STOCKAGE_DIR_ABS/$_SESSION[MSG_SOUS_REP]/$_SESSION[auth_id]/$_SESSION[current_dossier]";
+      if(is_file($path."/".$filename) && substr($filename, -2)==".0") {
+        $new_filename = substr($filename, 0, -2).".1";
+        rename($path."/".$filename, $path."/".$new_filename);
+      }
+      elseif(is_dir($path."/".$filename) && is_file($path."/".$filename."/".$filename.".0")) {
+        $new_filename = $filename.".1";
+        rename($path."/".$filename."/".$filename.".0", $path."/".$filename."/".$new_filename);
+      }
+    }
+  }
+  
+  // Marquer comme non lu
+  if((isset($_POST["unread"]) || isset($_POST["unread_x"])) && isset($_SESSION["current_dossier"]) && isset($_POST["selection"])) {
+    foreach($_POST["selection"] as $filename) {
+      $path = "$__GESTION_MSG_STOCKAGE_DIR_ABS/$_SESSION[MSG_SOUS_REP]/$_SESSION[auth_id]/$_SESSION[current_dossier]";
+      if(is_file($path."/".$filename) && substr($filename, -2)==".1") {
+        $new_filename = substr($filename, 0, -2).".0";
+        rename($path."/".$filename, $path."/".$new_filename);
+      }
+      elseif(is_dir($path."/".$filename) && is_file($path."/".$filename."/".$filename.".1")) {
+        $new_filename = $filename.".0";
+        rename($path."/".$filename."/".$filename.".1", $path."/".$filename."/".$new_filename);
+      }
+    }
+  }
 
   // Vidage de la corbeille
   if(isset($_GET["trash"]) && $_GET["trash"]==1)
@@ -275,35 +305,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       if(FALSE!==($key=array_search("index.php", $contenu_repertoire)))
         unset($contenu_repertoire[$key]);
 
-         rsort($contenu_repertoire);
-
-      // TRI DE LA LISTE DES FICHIERS
-         // TODO : à écrire
-
-/*      
-      switch($methode_tri)
-      {
-        case  "date_asc"    : // Tri de la liste des fichiers par date croissante (revient à trier par nom cr.)
-                        sort($contenu_repertoire);
-                        break;
-
-        case  "date_desc"   : // Tri de la liste des fichiers par date décroissante (revient à trier par nom décr.)
-                        rsort($contenu_repertoire);
-                        break;
-
-        case  "exp_asc"   : // Tri par expéditeur croissant
-                        break;
-
-        case  "exp_desc"    : // Tri par expéditeur décroissant
-                        break;
-
-        case  "sujet_asc"   : // Tri par sujet croissant
-                        break;
-
-        case  "sujet_desc"  : // Tri par sujet décroissant
-                        break;
-      }
-*/
+      rsort($contenu_repertoire);
 
       $nb_msg=$nb_fichiers=count($contenu_repertoire);
 
@@ -361,6 +363,10 @@ CeCILL-B, et que vous en avez accepté les termes.
 
       if($limite_sup_msg) // Si on a des messages, on propose des liens supplémentaires
       {
+        // Liens "Marquer comme lu/non lu"
+        $marquer_lu="<input type='submit' name='read' value='Lu'>&nbsp;";
+        $marquer_non_lu="<input type='submit' name='unread' value='Non lu'>&nbsp;";
+        
         // Lien "Sélection / désélection"
         if(!empty($checked))
           $lien_select_deselect="<a href='$php_self?sa=0' class='lien_menu_gauche'>Tout désélectionner</a>";
@@ -371,7 +377,7 @@ CeCILL-B, et que vous en avez accepté les termes.
         $lien_corbeille=($current_dossier==$__MSG_TRASH) ? "&nbsp;|&nbsp;<a href='$php_self?trash=1' class='lien_menu_gauche'>Vider la corbeille</a>" : "";
       }
       else
-        $lien_select_deselect=$lien_corbeille="";
+        $lien_select_deselect=$lien_corbeille=$marquer_lu=$marquer_non_lu="";
 
       // changement de nom pour la colonne "Expéditeur" si le dossier est "Envoyés"
       $col_name=($current_dossier==$__MSG_SENT) ? "Destinataire" : "Expéditeur";
@@ -442,7 +448,11 @@ CeCILL-B, et que vous en avez accepté les termes.
                     <option value='$__MSG_TRASH'>$__MSG_DOSSIERS[$__MSG_TRASH]</option>
                   </select>
                   &nbsp;
-                  <input type='submit' name='move' value='Déplacer'>&nbsp;&nbsp;&nbsp;<input type='submit' name='suppr' value='Supprimer'>
+                  <input type='submit' name='move' value='Déplacer'>
+                  &nbsp;&nbsp;
+                  $marquer_lu
+                  $marquer_non_lu
+                  &nbsp;<input type='submit' name='suppr' value='Supprimer'>
 
                   $prev_txt
                   $prev

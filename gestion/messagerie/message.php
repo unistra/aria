@@ -76,15 +76,17 @@ CeCILL-B, et que vous en avez accepté les termes.
 
    if(isset($_GET["p"]) && -1!=($params=get_params($_GET['p']))) // identifiant du message en paramètre crypté
    {
-      if(isset($params["dir"]) && $params["dir"]==1)
+      if(isset($params["dir"]) && $params["dir"]==1) {
          $flag_pj=1;
-
+         $_SESSION["flag_pg"]=1;
+      }
+      else {
+        $_SESSION["flag_pg"]=0;
+      }
+      
       if(isset($params["msg"]))
       {
          $_SESSION["current_message_filename"]=$fichier=$params["msg"];
-
-         // On vérifie que le message existe et qu'il appartient bien à l'utilisateur
-         // $_SESSION["msg_fichier"]="$__GESTION_MSG_STOCKAGE_DIR_ABS/$_SESSION[MSG_SOUS_REP]/$_SESSION[auth_id]/$_SESSION[current_dossier]/$_SESSION[msg]";
 
          // Test d'ouverture du fichier
          if(($array_file=@file("$fichier"))==FALSE)
@@ -95,14 +97,8 @@ CeCILL-B, et que vous en avez accepté les termes.
             else
                $fichier=preg_replace("/\.1$/", ".0", $fichier);
 
-            // $_SESSION["msg_fichier"]="$__GESTION_MSG_STOCKAGE_DIR_ABS/$_SESSION[MSG_SOUS_REP]/$_SESSION[auth_id]/$_SESSION[current_dossier]/$new_file";
-
             if(($array_file=@file("$fichier"))==FALSE)
                $location="index.php";
-/*
-            else
-               $_SESSION["msg"]=$new_file;
-*/
          }
 
          if(!isset($location))
@@ -116,7 +112,12 @@ CeCILL-B, et que vous en avez accepté les termes.
    
             // Répertoire
             unset($complete_path[$rang_fichier]);
-            $_SESSION["msg_dir"]=implode("/", $complete_path);
+            
+            $_SESSION["full_msg_dir"]=implode("/", $complete_path);
+            
+            if(isset($flag_pj) && $flag_pj==1) {
+              $_SESSION["msg_dir"]=$complete_path[count($complete_path)-1];
+            }
 
             if(strlen($_SESSION["msg"])==18) // Année sur un caractère (16 pour l'identifiant + ".0" ou ".1" pour le flag "lu / non lu")
             {
@@ -170,9 +171,11 @@ CeCILL-B, et que vous en avez accepté les termes.
 
          $array_dest=array("0" => array("id"    => $destinataire_id));
 
+         $msg_param = $_SESSION["flag_pg"]==1 ? $_SESSION["msg_dir"] : $_SESSION["msg"];
+         
          // /!\ Fonction différente de write_msg
          // copy_msg($dbr, $array_from, $array_dest, $sujet, $corps, "", $__FLAG_MSG_NO_NOTIFICATION);
-         $retour_copie=copy_msg("", $_SESSION["current_dossier"], $_SESSION["msg"], $destinataire_id);
+         $retour_copie=copy_msg("", $_SESSION["auth_id"], $_SESSION["current_dossier"], $msg_param, $destinataire_id);
       }
 
       db_free_result($res_from);
@@ -214,6 +217,9 @@ CeCILL-B, et que vous en avez accepté les termes.
    
          if(isset($retour_copie) && $retour_copie==1)
             message("Message transféré avec succès !", $__SUCCES);
+            
+         if(isset($retour_copie) && $retour_copie==2)
+            message("Ce message a déjà été transféré à ce destinataire.", $__WARNING);
 
          if(isset($erreur_candidat_id))
             message("Erreur : vous devez sélectionner un candidat avant de valider.", $__ERREUR);
@@ -248,7 +254,7 @@ CeCILL-B, et que vous en avez accepté les termes.
             $_SESSION["msg"]=$_SESSION["msg_id"] . ".1";
 
             // Attention : il faut bien tenir compte du répertoire
-            rename("$fichier", "$_SESSION[msg_dir]/$_SESSION[msg]");
+            rename("$fichier", "$_SESSION[full_msg_dir]/$_SESSION[msg]");
 
             $_SESSION["current_message_filename"]=$fichier="$__GESTION_MSG_STOCKAGE_DIR_ABS/$_SESSION[MSG_SOUS_REP]/$_SESSION[auth_id]/$_SESSION[current_dossier]/$_SESSION[msg]";
             $_SESSION["msg_read"]=1;
@@ -404,9 +410,9 @@ CeCILL-B, et que vous en avez accepté les termes.
                         <font class='Texte'><br>");
 
          // Pièces jointes ?
-         if(isset($flag_pj) && $flag_pj==1 && is_dir("$_SESSION[msg_dir]/files"))
+         if(isset($flag_pj) && $flag_pj==1 && is_dir("$_SESSION[full_msg_dir]/files"))
          {
-            $array_pj=scandir("$_SESSION[msg_dir]/files");
+            $array_pj=scandir("$_SESSION[full_msg_dir]/files");
             // 4 éléments à ne pas inclure dans la recherche : ".", "..", le message et "index.php"
 
             if(FALSE!==($key=array_search("$_SESSION[msg]", $array_pj)))
