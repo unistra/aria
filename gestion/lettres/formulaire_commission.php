@@ -93,13 +93,16 @@ if(array_key_exists("jour_inf", $_GET) && $_GET["jour_inf"]!="" && ctype_digit($
       $condition_jour="AND $_DBC_cand_date_statut BETWEEN '$jour_inf' AND '$jour_sup'";
 
    // Vérification des paramètres
-   $result=db_query($dbr, "SELECT $_DBC_cand_candidat_id, $_DBC_cand_id FROM $_DB_cand, $_DB_propspec
-                              WHERE $_DBC_propspec_id=$_DBC_cand_propspec_id
-                           AND $_DBC_cand_propspec_id='$formation'
-                           AND $_DBC_propspec_comp_id='$_SESSION[comp_id]'
-                           AND $_DBC_cand_decision='$__DOSSIER_NON_TRAITE'
-                           AND $_DBC_cand_statut='$__PREC_RECEVABLE'
-                           $condition_jour");
+   $result=db_query($dbr, "SELECT $_DBC_cand_candidat_id, $_DBC_cand_id 
+                              FROM $_DB_cand, $_DB_propspec, $_DB_candidat                                  
+                           WHERE $_DBC_propspec_id=$_DBC_cand_propspec_id
+                             AND $_DBC_cand_candidat_id=$_DBC_candidat_id
+                             AND $_DBC_cand_propspec_id='$formation'
+                             AND $_DBC_propspec_comp_id='$_SESSION[comp_id]'
+                             AND $_DBC_cand_decision='$__DOSSIER_NON_TRAITE'
+                             AND $_DBC_cand_statut='$__PREC_RECEVABLE'
+                             $condition_jour
+                             ORDER BY $_DBC_candidat_nom, $_DBC_candidat_prenom");
 
    $rows=db_num_rows($result);
 
@@ -110,15 +113,6 @@ if(array_key_exists("jour_inf", $_GET) && $_GET["jour_inf"]!="" && ctype_digit($
    
       mail($__EMAIL_ADMIN, "[Précandidatures] - Génération des formulaires de Commission", "=> Aucune lettre trouvée par la requête.\n\nJours : de $jour_inf à $jour_sup\nFormation : $formation");
 
-/*
-      print("requete :    SELECT $_DBC_cand_candidat_id, $_DBC_cand_id FROM $_DB_cand, $_DB_propspec
-                              WHERE $_DBC_propspec_id=$_DBC_cand_propspec_id
-                              AND $_DBC_cand_propspec_id='$formation'
-                              AND $_DBC_propspec_comp_id='$_SESSION[comp_id]'
-                              AND $_DBC_cand_decision='$__DOSSIER_NON_TRAITE'
-                              AND $_DBC_cand_statut='$__PREC_RECEVABLE'
-                              $condition_jour");
-*/
       header("Location:../masse_formulaire.php?erreur=1");
       exit();
    }
