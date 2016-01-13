@@ -146,7 +146,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       message("Erreur : veuillez sélectionner une date valide dans le menu déroulant.", $__ERREUR);
 
     if(isset($_GET["erreur"]) && $_GET["erreur"]==1)
-      message("Erreur lors de la génération des lettres. Un message a été envoyé à l'administrateur.", $__ERREUR);
+      message("Erreur lors de la génération des documents. Un message a été envoyé à l'administrateur.", $__ERREUR);
 
     if(isset($success) && $nb_success>0)
     {
