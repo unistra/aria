@@ -486,7 +486,7 @@ Le délai imparti pour modifier cette formation est échu. Après réception de 
 La procédure à suivre est maintenant la suivante :
 
 1/ Cliquez sur chacun des liens suivants :
-<a href='###__CAND_DIR###/gen_recapitulatif.php?comp_id=$comp_id' target='_blank' class='lien_bleu_12'><b>- récapitulatif des informations que vous avez saisies</b> (format PDF)</a>
+<a href='###__CAND_DIR###/gen_recapitulatif.php?comp_id=$comp_id&cand_id=$cand_id' target='_blank' class='lien_bleu_12'><b>- récapitulatif des informations que vous avez saisies</b> (format PDF)</a>
 <a href='###__CAND_DIR###/gen_justificatifs.php?cand_id=$cand_id' target='_blank' class='lien_bleu_12'><b>- liste des justificatifs à nous faire parvenir par voie postale pour $nom_formation_corps</b> (format PDF)</a>
 
 2/ Enregistrez puis imprimez ces documents PDF. Conservez-les car ils pourront vous resservir plus tard.
@@ -524,7 +524,7 @@ $univ_nom";
 
                      // Macros spécifiques aux justificatifs (à intégrer dans une autre fonction ?)
                      $new_corps=preg_replace("/%justificatifs%/i", "<a href='###__CAND_DIR###/gen_justificatifs.php?cand_id=$cand_id' target='_blank' class='lien_bleu_12'><b>- liste des justificatifs à nous faire parvenir par voie postale pour $nom_formation_corps</b> (format PDF)</a>", $corps_message2);
-                     $new_corps=preg_replace("/%recapitulatif%/i", "<a href='###__CAND_DIR###/gen_recapitulatif.php?comp_id=$comp_id' target='_blank' class='lien_bleu_12'><b>- récapitulatif des informations que vous avez saisies</b> (format PDF)</a>", $new_corps);
+                     $new_corps=preg_replace("/%recapitulatif%/i", "<a href='###__CAND_DIR###/gen_recapitulatif.php?comp_id=$comp_id&cand_id=$cand_id' target='_blank' class='lien_bleu_12'><b>- récapitulatif des informations que vous avez saisies</b> (format PDF)</a>", $new_corps);
                      $new_corps=preg_replace("/%date_limite%/i", $limite_reception_txt, $new_corps);
                      $new_corps=preg_replace("/%adresse_scolarite%/i", $adr_scol, $new_corps);
                      $new_corps=preg_replace("/%composante%/i", $comp_nom, $new_corps);

@@ -66,23 +66,6 @@ CeCILL-B, et que vous en avez accepté les termes.
   {
     message("Ces documents PDF sont générés lorsque vous cliquez sur les liens proposés.<br>Leur génération peut prendre quelques secondes.", $__INFO);
 
-    print("<table cellpadding='4' cellspacing='0' align='center' border='0'>
-          <tr>
-            <td align='left' nowrap='true' width='40' valign='top' style='padding-bottom:20px;'>
-              <a href='recapitulatif.php' class='lien_bleu_10' target='_blank'><img src='$__ICON_DIR/pdf_32x32_fond.png' alt='PDF' desc='PDF' border='0'></a>
-            </td>
-            <td align='left' nowrap='true' valign='middle' style='padding-bottom:20px;'>
-              <a href='recapitulatif.php' class='lien_bleu_10' target='_blank'>Récapitulatif des informations entrées par le candidat</a>
-            </td>
-          </tr>
-          <tr>
-            <td align='left' nowrap='true' width='40' valign='top' style='padding-bottom:20px;'>
-              <img src='$__ICON_DIR/pdf_32x32_fond.png' alt='PDF' desc='PDF' border='0'>
-            </td>
-            <td align='left' nowrap='true' valign='middle' style='padding-bottom:20px;'>
-              <font class='Texte'>
-                <strong>Générer les Formulaires de Commission Pédagogique :</strong>\n");
-
     $result=db_query($dbr,"SELECT $_DBC_cand_id, $_DBC_propspec_id, $_DBC_annees_annee, $_DBC_specs_nom, $_DBC_propspec_finalite,
                         $_DBC_cand_statut
                       FROM $_DB_propspec, $_DB_annees, $_DB_specs, $_DB_cand
@@ -97,7 +80,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
     $rows=db_num_rows($result);
 
-    $liste_options_justifs=$liste_options_page_garde="";
+    $liste_options_justifs=$liste_options_page_garde=$liste_options_recap="";
     $liste_options_commission="";
     $count_recevables=0;
 
@@ -107,6 +90,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
       $formation=$annee=="" ? "$spec $tab_finalite[$finalite]" : "$annee - $spec $tab_finalite[$finalite]";
 
+      $liste_options_recap.="<br>- <a href='recapitulatif.php?cand_id=$cand_id' class='lien_bleu_10' target='_blank'>Voeu ".($i+1)." : $formation</a>\n";
       $liste_options_justifs.="<br>- <a href='justificatifs.php?cand_id=$cand_id' class='lien_bleu_10' target='_blank'>Voeu ".($i+1)." : $formation</a>\n";
       $liste_options_page_garde.="<br>- <a href='page_garde_dossier.php?cand_id=$cand_id' class='lien_bleu_10' target='_blank'>Voeu ".($i+1)." : $formation</a>\n";
 
@@ -118,6 +102,32 @@ CeCILL-B, et que vous en avez accepté les termes.
     }
 
     db_free_result($result);
+
+    print("<table cellpadding='4' cellspacing='0' align='center' border='0'>
+          <tr>
+            <td align='left' nowrap='true' width='40' valign='top' style='padding-bottom:20px;'>
+              <a href='recapitulatif.php' class='lien_bleu_10' target='_blank'><img src='$__ICON_DIR/pdf_32x32_fond.png' alt='PDF' desc='PDF' border='0'></a>
+            </td>
+            <!--
+            <td align='left' nowrap='true' valign='middle' style='padding-bottom:20px;'>
+              <a href='recapitulatif.php' class='lien_bleu_10' target='_blank'>Récapitulatif des informations entrées par le candidat</a>
+            </td>
+            -->
+            <td align='left' nowrap='true' valign='middle' style='padding-bottom:20px;'>
+              <font class='Texte'>
+                <strong>Générer les Récapitulatifs des informations entrées par le candidat :</strong>\n");
+                
+    print("$liste_options_recap\n");
+    
+    print("</td>
+          </tr>
+          <tr>
+            <td align='left' nowrap='true' width='40' valign='top' style='padding-bottom:20px;'>
+              <img src='$__ICON_DIR/pdf_32x32_fond.png' alt='PDF' desc='PDF' border='0'>
+            </td>
+            <td align='left' nowrap='true' valign='middle' style='padding-bottom:20px;'>
+              <font class='Texte'>
+                <strong>Générer les Formulaires de Commission Pédagogique :</strong>\n");
 
     if($count_recevables)
       print("$liste_options_commission\n");

@@ -63,13 +63,27 @@ CeCILL-B, et que vous en avez accepté les termes.
   verif_auth();
 
   $dbr=db_connect();
+  $condition_candidature="";
+  $condition_formations="";
+  
+  if(isset($_GET["cand_id"]) && ctype_digit($_GET["cand_id"])) {
+    $cand_id=$_GET["cand_id"];
+    $condition_candidature="AND $_DBC_cand_id='$cand_id'";
+    
+    $candidat_id=$_SESSION["candidat_id"];
 
-  if(array_key_exists("jour_inf", $_GET) && $_GET["jour_inf"]!="" && ctype_digit($_GET["jour_inf"]) && array_key_exists("jour_sup", $_GET) && $_GET["jour_sup"]!="" && ctype_digit($_GET["jour_sup"]) && ((isset($_GET["id_form"]) && ctype_digit($_GET["id_form"])) || (isset($_GET["annee_id"]) && ctype_digit($_GET["annee_id"]))))
+    if(ctype_digit($candidat_id)) {
+      $ensemble_candidats=array("0" => $candidat_id);
+    }
+  }
+  elseif(array_key_exists("jour_inf", $_GET) && $_GET["jour_inf"]!="" && ctype_digit($_GET["jour_inf"]) 
+  && array_key_exists("jour_sup", $_GET) && $_GET["jour_sup"]!="" && ctype_digit($_GET["jour_sup"]) 
+  && ((isset($_GET["id_form"]) && ctype_digit($_GET["id_form"])) || (isset($_GET["annee_id"]) && ctype_digit($_GET["annee_id"]))))
   {
     if(isset($_GET["id_form"]) && ctype_digit($_GET["id_form"]))
     {
-      $formation=$_GET["id_form"];
-      $condition_formations="AND $_DBC_propspec_id='$formation'";
+      $formation_id=$_GET["id_form"];
+      $condition_formations="AND $_DBC_propspec_id='$formation_id'";
     }
     else
     {
@@ -130,14 +144,17 @@ CeCILL-B, et que vous en avez accepté les termes.
 
       db_free_result($result);
     }
-  }
-  elseif(isset($_SESSION["candidat_id"]))
+  } 
+    
+  /*
+  elseif(isset($_SESSION["cand_id"]))
   {
     $candidat_id=$_SESSION["candidat_id"];
 
     if(ctype_digit($candidat_id))
       $ensemble_candidats=array("0" => $candidat_id);
   }
+  * */
 
   if(isset($ensemble_candidats) && count($ensemble_candidats))
   {
@@ -186,7 +203,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       if($rows)
       {
         // Génération du PDF récapitulatif
-        list($cand_id,$cand_civ,$cand_nom,$cand_prenom,$cand_naissance,$cand_nat,$cand_tel,$cand_adr_1,$cand_adr_2,$cand_adr_3,$cand_num_ine, 
+        list($candidat_id,$cand_civ,$cand_nom,$cand_prenom,$cand_naissance,$cand_nat,$cand_tel,$cand_adr_1,$cand_adr_2,$cand_adr_3,$cand_num_ine, 
             $cand_email,$cand_lieu_naissance, $pays_naissance, $cand_lockdate, $adr_cp,$adr_ville, $adr_pays)=db_fetch_row($result,0);
 
         switch($cand_civ)
@@ -222,22 +239,64 @@ CeCILL-B, et que vous en avez accepté les termes.
           $identite.="\nNuméro INE : $cand_num_ine";
 
         $page_garde_pdf->AddPage();
+  
+  
+        // Récupération de la candidature si passée en paramètre
+        if($condition_candidature!="") {
+            $result2=db_query($dbr, "SELECT $_DBC_cand_id, $_DBC_cand_propspec_id, $_DBC_annees_annee, $_DBC_specs_nom,
+                            $_DBC_propspec_finalite, $_DBC_propspec_frais, $_DBC_composantes_nom, $_DBC_composantes_scolarite,
+                            $_DBC_universites_nom, $_DBC_cand_periode
+                        FROM $_DB_cand, $_DB_propspec, $_DB_annees, $_DB_specs, $_DB_composantes, $_DB_universites
+                      WHERE $_DBC_cand_propspec_id=$_DBC_propspec_id
+                      AND $_DBC_propspec_annee=$_DBC_annees_id
+                      AND $_DBC_propspec_id_spec=$_DBC_specs_id
+                      AND $_DBC_composantes_id=$_DBC_propspec_comp_id
+                      AND $_DBC_composantes_univ_id=$_DBC_universites_id
+                      AND $_DBC_propspec_comp_id='$_SESSION[comp_id]'
+                      AND $_DBC_cand_candidat_id='$candidat_id'
+                      $condition_candidature");
+        }
+        elseif($condition_formations!="") {
+            $result2=db_query($dbr, "SELECT $_DBC_cand_id, $_DBC_cand_propspec_id, $_DBC_annees_annee, $_DBC_specs_nom,
+                            $_DBC_propspec_finalite, $_DBC_propspec_frais, $_DBC_composantes_nom, $_DBC_composantes_scolarite,
+                            $_DBC_universites_nom, $_DBC_cand_periode
+                        FROM $_DB_cand, $_DB_propspec, $_DB_annees, $_DB_specs, $_DB_composantes, $_DB_universites
+                      WHERE $_DBC_cand_propspec_id=$_DBC_propspec_id
+                      AND $_DBC_propspec_annee=$_DBC_annees_id
+                      AND $_DBC_propspec_id_spec=$_DBC_specs_id
+                      AND $_DBC_composantes_id=$_DBC_propspec_comp_id
+                      AND $_DBC_composantes_univ_id=$_DBC_universites_id
+                      AND $_DBC_propspec_comp_id='$_SESSION[comp_id]'
+                      AND $_DBC_cand_candidat_id='$candidat_id'
+                      AND $_DBC_cand_periode='$__PERIODE'
+                      $condition_formations");
+        }
+          
+        $rows2=db_num_rows($result2);
 
-        // Incrémentation du Compteur pour savoir si tout s'est bien passé, à la fin
+        if($rows2) {
+            list($candidature_id, $initial_propspec_id, $annee, $spec, $finalite, $frais, $comp_nom, $adr_scol, $univ_nom, $cand_periode)=db_fetch_row($result2, 0);
+
+            $nom_finalite=$tab_finalite[$finalite];
+            
+            if(empty($annee))
+              $formation="$spec $nom_finalite $__PERIODE - " . ($__PERIODE+1);
+            else
+              $formation="$annee $spec $nom_finalite $__PERIODE - " . ($__PERIODE+1);
+        }
+        // Incrémentation du Compteur
         $nb_pages++;
 
         $page_garde_pdf->SetFont('Arial','B',14);
 
         $date=time();
 
-        $titre="Précandidatures - ". date_fr("j F Y",$date);
-        $page_garde_pdf->Cell(0,10,$titre,1,1,'C');
-
-        $page_garde_pdf->SetFont('Arial','',10);
-        $page_garde_pdf->Cell(0,10,'Merci d\'imprimer ce document et de le joindre à CHAQUE correspondance courrier.',0,1,'C');
+        # $titre="Précandidatures - ". date_fr("j F Y",$date);
+        $page_garde_pdf->MultiCell(0, 10, "Récapitulatif\n$formation", 1, "C");
+        # $page_garde_pdf->Cell(0,10,$titre,1,1,'C');
 
         $page_garde_pdf->SetFont('Arial','B',12);
-        $page_garde_pdf->Cell(0,10,'Vous',0,1,'L');
+        $page_garde_pdf->Cell(0,10,'Candidat(e)',0,1,'L');
 
         $page_garde_pdf->SetFont('Arial','',10);
         $page_garde_pdf->MultiCell(0,6,$identite,0,'L');
@@ -268,7 +327,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                                 ELSE '' END as cursus_pays,
                               $_DBC_cursus_mention, $_DBC_cursus_moyenne, $_DBC_cursus_spec
                           FROM  $_DB_cursus
-                        WHERE   $_DBC_cursus_candidat_id='$cand_id'
+                        WHERE   $_DBC_cursus_candidat_id='$candidat_id'
                         AND     $_DBC_cursus_annee='0')
                     UNION ALL
                         (SELECT   $_DBC_cursus_id, $_DBC_cursus_diplome, $_DBC_cursus_intitule, $_DBC_cursus_annee, $_DBC_cursus_ecole,
@@ -278,7 +337,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                                 ELSE '' END as cursus_pays,
                               $_DBC_cursus_mention, $_DBC_cursus_moyenne, $_DBC_cursus_spec
                           FROM  $_DB_cursus
-                        WHERE   $_DBC_cursus_candidat_id='$cand_id'
+                        WHERE   $_DBC_cursus_candidat_id='$candidat_id'
                         AND     $_DBC_cursus_annee!='0'
                           ORDER BY $_DBC_cursus_annee DESC)");
         $rows2=db_num_rows($result2);
@@ -341,7 +400,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
         $result2=db_query($dbr,"SELECT $_DBC_langues_id, $_DBC_langues_langue, $_DBC_langues_niveau, $_DBC_langues_annees
                           FROM $_DB_langues
-                        WHERE $_DBC_langues_candidat_id='$cand_id'
+                        WHERE $_DBC_langues_candidat_id='$candidat_id'
                           ORDER BY $_DBC_langues_langue ASC");
 
         $rows2=db_num_rows($result2);
@@ -436,7 +495,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
         $result2=db_query($dbr,"SELECT $_DBC_infos_comp_id, $_DBC_infos_comp_texte, $_DBC_infos_comp_annee, $_DBC_infos_comp_duree
                           FROM $_DB_infos_comp
-                        WHERE $_DBC_infos_comp_candidat_id='$cand_id'
+                        WHERE $_DBC_infos_comp_candidat_id='$candidat_id'
                           ORDER BY $_DBC_infos_comp_annee DESC");
         $rows2=db_num_rows($result2);
 
@@ -464,72 +523,6 @@ CeCILL-B, et que vous en avez accepté les termes.
         }
         db_free_result($result2);
 
-/*
-        // ===================================================
-        //  Renseignements supplémentaires
-        // ===================================================
-
-        $result2=db_query($dbr,"(SELECT distinct($_DBC_dossiers_elems_para), $_DBC_dossiers_elems_contenu_para, CAST('0' as smallint)
-                          FROM $_DB_dossiers_elems, $_DB_dossiers_elems_contenu, $_DB_dossiers_ef
-                        WHERE $_DBC_dossiers_elems_contenu_candidat_id='$cand_id'
-                        AND $_DBC_dossiers_elems_contenu_elem_id=$_DBC_dossiers_elems_id
-                        AND $_DBC_dossiers_ef_elem_id=$_DBC_dossiers_elems_id
-                        AND $_DBC_dossiers_elems_contenu_periode='$__PERIODE'
-                        AND $_DBC_dossiers_elems_comp_id='$_SESSION[comp_id]'
-                        AND $_DBC_dossiers_elems_unique='t'
-                        AND $_DBC_dossiers_elems_recapitulatif='t')
-                        UNION ALL
-                          (SELECT $_DBC_dossiers_elems_para, $_DBC_dossiers_elems_contenu_para, $_DBC_dossiers_ef_ordre
-                            FROM $_DB_dossiers_elems, $_DB_dossiers_elems_contenu, $_DB_dossiers_ef
-                          WHERE $_DBC_dossiers_elems_contenu_candidat_id='$cand_id'
-                          AND $_DBC_dossiers_elems_contenu_elem_id=$_DBC_dossiers_elems_id
-                          AND $_DBC_dossiers_ef_elem_id=$_DBC_dossiers_elems_id
-                          AND $_DBC_dossiers_elems_contenu_periode='$__PERIODE'
-                          AND $_DBC_dossiers_elems_comp_id='$_SESSION[comp_id]'
-                          AND $_DBC_dossiers_elems_unique='f'
-                          AND $_DBC_dossiers_elems_recapitulatif='t'
-                          AND $_DBC_dossiers_ef_propspec_id IN (SELECT $_DBC_cand_propspec_id FROM $_DB_cand, $_DB_propspec
-                                                    WHERE $_DBC_cand_propspec_id=$_DBC_propspec_id
-                                                    AND $_DBC_propspec_comp_id='$_SESSION[comp_id]'
-                                                    AND $_DBC_cand_candidat_id='$cand_id'
-                                                    AND $_DBC_cand_periode='$__PERIODE')
-                            ORDER BY $_DBC_dossiers_ef_propspec_id, $_DBC_dossiers_ef_ordre)");
-        $rows2=db_num_rows($result2);
-
-        if($rows2)
-        {
-          $page_garde_pdf->SetFont('Arial','B',12);
-          $page_garde_pdf->Cell(0,10,'Autres renseignements demandés par la Scolarité (texte en italique : énoncé)',0,1,'L');
-
-          for($j=0; $j<$rows2; $j++)
-          {
-            list($para, $contenu, $elem_ordre)=db_fetch_row($result2,$j);
-
-            if($contenu!="")
-            {
-              $page_garde_pdf->SetFont('Arial','I',8);
-
-              // $para=html_entity_decode(clean_word_str(str_replace("\r\n\r\n","\r\n", $para)), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"]);
-              $para=str_replace("\r\n\r\n","\r\n", $para);
-
-              $page_garde_pdf->MultiCell(0,6, $para,0,'J');
-              $page_garde_pdf->Ln(3);
-
-              $page_garde_pdf->SetFont('Arial','',10);
-
-              // $contenu=clean_word_str(str_replace("\r\n\r\n","\r\n", $contenu));
-              // $contenu=str_replace("\r\n\r\n","\r\n", $contenu);
-
-              $page_garde_pdf->MultiCell(0,6, $contenu, 0, 'J');
-
-              $page_garde_pdf->Ln(3);
-            }
-
-          }
-          $page_garde_pdf->Ln(6);
-        }
-        db_free_result($result2);
-*/
         $page_garde_pdf->SetFont('Arial','',10);
 
         // ==================================
@@ -539,16 +532,23 @@ CeCILL-B, et que vous en avez accepté les termes.
         // Calcul des frais de dossiers
         $frais_dossiers_array=array();
 
+        if(isset($cand_periode)) {
+            $condition_periode = "AND $_DBC_cand_periode='$cand_periode'";
+        }
+        else {
+            $condition_periode = "AND $_DBC_cand_periode='$__PERIODE'";
+        }
+
         $result2=db_query($dbr,"SELECT $_DBC_cand_id, $_DBC_propspec_id, $_DBC_annees_annee,
                              $_DBC_specs_nom, $_DBC_propspec_frais, $_DBC_propspec_finalite,
                              $_DBC_cand_vap_flag
                           FROM $_DB_cand, $_DB_annees, $_DB_specs, $_DB_propspec
-                        WHERE $_DBC_cand_candidat_id='$cand_id'
+                        WHERE $_DBC_cand_candidat_id='$candidat_id'
                         AND $_DBC_cand_propspec_id=$_DBC_propspec_id
                         AND $_DBC_propspec_annee=$_DBC_annees_id
                         AND $_DBC_propspec_id_spec=$_DBC_specs_id
                         AND $_DBC_propspec_comp_id='$_SESSION[comp_id]'
-                        AND $_DBC_cand_periode='$__PERIODE'
+                        $condition_periode
                         AND $_DBC_cand_statut!='$__PREC_ANNULEE'
                           ORDER BY $_DBC_cand_ordre, $_DBC_cand_ordre_spec ASC");
         $rows2=db_num_rows($result2);
@@ -595,176 +595,176 @@ CeCILL-B, et que vous en avez accepté les termes.
 
         db_free_result($result2);
 
-        // ===================================================
-        //    Renseignements supplémentaires
-        // ===================================================
-
-        $result2=db_query($dbr,"(SELECT distinct($_DBC_dossiers_elems_para), $_DBC_dossiers_elems_contenu_para,
-                            $_DBC_dossiers_elems_type, CAST('0' AS smallint),
-                            $_DBC_dossiers_elems_contenu_propspec_id, $_DBC_dossiers_elems_nouvelle_page
-                          FROM $_DB_dossiers_elems, $_DB_dossiers_elems_contenu, $_DB_dossiers_ef
-                        WHERE $_DBC_dossiers_elems_contenu_candidat_id='$cand_id'
-                        AND $_DBC_dossiers_elems_contenu_elem_id=$_DBC_dossiers_elems_id
-                        AND $_DBC_dossiers_ef_elem_id=$_DBC_dossiers_elems_id
-                        AND $_DBC_dossiers_elems_contenu_periode='$__PERIODE'
-                        AND $_DBC_dossiers_elems_comp_id='$_SESSION[comp_id]'
-                        AND $_DBC_dossiers_elems_unique='t'
-                        AND $_DBC_dossiers_elems_recapitulatif='t')
-                      UNION ALL
-                        (SELECT $_DBC_dossiers_elems_para, $_DBC_dossiers_elems_contenu_para, $_DBC_dossiers_elems_type,
-                            $_DBC_dossiers_ef_ordre, $_DBC_dossiers_elems_contenu_propspec_id,
-                            $_DBC_dossiers_elems_nouvelle_page
-                          FROM $_DB_dossiers_elems, $_DB_dossiers_elems_contenu, $_DB_dossiers_ef
-                        WHERE $_DBC_dossiers_elems_contenu_candidat_id='$cand_id'
-                        AND $_DBC_dossiers_elems_contenu_elem_id=$_DBC_dossiers_elems_id
-                        AND $_DBC_dossiers_ef_elem_id=$_DBC_dossiers_elems_id
-                        AND $_DBC_dossiers_ef_propspec_id=$_DBC_dossiers_elems_contenu_propspec_id
-                        AND $_DBC_dossiers_elems_contenu_periode='$__PERIODE'
-                        AND $_DBC_dossiers_elems_comp_id='$_SESSION[comp_id]'
-                        AND $_DBC_dossiers_elems_unique='f'
-                        AND $_DBC_dossiers_elems_recapitulatif='t'
-                        AND $_DBC_dossiers_ef_propspec_id IN (SELECT $_DBC_cand_propspec_id FROM $_DB_cand, $_DB_propspec
-                                                  WHERE $_DBC_cand_propspec_id=$_DBC_propspec_id
-                                                  AND $_DBC_propspec_comp_id='$_SESSION[comp_id]'
-                                                  AND $_DBC_cand_candidat_id='$cand_id'
-                                                  AND $_DBC_cand_periode='$__PERIODE'
-                                                  AND $_DBC_cand_statut!='$__PREC_ANNULEE')
-                          ORDER BY $_DBC_dossiers_ef_propspec_id, $_DBC_dossiers_ef_ordre)");
+        if(isset($cand_periode)) {
+            $condition_periode = "AND $_DBC_dossiers_elems_contenu_periode='$cand_periode'";
+            $condition_periode2 = "AND $_DBC_cand_periode='$cand_periode'";
+        }
+        else {
+            $condition_periode = "AND $_DBC_dossiers_elems_contenu_periode='$__PERIODE'";
+            $condition_periode2 = "AND $_DBC_cand_periode='$__PERIODE'";
+        }
+        
+        if($condition_formations!="") {
+            $condition_f = "$_DBC_dossiers_ef_propspec_id='$formation_id'";
+        }
+        elseif ($condition_candidature!="") {
+            $condition_f = "$_DBC_dossiers_ef_propspec_id='$initial_propspec_id'";
+        }
+          
+        
+        $result2 = db_query($dbr, "SELECT $_DBC_dossiers_ef_elem_id FROM $_DB_dossiers_ef
+                                   WHERE $condition_f
+                                   ORDER BY $_DBC_dossiers_ef_ordre");
 
         $rows2=db_num_rows($result2);
 
-        if($rows2)
-        {
+        if($rows2) {
           // Indicateur pour savoir à quel endroit afficher le titre de la section "Autres renseignements"
           $premier_element=1;
-
+          
           // Initialisation du tableau qui contiendra les éléments devant être imprimés sur une page seule
           $array_elements_nouvelle_page=array();
-
-          $prev_propspec_id="--";
-
+            
           for($j=0; $j<$rows2; $j++)
           {
-            list($para, $contenu, $elem_type, $elem_ordre, $propspec_id, $nouvelle_page)=db_fetch_row($result2,$j);
-
-            if($propspec_id!=$prev_propspec_id)
+            list($elem_id)=db_fetch_row($result2,$j);
+            
+            $result3 = db_query($dbr,"SELECT $_DBC_dossiers_elems_para, $_DBC_dossiers_elems_contenu_para, 
+                                             $_DBC_dossiers_elems_type, $_DBC_dossiers_elems_nouvelle_page
+                                      FROM $_DB_dossiers_elems, $_DB_dossiers_elems_contenu
+                                      WHERE $_DBC_dossiers_elems_id='$elem_id'
+                                      AND $_DBC_dossiers_elems_contenu_candidat_id='$candidat_id'
+                                      AND $_DBC_dossiers_elems_contenu_elem_id=$_DBC_dossiers_elems_id
+                                      AND $_DBC_dossiers_elems_recapitulatif='t'
+                                      $condition_periode
+                                      group by $_DBC_dossiers_elems_para, $_DBC_dossiers_elems_contenu_para, 
+                                             $_DBC_dossiers_elems_type, $_DBC_dossiers_elems_nouvelle_page");
+            /*
+            if($candidat_id=="14041511110938601")
             {
-              if($propspec_id==0)
-                $texte_formation="Question(s) relative(s) à toutes les formations choisies :";
-              elseif(array_key_exists($propspec_id, $array_propspec))
-                $texte_formation="Question(s) relative(s) au ".$array_propspec[$propspec_id]." :";
-
-              $prev_propspec_id=$propspec_id;
+              print("SELECT $_DBC_dossiers_elems_para, $_DBC_dossiers_elems_contenu_para, 
+                                             $_DBC_dossiers_elems_type, $_DBC_dossiers_elems_nouvelle_page
+                                      FROM $_DB_dossiers_elems, $_DB_dossiers_elems_contenu
+                                      WHERE $_DBC_dossiers_elems_id='$elem_id'
+                                      AND $_DBC_dossiers_elems_contenu_candidat_id='$candidat_id'
+                                      AND $_DBC_dossiers_elems_contenu_elem_id=$_DBC_dossiers_elems_id
+                                      AND $_DBC_dossiers_elems_recapitulatif='t'
+                                      $condition_periode
+                                      group by $_DBC_dossiers_elems_para, $_DBC_dossiers_elems_contenu_para, 
+                                             $_DBC_dossiers_elems_type, $_DBC_dossiers_elems_nouvelle_page");
+                           
+              die();
             }
+            */
 
-            $para=str_replace("\r\n\r\n","\r\n", $para);
+            $rows3 = db_num_rows($result3);
 
-            if($contenu!="")
-            {
-              $contenu_txt_final="";
+            $prev_propspec_id="--";
 
-              // En fonction du contenu
-              switch($elem_type)
-              {
-                case $__ELEM_TYPE_FORM : // Formulaire simple
-                  $contenu_txt_final=$contenu;
-                  break;
+            for($k=0; $k<$rows3; $k++) {
+              list($para, $contenu, $elem_type, $nouvelle_page)=db_fetch_row($result3,$k);
+              
+              $para=str_replace("\r\n\r\n","\r\n", $para);
 
-                case $__ELEM_TYPE_UN_CHOIX :
-                  // Traitement du contenu : normalement une seule réponse : id du choix
-                  if(ctype_digit($contenu))
-                  {
-                    $res_choix=db_query($dbr, "SELECT $_DBC_dossiers_elems_choix_texte
-                                        FROM $_DB_dossiers_elems_choix
-                                      WHERE $_DBC_dossiers_elems_choix_id='$contenu'");
+              if($contenu!="") {
+                $contenu_txt_final="";
 
-                    if(db_num_rows($res_choix))
-                    {
-                      list($contenu_txt)=db_fetch_row($res_choix, 0);
-                      $contenu_txt_final=$contenu_txt;
-                    }
+                // En fonction du contenu
+                switch($elem_type) {
+                  case $__ELEM_TYPE_FORM : // Formulaire simple
+                    $contenu_txt_final=$contenu;
+                    break;
 
-                    db_free_result($res_choix);
-                  }
+                  case $__ELEM_TYPE_UN_CHOIX :
+                    // Traitement du contenu : normalement une seule réponse : id du choix
+                    if(ctype_digit($contenu)) {
+                      $res_choix=db_query($dbr, "SELECT $_DBC_dossiers_elems_choix_texte
+                                          FROM $_DB_dossiers_elems_choix
+                                        WHERE $_DBC_dossiers_elems_choix_id='$contenu'");
 
-                  break;
-
-                case $__ELEM_TYPE_MULTI_CHOIX :
-                  // Traitement du contenu : plusieurs réponses possibles séparées par "|" (id du ou des choix)
-                  $contenu_txt="";
-                  $choix_array=explode("|",$contenu);
-                  
-                  if(is_array($choix_array) && count($choix_array))
-                  {
-                    $liste_choix="";
-                    foreach($choix_array as $choix_id)
-                    {
-                      if(ctype_digit($choix_id))
-                        $liste_choix.="$choix_id,";
-                    }
-
-                    if($liste_choix!="")
-                    {
-                      $liste_choix=mb_substr($liste_choix, 0, -1, "UTF-8");
-
-                      $res_choix=db_query($dbr, "SELECT $_DBC_dossiers_elems_choix_texte FROM $_DB_dossiers_elems_choix
-                                        WHERE $_DBC_dossiers_elems_choix_id IN ($liste_choix)
-                                        ORDER BY $_DBC_dossiers_elems_choix_ordre");
-
-                      $nb_choix=db_num_rows($res_choix);
-
-                      if($nb_choix)
-                      {
-                        for($c=0; $c<$nb_choix; $c++)
-                        {
-                          list($choix_texte)=db_fetch_row($res_choix, $c);
-                          $contenu_txt.="- $choix_texte\n";
-                        }
+                      if(db_num_rows($res_choix)) {
+                        list($contenu_txt)=db_fetch_row($res_choix, 0);
+                        $contenu_txt_final=$contenu_txt;
                       }
-                  
+
                       db_free_result($res_choix);
-
-                      $contenu_txt_final=$contenu_txt;
                     }
-                  }
 
-                  break;
-              } // fin du switch
-            } // fin du if($contenu)
+                    break;
 
-            // Le contenu est prêt : si l'élément ne doit pas figurer sur une page à part, on l'ajoute tel quel
-            // sinon, on le stocke et on l'affichera en dernier (prévoir une fonction ?)
-            if($nouvelle_page!="t")
-            {
-              if($premier_element)
-              {
-                $page_garde_pdf->SetFont('Arial','B',12);
-                $page_garde_pdf->Cell(0,10,'Autres renseignements demandés par la Scolarité (texte en italique : énoncé)',0,1,'L');
-                $premier_element=0;
+                  case $__ELEM_TYPE_MULTI_CHOIX :
+                    // Traitement du contenu : plusieurs réponses possibles séparées par "|" (id du ou des choix)
+                    $contenu_txt="";
+                    $choix_array=explode("|",$contenu);
+                    
+                    if(is_array($choix_array) && count($choix_array)) {
+                      $liste_choix="";
+                      foreach($choix_array as $choix_id) {
+                        if(ctype_digit($choix_id))
+                          $liste_choix.="$choix_id,";
+                      }
+
+                      if($liste_choix!="") {
+                        $liste_choix=mb_substr($liste_choix, 0, -1, "UTF-8");
+
+                        $res_choix=db_query($dbr, "SELECT $_DBC_dossiers_elems_choix_texte FROM $_DB_dossiers_elems_choix
+                                          WHERE $_DBC_dossiers_elems_choix_id IN ($liste_choix)
+                                          ORDER BY $_DBC_dossiers_elems_choix_ordre");
+
+                        $nb_choix=db_num_rows($res_choix);
+
+                        if($nb_choix) {
+                          for($c=0; $c<$nb_choix; $c++) {
+                            list($choix_texte)=db_fetch_row($res_choix, $c);
+                            $contenu_txt.="- $choix_texte\n";
+                          }
+                        }
+                    
+                        db_free_result($res_choix);
+
+                        $contenu_txt_final=$contenu_txt;
+                      }
+                    }
+
+                    break;
+                } // fin du switch
+              } // fin du if($contenu)
+
+              // Le contenu est prêt : si l'élément ne doit pas figurer sur une page à part, on l'ajoute tel quel
+              // sinon, on le stocke et on l'affichera en dernier (prévoir une fonction ?)
+              if($nouvelle_page!="t") {
+                if($premier_element) {
+                  $page_garde_pdf->SetFont('Arial','B',12);
+                  $page_garde_pdf->Cell(0,10,'Autres renseignements demandés par la Scolarité (texte en italique : énoncé)',0,1,'L');
+                  $premier_element=0;
+                }
+
+                $page_garde_pdf->SetFont('Arial','I',8);
+                $page_garde_pdf->MultiCell(0,6, "$para",0,'J');
+                $page_garde_pdf->Ln(3);
+                $page_garde_pdf->SetFont('Arial','',10);
+
+                if(isset($contenu_txt_final) && !empty($contenu_txt_final)) {
+                  $page_garde_pdf->MultiCell(0,6, $contenu_txt_final, 0, 'J');
+                }
+                else {
+                  $page_garde_pdf->MultiCell(0,6, "Champ non complété.", 0, 'J');
+                }
+
+                $page_garde_pdf->Ln(3);
+              }
+              else {
+                if(!isset($contenu_txt_final) || empty($contenu_txt_final)) {
+                  $contenu_txt_final="Champ non complété";
+                }
+
+                $array_elements_nouvelle_page["$j"]=array("formation_enonce" => "$texte_formation\n$para",
+                                            "contenu" => "$contenu_txt_final");
               }
 
-              $page_garde_pdf->SetFont('Arial','I',8);
-              $page_garde_pdf->MultiCell(0,6, "$texte_formation\n$para",0,'J');
-              $page_garde_pdf->Ln(3);
-              $page_garde_pdf->SetFont('Arial','',10);
-
-              if(isset($contenu_txt_final) && !empty($contenu_txt_final))
-                $page_garde_pdf->MultiCell(0,6, $contenu_txt_final, 0, 'J');
-              else
-                $page_garde_pdf->MultiCell(0,6, "Champ non complété.", 0, 'J');
-
-              $page_garde_pdf->Ln(3);
-            }
-            else
-            {
-              if(!isset($contenu_txt_final) || empty($contenu_txt_final))
-                $contenu_txt_final="Champ non complété";
-
-              $array_elements_nouvelle_page["$j"]=array("formation_enonce" => "$texte_formation\n$para",
-                                          "contenu" => "$contenu_txt_final");
-            }
-
-          } // fin du for()
+            } // fin du for(rows3)
+            db_free_result($result3);
+          } // fin du for(rows2)
         }
         db_free_result($result2);
 
@@ -772,15 +772,22 @@ CeCILL-B, et que vous en avez accepté les termes.
         //    Autres candidatures
         // ==========================================
 
+        if(isset($cand_periode)) {
+            $condition_periode = "AND $_DBC_cand_periode='$cand_periode'";
+        }
+        else {
+            $condition_periode = "AND $_DBC_cand_periode='$__PERIODE'";
+        }
+
         $result2=db_query($dbr,"SELECT $_DBC_cand_id, $_DBC_propspec_id, $_DBC_annees_annee, $_DBC_specs_nom, $_DBC_propspec_finalite,
                              $_DBC_composantes_nom
                           FROM $_DB_cand, $_DB_annees, $_DB_specs, $_DB_propspec, $_DB_composantes
-                        WHERE $_DBC_cand_candidat_id='$cand_id'
+                        WHERE $_DBC_cand_candidat_id='$candidat_id'
                         AND $_DBC_composantes_id=$_DBC_propspec_comp_id
                         AND $_DBC_cand_propspec_id=$_DBC_propspec_id
                         AND $_DBC_propspec_annee=$_DBC_annees_id
                         AND $_DBC_propspec_id_spec=$_DBC_specs_id
-                        AND $_DBC_cand_periode='$__PERIODE'
+                        $condition_periode
                         AND $_DBC_propspec_comp_id!='$_SESSION[comp_id]'
                         AND $_DBC_cand_statut!='$__PREC_ANNULEE'
                           ORDER BY $_DBC_cand_ordre, $_DBC_cand_ordre_spec ASC");
