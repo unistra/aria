@@ -344,7 +344,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 
       db_free_result($res_candidat);
 
-      print("<li class='menu_gauche' style='margin:30px 0px 10px 0px;'><u><strong>Divers<strong></u></li>\n");
+      print("<li class='menu_gauche' style='margin:30px 0px 10px 0px;'><u><strong>Divers</strong></u></li>\n");
 
       // JUSTIFICATIFS
       if($_SESSION["onglet"]!=8)
