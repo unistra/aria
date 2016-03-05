@@ -132,7 +132,7 @@ $GLOBALS["__DOC_DIR"]=$_SESSION["config"]["__DOC_DIR"]=preg_replace("/\/+/","/",
 
 // Gestion et candidats
 $GLOBALS["__CAND_DIR"]=$_SESSION["config"]["__CAND_DIR"]=preg_replace("/\/+/","/", "$GLOBALS[__MOD_DIR]/interface");
-$GLOBALS["__GESTION_DIR"]=$_SESSION["config"]["__GESTION_DIR"]=preg_replace("/\/+/","/", "$GLOBALS[__MOD_DIR]/gestion)";
+$GLOBALS["__GESTION_DIR"]=$_SESSION["config"]["__GESTION_DIR"]=preg_replace("/\/+/","/", "$GLOBALS[__MOD_DIR]/gestion");
 
 // Aide contextuelle pour la gestion
 $GLOBALS["__GESTION_AIDE_DIR"]=$_SESSION["config"]["__GESTION_AIDE_DIR"]=preg_replace("/\/+/","/", "$GLOBALS[__GESTION_DIR]/aide");
