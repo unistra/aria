@@ -142,7 +142,7 @@ CeCILL-B, et que vous en avez accepté les termes.
     // Gestion du logo
     if($univ_logo_tmp_name!="" && !isset($erreur_img_dir))
     {
-      $path="$__IMG_DIR_ABS/$univ_img_dir";
+      $path="$__IMG_DIR_ABS"."$univ_img_dir";
       $destination_file="$path/$univ_logo";
 
       list($image_width, $image_height, $image_type)=getimagesize($univ_logo_tmp_name);
@@ -421,7 +421,7 @@ CeCILL-B, et que vous en avez accepté les termes.
     </td>
     <td class='td-droite fond_menu'>
       <input type='text' name='img_dir' value='<?php if(isset($univ_img_dir)) echo htmlspecialchars(stripslashes($univ_img_dir), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); elseif(isset($current_univ_img_dir)) echo htmlspecialchars(stripslashes($current_univ_img_dir), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE);?>' maxlength='256' size='60'>
-      &nbsp;<font class='Texte_menu'><i>(Chemin relatif au répertoire "<?php echo "$__IMG_DIR/"; ?>")</i>
+      &nbsp;<font class='Texte_menu'><i>(Chemin relatif au répertoire "<?php echo preg_replace("/\/+/","/", "$__ROOT_DIR/$__MOD_DIR/images"); ?>")</i>
     </td>
   </tr>
   <tr>
@@ -439,7 +439,7 @@ CeCILL-B, et que vous en avez accepté les termes.
             print("<br>Fichier actuel : \"<strong>" . preg_replace("/[\/]+/","/", "$__IMG_DIR/$current_univ_img_dir/logo.jpg") . "</strong>\"
                  <br>Attention : cet emplacement dépend du répertoire indiqué précédemment.");
           else
-            print("<br>Aucun fichier <i><strong>logo.jpg</strong></i> dans le répertoire \"$__IMG_DIR_ABS/$current_univ_img_dir\"");
+            print("<br>Aucun fichier <i><strong>logo.jpg</strong></i> dans le répertoire \"".preg_replace("/\/+/","/", "$__IMG_DIR_ABS/$current_univ_img_dir")."\"");
         ?>
       </font>
     </td>
@@ -485,6 +485,7 @@ CeCILL-B, et que vous en avez accepté les termes.
     </td>
     <td class='td-droite fond_menu'>
       <input type='text' name='lettres_couleur_texte' value='<?php if(isset($current_univ_lettres_couleur_texte)) echo htmlspecialchars(stripslashes($current_univ_lettres_couleur_texte), ENT_QUOTES, $GLOBALS["default_htmlspecialchars_encoding"], FALSE); ?>' maxlength='7' size='60'>
+      &nbsp;<font class='Texte_menu'><i>(format : "#RRVVBB")</i></font>
     </td>
   </tr>
   </table>

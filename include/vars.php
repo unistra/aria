@@ -125,76 +125,76 @@ if(isset($_SESSION["config"]))
 
 // Feuilles de styles et autres fichiers statiques
 // (Disparition de "$__CSS_DIR")
-$GLOBALS["__STATIC_DIR"]=$_SESSION["config"]["__STATIC_DIR"]="$GLOBALS[__MOD_DIR]/static";
+$GLOBALS["__STATIC_DIR"]=$_SESSION["config"]["__STATIC_DIR"]=preg_replace("/\/+/","/", "$GLOBALS[__MOD_DIR]/static");
 
 // Documentation en ligne pour les candidats (différente de l'aide contextuelle coté gestion)
-$GLOBALS["__DOC_DIR"]=$_SESSION["config"]["__DOC_DIR"]="$GLOBALS[__MOD_DIR]/doc";
+$GLOBALS["__DOC_DIR"]=$_SESSION["config"]["__DOC_DIR"]=preg_replace("/\/+/","/", "$GLOBALS[__MOD_DIR]/doc");
 
 // Gestion et candidats
-$GLOBALS["__CAND_DIR"]=$_SESSION["config"]["__CAND_DIR"]="$GLOBALS[__MOD_DIR]/interface";
-$GLOBALS["__GESTION_DIR"]=$_SESSION["config"]["__GESTION_DIR"]="$GLOBALS[__MOD_DIR]/gestion";
+$GLOBALS["__CAND_DIR"]=$_SESSION["config"]["__CAND_DIR"]=preg_replace("/\/+/","/", "$GLOBALS[__MOD_DIR]/interface");
+$GLOBALS["__GESTION_DIR"]=$_SESSION["config"]["__GESTION_DIR"]=preg_replace("/\/+/","/", "$GLOBALS[__MOD_DIR]/gestion)";
 
 // Aide contextuelle pour la gestion
-$GLOBALS["__GESTION_AIDE_DIR"]=$_SESSION["config"]["__GESTION_AIDE_DIR"]="$GLOBALS[__GESTION_DIR]/aide";
+$GLOBALS["__GESTION_AIDE_DIR"]=$_SESSION["config"]["__GESTION_AIDE_DIR"]=preg_replace("/\/+/","/", "$GLOBALS[__GESTION_DIR]/aide");
 
 // Fichiers communs
-$GLOBALS["__INCLUDE_DIR"]=$_SESSION["config"]["__INCLUDE_DIR"]="$GLOBALS[__MOD_DIR]/include";
+$GLOBALS["__INCLUDE_DIR"]=$_SESSION["config"]["__INCLUDE_DIR"]=preg_replace("/\/+/","/", "$GLOBALS[__MOD_DIR]/include");
 
 // Librairie FPDF
-$GLOBALS["__FPDF_DIR"]=$_SESSION["config"]["__FPDF_DIR"]="$GLOBALS[__INCLUDE_DIR]/fpdf";
+$GLOBALS["__FPDF_DIR"]=$_SESSION["config"]["__FPDF_DIR"]=preg_replace("/\/+/","/", "$GLOBALS[__INCLUDE_DIR]/fpdf");
 
 // Fichiers Candidats
-$GLOBALS["__CAND_COMP_STOCKAGE_DIR"]=$_SESSION["config"]["__CAND_COMP_STOCKAGE_DIR"]="$GLOBALS[__CAND_DIR]/fichiers/composantes";
+$GLOBALS["__CAND_COMP_STOCKAGE_DIR"]=$_SESSION["config"]["__CAND_COMP_STOCKAGE_DIR"]=preg_replace("/\/+/","/", "$GLOBALS[__CAND_DIR]/fichiers/composantes");
 
 // Module de messagerie / Candidats
-$GLOBALS["__CAND_MSG_DIR"]=$_SESSION["config"]["__CAND_MSG_DIR"]="$GLOBALS[__CAND_DIR]/messagerie";
+$GLOBALS["__CAND_MSG_DIR"]=$_SESSION["config"]["__CAND_MSG_DIR"]=preg_replace("/\/+/","/", "$GLOBALS[__CAND_DIR]/messagerie");
 
 // Messagerie Candidats / stockage des messages
-$GLOBALS["__CAND_MSG_STOCKAGE_DIR"]=$_SESSION["config"]["__CAND_MSG_STOCKAGE_DIR"]="$GLOBALS[__CAND_DIR]/fichiers/messagerie";
+$GLOBALS["__CAND_MSG_STOCKAGE_DIR"]=$_SESSION["config"]["__CAND_MSG_STOCKAGE_DIR"]=preg_replace("/\/+/","/", "$GLOBALS[__CAND_DIR]/fichiers/messagerie");
 
 // Système d'assistance pour les candidats
-$GLOBALS["__CAND_ASSISTANCE_DIR"]=$_SESSION["config"]["__CAND_ASSISTANCE_DIR"]="$GLOBALS[__CAND_DIR]/assistance";
+$GLOBALS["__CAND_ASSISTANCE_DIR"]=$_SESSION["config"]["__CAND_ASSISTANCE_DIR"]=preg_replace("/\/+/","/", "$GLOBALS[__CAND_DIR]/assistance");
 
 // Fichiers des composantes (gestion)
-$GLOBALS["__GESTION_COMP_STOCKAGE_DIR"]=$_SESSION["config"]["__GESTION_COMP_STOCKAGE_DIR"]="$GLOBALS[__GESTION_DIR]/fichiers/composantes";
+$GLOBALS["__GESTION_COMP_STOCKAGE_DIR"]=$_SESSION["config"]["__GESTION_COMP_STOCKAGE_DIR"]=preg_replace("/\/+/","/", "$GLOBALS[__GESTION_DIR]/fichiers/composantes");
 
 // Fichiers publics
-$GLOBALS["__PUBLIC_DIR"]=$_SESSION["config"]["__PUBLIC_DIR"]="$GLOBALS[__MOD_DIR]/fichiers/composantes"; // Réservé aux fichiers téléchargeables : justificatifs
+$GLOBALS["__PUBLIC_DIR"]=$_SESSION["config"]["__PUBLIC_DIR"]=preg_replace("/\/+/","/", "$GLOBALS[__MOD_DIR]/fichiers/composantes"); // Réservé aux fichiers téléchargeables : justificatifs
 
 // Messagerie Gestion
-$GLOBALS["__GESTION_MSG_DIR"]=$_SESSION["config"]["__GESTION_MSG_DIR"]="$GLOBALS[__GESTION_DIR]/messagerie";
-$GLOBALS["__GESTION_MSG_STOCKAGE_DIR"]=$_SESSION["config"]["__GESTION_MSG_STOCKAGE_DIR"]="$GLOBALS[__GESTION_DIR]/fichiers/messagerie";
+$GLOBALS["__GESTION_MSG_DIR"]=$_SESSION["config"]["__GESTION_MSG_DIR"]=preg_replace("/\/+/","/", "$GLOBALS[__GESTION_DIR]/messagerie");
+$GLOBALS["__GESTION_MSG_STOCKAGE_DIR"]=$_SESSION["config"]["__GESTION_MSG_STOCKAGE_DIR"]=preg_replace("/\/+/","/", "$GLOBALS[__GESTION_DIR]/fichiers/messagerie");
 
 // Modules (plugins) additionnels
-$GLOBALS["__PLUGINS_DIR"]=$_SESSION["config"]["__PLUGINS_DIR"]="$GLOBALS[__GESTION_DIR]/admin/modules";
+$GLOBALS["__PLUGINS_DIR"]=$_SESSION["config"]["__PLUGINS_DIR"]=preg_replace("/\/+/","/", "$GLOBALS[__GESTION_DIR]/admin/modules");
 
 // Images, icônes et logo par défaut
 // __IMG_DIR est particulière : si une université dispose d'autres icônes dans un autre répertoire (cf Menu Administration / Universités),
 // alors ce répertoire est prioritaire sur celui-ci.
 
-$GLOBALS["__IMG_DIR"]=$_SESSION["config"]["__IMG_DIR"]=isset($_SESSION["img_dir"]) ? "$GLOBALS[__MOD_DIR]/images/$_SESSION[img_dir]" : "$GLOBALS[__MOD_DIR]/images";
-$GLOBALS["__ICON_DIR"]=$_SESSION["config"]["__ICON_DIR"]="$GLOBALS[__IMG_DIR]/icones";
-$GLOBALS["__LOGO_DEFAUT"]=$_SESSION["config"]["__LOGO_DEFAUT"]="$GLOBALS[__ICON_DIR]/logo.png";
+$GLOBALS["__IMG_DIR"]=$_SESSION["config"]["__IMG_DIR"]=isset($_SESSION["img_dir"]) ? preg_replace("/\/+/","/", "$GLOBALS[__MOD_DIR]/images/$_SESSION[img_dir]") : preg_replace("/\/+/","/", "$GLOBALS[__MOD_DIR]/images");
+$GLOBALS["__ICON_DIR"]=$_SESSION["config"]["__ICON_DIR"]=preg_replace("/\/+/","/", "$GLOBALS[__IMG_DIR]/icones");
+$GLOBALS["__LOGO_DEFAUT"]=$_SESSION["config"]["__LOGO_DEFAUT"]=preg_replace("/\/+/","/", "$GLOBALS[__ICON_DIR]/logo.png");
 
 // ==================================================================================
 //                   CHEMINS ABSOLUS POUR LES REPERTOIRES PRECEDENTS
 //      Automatiquement générés - aucune modification ne devrait être nécessaire
 // ==================================================================================
 
-$GLOBALS["__MOD_DIR_ABS"]=$_SESSION["config"]["__MOD_DIR_ABS"]="$GLOBALS[__ROOT_DIR]/$GLOBALS[__MOD_DIR]";
-$GLOBALS["__STATIC_DIR_ABS"]=$_SESSION["config"]["__STATIC_DIR_ABS"]="$GLOBALS[__ROOT_DIR]/$GLOBALS[__STATIC_DIR]";
-$GLOBALS["__INCLUDE_DIR_ABS"]=$_SESSION["config"]["__INCLUDE_DIR_ABS"]="$GLOBALS[__ROOT_DIR]/$GLOBALS[__INCLUDE_DIR]";
-$GLOBALS["__FPDF_DIR_ABS"]=$_SESSION["config"]["__FPDF_DIR_ABS"]="$GLOBALS[__ROOT_DIR]/$GLOBALS[__FPDF_DIR]";
-$GLOBALS["__CAND_COMP_STOCKAGE_DIR_ABS"]=$_SESSION["config"]["__CAND_COMP_STOCKAGE_DIR_ABS"]="$GLOBALS[__ROOT_DIR]/$GLOBALS[__CAND_COMP_STOCKAGE_DIR]";
-$GLOBALS["__CAND_MSG_STOCKAGE_DIR_ABS"]=$_SESSION["config"]["__CAND_MSG_STOCKAGE_DIR_ABS"]="$GLOBALS[__ROOT_DIR]/$GLOBALS[__CAND_MSG_STOCKAGE_DIR]";
-$GLOBALS["__CAND_ASSISTANCE_DIR_ABS"]=$_SESSION["config"]["__CAND_ASSISTANCE_DIR_ABS"]="$GLOBALS[__ROOT_DIR]/$GLOBALS[__CAND_ASSISTANCE_DIR]";
-$GLOBALS["__PUBLIC_DIR_ABS"]=$_SESSION["config"]["__PUBLIC_DIR_ABS"]="$GLOBALS[__ROOT_DIR]/$GLOBALS[__PUBLIC_DIR]";
-$GLOBALS["__GESTION_COMP_STOCKAGE_DIR_ABS"]=$_SESSION["config"]["__GESTION_COMP_STOCKAGE_DIR_ABS"]="$GLOBALS[__ROOT_DIR]/$GLOBALS[__GESTION_COMP_STOCKAGE_DIR]";
-$GLOBALS["__GESTION_MSG_STOCKAGE_DIR_ABS"]=$_SESSION["config"]["__GESTION_MSG_STOCKAGE_DIR_ABS"]="$GLOBALS[__ROOT_DIR]/$GLOBALS[__GESTION_MSG_STOCKAGE_DIR]";
-$GLOBALS["__IMG_DIR_ABS"]=$_SESSION["config"]["__IMG_DIR_ABS"]="$GLOBALS[__ROOT_DIR]/$GLOBALS[__IMG_DIR]";
-$GLOBALS["__ICON_DIR_ABS"]=$_SESSION["config"]["__ICON_DIR_ABS"]="$GLOBALS[__ROOT_DIR]/$GLOBALS[__ICON_DIR]";
-$GLOBALS["__LOGO_DEFAUT_ABS"]=$_SESSION["config"]["__LOGO_DEFAUT_ABS"]="$GLOBALS[__ROOT_DIR]/$GLOBALS[__LOGO_DEFAUT]";
-$GLOBALS["__PLUGINS_DIR_ABS"]=$_SESSION["config"]["__PLUGINS_DIR_ABS"]="$GLOBALS[__ROOT_DIR]/$GLOBALS[__PLUGINS_DIR]";
+$GLOBALS["__MOD_DIR_ABS"]=$_SESSION["config"]["__MOD_DIR_ABS"]=preg_replace("/\/+/","/", "$GLOBALS[__ROOT_DIR]/$GLOBALS[__MOD_DIR]");
+$GLOBALS["__STATIC_DIR_ABS"]=$_SESSION["config"]["__STATIC_DIR_ABS"]=preg_replace("/\/+/","/", "$GLOBALS[__ROOT_DIR]/$GLOBALS[__STATIC_DIR]");
+$GLOBALS["__INCLUDE_DIR_ABS"]=$_SESSION["config"]["__INCLUDE_DIR_ABS"]=preg_replace("/\/+/","/", "$GLOBALS[__ROOT_DIR]/$GLOBALS[__INCLUDE_DIR]");
+$GLOBALS["__FPDF_DIR_ABS"]=$_SESSION["config"]["__FPDF_DIR_ABS"]=preg_replace("/\/+/","/", "$GLOBALS[__ROOT_DIR]/$GLOBALS[__FPDF_DIR]");
+$GLOBALS["__CAND_COMP_STOCKAGE_DIR_ABS"]=$_SESSION["config"]["__CAND_COMP_STOCKAGE_DIR_ABS"]=preg_replace("/\/+/","/", "$GLOBALS[__ROOT_DIR]/$GLOBALS[__CAND_COMP_STOCKAGE_DIR]");
+$GLOBALS["__CAND_MSG_STOCKAGE_DIR_ABS"]=$_SESSION["config"]["__CAND_MSG_STOCKAGE_DIR_ABS"]=preg_replace("/\/+/","/", "$GLOBALS[__ROOT_DIR]/$GLOBALS[__CAND_MSG_STOCKAGE_DIR]");
+$GLOBALS["__CAND_ASSISTANCE_DIR_ABS"]=$_SESSION["config"]["__CAND_ASSISTANCE_DIR_ABS"]=preg_replace("/\/+/","/", "$GLOBALS[__ROOT_DIR]/$GLOBALS[__CAND_ASSISTANCE_DIR]");
+$GLOBALS["__PUBLIC_DIR_ABS"]=$_SESSION["config"]["__PUBLIC_DIR_ABS"]=preg_replace("/\/+/","/", "$GLOBALS[__ROOT_DIR]/$GLOBALS[__PUBLIC_DIR]");
+$GLOBALS["__GESTION_COMP_STOCKAGE_DIR_ABS"]=$_SESSION["config"]["__GESTION_COMP_STOCKAGE_DIR_ABS"]=preg_replace("/\/+/","/", "$GLOBALS[__ROOT_DIR]/$GLOBALS[__GESTION_COMP_STOCKAGE_DIR]");
+$GLOBALS["__GESTION_MSG_STOCKAGE_DIR_ABS"]=$_SESSION["config"]["__GESTION_MSG_STOCKAGE_DIR_ABS"]=preg_replace("/\/+/","/", "$GLOBALS[__ROOT_DIR]/$GLOBALS[__GESTION_MSG_STOCKAGE_DIR]");
+$GLOBALS["__IMG_DIR_ABS"]=$_SESSION["config"]["__IMG_DIR_ABS"]=preg_replace("/\/+/","/", "$GLOBALS[__ROOT_DIR]/$GLOBALS[__IMG_DIR]");
+$GLOBALS["__ICON_DIR_ABS"]=$_SESSION["config"]["__ICON_DIR_ABS"]=preg_replace("/\/+/","/", "$GLOBALS[__ROOT_DIR]/$GLOBALS[__ICON_DIR]");
+$GLOBALS["__LOGO_DEFAUT_ABS"]=$_SESSION["config"]["__LOGO_DEFAUT_ABS"]=preg_replace("/\/+/","/", "$GLOBALS[__ROOT_DIR]/$GLOBALS[__LOGO_DEFAUT]");
+$GLOBALS["__PLUGINS_DIR_ABS"]=$_SESSION["config"]["__PLUGINS_DIR_ABS"]=preg_replace("/\/+/","/", "$GLOBALS[__ROOT_DIR]/$GLOBALS[__PLUGINS_DIR]");
 
 // Construction de la date limite pour distinguer les anciennes candidatures des nouvelles (= année suivante)
 // On se basera sur l'identifiant d'une candidature (format AA MM JJ HH MM SS MS(5), sans les espaces)

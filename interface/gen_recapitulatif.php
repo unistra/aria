@@ -76,6 +76,9 @@ CeCILL-B, et que vous en avez accepté les termes.
   if(isset($_GET["cand_id"]) && ctype_digit($_GET["cand_id"])) {
     $candidature_id=$_GET["cand_id"];
     $condition_candidature_id="AND $_DBC_cand_id=$candidature_id";
+  } 
+  else { // message d'erreur
+    die("Erreur : il n'est plus possible de générer les récapitulatifs des années antérieures");
   }
   
   if(isset($_GET["comp_id"]) && ctype_digit($_GET["comp_id"]))
