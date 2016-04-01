@@ -439,7 +439,6 @@ CeCILL-B, et que vous en avez accepté les termes.
                          $_DBC_cand_periode, $_DBC_cand_vap_flag
                           FROM $_DB_cand, $_DB_annees, $_DB_specs, $_DB_propspec
                         WHERE $_DBC_cand_candidat_id='$candidat_id'
-                        AND $_DBC_cand_id='$candidature_id'
                         AND $_DBC_cand_propspec_id=$_DBC_propspec_id
                         AND $_DBC_propspec_annee=$_DBC_annees_id
                         AND $_DBC_propspec_id_spec=$_DBC_specs_id
