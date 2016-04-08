@@ -89,14 +89,31 @@ CeCILL-B, et que vous en avez accepté les termes.
           <br>Le programme <a href='http://www.adobe.com/fr/' class='lien_bleu' target='_blank' style='vertical-align:top;'><strong>Adobe Acrobat Reader</strong></a> 
           peut être utilisé pour ouvrir les fichiers PDF", $__INFO);
 
+    $liste_options_justifs=$liste_options_recap="";
+    
+    for($i=0; $i<$rows; $i++) {
+       list($cand_id, $propspec_id, $annee, $spec, $finalite, $statut)=db_fetch_row($result, $i);
+      
+       $formation=$annee=="" ? "$spec $tab_finalite[$finalite]" : "$annee - $spec $tab_finalite[$finalite]";
+       
+       $liste_options_recap.="<br>- <a href='gen_recapitulatif.php?cand_id=$cand_id' class='lien_bleu_10' target='_blank'>$formation</a>\n";
+       $liste_options_justifs.="<br>- <a href='gen_justificatifs.php?cand_id=$cand_id' class='lien_bleu_10' target='_blank'>$formation</a>\n";
+    }
+    
     print("<table cellpadding='4' cellspacing='0' align='center' border='0'>
-         <tr>
-          <td align='left' nowrap='true' width='40' valign='top' style='padding-bottom:20px;'>
-            <a href='gen_recapitulatif.php' class='lien_bleu_10' target='_blank'><img src='$__ICON_DIR/pdf_32x32_fond.png' alt='PDF' desc='PDF' border='0'></a>
-          </td>
-          <td align='left' nowrap='true' valign='middle' style='padding-bottom:20px;'>
-            <a href='gen_recapitulatif.php' class='lien_bleu_10' target='_blank'>Récapitulatif des informations que vous avez saisies</a>
-          </td>
+           <tr>
+              <td align='left' nowrap='true' width='40' valign='top' style='padding-bottom:20px;'>
+                <a href='gen_recapitulatif.php?cand_id=$cand_id' class='lien_bleu_10' target='_blank'>
+                  <img src='$__ICON_DIR/pdf_32x32_fond.png' alt='PDF' desc='PDF' border='0'>
+                </a>
+              </td>
+              <td align='left' nowrap='true' valign='middle' style='padding-bottom:20px;'>
+              <font class='Texte'>
+                <strong>Récapitulatifs de vos informations :</strong>\n");
+              
+    print("$liste_options_recap\n");
+    
+    print(" </td>
         </tr>
         <tr>
           <td align='left' nowrap='true' width='40' valign='top' style='padding-bottom:20px;'>
@@ -104,28 +121,13 @@ CeCILL-B, et que vous en avez accepté les termes.
           </td>
           <td align='left' nowrap='true' valign='middle' style='padding-bottom:20px;'>
             <font class='Texte'>
-              <strong>Justificatifs à nous fournir pour vos voeux dans l'établissement \"$_SESSION[composante]\"</strong>\n");
-
-    for($i=0; $i<$rows; $i++)
-    {
-      list($cand_id, $propspec_id, $annee, $spec, $finalite, $statut)=db_fetch_row($result, $i);
-
-      if($annee=="")
-        print("<br>- <a href='gen_justificatifs.php?cand_id=$cand_id' class='lien_bleu_10' target='_blank'>$spec $tab_finalite[$finalite]</a>\n");
-      else
-        print("<br>- <a href='gen_justificatifs.php?cand_id=$cand_id' class='lien_bleu_10' target='_blank'>$annee - $spec $tab_finalite[$finalite]</a>\n");
-    }
-    
-    print("</font>
-         </td>
+              <strong>Justificatifs à nous fournir pour vos voeux dans l'établissement \"$_SESSION[composante]\"</strong>
+              $liste_options_justifs
+            </font>
+          </td>
         </tr>
         </table>
         <br>\n");
-        
-    message("<center>
-                  Attention : cette fonctionnalité peut poser problème avec certaines version du navigateur Internet Explorer.
-                  <br>Le navigateur <a href='http://www.mozilla-europe.org/fr/products/firefox/' target='_blank' class='lien_bleu' style='vertical-align:top;'>Mozilla Firefox</a> (gratuit) est en revanche totalement compatible.
-           </center>", $__WARNING);
   }
   else
     message("Ces documents ne sont pas encore disponibles :
