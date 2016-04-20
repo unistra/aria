@@ -629,6 +629,17 @@ CeCILL-B, et que vous en avez accepté les termes.
           {
             list($elem_id)=db_fetch_row($result2,$j);
             
+            $result3 = db_query($dbr,"SELECT $_DBC_dossiers_elems_para, $_DBC_dossiers_elems_contenu_para,
+                                             $_DBC_dossiers_elems_type, $_DBC_dossiers_elems_nouvelle_page
+                                      FROM $_DB_dossiers_elems, $_DB_dossiers_elems_contenu
+                                        WHERE $_DBC_dossiers_elems_id='$elem_id'
+                                      AND $_DBC_dossiers_elems_contenu_candidat_id='$candidat_id'
+                                      AND ($_DBC_dossiers_elems_contenu_propspec_id='$propspec_id' OR $_DBC_dossiers_elems_contenu_propspec_id='0')
+                                      AND $_DBC_dossiers_elems_contenu_elem_id=$_DBC_dossiers_elems_id
+                                      AND $_DBC_dossiers_elems_recapitulatif='t'
+                                      $condition_periode");
+            
+            /*
             $result3 = db_query($dbr,"SELECT $_DBC_dossiers_elems_para, $_DBC_dossiers_elems_contenu_para, 
                                              $_DBC_dossiers_elems_type, $_DBC_dossiers_elems_nouvelle_page
                                       FROM $_DB_dossiers_elems, $_DB_dossiers_elems_contenu
@@ -639,21 +650,6 @@ CeCILL-B, et que vous en avez accepté les termes.
                                       $condition_periode
                                       group by $_DBC_dossiers_elems_para, $_DBC_dossiers_elems_contenu_para, 
                                              $_DBC_dossiers_elems_type, $_DBC_dossiers_elems_nouvelle_page");
-            /*
-            if($candidat_id=="14041511110938601")
-            {
-              print("SELECT $_DBC_dossiers_elems_para, $_DBC_dossiers_elems_contenu_para, 
-                                             $_DBC_dossiers_elems_type, $_DBC_dossiers_elems_nouvelle_page
-                                      FROM $_DB_dossiers_elems, $_DB_dossiers_elems_contenu
-                                      WHERE $_DBC_dossiers_elems_id='$elem_id'
-                                      AND $_DBC_dossiers_elems_contenu_candidat_id='$candidat_id'
-                                      AND $_DBC_dossiers_elems_contenu_elem_id=$_DBC_dossiers_elems_id
-                                      AND $_DBC_dossiers_elems_recapitulatif='t'
-                                      $condition_periode
-                                      group by $_DBC_dossiers_elems_para, $_DBC_dossiers_elems_contenu_para, 
-                                             $_DBC_dossiers_elems_type, $_DBC_dossiers_elems_nouvelle_page");
-                           
-              die();
             }
             */
 
@@ -766,6 +762,7 @@ CeCILL-B, et que vous en avez accepté les termes.
             db_free_result($result3);
           } // fin du for(rows2)
         }
+        
         db_free_result($result2);
 
         // ==========================================

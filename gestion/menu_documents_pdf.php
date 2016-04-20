@@ -106,13 +106,8 @@ CeCILL-B, et que vous en avez accepté les termes.
     print("<table cellpadding='4' cellspacing='0' align='center' border='0'>
           <tr>
             <td align='left' nowrap='true' width='40' valign='top' style='padding-bottom:20px;'>
-              <a href='recapitulatif.php' class='lien_bleu_10' target='_blank'><img src='$__ICON_DIR/pdf_32x32_fond.png' alt='PDF' desc='PDF' border='0'></a>
+              <img src='$__ICON_DIR/pdf_32x32_fond.png' alt='PDF' desc='PDF' border='0'>
             </td>
-            <!--
-            <td align='left' nowrap='true' valign='middle' style='padding-bottom:20px;'>
-              <a href='recapitulatif.php' class='lien_bleu_10' target='_blank'>Récapitulatif des informations entrées par le candidat</a>
-            </td>
-            -->
             <td align='left' nowrap='true' valign='middle' style='padding-bottom:20px;'>
               <font class='Texte'>
                 <strong>Générer les Récapitulatifs des informations entrées par le candidat :</strong>\n");
