@@ -606,9 +606,11 @@ CeCILL-B, et que vous en avez accepté les termes.
         
         if($condition_formations!="") {
             $condition_f = "$_DBC_dossiers_ef_propspec_id='$formation_id'";
+            $prop_id=$formation_id;
         }
         elseif ($condition_candidature!="") {
             $condition_f = "$_DBC_dossiers_ef_propspec_id='$initial_propspec_id'";
+            $prop_id = $initial_propspec_id;
         }
           
         
@@ -634,11 +636,11 @@ CeCILL-B, et que vous en avez accepté les termes.
                                       FROM $_DB_dossiers_elems, $_DB_dossiers_elems_contenu
                                         WHERE $_DBC_dossiers_elems_id='$elem_id'
                                       AND $_DBC_dossiers_elems_contenu_candidat_id='$candidat_id'
-                                      AND ($_DBC_dossiers_elems_contenu_propspec_id='$propspec_id' OR $_DBC_dossiers_elems_contenu_propspec_id='0')
+                                      AND ($_DBC_dossiers_elems_contenu_propspec_id='$prop_id' OR $_DBC_dossiers_elems_contenu_propspec_id='0')
                                       AND $_DBC_dossiers_elems_contenu_elem_id=$_DBC_dossiers_elems_id
                                       AND $_DBC_dossiers_elems_recapitulatif='t'
                                       $condition_periode");
-            
+                                      
             /*
             $result3 = db_query($dbr,"SELECT $_DBC_dossiers_elems_para, $_DBC_dossiers_elems_contenu_para, 
                                              $_DBC_dossiers_elems_type, $_DBC_dossiers_elems_nouvelle_page
