@@ -480,15 +480,6 @@ $_SESSION[universite]";
 
       message("$rapport", $__SUCCES);
     }
-    /*
-    elseif(isset($deja_traitee) && $deja_traitee!=0)
-    {
-      if($deja_traitee==1)
-        message("ATTENTION : une décision n'a pas été validée car elle semblait déjà traitée. $nb_success ont été validées avec succès.", $__ERREUR);
-      else
-        message("ATTENTION : $deja_traitee décisions n'ont pas été validées car elles semblaient déjà traitées. $nb_success ont été validées avec succès.", $__ERREUR);
-    }
-    */
 
     if(!isset($resultat))
     {
@@ -750,8 +741,11 @@ $_SESSION[universite]";
 
         // Récupération des décisions
         $result2=db_query($dbr,"SELECT $_DBC_decisions_id, $_DBC_decisions_texte FROM $_DB_decisions
-                          WHERE $_DBC_decisions_id IN (SELECT distinct($_DBU_cand_decision) FROM $_DB_cand WHERE $_DBU_cand_periode='$__PERIODE'
-                              AND $_DBU_cand_propspec_id IN (SELECT $_DBU_propspec_id FROM $_DB_propspec WHERE $_DBU_propspec_comp_id='$_SESSION[comp_id]'))
+                          WHERE $_DBC_decisions_id IN (
+                              SELECT distinct($_DBU_cand_decision) FROM $_DB_cand WHERE $_DBU_cand_periode='$__PERIODE'
+                              AND $_DBU_cand_propspec_id IN (SELECT $_DBU_propspec_id FROM $_DB_propspec WHERE $_DBU_propspec_comp_id='$_SESSION[comp_id]')
+                              UNION
+                              SELECT $_DBC_decisions_comp_dec_id FROM $_DB_decisions_comp WHERE $_DBC_decisions_comp_comp_id='$_SESSION[comp_id]')
                           AND $_DBC_decisions_id!='$__DOSSIER_TRANSMIS'
                         ORDER BY $_DBC_decisions_texte");
 
