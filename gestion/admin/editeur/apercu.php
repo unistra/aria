@@ -277,11 +277,11 @@ CeCILL-B, et que vous en avez accepté les termes.
 
     if(!empty($candidature_array["spec_nom"]))
     {
-      // Utilisation de la librairie fpdf (libre)
-      require("$__FPDF_DIR_ABS/fpdf.php");
+      // Utilisation de la librairie tcpdf (libre)
+      require("$__FPDF_DIR_ABS/tcpdf.php");
 
       // Création du PDF
-      $lettre_decision=new FPDF("P","mm","A4");
+      $lettre_decision=new TCPDF("P","mm","A4", true, 'UTF-8', false);
 
       $lettre_decision->SetCreator("Application de Gestion des Candidatures de l'Université de Strasbourg");
       $lettre_decision->SetAuthor("Christophe BOCCHECIAMPE - UFR de Mathématique et d'Informatique - Université de Strasbourg");
@@ -292,16 +292,16 @@ CeCILL-B, et que vous en avez accepté les termes.
       $lettre_decision->SetAutoPageBreak(1,11);
       // $lettre_decision->SetMargins(11,11,11);
 
+      $lettre_decision->SetPrintHeader(false);
       $lettre_decision->AddPage();
 
       $lettre_decision->SetXY(13, 10);
-      // TODO : ATTENTION : NE PAS OUBLIER DE GENERER LA FONTE ARIBLK.TTF LORS D'UN CHANGEMENT DE MACHINE
-      $lettre_decision->AddFont("arial_black");
 
       if(!empty($txt_logo))
       {
         $lettre_decision->SetXY(11, 10);
-        $lettre_decision->SetFont('arial_black','',12);
+        # $lettre_decision->SetFont('arial_black','',12);
+        $lettre_decision->SetFont('freesans','B',12);
 
         if(!empty($univ_couleur_texte))
         {
@@ -376,7 +376,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       // Hauteur de référence pour le texte écrit dans la colonne gauche
       $txt_scol_hauteur_courante=$lettre_decision->GetY();
 
-      $lettre_decision->SetFont('arial','',10);
+      $lettre_decision->SetFont('freesans','',10);
       $lettre_decision->SetTextColor(0, 0, 0);
 
       if($flag_date!=0) // 1 = date de commission || -1 : date du jour
@@ -453,7 +453,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                     }
 
                     $lettre_decision->SetX($corps_pos_x);
-                    $lettre_decision->MultiCell($largeur_encadre, 5,$txt, 1, "$cell_align");
+                    $lettre_decision->MultiCell($largeur_encadre, 5,$txt."\n", 1, "$cell_align");
 
                     // $lettre_decision->Ln(5);
 
@@ -476,7 +476,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                     $gras=$txt_gras ? "B" : "";
                     $italique=$txt_italique ? "I" : "";
 
-                    $lettre_decision->SetFont('arial',"$gras$italique",$txt_taille);
+                    $lettre_decision->SetFont('freesans',"$gras$italique",$txt_taille);
 
                     if($txt_taille>14)
                       $hauteur_cell="6";
@@ -494,7 +494,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                       $X=$corps_pos_x;
 
                     $lettre_decision->SetX($X);
-                    $lettre_decision->MultiCell(0, $hauteur_cell, $txt, 0, "$cell_align");
+                    $lettre_decision->MultiCell(0, $hauteur_cell, $txt."\n", 0, "$cell_align");
 
                     // $lettre_decision->Ln(5);
 
@@ -525,19 +525,23 @@ CeCILL-B, et que vous en avez accepté les termes.
 
         // $lettre_decision->SetXY(0, 225);
         $lettre_decision->SetXY(0, $Y_txt_scol);
-        $lettre_decision->SetFont('arial','',8);
+        $lettre_decision->SetFont('freesans','',8);
 
         $array_txt_scol=explode("\n", $txt_scol);
 
         foreach($array_txt_scol as $ligne_scol)
         {
+          if(empty(trim($ligne_scol))) {
+              $ligne_scol=" ";
+          }
+          
           $base_size=8;
-          $lettre_decision->SetFont('arial','',$base_size);
+          $lettre_decision->SetFont('freesans','',$base_size);
 
           while($lettre_decision->GetStringWidth($ligne_scol) > 42)
           {
             $base_size--;
-            $lettre_decision->SetFont('arial','',$base_size);
+            $lettre_decision->SetFont('freesans','',$base_size);
           }
 
           $lettre_decision->SetX(11);

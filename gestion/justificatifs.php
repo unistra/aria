@@ -49,283 +49,266 @@ CeCILL-B, et que vous en avez accepté les termes.
 */
 ?>
 <?php
-	session_name("preinsc_gestion");
-	session_start();
+  session_name("preinsc_gestion");
+  session_start();
 
-	include "../configuration/aria_config.php";	
-	include "$__INCLUDE_DIR_ABS/vars.php";
-	include "$__INCLUDE_DIR_ABS/fonctions.php";
-	include "$__INCLUDE_DIR_ABS/db.php";
-	include "$__INCLUDE_DIR_ABS/access_functions.php";
-	
-	$php_self=$_SERVER['PHP_SELF'];
-	$_SESSION['CURRENT_FILE']=$php_self;
+  include "../configuration/aria_config.php"; 
+  include "$__INCLUDE_DIR_ABS/vars.php";
+  include "$__INCLUDE_DIR_ABS/fonctions.php";
+  include "$__INCLUDE_DIR_ABS/db.php";
+  include "$__INCLUDE_DIR_ABS/access_functions.php";
+  
+  $php_self=$_SERVER['PHP_SELF'];
+  $_SESSION['CURRENT_FILE']=$php_self;
 
-	verif_auth();
+  verif_auth();
 
-	$candidat_id=$_SESSION["candidat_id"];
+  $candidat_id=$_SESSION["candidat_id"];
 
-	$dbr=db_connect();
+  $dbr=db_connect();
 
-	// Utilisation de la librairie fpdf (libre)
-	require("$__FPDF_DIR_ABS/fpdf.php");
+  // Utilisation de la librairie tcpdf (libre)
+  require("$__FPDF_DIR_ABS/tcpdf.php");
 
-	// Pour chaque candidature, on génère un fichier contenant la liste des justificatifs (pièces jointes non comprises)
+  // Pour chaque candidature, on génère un fichier contenant la liste des justificatifs (pièces jointes non comprises)
 
-	// Sélection d'une candidature via la page "edit_candidature" : on tient compte de l'identifiant
-	if(isset($_GET["cand_id"]) && ctype_digit($_GET["cand_id"]))
-	{
-		$cand_id=$_GET["cand_id"];
-		$condition_candidature="AND $_DBC_cand_id='$cand_id'";
-	}
-	else
-		$condition_candidature="";
+  // Sélection d'une candidature via la page "edit_candidature" : on tient compte de l'identifiant
+  if(isset($_GET["cand_id"]) && ctype_digit($_GET["cand_id"]))
+  {
+      $cand_id=$_GET["cand_id"];
+      $condition_candidature="AND $_DBC_cand_id='$cand_id'";
+  }
+  else {
+      $condition_candidature="";
+  }
 
-	$result2=db_query($dbr, "SELECT $_DBC_cand_id, $_DBC_cand_propspec_id, $_DBC_annees_annee, $_DBC_specs_nom,
-											  $_DBC_propspec_finalite, $_DBC_propspec_frais, $_DBC_composantes_nom, $_DBC_composantes_scolarite,
-											  $_DBC_universites_nom
-										FROM $_DB_cand, $_DB_propspec, $_DB_annees, $_DB_specs, $_DB_composantes, $_DB_universites
-									WHERE $_DBC_cand_propspec_id=$_DBC_propspec_id
-									AND $_DBC_propspec_annee=$_DBC_annees_id
-									AND $_DBC_propspec_id_spec=$_DBC_specs_id
-									AND $_DBC_composantes_id=$_DBC_propspec_comp_id
-									AND $_DBC_composantes_univ_id=$_DBC_universites_id
-									AND $_DBC_propspec_comp_id='$_SESSION[comp_id]'
-									AND $_DBC_cand_candidat_id='$candidat_id'
-									$condition_candidature");
+  $result2=db_query($dbr, "SELECT $_DBC_cand_id, $_DBC_cand_propspec_id, $_DBC_annees_annee, $_DBC_specs_nom,
+                        $_DBC_propspec_finalite, $_DBC_propspec_frais, $_DBC_composantes_nom, $_DBC_composantes_scolarite,
+                        $_DBC_universites_nom
+                    FROM $_DB_cand, $_DB_propspec, $_DB_annees, $_DB_specs, $_DB_composantes, $_DB_universites
+                  WHERE $_DBC_cand_propspec_id=$_DBC_propspec_id
+                  AND $_DBC_propspec_annee=$_DBC_annees_id
+                  AND $_DBC_propspec_id_spec=$_DBC_specs_id
+                  AND $_DBC_composantes_id=$_DBC_propspec_comp_id
+                  AND $_DBC_composantes_univ_id=$_DBC_universites_id
+                  AND $_DBC_propspec_comp_id='$_SESSION[comp_id]'
+                  AND $_DBC_cand_candidat_id='$candidat_id'
+                  $condition_candidature");
 
-	$rows2=db_num_rows($result2);
+  $rows2=db_num_rows($result2);
 
-	// Boucle sur les candidatures
-	if($rows2)
-	{
-		// Ici, on créé UN SEUL FICHIER avec UNE PAGE PAR FORMATION
+  // Boucle sur les candidatures
+  if($rows2) {
+      // Ici, on créé UN SEUL FICHIER avec UNE PAGE PAR FORMATION
 
-		$justificatifs=new FPDF("P","mm","A4");
+      $justificatifs=new TCPDF("P","mm","A4", true, 'UTF-8', false);
 
-		$justificatifs->SetCreator("Application ARIA : Gestion des Candidatures");
-		$justificatifs->SetAuthor("Christophe BOCCHECIAMPE - UFR de Mathématique et d'Informatique - Université de Strasbourg");
-		$justificatifs->SetSubject("Justificatifs");
-		$justificatifs->SetTitle("Justificatifs");
+      $justificatifs->SetCreator("Application ARIA : Gestion des Candidatures");
+      $justificatifs->SetAuthor("Christophe BOCCHECIAMPE - UFR de Mathématique et d'Informatique - Université de Strasbourg");
+      $justificatifs->SetSubject("Justificatifs");
+      $justificatifs->SetTitle("Justificatifs");
 
-		// saut de page automatique, à 15mm du bas
-		$justificatifs->SetAutoPageBreak(1,11);
-		// $justificatifs->SetMargins(11,11,11);
+      // saut de page automatique, à 15mm du bas
+      $justificatifs->SetAutoPageBreak(1,11);
+      // $justificatifs->SetMargins(11,11,11);
 
-		for($k=0; $k<$rows2; $k++)
-		{
-			list($candidature_id, $propspec_id, $annee, $spec, $finalite, $frais, $comp_nom, $adr_scol, $univ_nom)=db_fetch_row($result2, $k);
+      for($k=0; $k<$rows2; $k++) {
+          list($candidature_id, $propspec_id, $annee, $spec, $finalite, $frais, $comp_nom, $adr_scol, $univ_nom)=db_fetch_row($result2, $k);
 
-			$nom_finalite=$tab_finalite[$finalite];
+          $nom_finalite=$tab_finalite[$finalite];
 
-			// Création du PDF
+          // Création du PDF
 
-			$justificatifs->AddPage();
+          $justificatifs->SetPrintHeader(false);
+          $justificatifs->AddPage();
 
-			$justificatifs->SetXY(13, 24);
-			// TODO : ATTENTION : NE PAS OUBLIER DE GENERER LA FONTE ARIBLK.TTF LORS D'UN CHANGEMENT DE MACHINE
+          $justificatifs->SetXY(13, 24);
+          // TODO : ATTENTION : NE PAS OUBLIER DE GENERER LA FONTE ARIBLK.TTF LORS D'UN CHANGEMENT DE MACHINE
 
-			$justificatifs->SetFont('arial','',10);
-			$justificatifs->SetTextColor(0, 0, 0);
+          $justificatifs->SetFont('freesans','',10);
+          $justificatifs->SetTextColor(0, 0, 0);
 
-			if(empty($annee))
-				$formation="$spec $nom_finalite $__PERIODE - " . ($__PERIODE+1);
-			else
-				$formation="$annee $spec $nom_finalite $__PERIODE - " . ($__PERIODE+1);
+          if(empty($annee)) {
+              $formation="$spec $nom_finalite $__PERIODE - " . ($__PERIODE+1);
+          }
+          else {
+              $formation="$annee $spec $nom_finalite $__PERIODE - " . ($__PERIODE+1);
+          }
 
-			$justificatifs->SetXY(20, 15);
-			$justificatifs->SetFont('arial',"B",12);
+          $justificatifs->SetXY(20, 15);
+          $justificatifs->SetFont('freesans',"B",12);
 
-			$justificatifs->MultiCell(0, 5, "$formation\nJustificatifs à fournir", 0, "C");
+          $justificatifs->MultiCell(0, 5, "$formation\nJustificatifs à fournir", 0, "C");
 
-			$justificatifs->SetXY(20, 30);
+          $justificatifs->SetXY(20, 30);
 
-			$result=db_query($dbr, "SELECT $_DBC_justifs_id, $_DBC_justifs_titre, $_DBC_justifs_texte, $_DBC_justifs_jf_nationalite
-												FROM $_DB_justifs, $_DB_justifs_jf
-											WHERE $_DBC_justifs_jf_propspec_id='$propspec_id'
-											AND $_DBC_justifs_jf_justif_id=$_DBC_justifs_id
-												ORDER BY $_DBC_justifs_jf_ordre");
+          $result=db_query($dbr, "SELECT $_DBC_justifs_id, $_DBC_justifs_titre, $_DBC_justifs_texte, $_DBC_justifs_jf_nationalite
+                            FROM $_DB_justifs, $_DB_justifs_jf
+                          WHERE $_DBC_justifs_jf_propspec_id='$propspec_id'
+                          AND $_DBC_justifs_jf_justif_id=$_DBC_justifs_id
+                            ORDER BY $_DBC_justifs_jf_ordre");
 
-			$rows=db_num_rows($result);
+          $rows=db_num_rows($result);
 
-			// Boucle sur les justificatifs
-			for($j=0; $j<$rows; $j++)
-			{
-				list($justif_id, $justif_titre, $justif_texte, $justif_nationalite)=db_fetch_row($result, $j);
+          // Boucle sur les justificatifs
+          for($j=0; $j<$rows; $j++) {
+              list($justif_id, $justif_titre, $justif_texte, $justif_nationalite)=db_fetch_row($result, $j);
 
-				switch($justif_nationalite)
-				{
-						case $__COND_NAT_TOUS :		if($justif_texte=="")
-															{
-																$justificatifs->SetFont('arial',"",10);
-																$justificatifs->SetX(20);
-															}
-															else
-															{
-																$justificatifs->SetFont('arial',"B",10);
-																$justificatifs->SetX(20);
-															}
+              switch($justif_nationalite) {
+                  case $__COND_NAT_TOUS :
+                      if($justif_texte=="") {
+                          $justificatifs->SetFont('freesans',"",10);
+                          $justificatifs->SetX(20);
+                      }
+                      else {
+                          $justificatifs->SetFont('freesans',"B",10);
+                          $justificatifs->SetX(20);
+                      }
 
-															$justificatifs->MultiCell(0, 5, $justif_titre, 0, "J");
+                      $justificatifs->MultiCell(0, 5, $justif_titre."\n", 0, "J");
 
-															if($justif_texte!="")
-															{
-																$justificatifs->SetFont('arial',"",10);
-																$justificatifs->SetX(20);
-																$justificatifs->MultiCell(0, 5, $justif_texte, 0, "J");
-															}
+                      if($justif_texte!="") {
+                          $justificatifs->SetFont('freesans',"",10);
+                          $justificatifs->SetX(20);
+                          $justificatifs->MultiCell(0, 5, $justif_texte."\n", 0, "J");
+                      }
 
-															$justificatifs->Ln(5);
+                      $justificatifs->Ln(5);
 
-															break;
+                      break;
 
-						// Uniquement les candidats non français
-						case $__COND_NAT_FR :	if(!strncasecmp($_SESSION['tab_candidat']["nationalite"], "français", 8) || !strncasecmp($_SESSION['tab_candidat']["nationalite"], "francais", 8))
-														{
-															if($justif_texte=="")
-															{
-																$justificatifs->SetFont('arial',"",10);
-																$justificatifs->SetX(20);
-															}
-															else
-															{
-																$justificatifs->SetFont('arial',"B",10);
-																$justificatifs->SetX(20);
-															}
+                  // Uniquement les candidats non français
+                  case $__COND_NAT_FR :
+                      if(!strncasecmp($_SESSION['tab_candidat']["nationalite"], "français", 8) || !strncasecmp($_SESSION['tab_candidat']["nationalite"], "francais", 8)) {
+                          if($justif_texte=="") {
+                            $justificatifs->SetFont('freesans',"",10);
+                            $justificatifs->SetX(20);
+                          }
+                          else {
+                            $justificatifs->SetFont('freesans',"B",10);
+                            $justificatifs->SetX(20);
+                          }
 
-															$justificatifs->MultiCell(0, 5, $justif_titre, 0, "J");
+                          $justificatifs->MultiCell(0, 5, $justif_titre."\n", 0, "J");
 
-															if($justif_texte!="")
-															{
-																$justificatifs->SetFont('arial',"",10);
-																$justificatifs->SetX(20);
-																$justificatifs->MultiCell(0, 5, $justif_texte, 0, "J");
-															}
+                          if($justif_texte!="") {
+                            $justificatifs->SetFont('freesans',"",10);
+                            $justificatifs->SetX(20);
+                            $justificatifs->MultiCell(0, 5, $justif_texte."\n", 0, "J");
+                          }
 
-															$justificatifs->Ln(5);
-														}
+                          $justificatifs->Ln(5);
+                      }
 
-														break;
+                      break;
 
-						// Uniquement les candidats NON français
-						case $__COND_NAT_NON_FR :	if(strncasecmp($_SESSION['tab_candidat']["nationalite"], "français", 8) && strncasecmp($_SESSION['tab_candidat']["nationalite"], "francais", 8))
-															{
-																if($justif_texte=="")
-																{
-																	$justificatifs->SetFont('arial',"",10);
-																	$justificatifs->SetX(20);
-																}
-																else
-																{
-																	$justificatifs->SetFont('arial',"B",10);
-																	$justificatifs->SetX(20);
-																}
+                  // Uniquement les candidats NON français
+                  case $__COND_NAT_NON_FR :
+                      if(strncasecmp($_SESSION['tab_candidat']["nationalite"], "français", 8) && strncasecmp($_SESSION['tab_candidat']["nationalite"], "francais", 8)) {
+                          if($justif_texte=="") {
+                              $justificatifs->SetFont('freesans',"",10);
+                              $justificatifs->SetX(20);
+                          }
+                          else {
+                              $justificatifs->SetFont('freesans',"B",10);
+                              $justificatifs->SetX(20);
+                          }
 
-																$justificatifs->MultiCell(0, 5, $justif_titre, 0, "J");
+                          $justificatifs->MultiCell(0, 5, $justif_titre."\n", 0, "J");
 
-																if($justif_texte!="")
-																{
-																	$justificatifs->SetFont('arial',"",10);
-																	$justificatifs->SetX(20);
-																	$justificatifs->MultiCell(0, 5, $justif_texte, 0, "J");
-																}
+                          if($justif_texte!="") {
+                              $justificatifs->SetFont('freesans',"",10);
+                              $justificatifs->SetX(20);
+                              $justificatifs->MultiCell(0, 5, $justif_texte."\n", 0, "J");
+                          }
 
-																$justificatifs->Ln(5);
-															}
+                          $justificatifs->Ln(5);
+                      }
 
-															break;
+                      break;
 
-						// Uniquement les candidats HORS UE
-						case $__COND_NAT_HORS_UE :		// On balaye la liste des nationalités UE
-																$dans_ue=0;
+                  // Uniquement les candidats HORS UE
+                  case $__COND_NAT_HORS_UE :    // On balaye la liste des nationalités UE
+                      $dans_ue=0;
 
-																foreach($__PAYS_UE as $nationalite_ue)
-																{
-																	if(!strcasecmp($_SESSION['tab_candidat']["nationalite"], "$nationalite_ue"))
-																		$dans_ue=1;		// Le candidat est dans l'UE : on n'imprime pas
-																}
+                      foreach($__PAYS_UE as $nationalite_ue) {
+                          if(!strcasecmp($_SESSION['tab_candidat']["nationalite"], "$nationalite_ue"))
+                            $dans_ue=1;   // Le candidat est dans l'UE : on n'imprime pas
+                      }
 
-																// Non trouvé dans la liste : le candidat est hors UE (France comprise) : on imprime
-																if($dans_ue==0 && strncasecmp($_SESSION['tab_candidat']["nationalite"], "français", 8) && strncasecmp($_SESSION['tab_candidat']["nationalite"], "francais", 8))
-																{
-																	if($justif_texte=="")
-																	{
-																		$justificatifs->SetFont('arial',"",10);
-																		$justificatifs->SetX(20);
-																	}
-																	else
-																	{
-																		$justificatifs->SetFont('arial',"B",10);
-																		$justificatifs->SetX(20);
-																	}
+                      // Non trouvé dans la liste : le candidat est hors UE (France comprise) : on imprime
+                      if($dans_ue==0 && strncasecmp($_SESSION['tab_candidat']["nationalite"], "français", 8) && strncasecmp($_SESSION['tab_candidat']["nationalite"], "francais", 8)) {
+                          if($justif_texte=="") {
+                              $justificatifs->SetFont('freesans',"",10);
+                              $justificatifs->SetX(20);
+                          }
+                          else {
+                              $justificatifs->SetFont('freesans',"B",10);
+                              $justificatifs->SetX(20);
+                          }
 
-																	$justificatifs->MultiCell(0, 5, $justif_titre, 0, "J");
+                          $justificatifs->MultiCell(0, 5, $justif_titre."\n", 0, "J");
 
-																	if($justif_texte!="")
-																	{
-																		$justificatifs->SetFont('arial',"",10);
-																		$justificatifs->SetX(20);
-																		$justificatifs->MultiCell(0, 5, $justif_texte, 0, "J");
-																	}
+                          if($justif_texte!="")                     {
+                              $justificatifs->SetFont('freesans',"",10);
+                              $justificatifs->SetX(20);
+                              $justificatifs->MultiCell(0, 5, $justif_texte."\n", 0, "J");
+                          }
 
-																	$justificatifs->Ln(5);
-																}
+                          $justificatifs->Ln(5);
+                      }
 
-																break;
+                      break;
 
-						// Uniquement les candidats DANS l'UE (les Français ne sont pas inclus dans cette liste)
-						case $__COND_NAT_UE :	$dans_ue=0;
+                  // Uniquement les candidats DANS l'UE (les Français ne sont pas inclus dans cette liste)
+                  case $__COND_NAT_UE :
+                      $dans_ue=0;
 
-														foreach($__PAYS_UE as $nationalite_ue)
-														{
-															if(!strcasecmp($_SESSION['tab_candidat']["nationalite"], "$nationalite_ue"))
-																$dans_ue=1;		// Le candidat est dans l'UE : on imprime
-														}
+                      foreach($__PAYS_UE as $nationalite_ue) {
+                          if(!strcasecmp($_SESSION['tab_candidat']["nationalite"], "$nationalite_ue"))
+                            $dans_ue=1;   // Le candidat est dans l'UE : on imprime
+                      }
 
-														// Trouvé dans la liste : le candidat est dans l'UE : on imprime
-														if($dans_ue==1)
-														{
-															if($justif_texte=="")
-															{
-																$justificatifs->SetFont('arial',"",10);
-																$justificatifs->SetX(20);
-															}
-															else
-															{
-																$justificatifs->SetFont('arial',"B",10);
-																$justificatifs->SetX(20);
-															}
+                      // Trouvé dans la liste : le candidat est dans l'UE : on imprime
+                      if($dans_ue==1) {
+                          if($justif_texte=="") {
+                              $justificatifs->SetFont('freesans',"",10);
+                              $justificatifs->SetX(20);
+                          }
+                          else {
+                              $justificatifs->SetFont('freesans',"B",10);
+                              $justificatifs->SetX(20);
+                          }
 
-															$justificatifs->MultiCell(0, 5, $justif_titre, 0, "J");
+                          $justificatifs->MultiCell(0, 5, $justif_titre."\n", 0, "J");
 
-															if($justif_texte!="")
-															{
-																$justificatifs->SetFont('arial',"",10);
-																$justificatifs->SetX(20);
-																$justificatifs->MultiCell(0, 5, $justif_texte, 0, "J");
-															}
+                          if($justif_texte!="") {
+                              $justificatifs->SetFont('freesans',"",10);
+                              $justificatifs->SetX(20);
+                              $justificatifs->MultiCell(0, 5, $justif_texte."\n", 0, "J");
+                          }
 
-															$justificatifs->Ln(5);
-														}
+                          $justificatifs->Ln(5);
+                      }
 
-														break;
-				} // fin du switch
+                      break;
+              } // fin du switch
 
-			} // Fin de la boucle for() sur les justificatifs
+          } // Fin de la boucle for() sur les justificatifs
 
-			db_free_result($result);
-		}
+          db_free_result($result);
+      }
 
-		$nom_fichier=clean_str($_SESSION["auth_user"] . "_" . time() . "_Justificatifs.pdf");
-		// $justificatifs->Output("$nom_fichier", "I");
+      $nom_fichier=clean_str($_SESSION["auth_user"] . "_" . time() . "_Justificatifs.pdf");
+      // $justificatifs->Output("$nom_fichier", "I");
 
-		$justificatifs->Output("$__GESTION_COMP_STOCKAGE_DIR_ABS/$_SESSION[comp_id]/$nom_fichier");
+      $justificatifs->Output("$__GESTION_COMP_STOCKAGE_DIR_ABS/$_SESSION[comp_id]/$nom_fichier");
 
-		write_evt($dbr, $__EVT_ID_G_DOC, "Génération des justificatifs", $candidat_id, $candidature_id);
+      write_evt($dbr, $__EVT_ID_G_DOC, "Génération des justificatifs", $candidat_id, $candidature_id);
 
-		// Attention : chemin relatif à www-root (document_root du serveur Apache)
-		echo "<HTML><SCRIPT>document.location='$__GESTION_COMP_STOCKAGE_DIR/$_SESSION[comp_id]/$nom_fichier';</SCRIPT></HTML>";
-	}
+      // Attention : chemin relatif à www-root (document_root du serveur Apache)
+      echo "<HTML><SCRIPT>document.location='$__GESTION_COMP_STOCKAGE_DIR/$_SESSION[comp_id]/$nom_fichier';</SCRIPT></HTML>";
+  }
 
-	db_close($dbr);
+  db_close($dbr);
 ?>

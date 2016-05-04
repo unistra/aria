@@ -94,19 +94,16 @@ CeCILL-B, et que vous en avez accepté les termes.
 
   $dbr=db_connect();
 
-  // Utilisation de la librairie fpdf (libre)
-  require("$__FPDF_DIR_ABS/fpdf.php");
+  // Utilisation de la librairie tcpdf (libre)
+  require("$__FPDF_DIR_ABS/tcpdf.php");
 
   // Création du document. P = Portrait, unité = millimètre (mm), Page = A4
-  $page_garde_pdf=new FPDF("P","mm","A4");
+  $page_garde_pdf=new TCPDF("P","mm","A4", true, 'UTF-8', false);
   $page_garde_pdf->SetCreator("Application de Gestion des Candidatures de l'Université de Strasbourg");
   $page_garde_pdf->SetAuthor("Christophe BOCCHECIAMPE - UFR de Mathématique et d'Informatique - Université de Strasbourg");
   $page_garde_pdf->SetSubject("Page de Garde à joindre au dossier");
 
   $page_garde_pdf->SetAutoPageBreak(1,11);
-
-  // TODO : ATTENTION : NE PAS OUBLIER DE GENERER LA FONTE ARIBLK.TTF LORS D'UN CHANGEMENT DE MACHINE
-  $page_garde_pdf->AddFont("arial_black");
 
   // Compteur pour savoir si tout s'est bien passé, à la fin
   $nb_pages=0;
@@ -173,12 +170,13 @@ CeCILL-B, et que vous en avez accepté les termes.
     if($cand_num_ine!="")
       $identite.="\nNuméro INE : $cand_num_ine";
 
+    $page_garde_pdf->SetPrintHeader(false);
     $page_garde_pdf->AddPage();
 
     // Incrémentation du Compteur pour savoir si tout s'est bien passé, à la fin
     $nb_pages++;
 
-    $page_garde_pdf->SetFont('Arial','B',12);
+    $page_garde_pdf->SetFont('freesans','B',12);
 
     $date=time();
 
@@ -195,13 +193,13 @@ CeCILL-B, et que vous en avez accepté les termes.
       $page_garde_pdf->Cell(0,10,$titre,1,1,'C');
     }
 
-    $page_garde_pdf->SetFont('Arial','',10);
+    $page_garde_pdf->SetFont('freesans','',10);
     $page_garde_pdf->Cell(0,10,'Merci d\'imprimer ce document et de le joindre à CHAQUE correspondance courrier.',0,1,'C');
 
-    $page_garde_pdf->SetFont('Arial','B',12);
+    $page_garde_pdf->SetFont('freesans','B',12);
     $page_garde_pdf->Cell(0,10,'Vous',0,1,'L');
 
-    $page_garde_pdf->SetFont('Arial','',10);
+    $page_garde_pdf->SetFont('freesans','',10);
     $page_garde_pdf->MultiCell(0,6,$identite,0,'L');
 
     // Adresse : formatage un peu spécial : tableau
@@ -246,10 +244,10 @@ CeCILL-B, et que vous en avez accepté les termes.
 
     if($rows2)
     {
-      $page_garde_pdf->SetFont('Arial','B',12);
+      $page_garde_pdf->SetFont('freesans','B',12);
       $page_garde_pdf->Cell(0,10,'Votre cursus :',0,1,'L');
 
-      $page_garde_pdf->SetFont('Arial','',10);
+      $page_garde_pdf->SetFont('freesans','',10);
 
       for($j=0; $j<$rows2; $j++)
       {
@@ -309,10 +307,10 @@ CeCILL-B, et que vous en avez accepté les termes.
 
     if($rows2)
     {
-      $page_garde_pdf->SetFont('Arial','B',12);
+      $page_garde_pdf->SetFont('freesans','B',12);
       $page_garde_pdf->Cell(0,10,'Langues :',0,1,'L');
 
-      $page_garde_pdf->SetFont('Arial','',10);
+      $page_garde_pdf->SetFont('freesans','',10);
 
       for($j=0; $j<$rows2; $j++)
       {
@@ -403,10 +401,10 @@ CeCILL-B, et que vous en avez accepté les termes.
 
     if($rows2)
     {
-      $page_garde_pdf->SetFont('Arial','B',12);
+      $page_garde_pdf->SetFont('freesans','B',12);
       $page_garde_pdf->Cell(0,10,'Informations complémentaires et expériences professionnelles',0,1,'L');
 
-      $page_garde_pdf->SetFont('Arial','',10);
+      $page_garde_pdf->SetFont('freesans','',10);
 
       for($j=0; $j<$rows2; $j++)
       {
@@ -425,7 +423,7 @@ CeCILL-B, et que vous en avez accepté les termes.
     }
     db_free_result($result2);
 
-    $page_garde_pdf->SetFont('Arial','',10);
+    $page_garde_pdf->SetFont('freesans','',10);
 
     // ==========================================
     //        Précandidatures
@@ -454,7 +452,7 @@ CeCILL-B, et que vous en avez accepté les termes.
       // on conserve les formations, on les utilisera plus tard (évite une boucle pour les renseignements complémentaires)
       $array_propspec=array();
 
-      $page_garde_pdf->SetFont('Arial','B',12);
+      $page_garde_pdf->SetFont('freesans','B',12);
       $page_garde_pdf->Cell(0,10,"Vos précandidatures pour cette composante :",0,1,'L');  
 
       for($j=0; $j<$rows2; $j++)
@@ -463,9 +461,9 @@ CeCILL-B, et que vous en avez accepté les termes.
 
         if($cand_periode!=$old_periode)
         {
-          $page_garde_pdf->SetFont('Arial','B',10);
+          $page_garde_pdf->SetFont('freesans','B',10);
           $page_garde_pdf->Cell(0,6,"Année universitaire $cand_periode-".($cand_periode+1)." :",0,1,'L');
-          $page_garde_pdf->SetFont('Arial','',10);
+          $page_garde_pdf->SetFont('freesans','',10);
           $old_periode=$cand_periode;
         }
 
@@ -611,21 +609,21 @@ CeCILL-B, et que vous en avez accepté les termes.
           // sinon, on le stocke et on l'affichera en dernier (prévoir une fonction ?)
           if($nouvelle_page!="t") {
             if($premier_element) {
-              $page_garde_pdf->SetFont('Arial','B',12);
+              $page_garde_pdf->SetFont('freesans','B',12);
               $page_garde_pdf->Cell(0,10,'Autres renseignements demandés par la Scolarité (texte en italique : énoncé)',0,1,'L');
               $premier_element=0;
             }
 
-            $page_garde_pdf->SetFont('Arial','I',8);
-            $page_garde_pdf->MultiCell(0,6, "$para",0,'J');
+            $page_garde_pdf->SetFont('freesans','I',8);
+            $page_garde_pdf->MultiCell(0,6, "$para\n",0,'J');
             $page_garde_pdf->Ln(3);
-            $page_garde_pdf->SetFont('Arial','',10);
+            $page_garde_pdf->SetFont('freesans','',10);
 
             if(isset($contenu_txt_final) && !empty($contenu_txt_final)) {
-              $page_garde_pdf->MultiCell(0,6, $contenu_txt_final, 0, 'J');
+              $page_garde_pdf->MultiCell(0,6, $contenu_txt_final."\n", 0, 'J');
             }
             else {
-              $page_garde_pdf->MultiCell(0,6, "Champ non complété.", 0, 'J');
+              $page_garde_pdf->MultiCell(0,6, "Champ non complété.\n", 0, 'J');
             }
 
             $page_garde_pdf->Ln(3);
@@ -635,7 +633,7 @@ CeCILL-B, et que vous en avez accepté les termes.
               $contenu_txt_final="Champ non complété";
             }
 
-            $array_elements_nouvelle_page["$j"]=array("formation_enonce" => "$texte_formation\n$para",
+            $array_elements_nouvelle_page["$j"]=array("formation_enonce" => "$para",
                                         "contenu" => "$contenu_txt_final");
           }
 
@@ -669,10 +667,10 @@ CeCILL-B, et que vous en avez accepté les termes.
     {
       $page_garde_pdf->Ln(6);
 
-      $page_garde_pdf->SetFont('Arial','B',12);
+      $page_garde_pdf->SetFont('freesans','B',12);
       $page_garde_pdf->Cell(0,10,"Autres précandidatures pour l'année $__PERIODE-".($__PERIODE+1)." :",0,1,'L');
 
-      $page_garde_pdf->SetFont('Arial','',10);
+      $page_garde_pdf->SetFont('freesans','',10);
 
       for($j=0; $j<$rows2; $j++)
       {
@@ -692,9 +690,9 @@ CeCILL-B, et que vous en avez accepté les termes.
           if($j)
             $page_garde_pdf->Ln(3);
 
-          $page_garde_pdf->SetFont('Arial','B',10);
+          $page_garde_pdf->SetFont('freesans','B',10);
           $page_garde_pdf->Cell(0,6,"$comp_nom",0,1,'L');
-          $page_garde_pdf->SetFont('Arial','',10);
+          $page_garde_pdf->SetFont('freesans','',10);
 
           $old_comp_nom=$comp_nom;
         }
@@ -714,18 +712,19 @@ CeCILL-B, et que vous en avez accepté les termes.
 
     foreach($array_elements_nouvelle_page as $element_nouvelle_page)
     {
+      $page_garde_pdf->SetPrintHeader(false);
       $page_garde_pdf->AddPage();
 
-      $page_garde_pdf->SetFont('Arial','IB',10);
-      $page_garde_pdf->MultiCell(0,6, "[Autres renseignements sur page(s) séparée(s) - $cnt/$count]", 0, 'J');
+      $page_garde_pdf->SetFont('freesans','IB',10);
+      $page_garde_pdf->MultiCell(0,6, "[Autres renseignements sur page(s) séparée(s) - $cnt/$count]\n", 0, 'J');
 
-      $page_garde_pdf->SetFont('Arial','I',8);
-      $page_garde_pdf->MultiCell(0,6, $element_nouvelle_page["formation_enonce"],0,'J');
+      $page_garde_pdf->SetFont('freesans','I',8);
+      $page_garde_pdf->MultiCell(0,6, $element_nouvelle_page["formation_enonce"]."\n",0,'J');
 
       $page_garde_pdf->Ln(3);
-      $page_garde_pdf->SetFont('Arial','',10);
+      $page_garde_pdf->SetFont('freesans','',10);
 
-      $page_garde_pdf->MultiCell(0,6, $element_nouvelle_page["contenu"], 0, 'J');
+      $page_garde_pdf->MultiCell(0,6, $element_nouvelle_page["contenu"]."\n", 0, 'J');
 
       $page_garde_pdf->Ln(3);
 

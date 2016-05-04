@@ -622,7 +622,8 @@ $_SESSION[universite]";
 
                // On teste si le nouveau statut est différent de l'ancien, ou si la motivation est différente
                if((isset($_POST["statut"]) && array_key_exists($cand_id, $_POST["statut"]) && $_POST["statut"]["$cand_id"]!=$statut)
-                  || ($_POST["statut"]["$cand_id"]==$statut && stripslashes(trim($_POST["motivation"]["$cand_id"]))!=stripslashes($cur_motivation)))
+                  || (array_key_exists($cand_id, $_POST["statut"]) && $_POST["statut"]["$cand_id"]==$statut
+                      && stripslashes(trim($_POST["motivation"]["$cand_id"]))!=stripslashes($cur_motivation)))
                {
                   // $new_statut=$_POST["$key_statut"];
                   $new_statut=$_POST["statut"]["$cand_id"];

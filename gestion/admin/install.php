@@ -268,7 +268,7 @@ font.Texte
       }
     }
 
-    $fonctions_pdf=file_exists("$__FPDF_DIR_ABS/fpdf.php") && is_readable("$__FPDF_DIR_ABS/fpdf.php") ? "1" : "0";
+    $fonctions_pdf=file_exists("$__FPDF_DIR_ABS/tcpdf.php") && is_readable("$__FPDF_DIR_ABS/tcpdf.php") ? "1" : "0";
 
     // Affichage
 
@@ -389,12 +389,12 @@ font.Texte
           <td class='fond_menu' style='padding:4px;'><font class='Texte'>$detail</font></td>
           </tr>\n");
 
-    $txt_erreurs=$fonctions_pdf ? "" : "Vérifier la présence de l'extension \"FPDF\"";
+    $txt_erreurs=$fonctions_pdf ? "" : "Vérifier la présence de l'extension \"TCPDF\"";
     $icone=$fonctions_pdf ? "<img src='$__ICON_DIR/button_ok_22x22.png' border='0' desc='Succès' title='Succès'>" : "<img src='$__ICON_DIR/stop_22x22.png' border='0' desc='Echec' title='Echec'>";
-    $detail="Fichier cherché : ". preg_replace("/[\/]+/","/", "$__FPDF_DIR_ABS/fpdf.php");
+    $detail="Fichier cherché : ". preg_replace("/[\/]+/","/", "$__FPDF_DIR_ABS/tcpdf.php");
 
     print("<tr>
-          <td class='fond_menu' style='padding:4px;'><font class='Texte'><strong>PHP : Fonctions FPDF</strong></font></td>
+          <td class='fond_menu' style='padding:4px;'><font class='Texte'><strong>PHP : Fonctions TCPDF</strong></font></td>
           <td class='fond_menu' style='padding:4px; text-align:center'>$icone</td>
           <td class='fond_menu' style='padding:4px;'><font class='Texte'>$txt_erreurs</font></td>
           <td class='fond_menu' style='padding:4px;'><font class='Texte'>$detail</font></td>

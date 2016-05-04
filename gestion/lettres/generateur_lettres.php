@@ -233,11 +233,11 @@ else
 
 if(isset($ensemble_candidats) && count($ensemble_candidats))
 {
-  // Utilisation de la librairie fpdf (libre)
-  require("$__FPDF_DIR_ABS/fpdf.php");
+  // Utilisation de la librairie tcpdf (libre)
+  require("$__FPDF_DIR_ABS/tcpdf.php");
 
   // Création du PDF
-  $lettre_decision=new FPDF("P","mm","A4");
+  $lettre_decision=new TCPDF("P","mm","A4", true, 'UTF-8', false);
 
   $lettre_decision->SetCreator("Application de Gestion des Candidatures de l'Université de Strasbourg");
   $lettre_decision->SetAuthor("Christophe BOCCHECIAMPE - UFR de Mathématique et d'Informatique - Université de Strasbourg");
@@ -248,7 +248,7 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
   // $lettre_decision->SetMargins(11,11,11);
 
   // TODO : ATTENTION : NE PAS OUBLIER DE GENERER LA FONTE ARIBLK.TTF LORS D'UN CHANGEMENT DE MACHINE
-  $lettre_decision->AddFont("arial_black");
+  // $lettre_decision->AddFont("arial_black");
 
   // Compteur pour savoir si tout s'est bien passé, à la fin
   $nb_pages=0;
@@ -408,6 +408,7 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
                 $corps_pos_y=$corps_pos_y_defaut;
               }
 
+              $lettre_decision->SetPrintHeader(false);
               $lettre_decision->AddPage();
 
               // Incrémentation du Compteur pour savoir si tout s'est bien passé, à la fin
@@ -419,7 +420,7 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
 
                 // $lettre_decision->Cell(42,5,"$txt_logo",0, 2, "R");
                 $lettre_decision->SetXY(11, 10);
-                $lettre_decision->SetFont('arial_black','',12);
+                $lettre_decision->SetFont('freesans','B',12);
 
                 if(!empty($univ_couleur_texte))
                 {
@@ -494,7 +495,7 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
 
               $txt_scol_hauteur_courante=$lettre_decision->GetY();
 
-              $lettre_decision->SetFont('arial','',10);
+              $lettre_decision->SetFont('freesans','',10);
               $lettre_decision->SetTextColor(0, 0, 0);
 
               // DATE ET INFOS DU CANDIDATS
@@ -581,7 +582,7 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
 
                               $lettre_decision->SetX($corps_pos_x);
 
-                              $lettre_decision->MultiCell($largeur_encadre, 5,$txt, 1, "$cell_align");
+                              $lettre_decision->MultiCell($largeur_encadre, 5,$txt."\n", 1, "$cell_align");
 
                               break;
 
@@ -602,7 +603,7 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
                               $gras=$txt_gras ? "B" : "";
                               $italique=$txt_italique ? "I" : "";
 
-                              $lettre_decision->SetFont('arial',"$gras$italique",$txt_taille);
+                              $lettre_decision->SetFont('freesans',"$gras$italique",$txt_taille);
 
                               // Calcul de la hauteur de la ligne en fonction de la taille du texte
                               // >14          => 6 (et + ?)
@@ -625,7 +626,7 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
                                 $X=$corps_pos_x;
 
                               $lettre_decision->SetX($X);
-                              $lettre_decision->MultiCell(0, $hauteur_cell, $txt, 0, "$cell_align");
+                              $lettre_decision->MultiCell(0, $hauteur_cell, $txt."\n", 0, "$cell_align");
 
                               break;
                             
@@ -652,7 +653,7 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
 
                 $lettre_decision->SetXY(105, $Y);
 
-                $lettre_decision->SetFont('arial','',10);
+                $lettre_decision->SetFont('freesans','',10);
                 $lettre_decision->MultiCell(0,5,$txt_sign, 0, "J");
               }
 */
@@ -674,19 +675,22 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
                 // $lettre_decision->SetXY(0, 225);
 
                 $lettre_decision->SetXY(0, $Y_txt_scol);
-                $lettre_decision->SetFont('arial','',8);
+                $lettre_decision->SetFont('freesans','',8);
 
                 $array_txt_scol=explode("\n", $txt_scol);
 
                 foreach($array_txt_scol as $ligne_scol)
                 {
+                  if(empty(trim($ligne_scol))) {
+                      $ligne_scol=" ";
+                  }
                   $base_size=8;
-                  $lettre_decision->SetFont('arial','',$base_size);
+                  $lettre_decision->SetFont('freesans','',$base_size);
 
                   while($lettre_decision->GetStringWidth($ligne_scol) > 42)
                   {
                     $base_size--;
-                    $lettre_decision->SetFont('arial','',$base_size);
+                    $lettre_decision->SetFont('freesans','',$base_size);
                   }
 
                   $lettre_decision->SetX(11);

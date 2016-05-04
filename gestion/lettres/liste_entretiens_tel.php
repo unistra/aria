@@ -150,11 +150,11 @@ if(array_key_exists("jour", $_GET) && $_GET["jour"]!="" && ctype_digit($_GET["jo
       $formation_txt.=$tab_finalite[$finalite]=="" ? " $nom_spec" : " $nom_spec $tab_finalite[$finalite]";
     }
 
-    // Utilisation de la librairie fpdf (libre)
-    require("$__FPDF_DIR_ABS/fpdf.php");
+    // Utilisation de la librairie tcpdf (libre)
+    require("$__FPDF_DIR_ABS/tcpdf.php");
 
     // Création du PDF
-    $doc_liste=new FPDF("P","mm","A4");
+    $doc_liste=new TCPDF("P","mm","A4", true, 'UTF-8', false);
 
     $doc_liste->SetCreator("Application de Gestion des Candidatures de l'Université de Strasbourg");
     $doc_liste->SetAuthor("Christophe BOCCHECIAMPE - UFR de Mathématique et d'Informatique - Université de Strasbourg");
@@ -164,17 +164,16 @@ if(array_key_exists("jour", $_GET) && $_GET["jour"]!="" && ctype_digit($_GET["jo
     $doc_liste->SetAutoPageBreak(1,11);
 
     // TODO : ATTENTION : NE PAS OUBLIER DE GENERER LA FONTE ARIBLK.TTF LORS D'UN CHANGEMENT DE MACHINE
-    $doc_liste->AddFont("arial_black");
-    $doc_liste->SetFont('arial','',10);
+    $doc_liste->SetFont('freesans','',10);
     $doc_liste->SetTextColor(0, 0, 0);
 
     // Premier élément : position fixe (à affiner manuellement, sans doute)
     // $doc_liste->SetXY(60, 78);
-
+    $doc_liste->SetPrintHeader(false);
     $doc_liste->AddPage();
 
     $doc_liste->SetXY(11, 11);
-    $doc_liste->SetFont('arial',"IB",14);
+    $doc_liste->SetFont('freesans',"IB",14);
 
     $date_jour=date_fr("l jS F Y", $jour);
 
@@ -185,7 +184,7 @@ if(array_key_exists("jour", $_GET) && $_GET["jour"]!="" && ctype_digit($_GET["jo
 
     $doc_liste->Ln(10);
 
-    $doc_liste->SetFont('arial',"",10);
+    $doc_liste->SetFont('freesans',"",10);
 
     for($i=0; $i<$rows; $i++)
     {
@@ -196,12 +195,14 @@ if(array_key_exists("jour", $_GET) && $_GET["jour"]!="" && ctype_digit($_GET["jo
 
       $heure=date_fr("G", $ent_date);
 
-      if($heure)
-      {
+      if($heure) {
         $date_txt=$heure . "h" . date_fr("i", $ent_date);
-
-        $doc_liste->Cell(48, 5, $date_txt, 1, 1, "C");
       }
+      else {
+        $date_txt="Heure non saisie";
+      }
+
+      $doc_liste->Cell(48, 5, $date_txt, 1, 1, "C");
     }
 
     // write_evt($dbr,$__EVT_ID_G_PREC, "Liste entretiens", $candidat_id, $cand_id);

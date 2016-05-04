@@ -171,11 +171,11 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
       db_free_result($res_motifs);
    }
 
-   // Utilisation de la librairie fpdf (libre)
-   require("$__FPDF_DIR_ABS/fpdf.php");
+   // Utilisation de la librairie tcpdf (libre)
+   require("$__FPDF_DIR_ABS/tcpdf.php");
 
    // Création du PDF
-   $formulaire=new FPDF("P","mm","A4");
+   $formulaire=new TCPDF("P","mm","A4", true, 'UTF-8', false);
 
    $formulaire->SetCreator("Application de Gestion des Candidatures de l'Université de Strasbourg");
    $formulaire->SetAuthor("Christophe BOCCHECIAMPE - UFR de Mathématique et d'Informatique - Université de Strasbourg");
@@ -183,9 +183,6 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
    $formulaire->SetTitle("Formulaire de Commission Pédagogique");
 
    $formulaire->SetAutoPageBreak(1,11);
-
-   // TODO : ATTENTION : NE PAS OUBLIER DE GENERER LA FONTE ARIBLK.TTF LORS D'UN CHANGEMENT DE MACHINE
-   $formulaire->AddFont("arial_black");
 
    // Compteur pour savoir si tout s'est bien passé, à la fin
    $nb_pages=0;
@@ -289,20 +286,21 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
 
                if(count($sub_array_cand)) // Au moins une page à produire : le début est commun
                {
+                  $formulaire->SetPrintHeader(false);
                   $formulaire->AddPage();
 
                   // Incrémentation du compteur pour savoir si tout s'est bien passé, à la fin
                   $nb_pages++;
 
                   // Création d'une nouvelle page
-                  $formulaire->SetFont('arial','',10);
+                  $formulaire->SetFont('freesans','',10);
                   $formulaire->SetTextColor(0, 0, 0);
 
                   // Premier élément : position fixe (à affiner manuellement, sans doute)
                   // $formulaire->SetXY(60, 78);
 
                   $formulaire->SetXY(11, 11);
-                  $formulaire->SetFont('arial',"IB",14);
+                  $formulaire->SetFont('freesans',"IB",14);
                   
                   $formulaire->MultiCell(0, 5, "Commission Pédagogique ($__PERIODE-".($__PERIODE+1).")", 0, "C");
 
@@ -314,7 +312,7 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
                   $formulaire->Ln(3);
             
                   $formulaire->SetX(11);
-                  $formulaire->SetFont('arial',"",9);
+                  $formulaire->SetFont('freesans',"",9);
 
                   if(isset($_SESSION["niveau"]) && $_SESSION["niveau"]==$__LVL_CONSULT)
                      $candidat_adresse="$civ_texte " .  $candidat_array["nom"] . " " . $candidat_array["prenom"] . ", $ne le " . $candidat_array["naissance"] . " à " . $candidat_array["lieu_naissance"] .
@@ -328,7 +326,7 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
 
                   $formulaire->Ln(3);
 
-                  $formulaire->SetFont('arial',"B",12);
+                  $formulaire->SetFont('freesans',"B",12);
 
                   // A partir d'ici, le document est traité différemment en fonction de la nature de la candidature
                   // Choix unique = document complet
@@ -343,14 +341,14 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
 
                      $formulaire->Ln(2);
 
-                     $formulaire->SetFont('arial',"B",10);
+                     $formulaire->SetFont('freesans',"B",10);
 
                      // Ajout des motifs UNIQUEMENT s'ils sont courts
                      if(isset($_SESSION["gestion_motifs"]) && $_SESSION["gestion_motifs"]==0)
                      {
                         $formulaire->MultiCell(0, 4, "Pour chaque voeu et en cas de refus, les motifs de cette liste peuvent être utilisés : ", 0, "L");
 
-                        $formulaire->SetFont('arial',"",9);
+                        $formulaire->SetFont('freesans',"",9);
 
                         $result=db_query($dbr,"SELECT $_DBC_motifs_refus_motif FROM $_DB_motifs_refus
                                                 WHERE $_DBC_motifs_refus_comp_id=$_SESSION[comp_id]
@@ -425,14 +423,14 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
                         $Y=$formulaire->getY();
                         $formulaire->Line(11, $Y, 199, $Y);
 
-                        $formulaire->SetFont('arial',"B",10);
+                        $formulaire->SetFont('freesans',"B",10);
 
                         $nom_formation=$sub_candidature_array["annee"]=="" ? $sub_candidature_array["spec_nom_court"] : "$sub_candidature_array[annee] $sub_candidature_array[spec_nom_court]";
                         $nom_formation.=$sub_candidature_array["finalite"]=="" ? "" : $tab_finalite[$sub_candidature_array["finalite"]];
 
                         $formulaire->MultiCell(0, 5, "Choix $compteur_voeux : $nom_formation", 0, "L");
 
-                        $formulaire->SetFont('arial',"",9);
+                        $formulaire->SetFont('freesans',"",9);
 
                         $position_cnt=0;
 
@@ -480,12 +478,12 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
 
                         $formulaire->Ln(5);
 
-                        $formulaire->SetFont('arial',"IB",10);
+                        $formulaire->SetFont('freesans',"IB",10);
                         $formulaire->MultiCell(0, 5, "Motif(s) parmi la liste et/ou motif(s) libre(s) :", 0, "L");
 
                         $formulaire->Ln(12);
 
-                        $formulaire->SetFont('arial',"",9);
+                        $formulaire->SetFont('freesans',"",9);
                         $formulaire->MultiCell(0, 4, "Signature du Responsable de formation : ", 0, "L");
 
                         $formulaire->Ln(5);
@@ -506,11 +504,11 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
 
                      $formulaire->Ln(5);
 
-                     $formulaire->SetFont('arial',"IB",10);
+                     $formulaire->SetFont('freesans',"IB",10);
 
                      $formulaire->MultiCell(0, 5, "Décision de la commission pédagogique :", 0, "L");
 
-                     $formulaire->SetFont('arial',"",9);
+                     $formulaire->SetFont('freesans',"",9);
 
                      // Sélection des décisions
                      $result2=db_query($dbr,"SELECT $_DBC_decisions_id, $_DBC_decisions_texte FROM $_DB_decisions
@@ -571,10 +569,10 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
 
                      $formulaire->Ln(7);
 
-                     $formulaire->SetFont('arial',"IB",10);
+                     $formulaire->SetFont('freesans',"IB",10);
                      $formulaire->MultiCell(0, 5, "Motifs (tout refus DOIT être motivé) :", 0, "L");
 
-                     $formulaire->SetFont('arial',"",9);
+                     $formulaire->SetFont('freesans',"",9);
 
                      // Ajout des motifs UNIQUEMENT s'ils sont courts
                      if(isset($_SESSION["gestion_motifs"]) && $_SESSION["gestion_motifs"]==0)
@@ -637,7 +635,7 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
                         $formulaire->Ln(40);
 
                      $formulaire->Ln(7);
-                     $formulaire->SetFont('arial',"IB",10);
+                     $formulaire->SetFont('freesans',"IB",10);
 
                      if(isset($_SESSION["gestion_motifs"]) && $_SESSION["gestion_motifs"]==0)
                      {
@@ -650,11 +648,11 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
                   if(!isset($candidature_array["entretiens"]) || $candidature_array["entretiens"]!=1)
                   {
 /*                  
-                     $formulaire->SetFont('arial',"IB",10);
+                     $formulaire->SetFont('freesans',"IB",10);
                      
                      $formulaire->MultiCell(0, 5, "Précision en cas d'admission : ", 0, "L");
                      
-                     $formulaire->SetFont('arial',"",9);
+                     $formulaire->SetFont('freesans',"",9);
 
                      $Y=$formulaire->getY();
                      $formulaire->image("case3.jpg", 11, $Y, 3);
@@ -671,12 +669,12 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
                      $formulaire->Cell(62, 3, "Avec validation d'UE. Précisez :", 0, 0, "L");
                      $formulaire->Ln(10);
 */
-                     $formulaire->SetFont('arial',"IB",10);
+                     $formulaire->SetFont('freesans',"IB",10);
 
                      $str="En cas d'admission : ";
                      $formulaire->Cell($formulaire->GetStringWidth($str), 4, $str, 0, 0, "L");
 
-                     $formulaire->SetFont('arial',"",9);
+                     $formulaire->SetFont('freesans',"",9);
 
                      $formulaire->image("case3.jpg", $formulaire->getX()+2, $formulaire->getY(), 3);
 
@@ -695,7 +693,7 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
                   }
                   
                   $formulaire->Ln(10);
-                  $formulaire->SetFont('arial',"IB",10);
+                  $formulaire->SetFont('freesans',"IB",10);
 
                   $formulaire->Cell(0, 5, "Date et signature :", 0, 1, "L");
                   $formulaire->Cell(94, 5, "Président de la Commission Pédagogique", 0, 0, "L");
@@ -713,7 +711,7 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
 
                      $formulaire->MultiCell(0, 5, "Décision de la commission pédagogique après entretien :", 0, "L");
 
-                     $formulaire->SetFont('arial',"",9);
+                     $formulaire->SetFont('freesans',"",9);
 
                      // Sélection des décisions
                      $result2=db_query($dbr,"SELECT $_DBC_decisions_id, $_DBC_decisions_texte FROM $_DB_decisions
@@ -768,7 +766,7 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
 
                      $formulaire->Ln(5);
 
-                     $formulaire->SetFont('arial',"IB",10);
+                     $formulaire->SetFont('freesans',"IB",10);
                      $formulaire->MultiCell(0, 5, "Motif(s) :", 0, "L");
 
                      db_free_result($result2);
@@ -777,10 +775,10 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
 
                      // Si la formation a un entretien complémentaire, on met ici la précision "admission avec ou sans validation d'UE"
 /*                     
-                     $formulaire->SetFont('arial',"IB",10);
+                     $formulaire->SetFont('freesans',"IB",10);
                      $formulaire->MultiCell(0, 5, "Précision en cas d'admission : ", 0, "L");
                      
-                     $formulaire->SetFont('arial',"",9);
+                     $formulaire->SetFont('freesans',"",9);
 
                      $Y=$formulaire->getY();
                      $formulaire->image("case3.jpg", 11, $Y, 3);
@@ -797,12 +795,12 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
                      $formulaire->Cell(62, 3, "Avec validation d'UE. Précisez :", 0, 0, "L");                               
                      $formulaire->Ln(20);
 */                     
-                     $formulaire->SetFont('arial',"IB",10);
+                     $formulaire->SetFont('freesans',"IB",10);
 
                      $str="En cas d'admission : ";
                      $formulaire->Cell($formulaire->GetStringWidth($str), 4, $str, 0, 0, "L");
 
-                     $formulaire->SetFont('arial',"",9);
+                     $formulaire->SetFont('freesans',"",9);
 
                      $formulaire->image("case3.jpg", $formulaire->getX()+2, $formulaire->getY(), 3);
 
@@ -819,7 +817,7 @@ if(isset($ensemble_candidats) && count($ensemble_candidats))
                      $formulaire->Cell(0, 4, "Précisez les UE en cas de validation :", 0, 1, "L");
                      $formulaire->Ln(15);
 
-                     $formulaire->SetFont('arial',"IB",10);
+                     $formulaire->SetFont('freesans',"IB",10);
 
 //                     $formulaire->MultiCell(0, 5, "Date et signature du Président de la Commission Pédagogique et/ou du Responsable de formation : ", 0, "L");
                      $formulaire->Cell(0, 5, "Date et signature :", 0, 1, "L");

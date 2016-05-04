@@ -141,7 +141,7 @@ $GLOBALS["__GESTION_AIDE_DIR"]=$_SESSION["config"]["__GESTION_AIDE_DIR"]=preg_re
 $GLOBALS["__INCLUDE_DIR"]=$_SESSION["config"]["__INCLUDE_DIR"]=preg_replace("/\/+/","/", "$GLOBALS[__MOD_DIR]/include");
 
 // Librairie FPDF
-$GLOBALS["__FPDF_DIR"]=$_SESSION["config"]["__FPDF_DIR"]=preg_replace("/\/+/","/", "$GLOBALS[__INCLUDE_DIR]/fpdf");
+$GLOBALS["__FPDF_DIR"]=$_SESSION["config"]["__FPDF_DIR"]=preg_replace("/\/+/","/", "$GLOBALS[__INCLUDE_DIR]/tcpdf");
 
 // Fichiers Candidats
 $GLOBALS["__CAND_COMP_STOCKAGE_DIR"]=$_SESSION["config"]["__CAND_COMP_STOCKAGE_DIR"]=preg_replace("/\/+/","/", "$GLOBALS[__CAND_DIR]/fichiers/composantes");
