@@ -120,6 +120,11 @@ CeCILL-B, et que vous en avez accepté les termes.
       $cur_frais=array_key_exists("statut_frais", $_POST) ? $_POST["statut_frais"] : 0;
       $cur_ordre_voeu=array_key_exists("ordre_voeu", $_POST) ? $_POST["ordre_voeu"] : 1;
 
+      // Si les réponses au constructeur de dossiers sont incluses, on force le tri par formation
+      if($cur_dossier) {
+         $cur_first_tri="tri_formation";
+      }
+
       // Statut : boucle sur statut_prec[]
       if(array_key_exists("statut_prec", $_POST))
       {
@@ -337,6 +342,9 @@ CeCILL-B, et que vous en avez accepté les termes.
                $string.=$cur_frais ? "\"FRAIS DOSSIER\";" : "";
                $string.=$cur_vap_aff ? "\"Statut VAPP\";" : "";
 
+               $base_string = $string;
+
+               /*
                // Constructeur de dossiers : une colonne par question/réponse (attention au type)
                if($cur_dossier=="1")
                {
@@ -368,13 +376,10 @@ CeCILL-B, et que vous en avez accepté les termes.
                   
                   db_free_result($res_dossiers);
                }
-
+               */
+               
                $evt_string=preg_replace("/, $/","", strtolower(str_replace("\"","",str_replace("\";", ", ", $string))));
                write_evt($dbr, $__EVT_ID_G_MASSE, "Extraction CSV, Formation(s) : $cur_propspec_id : $evt_string","", $_SESSION["auth_id"]);
-
-               $string.="\n";
-
-               fwrite($fp, $string, strlen($string));
 
                $prev_propspec_id="--";
 
@@ -397,8 +402,50 @@ CeCILL-B, et que vous en avez accepté les termes.
                   $candidat_adresse.=$candidat_adresse_3!="" ? "\n".$candidat_adresse_3 : "";
 
 
-                  if($propspec_id!=$prev_propspec_id)
-                  {
+                  if($propspec_id!=$prev_propspec_id) {
+                     if($prev_propspec_id=="--") {
+                        $string = $base_string;
+                     }
+                     else {
+                        $string = "\n".$base_string;
+                     }
+                     
+                     // print header
+                     if($cur_dossier=="1") {
+                        $res_dossiers=db_query($dbr,"SELECT $_DBC_dossiers_elems_id, $_DBC_dossiers_elems_intitule, $_DBC_dossiers_elems_type
+                                                      FROM $_DB_dossiers_elems 
+                                                           left join $_DB_dossiers_ef
+                                                           on $_DB_dossiers_elems.$_DBU_dossiers_elems_id=$_DB_dossiers_ef.$_DBU_dossiers_ef_elem_id
+                                                      WHERE $_DBC_dossiers_ef_propspec_id='$propspec_id'
+                                                      AND $_DBC_dossiers_elems_extractions is TRUE
+                                                      ORDER BY $_DBC_dossiers_ef_ordre");
+
+                        
+                        $rows_dossiers=db_num_rows($res_dossiers);
+                        
+                        if($res_dossiers) {
+                           $array_dossiers=array();
+                           
+                           for($d=0; $d<$rows_dossiers; $d++) {
+                              list($dossier_elem_id, $dossier_elem_intitule, $dossier_elem_type)=db_fetch_row($res_dossiers, $d);
+                              
+                              $array_dossiers[$d]=array("id" => $dossier_elem_id, "intitule" => "$dossier_elem_intitule", "type" => "$dossier_elem_type");
+                              $string.="\"$dossier_elem_intitule\";";  
+                           }
+                        }
+
+                        $string .= "\n";
+                        fwrite($fp, $string, strlen($string));
+                        
+                        db_free_result($res_dossiers);
+                     }
+                     else {
+                       $string .= "\n";
+
+                       fwrite($fp, $string, strlen($string));
+                     }
+
+                    
                      $nom_formation=$annee=="" ? "[$mention] $spec_nom" : "$annee [$mention] $spec_nom";
                      $nom_formation.=$tab_finalite[$finalite]=="" ? "" : " $tab_finalite[$finalite]";
 
@@ -745,12 +792,13 @@ CeCILL-B, et que vous en avez accepté les termes.
                         // - type "plusieurs choix" : on doit faire plusieurs requêtes
                         
                         if($array_element["type"]==$__ELEM_TYPE_FORM || $array_element["type"]==$__ELEM_TYPE_MULTI_CHOIX)
-                        {                     
+                        {               
                            $res_dossier_contenu=db_query($dbr, "SELECT $_DBC_dossiers_elems_contenu_para FROM $_DB_dossiers_elems_contenu 
                                                                   WHERE $_DBC_dossiers_elems_contenu_candidat_id='$candidat_id' 
                                                                   AND $_DBC_dossiers_elems_contenu_periode='$cur_periode'
                                                                   AND $_DBC_dossiers_elems_contenu_elem_id='$dossier_elem_id'
-                                                                  AND $_DBC_dossiers_elems_contenu_propspec_id='$propspec_id'");
+                                                                  AND ($_DBC_dossiers_elems_contenu_propspec_id='$propspec_id'
+                                                                       OR $_DBC_dossiers_elems_contenu_propspec_id=0)");
                         }
                         elseif($array_element["type"]==$__ELEM_TYPE_UN_CHOIX)
                         {
@@ -760,7 +808,8 @@ CeCILL-B, et que vous en avez accepté les termes.
                                                                 AND $_DBC_dossiers_elems_contenu_candidat_id='$candidat_id' 
                                                                 AND $_DBC_dossiers_elems_contenu_periode='$cur_periode'
                                                                 AND $_DBC_dossiers_elems_contenu_elem_id='$dossier_elem_id'
-                                                                AND $_DBC_dossiers_elems_contenu_propspec_id='$propspec_id'");
+                                                                AND ($_DBC_dossiers_elems_contenu_propspec_id='$propspec_id'
+                                                                     OR $_DBC_dossiers_elems_contenu_propspec_id=0)");
                         }
                            
                         $rows_dossiers_contenu=db_num_rows($res_dossier_contenu);
@@ -1422,7 +1471,13 @@ CeCILL-B, et que vous en avez accepté les termes.
       </tr>
       <tr>
          <td class='td-gauche fond_menu'>
-            <font class='Texte_menu'><b>Inclure les réponses des candidats<br>aux éléments du Constructeur de Dossier ?</font>
+            <font class='Texte_menu'>
+               <b>
+                  Inclure les réponses des candidats
+                  <br>aux éléments du Constructeur de Dossier ?
+                  <br>(force le tri par formation)
+               </b>
+            </font>
          </td>
          <td class='td-milieu fond_menu'>
             <font class='Texte_menu'>
