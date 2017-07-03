@@ -685,7 +685,8 @@ $_SESSION[universite]";
                // TODO : Conserver "Dossier Transmis depuis : $annee - $spec_nom" dans le champ "Transmission" ?
                if(isset($transmission) && $transmission!="" && ctype_digit($transmission) 
                   && !db_num_rows(db_query($dbr, "SELECT * FROM $_DB_cand WHERE $_DBC_cand_candidat_id='$candidat_id'
-                                                                          AND $_DBC_cand_propspec_id='$transmission'")))
+                                                                          AND $_DBC_cand_propspec_id='$transmission'
+                                                                          AND $_DBC_cand_periode='$__PERIODE'")))
                {
                   $new_entretien_date=0;
                   $new_entretien_salle=$new_entretien_heure=$new_entretien_lieu=$new_motif_decision=$new_liste="";
