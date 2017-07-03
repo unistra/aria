@@ -178,7 +178,7 @@ CeCILL-B, et que vous en avez accepté les termes.
 			<strong>R : </strong>L'adresse à laquelle envoyer votre question dépend de la nature de cette dernière :
 			<br>- pour toute question d'ordre administratif (conditions d'admission, dépôt des dossiers, ...), veuillez passer par le lien
 			"Contacter la scolarité" après avoir sélectionné la composante voulue.
-			<br>- pour signaler une erreur ou problème technique avec l'interface, merci d'utiliser plutôt <a href="mailto:<?php echo $__EMAIL_SUPPORT; ?>subject=[Précandidatures - Problème technique]" class='lien2a'>cette adresse</a>
+			<br>- pour signaler une erreur ou problème technique avec l'interface, merci d'utiliser plutôt <a href="mailto:<?php echo $__EMAIL_SUPPORT; ?>?subject=[Précandidatures - Problème technique]" class='lien2a'>cette adresse</a>
 		</p>
 	</div>
 </div>
