@@ -221,6 +221,7 @@ CeCILL-B, et que vous en avez accepté les termes.
                       AND $_DBC_propspec_id=$_DBC_session_propspec_id
                       AND $_DBC_specs_mention_id=$_DBC_mentions_id
                       AND $_DBC_propspec_comp_id='$composante'
+                      AND $_DBC_propspec_manuelle=0
                       AND (($_DBC_session_periode='".($__PERIODE-1)."' AND $_DBC_session_fermeture>$date)
                           OR $_DBC_session_periode='$__PERIODE' OR $_DBC_session_periode='".($__PERIODE+1)."')
                       AND $_DBC_propspec_active='1'
